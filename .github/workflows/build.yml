@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Setup MSBuild (VS)
+        uses: microsoft/setup-msbuild@v2
+
       - name: Locate game libraries
         id: libs
         shell: pwsh
