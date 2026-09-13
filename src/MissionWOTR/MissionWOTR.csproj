@@ -23,7 +23,6 @@
       you can build with:  dotnet build -p:GameLibsDir="C:\...\Pathfinder Second Adventure\Wrath_Data\Managed"
     -->
     <GameLibsDir Condition="'$(GameLibsDir)' == ''">$(MSBuildThisFileDirectory)..\..\Libs</GameLibsDir>
-    <PublicizedDir>$(GameLibsDir)\Publicized</PublicizedDir>
     <!-- Optional: set WrathPath to auto-deploy the built mod into the game's Mods folder -->
     <DeployDir Condition="'$(WrathPath)' != ''">$(WrathPath)\Mods\$(AssemblyName)</DeployDir>
   </PropertyGroup>
@@ -35,10 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AssemblyPublicizer" Version="1.0.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" />
     <PackageReference Include="WW-Blueprint-Core" Version="2.8.6" />
     <!-- Lets the project compile on machines without the .NET Framework 4.7.2 targeting pack (e.g. CI) -->
@@ -49,9 +44,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Main Wrath assembly (publicized at build time into Libs/Publicized/) -->
+    <!-- Main Wrath assembly (used directly; the mod's code only touches public game APIs) -->
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(PublicizedDir)\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(GameLibsDir)\Assembly-CSharp.dll</HintPath>
     </Reference>
 
     <!-- Game assemblies (from Libs/, see docs/GAME-FILES-NEEDED.md) -->
@@ -97,24 +92,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <!--
-    Publicizes Assembly-CSharp.dll so mod code can access internal game types.
-    Skipped automatically when the publicized copy is already up to date.
-    (ILRepack requires the file to be named Assembly-CSharp.dll.)
-  -->
-  <Target Name="PublicizeGameAssembly"
-          BeforeTargets="PrepareForBuild"
-          Inputs="$(GameLibsDir)\Assembly-CSharp.dll"
-          Outputs="$(PublicizedDir)\Assembly-CSharp.dll">
-    <Message Text="Publicizing Assembly-CSharp.dll..." Importance="high" />
-    <MakeDir Directories="$(PublicizedDir)" />
-    <ItemGroup>
-      <PublicizeInput Include="$(GameLibsDir)\Assembly-CSharp.dll" />
-    </ItemGroup>
-    <PublicizeTask InputAssemblies="@(PublicizeInput)" OutputDir="$(PublicizedDir)" />
-    <Move SourceFiles="$(PublicizedDir)\Assembly-CSharp_public.dll" DestinationFiles="$(PublicizedDir)\Assembly-CSharp.dll" />
-  </Target>
 
   <!-- Merges BlueprintCore.dll into the mod assembly so it ships as a single DLL -->
   <Target Name="ILRepack" AfterTargets="Build">
