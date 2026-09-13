@@ -1,0 +1,23 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+
+# Publicized game assembly (generated at build time)
+Libs/Publicized/
+
+# Scratch / CI downloads
+_gamelibs/
+_gamelibs.zip
+_status/
+
+# OS noise
+Thumbs.db
+.DS_Store

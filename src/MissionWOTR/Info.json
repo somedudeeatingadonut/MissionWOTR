@@ -1,0 +1,10 @@
+{
+  "Id": "MissionWOTR",
+  "DisplayName": "Mission WOTR",
+  "Author": "somedudeeatingadonut",
+  "Version": "0.1.0",
+  "ManagerVersion": "0.21.3",
+  "Requirements": [],
+  "AssemblyName": "MissionWOTR.dll",
+  "EntryMethod": "MissionWOTR.Main.Load"
+}

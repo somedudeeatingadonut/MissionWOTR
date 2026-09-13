@@ -1,0 +1,116 @@
+[
+  {
+    "Key": "VengefulCounterstrike.Name",
+    "ProcessTemplates": false,
+    "enGB": "Vengeful Counterstrike"
+  },
+  {
+    "Key": "VengefulCounterstrike.Description",
+    "enGB": "Your fury answers every miss. When a melee attack misses you and the attacker is within your reach, you may make an attack of opportunity against them. This uses and is limited by your normal attacks of opportunity per round.\nPrerequisites: Dex 13, Combat Reflexes."
+  },
+
+  {
+    "Key": "ArcaneMomentum.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arcane Momentum"
+  },
+  {
+    "Key": "ArcaneMomentum.Description",
+    "enGB": "The surge of your most potent magic carries into your defenses. Whenever you cast a spell using one of your highest-level spell slots, you gain a +1 dodge bonus to AC until the start of your next turn.\nPrerequisites: Caster level 3rd."
+  },
+  {
+    "Key": "ArcaneMomentum.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arcane Momentum"
+  },
+  {
+    "Key": "ArcaneMomentum.Buff.Description",
+    "enGB": "The cast of a powerful spell leaves a ward of force shimmering around this character, granting a +1 dodge bonus to AC."
+  },
+
+  {
+    "Key": "BattlefieldScavenger.Name",
+    "ProcessTemplates": false,
+    "enGB": "Battlefield Scavenger"
+  },
+  {
+    "Key": "BattlefieldScavenger.Description",
+    "enGB": "Precision comes cheap when the target stops moving. When you reduce an enemy to 0 hit points with a ranged weapon attack, your next ranged attack within 1 round gains a +2 bonus on the attack roll.\nPrerequisites: Dex 13, Point-Blank Shot."
+  },
+  {
+    "Key": "BattlefieldScavenger.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Battlefield Scavenger"
+  },
+  {
+    "Key": "BattlefieldScavenger.Buff.Description",
+    "enGB": "Riding the momentum of a kill, this character's next ranged attack gains a +2 bonus on the attack roll."
+  },
+
+  {
+    "Key": "SecondWind.Name",
+    "ProcessTemplates": false,
+    "enGB": "Second Wind"
+  },
+  {
+    "Key": "SecondWind.Description",
+    "enGB": "Once per minute, when a hit brings you to half your maximum hit points or below, you catch a second wind: you gain temporary hit points equal to half your character level and a +2 morale bonus on Fortitude saves for 1 minute.\nPrerequisites: Endurance."
+  },
+  {
+    "Key": "SecondWind.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Second Wind"
+  },
+  {
+    "Key": "SecondWind.Buff.Description",
+    "enGB": "Gritting through the pain, this character gains temporary hit points and a +2 morale bonus on Fortitude saves."
+  },
+
+  {
+    "Key": "TauntingBlows.Name",
+    "ProcessTemplates": false,
+    "enGB": "Taunting Blows"
+  },
+  {
+    "Key": "TauntingBlows.Description",
+    "enGB": "Your brutal swings do more than wound. When you hit with a melee attack while Power Attack is active, the target suffers a -2 penalty on attack rolls for 1 round as pain and fury cloud its focus. A new hit refreshes the duration.\nPrerequisites: Str 13, Power Attack."
+  },
+  {
+    "Key": "TauntingBlows.Debuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Taunted"
+  },
+  {
+    "Key": "TauntingBlows.Debuff.Description",
+    "enGB": "Staggered by a vicious blow, this creature takes a -2 penalty on attack rolls."
+  },
+
+  {
+    "Key": "ResonantStrikes.Name",
+    "ProcessTemplates": false,
+    "enGB": "Resonant Strikes"
+  },
+  {
+    "Key": "ResonantStrikes.Description",
+    "enGB": "Your unarmed strikes carry a harmonic shock. When you confirm a critical hit with an unarmed strike, vibrations rattle the target's guard: it takes a -2 penalty to AC for 1 round. Repeated critical hits refresh the duration.\nPrerequisites: Wis 13, Improved Unarmed Strike."
+  },
+  {
+    "Key": "ResonantStrikes.Debuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rattled Guard"
+  },
+  {
+    "Key": "ResonantStrikes.Debuff.Description",
+    "enGB": "Harmonic vibrations from an unarmed critical strike rattle this creature's defenses, imposing a -2 penalty to AC."
+  },
+
+  {
+    "Key": "WardedSoul.Name",
+    "ProcessTemplates": false,
+    "enGB": "Warded Soul"
+  },
+  {
+    "Key": "WardedSoul.Description",
+    "enGB": "You were born under the wardstones of Kenabres, and their echo lingers in your blood. You gain a +1 luck bonus on Fortitude, Reflex, and Will saving throws.\nPrerequisites: Iron Will."
+  }
+]

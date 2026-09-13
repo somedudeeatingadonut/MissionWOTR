@@ -1,0 +1,162 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--
+      Enables the latest C# language features. Runtime features are limited by the .NET Framework
+      version, so some features (e.g. Default Interfaces) are not available.
+    -->
+    <LangVersion>latest</LangVersion>
+    <!-- Latest .NET version supported by Wrath / Unity -->
+    <TargetFramework>net472</TargetFramework>
+    <!-- Needed to use the publicized game assembly -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <AssemblyName>MissionWOTR</AssemblyName>
+    <RootNamespace>MissionWOTR</RootNamespace>
+    <Version>0.1.0</Version>
+    <Product>Mission WOTR</Product>
+    <Authors>somedudeeatingadonut</Authors>
+
+    <!--
+      Where the game reference DLLs live. By default they are expected in the repository's Libs/
+      folder (see docs/GAME-FILES-NEEDED.md). If you keep the files in your game install instead,
+      you can build with:  dotnet build -p:GameLibsDir="C:\...\Pathfinder Second Adventure\Wrath_Data\Managed"
+    -->
+    <GameLibsDir Condition="'$(GameLibsDir)' == ''">$(MSBuildThisFileDirectory)..\..\Libs</GameLibsDir>
+    <PublicizedDir>$(GameLibsDir)\Publicized</PublicizedDir>
+    <!-- Optional: set WrathPath to auto-deploy the built mod into the game's Mods folder -->
+    <DeployDir Condition="'$(WrathPath)' != ''">$(WrathPath)\Mods\$(AssemblyName)</DeployDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="lib\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <None Remove="lib\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AssemblyPublicizer" Version="1.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" />
+    <PackageReference Include="WW-Blueprint-Core" Version="2.8.6" />
+    <!-- Lets the project compile on machines without the .NET Framework 4.7.2 targeting pack (e.g. CI) -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Main Wrath assembly (publicized at build time into Libs/Publicized/) -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(PublicizedDir)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+
+    <!-- Game assemblies (from Libs/, see docs/GAME-FILES-NEEDED.md) -->
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(GameLibsDir)\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(GameLibsDir)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Core">
+      <HintPath>$(GameLibsDir)\Owlcat.Runtime.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.UI">
+      <HintPath>$(GameLibsDir)\Owlcat.Runtime.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Validation">
+      <HintPath>$(GameLibsDir)\Owlcat.Runtime.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Visual">
+      <HintPath>$(GameLibsDir)\Owlcat.Runtime.Visual.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameLibsDir)\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameLibsDir)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+
+    <!-- Unity Mod Manager & Harmony (from Libs/UMM/) -->
+    <Reference Include="0Harmony">
+      <HintPath>$(GameLibsDir)\UMM\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>$(GameLibsDir)\UMM\UnityModManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Info.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="LocalizedStrings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!--
+    Publicizes Assembly-CSharp.dll so mod code can access internal game types.
+    Skipped automatically when the publicized copy is already up to date.
+    (ILRepack requires the file to be named Assembly-CSharp.dll.)
+  -->
+  <Target Name="PublicizeGameAssembly"
+          BeforeTargets="PrepareForBuild"
+          Inputs="$(GameLibsDir)\Assembly-CSharp.dll"
+          Outputs="$(PublicizedDir)\Assembly-CSharp.dll">
+    <Message Text="Publicizing Assembly-CSharp.dll..." Importance="high" />
+    <MakeDir Directories="$(PublicizedDir)" />
+    <ItemGroup>
+      <PublicizeInput Include="$(GameLibsDir)\Assembly-CSharp.dll" />
+    </ItemGroup>
+    <PublicizeTask InputAssemblies="@(PublicizeInput)" OutputDir="$(PublicizedDir)" />
+    <Move SourceFiles="$(PublicizedDir)\Assembly-CSharp_public.dll" DestinationFiles="$(PublicizedDir)\Assembly-CSharp.dll" />
+  </Target>
+
+  <!-- Merges BlueprintCore.dll into the mod assembly so it ships as a single DLL -->
+  <Target Name="ILRepack" AfterTargets="Build">
+    <ItemGroup>
+      <InputAssemblies Include="BlueprintCore.dll" />
+      <InputAssemblies Include="$(AssemblyName).dll" />
+      <OutputAssembly Include="$(AssemblyName).dll" />
+    </ItemGroup>
+
+    <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
+
+    <ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" />
+  </Target>
+
+  <!-- Local development convenience: auto-install the mod into the game (only if WrathPath is set) -->
+  <Target Name="DeployToGame" AfterTargets="ILRepack" Condition="'$(DeployDir)' != ''">
+    <Message Text="Deploying to $(DeployDir)" Importance="High" />
+    <ItemGroup>
+      <DeployFiles Include="$(OutputPath)\$(AssemblyName).dll" />
+      <DeployFiles Include="$(OutputPath)\Info.json" />
+      <DeployFiles Include="$(OutputPath)\LocalizedStrings.json" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DeployFiles)" DestinationFolder="$(DeployDir)" />
+  </Target>
+
+  <!-- Creates the distributable MissionWOTR.zip in the output directory -->
+  <Target Name="ZipRelease" AfterTargets="ILRepack" Condition="'$(Configuration)' == 'Release'">
+    <ItemGroup>
+      <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
+      <ModConfig Include="$(OutputPath)\Info.json" />
+      <Strings Include="$(OutputPath)\LocalizedStrings.json" />
+      <Assets Include="$(OutputPath)\*_assets" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(Assembly)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
+    <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
+    <Copy SourceFiles="@(Strings)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
+    <Copy SourceFiles="@(Assets)" DestinationFolder="$(OutputPath)\$(AssemblyName)" Condition="'@(Assets)' != ''" />
+    <ZipDirectory
+      SourceDirectory="$(OutputPath)\$(AssemblyName)"
+      DestinationFile="$(OutputPath)\$(AssemblyName).zip"
+      Overwrite="true" />
+  </Target>
+
+</Project>

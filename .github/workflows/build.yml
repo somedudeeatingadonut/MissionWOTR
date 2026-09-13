@@ -1,0 +1,110 @@
+name: Build
+
+# Builds the mod whenever code changes (or manually). The game's reference DLLs are NOT in the
+# repo; they are fetched from the "game-libs" release (see docs/GAME-FILES-NEEDED.md). Until
+# they are uploaded, the workflow reports a "waiting for game libs" state instead of failing.
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Locate game libraries
+        id: libs
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $managed = @(
+            "Assembly-CSharp.dll",
+            "Assembly-CSharp-firstpass.dll",
+            "Newtonsoft.Json.dll",
+            "Owlcat.Runtime.Core.dll",
+            "Owlcat.Runtime.UI.dll",
+            "Owlcat.Runtime.Validation.dll",
+            "Owlcat.Runtime.Visual.dll",
+            "UnityEngine.dll",
+            "UnityEngine.CoreModule.dll"
+          )
+          $umm = @("UnityModManager.dll", "0Harmony.dll")
+
+          function Test-AllLibs {
+            foreach ($f in $managed) { if (-not (Test-Path "Libs/$f")) { return $false } }
+            foreach ($f in $umm) { if (-not (Test-Path "Libs/UMM/$f")) { return $false } }
+            return $true
+          }
+
+          if (-not (Test-AllLibs)) {
+            Write-Host "Game libs not committed in Libs/; trying the 'game-libs' release asset..."
+            gh release download game-libs --pattern "Libs*.zip" --output _gamelibs.zip --clobber
+            if (Test-Path _gamelibs.zip) {
+              Expand-Archive -Path _gamelibs.zip -DestinationPath _gamelibs -Force
+              # Sort the DLLs into place regardless of how they were zipped.
+              foreach ($dll in Get-ChildItem -Path _gamelibs -Recurse -Filter *.dll) {
+                if ($umm -contains $dll.Name) {
+                  New-Item -ItemType Directory -Force -Path "Libs/UMM" | Out-Null
+                  Copy-Item $dll.FullName "Libs/UMM/$($dll.Name)" -Force
+                  Write-Host "Placed $($dll.Name) in Libs/UMM/"
+                }
+                elseif ($managed -contains $dll.Name) {
+                  Copy-Item $dll.FullName "Libs/$($dll.Name)" -Force
+                  Write-Host "Placed $($dll.Name) in Libs/"
+                }
+                else {
+                  Write-Host "Ignoring extra file: $($dll.Name)"
+                }
+              }
+            }
+          }
+
+          if (Test-AllLibs) {
+            "ready=true" >> $env:GITHUB_OUTPUT
+          }
+          else {
+            "ready=false" >> $env:GITHUB_OUTPUT
+            Write-Host "::notice::Build skipped - waiting for game DLLs. Attach Libs.zip to the 'game-libs' release (see docs/GAME-FILES-NEEDED.md), then re-run this workflow."
+          }
+
+      - name: Build mod
+        if: steps.libs.outputs.ready == 'true'
+        shell: pwsh
+        run: |
+          dotnet build src/MissionWOTR/MissionWOTR.csproj -c Release --nologo -v minimal
+          $zip = "src/MissionWOTR/bin/Release/net472/MissionWOTR.zip"
+          if (-not (Test-Path $zip)) { throw "Build finished but $zip was not produced." }
+          Write-Host "Built $zip successfully."
+
+      - name: Upload built mod
+        if: steps.libs.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: MissionWOTR
+          path: src/MissionWOTR/bin/Release/net472/MissionWOTR.zip
+          if-no-files-found: error
+
+      - name: Write waiting notice
+        if: steps.libs.outputs.ready != 'true'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path _status | Out-Null
+          Set-Content _status/README.txt @(
+            "Build skipped: the game's reference DLLs were not found.",
+            "",
+            "To enable builds: attach Libs.zip (11 DLLs) to the 'game-libs' GitHub release,",
+            "then re-run the Build workflow. See docs/GAME-FILES-NEEDED.md for the exact list."
+          )
+
+      - name: Upload waiting notice
+        if: steps.libs.outputs.ready != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: waiting-for-game-libs
+          path: _status/README.txt
