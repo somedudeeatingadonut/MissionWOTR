@@ -119,10 +119,34 @@ jobs:
         if: steps.libs.outputs.ready == 'true'
         shell: pwsh
         run: |
-          dotnet build src/MissionWOTR/MissionWOTR.csproj -c Release --nologo -v minimal
+          # MSBuild (not `dotnet build`): the AssemblyPublicizer task targets .NET Framework.
+          $log = "build_output.txt"
+          & msbuild src/MissionWOTR/MissionWOTR.csproj -restore -p:Configuration=Release -v:minimal -nologo 2>&1 |
+            ForEach-Object { "$_" } |
+            Tee-Object -FilePath $log
+          if ($LASTEXITCODE -ne 0) {
+            # Surface the errors as annotations so they are visible without downloading logs.
+            $errs = Select-String -Path $log -Pattern ": error |error MSB|error NETSDK" |
+              Select-Object -First 30
+            foreach ($e in $errs) { Write-Host "::error::$($e.Line.Trim())" }
+            exit 1
+          }
           $zip = "src/MissionWOTR/bin/Release/net472/MissionWOTR.zip"
-          if (-not (Test-Path $zip)) { throw "Build finished but $zip was not produced." }
+          if (-not (Test-Path $zip)) {
+            Write-Host "::error::MSBuild reported success but $zip was not produced."
+            Get-ChildItem -Recurse src/MissionWOTR/bin -ErrorAction SilentlyContinue |
+              ForEach-Object { Write-Host "  $($_.FullName)" }
+            throw "missing release zip"
+          }
           Write-Host "Built $zip successfully."
+
+      - name: Upload build log
+        if: failure() && steps.libs.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build_output.txt
+          if-no-files-found: ignore
 
       - name: Upload built mod
         if: steps.libs.outputs.ready == 'true'
