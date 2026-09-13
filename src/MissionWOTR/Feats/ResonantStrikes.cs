@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.PubSubSystem;
+using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -17,8 +18,9 @@ namespace MissionWOTR.Feats
   /// Resonant Strikes
   /// Prerequisites: Wis 13, Improved Unarmed Strike.
   /// Your unarmed strikes carry a harmonic shock. When you confirm a critical hit with an
-  /// unarmed strike, vibrations rattle the target's guard: it takes a -2 penalty to AC for
-  /// 1 round. Repeated critical hits refresh the duration.
+  /// unarmed strike, the target must succeed at a Fortitude save (DC 10 + half your character
+  /// level + your Wisdom modifier) or have its guard rattled: it takes a -2 penalty to AC for
+  /// 1 round. The penalty cannot be applied again while it is already active.
   /// </summary>
   public class ResonantStrikes
   {
@@ -78,7 +80,22 @@ namespace MissionWOTR.Feats
           {
             return;
           }
-          if (evt.Target is null)
+          if (evt.Target is null || evt.Target == Owner)
+          {
+            return;
+          }
+
+          // No re-application while the guard is already rattled.
+          if (evt.Target.Buffs.GetBuff(Debuff) != null)
+          {
+            return;
+          }
+
+          // Fortitude save negates: a hardened body shakes off the vibration.
+          var dc =
+            10 + Owner.Descriptor.Progression.CharacterLevel / 2 + Owner.Stats.Wisdom.Bonus;
+          var save = new RuleSavingThrow(evt.Target, SavingThrowType.Fortitude, dc) { Reason = Fact };
+          if (Rulebook.Trigger(save).IsPassed)
           {
             return;
           }

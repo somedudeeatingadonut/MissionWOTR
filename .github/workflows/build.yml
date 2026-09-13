@@ -43,32 +43,46 @@ jobs:
           }
 
           if (-not (Test-AllLibs)) {
-            Write-Host "Game libs not committed in Libs/; trying the 'game-libs' release asset..."
-            & gh release download game-libs --pattern "Libs*.zip" --output _gamelibs.zip --clobber
-            $ghExit = $LASTEXITCODE
-            # Clear this so the pwsh wrapper does not fail the step when the asset is absent.
+            Write-Host "Game libs not committed in Libs/; fetching 'game-libs' release assets..."
+            New-Item -ItemType Directory -Force -Path _gamelibs | Out-Null
+
+            # Download every release asset except the (large) blueprint dump.
+            $assets = @(& gh release view game-libs --json assets --jq '.[].name')
             $global:LASTEXITCODE = 0
-            if ($ghExit -ne 0) {
-              Write-Host "gh release download returned $ghExit (expected until Libs.zip is attached)."
+            foreach ($asset in $assets) {
+              if ($asset -match 'blueprint') {
+                Write-Host "Skipping $asset (not needed for build)"
+                continue
+              }
+              Write-Host "Downloading $asset"
+              & gh release download game-libs --pattern $asset --dir _gamelibs --clobber
+              $global:LASTEXITCODE = 0
             }
-            if (Test-Path _gamelibs.zip) {
-              Expand-Archive -Path _gamelibs.zip -DestinationPath _gamelibs -Force
-              # Sort the DLLs into place regardless of how they were zipped.
-              foreach ($dll in Get-ChildItem -Path _gamelibs -Recurse -Filter *.dll) {
-                if ($umm -contains $dll.Name) {
-                  New-Item -ItemType Directory -Force -Path "Libs/UMM" | Out-Null
-                  Copy-Item $dll.FullName "Libs/UMM/$($dll.Name)" -Force
-                  Write-Host "Placed $($dll.Name) in Libs/UMM/"
-                }
-                elseif ($managed -contains $dll.Name) {
-                  Copy-Item $dll.FullName "Libs/$($dll.Name)" -Force
-                  Write-Host "Placed $($dll.Name) in Libs/"
-                }
-                else {
-                  Write-Host "Ignoring extra file: $($dll.Name)"
-                }
+
+            # Expand any zips that were downloaded.
+            Get-ChildItem -Path _gamelibs -Recurse -Filter *.zip | ForEach-Object {
+              Write-Host "Extracting $($_.Name)"
+              Expand-Archive -Path $_.FullName -DestinationPath ($_.FullName + "_extracted") -Force
+            }
+
+            # Sort the DLLs into place regardless of how they were packaged.
+            foreach ($dll in Get-ChildItem -Path _gamelibs -Recurse -Filter *.dll) {
+              if ($umm -contains $dll.Name) {
+                New-Item -ItemType Directory -Force -Path "Libs/UMM" | Out-Null
+                Copy-Item $dll.FullName "Libs/UMM/$($dll.Name)" -Force
+                Write-Host "Placed $($dll.Name) in Libs/UMM/"
+              }
+              elseif ($managed -contains $dll.Name) {
+                Copy-Item $dll.FullName "Libs/$($dll.Name)" -Force
+                Write-Host "Placed $($dll.Name) in Libs/"
+              }
+              else {
+                Write-Host "Ignoring extra file: $($dll.Name)"
               }
             }
+
+            Write-Host "=== DLLs available after sorting ==="
+            Get-ChildItem -Recurse Libs -Filter *.dll | ForEach-Object { Write-Host "  $($_.FullName)" }
           }
 
           if (Test-AllLibs) {
@@ -78,9 +92,9 @@ jobs:
             "ready=false" >> $env:GITHUB_OUTPUT
             "## Build waiting for game libraries" >> $env:GITHUB_STEP_SUMMARY
             "" >> $env:GITHUB_STEP_SUMMARY
-            "Attach Libs.zip (11 DLLs) to the game-libs release, then re-run this workflow." >> $env:GITHUB_STEP_SUMMARY
+            "Attach the 11 required DLLs to the [game-libs release](../../releases/tag/game-libs) (loose or in any zip), then re-run this workflow." >> $env:GITHUB_STEP_SUMMARY
             "See docs/GAME-FILES-NEEDED.md for the exact list." >> $env:GITHUB_STEP_SUMMARY
-            Write-Host "::notice::Build skipped - waiting for game DLLs. Attach Libs.zip to the 'game-libs' release (see docs/GAME-FILES-NEEDED.md), then re-run this workflow."
+            Write-Host "::notice::Build skipped - waiting for game DLLs on the 'game-libs' release (see docs/GAME-FILES-NEEDED.md)."
           }
           exit 0
 
@@ -109,7 +123,7 @@ jobs:
           Set-Content _status/README.txt @(
             "Build skipped: the game's reference DLLs were not found.",
             "",
-            "To enable builds: attach Libs.zip (11 DLLs) to the 'game-libs' GitHub release,",
+            "To enable builds: attach the 11 DLLs (loose or in any zip) to the 'game-libs' GitHub release,",
             "then re-run the Build workflow. See docs/GAME-FILES-NEEDED.md for the exact list."
           )
 

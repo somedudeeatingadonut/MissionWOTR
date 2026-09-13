@@ -24,20 +24,19 @@
 | Feat | Prerequisites | Effect | Implementation notes |
 |---|---|---|---|
 | **Vengeful Counterstrike** | Dex 13, Combat Reflexes | When a melee attack misses you and the attacker is within reach, make an AoO against them (consumes a normal AoO per round) | `RuleAttackWithWeapon` (target) → `ForceAttackOfOpportunity` |
-| **Arcane Momentum** | Caster level 3 | Cast a spell from one of your highest-level slots → +1 dodge AC until your next turn | `RuleCastSpell` (initiator) → 1-round buff |
+| **Arcane Momentum** | Caster level 3 | Cast a spell from one of your two highest spell levels → scaling dodge AC (+1/+2/+3 by mightiest castable level) until your next turn | `RuleCastSpell` (initiator) → 1-round buff w/ custom `RuleCalculateAC` component |
 | **Battlefield Scavenger** | Dex 13, Point-Blank Shot | Kill with a ranged weapon → your next ranged attack within 1 round gets +2 to hit | `RuleDealDamage` (initiator) → 1-round buff with ranged-only attack bonus |
-| **Second Wind** | Endurance | Once per minute, when a hit drops you to ≤ half max HP → temp HP (½ character level) + +2 morale Fort saves for 1 min | `RuleDealDamage` (target) → buff with `TemporaryHitPointsFromAbilityValue` |
-| **Taunting Blows** | Str 13, Power Attack | Melee hit while Power Attack is active → target gets −2 attack for 1 round (refresh on new hits) | `RuleAttackWithWeapon` (initiator) → debuff |
-| **Resonant Strikes** | Wis 13, Improved Unarmed Strike | Confirmed unarmed crit → target gets −2 AC for 1 round (refreshes) | `RuleAttackWithWeapon` (initiator) → debuff w/ custom `RuleCalculateAC` component |
+| **Second Wind** | Endurance | Once per day (restored on rest), when a hit drops you to ≤ half max HP → temp HP (character level, min 2) + +2 morale Fort saves for 1 min | `RuleDealDamage` (target) → `BlueprintAbilityResource` gate + buff with `TemporaryHitPointsFromAbilityValue` |
+| **Taunting Blows** | Str 13, Power Attack | Melee hit while Power Attack is active → Will save (DC 10 + ½ lvl + Str) or −2 attack for 1 round; no reapply while active | `RuleAttackWithWeapon` (initiator) → `RuleSavingThrow` → debuff |
+| **Resonant Strikes** | Wis 13, Improved Unarmed Strike | Confirmed unarmed crit → Fortitude save (DC 10 + ½ lvl + Wis) or −2 AC for 1 round; no reapply while active | `RuleAttackWithWeapon` (initiator) → `RuleSavingThrow` → debuff w/ custom `RuleCalculateAC` component |
 | **Warded Soul** | Iron Will | +1 luck bonus to Fort/Reflex/Will (Kenabres wardstone flavor) | Pure stat components |
 
-### Known follow-ups for batch 1
+### Balance revision 1 (post-playtest feedback)
 
-- Icon references have been verified against BlueprintCore's `References` classes; any
-  remaining name mismatch will surface as a one-line compile fix on the first CI build.
-- `TauntingBlows` should eventually be mind-affecting + fear-tagged with a Will save
-  (DC 10 + ½ BAB + Str). Currently a no-save debuff to keep v1 simple.
-- Consider adding combat-feat tags / fighter bonus-feat eligibility checks in-game.
+- **Second Wind**: was once-per-minute auto-proc at ½ level temp HP — too much passive sustain. Now **once per day** (rest resource) but grants **full character level** temp HP.
+- **Taunting Blows**: was a no-save −2 attack on every Power Attack hit — near-permanent uptime on bosses. Now **Will save negates** (mind-affecting flavor) and cannot be re-applied while active.
+- **Resonant Strikes**: was a guaranteed −2 AC on every unarmed crit. Now **Fortitude save negates** and cannot be re-applied while active.
+- **Arcane Momentum**: was a flat +1 dodge AC — too weak for a feat slot. Now **scales to +3** with the mightiest spell level you can cast and triggers on your **two highest** spell levels instead of only the top one.
 
 ## Batch 2 — designed, not yet implemented
 

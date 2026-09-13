@@ -54,7 +54,7 @@
   },
   {
     "Key": "SecondWind.Description",
-    "enGB": "Once per minute, when a hit brings you to half your maximum hit points or below, you catch a second wind: you gain temporary hit points equal to half your character level and a +2 morale bonus on Fortitude saves for 1 minute.\nPrerequisites: Endurance."
+    "enGB": "Once per day, when a hit brings you to half your maximum hit points or below, you catch a second wind: you gain temporary hit points equal to your character level (minimum 2) and a +2 morale bonus on Fortitude saves for 1 minute. The daily use is restored when you rest.\nPrerequisites: Endurance."
   },
   {
     "Key": "SecondWind.Buff.Name",
@@ -63,7 +63,7 @@
   },
   {
     "Key": "SecondWind.Buff.Description",
-    "enGB": "Gritting through the pain, this character gains temporary hit points and a +2 morale bonus on Fortitude saves."
+    "enGB": "Gritting through the pain, this character gains temporary hit points equal to their character level and a +2 morale bonus on Fortitude saves."
   },
 
   {
@@ -92,7 +92,7 @@
   },
   {
     "Key": "ResonantStrikes.Description",
-    "enGB": "Your unarmed strikes carry a harmonic shock. When you confirm a critical hit with an unarmed strike, vibrations rattle the target's guard: it takes a -2 penalty to AC for 1 round. Repeated critical hits refresh the duration.\nPrerequisites: Wis 13, Improved Unarmed Strike."
+    "enGB": "Your unarmed strikes carry a harmonic shock. When you confirm a critical hit with an unarmed strike, the target must succeed at a Fortitude save (DC 10 + half your character level + your Wisdom modifier) or have its guard rattled: it takes a -2 penalty to AC for 1 round. The penalty cannot be applied again while it is already active.\nPrerequisites: Wis 13, Improved Unarmed Strike."
   },
   {
     "Key": "ResonantStrikes.Debuff.Name",

@@ -1,25 +1,27 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
-using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
+using System.Linq;
 
 namespace MissionWOTR.Feats
 {
   /// <summary>
   /// Arcane Momentum
   /// Prerequisites: caster level 3rd.
-  /// Whenever you cast a spell using one of your highest-level spell slots, the surge of power
-  /// sharpens your defenses: you gain a +1 dodge bonus to AC until the start of your next turn.
+  /// Whenever you cast a spell from one of your two highest spell levels, the surge of power
+  /// sharpens your defenses: until the start of your next turn you gain a dodge bonus to AC.
+  /// The bonus grows with the mightiest spell level you can cast: +1 (levels 1-2), +2
+  /// (levels 3-4), or +3 (level 5 or higher).
   /// </summary>
   public class ArcaneMomentum
   {
@@ -39,7 +41,7 @@ namespace MissionWOTR.Feats
         .SetDisplayName(BuffDisplayName)
         .SetDescription(BuffDescription)
         .SetIcon(icon)
-        .AddContextStatBonus(StatType.AC, ContextValues.Constant(1), ModifierDescriptor.Dodge)
+        .AddComponent<ArcaneMomentumAcBonus>()
         .Configure();
 
       FeatureConfigurator.New(FeatName, Guids.ArcaneMomentumFeat, FeatureGroup.Feat)
@@ -52,6 +54,44 @@ namespace MissionWOTR.Feats
         .AddComponent<PrerequisiteCasterLevel>(c => c.RequiredCasterLevel = 3)
         .AddComponent(new ArcaneMomentumTrigger(buff))
         .Configure(delayed: true);
+    }
+
+    /// <summary>
+    /// Applies the scaling dodge bonus while the momentum buff is active. The size of the
+    /// ward matches the highest spell level the owner can currently cast.
+    /// </summary>
+    [TypeId(Guids.ArcaneMomentumAcBonus)]
+    private class ArcaneMomentumAcBonus :
+      UnitFactComponentDelegate, ITargetRulebookHandler<RuleCalculateAC>
+    {
+      public void OnEventAboutToTrigger(RuleCalculateAC evt)
+      {
+        try
+        {
+          evt.AddModifier(GetBonus(), Fact);
+        }
+        catch (Exception e)
+        {
+          MissionFeats.Logger.Error("ArcaneMomentum: failed to apply AC bonus.", e);
+        }
+      }
+
+      public void OnEventDidTrigger(RuleCalculateAC evt) { }
+
+      private int GetBonus()
+      {
+        var bestSpellLevel =
+          Owner.Spellbooks
+            .Select(spellbook => spellbook.GetMaxSpellLevel())
+            .DefaultIfEmpty(1)
+            .Max();
+        return bestSpellLevel switch
+        {
+          >= 5 => 3,
+          >= 3 => 2,
+          _ => 1
+        };
+      }
     }
 
     [TypeId(Guids.ArcaneMomentumTrigger)]
@@ -78,8 +118,14 @@ namespace MissionWOTR.Feats
             return;
           }
 
-          // Only your highest-level casts trigger the momentum.
-          if (evt.Spell.SpellLevel < spellbook.GetMaxSpellLevel())
+          // Only real spells count (not cantrips).
+          if (evt.Spell.SpellLevel < 1)
+          {
+            return;
+          }
+
+          // Only your two highest spell levels trigger the momentum.
+          if (evt.Spell.SpellLevel < spellbook.GetMaxSpellLevel() - 1)
           {
             return;
           }

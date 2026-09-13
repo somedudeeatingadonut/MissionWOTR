@@ -1,7 +1,9 @@
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils.Types;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -19,9 +21,9 @@ namespace MissionWOTR.Feats
   /// <summary>
   /// Second Wind
   /// Prerequisites: Endurance.
-  /// Once per minute, when a hit brings you to half your maximum hit points or below, you
-  /// catch a second wind: you gain temporary hit points equal to half your character level
-  /// and a +2 morale bonus on Fortitude saves for 1 minute.
+  /// Once per day, when a hit brings you to half your maximum hit points or below, you catch a
+  /// second wind: you gain temporary hit points equal to your character level (minimum 2) and a
+  /// +2 morale bonus on Fortitude saves for 1 minute. The daily use is restored on rest.
   /// </summary>
   public class SecondWind
   {
@@ -33,19 +35,30 @@ namespace MissionWOTR.Feats
     internal const string BuffDisplayName = "SecondWind.Buff.Name";
     internal const string BuffDescription = "SecondWind.Buff.Description";
 
+    internal const string ResourceName = "SecondWindResource";
+
     internal static void Configure()
     {
       var icon = FeatureRefs.Endurance.Reference.Get().Icon;
+
+      // One use per day; refilled when the character rests.
+      var resource =
+        AbilityResourceConfigurator.New(ResourceName, Guids.SecondWindResource)
+          .SetMin(0)
+          .SetMax(1)
+          .Configure();
 
       var buff = BuffConfigurator.New(BuffName, Guids.SecondWindBuff)
         .SetDisplayName(BuffDisplayName)
         .SetDescription(BuffDescription)
         .SetIcon(icon)
-        // Temporary hit points equal to half character level (rank config below).
-        // NOTE: verify exact component name against the game assembly (AddTemporaryHP vs
-        // BuffAddTemporaryHP) on the first CI build.
-        .AddTemporaryHP(ContextValues.Rank())
-        .AddContextRankConfig(ContextRankConfigs.CharacterLevel(div: 2, minimum: 2))
+        // Temporary hit points equal to character level (minimum 2, see rank config below).
+        .AddComponent<TemporaryHitPointsFromAbilityValue>(c =>
+        {
+          c.Value = ContextValues.Rank();
+          c.RemoveWhenHitPointsEnd = true;
+        })
+        .AddContextRankConfig(ContextRankConfigs.CharacterLevel(min: 2))
         .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Constant(2), ModifierDescriptor.Morale)
         .Configure();
 
@@ -56,7 +69,8 @@ namespace MissionWOTR.Feats
         .SetIsClassFeature()
         .AddFeatureTagsComponent(FeatureTag.Defense)
         .AddPrerequisiteFeature(FeatureRefs.Endurance.ToString())
-        .AddComponent(new SecondWindTrigger(buff))
+        .AddAbilityResources(resource: resource, restoreAmount: true)
+        .AddComponent(new SecondWindTrigger(buff, resource))
         .Configure(delayed: true);
     }
 
@@ -65,10 +79,12 @@ namespace MissionWOTR.Feats
       UnitFactComponentDelegate, ITargetRulebookHandler<RuleDealDamage>
     {
       private readonly BlueprintBuff Buff;
+      private readonly BlueprintAbilityResource Resource;
 
-      public SecondWindTrigger(BlueprintBuff buff)
+      public SecondWindTrigger(BlueprintBuff buff, BlueprintAbilityResource resource)
       {
         Buff = buff;
+        Resource = resource;
       }
 
       public void OnEventAboutToTrigger(RuleDealDamage evt) { }
@@ -82,8 +98,8 @@ namespace MissionWOTR.Feats
             return;
           }
 
-          // At most once per minute: while the buff is running it cannot re-trigger.
-          if (Owner.Buffs.GetBuff(Buff) != null)
+          // Once per day: only trigger while we still have the resource.
+          if (!Owner.Resources.HasEnoughResource(Resource, 1))
           {
             return;
           }
@@ -94,6 +110,7 @@ namespace MissionWOTR.Feats
             return;
           }
 
+          Owner.Resources.Spend(Resource, 1);
           Owner.AddBuff(Buff, Context, duration: ContextDuration.Fixed(10).Calculate(Context).Seconds);
         }
         catch (Exception e)

@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
+using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -18,9 +19,10 @@ namespace MissionWOTR.Feats
   /// <summary>
   /// Taunting Blows
   /// Prerequisites: Str 13, Power Attack.
-  /// Your brutal swings do more than wound. When you hit with a melee attack while Power
-  /// Attack is active, your target suffers a -2 penalty on attack rolls for 1 round as pain
-  /// and fury cloud its focus. A new hit refreshes the duration.
+  /// Your brutal swings do more than wound. When you hit with a melee attack while Power Attack
+  /// is active, the target must succeed at a Will save (DC 10 + half your character level +
+  /// your Strength modifier) or suffer a -2 penalty on attack rolls for 1 round as pain and
+  /// fury cloud its focus. The penalty cannot be applied again while it is already active.
   /// </summary>
   public class TauntingBlows
   {
@@ -81,7 +83,7 @@ namespace MissionWOTR.Feats
           {
             return;
           }
-          if (evt.Target is null)
+          if (evt.Target is null || evt.Target == Owner)
           {
             return;
           }
@@ -92,7 +94,21 @@ namespace MissionWOTR.Feats
             return;
           }
 
-          // Apply (or refresh) the taunt on the target.
+          // No re-application while the taunt is already active: wait for it to wear off.
+          if (evt.Target.Buffs.GetBuff(Debuff) != null)
+          {
+            return;
+          }
+
+          // Will save negates (mind-affecting effect of pain and fury).
+          var dc =
+            10 + Owner.Descriptor.Progression.CharacterLevel / 2 + Owner.Stats.Strength.Bonus;
+          var save = new RuleSavingThrow(evt.Target, SavingThrowType.Will, dc) { Reason = Fact };
+          if (Rulebook.Trigger(save).IsPassed)
+          {
+            return;
+          }
+
           evt.Target.AddBuff(Debuff, Context, duration: ContextDuration.Fixed(1).Calculate(Context).Seconds);
         }
         catch (Exception e)

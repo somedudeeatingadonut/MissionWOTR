@@ -13,11 +13,11 @@ mechanically distinct from anything in the base game or the major content mods
 | Feat | Prerequisites | Effect |
 |---|---|---|
 | **Vengeful Counterstrike** | Dex 13, Combat Reflexes | When a melee attack misses you and the attacker is within reach, make an attack of opportunity against them |
-| **Arcane Momentum** | Caster level 3 | Cast one of your highest-level spells → +1 dodge AC until your next turn |
+| **Arcane Momentum** | Caster level 3 | Cast a spell from one of your two highest spell levels → scaling dodge AC (+1/+2/+3 by mightiest castable level) for 1 round |
 | **Battlefield Scavenger** | Dex 13, Point-Blank Shot | Kill with a ranged weapon → your next ranged attack within 1 round gets +2 to hit |
-| **Second Wind** | Endurance | Once per minute, dropping to ≤ half HP grants temp HP (½ level) and +2 Fort for 1 minute |
-| **Taunting Blows** | Str 13, Power Attack | Melee hits while Power Attack is active apply −2 attack to the target for 1 round |
-| **Resonant Strikes** | Wis 13, Improved Unarmed Strike | Confirmed unarmed crits apply −2 AC to the target for 1 round |
+| **Second Wind** | Endurance | Once per day (restored on rest), dropping to ≤ half HP grants temp HP (character level, min 2) and +2 Fort for 1 minute |
+| **Taunting Blows** | Str 13, Power Attack | Melee hits while Power Attack is active → Will save or −2 attack for 1 round (no reapply while active) |
+| **Resonant Strikes** | Wis 13, Improved Unarmed Strike | Confirmed unarmed crits → Fortitude save or −2 AC for 1 round (no reapply while active) |
 | **Warded Soul** | Iron Will | +1 luck bonus to Fortitude, Reflex, and Will |
 
 Batch 2+ designs (mounted, aura, hex-line, reaction feats, ...) live in
