@@ -43,10 +43,23 @@ jobs:
           }
 
           if (-not (Test-AllLibs)) {
-            Write-Host "Game libs not committed in Libs/; fetching 'game-libs' release assets..."
             New-Item -ItemType Directory -Force -Path _gamelibs | Out-Null
 
-            # Download every release asset except the (large) blueprint dump.
+            # Source 1: files uploaded to the repo root (e.g. via the GitHub web UI).
+            Get-ChildItem -Path . -File -Filter *.zip |
+              Where-Object { $_.Name -notmatch 'blueprint' } |
+              ForEach-Object {
+                Write-Host "Using root upload: $($_.Name)"
+                Copy-Item $_.FullName "_gamelibs/$($_.Name)" -Force
+              }
+            Get-ChildItem -Path . -File -Filter *.dll |
+              ForEach-Object {
+                Write-Host "Using root upload: $($_.Name)"
+                Copy-Item $_.FullName "_gamelibs/$($_.Name)" -Force
+              }
+
+            # Source 2: 'game-libs' release assets (skip the blueprint dump and anything
+            # already harvested from the repo root).
             $assets = @(& gh release view game-libs --json assets --jq '.[].name')
             $global:LASTEXITCODE = 0
             foreach ($asset in $assets) {
@@ -54,12 +67,16 @@ jobs:
                 Write-Host "Skipping $asset (not needed for build)"
                 continue
               }
+              if (Test-Path "_gamelibs/$asset") {
+                Write-Host "Skipping $asset (already harvested from repo)"
+                continue
+              }
               Write-Host "Downloading $asset"
               & gh release download game-libs --pattern $asset --dir _gamelibs --clobber
               $global:LASTEXITCODE = 0
             }
 
-            # Expand any zips that were downloaded.
+            # Expand any zips that were gathered.
             Get-ChildItem -Path _gamelibs -Recurse -Filter *.zip | ForEach-Object {
               Write-Host "Extracting $($_.Name)"
               Expand-Archive -Path $_.FullName -DestinationPath ($_.FullName + "_extracted") -Force
