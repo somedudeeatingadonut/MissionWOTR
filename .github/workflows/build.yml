@@ -44,7 +44,13 @@ jobs:
 
           if (-not (Test-AllLibs)) {
             Write-Host "Game libs not committed in Libs/; trying the 'game-libs' release asset..."
-            gh release download game-libs --pattern "Libs*.zip" --output _gamelibs.zip --clobber
+            & gh release download game-libs --pattern "Libs*.zip" --output _gamelibs.zip --clobber
+            $ghExit = $LASTEXITCODE
+            # Clear this so the pwsh wrapper does not fail the step when the asset is absent.
+            $global:LASTEXITCODE = 0
+            if ($ghExit -ne 0) {
+              Write-Host "gh release download returned $ghExit (expected until Libs.zip is attached)."
+            }
             if (Test-Path _gamelibs.zip) {
               Expand-Archive -Path _gamelibs.zip -DestinationPath _gamelibs -Force
               # Sort the DLLs into place regardless of how they were zipped.
@@ -70,8 +76,13 @@ jobs:
           }
           else {
             "ready=false" >> $env:GITHUB_OUTPUT
+            "## Build waiting for game libraries" >> $env:GITHUB_STEP_SUMMARY
+            "" >> $env:GITHUB_STEP_SUMMARY
+            "Attach Libs.zip (11 DLLs) to the game-libs release, then re-run this workflow." >> $env:GITHUB_STEP_SUMMARY
+            "See docs/GAME-FILES-NEEDED.md for the exact list." >> $env:GITHUB_STEP_SUMMARY
             Write-Host "::notice::Build skipped - waiting for game DLLs. Attach Libs.zip to the 'game-libs' release (see docs/GAME-FILES-NEEDED.md), then re-run this workflow."
           }
+          exit 0
 
       - name: Build mod
         if: steps.libs.outputs.ready == 'true'
