@@ -28,8 +28,9 @@ Batch 2+ designs (mounted, aura, hex-line, reaction feats, ...) live in
 **Requirements:** [Unity Mod Manager](https://www.nexusmods.com/site/mods/21) 0.21.3 or newer.
 
 1. Install UMM, point it at Pathfinder: Wrath of the Righteous, click **Install**.
-2. Download the `MissionWOTR.zip` from the [Actions tab](../../actions) (latest **Build** run →
-   **MissionWOTR** artifact) or from Releases once published.
+2. Download the `MissionWOTR` artifact from the [Actions tab](../../actions) (latest **Build**
+   run → scroll down to **Artifacts**), unzip it once to get `MissionWOTR.zip`, or grab it
+   from Releases once published.
 3. In UMM's **Mods** tab, drag the zip onto **Install MOD** (or drop it into the game's
    `Mods/` folder).
 
