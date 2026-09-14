@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILRepack.MSBuild.Task" Version="2.0.13" />
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.46" />
     <PackageReference Include="WW-Blueprint-Core" Version="2.8.6" />
     <!-- Lets the project compile on machines without the .NET Framework 4.7.2 targeting pack (e.g. CI) -->
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">

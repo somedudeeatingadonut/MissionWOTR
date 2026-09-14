@@ -150,19 +150,13 @@ jobs:
             ForEach-Object { "$_" } |
             Tee-Object -FilePath $log
           if ($LASTEXITCODE -ne 0) {
-            # Reference resolution reasons with the candidate paths RAR considered and rejected.
-            $blocks = Select-String -Path $log -Pattern "Could not resolve this reference" -Context 0,14 |
-              Where-Object { ($_.Line + ($_.Context.PostContext -join " ")) -match "0Harmony|UnityModManager" }
-            foreach ($b in ($blocks | Select-Object -First 2)) {
-              Write-Host "::error::RAR-BLOCK: $($b.Line.Trim())"
-              foreach ($post in ($b.Context.PostContext | Where-Object { $_ -match "Could not locate|Considered|manifest" } | Select-Object -First 5)) {
-                Write-Host "::error::RAR-WHY: $($post.Trim())"
-              }
-            }
-            # Compile errors, deduplicated.
+            # Compile errors, deduplicated (top priority).
             $errs = Select-String -Path $log -Pattern ": error " | ForEach-Object { $_.Line.Trim() } |
-              Select-Object -Unique -First 8
+              Select-Object -Unique -First 6
             foreach ($e in $errs) { Write-Host "::error::$e" }
+            # Tail of the log: catches hard crashes that do not log regular errors.
+            $tail = Get-Content $log -Tail 6 | Where-Object { $_.Trim() }
+            foreach ($t in $tail) { Write-Host "::error::TAIL: $($t.Trim())" }
             exit 1
           }
           $zip = "src/MissionWOTR/bin/Release/net472/MissionWOTR.zip"
