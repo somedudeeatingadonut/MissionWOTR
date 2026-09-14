@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   actions: write
 
 jobs:
@@ -145,6 +145,7 @@ jobs:
           }
 
           # MSBuild (not `dotnet build`): verbose so reference-resolution failures are captured.
+          Remove-Item ci-build-log.txt -ErrorAction SilentlyContinue
           $log = "build_output.txt"
           & msbuild src/MissionWOTR/MissionWOTR.csproj -restore -p:Configuration=Release -v:detailed -nologo 2>&1 |
             ForEach-Object { "$_" } |
@@ -175,6 +176,24 @@ jobs:
           name: build-log
           path: build_output.txt
           if-no-files-found: ignore
+
+      - name: Commit diagnostics
+        if: failure() && steps.libs.outputs.ready == 'true'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if (-not (Test-Path ci-build-log.txt)) { Write-Host "no diagnostics file"; exit 0 }
+          git config user.name "ci-diagnostics"
+          git config user.email "ci@users.noreply.github.com"
+          git add ci-build-log.txt
+          git commit -m "CI diagnostics for build failure"
+          $remote = "https://x-access-token:$($env:GH_TOKEN)@github.com/somedudeeatingadonut/MissionWOTR.git"
+          git push $remote HEAD:$env:GITHUB_REF_NAME
+          if ($LASTEXITCODE -ne 0) {
+            Write-Host "::error::Failed to push diagnostics commit"
+            $global:LASTEXITCODE = 0
+          }
 
       - name: Upload built mod
         if: steps.libs.outputs.ready == 'true'
