@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.46" />
     <PackageReference Include="WW-Blueprint-Core" Version="2.8.6" />
     <!-- Lets the project compile on machines without the .NET Framework 4.7.2 targeting pack (e.g. CI) -->
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
@@ -46,41 +45,52 @@
     <!-- Main Wrath assembly (used directly; the mod's code only touches public game APIs) -->
     <Reference Include="Assembly-CSharp">
       <HintPath>$(GameLibsDir)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
     </Reference>
 
     <!-- Game assemblies (from Libs/, see docs/GAME-FILES-NEEDED.md) -->
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>$(GameLibsDir)\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(GameLibsDir)\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
       <HintPath>$(GameLibsDir)\Owlcat.Runtime.Core.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
       <HintPath>$(GameLibsDir)\Owlcat.Runtime.UI.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.Validation">
       <HintPath>$(GameLibsDir)\Owlcat.Runtime.Validation.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.Visual">
       <HintPath>$(GameLibsDir)\Owlcat.Runtime.Visual.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>$(GameLibsDir)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(GameLibsDir)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
     </Reference>
 
     <!-- Unity Mod Manager & Harmony (copied to the project-local lib\ folder by CI / setup;
          these are the exact assemblies UMM injects into the game) -->
     <Reference Include="0Harmony">
       <HintPath>$(MSBuildThisFileDirectory)lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="UnityModManager">
       <HintPath>$(MSBuildThisFileDirectory)lib\UnityModManager.dll</HintPath>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
 
@@ -93,29 +103,13 @@
     </None>
   </ItemGroup>
 
-  <!-- Merges BlueprintCore.dll into the mod assembly so it ships as a single DLL -->
-  <Target Name="ILRepack" AfterTargets="Build">
-    <ItemGroup>
-      <InputAssemblies Include="BlueprintCore.dll" />
-      <InputAssemblies Include="$(AssemblyName).dll" />
-      <OutputAssembly Include="$(AssemblyName).dll" />
-      <!-- Where ILRepack looks for referenced assemblies while merging -->
-      <RepackSearchDirs Include="$(OutputPath)" />
-      <RepackSearchDirs Include="$(MSBuildThisFileDirectory)lib" />
-      <RepackSearchDirs Include="$(GameLibsDir)" />
-    </ItemGroup>
-
-    <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
-    <Message Text="Search dirs: @(RepackSearchDirs)" Importance="High" />
-
-    <ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" LibraryPath="@(RepackSearchDirs)" />
-  </Target>
 
   <!-- Local development convenience: auto-install the mod into the game (only if WrathPath is set) -->
-  <Target Name="DeployToGame" AfterTargets="ILRepack" Condition="'$(DeployDir)' != ''">
+  <Target Name="DeployToGame" AfterTargets="Build" Condition="'$(DeployDir)' != ''">
     <Message Text="Deploying to $(DeployDir)" Importance="High" />
     <ItemGroup>
       <DeployFiles Include="$(OutputPath)\$(AssemblyName).dll" />
+      <DeployFiles Include="$(OutputPath)\BlueprintCore.dll" />
       <DeployFiles Include="$(OutputPath)\Info.json" />
       <DeployFiles Include="$(OutputPath)\LocalizedStrings.json" />
     </ItemGroup>
@@ -123,9 +117,10 @@
   </Target>
 
   <!-- Creates the distributable MissionWOTR.zip in the output directory -->
-  <Target Name="ZipRelease" AfterTargets="ILRepack" Condition="'$(Configuration)' == 'Release'">
+  <Target Name="ZipRelease" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
     <ItemGroup>
       <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
+      <Assembly Include="$(OutputPath)\BlueprintCore.dll" />
       <ModConfig Include="$(OutputPath)\Info.json" />
       <Strings Include="$(OutputPath)\LocalizedStrings.json" />
       <Assets Include="$(OutputPath)\*_assets" />
