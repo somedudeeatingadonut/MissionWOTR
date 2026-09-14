@@ -158,6 +158,12 @@ jobs:
             # Tail of the log: catches hard crashes that do not log regular errors.
             $tail = Get-Content $log -Tail 6 | Where-Object { $_.Trim() }
             foreach ($t in $tail) { Write-Host "::error::TAIL: $($t.Trim())" }
+            # Filtered diagnostics file (streamed; the detailed log is huge); committed by
+            # a later step so the failure is analyzable without log access.
+            Select-String -Path $log -Pattern '0Harmony|UnityModManager|HarmonyLib|Primary reference|Considered|Could not resolve|Could not locate|AssemblySearchPaths|ResolveAssemblyReference|Task "Csc"|: error |error MSB|TargetFramework' |
+              ForEach-Object { "{0}: {1}" -f $_.LineNumber, $_.Line } |
+              Select-Object -First 4000 |
+              Set-Content ci-build-log.txt
             exit 1
           }
           $zip = "src/MissionWOTR/bin/Release/net472/MissionWOTR.zip"
