@@ -11,6 +11,9 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
+using BlueprintCore.Utils.Types;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Enums;
 
 namespace MissionWOTR.Feats
 {
@@ -110,8 +113,7 @@ namespace MissionWOTR.Feats
           {
             return;
           }
-          evt.AddModifier(2, Fact);
-          evt.Result += 2;
+          evt.AddModifier(2, Fact, ModifierDescriptor.UntypedStackable);
         }
         catch (Exception e)
         {

@@ -15,6 +15,8 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using System;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Buffs;
 
 namespace MissionWOTR.Feats
 {

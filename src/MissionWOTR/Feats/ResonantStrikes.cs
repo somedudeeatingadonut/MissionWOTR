@@ -11,6 +11,9 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
+using BlueprintCore.Utils.Types;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Enums;
 
 namespace MissionWOTR.Feats
 {
@@ -117,7 +120,7 @@ namespace MissionWOTR.Feats
       {
         try
         {
-          evt.AddModifier(-2, Fact);
+          evt.AddModifier(-2, Fact, ModifierDescriptor.Penalty);
         }
         catch (Exception e)
         {

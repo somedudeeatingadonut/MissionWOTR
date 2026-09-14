@@ -13,6 +13,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
+using Kingmaker.Blueprints.Classes.Selection;
 
 namespace MissionWOTR.Feats
 {

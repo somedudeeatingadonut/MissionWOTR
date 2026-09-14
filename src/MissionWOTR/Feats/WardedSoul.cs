@@ -4,6 +4,7 @@ using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Blueprints.Classes.Selection;
 
 namespace MissionWOTR.Feats
 {

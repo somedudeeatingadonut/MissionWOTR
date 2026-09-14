@@ -12,6 +12,10 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
+using BlueprintCore.Utils.Types;
+using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Enums;
 
 namespace MissionWOTR.Feats
 {
@@ -51,7 +55,7 @@ namespace MissionWOTR.Feats
         .SetIsClassFeature()
         .AddFeatureTagsComponent(FeatureTag.Magic | FeatureTag.Defense)
         .AddRecommendationRequiresSpellbook()
-        .AddComponent<PrerequisiteCasterLevel>(c => c.RequiredCasterLevel = 3)
+        .AddComponent<PrerequisiteCasterTypeSpellLevel>(c => c.RequiredSpellLevel = 2)
         .AddComponent(new ArcaneMomentumTrigger(buff))
         .Configure(delayed: true);
     }
@@ -68,7 +72,7 @@ namespace MissionWOTR.Feats
       {
         try
         {
-          evt.AddModifier(GetBonus(), Fact);
+          evt.AddModifier(GetBonus(), Fact, ModifierDescriptor.Dodge);
         }
         catch (Exception e)
         {
@@ -82,7 +86,7 @@ namespace MissionWOTR.Feats
       {
         var bestSpellLevel =
           Owner.Spellbooks
-            .Select(spellbook => spellbook.GetMaxSpellLevel())
+            .Select(spellbook => spellbook.MaxSpellLevel)
             .DefaultIfEmpty(1)
             .Max();
         return bestSpellLevel switch
@@ -125,7 +129,7 @@ namespace MissionWOTR.Feats
           }
 
           // Only your two highest spell levels trigger the momentum.
-          if (evt.Spell.SpellLevel < spellbook.GetMaxSpellLevel() - 1)
+          if (evt.Spell.SpellLevel < spellbook.MaxSpellLevel - 1)
           {
             return;
           }
