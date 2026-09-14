@@ -166,7 +166,7 @@ jobs:
               Set-Content ci-build-log.txt
             exit 1
           }
-          $zip = "src/MissionWOTR/bin/Release/net472/MissionWOTR.zip"
+          $zip = "src/MissionWOTR/bin/Release/net48/MissionWOTR.zip"
           if (-not (Test-Path $zip)) {
             Write-Host "::error::MSBuild reported success but $zip was not produced."
             Get-ChildItem -Recurse src/MissionWOTR/bin -ErrorAction SilentlyContinue |
@@ -206,7 +206,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MissionWOTR
-          path: src/MissionWOTR/bin/Release/net472/MissionWOTR.zip
+          path: src/MissionWOTR/bin/Release/net48/MissionWOTR.zip
           if-no-files-found: error
 
       - name: Write waiting notice

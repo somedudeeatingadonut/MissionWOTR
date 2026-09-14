@@ -6,9 +6,8 @@
       version, so some features (e.g. Default Interfaces) are not available.
     -->
     <LangVersion>latest</LangVersion>
-    <!-- Latest .NET version supported by Wrath / Unity -->
-    <TargetFramework>net472</TargetFramework>
-    <!-- Needed to use the publicized game assembly -->
+    <!-- .NET version matching the game's scripting runtime and the modern UMM/Harmony builds -->
+    <TargetFramework>net48</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
     <AssemblyName>MissionWOTR</AssemblyName>
