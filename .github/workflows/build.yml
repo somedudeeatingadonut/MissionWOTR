@@ -101,6 +101,13 @@ jobs:
               }
             }
 
+            # UnityModManager.dll is referenced from the project-local lib\ folder.
+            if (Test-Path "Libs/UMM/UnityModManager.dll") {
+              New-Item -ItemType Directory -Force -Path "src/MissionWOTR/lib" | Out-Null
+              Copy-Item "Libs/UMM/UnityModManager.dll" "src/MissionWOTR/lib/UnityModManager.dll" -Force
+              Write-Host "Placed UnityModManager.dll in src/MissionWOTR/lib/"
+            }
+
             Write-Host "=== DLLs available after sorting ==="
             Get-ChildItem -Recurse Libs -Filter *.dll | ForEach-Object { Write-Host "  $($_.FullName)" }
           }
@@ -147,10 +154,14 @@ jobs:
             ForEach-Object { "$_" } |
             Tee-Object -FilePath $log
           if ($LASTEXITCODE -ne 0) {
-            # Reference resolution reasons (why a HintPath may have been rejected).
-            $rar = Select-String -Path $log -Pattern "Could not resolve this reference|Could not locate the assembly|expected to contain an assembly manifest" |
-              Select-Object -First 8
-            foreach ($r in $rar) { Write-Host "::error::RAR: $($r.Line.Trim())" }
+            # Reference resolution reasons, prioritizing the UMM/Harmony references.
+            $rar = Select-String -Path $log -Pattern "0Harmony|UnityModManager" |
+              Where-Object { $_.Line -match "Could not resolve|Could not locate|manifest" } |
+              Select-Object -First 6
+            $rar2 = Select-String -Path $log -Pattern "Could not resolve this reference" |
+              Where-Object { $_.Line -notmatch "0Harmony|UnityModManager" } |
+              Select-Object -First 4
+            foreach ($r in ($rar + $rar2)) { Write-Host "::error::RAR: $($r.Line.Trim())" }
             # Compile errors, deduplicated.
             $errs = Select-String -Path $log -Pattern ": error " | ForEach-Object { $_.Line.Trim() } |
               Select-Object -Unique -First 10

@@ -75,12 +75,9 @@
       <HintPath>$(GameLibsDir)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
 
-    <!-- Unity Mod Manager & Harmony (from Libs/UMM/) -->
-    <Reference Include="0Harmony">
-      <HintPath>$(GameLibsDir)\UMM\0Harmony.dll</HintPath>
-    </Reference>
+    <!-- Unity Mod Manager (copied to the project-local lib\ folder by CI / setup) -->
     <Reference Include="UnityModManager">
-      <HintPath>$(GameLibsDir)\UMM\UnityModManager.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)lib\UnityModManager.dll</HintPath>
     </Reference>
   </ItemGroup>
 
