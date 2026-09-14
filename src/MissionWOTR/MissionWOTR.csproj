@@ -99,11 +99,16 @@
       <InputAssemblies Include="BlueprintCore.dll" />
       <InputAssemblies Include="$(AssemblyName).dll" />
       <OutputAssembly Include="$(AssemblyName).dll" />
+      <!-- Where ILRepack looks for referenced assemblies while merging -->
+      <RepackSearchDirs Include="$(OutputPath)" />
+      <RepackSearchDirs Include="$(MSBuildThisFileDirectory)lib" />
+      <RepackSearchDirs Include="$(GameLibsDir)" />
     </ItemGroup>
 
     <Message Text="Merging: @(InputAssemblies) into @(OutputAssembly)" Importance="High" />
+    <Message Text="Search dirs: @(RepackSearchDirs)" Importance="High" />
 
-    <ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" />
+    <ILRepack OutputType="Dll" MainAssembly="@(OutputAssembly)" OutputAssembly="@(OutputAssembly)" InputAssemblies="@(InputAssemblies)" WorkingDirectory="$(OutputPath)" LibraryPath="@(RepackSearchDirs)" />
   </Target>
 
   <!-- Local development convenience: auto-install the mod into the game (only if WrathPath is set) -->
