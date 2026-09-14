@@ -122,16 +122,39 @@ jobs:
         if: steps.libs.outputs.ready == 'true'
         shell: pwsh
         run: |
-          # MSBuild (not `dotnet build`): the AssemblyPublicizer task targets .NET Framework.
+          # Pre-flight: verify the reference DLLs are actually present and look like DLLs.
+          # (Surfaced as annotations so failures here are diagnosable without log access.)
+          foreach ($p in @(
+              "Libs\Assembly-CSharp.dll", "Libs\Assembly-CSharp-firstpass.dll",
+              "Libs\Newtonsoft.Json.dll", "Libs\Owlcat.Runtime.Core.dll",
+              "Libs\Owlcat.Runtime.UI.dll", "Libs\Owlcat.Runtime.Validation.dll",
+              "Libs\Owlcat.Runtime.Visual.dll", "Libs\UnityEngine.dll",
+              "Libs\UnityEngine.CoreModule.dll",
+              "Libs\UMM\UnityModManager.dll", "Libs\UMM\0Harmony.dll")) {
+            if (Test-Path $p) {
+              $item = Get-Item $p
+              $magic = [System.IO.File]::ReadAllBytes($item.FullName)[0..1] -join ""
+              Write-Host "::notice::$p exists ($($item.Length) bytes, magic=$magic)"
+            }
+            else {
+              Write-Host "::error::$p is MISSING at build time"
+            }
+          }
+
+          # MSBuild (not `dotnet build`): verbose so reference-resolution failures are captured.
           $log = "build_output.txt"
-          & msbuild src/MissionWOTR/MissionWOTR.csproj -restore -p:Configuration=Release -v:minimal -nologo 2>&1 |
+          & msbuild src/MissionWOTR/MissionWOTR.csproj -restore -p:Configuration=Release -v:detailed -nologo 2>&1 |
             ForEach-Object { "$_" } |
             Tee-Object -FilePath $log
           if ($LASTEXITCODE -ne 0) {
-            # Surface the errors as annotations so they are visible without downloading logs.
-            $errs = Select-String -Path $log -Pattern ": error |error MSB|error NETSDK" |
-              Select-Object -First 30
-            foreach ($e in $errs) { Write-Host "::error::$($e.Line.Trim())" }
+            # Reference resolution reasons (why a HintPath may have been rejected).
+            $rar = Select-String -Path $log -Pattern "Could not resolve this reference|Could not locate the assembly|expected to contain an assembly manifest" |
+              Select-Object -First 8
+            foreach ($r in $rar) { Write-Host "::error::RAR: $($r.Line.Trim())" }
+            # Compile errors, deduplicated.
+            $errs = Select-String -Path $log -Pattern ": error " | ForEach-Object { $_.Line.Trim() } |
+              Select-Object -Unique -First 10
+            foreach ($e in $errs) { Write-Host "::error::$e" }
             exit 1
           }
           $zip = "src/MissionWOTR/bin/Release/net472/MissionWOTR.zip"
