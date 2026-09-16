@@ -1,0 +1,1419 @@
+Combat Started [1]
+
+PlayerCharacter Name: Test
+
+DifficultyType: Normal    Enemy Difficulty: Normal
+Test (MagusClass: 20 AngelMythicClass: 8 MythicStartingClass: 2 )
+
+
+Combat started.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>: Initiative check <b>40</b>
+	Check: 40 (roll: 18 + modifiers: 22)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b>: Initiative check <b>8</b>
+	Check: 8 (roll: 1 + modifiers: 7)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b>: Initiative check <b>18</b>
+	Check: 18 (roll: 11 + modifiers: 7)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b>: Initiative check <b>17</b>
+	Check: 17 (roll: 10 + modifiers: 7)
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>: Initiative check <b>14</b>
+	Check: 14 (roll: 3 + modifiers: 11)
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>: Initiative check <b>22</b>
+	Check: 22 (roll: 11 + modifiers: 11)
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>: Initiative check <b>16</b>
+	Check: 16 (roll: 12 + modifiers: 4)
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 15 — failed
+	Result: miss
+
+
+
+
+
+
+
+
+
+Gained experience: <b>648</b>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b> dies!
+
+Gained experience: <b>648</b>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b> dies!
+
+Gained experience: <b>648</b>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b> dies!
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> dies!
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> dies!
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> dies!
+
+
+
+Combat Ended [1]
+Combat Started [2]
+
+PlayerCharacter Name: Test
+
+DifficultyType: Normal    Enemy Difficulty: Normal
+Test (MagusClass: 20 AngelMythicClass: 8 MythicStartingClass: 2 )
+
+
+Combat started.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>: Initiative check <b>38</b>
+	Check: 38 (roll: 16 + modifiers: 22)
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>: Initiative check <b>25</b>
+	Check: 25 (roll: 14 + modifiers: 11)
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>: Initiative check <b>31</b>
+	Check: 31 (roll: 20 + modifiers: 11)
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>: Initiative check <b>6</b>
+	Check: 6 (roll: 2 + modifiers: 4)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b>: Initiative check <b>22</b>
+	Check: 22 (roll: 15 + modifiers: 7)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b>: Initiative check <b>25</b>
+	Check: 25 (roll: 18 + modifiers: 7)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b>: Initiative check <b>11</b>
+	Check: 11 (roll: 4 + modifiers: 7)
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 94 — successful
+	Attack result: 36 (roll: 8 + modifiers: 28)
+	Target's Armor Class: 43
+	Result: miss
+	<b>Attack Bonus: +28</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 43</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Bite</b>. Miss
+	Attack number: 1 out of 4
+	Concealment miss chance — 50%, roll: 54 — successful
+	Attack result: 35 (roll: 4 + modifiers: 31)
+	Target's Armor Class: 44
+	Result: miss
+	<b>Attack Bonus: +31</b>
+	Base Attack Bonus: <color=#004604>+16</color>
+	Strength: <color=#004604>+12</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Natural — Bite)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Rage: <color=#004604>+2 [Focused Rage]</color>
+	<b>Armor Class: 44</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Dodge: <color=#004604>+10 [Dodge (Mythic)]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Blinding Light</b>
+	Saving throw result: 33 (roll 11 + modifiers: 22)
+	Difficulty (DC): 37
+	Result: failure
+	<b>Fortitude: +22</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+15</color>
+	Profane: <color=#004604>+2 [Anomalous Defender]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Concealment miss chance — 50%, roll: 59 — successful
+	Attack result: Natural 1
+	Target's Armor Class: 41
+	Result: hit
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 41</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>139</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>.
+	Damage result: <b>139</b>
+	<b>133 + 6 = 139</b>
+	1d6 + 128 = <b>133</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 5
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>6</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Halo's Holy Aura</b>
+	Saving throw result: 31 (roll 12 + modifiers: 19)
+	Difficulty (DC): 38
+	Result: failure
+	<b>Fortitude: +19</b>
+	Class bonus: 12
+	Constitution: <color=#004604>+7</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Resistance: <color=#004604>+2 [Resistance+2]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Hit
+	Attack number: 1 out of 5
+	Concealment miss chance — 50%, roll: 54 — successful
+	Attack result: 34 (roll: 7 + modifiers: 27)
+	Target's Armor Class: 34
+	Result: hit
+	<b>Attack Bonus: +27</b>
+	Base Attack Bonus: <color=#004604>+17</color>
+	Strength: <color=#004604>+8</color>
+	Enhancement: <color=#004604>+1</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Spears — Longspear)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b> deals <b>16</b> damage to <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>.
+	Damage result: <b>16</b>
+	<b>21 (×0.8) = 16</b>
+	1d8 + 15 = <b>21</b> Piercing 
+	    Source: <color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b>
+	    1d8
+	        Roll result: 6
+	    +15
+	        Strength: <color=#004604>+12</color>
+	        Enhancement: <color=#004604>+1</color>
+	        Other: <color=#004604>+2 [Weapon Specialization (Spears — Longspear)]</color>
+	<b> (×0.8)</b>: Difficulty (Damage to party)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Blinding Light</b>
+	Saving throw result: 31 (roll 12 + modifiers: 19)
+	Difficulty (DC): 37
+	Result: failure
+	<b>Fortitude: +19</b>
+	Class bonus: 12
+	Constitution: <color=#004604>+7</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Resistance: <color=#004604>+2 [Resistance+2]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Halo's Holy Aura</b>
+	Saving throw result: 35 (roll 13 + modifiers: 22)
+	Difficulty (DC): 38
+	Result: failure
+	<b>Fortitude: +22</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+15</color>
+	Profane: <color=#004604>+2 [Anomalous Defender]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Claw</b>. Hit
+	Attack number: 2 out of 4
+	Concealment miss chance — 50%, roll: 79 — successful
+	Attack result: 35 (roll: 4 + modifiers: 31)
+	Target's Armor Class: 34
+	Result: hit
+	<b>Attack Bonus: +31</b>
+	Base Attack Bonus: <color=#004604>+16</color>
+	Strength: <color=#004604>+12</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Natural — Bite)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Rage: <color=#004604>+2 [Focused Rage]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>: <b>Will</b> saving throw succeeded.
+	Effect: <b>Anomaly Distortion</b>
+	Saving throw result: 40 (roll 12 + modifiers: 28)
+	Difficulty (DC): 28
+	Result: success
+	<b>Will: +28</b>
+	Class bonus: 12
+	Wisdom: <color=#004604>+1</color>
+	Luck: <color=#004604>+1 [[unknown key: WardedSoul.Name]]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Resistance: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Other: <color=#004604>+2 [Iron Will]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> deals <b>13</b> damage to <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>.
+	Damage result: <b>13</b>
+	<b>17 (×0.8) = 13</b>
+	1d8 + 12 = <b>17</b> Bludgeoning, Slashing 
+	    Source: Claw
+	    1d8
+	        Roll result: 5
+	    +12
+	        Strength: <color=#004604>+12</color>
+	<b> (×0.8)</b>: Difficulty (Damage to party)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Halo's Holy Aura</b>
+	Saving throw result: 32 (roll 13 + modifiers: 19)
+	Difficulty (DC): 38
+	Result: failure
+	<b>Fortitude: +19</b>
+	Class bonus: 12
+	Constitution: <color=#004604>+7</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Resistance: <color=#004604>+2 [Resistance+2]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Hit
+	Attack number: 1 out of 5
+	Concealment miss chance — 50%, roll: 71 — successful
+	Attack result: 43 (roll: 16 + modifiers: 27)
+	Target's Armor Class: 34
+	Result: hit
+	<b>Attack Bonus: +27</b>
+	Base Attack Bonus: <color=#004604>+17</color>
+	Strength: <color=#004604>+8</color>
+	Enhancement: <color=#004604>+1</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Spears — Longspear)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b> deals <b>13</b> damage to <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>.
+	Damage result: <b>13</b>
+	<b>17 (×0.8) = 13</b>
+	1d8 + 15 = <b>17</b> Piercing 
+	    Source: <color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b>
+	    1d8
+	        Roll result: 2
+	    +15
+	        Strength: <color=#004604>+12</color>
+	        Enhancement: <color=#004604>+1</color>
+	        Other: <color=#004604>+2 [Weapon Specialization (Spears — Longspear)]</color>
+	<b> (×0.8)</b>: Difficulty (Damage to party)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Blinding Light</b>
+	Saving throw result: 27 (roll 8 + modifiers: 19)
+	Difficulty (DC): 37
+	Result: failure
+	<b>Fortitude: +19</b>
+	Class bonus: 12
+	Constitution: <color=#004604>+7</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Resistance: <color=#004604>+2 [Resistance+2]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Miss
+	Concealment miss chance — 50%, roll: 4 — failed
+	Result: miss
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Halo's Holy Aura</b>
+	Saving throw result: 36 (roll 14 + modifiers: 22)
+	Difficulty (DC): 38
+	Result: failure
+	<b>Fortitude: +22</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+15</color>
+	Profane: <color=#004604>+2 [Anomalous Defender]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Bite</b>. Hit
+	Attack number: 1 out of 4
+	Concealment miss chance — 50%, roll: 63 — successful
+	Attack result: 35 (roll: 4 + modifiers: 31)
+	Target's Armor Class: 34
+	Result: hit
+	<b>Attack Bonus: +31</b>
+	Base Attack Bonus: <color=#004604>+16</color>
+	Strength: <color=#004604>+12</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Natural — Bite)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Rage: <color=#004604>+2 [Focused Rage]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>: <b>Will</b> saving throw succeeded.
+	Effect: <b>Anomaly Distortion</b>
+	Saving throw result: 46 (roll 18 + modifiers: 28)
+	Difficulty (DC): 28
+	Result: success
+	<b>Will: +28</b>
+	Class bonus: 12
+	Wisdom: <color=#004604>+1</color>
+	Luck: <color=#004604>+1 [[unknown key: WardedSoul.Name]]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Resistance: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Other: <color=#004604>+2 [Iron Will]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> deals <b>13</b> damage to <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>.
+	Damage result: <b>13</b>
+	<b>17 (×0.8) = 13</b>
+	1d6 + 12 = <b>17</b> Bludgeoning, Piercing, Slashing 
+	    Source: Bite
+	    1d6
+	        Roll result: 5
+	    +12
+	        Strength: <color=#004604>+12</color>
+	<b> (×0.8)</b>: Difficulty (Damage to party)
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Blinding Light</b>
+	Saving throw result: 35 (roll 13 + modifiers: 22)
+	Difficulty (DC): 37
+	Result: failure
+	<b>Fortitude: +22</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+15</color>
+	Profane: <color=#004604>+2 [Anomalous Defender]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Miss
+	Attack number: 2 out of 5
+	Concealment miss chance — 50%, roll: 54 — successful
+	Attack result: 30 (roll: 13 + modifiers: 17)
+	Target's Armor Class: 34
+	Result: miss
+	<b>Attack Bonus: +17</b>
+	Base Attack Bonus: <color=#004604>+12</color>
+	Strength: <color=#004604>+8</color>
+	Enhancement: <color=#004604>+1</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Spears — Longspear)]</color>
+	Other: <color=#971818>–5 [Power Attack]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Halo's Holy Aura</b>
+	Saving throw result: 29 (roll 7 + modifiers: 22)
+	Difficulty (DC): 38
+	Result: failure
+	<b>Fortitude: +22</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+15</color>
+	Profane: <color=#004604>+2 [Anomalous Defender]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Claw</b>. Hit
+	Attack number: 3 out of 4
+	Concealment miss chance — 50%, roll: 75 — successful
+	Attack result: 40 (roll: 9 + modifiers: 31)
+	Target's Armor Class: 34
+	Result: hit
+	<b>Attack Bonus: +31</b>
+	Base Attack Bonus: <color=#004604>+16</color>
+	Strength: <color=#004604>+12</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Natural — Bite)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Rage: <color=#004604>+2 [Focused Rage]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> deals <b>11</b> damage to <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>.
+	Damage result: <b>11</b>
+	<b>14 (×0.8) = 11</b>
+	1d8 + 12 = <b>14</b> Bludgeoning, Slashing 
+	    Source: Claw
+	    1d8
+	        Roll result: 2
+	    +12
+	        Strength: <color=#004604>+12</color>
+	<b> (×0.8)</b>: Difficulty (Damage to party)
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Miss
+	Attack number: 3 out of 5
+	Concealment miss chance — 50%, roll: 75 — successful
+	Attack result: 18 (roll: 6 + modifiers: 12)
+	Target's Armor Class: 34
+	Result: miss
+	<b>Attack Bonus: +12</b>
+	Base Attack Bonus: <color=#004604>+7</color>
+	Strength: <color=#004604>+8</color>
+	Enhancement: <color=#004604>+1</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Spears — Longspear)]</color>
+	Other: <color=#971818>–5 [Power Attack]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Claw</b>. Miss
+	Concealment miss chance — 50%, roll: 22 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 9 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>147</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>.
+	Damage result: <b>147</b>
+	<b>140 + 7 = 147</b>
+	3d6 + 128 = <b>140</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 12
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>7</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>154</b> damage to <b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b>.
+	Damage result: <b>154</b>
+	<b>145 + 9 = 154</b>
+	3d6 + 128 = <b>145</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 17
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>9</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>141</b> damage to <b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b>.
+	Damage result: <b>141</b>
+	<b>134 + 7 = 141</b>
+	3d6 + 128 = <b>134</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 6
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>7</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>142</b> damage to <b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b>.
+	Damage result: <b>142</b>
+	<b>136 + 6 = 142</b>
+	3d6 + 128 = <b>136</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 8
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>6</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Miss
+	Concealment miss chance — 50%, roll: 21 — failed
+	Result: miss
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b>: <b>Fortitude</b> saving throw succeeded.
+	Effect: <b>Blinding Light</b>
+	Saving throw result: 39 (roll 20 + modifiers: 19)
+	Difficulty (DC): 37
+	Result: success
+	<b>Fortitude: +19</b>
+	Class bonus: 12
+	Constitution: <color=#004604>+7</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Resistance: <color=#004604>+2 [Resistance+2]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Miss
+	Concealment miss chance — 50%, roll: 45 — failed
+	Result: miss
+
+
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Attack number: 1 out of 5
+	Concealment miss chance — 50%, roll: 55 — successful
+	Attack result: 44 (roll: 14 + modifiers: 30)
+	Target's Armor Class: 37
+	Result: hit
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 37</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#971818>–4 [Guide the Faithful]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>136</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>.
+	Damage result: <b>136</b>
+	<b>132 + 4 = 136</b>
+	1d6 + 128 = <b>132</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 4
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>4</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>148</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+	Damage result: <b>148</b>
+	<b>138 + 10 = 148</b>
+	3d6 + 128 = <b>138</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 10
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>10</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>143</b> damage to <b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b>.
+	Damage result: <b>143</b>
+	<b>136 + 7 = 143</b>
+	3d6 + 128 = <b>136</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 8
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>7</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>144</b> damage to <b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b>.
+	Damage result: <b>144</b>
+	<b>140 + 4 = 144</b>
+	3d6 + 128 = <b>140</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 12
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>4</b> Holy 
+	    Source: Angel Sword
+
+Gained experience: <b>648</b>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[82F3]</color></b></b> dies!
+
+Gained experience: <b>648</b>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[83B9]</color></b></b> dies!
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b><color=#103080FF>Longspear</color> <b><color=#505050FF>[Rare]</color></b></b>. Miss
+	Attack number: 4 out of 5
+	Concealment miss chance — 50%, roll: 97 — successful
+	Attack result: 18 (roll: 11 + modifiers: 7)
+	Target's Armor Class: 34
+	Result: miss
+	<b>Attack Bonus: +7</b>
+	Base Attack Bonus: <color=#004604>+2</color>
+	Strength: <color=#004604>+8</color>
+	Enhancement: <color=#004604>+1</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Spears — Longspear)]</color>
+	Other: <color=#971818>–5 [Power Attack]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Gore</b>. Miss
+	Concealment miss chance — 50%, roll: 4 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Concealment miss chance — 50%, roll: 97 — successful
+	Attack result: 37 (roll: 7 + modifiers: 30)
+	Target's Armor Class: 37
+	Result: hit
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 37</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#971818>–4 [Guide the Faithful]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>134</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>.
+	Damage result: <b>134</b>
+	<b>132 + 2 = 134</b>
+	1d6 + 128 = <b>132</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 4
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>2</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>145</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+	Damage result: <b>145</b>
+	<b>141 + 4 = 145</b>
+	3d6 + 128 = <b>141</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 13
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>4</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Claw</b>. Miss
+	Concealment miss chance — 50%, roll: 16 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 28 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>145</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b>.
+	Damage result: <b>145</b>
+	<b>143 + 2 = 145</b>
+	3d6 + 128 = <b>143</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 15
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>2</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>147</b> damage to <b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b>.
+	Damage result: <b>147</b>
+	<b>141 + 6 = 147</b>
+	3d6 + 128 = <b>141</b> Holy 
+	    Source: Cold Iron Rapier
+	    3d6
+	        Base value: -> 1d6</color>
+	        Sword of Heaven: -> 3d6</color>
+	        Roll result: 13
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>6</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[846D]</color></b></b> dies!
+
+Gained experience: <b>648</b>
+
+<b><b><color=#262626>DLC3_CR16_BabauElite[8356]</color></b></b> dies!
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 20 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 9 — failed
+	Result: miss
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Gore</b>. Miss
+	Concealment miss chance — 50%, roll: 6 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Concealment miss chance — 50%, roll: 80 — successful
+	Attack result: Natural 1
+	Target's Armor Class: 41
+	Result: hit
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 41</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>142</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+	Damage result: <b>142</b>
+	<b>133 + 9 = 142</b>
+	1d6 + 128 = <b>133</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 5
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>9</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 3 — failed
+	Result: miss
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Bite</b>. Miss
+	Concealment miss chance — 50%, roll: 39 — failed
+	Result: miss
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Blinding Light</b>
+	Saving throw result: 29 (roll 7 + modifiers: 22)
+	Difficulty (DC): 37
+	Result: failure
+	<b>Fortitude: +22</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+15</color>
+	Profane: <color=#004604>+2 [Anomalous Defender]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 72 — successful
+	Attack result: 34 (roll: 4 + modifiers: 30)
+	Target's Armor Class: 37
+	Result: miss
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 37</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#971818>–4 [Guide the Faithful]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 19 — failed
+	Result: miss
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Claw</b>. Miss
+	Concealment miss chance — 50%, roll: 34 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 44 — failed
+	Result: miss
+
+
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Attack number: 1 out of 5
+	Concealment miss chance — 50%, roll: 69 — successful
+	Attack result: 43 (roll: 13 + modifiers: 30)
+	Target's Armor Class: 37
+	Result: hit
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 37</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#971818>–4 [Guide the Faithful]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>141</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+	Damage result: <b>141</b>
+	<b>130 + 11 = 141</b>
+	1d6 + 128 = <b>130</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 2
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>11</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Claw</b>. Miss
+	Attack number: 3 out of 4
+	Concealment miss chance — 50%, roll: 58 — successful
+	Attack result: 33 (roll: 2 + modifiers: 31)
+	Target's Armor Class: 34
+	Result: miss
+	<b>Attack Bonus: +31</b>
+	Base Attack Bonus: <color=#004604>+16</color>
+	Strength: <color=#004604>+12</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Natural — Bite)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Rage: <color=#004604>+2 [Focused Rage]</color>
+	<b>Armor Class: 34</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 9 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 37 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Miss
+	Concealment miss chance — 50%, roll: 6 — failed
+	Result: miss
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Halo's Holy Aura</b>
+	Saving throw result: 32 (roll 10 + modifiers: 22)
+	Difficulty (DC): 38
+	Result: failure
+	<b>Fortitude: +22</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+15</color>
+	Profane: <color=#004604>+2 [Anomalous Defender]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Gore</b>. Hit
+	Attack number: 4 out of 4
+	Concealment miss chance — 50%, roll: 73 — successful
+	Attack result: 47 (roll: 16 + modifiers: 31)
+	Target's Armor Class: 44
+	Result: hit
+	<b>Attack Bonus: +31</b>
+	Base Attack Bonus: <color=#004604>+16</color>
+	Strength: <color=#004604>+12</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+1 [Weapon Focus (Natural — Bite)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Rage: <color=#004604>+2 [Focused Rage]</color>
+	<b>Armor Class: 44</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Dodge: <color=#004604>+10 [Dodge (Mythic)]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> deals <b>17</b> damage to <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b>.
+	Damage result: <b>17</b>
+	<b>22 (×0.8) = 17</b>
+	2d6 + 12 = <b>22</b> Piercing 
+	    Source: Gore
+	    2d6
+	        Roll result: 10
+	    +12
+	        Strength: <color=#004604>+12</color>
+	<b> (×0.8)</b>: Difficulty (Damage to party)
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Attack number: 4 out of 5
+	Concealment miss chance — 50%, roll: 71 — successful
+	Attack result: 39 (roll: 13 + modifiers: 26)
+	Target's Armor Class: 37
+	Result: hit
+	<b>Attack Bonus: +26</b>
+	Base Attack Bonus: <color=#004604>+11</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 37</b>
+	Base value: 10
+	Profane: <color=#004604>+5 [Anomalous Defender]</color>
+	Other: <color=#971818>–4 [Guide the Faithful]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Wisdom: <color=#004604>+6 [AC Bonus (Wisdom)]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Dexterity bonus: <color=#004604>+5</color>
+	Armor: <color=#004604>+4 [Mage Armor]</color>
+	Natural armor: <color=#004604>+16</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>140</b> damage to <b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b>.
+	Damage result: <b>140</b>
+	<b>130 + 10 = 140</b>
+	1d6 + 128 = <b>130</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 2
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>10</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#262626>CR17_Prebuff_KalavakusAdvanced_DLC1[84D7]</color></b></b> dies!
+
+
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Bite</b>. Miss
+	Concealment miss chance — 50%, roll: 41 — failed
+	Result: miss
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>: <b>Fortitude</b> saving throw failed.
+	Effect: <b>Blinding Light</b>
+	Saving throw result: 29 (roll 15 + modifiers: 14)
+	Difficulty (DC): 37
+	Result: failure
+	<b>Fortitude: +14</b>
+	Class bonus: 7
+	Constitution: <color=#004604>+11</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#971818>–2 [Piercing Rays]</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> with <b>Cold Iron Rapier</b>. Miss (Mirror Image)
+	Attack result: 39 (roll: 9 + modifiers: 30)
+	Target's Armor Class: 19
+	Result: miss (Mirror Image)
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 19 (Flat-footed)</b>
+	Base value: 10
+	Size: <color=#971818>–1</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#004604>+4 [Combat Mobility]</color>
+	Deflection: <color=#004604>+1 [Deflection+1]</color>
+	Natural armor: <color=#004604>+11</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> with <b>Cold Iron Rapier</b>. Critical hit!
+	Attack number: 1 out of 5
+	Attack result: 49 (roll: 19 + modifiers: 30)
+	Target's Armor Class: 15
+	Result: miss (Mirror Image)
+	Critical confirmation result: 35 (roll: 1 + modifiers: 34)
+	Target's Armor Class: 15
+	Result: critical hit not confirmed
+	Fortification armor chance: 25%, roll: 21 — additional damage negated
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 15 (Flat-footed)</b>
+	Base value: 10
+	Size: <color=#971818>–1</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Deflection: <color=#004604>+1 [Deflection+1]</color>
+	Natural armor: <color=#004604>+11</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Claw</b>. Miss
+	Concealment miss chance — 50%, roll: 50 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> with <b>Cold Iron Rapier</b>. Critical miss!
+	Attack result: Natural 1
+	Target's Armor Class: 19
+	Result: critical miss
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 19 (Flat-footed)</b>
+	Base value: 10
+	Size: <color=#971818>–1</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#004604>+4 [Combat Mobility]</color>
+	Deflection: <color=#004604>+1 [Deflection+1]</color>
+	Natural armor: <color=#004604>+11</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> with <b>Cold Iron Rapier</b>. Miss (Mirror Image)
+	Attack number: 2 out of 5
+	Attack result: 35 (roll: 5 + modifiers: 30)
+	Target's Armor Class: 15
+	Result: miss (Mirror Image)
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 15 (Flat-footed)</b>
+	Base value: 10
+	Size: <color=#971818>–1</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Deflection: <color=#004604>+1 [Deflection+1]</color>
+	Natural armor: <color=#004604>+11</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Talon</b>. Miss
+	Attack number: 3 out of 4
+	Concealment miss chance — 50%, roll: 68 — successful
+	Attack result: 39 (roll: 5 + modifiers: 34)
+	Target's Armor Class: 44
+	Result: miss
+	<b>Attack Bonus: +34</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Strength: <color=#004604>+10</color>
+	Size: <color=#971818>–1</color>
+	Profane: <color=#004604>+5 [Anomalous Brawler]</color>
+	Enhancement: <color=#004604>+3</color>
+	Other: <color=#004604>+1 [Weapon Focus (Natural — Claw)]</color>
+	Other: <color=#004604>+3 [Weapon Training (Natural)]</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	<b>Armor Class: 44</b>
+	Base value: 10
+	Dexterity bonus: <color=#004604>+5</color>
+	Deflection: <color=#004604>+4 [Halo's Holy Aura]</color>
+	Armor: <color=#004604>+3 [Studded Leather]</color>
+	Dodge: <color=#004604>+1 [Dodge]</color>
+	Dodge: <color=#004604>+1 [Dodge (Mythic)]</color>
+	Dodge: <color=#004604>+1 [Haste]</color>
+	Dodge: <color=#004604>+3 [Wings]</color>
+	Dodge: <color=#004604>+10 [Dodge (Mythic)]</color>
+	Mythic bonus: <color=#004604>+6 [Angelic Halo]</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Attack result: 35 (roll: 5 + modifiers: 30)
+	Target's Armor Class: 19
+	Result: hit
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 19 (Flat-footed)</b>
+	Base value: 10
+	Size: <color=#971818>–1</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#004604>+4 [Combat Mobility]</color>
+	Deflection: <color=#004604>+1 [Deflection+1]</color>
+	Natural armor: <color=#004604>+11</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>134</b> damage to <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>.
+	Damage result: <b>134</b>
+	<b>130 + 4 = 134</b>
+	1d6 + 128 = <b>130</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 2
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>4</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> with <b>Cold Iron Rapier</b>. Critical hit!
+	Attack number: 3 out of 5
+	Attack result: 48 (roll: 18 + modifiers: 30)
+	Target's Armor Class: 11
+	Result: miss (Mirror Image)
+	Critical confirmation result: 37 (roll: 3 + modifiers: 34)
+	Target's Armor Class: 11
+	Result: critical hit confirmed
+	Fortification armor chance: 25%, roll: 56 — fail
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 11 (Flat-footed)</b>
+	Base value: 10
+	Size: <color=#971818>–1</color>
+	Other: <color=#971818>–4 [Guide the Faithful]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Deflection: <color=#004604>+1 [Deflection+1]</color>
+	Natural armor: <color=#004604>+11</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> attacks <b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> with <b>Talon</b>. Miss
+	Concealment miss chance — 50%, roll: 49 — failed
+	Result: miss
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> makes attack of opportunity against <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>.
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> attacks <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> with <b>Cold Iron Rapier</b>. Hit
+	Attack result: 43 (roll: 13 + modifiers: 30)
+	Target's Armor Class: 15
+	Result: hit
+	<b>Attack Bonus: +30</b>
+	Base Attack Bonus: <color=#004604>+15</color>
+	Dexterity: <color=#004604>+8</color>
+	Circumstance: <color=#004604>+2 [True Magus — Attack Bonus]</color>
+	Morale: <color=#004604>+2 [Heroism]</color>
+	Other: <color=#004604>+2 [Concealment]</color>
+	Other: <color=#004604>+1 [Haste]</color>
+	<b>Armor Class: 15 (Flat-footed)</b>
+	Base value: 10
+	Size: <color=#971818>–1</color>
+	Other: <color=#971818>–4 [Guide the Faithful]</color>
+	Other: <color=#004604>+2 [Dark Flicker]</color>
+	Difficulty: <color=#971818>–4</color>
+	Other: <color=#971818>–2 [Angelic Halo]</color>
+	Other: <color=#004604>+4 [Combat Mobility]</color>
+	Deflection: <color=#004604>+1 [Deflection+1]</color>
+	Natural armor: <color=#004604>+11</color>
+	Penalty: <color=#971818>–2</color>
+
+<b><b><color=#9B0601>StartGame_Player_Unit[d89372c4]</color></b></b> deals <b>132</b> damage to <b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b>.
+	Damage result: <b>132</b>
+	<b>130 + 2 = 132</b>
+	1d6 + 128 = <b>130</b> Holy 
+	    Source: Cold Iron Rapier
+	    1d6
+	        Roll result: 2
+	    +128
+	        Dexterity: <color=#004604>+8</color>
+	        Other: <color=#004604>+120</color>
+	2d6 = <b>2</b> Holy 
+	    Source: Angel Sword
+
+<b><b><color=#262626>CR18_VrockElite_DLC1[8541]</color></b></b> dies!
+
+
+
+Combat Ended [2]
