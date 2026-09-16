@@ -1,4 +1,5 @@
 using BlueprintCore.Utils;
+using MissionWOTR.Archetypes;
 using System;
 
 namespace MissionWOTR.Feats
@@ -22,6 +23,8 @@ namespace MissionWOTR.Feats
       Configure(nameof(TauntingBlows), TauntingBlows.Configure);
       Configure(nameof(ResonantStrikes), ResonantStrikes.Configure);
       Configure(nameof(WardedSoul), WardedSoul.Configure);
+      // The archetype references the feats above, so it is configured last.
+      Configure(nameof(MissionVanguard), MissionVanguard.Configure);
 
       Logger.Info("MissionWOTR feat configuration complete.");
     }

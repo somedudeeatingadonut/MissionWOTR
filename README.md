@@ -23,6 +23,15 @@ mechanically distinct from anything in the base game or the major content mods
 Batch 2+ designs (mounted, aura, hex-line, reaction feats, ...) live in
 [`docs/FEAT-ROADMAP.md`](docs/FEAT-ROADMAP.md).
 
+## Mission Vanguard (test archetype)
+
+**Mission Vanguard** is a Magus archetype that grants all seven Mission WOTR feats - plus the
+vanilla feats they normally require (Power Attack, Point-Blank Shot, Improved Unarmed Strike,
+Iron Will, Endurance, Combat Reflexes) - at level 1. Features granted through an archetype
+bypass prerequisite checks, so it exists to make playtesting the whole mod trivial: roll a
+Magus, pick Mission Vanguard, and everything is live from the first fight. It removes nothing
+from the base Magus and is planned to grow into a full class in a future version.
+
 ## For players
 
 **Requirements:** [Unity Mod Manager](https://www.nexusmods.com/site/mods/21) 0.21.3 or newer.

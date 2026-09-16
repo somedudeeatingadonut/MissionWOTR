@@ -20,6 +20,11 @@ namespace MissionWOTR
     internal const string ResonantStrikesFeat = "1032BE10-2006-41FD-8EA0-E8656192F241";
     internal const string WardedSoulFeat = "110B3D1B-1568-4D26-A755-89B1350EA044";
 
+    // ----- Archetypes -----
+    // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
+    // class later - do not change once shipped.
+    internal const string MissionVanguardArchetype = "D3E0DD5A-F11F-4754-BCF2-B9D3B82DD038";
+
     // ----- Buffs / debuffs / resources created by the feats -----
     internal const string ArcaneMomentumBuff = "AF5E974C-9645-40B6-BD7F-F9394BBC97C3";
     internal const string BattlefieldScavengerBuff = "E985D854-E94C-46BD-867D-546A2DE25AC4";

@@ -8,7 +8,6 @@
     "Key": "VengefulCounterstrike.Description",
     "enGB": "Your fury answers every miss. When a melee attack misses you and the attacker is within your reach, you may make an attack of opportunity against them. This uses and is limited by your normal attacks of opportunity per round.\nPrerequisites: Dex 13, Combat Reflexes."
   },
-
   {
     "Key": "ArcaneMomentum.Name",
     "ProcessTemplates": false,
@@ -27,7 +26,6 @@
     "Key": "ArcaneMomentum.Buff.Description",
     "enGB": "The cast of a powerful spell leaves a ward of force shimmering around this character, granting a +1 dodge bonus to AC."
   },
-
   {
     "Key": "BattlefieldScavenger.Name",
     "ProcessTemplates": false,
@@ -46,7 +44,6 @@
     "Key": "BattlefieldScavenger.Buff.Description",
     "enGB": "Riding the momentum of a kill, this character's next ranged attack gains a +2 bonus on the attack roll."
   },
-
   {
     "Key": "SecondWind.Name",
     "ProcessTemplates": false,
@@ -65,7 +62,6 @@
     "Key": "SecondWind.Buff.Description",
     "enGB": "Gritting through the pain, this character gains temporary hit points equal to their character level and a +2 morale bonus on Fortitude saves."
   },
-
   {
     "Key": "TauntingBlows.Name",
     "ProcessTemplates": false,
@@ -84,7 +80,6 @@
     "Key": "TauntingBlows.Debuff.Description",
     "enGB": "Staggered by a vicious blow, this creature takes a -2 penalty on attack rolls."
   },
-
   {
     "Key": "ResonantStrikes.Name",
     "ProcessTemplates": false,
@@ -103,7 +98,6 @@
     "Key": "ResonantStrikes.Debuff.Description",
     "enGB": "Harmonic vibrations from an unarmed critical strike rattle this creature's defenses, imposing a -2 penalty to AC."
   },
-
   {
     "Key": "WardedSoul.Name",
     "ProcessTemplates": false,
@@ -112,5 +106,15 @@
   {
     "Key": "WardedSoul.Description",
     "enGB": "You were born under the wardstones of Kenabres, and their echo lingers in your blood. You gain a +1 luck bonus on Fortitude, Reflex, and Will saving throws.\nPrerequisites: Iron Will."
+  },
+  {
+    "Key": "MissionVanguard.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mission Vanguard"
+  },
+  {
+    "Key": "MissionVanguard.Description",
+    "ProcessTemplates": false,
+    "enGB": "A test harness for the Mission WOTR mod: this archetype grants all seven Mission WOTR feats at level 1, along with the vanilla feats they normally require, so their mechanics can be exercised from the first fight. It removes nothing from the standard Magus kit. Intended to be expanded into a full class in a future version."
   }
 ]
