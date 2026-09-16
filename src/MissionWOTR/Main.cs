@@ -82,7 +82,11 @@ namespace MissionWOTR
           }
           Initialized = true;
 
+          Logger.Info("Committing delayed blueprints...");
+          var stopwatch = System.Diagnostics.Stopwatch.StartNew();
           RootConfigurator.ConfigureDelayedBlueprints();
+          stopwatch.Stop();
+          Logger.Info($"Delayed blueprints committed in {stopwatch.ElapsedMilliseconds} ms.");
         }
         catch (Exception e)
         {
