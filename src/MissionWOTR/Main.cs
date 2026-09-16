@@ -4,6 +4,7 @@ using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
 using MissionWOTR.Feats;
 using System;
+using System.IO;
 using UnityModManagerNet;
 
 namespace MissionWOTR
@@ -11,6 +12,7 @@ namespace MissionWOTR
   public static class Main
   {
     public static bool Enabled;
+    internal static string ModPath;
     internal static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR");
 
     public static bool Load(UnityModManager.ModEntry modEntry)
@@ -18,6 +20,7 @@ namespace MissionWOTR
       try
       {
         modEntry.OnToggle = OnToggle;
+        ModPath = modEntry.Path;
         var harmony = new Harmony(modEntry.Info.Id);
         harmony.PatchAll();
         Logger.Info("MissionWOTR loaded; patches applied.");
@@ -55,12 +58,38 @@ namespace MissionWOTR
           Initialized = true;
 
           Logger.Info("Configuring blueprints.");
+          LoadLocalization();
           MissionFeats.ConfigureAll();
         }
         catch (Exception e)
         {
           Logger.Error("Failed to configure blueprints.", e);
         }
+      }
+    }
+
+    /// <summary>
+    /// Registers our LocalizedStrings.json with the game's localization pack.
+    /// BlueprintCore loads *Strings.json lazily (only when a string is created through its
+    /// API), but our configurators reference keys directly - so without this call the game
+    /// has no text for them and UIs show raw keys like "TauntingBlows.Name".
+    /// </summary>
+    private static void LoadLocalization()
+    {
+      try
+      {
+        var stringsFile = Path.Combine(ModPath, "LocalizedStrings.json");
+        if (!File.Exists(stringsFile))
+        {
+          Logger.Error($"Localization file not found: {stringsFile}");
+          return;
+        }
+        LocalizationTool.LoadLocalizationPack(stringsFile);
+        Logger.Info($"Localization loaded from {stringsFile}.");
+      }
+      catch (Exception e)
+      {
+        Logger.Error("Failed to load localization.", e);
       }
     }
 

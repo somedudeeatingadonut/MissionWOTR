@@ -55,7 +55,11 @@ namespace MissionWOTR.Feats
         .SetIsClassFeature()
         .AddFeatureTagsComponent(FeatureTag.Magic | FeatureTag.Defense)
         .AddRecommendationRequiresSpellbook()
-        .AddComponent<PrerequisiteCasterTypeSpellLevel>(c => c.RequiredSpellLevel = 2)
+        .AddComponent<PrerequisiteCasterTypeSpellLevel>(c =>
+        {
+          c.IsArcane = true;
+          c.RequiredSpellLevel = 2;
+        })
         .AddComponent(new ArcaneMomentumTrigger(buff))
         .Configure(delayed: true);
     }
