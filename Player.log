@@ -22,16 +22,16 @@ Begin MonoManager ReloadAssembly
 [Manager] IsSupportOnSessionStart: False.
 [Manager] IsSupportOnSessionStop: False.
 [Manager] Mods path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods.
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000024423FB8490.dll
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000024620E45110.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000002067F2C14A0.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-00000206A086A0D0.dll
 [Manager] Injection successful.
-- Completed reload, in  0.758 seconds
+- Completed reload, in  0.770 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 [startup.json] Check path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\startup.json
 [startup.json] Loaded
-UnloadTime: 0.468800 ms
+UnloadTime: 0.310800 ms
 No cloud project ID was found by the Analytics SDK. This means Analytics events will not be sent. Please make sure to link your cloud project in the Unity editor to fix this problem.
 [Manager] Starting.
 [Manager] Start parsing game version.
@@ -93,7 +93,7 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [Manager] Loading mods.
 [!ManyModsPerformanceFix] Version '1.8.5'. Loading.
 [!ManyModsPerformanceFix] Active.
-[!ManyModsPerformanceFix] Loading time 0.26 s.
+[!ManyModsPerformanceFix] Loading time 0.23 s.
 [!!!FirstStart] Version '1.0.0'. Loading.
 [!!!FirstStart] Active.
 [!!!FirstStart] Loading time 0.01 s.
@@ -101,9 +101,9 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [0ToyBox0] Starting Integrity Check.
 [0ToyBox0] Integrity Check succeeded.
 [0ToyBox0] Compatability Check succeeded
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000024423FB6060.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000002067F2C2CC0.dll
 [0ToyBox0] Active.
-[0ToyBox0] Loading time 1.71 s.
+[0ToyBox0] Loading time 1.82 s.
 [TabletopTweaks-Core] Version '0.7.14a'. Loading.
 [TabletopTweaks-Core] Optional mod 'MewsiferConsole.Mod' not found.
 [TabletopTweaks-Core] PostPatchInitializer: TabletopTweaks-Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -151,10 +151,10 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [TabletopTweaks-Core] Loading Static String: AbilityTargetNoSplitHexRepeat.SplitHex
 [TabletopTweaks-Core] Loading Static String: AbilityRequirementHasBlackBlade.UIText
 [TabletopTweaks-Core] Active.
-[TabletopTweaks-Core] Loading time 0.33 s.
+[TabletopTweaks-Core] Loading time 0.32 s.
 [AddedFeats] Version '1.7.0'. Loading.
 [AddedFeats] Active.
-[AddedFeats] Loading time 0.03 s.
+[AddedFeats] Loading time 0.02 s.
 [ModMenu] Version '2.0.14'. Loading.
 [ModMenu] Optional mod 'MewsiferConsole.Mod' not found.
 [ModMenu] Detected toybox, will try to add SaveLoadViews.SaveLoadVMPatch.UpdateSavesCollection method to patches
@@ -186,7 +186,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Texture2D]
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Sprite]
 [BubbleBuffs] Active.
-[BubbleBuffs] Loading time 0.03 s.
+[BubbleBuffs] Loading time 0.02 s.
 [BuffIt2TheLimit] Version '1.21.1'. Loading.
 [BuffIt2TheLimit] Optional mod 'EnhancedInventory' not found.
 [BuffIt2TheLimit] LOADING BuffIt2TheLimit
@@ -209,20 +209,20 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [CharacterOptionsPlus] Version '1.4.0'. Loading.
 [COP+Main] Finished patching.
 [CharacterOptionsPlus] Active.
-[CharacterOptionsPlus] Loading time 0.09 s.
+[CharacterOptionsPlus] Loading time 0.08 s.
 [DarkCodex] Version '1.9.6'. Loading.
 [DarkCodex] AssemblyResolve F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DarkCodex\CodexLib.dll
 [DarkCodex] Patching Patches
 [CodexLib] Patching BpCache
 [CodexLib] Patching Patch_SaveExtension
 [DarkCodex] Active.
-[DarkCodex] Loading time 0.05 s.
+[DarkCodex] Loading time 0.06 s.
 [DragonLibrary] Version '1.2.10'. Loading.
 [DragonLibrary] Active.
 [DragonLibrary] Loading time 0.01 s.
 [deceiverbuff] Version '1.5.2'. Loading.
 [deceiverbuff] Active.
-[deceiverbuff] Loading time 0.03 s.
+[deceiverbuff] Loading time 0.01 s.
 [WrathPatches] Version '1.19.1'. Loading.
 [WrathPatches] Running patch class TheEnhance
 [WrathPatches] Running patch class ActuallyFixSharedStrings
@@ -290,7 +290,7 @@ Set BugReport Layer: BugReportInputLayer.
 [WrathPatches] Loading time 0.35 s.
 [DragonChanges] Version '1.23.1'. Loading.
 [DragonChanges] Active.
-[DragonChanges] Loading time 0.03 s.
+[DragonChanges] Loading time 0.01 s.
 [DragonFixes] Version '1.33.0'. Loading.
 [DragonFixes] [Error] Error loading file 'F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DragonFixes\DragonFixes.dll'.
 [DragonFixes] [Exception] TypeLoadException - Could not resolve type with token 01000039 (from typeref, class/assembly HarmonyLib.HarmonyPatchCategory, 0Harmony, Version=2.3.6.0, Culture=neutral, PublicKeyToken=null)
@@ -306,10 +306,10 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [EbonsContentMod] [Miracle UI] Patched MVVM conversion request: Kingmaker.UI.MVVM._VM.ActionBar.ActionBarSlotVM.OnShowConvertRequest()
 [EbonsContentMod] CreateAssetLinks.LoadAssetLinks: Found 11 asset links in 1 bundles
 [EbonsContentMod] Active.
-[EbonsContentMod] Loading time 0.28 s.
+[EbonsContentMod] Loading time 0.22 s.
 [ExpandedContent] Version '0.13.68'. Loading.
 [ExpandedContent] Active.
-[ExpandedContent] Loading time 0.71 s.
+[ExpandedContent] Loading time 0.66 s.
 [FeatOrganizer] Version '1.0.1'. Loading.
 [FeatOrganizer] UMM entry loaded.
 [FeatOrganizer] Enabled. Harmony patches applied and handlers subscribed.
@@ -321,13 +321,13 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [FixSubsonicBullshit] Loading time 0.01 s.
 [KineticArchetypes] Version '1.1.11'. Loading.
 [KineticArchetypes] Active.
-[KineticArchetypes] Loading time 0.09 s.
+[KineticArchetypes] Loading time 0.08 s.
 [KineticistElementsExpanded] Version '3.3.2'. Loading.
 [KineticistElementsExpanded] Active.
 [KineticistElementsExpanded] Loading time 0.03 s.
 [KMBF2] Version '1.1.0'. Loading.
 [KMBF2] Active.
-[KMBF2] Loading time 0.01 s.
+[KMBF2] Loading time 0.03 s.
 [TabletopTweaks-Base] Version '2.6.17a'. Loading.
 [TabletopTweaks-Base] PostPatchInitializer: TabletopTweaks-Base, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Base] Executing Post Patch: InherentBonuses.Update_ModifiableValue_FilterIsPermanent
@@ -337,32 +337,32 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Base] 0,2,3,3,4,5,6,6,7,8,9,9,10,11,12,12,13,14,15,15,16
 [TabletopTweaks-Base] Loading Static String: CharInfoFeaturePCView_Suppression_Patchs.Suppressed
 [TabletopTweaks-Base] Active.
-[TabletopTweaks-Base] Loading time 0.93 s.
+[TabletopTweaks-Base] Loading time 0.86 s.
 [LibramOfThePhoenix] Version '1.2.0'. Loading.
 [LibramOfThePhoenix] Optional mod 'AlternateRacialTraits' not found.
 [LibramOfThePhoenix] Loading Blueprints
 [LibramOfThePhoenix] Active.
-[LibramOfThePhoenix] Loading time 0.08 s.
+[LibramOfThePhoenix] Loading time 0.07 s.
 [LiterateCompanions] Version '1.0.0'. Loading.
 [LiterateCompanions] Active.
 [LiterateCompanions] Loading time 0.01 s.
 [lvl1companions] Version '1.1.0'. Loading.
 [lvl1companions] Active.
-[lvl1companions] Loading time 0.04 s.
+[lvl1companions] Loading time 0.03 s.
 [Mesmerist] Version '3.3'. Loading.
 [Mesmerist] Active.
-[Mesmerist] Loading time 0.04 s.
+[Mesmerist] Loading time 0.06 s.
 [MicroscopicContentExpansion] Version '1.21.1'. Loading.
 [MicroscopicContentExpansion] Optional mod 'MewsiferConsole.Mod' not found.
 [MicroscopicContentExpansion] PostPatchInitializer: MicroscopicContentExpansion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 [MicroscopicContentExpansion] Active.
-[MicroscopicContentExpansion] Loading time 0.12 s.
-[MissionWOTR] Version '0.4.0'. Loading.
+[MicroscopicContentExpansion] Loading time 0.09 s.
+[MissionWOTR] Version '0.4.1'. Loading.
 [MissionWOTR] Active.
 [MissionWOTR] Loading time 0.03 s.
 [ModTagEx] Version '1.0.1'. Loading.
-[ModTagEx] Took 00:00:00.0592877 to load guid db of size 25121
-[ModTagEx] Took 00:00:00.0340523 to load base game guids of size 236661
+[ModTagEx] Took 00:00:00.0571587 to load guid db of size 25121
+[ModTagEx] Took 00:00:00.0383801 to load base game guids of size 236661
 [ModTagEx] Active.
 [ModTagEx] Loading time 0.12 s.
 [MoreBackgrounds] Version '1.0.0'. Loading.
@@ -376,13 +376,13 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [MultipleArchetypes] Loading time 0.04 s.
 [SpellbookMerge] Version '1.7.1'. Loading.
 [SpellbookMerge] Active.
-[SpellbookMerge] Loading time 0.03 s.
+[SpellbookMerge] Loading time 0.02 s.
 [MythicMagicMayhem] Version '1.1.4'. Loading.
 [MythicMagicMayhem] Active.
 [MythicMagicMayhem] Loading time 0.09 s.
 [NoFilmGrainWrath] Version '1.0.0'. Loading.
 [NoFilmGrainWrath] Active.
-[NoFilmGrainWrath] Loading time 0.82 s.
+[NoFilmGrainWrath] Loading time 0.85 s.
 [PC_Female_BG_Viconia] Version '1.2.0'. Loading.
 [PC_Female_BG_Viconia] Active.
 [PC_Female_BG_Viconia] Loading time 0.01 s.
@@ -392,10 +392,10 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [PrestigePlus] Version '3.8.0'. Loading.
 [PrestigePlus] Optional mod 'MewsiferConsole.Mod' not found.
 [PrestigePlus] Active.
-[PrestigePlus] Loading time 0.29 s.
+[PrestigePlus] Loading time 0.30 s.
 [RandomEquipment] Version '2.0.10'. Loading.
 [RandomEquipment] Active.
-[RandomEquipment] Loading time 0.87 s.
+[RandomEquipment] Loading time 0.83 s.
 [RandomReinforcementsPerEncounter] Version '1.1.13'. Loading.
 [RandomReinforcementsPerEncounter] RandomReinforcementsPerEncounter loaded with Harmony
 [RandomReinforcementsPerEncounter] Active.
@@ -404,12 +404,12 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [WOTR_MAKING_FRIENDS] Patching...
 [WOTR_MAKING_FRIENDS] Finished patching.
 [WOTR_MAKING_FRIENDS] Active.
-[WOTR_MAKING_FRIENDS] Loading time 0.07 s.
+[WOTR_MAKING_FRIENDS] Loading time 0.08 s.
 [RanEpilogue] Version '1.3.1'. Loading.
 [RanEpilogue] Optional mod 'WOTR_WoljifRomanceMod' not found.
 [RanEpilogue] Optional mod 'CamelliaRomanceExpandedEnd' not found.
 [RanEpilogue] Active.
-[RanEpilogue] Loading time 0.07 s.
+[RanEpilogue] Loading time 0.05 s.
 [RespecWrath] Version '1.10.25'. Loading.
 [RespecWrath] Active.
 [RespecWrath] Loading time 0.08 s.
@@ -424,11 +424,11 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Flanking] PostPatchInitializer: TabletopTweaks-Flanking, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Flanking] TabletopTweaks-Core FlankingProvider set by TabletopTweaks-Flanking
 [TabletopTweaks-Flanking] Active.
-[TabletopTweaks-Flanking] Loading time 0.06 s.
+[TabletopTweaks-Flanking] Loading time 0.09 s.
 [TabletopTweaks-Reworks] Version '1.4.6'. Loading.
 [TabletopTweaks-Reworks] PostPatchInitializer: TabletopTweaks-Reworks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Reworks] Active.
-[TabletopTweaks-Reworks] Loading time 0.18 s.
+[TabletopTweaks-Reworks] Loading time 0.15 s.
 [VoicePortAbelard] Version '1.0.0'. Loading.
 [VoicePortAbelard] Active.
 [VoicePortAbelard] Loading time 0.01 s.
@@ -437,7 +437,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [VoicePortsKingmaker] Loading time 0.01 s.
 [VoidHeadWOTRNineSwords] Version '2.0.6'. Loading.
 [VoidHeadWOTRNineSwords] Active.
-[VoidHeadWOTRNineSwords] Loading time 0.06 s.
+[VoidHeadWOTRNineSwords] Loading time 0.08 s.
 [WeaponFocusPlus] Version '1.2.3'. Loading.
 [WeaponFocusPlus] Active.
 [WeaponFocusPlus] Loading time 0.02 s.
@@ -7774,7 +7774,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [COP+UnshakableZeal] Configuring UnshakableZeal
 [COP+WeaponOfAwe] Configuring WeaponOfAwe
 [COP+Wrath] Configuring Wrath
-[CodexLib] Loaded blueprints in 5038ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
+[CodexLib] Loaded blueprints in 6703ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
 [DragonLibrary] Checking for mods for compatibility patches
 [DragonLibrary] Checking for MicroscopicContentExpansion
 [DragonLibrary] MicroscopicContentExpansion is found and enabled
@@ -12875,7 +12875,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [0ToyBox0] [Info] Successfully applied 0 of 0 patches in 0ms
 [COP+Main] Configuring feats delayed.
 [COP+EldritchHeritage] Configuring EldritchHeritage for TTT bloodlines
-[0ToyBox0] [Info] Loading 256845 Blueprints
+[0ToyBox0] [Info] Loading 256876 Blueprints
 [COP+Main] Configuring Archetypes delayed.
 [COP+ArrowsongMinstrel] Patching TTT Loremaster compatbility for Arrowsong Minstrel
 [COP+WinterWitch] Patching TTT Loremaster compatbility for Winter Witch
@@ -14051,7 +14051,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [EbonsContentMod]     OrcSorcererBloodlineClassSkill, GUID=d2ec15253bb84db38194146e9ef9bf9c, Type=BlueprintFeature
 [EbonsContentMod]     OrcSorcererBloodlineRequisiteFeature, GUID=09ae4a9f250c42ad9f31a15b3fced759, Type=BlueprintFeature
 [EbonsContentMod]     BloodlineRequisiteFeature, GUID=e2cfd3cedf7c40088b25aa82d6db3c77, Type=BlueprintFeature
-[0ToyBox0] [Info] Threaded loaded roughly 258587 blueprints in 8090 milliseconds
+[0ToyBox0] [Info] Threaded loaded roughly 258618 blueprints in 7982 milliseconds
 [0ToyBox0] [Info] Starting to build BPId Cache
 [0ToyBox0] [Info] Finished rebuilding BPId Cache
 [EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
@@ -14132,17 +14132,17 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 [ModMenu] Instantiating layout settings.
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (ascending order)</color></b>' in default locale
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (descending order)</color></b>' in default locale
-[CodexLib] Applying PowerAttackFeature for Unit[StartGame_Player_Unit]#f8b6a51c-976f-4ea4-8745-e38bc3a6a21c is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGame_Player_Unit]#f8b6a51c-976f-4ea4-8745-e38bc3a6a21c is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGame_Player_Unit]#f8b6a51c-976f-4ea4-8745-e38bc3a6a21c is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGame_Player_Unit]#f8b6a51c-976f-4ea4-8745-e38bc3a6a21c is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGame_Player_Unit]#f8b6a51c-976f-4ea4-8745-e38bc3a6a21c is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PowerAttackFeature for Unit[StartGame_Player_Unit]#9530b1be-5bce-454d-aa53-08aa193846bc is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PointBlankShot for Unit[StartGame_Player_Unit]#9530b1be-5bce-454d-aa53-08aa193846bc is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying CombatExpertiseFeature for Unit[StartGame_Player_Unit]#9530b1be-5bce-454d-aa53-08aa193846bc is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying WeaponFinesse for Unit[StartGame_Player_Unit]#9530b1be-5bce-454d-aa53-08aa193846bc is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying DeadlyAimFeature for Unit[StartGame_Player_Unit]#9530b1be-5bce-454d-aa53-08aa193846bc is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
 [RespecWrath] Creating sprite
-[CodexLib] Applying PowerAttackFeature for Unit[StartGamePregenCavalierUnit]#425a4276-627c-4de2-b505-af6f4bfbd8a8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGamePregenCavalierUnit]#425a4276-627c-4de2-b505-af6f4bfbd8a8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGamePregenCavalierUnit]#425a4276-627c-4de2-b505-af6f4bfbd8a8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGamePregenCavalierUnit]#425a4276-627c-4de2-b505-af6f4bfbd8a8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGamePregenCavalierUnit]#425a4276-627c-4de2-b505-af6f4bfbd8a8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PowerAttackFeature for Unit[StartGamePregenCavalierUnit]#f9a710f7-2279-4798-8b60-bfa42439ed56 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PointBlankShot for Unit[StartGamePregenCavalierUnit]#f9a710f7-2279-4798-8b60-bfa42439ed56 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying CombatExpertiseFeature for Unit[StartGamePregenCavalierUnit]#f9a710f7-2279-4798-8b60-bfa42439ed56 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying WeaponFinesse for Unit[StartGamePregenCavalierUnit]#f9a710f7-2279-4798-8b60-bfa42439ed56 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying DeadlyAimFeature for Unit[StartGamePregenCavalierUnit]#f9a710f7-2279-4798-8b60-bfa42439ed56 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
 InvalidOperationException: Sequence contains no elements
   at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
   at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
@@ -14165,31 +14165,6 @@ InvalidOperationException: Sequence contains no elements
   at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
   at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
 
-[0ToyBox0] [Info] CombatLog - Action <color=blue>Kill All Enemies</color>
-[0ToyBox0] [Info] Glyph Support Check returned: True
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Patch Tool</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Unit Copying</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Copy Unit</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Paste Unit</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Try to make spawned unit join fight</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Only select enemies for copying</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Make copied unit part of enemy faction</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Disable Dialog Restrictions (Racial)</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Skip Splash Screen</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Combat Log divider line</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>On round end, outputs a divider line in the combat log</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Automatically skip all skippable cutscenes</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Add Camera Elevation Offset</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Prevent Locks from jamming</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Ignore Equipment Restrictions</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Restore Just Spells After Combat</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Restore Just Abilities After Combat</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Recharge Items After Combat</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Ignore Enemy Immunities (excluding condition immunities like pronze, dazed, sleeping, ...)</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Vision Range</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Roll With Advantage</color></b>' in default locale
-[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Roll With Disadvantage</color></b>' in default locale
 InvalidOperationException: Sequence contains no elements
   at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
   at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
@@ -14235,11 +14210,11 @@ InvalidOperationException: Sequence contains no elements
   at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
 
 Setting up 6 worker threads for Enlighten.
-  Thread -> id: 1c58 -> priority: 1 
-  Thread -> id: 4a6c -> priority: 1 
-  Thread -> id: 2cd4 -> priority: 1 
-  Thread -> id: e48 -> priority: 1 
-  Thread -> id: 42cc -> priority: 1 
-  Thread -> id: 3058 -> priority: 1 
+  Thread -> id: 4910 -> priority: 1 
+  Thread -> id: 13a8 -> priority: 1 
+  Thread -> id: 43f4 -> priority: 1 
+  Thread -> id: 34b0 -> priority: 1 
+  Thread -> id: 4ad0 -> priority: 1 
+  Thread -> id: 3538 -> priority: 1 
 Releasing render texture that is set as Camera.targetTexture!
 [Manager] Destroying when exit.
