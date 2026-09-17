@@ -215,7 +215,9 @@ jobs:
         if: steps.libs.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: MissionWOTR
+          # Named "-download" so it is not confused with the MissionWOTR.zip mod zip
+          # inside it (GitHub wraps artifacts in an extra zip layer).
+          name: MissionWOTR-download
           path: src/MissionWOTR/bin/Release/net48/MissionWOTR.zip
           if-no-files-found: error
 
