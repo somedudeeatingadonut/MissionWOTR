@@ -169,8 +169,8 @@ namespace MissionWOTR.Archetypes
 
       // ----- The archetype itself -----
       ArchetypeConfigurator.New(ArchetypeName, Guids.EldritchPoisonerArchetype, CharacterClassRefs.AlchemistClass)
-        .SetDisplayName(DisplayName)
-        .SetDescription(Description)
+        .SetLocalizedName(DisplayName)
+        .SetLocalizedDescription(Description)
         // Replaces bomb (all of the class's bomb-granting entries).
         .AddToRemoveFeatures(1,
           FeatureRefs.AlchemistBombsFeature.ToString(),
