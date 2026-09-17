@@ -16,6 +16,7 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using MissionWOTR.Feats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
