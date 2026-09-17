@@ -115,7 +115,7 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(StatType.AttackOfOpportunityCount, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
           .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddDamageResistancePhysical(value: 2)),
+          .AddDamageResistancePhysical(value: 2),
         isGuard: true));
 
       // Distance
