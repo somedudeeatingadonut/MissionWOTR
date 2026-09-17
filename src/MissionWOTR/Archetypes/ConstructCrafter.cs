@@ -434,7 +434,7 @@ namespace MissionWOTR.Archetypes
           // Sneak attack: one die per 2 alchemist levels (native rank accumulation).
           var dice = (alchemistLevel + 1) / 2;
           var sneakAttack = FeatureRefs.RogueSneakAttack.Reference.Get();
-          var saFact = construct.AddFact(sneakAttack);
+          var saFact = construct.AddFact(sneakAttack) as Feature;
           for (int i = 1; i < dice && saFact != null; i++)
           {
             saFact.AddRank();
