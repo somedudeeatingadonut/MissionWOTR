@@ -38,7 +38,9 @@
 - **Resonant Strikes**: was a guaranteed −2 AC on every unarmed crit. Now **Fortitude save negates** and cannot be re-applied while active.
 - **Arcane Momentum**: was a flat +1 dodge AC — too weak for a feat slot. Now **scales to +3** with the mightiest spell level you can cast and triggers on your **two highest** spell levels instead of only the top one.
 
-## Batch 2 — designed, not yet implemented
+## Batch 2 — partially implemented
+
+**Implemented:**
 
 | Feat | Prerequisites | Effect |
 |---|---|---|
@@ -52,6 +54,18 @@
 | **Alchemist's Retort** | Throw Anything | When an enemy scores a critical hit against you, you automatically splash-throw your current bomb formula at them (uses a bomb charge, once per round) |
 | **Witchfire Hexes** (line) | ability to cast 1st-level spells | A mini "hex" line: 1/long-rest debuffs (evil eye −2 AC 1 round; misfortune reroll once; slumber-ish sleep on <4 HD enemies). Fills the hex gap WOTR never shipped for non-witches |
 | **Tunnel Fighter stance** | Combat Reflexes | Toggleable: while active you may make any number of AoOs per round but take −2 on all attacks |
+
+**Implementation notes (batch 2):**
+
+- **Guarded Momentum**: adapted — Wrath exposes no "fighting defensively" state to mod code
+  (verified against Assembly-CSharp.dll), so the feat triggers on any melee miss with Combat
+  Expertise as the prerequisite instead of requiring the FD stance.
+- **Tunnel Fighter**: implemented as an activatable stance (toggle in the ability bar) whose
+  buff grants +50 attacks of opportunity and −2 attack rolls.
+
+**Deferred (need riskier APIs — combat-start hooks, mount/charge state, bomb formulas,
+aura blueprints, or performing attacks from code):** Momentum Breaker, Bulwark of Faith,
+Zealous Charge, Warcries, Crushing Sweep, Alchemist's Retort, Witchfire Hexes.
 
 ## Batch 3 — ideas parking lot
 

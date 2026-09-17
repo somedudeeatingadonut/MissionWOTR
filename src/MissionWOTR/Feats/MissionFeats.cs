@@ -24,6 +24,10 @@ namespace MissionWOTR.Feats
       Configure(nameof(TauntingBlows), TauntingBlows.Configure);
       Configure(nameof(ResonantStrikes), ResonantStrikes.Configure);
       Configure(nameof(WardedSoul), WardedSoul.Configure);
+      // Batch 2.
+      Configure(nameof(SteadfastAim), SteadfastAim.Configure);
+      Configure(nameof(GuardedMomentum), GuardedMomentum.Configure);
+      Configure(nameof(TunnelFighter), TunnelFighter.Configure);
 
       // Mythic feats (tabletop ports) and mythic abilities (originals).
       Configure(nameof(AcrobaticMythic), AcrobaticMythic.Configure);

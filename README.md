@@ -23,6 +23,14 @@ mechanically distinct from anything in the base game or the major content mods
 Batch 2+ designs (mounted, aura, hex-line, reaction feats, ...) live in
 [`docs/FEAT-ROADMAP.md`](docs/FEAT-ROADMAP.md).
 
+## Feats (batch 2)
+
+| Feat | Prerequisites | Effect |
+|------|---------------|--------|
+| **Steadfast Aim** | Dex 13, Point-Blank Shot | +1 on ranged attacks vs. enemies engaged in melee with an ally |
+| **Guarded Momentum** | Combat Expertise | Each melee miss against you: +1 dodge AC until your next turn (stacks to +3) |
+| **Tunnel Fighter** | Combat Reflexes | Toggle stance: unlimited attacks of opportunity, but −2 on attack rolls |
+
 ## Mythic feats & abilities (batch 1)
 
 Mythic **feats** (tabletop ports from *Mythic Adventures*, adapted to Wrath's merged skill

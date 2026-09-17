@@ -326,5 +326,55 @@
     "Key": "TitanHide.Description",
     "ProcessTemplates": false,
     "enGB": "Your flesh hardens like living stone. You gain a +1 natural armor bonus to AC for every 2 mythic ranks you possess (minimum +1)."
+  },
+  {
+    "Key": "SteadfastAim.Name",
+    "ProcessTemplates": false,
+    "enGB": "Steadfast Aim"
+  },
+  {
+    "Key": "SteadfastAim.Description",
+    "ProcessTemplates": false,
+    "enGB": "Pick your moment when steel is already crossed. You gain a +1 bonus on ranged attack rolls against enemies engaged in melee with one of your allies.\nPrerequisites: Dex 13, Point-Blank Shot."
+  },
+  {
+    "Key": "GuardedMomentum.Name",
+    "ProcessTemplates": false,
+    "enGB": "Guarded Momentum"
+  },
+  {
+    "Key": "GuardedMomentum.Description",
+    "ProcessTemplates": false,
+    "enGB": "Each blow that fails to find you hardens your guard. Each time a melee attack misses you, you gain a +1 dodge bonus to AC until the start of your next turn, stacking up to +3.\nPrerequisites: Combat Expertise."
+  },
+  {
+    "Key": "GuardedMomentum.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Guarded Momentum"
+  },
+  {
+    "Key": "GuardedMomentum.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Turning aside successive blows, this character's guard grows harder to breach, granting a dodge bonus to AC."
+  },
+  {
+    "Key": "TunnelFighter.Name",
+    "ProcessTemplates": false,
+    "enGB": "Tunnel Fighter"
+  },
+  {
+    "Key": "TunnelFighter.Description",
+    "ProcessTemplates": false,
+    "enGB": "You hold ground like a cornered beast. While this stance is active, you may make any number of attacks of opportunity each round, but you take a -2 penalty on all attack rolls.\nPrerequisites: Combat Reflexes."
+  },
+  {
+    "Key": "TunnelFighter.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Tunnel Fighter"
+  },
+  {
+    "Key": "TunnelFighter.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Fighting with the desperate precision of a cornered beast, this character makes any number of attacks of opportunity but suffers a penalty on attack rolls."
   }
 ]

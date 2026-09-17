@@ -36,6 +36,10 @@ namespace MissionWOTR.Archetypes
           TauntingBlows.FeatName,
           ResonantStrikes.FeatName,
           WardedSoul.FeatName,
+          // Batch 2 feats.
+          SteadfastAim.FeatName,
+          GuardedMomentum.FeatName,
+          TunnelFighter.FeatName,
           // The mod's mythic feats and abilities, for testing without mythic level-ups.
           AcrobaticMythic.FeatName,
           PersuasiveMythic.FeatName,
@@ -61,7 +65,8 @@ namespace MissionWOTR.Archetypes
           FeatureRefs.IronWill.ToString(),
           FeatureRefs.Endurance.ToString(),
           FeatureRefs.CombatReflexes.ToString(),
-          FeatureRefs.LightningReflexes.ToString())
+          FeatureRefs.LightningReflexes.ToString(),
+          FeatureRefs.CombatExpertiseFeature.ToString())
         .Configure(delayed: true);
     }
   }

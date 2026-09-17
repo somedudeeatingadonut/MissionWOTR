@@ -37,6 +37,16 @@ namespace MissionWOTR
     internal const string AscendantEdgeAbility = "2CAF92AB-AC6F-4791-AA00-94C6F8F0FED0";
     internal const string AscendantEdgeBuff = "DD098F2B-D11C-4188-BD62-019894D81D2D";
 
+    // ----- Feats (Batch 2) -----
+    internal const string SteadfastAimFeat = "466C421C-7391-43F4-8CDB-CE82BACBECC8";
+    internal const string SteadfastAimAttackBonus = "29B50BFA-E7DD-4A87-895C-10184F434484";
+    internal const string GuardedMomentumFeat = "A848F151-B73C-40C4-AE5D-56D83560557A";
+    internal const string GuardedMomentumBuff = "429EBBEC-7100-4234-AD75-E3386558C08E";
+    internal const string GuardedMomentumTrigger = "A17F33B1-64B3-45DE-9C41-6F2B4A93C1E0";
+    internal const string TunnelFighterFeat = "29B0CB95-0A0B-4DC8-BB7E-EE83EB022D79";
+    internal const string TunnelFighterAbility = "3713E9F9-B618-4FD2-91D1-8FAF2EDE7AD";
+    internal const string TunnelFighterBuff = "439F9D7C-FDA7-4C84-A914-27DEBCCFB71A";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.
