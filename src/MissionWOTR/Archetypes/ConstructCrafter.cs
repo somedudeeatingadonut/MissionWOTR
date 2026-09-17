@@ -294,15 +294,9 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .Configure();
 
-      // Core & Program selections: chosen before deployment; v1 has the Basic options,
-      // future cores/programs slot into the same selections.
-      FeatureSelectionConfigurator.New(CoreSelectionName, Guids.ConstructCrafterCoreSelection)
-        .SetDisplayName("CoreSelection.Name")
-        .SetDescription("CoreSelection.Description")
-        .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
-        .SetAllFeatures(basicCore)
-        .Configure();
-
+      // Core & Program selections: chosen before deployment; all cores/programs slot
+      // into the same selections. (Created exactly once - a second New on the same
+      // name+guid throws "Already in use".)
       var coreFeatures = new List<Blueprint<BlueprintFeatureReference>> { basicCore };
       coreFeatures.AddRange(
         ConstructCrafterCores.Cores.Select(c => (Blueprint<BlueprintFeatureReference>)c.Feature));

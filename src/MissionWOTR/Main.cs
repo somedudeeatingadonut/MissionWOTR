@@ -116,6 +116,9 @@ namespace MissionWOTR
           RootConfigurator.ConfigureDelayedBlueprints();
           stopwatch.Stop();
           Logger.Info($"Delayed blueprints committed in {stopwatch.ElapsedMilliseconds} ms.");
+
+          // Final archetype state (after delayed commits) - self-diagnosing playtest logs.
+          MissionFeats.LogArchetypeDiagnostics();
         }
         catch (Exception e)
         {

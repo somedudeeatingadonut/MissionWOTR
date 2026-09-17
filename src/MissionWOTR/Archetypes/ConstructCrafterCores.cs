@@ -302,16 +302,27 @@ namespace MissionWOTR.Archetypes
       bool golemNoAoO = false)
     {
       var alchemist = CharacterClassRefs.AlchemistClass;
+      // Cores that share one package across bases map every suffix to the SAME guid;
+      // the shared package must be a single blueprint, so creations are deduped by guid
+      // (the second suffix reuses the first blueprint instead of colliding on the guid).
+      var buffsByGuid = new Dictionary<string, BlueprintBuff>();
       Func<Action<BuffConfigurator>, string, BlueprintBuff> makeBuff = (configure, suffix) =>
       {
-        var builder = BuffConfigurator.New(featName + suffix, BuffGuidFor(featName, suffix))
+        var buffGuid = BuffGuidFor(featName, suffix);
+        if (buffsByGuid.TryGetValue(buffGuid, out var shared))
+        {
+          return shared;
+        }
+        var builder = BuffConfigurator.New(featName + suffix, buffGuid)
           .SetDisplayName(displayKey)
           .SetDescription(descriptionKey)
           .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
           .AddContextRankConfig(ContextRankConfigs.ClassLevel(
             new[] { alchemist.ToString() }, min: 1).WithDiv2Progression());
         configure?.Invoke(builder);
-        return builder.Configure();
+        var made = builder.Configure();
+        buffsByGuid[buffGuid] = made;
+        return made;
       };
 
       var marker = BuffConfigurator.New(featName + "Marker", markerGuid)

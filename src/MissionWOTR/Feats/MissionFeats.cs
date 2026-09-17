@@ -57,7 +57,6 @@ namespace MissionWOTR.Feats
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
 
-      LogArchetypeDiagnostics();
       Logger.Info("MissionWOTR feat configuration complete.");
     }
 
@@ -66,7 +65,7 @@ namespace MissionWOTR.Feats
     /// created, landed on its class, and passes the availability filter the char-gen UI
     /// uses. Written to the game log so playtest reports are self-diagnosing.
     /// </summary>
-    private static void LogArchetypeDiagnostics()
+    internal static void LogArchetypeDiagnostics()
     {
       try
       {
@@ -88,8 +87,10 @@ namespace MissionWOTR.Feats
           }
           var inClass = entry.Class.Archetypes.Contains(archetype);
           var inAvailable = entry.Class.AvailableArchetypes.Contains(archetype);
+          var componentNames = string.Join(",", archetype.ComponentsArray
+            .Select(c => c.GetType().Name).OrderBy(n => n));
           Logger.Info(
-            $"[diag] {entry.Name}: created={true}, components={archetype.ComponentsArray.Length}, " +
+            $"[diag] {entry.Name}: created={true}, components={archetype.ComponentsArray.Length} [{componentNames}], " +
             $"addLevels={(archetype.AddFeatures?.Length ?? 0)}, removeLevels={(archetype.RemoveFeatures?.Length ?? 0)}, " +
             $"minLevel={archetype.MinFeatureLevel}, onClass={inClass}, inAvailableList={inAvailable}.");
         }
