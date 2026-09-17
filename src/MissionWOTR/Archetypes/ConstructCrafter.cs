@@ -8,6 +8,7 @@ using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker;
+using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
@@ -555,7 +556,8 @@ namespace MissionWOTR.Archetypes
         // Core application: per-base stat package + role abilities.
         var isHound = BaseKind == 0;
         var isHumanoid = BaseKind == 1;
-        foreach (var ability in ResolveCoreAbilities(core, BaseKind))
+        var grantedAbilities = ResolveCoreAbilities(core, BaseKind).ToList();
+        foreach (var ability in grantedAbilities)
         {
           construct.AddFact(ability);
         }
@@ -585,6 +587,34 @@ namespace MissionWOTR.Archetypes
         if (ApplyPlating && ConstructCrafter.ClockworkPlatingBuff is not null)
         {
           construct.AddBuff(ConstructCrafter.ClockworkPlatingBuff, Context);
+        }
+
+        // Brains v2: assign the brain at deploy time. Program behaviors take priority
+        // over the caster role; without either, the variant's baked brain stays.
+        // UnitBrain.SetBrain rebuilds the action list at runtime, and
+        // RestoreAvailableActions filters cast actions down to owned abilities
+        // (abilities were granted above, before this call).
+        BlueprintBrain chosenBrain = null;
+        if (program?.IsPassive == true)
+        {
+          chosenBrain = ConstructCrafterAbilities.PassiveBrain;
+        }
+        else if (program?.IsGuard == true)
+        {
+          chosenBrain = ConstructCrafterAbilities.GuardBrain;
+        }
+        else if (program?.IsDistance == true)
+        {
+          chosenBrain = ConstructCrafterAbilities.DistanceBrain;
+        }
+        else if (grantedAbilities.Count > 0)
+        {
+          chosenBrain = ConstructCrafterAbilities.CasterBrain;
+        }
+        if (chosenBrain != null && construct.Brain != null)
+        {
+          construct.Brain.SetBrain(chosenBrain);
+          construct.Brain.RestoreAvailableActions();
         }
       }
       catch (Exception e)

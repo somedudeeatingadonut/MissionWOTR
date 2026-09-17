@@ -261,5 +261,14 @@ namespace MissionWOTR
     internal const string AetherialBulwarkTrigger = "714730BA-4C04-4E64-8F9F-8E89EECB3A2F";
     internal const string TitansWrathAbility = "155717A3-F608-4C9C-B781-8113415D0C60";
     internal const string TitanHideAbility = "6837349B-5EE9-4C36-875C-FEFF6A9EBE67";
+
+    // Construct Crafter brains v2 (program behaviors)
+    internal const string CrafterFollowMasterConsideration = "95202758-C983-4C0B-A7BC-8A7D2DA107D1";
+    internal const string CrafterWoundedConsideration = "B95933A7-D8AA-4C2A-9002-19489744DC36";
+    internal const string AiFollowPassive = "BDCDC9AF-3631-4FED-B4D6-D13987C69120";
+    internal const string AiFollowGuard = "82CBF105-5F0F-4640-BFAE-D004AF375B0D";
+    internal const string AiFollowDistance = "14DF8243-0E04-4FBF-988C-B4E88F172B4E";
+    internal const string CrafterPassiveBrain = "DA7A843F-940F-47A9-876C-B29978843751";
+    internal const string CrafterGuardBrain = "589FB15B-6F5E-4A55-B0D3-40049241E33D";
   }
 }

@@ -36,8 +36,9 @@ namespace MissionWOTR.Archetypes
   ///   Chaos     - AL/2: +attack, +AC, +all saves, +initiative; while a chaos construct of
   ///               a base lives, that base cannot be deployed again
   ///
-  /// AI behaviors beyond the stat packages (staying at range, supporting, protecting) need
-  /// custom brain blueprints - a documented v1 limitation; stats and restrictions are live.
+  /// Behavior: the Passive, Guard, and Distance programs also switch the construct to a
+  /// matching behavior brain at deploy time (see ConstructCrafterAbilities); the other
+  /// programs' identity is their stat package plus the stock charge AI.
   /// </summary>
   internal static class ConstructCrafterPrograms
   {
@@ -50,6 +51,8 @@ namespace MissionWOTR.Archetypes
       public bool IsChaos;
       public bool IsFlank;
       public bool IsGuard;
+      public bool IsPassive;
+      public bool IsDistance;
     }
 
     // Priority when several toggles are active at once.
@@ -65,73 +68,6 @@ namespace MissionWOTR.Archetypes
         .SetDescription("ChaosMarker.Description")
         .SetIcon(BuffRefs.Confusion.Reference.Get().Icon)
         .Configure();
-
-      // Passive
-      Programs.Add(CreateProgram(
-        "ConstructCrafterPassive", Guids.PassiveProgramFeat, Guids.PassiveProgramActivatable,
-        Guids.PassiveProgramMarker, Guids.PassiveProgramBuff,
-        "PassiveProgram.Name", "PassiveProgram.Description",
-        FeatureRefs.Dodge.Reference.Get().Icon,
-        buff => buff
-          .AddContextStatBonus(StatType.AdditionalAttackBonus, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddContextStatBonus(StatType.Initiative, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Dodge)
-          .AddContextStatBonus(StatType.SaveWill, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.SaveReflex, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)));
-
-      // Aggressive
-      Programs.Add(CreateProgram(
-        "ConstructCrafterAggressive", Guids.AggressiveProgramFeat, Guids.AggressiveProgramActivatable,
-        Guids.AggressiveProgramMarker, Guids.AggressiveProgramBuff,
-        "AggressiveProgram.Name", "AggressiveProgram.Description",
-        FeatureRefs.PowerAttackFeature.Reference.Get().Icon,
-        buff => buff
-          .AddContextStatBonus(StatType.AdditionalAttackBonus, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.Initiative, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.SaveWill, value: -2, descriptor: ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.SaveReflex, value: -2, descriptor: ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.SaveFortitude, value: -2, descriptor: ModifierDescriptor.Penalty)));
-
-      // Flank (sneak attack ranks are granted at deploy time; see the deploy action)
-      Programs.Add(CreateProgram(
-        "ConstructCrafterFlank", Guids.FlankProgramFeat, Guids.FlankProgramActivatable,
-        Guids.FlankProgramMarker, Guids.FlankProgramBuff,
-        "FlankProgram.Name", "FlankProgram.Description",
-        FeatureRefs.RogueSneakAttack.Reference.Get().Icon,
-        buff => buff
-          .AddContextStatBonus(StatType.BaseAttackBonus, ContextValues.Rank(), ModifierDescriptor.Penalty),
-        isFlank: true));
-
-      // Guard
-      Programs.Add(CreateProgram(
-        "ConstructCrafterGuard", Guids.GuardProgramFeat, Guids.GuardProgramActivatable,
-        Guids.GuardProgramMarker, Guids.GuardProgramBuff,
-        "GuardProgram.Name", "GuardProgram.Description",
-        FeatureRefs.CombatReflexes.Reference.Get().Icon,
-        buff => buff
-          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Dodge)
-          .AddContextStatBonus(StatType.AttackOfOpportunityCount, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddDamageResistancePhysical(value: 2),
-        isGuard: true));
-
-      // Distance
-      Programs.Add(CreateProgram(
-        "ConstructCrafterDistance", Guids.DistanceProgramFeat, Guids.DistanceProgramActivatable,
-        Guids.DistanceProgramMarker, Guids.DistanceProgramBuff,
-        "DistanceProgram.Name", "DistanceProgram.Description",
-        FeatureRefs.PointBlankShot.Reference.Get().Icon,
-        buff => buff
-          .AddContextStatBonus(StatType.BaseAttackBonus, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.AdditionalAttackBonus, value: -2, descriptor: ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.SaveWill, value: -2, descriptor: ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.SaveReflex, value: -2, descriptor: ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.SaveFortitude, value: -2, descriptor: ModifierDescriptor.Penalty)));
-
       // Chaos
       Programs.Add(CreateProgram(
         "ConstructCrafterChaos", Guids.ChaosProgramFeat, Guids.ChaosProgramActivatable,
@@ -148,6 +84,70 @@ namespace MissionWOTR.Archetypes
         isChaos: true));
     }
 
+      // Distance
+      Programs.Add(CreateProgram(
+        "ConstructCrafterDistance", Guids.DistanceProgramFeat, Guids.DistanceProgramActivatable,
+        Guids.DistanceProgramMarker, Guids.DistanceProgramBuff,
+        "DistanceProgram.Name", "DistanceProgram.Description",
+        FeatureRefs.PointBlankShot.Reference.Get().Icon,
+        buff => buff
+          .AddContextStatBonus(StatType.BaseAttackBonus, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          .AddStatBonus(stat: StatType.AdditionalAttackBonus, value: -2, descriptor: ModifierDescriptor.Penalty)
+          .AddStatBonus(stat: StatType.SaveWill, value: -2, descriptor: ModifierDescriptor.Penalty)
+          .AddStatBonus(stat: StatType.SaveReflex, value: -2, descriptor: ModifierDescriptor.Penalty)
+          .AddStatBonus(stat: StatType.SaveFortitude, value: -2, descriptor: ModifierDescriptor.Penalty)),
+        isDistance: true));
+      // Guard
+      Programs.Add(CreateProgram(
+        "ConstructCrafterGuard", Guids.GuardProgramFeat, Guids.GuardProgramActivatable,
+        Guids.GuardProgramMarker, Guids.GuardProgramBuff,
+        "GuardProgram.Name", "GuardProgram.Description",
+        FeatureRefs.CombatReflexes.Reference.Get().Icon,
+        buff => buff
+          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Dodge)
+          .AddContextStatBonus(StatType.AttackOfOpportunityCount, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          .AddDamageResistancePhysical(value: 2),
+        isGuard: true));
+      // Flank (sneak attack ranks are granted at deploy time; see the deploy action)
+      Programs.Add(CreateProgram(
+        "ConstructCrafterFlank", Guids.FlankProgramFeat, Guids.FlankProgramActivatable,
+        Guids.FlankProgramMarker, Guids.FlankProgramBuff,
+        "FlankProgram.Name", "FlankProgram.Description",
+        FeatureRefs.RogueSneakAttack.Reference.Get().Icon,
+        buff => buff
+          .AddContextStatBonus(StatType.BaseAttackBonus, ContextValues.Rank(), ModifierDescriptor.Penalty),
+        isFlank: true));
+      // Aggressive
+      Programs.Add(CreateProgram(
+        "ConstructCrafterAggressive", Guids.AggressiveProgramFeat, Guids.AggressiveProgramActivatable,
+        Guids.AggressiveProgramMarker, Guids.AggressiveProgramBuff,
+        "AggressiveProgram.Name", "AggressiveProgram.Description",
+        FeatureRefs.PowerAttackFeature.Reference.Get().Icon,
+        buff => buff
+          .AddContextStatBonus(StatType.AdditionalAttackBonus, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(StatType.Initiative, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          .AddStatBonus(stat: StatType.SaveWill, value: -2, descriptor: ModifierDescriptor.Penalty)
+          .AddStatBonus(stat: StatType.SaveReflex, value: -2, descriptor: ModifierDescriptor.Penalty)
+          .AddStatBonus(stat: StatType.SaveFortitude, value: -2, descriptor: ModifierDescriptor.Penalty)));
+      // Passive
+      Programs.Add(CreateProgram(
+        "ConstructCrafterPassive", Guids.PassiveProgramFeat, Guids.PassiveProgramActivatable,
+        Guids.PassiveProgramMarker, Guids.PassiveProgramBuff,
+        "PassiveProgram.Name", "PassiveProgram.Description",
+        FeatureRefs.Dodge.Reference.Get().Icon,
+        buff => buff
+          .AddContextStatBonus(StatType.AdditionalAttackBonus, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          .AddContextStatBonus(StatType.Initiative, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Dodge)
+          .AddContextStatBonus(StatType.SaveWill, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(StatType.SaveReflex, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)),
+        isPassive: true));
+
     private static ProgramDef CreateProgram(
       string featName,
       string featGuid,
@@ -160,7 +160,9 @@ namespace MissionWOTR.Archetypes
       System.Action<BuffConfigurator> configureConstructBuff,
       bool isChaos = false,
       bool isFlank = false,
-      bool isGuard = false)
+      bool isGuard = false,
+      bool isPassive = false,
+      bool isDistance = false)
     {
       // Crafter-side marker: shows which program is active.
       var marker = BuffConfigurator.New(featName + "Marker", markerGuid)
@@ -206,6 +208,8 @@ namespace MissionWOTR.Archetypes
         IsChaos = isChaos,
         IsFlank = isFlank,
         IsGuard = isGuard,
+        IsPassive = isPassive,
+        IsDistance = isDistance,
       };
     }
 

@@ -22,6 +22,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.Utility;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
@@ -42,9 +43,14 @@ namespace MissionWOTR.Archetypes
   ///   - CrafterCasterBrain: cast any granted construct ability (fire blast, ice ray,
   ///     mend, bolt spit), then fall back to weapon attacks
   ///   - CrafterRangedBrain: bolt spit first, then weapon attacks
-  /// Construct abilities are granted as facts at deploy; the brain can only cast what the
-  /// construct actually has. No custom considerations yet (defaults used) - behavior
-  /// tuning is the next iteration, per playtest feedback.
+  /// Construct abilities are granted as facts at deploy; the engine drops cast actions
+  /// for abilities the unit does not own, so brains can list every cast safely.
+  ///
+  /// Brains v2 adds program behaviors: Passive (close escort of the crafter, pacifist),
+  /// Guard (support casts, attacks, then escort), Distance (casts, ranged attacks, loose
+  /// escort). Follow actions home in on the crafter via a FactConsideration on the
+  /// active program's marker buff. The deploy action assigns the brain at runtime via
+  /// UnitBrain.SetBrain.
   ///
   /// Role variants: the deploy action picks a variant unit by active core:
   ///   HumanoidArcher (Arbalest - bow in inventory, attacks with equipped weapon),
@@ -68,6 +74,13 @@ namespace MissionWOTR.Archetypes
     internal static BlueprintUnit HumanoidCasterUnit;
     internal static BlueprintUnit GolemCasterUnit;
     internal static BlueprintUnit HoundRangedUnit;
+
+    // Brains: role (v1) and program-behavior (v2) handles for the deploy-time
+    // runtime brain assignment (UnitBrain.SetBrain).
+    internal static BlueprintBrain CasterBrain;
+    internal static BlueprintBrain PassiveBrain;
+    internal static BlueprintBrain GuardBrain;
+    internal static BlueprintBrain DistanceBrain;
 
     internal static void Configure()
     {
@@ -198,18 +211,42 @@ namespace MissionWOTR.Archetypes
 
     private static void ConfigureBrains()
     {
-      // Cast actions: one per construct ability; the AI can only use what the unit has.
+      // Cast actions: one per construct ability. The engine keeps a cast action out of
+      // a unit's available actions unless the unit actually owns the ability
+      // (BlueprintAiCastSpell.ShouldBeInActionsList), so a brain can safely list every
+      // cast. BaseScore 20 ranks casts above the stock attack action (whose default
+      // score wins otherwise); once per round prevents chain-casting in real time.
+      // Mend only targets wounded allies (full-health targets score 0).
+      var wounded = HealthConsiderationConfigurator.New(
+          "ConstructCrafterWoundedConsideration", Guids.CrafterWoundedConsideration)
+        .SetFullBorder(95)
+        .SetAboveFullScore(0f)
+        .SetFullScore(1f)
+        .SetDeadBorder(1)
+        .SetDeadScore(0f)
+        .SetBelowDeadScore(0f)
+        .Configure();
+
       var castFireBlast = AiCastSpellConfigurator.New("ConstructCrafterAiFireBlast", Guids.AiCastFireBlast)
         .SetAbility(FireBlast)
+        .SetBaseScore(20f)
+        .SetOncePerRound()
         .Configure();
       var castIceRay = AiCastSpellConfigurator.New("ConstructCrafterAiIceRay", Guids.AiCastIceRay)
         .SetAbility(IceRay)
+        .SetBaseScore(20f)
+        .SetOncePerRound()
         .Configure();
       var castMend = AiCastSpellConfigurator.New("ConstructCrafterAiMend", Guids.AiCastMend)
         .SetAbility(Mend)
+        .SetBaseScore(20f)
+        .SetOncePerRound()
+        .SetTargetConsiderations(wounded)
         .Configure();
       var castBoltSpit = AiCastSpellConfigurator.New("ConstructCrafterAiBoltSpit", Guids.AiCastBoltSpit)
         .SetAbility(BoltSpit)
+        .SetBaseScore(20f)
+        .SetOncePerRound()
         .Configure();
       // The game's BlueprintAiAttack is compiled internal, so a custom attack action
       // cannot be created from mod code. The stock attack action is instead lifted out
@@ -220,6 +257,7 @@ namespace MissionWOTR.Archetypes
         Main.Logger.Warn("Construct Crafter: no stock attack action found; brains will only cast.");
       }
 
+      // --- v1 role brains (baked defaults on the variant units) ---
       var casterActions = new List<Blueprint<BlueprintAiActionReference>>
         { castFireBlast, castIceRay, castMend, castBoltSpit };
       var rangedActions = new List<Blueprint<BlueprintAiActionReference>> { castBoltSpit };
@@ -228,14 +266,91 @@ namespace MissionWOTR.Archetypes
         casterActions.Add(attack);
         rangedActions.Add(attack);
       }
-
-      BrainConfigurator.New("ConstructCrafterCasterBrain", Guids.CrafterCasterBrain)
+      CasterBrain = BrainConfigurator.New("ConstructCrafterCasterBrain", Guids.CrafterCasterBrain)
         .SetActions(casterActions.ToArray())
         .Configure();
-
       BrainConfigurator.New("ConstructCrafterRangedBrain", Guids.CrafterRangedBrain)
         .SetActions(rangedActions.ToArray())
         .Configure();
+
+      // --- v2 program-behavior brains ---
+      // Follow-the-crafter: candidate targets are the friend group; only units
+      // carrying an active program marker buff score (that is the crafter - marker
+      // buffs sit on the crafter while the program toggle is on).
+      var followMaster = FactConsiderationConfigurator.New(
+          "ConstructCrafterFollowMasterConsideration", Guids.CrafterFollowMasterConsideration)
+        .SetFact(ProgramMarkersForFollow())
+        .SetHasFactScore(1f)
+        .SetNoFactScore(0f)
+        .Configure();
+
+      Blueprint<BlueprintAiActionReference> FollowAction(
+          string name, string guid, float approachFeet, float score)
+      {
+        return AiFollowConfigurator.New(name, guid)
+          .SetTargetType(TargetType.Friend)
+          .SetApproachRange(new Feet(approachFeet))
+          .SetBaseScore(score)
+          .SetTargetConsiderations(followMaster)
+          .Configure();
+      }
+
+      // Passive: escort only - stay glued to the crafter, never charge or cast.
+      // (The engine's run-away action flees toward the map exit and would desert,
+      // so passive is expressed as close escort instead.)
+      var followPassive = FollowAction(
+        "ConstructCrafterAiFollowPassive", Guids.AiFollowPassive, approachFeet: 5f, score: 25f);
+      // Guard: hold the crafter's company (10 ft) when nothing threatens.
+      var followGuard = FollowAction(
+        "ConstructCrafterAiFollowGuard", Guids.AiFollowGuard, approachFeet: 10f, score: 10f);
+      // Distance: shadow the crafter loosely (30 ft), fight from range.
+      var followDistance = FollowAction(
+        "ConstructCrafterAiFollowDistance", Guids.AiFollowDistance, approachFeet: 30f, score: 8f);
+
+      var passiveActions = new List<Blueprint<BlueprintAiActionReference>> { followPassive };
+      if (attack != null)
+      {
+        passiveActions.Add(attack);
+      }
+      PassiveBrain = BrainConfigurator.New("ConstructCrafterPassiveBrain", Guids.CrafterPassiveBrain)
+        .SetActions(passiveActions.ToArray())
+        .Configure();
+
+      // Guard: casts (support - e.g. Mend) > attacks > return to the crafter.
+      var guardActions = new List<Blueprint<BlueprintAiActionReference>>
+        { castFireBlast, castIceRay, castMend, castBoltSpit };
+      if (attack != null)
+      {
+        guardActions.Add(attack);
+      }
+      guardActions.Add(followGuard);
+      GuardBrain = BrainConfigurator.New("ConstructCrafterGuardBrain", Guids.CrafterGuardBrain)
+        .SetActions(guardActions.ToArray())
+        .Configure();
+
+      // Distance: casts > ranged attacks > loose escort at the crafter's side.
+      var distanceActions = new List<Blueprint<BlueprintAiActionReference>>
+        { castFireBlast, castIceRay, castMend, castBoltSpit };
+      if (attack != null)
+      {
+        distanceActions.Add(attack);
+      }
+      distanceActions.Add(followDistance);
+      DistanceBrain = BrainConfigurator.New("ConstructCrafterDistanceBrain", Guids.CrafterDistanceBrain)
+        .SetActions(distanceActions.ToArray())
+        .Configure();
+    }
+
+    /// <summary>
+    /// Marker buffs of the behavior programs (Passive, Guard, Distance) - the buffs that
+    /// sit on the crafter while those programs are toggled on.
+    /// </summary>
+    private static Blueprint<BlueprintUnitFactReference>[] ProgramMarkersForFollow()
+    {
+      return ConstructCrafterPrograms.Programs
+        .Where(p => p.IsPassive || p.IsGuard || p.IsDistance)
+        .Select(p => (Blueprint<BlueprintUnitFactReference>)p.Marker)
+        .ToArray();
     }
 
     private static void ConfigureVariantUnits()

@@ -104,14 +104,42 @@ metadata probe against the live game DLL): the game's `BlueprintAiAttack` is com
 **lift the stock attack AiAction** out of a base-game unit's brain and reuse it as the
 weapon-attack fallback; and `BlueprintUnit.m_Brain` is **private** (public
 `DefaultBrain` getter only), so variant units get their custom brain assigned via
-reflection. The deploy action now spawns **role-variant units** by core:
+reflection. A further engine reality (verified by reading the game's IL): a cast action
+is only added to a unit's available actions when the unit **owns** the ability
+(`BlueprintAiCastSpell.ShouldBeInActionsList`), so one brain can safely list every cast —
+unowned casts silently drop out. The deploy action now spawns **role-variant units** by core:
 Flaming humanoid → caster with **Fire Blast** (15-ft burst, 6d6 fire, Reflex half); Cold
 golem → caster with **Ice Ray** (4d6 cold + slow); Soft → casters with **Mend** (temp HP =
 alch level patch — context-heal actions are evaluator-based, so healing ships as temp HP
 for now); Arbalest → archer humanoid (composite longbow) / bolt-spitting hound & golem.
 Base identity is tracked with marker buffs, so any variant replaces any construct of the
-same base. Program-behavior brains (Passive retreat, Guard protect, Distance kite) are the
-next iteration once core brains are validated in play.
+same base.
+
+**Brains v2 (program behaviors):** the active program now picks the construct's brain at
+deploy time via the engine's public runtime swap (`UnitBrain.SetBrain` +
+`RestoreAvailableActions`). Three behavior brains, all built from stock action types:
+
+- **Passive** — `CrafterPassiveBrain`: close escort (5 ft) of the crafter; never charges
+  or casts. The engine's own run-away action flees toward the map exit (it would desert),
+  so "stay out of harm" is expressed as sticking to the crafter's side instead.
+- **Guard** — `CrafterGuardBrain`: casts (support, e.g. Mend) > weapon attacks > return to
+  the crafter (10 ft). A bodyguard: fights while threats exist, falls back to the
+  crafter's side when clear.
+- **Distance** — `CrafterDistanceBrain`: casts > ranged attacks > loose escort (30 ft).
+  Ranged constructs stop at weapon/ability range instead of charging.
+
+The follow actions target the **crafter specifically**: friends are the candidate group,
+and a `FactConsideration` scores only units carrying an active program marker buff (the
+marker buffs sit on the crafter while a program is toggled on). Also in this batch:
+cast actions now carry `BaseScore 20` (the default 1.0 lost to the stock attack action,
+so v1 casters mostly melee'd); casts are once-per-round; **Mend only targets wounded
+allies** (full-HP targets score 0 — previously it would spam the first healthy ally);
+the Soft hound now actually casts Mend (its baked brain only referenced Bolt Spit); and
+simultaneous program toggles now resolve in the documented priority order
+(Chaos > Distance > Guard > Flank > Aggressive > Passive — the code previously resolved
+in reverse). Program behaviors apply at deploy; re-deploy to change a live construct's
+behavior. Aggressive/Flank/Chaos keep the stock charge AI (their identity is the stat
+package).
 
 **Programs** (toggle on the crafter; applied to constructs at deploy; stat changes scale
 +1 per 2 AL, min 1):
