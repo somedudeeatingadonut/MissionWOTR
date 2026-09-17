@@ -1,24 +1,519 @@
 === PROBE harvest report ===
 --- _gamelibs contents ---
 _gamelibs: _gamelibs\0Harmony.dll size=2219008
+_gamelibs: _gamelibs\Managed.zip size=34232435
 _gamelibs: _gamelibs\UnityModManager.dll size=204800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\0Harmony.dll size=769536
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Accessibility.dll size=12288
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Assembly-CSharp-firstpass.dll size=3314176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Assembly-CSharp.dll size=11891712
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\AstarPathfindingProject.dll size=528384
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Async.dll size=10240
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Cheats.dll size=59904
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Console.dll size=22528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Overlays.dll size=16896
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Reflection.dll size=10240
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DemiLib.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DotNetZip.dll size=457728
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween.dll size=139264
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween43.dll size=9728
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween46.dll size=20480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween50.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTweenPro.dll size=16896
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Builders.dll size=195584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Core.dll size=99840
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Common.dll size=29696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Flow.dll size=100864
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Flow.Implementations.dll size=71680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Grammar.dll size=18432
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Graph.dll size=27648
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Meshing.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Navigation2D.dll size=19456
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.SxEngine.dll size=24064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.UI.dll size=87040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.VisibilityGraph.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.ThirdParty.dll size=181248
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DXTCompressor.dll size=20480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\FFmpegOut.dll size=18944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\GalaxyCSharp.dll size=397312
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.CJK.dll size=680448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.dll size=31744
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.MidEast.dll size=29184
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.Other.dll size=32256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.Rare.dll size=171008
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.West.dll size=65536
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Kingmaker.GameInfo.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip size=12381026
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.Data.Sqlite.dll size=166912
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.Posix.dll size=212480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.Security.dll size=309248
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.WebBrowser.dll size=166912
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\mscorlib.dll size=4073472
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\netstandard.dll size=84992
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Newtonsoft.Json.dll size=404480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Novell.Directory.Ldap.dll size=247296
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Core.dll size=270848
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Hardware.dll size=7680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.UI.dll size=204288
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.UniRx.dll size=24064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Validation.dll size=28160
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Visual.dll size=424448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.SharedTypes.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Pathfinding.ClipperLib.dll size=58880
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Pathfinding.Ionic.Zip.Reduced.dll size=240640
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Pathfinding.Poly2Tri.dll size=36352
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewired_Core.dll size=1946624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewired_Windows_Functions.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewired_Windows.dll size=891904
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewited.Internal.dll size=84480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\SonyNP.dll size=242176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\SonyPS4CommonDialog.dll size=18944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\SonyPS4SaveData.dll size=70656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.ComponentModel.Composition.dll size=256512
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.ComponentModel.DataAnnotations.dll size=84480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Configuration.dll size=124928
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Core.dll size=1046016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Data.dll size=2081280
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Design.dll size=282112
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Diagnostics.StackTrace.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.DirectoryServices.dll size=93184
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.dll size=2750976
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Drawing.Design.dll size=29696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Drawing.dll size=481280
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.EnterpriseServices.dll size=44544
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Globalization.Extensions.dll size=6144
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.IO.Compression.dll size=98816
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.IO.Compression.FileSystem.dll size=23040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Net.Http.dll size=115200
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Numerics.dll size=114176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.dll size=12800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.Serialization.dll size=928256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.Serialization.Formatters.Soap.dll size=38400
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.Serialization.Xml.dll size=7168
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Security.dll size=184320
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.ServiceModel.Internals.dll size=214528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Transactions.dll size=34304
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Web.ApplicationServices.dll size=33792
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Web.dll size=3154944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Web.Services.dll size=727040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Windows.Forms.dll size=2879488
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Xml.dll size=3137536
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Xml.Linq.dll size=119296
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Xml.XPath.XDocument.dll size=5120
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UniRx.dll size=423936
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Analytics.DataPrivacy.dll size=7680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Analytics.StandardEvents.dll size=32256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Analytics.Tracker.dll size=18944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Burst.dll size=309248
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Burst.Unsafe.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Collections.dll size=367104
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Collections.LowLevel.ILSupport.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Formats.Fbx.Runtime.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Jobs.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Mathematics.dll size=723968
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.PlayableGraphVisualizer.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.dll size=356864
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.KdTree.dll size=18432
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.Poly2Tri.dll size=34816
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.Stl.dll size=12800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Recorder.Base.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Recorder.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.RenderPipelines.Core.Runtime.dll size=218624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ScriptableBuildPipeline.dll size=7168
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Analytics.dll size=72192
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Analytics.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Configuration.dll size=10752
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Device.dll size=5120
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.dll size=10240
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Environments.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Environments.Internal.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Internal.dll size=50176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Networking.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Registration.dll size=14848
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Scheduler.dll size=8192
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Telemetry.dll size=26624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Threading.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.TerrainTools.dll size=4608
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.TextMeshPro.dll size=370688
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Timeline.dll size=111616
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.VisualEffectGraph.Runtime.dll size=45056
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AccessibilityModule.dll size=23064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AIModule.dll size=55832
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AndroidJNIModule.dll size=78872
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AnimationModule.dll size=161304
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ARModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AssetBundleModule.dll size=33304
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AudioModule.dll size=70168
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ClothModule.dll size=25624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ClusterInputModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ClusterRendererModule.dll size=22040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.CoreModule.dll size=1167384
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.CrashReportingModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.DirectorModule.dll size=24600
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.dll size=103448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.DSPGraphModule.dll size=28696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.GameCenterModule.dll size=38424
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.GIModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.GridModule.dll size=24600
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.HotReloadModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ImageConversionModule.dll size=24088
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.IMGUIModule.dll size=171544
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.InputLegacyModule.dll size=36376
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.InputModule.dll size=23064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.JSONSerializeModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.LocalizationModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ParticleSystemModule.dll size=153624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.PerformanceReportingModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.Physics2DModule.dll size=117784
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.PhysicsModule.dll size=107544
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ProfilerModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll size=19992
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ScreenCaptureModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SharedInternalsModule.dll size=31768
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SpriteMaskModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SpriteShapeModule.dll size=25112
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.StreamingModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SubstanceModule.dll size=24600
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SubsystemsModule.dll size=34328
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TerrainModule.dll size=92696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TerrainPhysicsModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TextCoreModule.dll size=197656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TextRenderingModule.dll size=38424
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TilemapModule.dll size=36888
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TLSModule.dll size=26136
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UI.dll size=233472
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UIElementsModule.dll size=810008
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UIElementsNativeModule.dll size=57880
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UIModule.dll size=34328
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UmbraModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UNETModule.dll size=89624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityAnalyticsCommonModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityAnalyticsModule.dll size=44056
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityConnectModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityCurlModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityTestProtocolModule.dll size=19992
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll size=22552
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestAudioModule.dll size=22040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestModule.dll size=54808
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestTextureModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestWWWModule.dll size=31256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VehiclesModule.dll size=23576
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VFXModule.dll size=50712
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VideoModule.dll size=39960
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VirtualTexturingModule.dll size=34328
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VRModule.dll size=26136
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.WindModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.XRModule.dll size=66584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Utility.ModsInfo.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Utility.Reporting.Base.dll size=8192
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass.dll size=3314176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp.dll size=11891712
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json.dll size=404480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core.dll size=270848
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware.dll size=7680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI.dll size=204288
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx.dll size=24064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation.dll size=28160
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual.dll size=424448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule.dll size=1167384
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.dll size=103448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp\.text size=11889216
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp\.rsrc\version.txt size=1290
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass\.text size=3311420
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass\.rsrc\version.txt size=1876
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json\.text size=401916
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json\.rsrc\version.txt size=1844
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core\.text size=268412
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core\.rsrc\version.txt size=1306
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware\.text size=5456
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware\.rsrc\version.txt size=1322
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI\.text size=201756
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI\.rsrc\version.txt size=1298
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx\.text size=21576
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx\.rsrc\version.txt size=1310
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation\.text size=25728
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation\.rsrc\version.txt size=1330
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual\.text size=422152
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual\.rsrc\version.txt size=1314
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes\.text size=4468
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes\.rsrc\version.txt size=1302
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\.text size=90896
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\CERTIFICATE size=10264
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\.rsrc\version.txt size=1274
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\.text size=1154724
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\CERTIFICATE size=10264
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\.rsrc\version.txt size=1318
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\0Harmony.dll size=2219008
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\Config.xml size=769
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\dnlib.dll size=1136128
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\Log.txt size=1478098
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\Params.xml size=8692
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\UnityModManager.dll size=204800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\UnityModManager.xml size=46099
 --- Libs contents ---
+Libs: Assembly-CSharp-firstpass.dll size=3314176
+Libs: Assembly-CSharp.dll size=11891712
+Libs: Newtonsoft.Json.dll size=404480
+Libs: Owlcat.Runtime.Core.dll size=270848
+Libs: Owlcat.Runtime.UI.dll size=204288
+Libs: Owlcat.Runtime.Validation.dll size=28160
+Libs: Owlcat.Runtime.Visual.dll size=424448
 Libs: README.md size=1140
+Libs: UnityEngine.CoreModule.dll size=1167384
+Libs: UnityEngine.dll size=103448
 Libs: 0Harmony.dll size=2219008
 Libs: UnityModManager.dll size=204800
 --- required DLL presence (Libs/) ---
-managed Assembly-CSharp.dll: False
-managed Assembly-CSharp-firstpass.dll: False
-managed Newtonsoft.Json.dll: False
-managed Owlcat.Runtime.Core.dll: False
-managed Owlcat.Runtime.UI.dll: False
-managed Owlcat.Runtime.Validation.dll: False
-managed Owlcat.Runtime.Visual.dll: False
-managed UnityEngine.dll: False
-managed UnityEngine.CoreModule.dll: False
+managed Assembly-CSharp.dll: True
+managed Assembly-CSharp-firstpass.dll: True
+managed Newtonsoft.Json.dll: True
+managed Owlcat.Runtime.Core.dll: True
+managed Owlcat.Runtime.UI.dll: True
+managed Owlcat.Runtime.Validation.dll: True
+managed Owlcat.Runtime.Visual.dll: True
+managed UnityEngine.dll: True
+managed UnityEngine.CoreModule.dll: True
 umm UnityModManager.dll: True
 umm 0Harmony.dll: True
 --- required DLL presence (src/MissionWOTR/lib/) ---
 umm UnityModManager.dll: True
 umm 0Harmony.dll: True
-Assembly-CSharp.dll MISSING - no metadata dump possible.
+=== PROBE fingerprint ===
+Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
+SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
+=== TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
+  FIELD: m_Type [private]
+  FIELD: LocalizedName [protorint]
+  FIELD: Gender [protorint]
+  FIELD: Size [protorint]
+  FIELD: IsLeftHanded [protorint]
+  FIELD: Color [protorint]
+  FIELD: m_Race [private]
+  FIELD: Alignment [protorint]
+  FIELD: m_Portrait [private]
+  FIELD: Prefab [protorint]
+  FIELD: m_CustomizationPreset [private]
+  FIELD: Visual [protorint]
+  FIELD: m_Faction [private]
+  FIELD: FactionOverrides [protorint]
+  FIELD: m_StartingInventory [private]
+  FIELD: m_Brain [private]
+  FIELD: AlternativeBrains [protorint]
+  FIELD: Body [protorint]
+  FIELD: Strength [protorint]
+  FIELD: Dexterity [protorint]
+  FIELD: Constitution [protorint]
+  FIELD: Intelligence [protorint]
+  FIELD: Wisdom [protorint]
+  FIELD: Charisma [protorint]
+  FIELD: Speed [protorint]
+  FIELD: BaseAttackBonus [protorint]
+  FIELD: Skills [protorint]
+  FIELD: MaxHP [protorint]
+  FIELD: m_AdditionalTemplates [private]
+  FIELD: m_AddFacts [private]
+  FIELD: IsCheater [protorint]
+  FIELD: IsFake [protorint]
+  FIELD: m_PS4ChunkId [private]
+  FIELD: m_HasAssignedChunkId [private]
+  FIELD: OnOpenUnitStats [private]
+  FIELD: m_CachedTags [private]
+  PROP: Type
+  PROP: CharacterName
+  PROP: Race
+  PROP: PortraitSafe
+  PROP: CustomizationPreset
+  PROP: Faction
+  PROP: StartingInventory
+  PROP: DefaultBrain
+  PROP: AdditionalTemplates
+  PROP: AddFacts
+  PROP: PS4ChunkId
+  PROP: HasAssignedChunkId
+  PROP: CR
+  PROP: Tags
+  PROP: AttackFactions
+  PROP: IsCompanion
+  PROP: ShowDisplayName
+  PROP: ShowDescription
+  METHOD: get_Type
+  METHOD: get_CharacterName
+  METHOD: get_Race
+  METHOD: get_PortraitSafe
+  METHOD: set_PortraitSafe
+  METHOD: get_CustomizationPreset
+  METHOD: set_CustomizationPreset
+  METHOD: get_Faction
+  METHOD: set_Faction
+  METHOD: get_StartingInventory
+  METHOD: get_DefaultBrain
+  METHOD: get_AdditionalTemplates
+  METHOD: get_AddFacts
+  METHOD: get_PS4ChunkId
+  METHOD: set_PS4ChunkId
+  METHOD: get_HasAssignedChunkId
+  METHOD: add_OnOpenUnitStats
+  METHOD: remove_OnOpenUnitStats
+  METHOD: UnitAnalyzer
+  METHOD: ValidateBrainsButton
+  METHOD: ValidateBrains
+  METHOD: get_CR
+  METHOD: get_Tags
+  METHOD: get_AttackFactions
+  METHOD: get_IsCompanion
+  METHOD: get_ShowDisplayName
+  METHOD: get_ShowDescription
+  METHOD: GetFactType
+  METHOD: CheckEqualsWithPrototype
+  METHOD: ApplyValidation
+  METHOD: ValidateBrainActions
+  METHOD: CheckWeaponInAdditionalLimbAnimationExists
+  METHOD: CheckWeaponAnimationExists
+  METHOD: PreloadResources
+  METHOD: .ctor
+  METHOD: <PreloadResources>b__89_0
+SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
+AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: AdditionalBehaviour [protorint]
+  FIELD: MinDifficulty [protorint]
+  FIELD: InvertDifficultyRequirements [protorint]
+  FIELD: OncePerRound [protorint]
+  FIELD: CooldownRounds [protorint]
+  FIELD: CooldownDice [protorint]
+  FIELD: StartCooldownRounds [protorint]
+  FIELD: CombatCount [protorint]
+  FIELD: UseWhenAIDisabled [protorint]
+  FIELD: UseOnLimitedAI [protorint]
+  FIELD: BaseScore [protorint]
+  FIELD: m_ActorConsiderations [protected]
+  FIELD: m_TargetConsiderations [protected]
+  FIELD: Actions [protorint]
+  PROP: ActorConsiderations
+  PROP: TargetConsiderations
+  PROP: PreventMovementFinish
+  PROP: UseCommand
+  METHOD: get_ActorConsiderations
+  METHOD: get_TargetConsiderations
+  METHOD: get_PreventMovementFinish
+  METHOD: get_UseCommand
+  METHOD: IsActorValid
+  METHOD: IsActorValidReasonDebug
+  METHOD: IsTargetValid
+  METHOD: IsTargetValidReasonDebug
+  METHOD: CreateCommand
+  METHOD: GetTargetType
+  METHOD: GetDeadTargetType
+  METHOD: ApplyAction
+  METHOD: IsAvailable
+  METHOD: IsAvailableReasonDebug
+  METHOD: IsExpended
+  METHOD: GetRange
+  METHOD: GetRadius
+  METHOD: InitContext
+  METHOD: CanKeepCommand
+  METHOD: CalculateDestinationPosition
+  METHOD: GetAbilityParams
+  METHOD: .ctor
+AI-TYPE: TargetType vis=public(1) base=System.Enum
+AI-TYPE: BlueprintAiAttack vis=internal(0) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiAttack vis=internal base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
+  METHOD: CreateCommand
+  METHOD: GetTargetType
+  METHOD: CanKeepCommand
+  METHOD: GetRange
+  METHOD: GetRadius
+  METHOD: .ctor
+AI-TYPE: BlueprintAiCastSpell vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiCastSpell vis=public base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
+  FIELD: LocatorsForSelect [private]
+  FIELD: m_MinCasterSqrDistanceToLocator [private]
+  FIELD: m_MinPartySqrDistanceToLocator [private]
+  FIELD: m_MaxPartySqrDistanceToLocator [private]
+  FIELD: m_AffectedByImpatience [private]
+  FIELD: m_Ability [private]
+  FIELD: m_ForceTargetSelf [private]
+  FIELD: m_ForceTargetEnemy [private]
+  FIELD: m_TargetPointUnderTarget [private]
+  FIELD: m_DeadTargetType [private]
+  FIELD: m_RandomVariant [private]
+  FIELD: m_Variant [private]
+  FIELD: m_VariantsSet [private]
+  FIELD: Locators [protorint]
+  FIELD: CheckCasterDistance [protorint]
+  FIELD: MinCasterDistanceToLocator [protorint]
+  FIELD: CheckPartyDistance [protorint]
+  FIELD: MinPartyDistanceToLocator [protorint]
+  FIELD: MaxPartyDistanceToLocator [protorint]
+  PROP: Ability
+  PROP: Variant
+  PROP: ForceTargetEnemy
+  PROP: ForceTargetSelf
+  PROP: AffectedByImpatience
+  PROP: TargetPointUnderTarget
+  METHOD: get_Ability
+  METHOD: get_Variant
+  METHOD: get_ForceTargetEnemy
+  METHOD: get_ForceTargetSelf
+  METHOD: get_AffectedByImpatience
+  METHOD: get_TargetPointUnderTarget
+  METHOD: OnEnable
+  METHOD: InitContext
+  METHOD: GetAbilityParams
+  METHOD: GetAbilityForUse
+  METHOD: CreateAbilityData
+  METHOD: GetSpellbookForUse
+  METHOD: GetSpellbookForUseFailReasonDebug
+  METHOD: ShouldBeInActionsList
+  METHOD: ShouldNotBeInActionsListReasonDebug
+  METHOD: IsExpended
+  METHOD: IsAvailable
+  METHOD: IsExpended
+  METHOD: CreateCommand
+  METHOD: TrySelectTargetFromLocators
+  METHOD: GetTargetType
+  METHOD: GetDeadTargetType
+  METHOD: GetRange
+  METHOD: GetRadius
+  METHOD: IsTargetValid
+  METHOD: IsTargetValidReasonDebug
+  METHOD: IsTargetValid
+  METHOD: IsTargetValidReasonDebug
+  METHOD: ApplyValidation
+  METHOD: IsPartyInRangeOfLocator
+  METHOD: .ctor
+  METHOD: .cctor
+  METHOD: <GetSpellbookForUse>b__38_0
+AI-TYPE: BlueprintAiFollow vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRandomMove vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRoam vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRunAway vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiSwitchWeapon vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: SwitchMode vis=public(1) base=System.Enum
+AI-TYPE: BlueprintAiTouch vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintBrain vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+=== TYPE Kingmaker.AI.Blueprints.BlueprintBrain vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: m_Actions [private]
+  PROP: UseGameActions
+  PROP: Actions
+  METHOD: get_UseGameActions
+  METHOD: get_Actions
+  METHOD: .ctor
+AI-TYPE: CustomAiConsiderationsRoot vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+AI-TYPE: DeadTargetType vis=public(1) base=System.Enum
+=== PROBE done ===
