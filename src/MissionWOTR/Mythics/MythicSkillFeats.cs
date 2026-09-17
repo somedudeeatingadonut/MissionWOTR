@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils.Types;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.EntitySystem.Stats;
@@ -23,7 +24,7 @@ namespace MissionWOTR.Mythics
     internal static void Configure()
     {
       FeatureConfigurator.New(FeatName, Guids.AcrobaticMythicFeat, FeatureGroup.MythicFeat)
-        .SetLocalizedName(DisplayName)
+        .SetDisplayName(DisplayName)
         .SetLocalizedDescription(Description)
         .SetIcon(FeatureRefs.Dodge.Reference.Get().Icon)
         .SetIsClassFeature()
@@ -47,7 +48,7 @@ namespace MissionWOTR.Mythics
     internal static void Configure()
     {
       FeatureConfigurator.New(FeatName, Guids.PersuasiveMythicFeat, FeatureGroup.MythicFeat)
-        .SetLocalizedName(DisplayName)
+        .SetDisplayName(DisplayName)
         .SetLocalizedDescription(Description)
         .SetIcon(FeatureRefs.Persuasive.Reference.Get().Icon)
         .SetIsClassFeature()
@@ -72,7 +73,7 @@ namespace MissionWOTR.Mythics
     internal static void Configure()
     {
       FeatureConfigurator.New(FeatName, Guids.MagicalAptitudeMythicFeat, FeatureGroup.MythicFeat)
-        .SetLocalizedName(DisplayName)
+        .SetDisplayName(DisplayName)
         .SetLocalizedDescription(Description)
         .SetIcon(FeatureRefs.SkillFocusKnowledgeArcana.Reference.Get().Icon)
         .SetIsClassFeature()

@@ -2,6 +2,8 @@ using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils.Types;
+using MissionWOTR.Feats;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
@@ -46,7 +48,7 @@ namespace MissionWOTR.Mythics
         .Configure();
 
       FeatureConfigurator.New(FeatName, Guids.SlayersVigorAbility)
-        .SetLocalizedName(DisplayName)
+        .SetDisplayName(DisplayName)
         .SetLocalizedDescription(Description)
         .SetIcon(FeatureRefs.Endurance.Reference.Get().Icon)
         .SetIsClassFeature()

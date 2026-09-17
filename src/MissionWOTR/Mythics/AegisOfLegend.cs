@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils.Types;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -21,7 +22,7 @@ namespace MissionWOTR.Mythics
     internal static void Configure()
     {
       FeatureConfigurator.New(FeatName, Guids.AegisOfLegendAbility)
-        .SetLocalizedName(DisplayName)
+        .SetDisplayName(DisplayName)
         .SetLocalizedDescription(Description)
         .SetIcon(FeatureRefs.Dodge.Reference.Get().Icon)
         .SetIsClassFeature()

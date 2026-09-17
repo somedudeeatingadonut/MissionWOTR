@@ -2,6 +2,8 @@ using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils.Types;
+using MissionWOTR.Feats;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -43,7 +45,7 @@ namespace MissionWOTR.Mythics
         .Configure();
 
       FeatureConfigurator.New(FeatName, Guids.AscendantEdgeAbility)
-        .SetLocalizedName(DisplayName)
+        .SetDisplayName(DisplayName)
         .SetLocalizedDescription(Description)
         .SetIcon(FeatureRefs.PowerAttackFeature.Reference.Get().Icon)
         .SetIsClassFeature()
