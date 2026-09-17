@@ -49,6 +49,7 @@ namespace MissionWOTR.Archetypes
       public BlueprintBuff ConstructBuff;
       public bool IsChaos;
       public bool IsFlank;
+      public bool IsGuard;
     }
 
     // Priority when several toggles are active at once.
@@ -113,7 +114,9 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Dodge)
           .AddContextStatBonus(StatType.AttackOfOpportunityCount, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
-          .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)));
+          .AddContextStatBonus(StatType.AdditionalDamage, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          .AddDamageResistancePhysical(value: 2)),
+        isGuard: true));
 
       // Distance
       Programs.Add(CreateProgram(
@@ -156,7 +159,8 @@ namespace MissionWOTR.Archetypes
       UnityEngine.Sprite icon,
       System.Action<BuffConfigurator> configureConstructBuff,
       bool isChaos = false,
-      bool isFlank = false)
+      bool isFlank = false,
+      bool isGuard = false)
     {
       // Crafter-side marker: shows which program is active.
       var marker = BuffConfigurator.New(featName + "Marker", markerGuid)
@@ -201,6 +205,7 @@ namespace MissionWOTR.Archetypes
         ConstructBuff = constructBuff,
         IsChaos = isChaos,
         IsFlank = isFlank,
+        IsGuard = isGuard,
       };
     }
 

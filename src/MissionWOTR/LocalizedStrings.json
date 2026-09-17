@@ -786,5 +786,135 @@
     "Key": "ChaosMarker.Description",
     "ProcessTemplates": false,
     "enGB": "This construct runs on chaos logic. While it lives, its crafter cannot deploy another construct of the same base."
+  },
+  {
+    "Key": "OverdriveCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Overdrive Core"
+  },
+  {
+    "Key": "OverdriveCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "Redline the construct. While this core is active, deployed constructs gain a bonus on attack rolls and damage equal to half your alchemist level and +10 foot speed, but take 2 damage each round and cannot be healed. The Overdrive core cannot be combined with the Chaos program."
+  },
+  {
+    "Key": "HardenedCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hardened Core"
+  },
+  {
+    "Key": "HardenedCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "Fortify the chassis. While this core is active, deployed constructs gain a dodge bonus to AC and a bonus on all saving throws equal to half your alchemist level, and damage reduction 2, but their damage is reduced by the same amount."
+  },
+  {
+    "Key": "FlamingCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Flaming Core"
+  },
+  {
+    "Key": "FlamingCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "Bind an elemental fire. Clockwork Hound: +10 foot speed, +damage (half alchemist level), +saves (half alchemist level), sneak attack, but -AC and it burns for 1 damage each round. Humanoid Construct: attacks deal +2d6 fire damage and set enemies burning. Clay Golem: wreathed in flame that scorches nearby enemies and ignites those it strikes, but it has no attacks of opportunity (the Guard program restores them) and burns for 2 damage each round."
+  },
+  {
+    "Key": "ColdCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cold Core"
+  },
+  {
+    "Key": "ColdCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "Bind an elemental rime. Clockwork Hound: hits knock enemies prone and slow them; +saves (half alchemist level), -10 foot speed. Humanoid Construct: +20 foot speed and +damage (half alchemist level) - it charges like a skater on black ice. Clay Golem: attacks deal +1d6 cold damage and slow enemies."
+  },
+  {
+    "Key": "BloodyCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloody Core"
+  },
+  {
+    "Key": "BloodyCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "A sanguine engine. While this core is active, deployed constructs make enemies bleed and shake on every hit, and the construct mends itself with fast healing 2."
+  },
+  {
+    "Key": "SoftCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Soft Core"
+  },
+  {
+    "Key": "SoftCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "A yielding, sponge-like chassis. While this core is active, deployed constructs gain a dodge bonus to AC and a bonus on all saves equal to half your alchemist level, and fast healing 1, at the cost of reduced damage. It keeps enemies busy while your party works."
+  },
+  {
+    "Key": "InfernalCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Infernal Core"
+  },
+  {
+    "Key": "InfernalCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "A sliver of Hell. While this core is active, deployed constructs deal +2d6 fire damage, shake enemies they strike, and gain +10 foot speed and initiative (half alchemist level)."
+  },
+  {
+    "Key": "LightlessCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lightless Core"
+  },
+  {
+    "Key": "LightlessCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "A heart of pure shadow. Clockwork Hound and Humanoid Construct: sneak attack (1 die per 3 alchemist levels) plus attack and dodge bonuses (half alchemist level). Clay Golem: strikes shake and frighten enemies, and it gains will save bonuses."
+  },
+  {
+    "Key": "BoomingCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Booming Core"
+  },
+  {
+    "Key": "BoomingCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "An unstable resonator. While this core is active, deployed constructs deal greatly increased damage and radiate damaging shockwaves, but suffer reduced AC and -2 on all saving throws. Handle with distance."
+  },
+  {
+    "Key": "QuickCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Quick Core"
+  },
+  {
+    "Key": "QuickCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "Lightweight servos everywhere. While this core is active, deployed constructs gain an extra attack each round (as haste), +10 foot speed, and initiative bonuses (half alchemist level), at the cost of some damage."
+  },
+  {
+    "Key": "GalvanizedCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Galvanized Core"
+  },
+  {
+    "Key": "GalvanizedCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "A storm in a bottle. While this core is active, deployed constructs deal +1d6 electricity damage on hit and gain bonuses to initiative and Reflex saves (half your alchemist level) and +10 foot speed."
+  },
+  {
+    "Key": "MagnetizedCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Magnetized Core"
+  },
+  {
+    "Key": "MagnetizedCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "A living lodestone. While this core is active, deployed constructs gain bonuses to combat maneuvers and their defense against them (half your alchemist level), and enemies they strike are slowed as metal drags at their limbs."
+  },
+  {
+    "Key": "CoreNoAoO.Name",
+    "ProcessTemplates": false,
+    "enGB": "No Attacks of Opportunity"
+  },
+  {
+    "Key": "CoreNoAoO.Description",
+    "ProcessTemplates": false,
+    "enGB": "This construct's chassis cannot make attacks of opportunity."
   }
 ]

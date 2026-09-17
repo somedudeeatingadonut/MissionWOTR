@@ -67,6 +67,33 @@ the construct lasts until destroyed or until the same base is deployed again.
 | Dampened Synthesis | 2–18 (one step per 2 levels) | Extract caster level reduced by 1 per step (≈ half level at cap) — the "not many spellcasting levels" balance lever |
 | New program pick | 4/8/12/16/20 | Program selection: Passive, Aggressive, Flank, Guard, Distance, Chaos |
 
+**Cores** (toggle on the crafter; applied at deploy; one new core pick at alchemist
+levels 3/8/13/19 — 12 cores, 4 picks, purposefully limited):
+
+| Core | Effect (AL/2 = +1 per 2 alchemist levels, min 1) |
+|---|---|
+| Overdrive | +AL/2 attack & damage, +10 speed, 2 dmg/round self-burn, cannot be healed; blocked with Chaos |
+| Hardened | +AL/2 dodge AC, +AL/2 saves, DR 2/−, −AL/2 damage |
+| Flaming (per-base) | Hound: +speed/+dmg/+saves/SA, −AC, 1 dmg/round · Humanoid: +2d6 fire on hit, burning on hit · Golem: fire aura + burning on hit, no AoOs (Guard restores them), 2 dmg/round |
+| Cold (per-base) | Hound: prone + slow on hit, +saves, −speed · Humanoid: +20 speed, +dmg (ice-charge) · Golem: +1d6 cold on hit, slow on hit |
+| Bloody | Bleed + shaken on hit, fast healing 2 |
+| Soft | +AL/2 AC/saves, fast healing 1, −AL/2 damage (sponge/decoy) |
+| Infernal | +2d6 fire on hit, shaken on hit, +10 speed, +init |
+| Lightless (per-base) | Hound/Humanoid: SA 1/3 AL + attack/AC · Golem: shaken + frightened on hit, +Will |
+| Booming | +AL damage, fire aura, −AL/2 AC, −2 saves (glass cannon) |
+| Quick | Extra attack (haste-style), +10 speed, +init, −AL/2 damage |
+| Galvanized *(original)* | +1d6 electricity on hit, +init/+Reflex, +10 speed |
+| Magnetized *(original)* | +AL/2 CMB & CMD, slow on hit |
+
+Core adaptations (v1): on-hit riders and self-burn use fixed values (not AL-scaled) —
+`AdditionalDamageOnHit` takes static dice and the DoT is a flat component; casting-flavored
+cores (fire mage, ice rays, necromancy) are delivered as on-hit riders + auras because
+constructs can't cast without custom brains (next iteration); Infernal's teleport-attacks
+are approximated with speed/init until brain support; Cold humanoid's charge immunity to
+AoOs has no native hook (documented); the Flaming-golem/Guard interaction restores AoOs but
+does not yet halve the aura damage; Soft's ally-support auras are approximated by a
+tanky self-healing chassis. Auras use the stock `FireDamageAreaEffect`.
+
 **Programs** (toggle on the crafter; applied to constructs at deploy; stat changes scale
 +1 per 2 AL, min 1):
 
@@ -75,7 +102,7 @@ the construct lasts until destroyed or until the same base is deployed again.
 | Passive | −attack, −initiative, +dodge AC, +all saves |
 | Aggressive | +attack, +initiative, −AC, flat −2 saves |
 | Flank | Sneak attack 1d6 per 2 AL (applies to attack rolls incl. rays — works with spells), −BAB |
-| Guard | +dodge AC, +AoOs, −damage (×2 the rate) |
+| Guard | +dodge AC, +AoOs, DR 2/−, −damage (×2 the rate) |
 | Distance | +BAB, −AC, flat −2 attack, flat −2 saves |
 | Chaos | +attack, +AC, +initiative, +all saves; same-base redeploy blocked while the chaos construct lives |
 | Deploy Humanoid Construct | 7 | Fighter with (alchemist level − 2) fake fighter levels, simple equipment chassis |

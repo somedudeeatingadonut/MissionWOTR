@@ -137,6 +137,63 @@ namespace MissionWOTR
     internal const string DampenedSynthesis8 = "19779A68-E464-4C0A-AF1F-EDE9DB41C518";
     internal const string DampenedSynthesis9 = "9E198CF6-D208-490B-8382-2966A1B9594C";
 
+    // ----- Construct Crafter: cores -----
+    internal const string OverdriveCoreFeat = "FD114707-9094-485A-A536-9735E00405EB";
+    internal const string OverdriveCoreToggle = "1A110CFE-F2BB-4C37-8099-483772F7CBA0";
+    internal const string OverdriveCoreMarker = "51E1764F-43BB-4975-AAF3-0C0D430B4E9E";
+    internal const string OverdriveCoreBuff = "130D3DD0-334C-4E79-8D7A-242A0FBA9918";
+    internal const string HardenedCoreFeat = "B4E2DEEB-8294-4D5E-B48C-6E7C5B2DC608";
+    internal const string HardenedCoreToggle = "7AADC785-7185-4179-B2FB-E7F03B0A0BE5";
+    internal const string HardenedCoreMarker = "D88F2F87-8934-4385-983E-D9943C8AAB33";
+    internal const string HardenedCoreBuff = "ECDAB976-CBA1-4417-93E7-B9622255CDA8";
+    internal const string FlamingCoreFeat = "D4B95D68-23AE-4D56-8FCA-AFA4A9646F01";
+    internal const string FlamingCoreToggle = "2F368881-5AA0-4339-8840-A2C3AECA7BD5";
+    internal const string FlamingCoreMarker = "758CB736-15B3-4A5A-B23C-C12C7AF8D10B";
+    internal const string FlamingHoundBuff = "2DECB76A-7670-400C-9EC5-5713BE3C239A";
+    internal const string FlamingHumanoidBuff = "5324E48E-4D91-4CE5-83E3-649852428AFC";
+    internal const string FlamingGolemBuff = "8BE652D4-4019-45D2-A40E-0CBEF729363D";
+    internal const string ColdCoreFeat = "EE7933D4-EB84-4F52-88AE-2C7AFEF07F5E";
+    internal const string ColdCoreToggle = "4A88627A-9A6C-4B5F-B454-1C690B7D44AB";
+    internal const string ColdCoreMarker = "CE9929F3-9631-419F-8E77-DB761C99A198";
+    internal const string ColdHoundBuff = "021B2BF3-9559-4F85-B72E-9B69F344DA29";
+    internal const string ColdHumanoidBuff = "07225CCA-180B-4D53-81A7-4BB12B2BA0F4";
+    internal const string ColdGolemBuff = "72FC62CB-FE8E-4E1F-9884-A11460C31C78";
+    internal const string BloodyCoreFeat = "F0341C4C-EA52-4871-B25F-88AAF61515DF";
+    internal const string BloodyCoreToggle = "B4B8E6E7-00FF-47F0-B60A-E7C4FB2E4CB9";
+    internal const string BloodyCoreMarker = "436BD3F0-2A65-4226-A658-FAA41DC9E1FA";
+    internal const string BloodyCoreBuff = "E0E30544-0EB2-4043-9FAC-12B346BD1AD2";
+    internal const string SoftCoreFeat = "B0170578-B098-4549-87FB-53DA03D60AF6";
+    internal const string SoftCoreToggle = "C5518AC4-D631-4F39-B0AC-5081E4A34C63";
+    internal const string SoftCoreMarker = "0BF580DA-1FD5-4645-9127-D175A048341F";
+    internal const string SoftCoreBuff = "B2F41F07-7EBA-48EA-B9F4-11775CB44AF1";
+    internal const string InfernalCoreFeat = "BF70230C-9F08-4316-BD3D-95D5CE2D0C03";
+    internal const string InfernalCoreToggle = "2CE756C0-A86A-4B1F-AE32-57602B57D0E4";
+    internal const string InfernalCoreMarker = "7E515567-9806-46A5-AADD-147679450C8D";
+    internal const string InfernalCoreBuff = "0C68D934-C664-4D37-9CA9-CFBDA59023F9";
+    internal const string LightlessCoreFeat = "534DEE63-3180-4A8F-9338-3526B2D7DC10";
+    internal const string LightlessCoreToggle = "FCF49C33-4DD2-44FD-974E-3CE1EF392960";
+    internal const string LightlessCoreMarker = "F1CA5CE2-B049-4A49-A0D3-FFAD9BB252AA";
+    internal const string LightlessHoundBuff = "0148F7E1-0E8F-4CC0-8DE2-F925FF293538";
+    internal const string LightlessGolemBuff = "D2A6BA7C-1F64-42DD-A504-EDD382E8AB79";
+    internal const string BoomingCoreFeat = "C292B872-88AC-4263-9E88-DBCE3D51EBB6";
+    internal const string BoomingCoreToggle = "89DBB9FA-CB3B-45A0-B965-5E7987BA0822";
+    internal const string BoomingCoreMarker = "62AF0314-C671-4412-8F1C-AD775EC8998D";
+    internal const string BoomingCoreBuff = "4E460C85-CEBC-40F1-8B2A-798C8CFAD886";
+    internal const string QuickCoreFeat = "CCF98F97-A13C-4667-9D10-768874673031";
+    internal const string QuickCoreToggle = "51EED489-6B1F-436C-B579-33B56F4DC842";
+    internal const string QuickCoreMarker = "8466EFDD-3622-44B4-B160-C05EE201D58A";
+    internal const string QuickCoreBuff = "ABD132DC-E72C-4287-A3F5-99239615C591";
+    internal const string GalvanizedCoreFeat = "C58DD740-05CB-4FF6-AC48-47F5D95BDE5B";
+    internal const string GalvanizedCoreToggle = "FC3E5498-E061-4F03-904F-6E8DC497120C";
+    internal const string GalvanizedCoreMarker = "25470602-3B4A-41DB-BE55-33CAC46B6001";
+    internal const string GalvanizedCoreBuff = "710BADC2-E4E1-4221-8C38-E31284EB78F0";
+    internal const string MagnetizedCoreFeat = "428CC4E0-5466-43B9-8A83-B79E615F4B7F";
+    internal const string MagnetizedCoreToggle = "0BF73975-98A2-4E46-9C4F-8E879537E146";
+    internal const string MagnetizedCoreMarker = "2815BBFC-0468-4B2A-B3BE-BA98291D310F";
+    internal const string MagnetizedCoreBuff = "37F07D72-780F-4877-B5DA-D80BFB2DBFAC";
+    internal const string CoreNoAoOBuff = "8BEFC6AA-57D8-485E-B164-7D3499E10421";
+    internal const string PeriodicSelfDamage = "DFF71E21-8D38-46D8-93DB-5912ACF0B88A";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.

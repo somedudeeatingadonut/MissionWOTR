@@ -88,6 +88,7 @@ namespace MissionWOTR.Archetypes
     {
       ConfigureUnits();
       ConstructCrafterPrograms.Configure();
+      ConstructCrafterCores.Configure();
       ConfigureChassis();
       ConfigureCoresAndPrograms();
 
@@ -141,12 +142,22 @@ namespace MissionWOTR.Archetypes
       {
         archetype = archetype.AddToAddFeatures(LevelPlan.L(level), ProgramSelectionName);
       }
+      // A new core at 3/8/13/19 (one pick each - purposefully limited).
+      foreach (var coreLevel in new[] { 3, 8, 13, 19 })
+      {
+        archetype = archetype.AddToAddFeatures(LevelPlan.L(coreLevel), CoreSelectionName);
+      }
       if (LevelPlan.AllAtLevelOne)
       {
-        // TEST MODE: every program and every caster-level step from level 1.
+        // TEST MODE: every program, every core, every caster-level step at level 1.
         archetype = archetype.AddToAddFeatures(
           1,
           ConstructCrafterPrograms.AllFeatureNames
+            .Select(f => (Blueprint<BlueprintFeatureBaseReference>)f)
+            .ToArray());
+        archetype = archetype.AddToAddFeatures(
+          1,
+          ConstructCrafterCores.AllFeatureNames
             .Select(f => (Blueprint<BlueprintFeatureBaseReference>)f)
             .ToArray());
         for (int i = 1; i <= 9; i++)
@@ -288,6 +299,16 @@ namespace MissionWOTR.Archetypes
         .SetAllFeatures(basicCore)
         .Configure();
 
+      var coreFeatures = new List<Blueprint<BlueprintFeatureReference>> { basicCore };
+      coreFeatures.AddRange(
+        ConstructCrafterCores.Cores.Select(c => (Blueprint<BlueprintFeatureReference>)c.Feature));
+      FeatureSelectionConfigurator.New(CoreSelectionName, Guids.ConstructCrafterCoreSelection)
+        .SetDisplayName("CoreSelection.Name")
+        .SetDescription("CoreSelection.Description")
+        .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
+        .SetAllFeatures(coreFeatures.ToArray())
+        .Configure();
+
       var programFeatures = new List<Blueprint<BlueprintFeatureReference>> { basicProgram };
       programFeatures.AddRange(
         ConstructCrafterPrograms.Programs.Select(p => (Blueprint<BlueprintFeatureReference>)p.Feature));
@@ -357,6 +378,22 @@ namespace MissionWOTR.Archetypes
     /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
     public bool AddFighterLevels;
 
+    private static void ApplySneakAttackRanks(
+      UnitEntityData construct, int alchemistLevel, int dicePerLevels)
+    {
+      if (dicePerLevels <= 0)
+      {
+        return;
+      }
+      var dice = Math.Max(1, alchemistLevel / dicePerLevels);
+      var sneakAttack = FeatureRefs.RogueSneakAttack.Reference.Get();
+      var saFact = construct.AddFact(sneakAttack) as Feature;
+      for (int i = 1; i < dice && saFact != null; i++)
+      {
+        saFact.AddRank();
+      }
+    }
+
     public override string GetCaption() => $"Deploy construct ({Unit?.name})";
 
     public override void RunAction()
@@ -370,6 +407,16 @@ namespace MissionWOTR.Archetypes
         }
 
         var program = ConstructCrafterPrograms.GetActiveProgram(caster);
+        var core = ConstructCrafterCores.GetActiveCore(caster);
+
+        // Overdrive's raw power cannot coexist with the Chaos program.
+        if (core?.IsOverdrive == true && program?.IsChaos == true)
+        {
+          MissionFeats.Logger.Error(
+            "ConstructCrafter: Overdrive core cannot be combined with the Chaos program; deployment blocked.");
+          return;
+        }
+
         var alchemistLevel = caster.Descriptor.Progression
           .GetClassLevel(CharacterClassRefs.AlchemistClass.Reference.Get());
 
@@ -429,16 +476,32 @@ namespace MissionWOTR.Archetypes
         {
           construct.AddBuff(ConstructCrafterPrograms.ChaosMarker, Context);
         }
-        if (program?.IsFlank == true)
+        ApplySneakAttackRanks(
+          construct, alchemistLevel, program?.IsFlank == true ? 2 : 0);
+
+        // Core application: per-base stat package.
+        var isHound = Unit == HoundUnit;
+        var isHumanoid = Unit == HumanoidUnit;
+        var coreBuff = core is null
+          ? null
+          : isHound ? core.HoundBuff : isHumanoid ? core.HumanoidBuff : core.GolemBuff;
+        if (coreBuff != null)
         {
-          // Sneak attack: one die per 2 alchemist levels (native rank accumulation).
-          var dice = (alchemistLevel + 1) / 2;
-          var sneakAttack = FeatureRefs.RogueSneakAttack.Reference.Get();
-          var saFact = construct.AddFact(sneakAttack) as Feature;
-          for (int i = 1; i < dice && saFact != null; i++)
-          {
-            saFact.AddRank();
-          }
+          construct.AddBuff(coreBuff, Context);
+        }
+
+        // Core sneak attack: one die per N alchemist levels (N from the core def).
+        var saDivisor = core is null
+          ? 0
+          : isHound ? core.SaHound : isHumanoid ? core.SaHumanoid : core.SaGolem;
+        ApplySneakAttackRanks(construct, alchemistLevel, saDivisor);
+
+        // Flaming golem: no attacks of opportunity - unless the Guard program runs
+        // (Guard trades the aura's ferocity for a disciplined watch).
+        if (core?.GolemNoAoO == true && !isHound && !isHumanoid
+          && program?.IsGuard != true)
+        {
+          construct.AddBuff(ConstructCrafterCores.NoAoOBuff, Context);
         }
 
         // Clockwork hound: scaling damage reduction (half alchemist level).
