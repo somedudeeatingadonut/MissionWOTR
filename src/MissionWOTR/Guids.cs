@@ -82,6 +82,24 @@ namespace MissionWOTR
     internal const string AntidoteAbility = "8F26411D-740F-42B3-A50F-7A03D91EBADE";
     internal const string DeliverToxinAction = "928E0A5E-A6E1-4F42-A4CE-96671C3DF359";
 
+    // ----- Construct Crafter (homebrew Alchemist archetype) -----
+    internal const string ConstructCrafterArchetype = "99CD1AEE-C1AE-4840-9620-826E473BCE70";
+    internal const string ConstructCrafterHoundUnit = "65390579-2547-455D-AF0E-1723EAADF79E";
+    internal const string ConstructCrafterHumanoidUnit = "A98145CA-1052-419C-9DE8-413627863E15";
+    internal const string ConstructCrafterGolemUnit = "63FF37B6-F13F-4BD7-BD32-4AEFBAEF94BE";
+    internal const string ConstructCrafterDeployHoundFeature = "36FA83AF-0E8F-48AB-AA6E-274022C04BB8";
+    internal const string ConstructCrafterDeployHumanoidFeature = "23F62645-2BEB-4E4A-9E60-88716C8C145B";
+    internal const string ConstructCrafterDeployGolemFeature = "C20D0B80-E21F-4EA2-8490-9C557A5467E7";
+    internal const string ConstructCrafterDeployHoundAbility = "E32258EF-3707-4887-99D9-81008740BAE1";
+    internal const string ConstructCrafterDeployHumanoidAbility = "ACD09AC3-13F2-48E5-9391-879C86A61AD2";
+    internal const string ConstructCrafterDeployGolemAbility = "21E1D7BB-E3D9-46F8-86D9-584190DAD2E";
+    internal const string ConstructCrafterCoreSelection = "34AB2E8B-DC7C-4676-9FD8-6449F6CAC8A2";
+    internal const string ConstructCrafterProgramSelection = "82A97F43-D0EA-4252-8370-96BFD13396DF";
+    internal const string ConstructCrafterBasicCore = "3DE65605-7F74-4D4B-A225-D5FA82A4031B";
+    internal const string ConstructCrafterBasicProgram = "D0DB3649-0DEC-4D39-86EC-1E0354B8CFA6";
+    internal const string ConstructCrafterPlatingBuff = "42116BF9-9AEC-49C5-83E6-ED9D8516C7C9";
+    internal const string DeployConstructAction = "566F9DA1-C17B-4774-832A-73C1018ADF90";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.

@@ -49,6 +49,7 @@ namespace MissionWOTR.Feats
 
       // Class archetypes (level 1 test mode; see LevelPlan + docs/ARCHETYPES.md).
       Configure(nameof(EldritchPoisoner), EldritchPoisoner.Configure);
+      Configure(nameof(ConstructCrafter), ConstructCrafter.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);

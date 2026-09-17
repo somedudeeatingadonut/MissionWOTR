@@ -52,39 +52,51 @@ tabletop) **and** granted at level 1 in test mode.
    **swift action** at the cost of **25% max HP, reduced to 15% on a successful DC 15
    Fortitude save** (never below 1 HP). Standard mythic ability pick.
 
-### Alchemist homebrew archetype — Construct Crafter (working name, user concept)
+### Alchemist homebrew archetype — Construct Crafter (user design) — IMPLEMENTED (v1)
 
-Archetype revolves around building construct summons (NOT animal companions):
-uncontrollable, up to three active at once, deliberately less customizable than a companion.
+Construct summons, NOT animal companions: uncontrollable (AI-driven), up to three active
+(one per base), less customizable than a companion. Deploy a base as a standard action;
+the construct lasts until destroyed or until the same base is deployed again.
 
-Flow: deploy a **base** (dog base at alch 1, humanoid at alch 7, golem/construct at alch 16),
-then install a **core** and a **program** into it — the combination determines what the
-construct becomes. A construct lasts until destroyed or until the same base type is
-deployed again (replacing the old one).
+| Feature | Real level | Details |
+|---|---|---|
+| Deploy Clockwork Hound | 1 | Dog chassis slightly worse than a normal dog (−2 Str, −2 Dex, −4 HP); DR = ½ alchemist level, bypassed by adamantine (dynamic buff applied at deploy) |
+| Extra combat feat | 1 | FighterFeatSelection (fighter bonus-feat list) |
+| Basic Core + Basic Program selections | 1 | v1 has one option each; architecture for future cores/programs |
+| Deploy Humanoid Construct | 7 | Fighter with (alchemist level − 2) fake fighter levels, simple equipment chassis |
+| Deploy Clay Golem | 16 | Tabletop clay golem: no berserk, −20 HP (87), Str 30, DR 5/adamantine |
 
-**Feasibility (verified against Assembly-CSharp.dll + BPCore):**
+Chassis: keeps alchemist BAB/HD; removes mutagen (L1), poison resistance (L2/L5), poison
+immunity (L10, best-effort). Cores/programs are chosen before deployment (selections).
 
-- Summoning: the game's own `SummonUnitCopy` action (CopyFrom/Locator/OnSummon fields) +
-  `UnitConfigurator.CopyFrom` for new construct units; `UnitPartSummonedMonster` links
-  summon → summoner. Spawned units have no built-in duration → "lasts until it dies" is
-  the default behavior.
-- Uncontrollable: AI-driven behavior is the default for spawned units — no player control.
-- Multiple/replacement: three different bases = three blueprints, no conflict;
-  "replace same-base" is a small custom spawn action (find owner's prior summon of that
-  base, remove it, spawn the new one).
-- Textures: model *selection* is blueprint-level (`BlueprintUnit.Prefab` — dog, humanoid,
-  stone/iron/brass/gold/adamantine golem prefabs all exist). TRUE custom
-  textures/reskins require shipping a Unity asset bundle (needs Unity Editor + game art
-  assets — outside this repo's code-only pipeline; can be wired to load a user-provided
-  bundle later). V1: existing model variants.
-- Core/program implementation shape (recommended): core & program chosen pre-deployment
-  and applied as blueprint buffs via the spawn action's OnSummon list — core = stat/role
-  package (scales with alchemist level via context ranks), program = behavior package.
-  The dormant-base-then-activate flow is also possible but needs runtime state juggling
-  (riskier).
+**Implementation (all engine calls verified):** spawn via
+`Game.Instance.EntityCreator.SpawnUnit(bp, pos, rot, Game.Instance.State.LoadedAreaState.MainState)`
+(the same call ToyBox's unit browser uses); replacement = scan the area state's
+`AllEntityData` for a living unit with the same base blueprint and despawn it
+(`IsInGame = false`); fighter levels via `Progression.AddFakeClassLevels` (chassis without
+feat-selection fuss); scaling DR via a buff with `AddDamageResistancePhysical` +
+`ContextRankConfig(ClassLevel(alchemist)/2)`; faction = the dog companion's player-friendly
+faction on all three blueprints.
 
-**Open design questions:** core list, program list, base stat blocks, deploy action cost
-(standard? resource?), whether cores/programs are swappable per rest or fixed choices.
+**v1 adaptations / known gaps (playtest watch-list):**
+
+1. **Extracts cannot be removed** — spellcasting is `m_Spellbook` on the shared
+   `BlueprintCharacterClass`; an archetype cannot remove it without modifying every
+   alchemist. Options: leave as-is (current), or promote this to a full custom class later.
+2. **Bombs are NOT removed** (not in the user's removal list) — confirm intended.
+3. **Clay golem chassis** is built on the stone golem's body (no clay golem exists in
+   Wrath's unit list); slow-breath components are stripped by name where possible — if the
+   golem occasionally slows a target, that's the leftover (report it).
+4. **Unit names** show the source creature's name (SharedStringAsset authoring needs an
+   asset bundle — same territory as custom textures).
+5. Deploy has **no resource cost** yet (standard action only) — cost TBD with user.
+6. Same-base replacement matches by blueprint (any crafter's construct); single-crafter
+   parties are unaffected.
+7. Poison-feature removal levels are best-effort (L2/L5/L10 per tabletop); verify in the
+   character sheet that no poison rows remain.
+
+**Open design questions:** deploy resource cost, future core list, future program list,
+whether constructs persist through area transitions (they are scene-local today).
 
 ## Level plan per class (test-mode rule)
 

@@ -73,6 +73,7 @@ for normal leveling.
 | Class | Archetype | Kind | Summary |
 |-------|-----------|------|---------|
 | Alchemist | **Eldritch Poisoner** | Tabletop (Black Markets) | Trades bombs/Throw Anything/mutagen for arcanotoxin (supernatural poison that bypasses poison immunity at a +4 save penalty for the immune), toxicology, and rogue sneak attack. Ten arcanotoxin discoveries + Careful Injection. Mythic ability: **Expedited Synthesis** — swift-action brew for 25% max HP (15% on a Fort save) |
+| Alchemist | **Construct Crafter** | Homebrew (user design) | Deploys uncontrollable construct summons — clockwork hound (L1, DR ½ alch level), humanoid fighter-construct (L7, fighter AL−2), clay golem (L16). One per base, deploy replaces the old one. Core + program selections; extra combat feat; loses mutagen & poison features |
 
 ## Mission Vanguard (test archetype)
 

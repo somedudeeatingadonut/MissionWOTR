@@ -606,5 +606,95 @@
     "Key": "CarefulInjection.Description",
     "ProcessTemplates": false,
     "enGB": "You know precisely where a blade carries poison best. When you deliver your arcanotoxin with a sneak attack, the saving throw DC increases by 2."
+  },
+  {
+    "Key": "ConstructCrafter.Name",
+    "ProcessTemplates": false,
+    "enGB": "Construct Crafter"
+  },
+  {
+    "Key": "ConstructCrafter.Description",
+    "ProcessTemplates": false,
+    "enGB": "A metallics-themed engineer who deploys construct summons: uncontrollable, relentless, and deliberately less customizable than any companion. You may have one construct of each base active at a time; deploying the same base again replaces the old construct.\nDeployable bases: Clockwork Hound (level 1), Humanoid Construct (level 7), Clay Golem (level 16). Cores (stat packages) and programs (behavior packages) are chosen before deployment.\nThe archetype keeps the alchemist's hit dice and attack progression but trades away mutagen and the alchemist's poison-related features, and grants an extra combat feat at level 1."
+  },
+  {
+    "Key": "DeployHound.Name",
+    "ProcessTemplates": false,
+    "enGB": "Deploy Clockwork Hound"
+  },
+  {
+    "Key": "DeployHound.Description",
+    "ProcessTemplates": false,
+    "enGB": "Deploy a clockwork hound (standard action). Slightly weaker than a natural dog, its plating grants damage reduction equal to half your alchemist level, bypassed by adamantine. The hound acts on its own - it cannot be controlled - and remains until destroyed or until you deploy another hound."
+  },
+  {
+    "Key": "DeployHumanoid.Name",
+    "ProcessTemplates": false,
+    "enGB": "Deploy Humanoid Construct"
+  },
+  {
+    "Key": "DeployHumanoid.Description",
+    "ProcessTemplates": false,
+    "enGB": "Deploy a humanoid construct (standard action): a fighter with fighter levels equal to your alchemist level minus 2, equipped with simple arms and armor. It acts on its own and remains until destroyed or replaced."
+  },
+  {
+    "Key": "DeployGolem.Name",
+    "ProcessTemplates": false,
+    "enGB": "Deploy Clay Golem"
+  },
+  {
+    "Key": "DeployGolem.Description",
+    "ProcessTemplates": false,
+    "enGB": "Deploy a clay golem (standard action): a hulking construct without its kind's berserk tendency and somewhat weaker than the standard golem. It acts on its own and remains until destroyed or replaced."
+  },
+  {
+    "Key": "BasicCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Basic Core"
+  },
+  {
+    "Key": "BasicCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "The basic core: each base deploys with its standard chassis - the hound's plating, the humanoid's fighter training, and the golem's bulk. Future cores will offer different stat packages."
+  },
+  {
+    "Key": "BasicProgram.Name",
+    "ProcessTemplates": false,
+    "enGB": "Basic Program"
+  },
+  {
+    "Key": "BasicProgram.Description",
+    "ProcessTemplates": false,
+    "enGB": "The basic program: the construct charges the nearest enemy and attacks until it or the enemy is destroyed. Future programs will offer other behaviors."
+  },
+  {
+    "Key": "CoreSelection.Name",
+    "ProcessTemplates": false,
+    "enGB": "Construct Core"
+  },
+  {
+    "Key": "CoreSelection.Description",
+    "ProcessTemplates": false,
+    "enGB": "Choose the core that powers your constructs. The core determines their stat package."
+  },
+  {
+    "Key": "ProgramSelection.Name",
+    "ProcessTemplates": false,
+    "enGB": "Construct Program"
+  },
+  {
+    "Key": "ProgramSelection.Description",
+    "ProcessTemplates": false,
+    "enGB": "Choose the program that directs your constructs. The program determines their behavior."
+  },
+  {
+    "Key": "ClockworkPlating.Name",
+    "ProcessTemplates": false,
+    "enGB": "Clockwork Plating"
+  },
+  {
+    "Key": "ClockworkPlating.Description",
+    "ProcessTemplates": false,
+    "enGB": "Masterwork plating grants this construct damage reduction equal to half its crafter's alchemist level, bypassed by adamantine weapons."
   }
 ]
