@@ -1,3 +1,4 @@
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
@@ -12,6 +13,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -113,7 +115,7 @@ namespace MissionWOTR.Archetypes
           .AddToRemoveFeatures(5, FeatureRefs.PoisonResistance4Feature.ToString())
           .AddToRemoveFeatures(10, FeatureRefs.ImmunityToPoison.ToString())
           // Core kit.
-          .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.FighterFeatSelection.ToString())
+          .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.ToString())
           .AddToAddFeatures(LevelPlan.L(1), CoreSelectionName, ProgramSelectionName)
           // Bases.
           .AddToAddFeatures(LevelPlan.L(1), DeployHoundFeatureName)
