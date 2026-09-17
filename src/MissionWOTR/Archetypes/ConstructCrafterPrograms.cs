@@ -117,7 +117,11 @@ namespace MissionWOTR.Archetypes
         "FlankProgram.Name", "FlankProgram.Description",
         FeatureRefs.RogueSneakAttack.Reference.Get().Icon,
         buff => buff
-          .AddContextStatBonus(StatType.BaseAttackBonus, ContextValues.Rank(), ModifierDescriptor.Penalty),
+          .AddContextStatBonus(StatType.BaseAttackBonus, ContextValues.Rank(), ModifierDescriptor.Penalty)
+          // Flank rider: the construct's casting is sapped while flanking - every
+          // ability it uses resolves at -AL caster level (weaker DCs, weaker
+          // level-scaled effects). The construct is a killer, not a spellcaster.
+          .AddComponent(new ConstructFlankCasterLevelPenalty()),
         isFlank: true));
       // Aggressive
       Programs.Add(CreateProgram(

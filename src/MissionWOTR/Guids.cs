@@ -271,5 +271,11 @@ namespace MissionWOTR
     internal const string CrafterPassiveBrain = "DA7A843F-940F-47A9-876C-B29978843751";
     internal const string CrafterGuardBrain = "589FB15B-6F5E-4A55-B0D3-40049241E33D";
     internal const string CrafterDistanceBrain = "99F6B891-5F7C-4BAA-AF42-C60E71A98AF4";
+
+    // Construct Crafter: Infernal blink strike + Flank caster-level rider
+    internal const string BlinkStrikeAbility = "BE0650C1-56C1-4189-9D32-4CAB50061E26";
+    internal const string AiCastBlinkStrike = "F4436C5A-989A-47AE-87C3-B278B869478E";
+    internal const string BlinkStrikeAction = "59BDF120-4DA0-433C-917B-FC410092CDCC";
+    internal const string FlankCasterLevelPenalty = "90535812-2EFF-4EDB-A687-260C2303D047";
   }
 }

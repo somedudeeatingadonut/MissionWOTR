@@ -13,6 +13,7 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Items;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -20,6 +21,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
@@ -64,6 +66,7 @@ namespace MissionWOTR.Archetypes
     internal static BlueprintAbility IceRay;
     internal static BlueprintAbility Mend;
     internal static BlueprintAbility BoltSpit;
+    internal static BlueprintAbility BlinkStrike;
 
     internal static BlueprintBuff MendBuff;
     internal static BlueprintBuff HoundBaseMarker;
@@ -207,6 +210,21 @@ namespace MissionWOTR.Archetypes
           },
           halfIfSaved: true))
         .Configure();
+
+      // Blink Strike (Infernal, all bases): teleport to the target and strike it with
+      // the construct's weapon (full attack pipeline - hit chance, crit, sneak dice,
+      // on-hit riders). Long range: this is the Infernal's gap-closer.
+      BlinkStrike = AbilityConfigurator.New("ConstructCrafterBlinkStrike", Guids.BlinkStrikeAbility)
+        .SetDisplayName("BlinkStrike.Name")
+        .SetDescription("BlinkStrike.Description")
+        .SetIcon(AbilityRefs.BloodragerInfernalHellfireStrikeAbility.Reference.Get().Icon)
+        .SetType(AbilityType.Special)
+        .SetRange(AbilityRange.Long)
+        .SetActionType(UnitCommand.CommandType.Standard)
+        .SetCanTargetEnemies()
+        .AddAbilityEffectRunAction(
+          ActionsBuilder.New().Add(new ContextActionBlinkStrike()))
+        .Configure();
     }
 
     private static void ConfigureBrains()
@@ -248,6 +266,11 @@ namespace MissionWOTR.Archetypes
         .SetBaseScore(20f)
         .SetOncePerRound()
         .Configure();
+      var castBlinkStrike = AiCastSpellConfigurator.New("ConstructCrafterAiBlinkStrike", Guids.AiCastBlinkStrike)
+        .SetAbility(BlinkStrike)
+        .SetBaseScore(20f)
+        .SetOncePerRound()
+        .Configure();
       // The game's BlueprintAiAttack is compiled internal, so a custom attack action
       // cannot be created from mod code. The stock attack action is instead lifted out
       // of a base-game unit's brain and reused as the weapon-attack fallback.
@@ -258,8 +281,10 @@ namespace MissionWOTR.Archetypes
       }
 
       // --- v1 role brains (baked defaults on the variant units) ---
+      // The blink strike is only in the caster brain: Guard/Distance constructs hold
+      // formation (their behavior programs replace the caster brain at deploy).
       var casterActions = new List<Blueprint<BlueprintAiActionReference>>
-        { castFireBlast, castIceRay, castMend, castBoltSpit };
+        { castFireBlast, castIceRay, castMend, castBoltSpit, castBlinkStrike };
       var rangedActions = new List<Blueprint<BlueprintAiActionReference>> { castBoltSpit };
       if (attack != null)
       {
@@ -475,10 +500,21 @@ namespace MissionWOTR.Archetypes
           .Where(u => u != target && u.HPLeft > 0 && u.IsEnemy(Owner)
             && Vector3.Distance(u.Position, target.Position) <= 3.5f)
           .ToList();
+        // The blast starts small (1d6) and grows with the crafter's alchemist level:
+        // one extra die per 5 levels, topping out at 5d6.
+        var alchemist = CharacterClassRefs.AlchemistClass.Reference.Get();
+        var alchemistLevel = 1;
+        var crafter = Context?.MaybeCaster;
+        if (crafter != null)
+        {
+          alchemistLevel = Math.Max(
+            1, crafter.Descriptor.Progression.GetClassLevel(alchemist));
+        }
+        var dice = Math.Min(5, 1 + alchemistLevel / 5);
         foreach (var victim in victims)
         {
           var bundle = new DamageBundle();
-          bundle.Add(new DirectDamage(new DiceFormula(2, DiceType.D6), 0));
+          bundle.Add(new DirectDamage(new DiceFormula(dice, DiceType.D6), 0));
           Rulebook.Trigger(new RuleDealDamage(Owner, victim, bundle) { Reason = Fact });
         }
       }
@@ -487,5 +523,98 @@ namespace MissionWOTR.Archetypes
         MissionFeats.Logger.Error("ConstructCrafter: sonic boom failed.", e);
       }
     }
+  }
+
+  /// <summary>
+  /// Infernal blink strike: teleport the caster next to the target and strike with the
+  /// construct's weapon via the full attack pipeline (attack roll, crits, sneak dice,
+  /// on-hit riders all apply). Falls back to raw 2d6 damage if the unit has no weapon.
+  /// </summary>
+  [Kingmaker.Blueprints.JsonSystem.TypeId(Guids.BlinkStrikeAction)]
+  internal class ContextActionBlinkStrike : ContextAction
+  {
+    public override string GetCaption() => "Blink strike";
+
+    public override void RunAction()
+    {
+      try
+      {
+        var caster = Context.MaybeCaster;
+        var target = Target?.Unit ?? Context.MainTarget?.Unit;
+        if (caster is null || target is null || target.HPLeft <= 0)
+        {
+          return;
+        }
+
+        // Blink to the target's side, approaching from the construct's original side.
+        var direction = caster.Position - target.Position;
+        direction.y = 0f;
+        if (direction.sqrMagnitude < 0.01f)
+        {
+          direction = Vector3.forward;
+        }
+        var spot = target.Position
+          + direction.normalized * (target.Corpulence + caster.Corpulence + 0.75f);
+        caster.Position = spot;
+
+        // Strike with the construct's weapon.
+        var weapon = caster.Body?.PrimaryHand?.MaybeItem as ItemEntityWeapon;
+        if (weapon != null)
+        {
+          Rulebook.Trigger(new RuleAttackWithWeapon(caster, target, weapon, 0)
+          {
+            Reason = Context,
+          });
+        }
+        else
+        {
+          var bundle = new DamageBundle();
+          bundle.Add(new DirectDamage(new DiceFormula(2, DiceType.D6), 0));
+          Rulebook.Trigger(new RuleDealDamage(caster, target, bundle)
+          {
+            Reason = Context,
+          });
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ConstructCrafter: blink strike failed.", e);
+      }
+    }
+  }
+
+  /// <summary>
+  /// Flank program rider: while the flank program runs, the construct's casting is
+  /// sapped - its effective caster level for every ability it uses drops by the
+  /// crafter's full alchemist level (weaker ability DCs and level-scaled effects).
+  /// The construct is a melee killer, not a spellcaster.
+  /// </summary>
+  [Kingmaker.Blueprints.JsonSystem.TypeId(Guids.FlankCasterLevelPenalty)]
+  internal class ConstructFlankCasterLevelPenalty : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleCalculateAbilityParams>
+  {
+    public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
+    {
+      try
+      {
+        var crafter = Context?.MaybeCaster;
+        if (crafter is null)
+        {
+          return;
+        }
+        var alchemist = CharacterClassRefs.AlchemistClass.Reference.Get();
+        var alchemistLevel = crafter.Descriptor.Progression.GetClassLevel(alchemist);
+        if (alchemistLevel > 0)
+        {
+          evt.AddBonusCasterLevel(-alchemistLevel, ModifierDescriptor.Penalty);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ConstructCrafter: flank caster-level penalty failed.", e);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleCalculateAbilityParams evt) { }
   }
 }

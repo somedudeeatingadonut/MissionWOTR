@@ -422,10 +422,16 @@ namespace MissionWOTR.Archetypes
       var flaming = core.Name == "ConstructCrafterFlaming";
       var cold = core.Name == "ConstructCrafterCold";
       var soft = core.Name == "ConstructCrafterSoft";
+      var infernal = core.Name == "ConstructCrafterInfernal";
       // The archer humanoid uses its bow; other bases spit bolts.
       if (arbalest && baseKind != 1)
       {
         yield return ConstructCrafterAbilities.BoltSpit;
+      }
+      // Infernal constructs blink to their prey instead of walking.
+      if (infernal)
+      {
+        yield return ConstructCrafterAbilities.BlinkStrike;
       }
       if (flaming && baseKind == 1)
       {

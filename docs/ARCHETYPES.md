@@ -78,9 +78,9 @@ levels 3/8/13/19 — 12 cores, 4 picks, purposefully limited):
 | Cold (per-base) | Hound: prone + slow on hit, +saves, −speed · Humanoid: +20 speed, +dmg (ice-charge) · Golem: +1d6 cold on hit, slow on hit |
 | Bloody | Bleed + shaken on hit, fast healing 2 |
 | Soft | +AL/2 AC/saves, fast healing 1, −AL/2 damage (sponge/decoy) |
-| Infernal | +2d6 fire on hit, shaken on hit, +10 speed, +init |
+| Infernal | +2d6 fire on hit, shaken on hit, +10 speed, +init, **Blink Strike** (teleport to target + weapon attack, once per round) |
 | Lightless (per-base) | Hound/Humanoid: SA 1/3 AL + attack/AC · Golem: shaken + frightened on hit, +Will |
-| Booming | +AL damage, **every hit detonates: 2d6 sonic to enemies near the target**, −AL/2 AC, −2 saves (glass cannon) |
+| Booming | +AL damage, **every hit detonates: sonic damage to enemies near the target — starts 1d6, +1 die per 5 AL (max 5d6)**, −AL/2 AC, −2 saves (glass cannon) |
 | Quick | Extra attack (haste-style), +10 speed, +init, −AL/2 damage |
 | Galvanized *(original)* | +1d6 electricity on hit, +init/+Reflex, +10 speed |
 | Magnetized *(original)* | +AL/2 CMB & CMD, slow on hit |
@@ -88,11 +88,13 @@ levels 3/8/13/19 — 12 cores, 4 picks, purposefully limited):
 
 Core adaptations (v1): on-hit riders and self-burn use fixed values (not AL-scaled) —
 `AdditionalDamageOnHit` takes static dice and the DoT is a flat component; casting-flavored
-cores are now real casters via **brains v1** (see below); Infernal's teleport-attacks
-are approximated with speed/init until brain support; Cold humanoid's charge immunity to
-AoOs has no native hook (documented); the Flaming-golem/Guard interaction restores AoOs but
-does not yet halve the aura damage; Soft's ally-support auras are approximated by a
-tanky self-healing chassis. Auras use the stock `FireDamageAreaEffect`.
+cores are now real casters via **brains v1** (see below); Infernal constructs blink to
+their prey (**Blink Strike**: teleport next to the target + a full weapon attack via the
+rules pipeline — crits, sneak dice, and on-hit riders all apply, once per round); Cold
+humanoid's charge immunity to AoOs has no native hook (documented); the
+Flaming-golem/Guard interaction restores AoOs but does not halve the aura damage; Soft's
+identity is a durable self-mending chassis (Mend + temp HP) — ally auras are not planned.
+Auras use the stock `FireDamageAreaEffect`.
 
 **Brains v1 (custom AI):** Wrath brains are ordered AiAction lists. Two custom brains
 (`CrafterCasterBrain`: cast any granted construct ability then attack;
@@ -167,25 +169,24 @@ feat-selection fuss); scaling DR via a buff with `AddDamageResistancePhysical` +
 `ContextRankConfig(ClassLevel(alchemist)/2)`; faction = the dog companion's player-friendly
 faction on all three blueprints.
 
-**Deferred from this batch (user-requested, engine-limited):**
+**Previously deferred, now resolved or dropped:**
 
-1. **Bomb damage halving** — bomb damage is computed inside the ability's shared-value
-   calculation; the damage bundle's flat bonus is not settable from a fact component
-   (verified: DamageValue exposes no writable bonus). Needs a targeted Harmony patch or a
-   bomb ability override — revisit with user.
-2. **Flank's caster-level reduction** — AddCasterLevelForSpellbook takes a flat int, not a
-   scaling value; Flank's −CL will ship with the spellcasting cores (next batch).
-3. **Program AI behaviors** (stay-at-range, support, protect) — require custom brain
-   blueprints; v1 delivers the stat packages, sneak attack, and the chaos restriction.
-   Wrath has no "spell failure from being attacked" mechanic (Guard).
+- ~~Bomb damage halving~~ — dropped by user decision: bombs keep full damage.
+- ~~Flank's caster-level reduction~~ — shipped: the Flank construct buff now carries a
+  rider that subtracts the crafter's full alchemist level from the construct's effective
+  caster level on every ability it uses (`RuleCalculateAbilityParams.AddBonusCasterLevel`),
+  weakening ability DCs and level-scaled effects while the flank program runs.
+- ~~Program AI behaviors~~ — shipped in brains v2 (see below). Wrath has no
+  "spell failure from being attacked" mechanic (Guard's protect flavor stays stat-based).
+- ~~Infernal teleport-attacks~~ — shipped as Blink Strike (see the core adaptations note).
+- ~~Soft ally auras~~ — dropped by user decision; Soft keeps the self-mending chassis.
 
 **v1 adaptations / known gaps (playtest watch-list):**
 
 1. **Extracts cannot be removed** — spellcasting is `m_Spellbook` on the shared
    `BlueprintCharacterClass`; an archetype cannot remove it without modifying every
    alchemist. Options: leave as-is (current), or promote this to a full custom class later.
-2. **Bombs are NOT removed** (not in the user's removal list) — halving their damage is
-   deferred (see above).
+2. **Bombs are NOT removed** and keep full damage (final user decision).
 3. **Clay golem chassis** is built on the stone golem's body (no clay golem exists in
    Wrath's unit list); slow-breath components are stripped by name where possible — if the
    golem occasionally slows a target, that's the leftover (report it).

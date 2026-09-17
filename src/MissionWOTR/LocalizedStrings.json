@@ -745,7 +745,7 @@
   {
     "Key": "FlankProgram.Description",
     "ProcessTemplates": false,
-    "enGB": "The construct hunts openings. While this program is active, deployed constructs gain sneak attack dice equal to half your alchemist level (the sneak attack applies to any attack roll, including spell rays), but their base attack bonus is reduced by half your alchemist level, lowering their non-sneak damage and accuracy."
+    "enGB": "The construct hunts openings. While this program is active, deployed constructs gain sneak attack dice equal to half your alchemist level (the sneak attack applies to any attack roll, including spell rays), but their base attack bonus is reduced by half your alchemist level, and their casting is sapped: every ability they use resolves at a caster level penalty equal to your full alchemist level."
   },
   {
     "Key": "GuardProgram.Name",
@@ -875,7 +875,7 @@
   {
     "Key": "BoomingCore.Description",
     "ProcessTemplates": false,
-    "enGB": "An unstable resonator. While this core is active, deployed constructs deal greatly increased damage and every weapon hit detonates in a concussive blast that deals 2d6 sonic damage to enemies near the target, but the construct suffers reduced AC and -2 on all saving throws. Handle with distance."
+    "enGB": "An unstable resonator. While this core is active, deployed constructs deal greatly increased damage and every weapon hit detonates in a concussive blast that deals sonic damage to enemies near the target, but the construct suffers reduced AC and -2 on all saving throws. The blast starts at 1d6 and grows by one die per 5 alchemist levels (up to 5d6). Handle with distance."
   },
   {
     "Key": "QuickCore.Name",
@@ -1006,5 +1006,15 @@
     "Key": "ArbalestCore.Description",
     "ProcessTemplates": false,
     "enGB": "A mounted ballista assembly. While this core is active, deployed constructs gain a bonus on attack rolls and damage equal to half your alchemist level and +10 foot speed, but suffer an equal penalty to AC. The humanoid construct fields a longbow; the hound and golem spit bolts from range."
+  },
+  {
+    "Key": "BlinkStrike.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blink Strike"
+  },
+  {
+    "Key": "BlinkStrike.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct tears a hole in space and appears beside its prey, striking with its weapon. This is a teleporting attack: the construct moves next to the target and makes a full weapon attack (attack roll, critical hits, and sneak attack all apply). Usable once per round."
   }
 ]
