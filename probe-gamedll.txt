@@ -1,0 +1,277 @@
+=== PROBE fingerprint ===
+Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
+_gamelibs: 0Harmony.dll size=2219008 md5=5A4432734D39D63DE75514DE562E4635
+_gamelibs: Managed.zip size=12381026 md5=07C3F19F48AE87F7085021D9BE3B1293
+_gamelibs: UnityModManager.dll size=204800 md5=2E32F7994F35B3EB6BC4A9868C465AF3
+_gamelibs: Assembly-CSharp-firstpass.dll size=3314176 md5=5724F213FE416F9A96AE2D48BFA54E05
+_gamelibs: Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
+_gamelibs: Newtonsoft.Json.dll size=404480 md5=1B000A3BA45705E1B8C3946D842EB8C6
+_gamelibs: Owlcat.Runtime.Core.dll size=270848 md5=1DFDAD4D464740A1C6F740A3964A0C4F
+_gamelibs: Owlcat.Runtime.Hardware.dll size=7680 md5=EB0680DCC9BFE8DE58898BC11A80E2CE
+_gamelibs: Owlcat.Runtime.UI.dll size=204288 md5=D86DFBD0C53963BDCA7A07C52FBC64EC
+_gamelibs: Owlcat.Runtime.UniRx.dll size=24064 md5=9A1B58F1DA5C3636035B6693ED0DEABF
+_gamelibs: Owlcat.Runtime.Validation.dll size=28160 md5=019E7CE805686671F5CCEF50BE47CFC4
+_gamelibs: Owlcat.Runtime.Visual.dll size=424448 md5=8D0E6F634760359177301AF372887821
+_gamelibs: Owlcat.SharedTypes.dll size=6656 md5=0E4985A2BC9FFCDC5ED6DED01034E8D8
+_gamelibs: UnityEngine.CoreModule.dll size=1167384 md5=353CCEE16EFB0E24FFA9593AF53404EC
+_gamelibs: UnityEngine.dll size=103448 md5=417D0B450D6E2CD0B2CA57B7154B9150
+_gamelibs: .reloc size=12 md5=7AD912C1618978D4D5957D508C03C093
+_gamelibs: .text size=11889216 md5=F4417D73334D0AE89F5AC166636A6BEE
+_gamelibs: version.txt size=1290 md5=1B3C9B4B406D34C812B6911783334D72
+_gamelibs: .reloc size=12 md5=0CEE9B50FBAB0D3B14CBC932F8D24722
+_gamelibs: .text size=3311420 md5=37893AF8C50805F8B0BF798C763D0AFB
+_gamelibs: version.txt size=1876 md5=5198AEAB82651FD7B8D9CD3FCADE08CE
+_gamelibs: .reloc size=12 md5=0F68886B5072138B45B09480B59A670D
+_gamelibs: .text size=401916 md5=7A5722D9FF8963B85E425E257079FDF5
+_gamelibs: version.txt size=1844 md5=41E419D96528F80CDA85B59F0DFAF30C
+_gamelibs: .reloc size=12 md5=F1847DBA4A18D844B9210F59D44B0C34
+_gamelibs: .text size=268412 md5=2C491224574BB0D421D62B591B627346
+_gamelibs: version.txt size=1306 md5=26FA445551F307698512A434FD1DD644
+_gamelibs: .reloc size=12 md5=0CD97CC77EB44221BF48CAA46071278F
+_gamelibs: .text size=5456 md5=46E68FB59971FC8759137EF9A887E5AB
+_gamelibs: version.txt size=1322 md5=1A53CEBDADD8F85363A20A970D1EE135
+_gamelibs: .reloc size=12 md5=261BF20B91F3F966823D29AF992BA842
+_gamelibs: .text size=201756 md5=2B005D7ED6BEC9E81394BEB1889B6E43
+_gamelibs: version.txt size=1298 md5=A2645A376FEAD8FADDF810D197197615
+_gamelibs: .reloc size=12 md5=DDE47EF47F79A8F4E7B1FF128AA933CB
+_gamelibs: .text size=21576 md5=B069860BBA63CACAA2CFE381398E1C93
+_gamelibs: version.txt size=1310 md5=8A73DB8BE0D8CC876801DD026D1E2A4C
+_gamelibs: .reloc size=12 md5=70582C5B2F534FD33A74C2936C50AC1F
+_gamelibs: .text size=25728 md5=DBD84B67ABAA0047B97B66CEE674570F
+_gamelibs: version.txt size=1330 md5=126B2E27502F7EBA42F688B5EB27B1A2
+_gamelibs: .reloc size=12 md5=90CFB2D99FEFB8040739872721E18D38
+_gamelibs: .text size=422152 md5=95BD3393C9A179D3A78C38F3A17A802C
+_gamelibs: version.txt size=1314 md5=8D616C3E2D627D87D800C02AD5F585EC
+_gamelibs: .reloc size=12 md5=C532F6AB098895AF94AB2D9FD08CE2FD
+_gamelibs: .text size=4468 md5=BAB08F94782D1C516BA957602F73C6D5
+_gamelibs: version.txt size=1302 md5=D27E9C0FC893E1973C170E8066C68DC1
+_gamelibs: .reloc size=12 md5=163700A569509068571F0A447D1CA2AB
+_gamelibs: .text size=90896 md5=5BFB0A7F7A9CBEF3F5D26C978085E276
+_gamelibs: CERTIFICATE size=10264 md5=F312A42B1F80DDE475E582D0616117A8
+_gamelibs: version.txt size=1274 md5=2FDCEC5431DACE663A6B5F1730B30DAD
+_gamelibs: .reloc size=12 md5=05C2316D8DEFA04BC0D59FC92C39BE35
+_gamelibs: .text size=1154724 md5=72E908EBECC70C513A686BA0C1DCD6E2
+_gamelibs: CERTIFICATE size=10264 md5=9101EE24F14173B76A4B9673DEC27DFC
+_gamelibs: version.txt size=1318 md5=E96DB3AE5632952953E5054B679EC346
+SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
+=== TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
+  FIELD: m_Type [private]
+  FIELD: LocalizedName [protorint]
+  FIELD: Gender [protorint]
+  FIELD: Size [protorint]
+  FIELD: IsLeftHanded [protorint]
+  FIELD: Color [protorint]
+  FIELD: m_Race [private]
+  FIELD: Alignment [protorint]
+  FIELD: m_Portrait [private]
+  FIELD: Prefab [protorint]
+  FIELD: m_CustomizationPreset [private]
+  FIELD: Visual [protorint]
+  FIELD: m_Faction [private]
+  FIELD: FactionOverrides [protorint]
+  FIELD: m_StartingInventory [private]
+  FIELD: m_Brain [private]
+  FIELD: AlternativeBrains [protorint]
+  FIELD: Body [protorint]
+  FIELD: Strength [protorint]
+  FIELD: Dexterity [protorint]
+  FIELD: Constitution [protorint]
+  FIELD: Intelligence [protorint]
+  FIELD: Wisdom [protorint]
+  FIELD: Charisma [protorint]
+  FIELD: Speed [protorint]
+  FIELD: BaseAttackBonus [protorint]
+  FIELD: Skills [protorint]
+  FIELD: MaxHP [protorint]
+  FIELD: m_AdditionalTemplates [private]
+  FIELD: m_AddFacts [private]
+  FIELD: IsCheater [protorint]
+  FIELD: IsFake [protorint]
+  FIELD: m_PS4ChunkId [private]
+  FIELD: m_HasAssignedChunkId [private]
+  FIELD: OnOpenUnitStats [private]
+  FIELD: m_CachedTags [private]
+  PROP: Type
+  PROP: CharacterName
+  PROP: Race
+  PROP: PortraitSafe
+  PROP: CustomizationPreset
+  PROP: Faction
+  PROP: StartingInventory
+  PROP: DefaultBrain
+  PROP: AdditionalTemplates
+  PROP: AddFacts
+  PROP: PS4ChunkId
+  PROP: HasAssignedChunkId
+  PROP: CR
+  PROP: Tags
+  PROP: AttackFactions
+  PROP: IsCompanion
+  PROP: ShowDisplayName
+  PROP: ShowDescription
+  METHOD: get_Type
+  METHOD: get_CharacterName
+  METHOD: get_Race
+  METHOD: get_PortraitSafe
+  METHOD: set_PortraitSafe
+  METHOD: get_CustomizationPreset
+  METHOD: set_CustomizationPreset
+  METHOD: get_Faction
+  METHOD: set_Faction
+  METHOD: get_StartingInventory
+  METHOD: get_DefaultBrain
+  METHOD: get_AdditionalTemplates
+  METHOD: get_AddFacts
+  METHOD: get_PS4ChunkId
+  METHOD: set_PS4ChunkId
+  METHOD: get_HasAssignedChunkId
+  METHOD: add_OnOpenUnitStats
+  METHOD: remove_OnOpenUnitStats
+  METHOD: UnitAnalyzer
+  METHOD: ValidateBrainsButton
+  METHOD: ValidateBrains
+  METHOD: get_CR
+  METHOD: get_Tags
+  METHOD: get_AttackFactions
+  METHOD: get_IsCompanion
+  METHOD: get_ShowDisplayName
+  METHOD: get_ShowDescription
+  METHOD: GetFactType
+  METHOD: CheckEqualsWithPrototype
+  METHOD: ApplyValidation
+  METHOD: ValidateBrainActions
+  METHOD: CheckWeaponInAdditionalLimbAnimationExists
+  METHOD: CheckWeaponAnimationExists
+  METHOD: PreloadResources
+  METHOD: .ctor
+  METHOD: <PreloadResources>b__89_0
+SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
+AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: AdditionalBehaviour [protorint]
+  FIELD: MinDifficulty [protorint]
+  FIELD: InvertDifficultyRequirements [protorint]
+  FIELD: OncePerRound [protorint]
+  FIELD: CooldownRounds [protorint]
+  FIELD: CooldownDice [protorint]
+  FIELD: StartCooldownRounds [protorint]
+  FIELD: CombatCount [protorint]
+  FIELD: UseWhenAIDisabled [protorint]
+  FIELD: UseOnLimitedAI [protorint]
+  FIELD: BaseScore [protorint]
+  FIELD: m_ActorConsiderations [protected]
+  FIELD: m_TargetConsiderations [protected]
+  FIELD: Actions [protorint]
+  PROP: ActorConsiderations
+  PROP: TargetConsiderations
+  PROP: PreventMovementFinish
+  PROP: UseCommand
+  METHOD: get_ActorConsiderations
+  METHOD: get_TargetConsiderations
+  METHOD: get_PreventMovementFinish
+  METHOD: get_UseCommand
+  METHOD: IsActorValid
+  METHOD: IsActorValidReasonDebug
+  METHOD: IsTargetValid
+  METHOD: IsTargetValidReasonDebug
+  METHOD: CreateCommand
+  METHOD: GetTargetType
+  METHOD: GetDeadTargetType
+  METHOD: ApplyAction
+  METHOD: IsAvailable
+  METHOD: IsAvailableReasonDebug
+  METHOD: IsExpended
+  METHOD: GetRange
+  METHOD: GetRadius
+  METHOD: InitContext
+  METHOD: CanKeepCommand
+  METHOD: CalculateDestinationPosition
+  METHOD: GetAbilityParams
+  METHOD: .ctor
+AI-TYPE: TargetType vis=public(1) base=System.Enum
+AI-TYPE: BlueprintAiAttack vis=internal(0) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiAttack vis=internal base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
+  METHOD: CreateCommand
+  METHOD: GetTargetType
+  METHOD: CanKeepCommand
+  METHOD: GetRange
+  METHOD: GetRadius
+  METHOD: .ctor
+AI-TYPE: BlueprintAiCastSpell vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiCastSpell vis=public base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
+  FIELD: LocatorsForSelect [private]
+  FIELD: m_MinCasterSqrDistanceToLocator [private]
+  FIELD: m_MinPartySqrDistanceToLocator [private]
+  FIELD: m_MaxPartySqrDistanceToLocator [private]
+  FIELD: m_AffectedByImpatience [private]
+  FIELD: m_Ability [private]
+  FIELD: m_ForceTargetSelf [private]
+  FIELD: m_ForceTargetEnemy [private]
+  FIELD: m_TargetPointUnderTarget [private]
+  FIELD: m_DeadTargetType [private]
+  FIELD: m_RandomVariant [private]
+  FIELD: m_Variant [private]
+  FIELD: m_VariantsSet [private]
+  FIELD: Locators [protorint]
+  FIELD: CheckCasterDistance [protorint]
+  FIELD: MinCasterDistanceToLocator [protorint]
+  FIELD: CheckPartyDistance [protorint]
+  FIELD: MinPartyDistanceToLocator [protorint]
+  FIELD: MaxPartyDistanceToLocator [protorint]
+  PROP: Ability
+  PROP: Variant
+  PROP: ForceTargetEnemy
+  PROP: ForceTargetSelf
+  PROP: AffectedByImpatience
+  PROP: TargetPointUnderTarget
+  METHOD: get_Ability
+  METHOD: get_Variant
+  METHOD: get_ForceTargetEnemy
+  METHOD: get_ForceTargetSelf
+  METHOD: get_AffectedByImpatience
+  METHOD: get_TargetPointUnderTarget
+  METHOD: OnEnable
+  METHOD: InitContext
+  METHOD: GetAbilityParams
+  METHOD: GetAbilityForUse
+  METHOD: CreateAbilityData
+  METHOD: GetSpellbookForUse
+  METHOD: GetSpellbookForUseFailReasonDebug
+  METHOD: ShouldBeInActionsList
+  METHOD: ShouldNotBeInActionsListReasonDebug
+  METHOD: IsExpended
+  METHOD: IsAvailable
+  METHOD: IsExpended
+  METHOD: CreateCommand
+  METHOD: TrySelectTargetFromLocators
+  METHOD: GetTargetType
+  METHOD: GetDeadTargetType
+  METHOD: GetRange
+  METHOD: GetRadius
+  METHOD: IsTargetValid
+  METHOD: IsTargetValidReasonDebug
+  METHOD: IsTargetValid
+  METHOD: IsTargetValidReasonDebug
+  METHOD: ApplyValidation
+  METHOD: IsPartyInRangeOfLocator
+  METHOD: .ctor
+  METHOD: .cctor
+  METHOD: <GetSpellbookForUse>b__38_0
+AI-TYPE: BlueprintAiFollow vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRandomMove vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRoam vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRunAway vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiSwitchWeapon vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: SwitchMode vis=public(1) base=System.Enum
+AI-TYPE: BlueprintAiTouch vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintBrain vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+=== TYPE Kingmaker.AI.Blueprints.BlueprintBrain vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: m_Actions [private]
+  PROP: UseGameActions
+  PROP: Actions
+  METHOD: get_UseGameActions
+  METHOD: get_Actions
+  METHOD: .ctor
+AI-TYPE: CustomAiConsiderationsRoot vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+AI-TYPE: DeadTargetType vis=public(1) base=System.Enum
+=== PROBE done ===
