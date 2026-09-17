@@ -12,6 +12,8 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
