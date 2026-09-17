@@ -79,7 +79,19 @@ namespace MissionWOTR.Feats
         };
         foreach (var entry in entries)
         {
-          var archetype = BlueprintTool.Get<BlueprintArchetype>(entry.Guid);
+          BlueprintArchetype archetype;
+          try
+          {
+            archetype = BlueprintTool.Get<BlueprintArchetype>(entry.Guid);
+          }
+          catch (Exception)
+          {
+            // BlueprintTool.Get throws (does not return null) when the blueprint
+            // was never created - i.e. that archetype's Configure failed.
+            Logger.Warn(
+              $"[diag] {entry.Name}: fetch failed - blueprint NOT created (its Configure crashed).");
+            continue;
+          }
           if (archetype is null)
           {
             Logger.Warn($"[diag] {entry.Name}: blueprint NOT created.");

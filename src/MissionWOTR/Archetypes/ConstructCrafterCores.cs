@@ -134,7 +134,6 @@ namespace MissionWOTR.Archetypes
         "ConstructCrafterCold", Guids.ColdCoreFeat, Guids.ColdCoreToggle,
         Guids.ColdCoreMarker, "ColdCore.Name", "ColdCore.Description",
         houndBuff: buff => buff
-          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Prone.Reference.Get(), Rounds = 1 })
           .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Slowed.Reference.Get(), Rounds = 6 })
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.SaveWill,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
@@ -364,6 +363,9 @@ namespace MissionWOTR.Archetypes
 
     private static readonly Dictionary<(string, string), string> BuffGuidMap = new()
     {
+      { ("ConstructCrafterArbalest", "HoundBuff"), Guids.ArbalestCoreBuff },
+      { ("ConstructCrafterArbalest", "HumanoidBuff"), Guids.ArbalestCoreBuff },
+      { ("ConstructCrafterArbalest", "GolemBuff"), Guids.ArbalestCoreBuff },
       { ("ConstructCrafterOverdrive", "HoundBuff"), Guids.OverdriveCoreBuff },
       { ("ConstructCrafterOverdrive", "HumanoidBuff"), Guids.OverdriveCoreBuff },
       { ("ConstructCrafterOverdrive", "GolemBuff"), Guids.OverdriveCoreBuff },
