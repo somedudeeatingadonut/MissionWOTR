@@ -97,8 +97,14 @@ tanky self-healing chassis. Auras use the stock `FireDamageAreaEffect`.
 **Brains v1 (custom AI):** Wrath brains are ordered AiAction lists. Two custom brains
 (`CrafterCasterBrain`: cast any granted construct ability then attack;
 `CrafterRangedBrain`: bolt spit then attack) built from BPCore's AI configurators
-(`BrainConfigurator`, `AiCastSpellConfigurator`, `AiAttackConfigurator`) — no custom
-considerations yet (defaults). The deploy action now spawns **role-variant units** by core:
+(`BrainConfigurator`, `AiCastSpellConfigurator`) — no custom considerations yet
+(defaults). Two game-version realities shaped the implementation (verified via a CI
+metadata probe against the live game DLL): the game's `BlueprintAiAttack` is compiled
+**internal**, so mod code cannot create a custom attack action — the brains instead
+**lift the stock attack AiAction** out of a base-game unit's brain and reuse it as the
+weapon-attack fallback; and `BlueprintUnit.m_Brain` is **private** (public
+`DefaultBrain` getter only), so variant units get their custom brain assigned via
+reflection. The deploy action now spawns **role-variant units** by core:
 Flaming humanoid → caster with **Fire Blast** (15-ft burst, 6d6 fire, Reflex half); Cold
 golem → caster with **Ice Ray** (4d6 cold + slow); Soft → casters with **Mend** (temp HP =
 alch level patch — context-heal actions are evaluator-based, so healing ships as temp HP
