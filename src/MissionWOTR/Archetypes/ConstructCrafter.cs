@@ -10,6 +10,7 @@ using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
@@ -143,7 +144,11 @@ namespace MissionWOTR.Archetypes
       if (LevelPlan.AllAtLevelOne)
       {
         // TEST MODE: every program and every caster-level step from level 1.
-        archetype = archetype.AddToAddFeatures(1, ConstructCrafterPrograms.AllFeatureNames);
+        archetype = archetype.AddToAddFeatures(
+          1,
+          ConstructCrafterPrograms.AllFeatureNames
+            .Select(f => (Blueprint<BlueprintFeatureBaseReference>)f)
+            .ToArray());
         for (int i = 1; i <= 9; i++)
         {
           archetype = archetype.AddToAddFeatures(1, $"ConstructCrafterDampenedSynthesis{i}");
@@ -234,7 +239,7 @@ namespace MissionWOTR.Archetypes
             bonus: -1,
             spellbooks: new List<Blueprint<BlueprintSpellbookReference>>
             {
-              SpellbookRefs.AlchemistSpellbook,
+              SpellbookRefs.AlchemistSpellbook.Cast<BlueprintSpellbookReference>(),
             })
           .Configure();
       }
@@ -429,8 +434,11 @@ namespace MissionWOTR.Archetypes
           // Sneak attack: one die per 2 alchemist levels (native rank accumulation).
           var dice = (alchemistLevel + 1) / 2;
           var sneakAttack = FeatureRefs.RogueSneakAttack.Reference.Get();
-          construct.Descriptor.Progression.AddFeatures(
-            Enumerable.Repeat(sneakAttack, dice).ToArray());
+          var saFact = construct.AddFact(sneakAttack);
+          for (int i = 1; i < dice && saFact != null; i++)
+          {
+            saFact.AddRank();
+          }
         }
 
         // Clockwork hound: scaling damage reduction (half alchemist level).
