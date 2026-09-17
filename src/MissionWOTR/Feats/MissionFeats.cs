@@ -1,4 +1,7 @@
 using BlueprintCore.Utils;
+using BlueprintCore.Blueprints.References;
+using Kingmaker.Blueprints.Classes;
+using System.Linq;
 using MissionWOTR.Archetypes;
 using MissionWOTR.Mythics;
 using System;
@@ -54,7 +57,50 @@ namespace MissionWOTR.Feats
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
 
+      LogArchetypeDiagnostics();
       Logger.Info("MissionWOTR feat configuration complete.");
+    }
+
+    /// <summary>
+    /// Post-configure state dump for every class archetype: proves whether each one was
+    /// created, landed on its class, and passes the availability filter the char-gen UI
+    /// uses. Written to the game log so playtest reports are self-diagnosing.
+    /// </summary>
+    private static void LogArchetypeDiagnostics()
+    {
+      try
+      {
+        var alchemist = CharacterClassRefs.AlchemistClass.Reference.Get();
+        var magus = CharacterClassRefs.MagusClass.Reference.Get();
+        var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
+        {
+          ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
+          ("ConstructCrafter", Guids.ConstructCrafterArchetype, alchemist),
+          ("MissionVanguard", Guids.MissionVanguardArchetype, magus),
+        };
+        foreach (var entry in entries)
+        {
+          var archetype = BlueprintTool.Get<BlueprintArchetype>(entry.Guid);
+          if (archetype is null)
+          {
+            Logger.Warn($"[diag] {entry.Name}: blueprint NOT created.");
+            continue;
+          }
+          var inClass = entry.Class.Archetypes.Contains(archetype);
+          var inAvailable = entry.Class.AvailableArchetypes.Contains(archetype);
+          Logger.Info(
+            $"[diag] {entry.Name}: created={true}, components={archetype.ComponentsArray.Length}, " +
+            $"addLevels={(archetype.AddFeatures?.Length ?? 0)}, removeLevels={(archetype.RemoveFeatures?.Length ?? 0)}, " +
+            $"minLevel={archetype.MinFeatureLevel}, onClass={inClass}, inAvailableList={inAvailable}.");
+        }
+        Logger.Info(
+          $"[diag] alchemist archetypes={alchemist.Archetypes.Length} " +
+          $"(available={alchemist.AvailableArchetypes.Length}), magus archetypes={magus.Archetypes.Length}.");
+      }
+      catch (Exception e)
+      {
+        Logger.Error("[diag] archetype diagnostics failed.", e);
+      }
     }
 
     private static void Configure(string name, Action configure)
