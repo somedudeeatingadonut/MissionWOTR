@@ -100,6 +100,43 @@ namespace MissionWOTR
     internal const string ConstructCrafterPlatingBuff = "42116BF9-9AEC-49C5-83E6-ED9D8516C7C9";
     internal const string DeployConstructAction = "566F9DA1-C17B-4774-832A-73C1018ADF90";
 
+    // ----- Construct Crafter: programs, chassis -----
+    internal const string ConstructCrafterProficiencies = "2AD39D38-F369-4256-8CCF-91662296760B";
+    internal const string PassiveProgramFeat = "2EED8DD3-2898-446F-8BC5-806C0249DFEE";
+    internal const string PassiveProgramActivatable = "6F9FE428-72FE-4AC6-894C-61DA040B3F86";
+    internal const string PassiveProgramMarker = "709CEA29-79F4-4181-80B7-ACA0B2935DE8";
+    internal const string PassiveProgramBuff = "4C422FB1-7D30-4DFE-9D3B-759FA1268700";
+    internal const string AggressiveProgramFeat = "FD1F604E-26BC-40F8-A083-F6CF1918E799";
+    internal const string AggressiveProgramActivatable = "B28D28F1-13B8-4AFD-B0E5-2D5FCB5CCC57";
+    internal const string AggressiveProgramMarker = "7748CABA-F20B-491D-A965-14B3FF0CB3C9";
+    internal const string AggressiveProgramBuff = "EF97D490-40B4-4628-908F-F850D91D46A8";
+    internal const string FlankProgramFeat = "E708D997-343A-4FB7-A683-DC42FF89CA65";
+    internal const string FlankProgramActivatable = "9F8165E2-464D-480E-A15C-1573C4F6EC5A";
+    internal const string FlankProgramMarker = "DC5F62D9-1316-45BD-9CB3-8D693E0C7FE3";
+    internal const string FlankProgramBuff = "6FFBEF77-2882-466B-B2BE-EBE48765625D";
+    internal const string GuardProgramFeat = "AAC36D19-D9F6-4479-8A08-9098AAB083EF";
+    internal const string GuardProgramActivatable = "15405A7F-C7BB-4582-81BC-10F3D06278FF";
+    internal const string GuardProgramMarker = "87662C06-3D31-470F-8D70-28BB52C7321E";
+    internal const string GuardProgramBuff = "429CA10A-3CFA-4C91-8263-710B845131A3";
+    internal const string DistanceProgramFeat = "A915D178-BFE9-48E1-BD0D-1C0456C1F62E";
+    internal const string DistanceProgramActivatable = "DF1CB0F1-EBE4-429F-8E83-F53EC48C0EDB";
+    internal const string DistanceProgramMarker = "E0EC31FB-8217-4FDE-B66A-127A3277C837";
+    internal const string DistanceProgramBuff = "3C08966F-A12C-4001-952C-9756CC3638AD";
+    internal const string ChaosProgramFeat = "D5130E51-5422-4232-9EB7-54582994C17F";
+    internal const string ChaosProgramActivatable = "FBC8522D-2EE2-4112-9A78-540A62341E5E";
+    internal const string ChaosProgramMarker = "B4E03425-94B4-49EC-8A15-22D8D8EA470A";
+    internal const string ChaosProgramBuff = "F75FB13B-028F-463F-9B14-E310B0AF020E";
+    internal const string ChaosMarkerBuff = "BE1EC708-6FE7-4AAE-B167-6B2EAEB5D1AF";
+    internal const string DampenedSynthesis1 = "6F540E4C-E395-449C-B33B-26D2D01CA7D4";
+    internal const string DampenedSynthesis2 = "057548BF-7378-4D85-8D3B-C09D19B6D4FE";
+    internal const string DampenedSynthesis3 = "895D2A42-75D3-4A0D-B91F-CC100F646006";
+    internal const string DampenedSynthesis4 = "74B9E11E-4AA8-4F18-A71A-E112A1B1B823";
+    internal const string DampenedSynthesis5 = "D65B4C18-BC00-478B-AD00-B35B66833CA6";
+    internal const string DampenedSynthesis6 = "B672AD07-B555-49BB-8192-E0C639FDD678";
+    internal const string DampenedSynthesis7 = "6DD004CC-1B11-47EE-ABCD-8FB6497B9C9E";
+    internal const string DampenedSynthesis8 = "19779A68-E464-4C0A-AF1F-EDE9DB41C518";
+    internal const string DampenedSynthesis9 = "9E198CF6-D208-490B-8382-2966A1B9594C";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.

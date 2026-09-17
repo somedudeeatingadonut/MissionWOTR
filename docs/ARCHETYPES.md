@@ -62,7 +62,22 @@ the construct lasts until destroyed or until the same base is deployed again.
 |---|---|---|
 | Deploy Clockwork Hound | 1 | Dog chassis slightly worse than a normal dog (−2 Str, −2 Dex, −4 HP); DR = ½ alchemist level, bypassed by adamantine (dynamic buff applied at deploy) |
 | Extra combat feat | 1 | FighterFeatSelection (fighter bonus-feat list) |
-| Basic Core + Basic Program selections | 1 | v1 has one option each; architecture for future cores/programs |
+| Basic Core + Basic Program selections | 1 | Core selection v1: Basic only; Program selection: Basic + six programs |
+| Proficiencies | 1 | Light armor, longbow, shortbow, throwing axe, flail, heavy flail, warhammer, greatclub + vanilla simple weapons |
+| Dampened Synthesis | 2–18 (one step per 2 levels) | Extract caster level reduced by 1 per step (≈ half level at cap) — the "not many spellcasting levels" balance lever |
+| New program pick | 4/8/12/16/20 | Program selection: Passive, Aggressive, Flank, Guard, Distance, Chaos |
+
+**Programs** (toggle on the crafter; applied to constructs at deploy; stat changes scale
++1 per 2 AL, min 1):
+
+| Program | Effects |
+|---|---|
+| Passive | −attack, −initiative, +dodge AC, +all saves |
+| Aggressive | +attack, +initiative, −AC, flat −2 saves |
+| Flank | Sneak attack 1d6 per 2 AL (applies to attack rolls incl. rays — works with spells), −BAB |
+| Guard | +dodge AC, +AoOs, −damage (×2 the rate) |
+| Distance | +BAB, −AC, flat −2 attack, flat −2 saves |
+| Chaos | +attack, +AC, +initiative, +all saves; same-base redeploy blocked while the chaos construct lives |
 | Deploy Humanoid Construct | 7 | Fighter with (alchemist level − 2) fake fighter levels, simple equipment chassis |
 | Deploy Clay Golem | 16 | Tabletop clay golem: no berserk, −20 HP (87), Str 30, DR 5/adamantine |
 
@@ -78,12 +93,25 @@ feat-selection fuss); scaling DR via a buff with `AddDamageResistancePhysical` +
 `ContextRankConfig(ClassLevel(alchemist)/2)`; faction = the dog companion's player-friendly
 faction on all three blueprints.
 
+**Deferred from this batch (user-requested, engine-limited):**
+
+1. **Bomb damage halving** — bomb damage is computed inside the ability's shared-value
+   calculation; the damage bundle's flat bonus is not settable from a fact component
+   (verified: DamageValue exposes no writable bonus). Needs a targeted Harmony patch or a
+   bomb ability override — revisit with user.
+2. **Flank's caster-level reduction** — AddCasterLevelForSpellbook takes a flat int, not a
+   scaling value; Flank's −CL will ship with the spellcasting cores (next batch).
+3. **Program AI behaviors** (stay-at-range, support, protect) — require custom brain
+   blueprints; v1 delivers the stat packages, sneak attack, and the chaos restriction.
+   Wrath has no "spell failure from being attacked" mechanic (Guard).
+
 **v1 adaptations / known gaps (playtest watch-list):**
 
 1. **Extracts cannot be removed** — spellcasting is `m_Spellbook` on the shared
    `BlueprintCharacterClass`; an archetype cannot remove it without modifying every
    alchemist. Options: leave as-is (current), or promote this to a full custom class later.
-2. **Bombs are NOT removed** (not in the user's removal list) — confirm intended.
+2. **Bombs are NOT removed** (not in the user's removal list) — halving their damage is
+   deferred (see above).
 3. **Clay golem chassis** is built on the stone golem's body (no clay golem exists in
    Wrath's unit list); slow-breath components are stripped by name where possible — if the
    golem occasionally slows a target, that's the leftover (report it).

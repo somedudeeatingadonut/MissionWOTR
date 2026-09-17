@@ -696,5 +696,95 @@
     "Key": "ClockworkPlating.Description",
     "ProcessTemplates": false,
     "enGB": "Masterwork plating grants this construct damage reduction equal to half its crafter's alchemist level, bypassed by adamantine weapons."
+  },
+  {
+    "Key": "CrafterProficiencies.Name",
+    "ProcessTemplates": false,
+    "enGB": "Crafter's Proficiencies"
+  },
+  {
+    "Key": "CrafterProficiencies.Description",
+    "ProcessTemplates": false,
+    "enGB": "You are trained with light armor, longbows, shortbows, throwing axes, flails, heavy flails, warhammers, greatclubs, and simple weapons."
+  },
+  {
+    "Key": "DampenedSynthesis.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dampened Synthesis"
+  },
+  {
+    "Key": "DampenedSynthesis.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your extract formulae are deliberately hasty imitations. Your caster level for alchemist extracts is reduced (one step per two alchemist levels, to roughly half your level)."
+  },
+  {
+    "Key": "PassiveProgram.Name",
+    "ProcessTemplates": false,
+    "enGB": "Passive Program"
+  },
+  {
+    "Key": "PassiveProgram.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct stays out of harm's way. While this program is active, deployed constructs take a penalty on attack rolls and initiative equal to half your alchemist level, but gain a dodge bonus to AC and a bonus on all saving throws of the same amount."
+  },
+  {
+    "Key": "AggressiveProgram.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aggressive Program"
+  },
+  {
+    "Key": "AggressiveProgram.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct pursues destruction single-mindedly. While this program is active, deployed constructs gain a bonus on attack rolls and initiative equal to half your alchemist level, but take an equal penalty to AC and a -2 penalty on all saving throws."
+  },
+  {
+    "Key": "FlankProgram.Name",
+    "ProcessTemplates": false,
+    "enGB": "Flank Program"
+  },
+  {
+    "Key": "FlankProgram.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct hunts openings. While this program is active, deployed constructs gain sneak attack dice equal to half your alchemist level (the sneak attack applies to any attack roll, including spell rays), but their base attack bonus is reduced by half your alchemist level, lowering their non-sneak damage and accuracy."
+  },
+  {
+    "Key": "GuardProgram.Name",
+    "ProcessTemplates": false,
+    "enGB": "Guard Program"
+  },
+  {
+    "Key": "GuardProgram.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct interposes itself. While this program is active, deployed constructs gain a dodge bonus to AC and additional attacks of opportunity equal to half your alchemist level, but deal damage reduced by your full alchemist level."
+  },
+  {
+    "Key": "DistanceProgram.Name",
+    "ProcessTemplates": false,
+    "enGB": "Distance Program"
+  },
+  {
+    "Key": "DistanceProgram.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct keeps its distance. While this program is active, deployed constructs gain a base attack bonus equal to half your alchemist level, but take an equal penalty to AC, a -2 penalty on attack rolls, and a -2 penalty on all saving throws."
+  },
+  {
+    "Key": "ChaosProgram.Name",
+    "ProcessTemplates": false,
+    "enGB": "Chaos Program"
+  },
+  {
+    "Key": "ChaosProgram.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct's logic is blessed - or cursed - by the Abyss. While this program is active, deployed constructs gain a bonus to attack rolls, AC, initiative, and all saving throws equal to half your alchemist level. However, while a chaos construct of a given base lives, you cannot deploy another construct of that base."
+  },
+  {
+    "Key": "ChaosMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Chaos Protocol"
+  },
+  {
+    "Key": "ChaosMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "This construct runs on chaos logic. While it lives, its crafter cannot deploy another construct of the same base."
   }
 ]

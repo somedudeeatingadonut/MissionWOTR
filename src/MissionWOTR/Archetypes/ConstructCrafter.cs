@@ -10,6 +10,7 @@ using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
@@ -23,6 +24,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using MissionWOTR.Feats;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -73,6 +75,7 @@ namespace MissionWOTR.Archetypes
     internal const string BasicProgramName = "ConstructCrafterBasicProgram";
 
     internal const string PlatingBuffName = "ConstructCrafterClockworkPlating";
+    internal const string ProficienciesName = "ConstructCrafterProficiencies";
 
     // Runtime handles for the deploy action.
     internal static BlueprintUnit HoundUnit;
@@ -83,6 +86,8 @@ namespace MissionWOTR.Archetypes
     public static void Configure()
     {
       ConfigureUnits();
+      ConstructCrafterPrograms.Configure();
+      ConfigureChassis();
       ConfigureCoresAndPrograms();
 
       DeployBase(
@@ -120,7 +125,30 @@ namespace MissionWOTR.Archetypes
           // Bases.
           .AddToAddFeatures(LevelPlan.L(1), DeployHoundFeatureName)
           .AddToAddFeatures(LevelPlan.L(7), DeployHumanoidFeatureName)
-          .AddToAddFeatures(LevelPlan.L(16), DeployGolemFeatureName);
+          .AddToAddFeatures(LevelPlan.L(16), DeployGolemFeatureName)
+          // Chassis: proficiencies (plus vanilla simple-weapon proficiency).
+          .AddToAddFeatures(LevelPlan.L(1),
+            ProficienciesName, FeatureRefs.SimpleWeaponProficiency.ToString());
+      // Dampened synthesis: one step every 2 levels (extracts cast at ~half level).
+      for (int i = 1; i <= 9; i++)
+      {
+        archetype = archetype.AddToAddFeatures(
+          LevelPlan.L(i * 2), $"ConstructCrafterDampenedSynthesis{i}");
+      }
+      // A new program every 4th level.
+      for (int level = 4; level <= 20; level += 4)
+      {
+        archetype = archetype.AddToAddFeatures(LevelPlan.L(level), ProgramSelectionName);
+      }
+      if (LevelPlan.AllAtLevelOne)
+      {
+        // TEST MODE: every program and every caster-level step from level 1.
+        archetype = archetype.AddToAddFeatures(1, ConstructCrafterPrograms.AllFeatureNames);
+        for (int i = 1; i <= 9; i++)
+        {
+          archetype = archetype.AddToAddFeatures(1, $"ConstructCrafterDampenedSynthesis{i}");
+        }
+      }
       archetype.Configure();
     }
 
@@ -174,6 +202,60 @@ namespace MissionWOTR.Archetypes
         .Configure();
     }
 
+    private static void ConfigureChassis()
+    {
+      // Proficiencies: light armor, bows, throwing axes, flail, heavy flail, warhammer,
+      // greatclub (simple weapons come from the vanilla proficiency feature).
+      FeatureConfigurator.New(ProficienciesName, Guids.ConstructCrafterProficiencies)
+        .SetDisplayName("CrafterProficiencies.Name")
+        .SetDescription("CrafterProficiencies.Description")
+        .SetIcon(FeatureRefs.LightArmorProficiency.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddProficiencies(
+          armorProficiencies: new[] { ArmorProficiencyGroup.Light },
+          weaponProficiencies: new[]
+          {
+            WeaponCategory.Longbow, WeaponCategory.Shortbow, WeaponCategory.ThrowingAxe,
+            WeaponCategory.Flail, WeaponCategory.HeavyFlail, WeaponCategory.Warhammer,
+            WeaponCategory.Greatclub,
+          })
+        .Configure();
+
+      // Dampened synthesis: extracts are cast at roughly half the alchemist's level
+      // (nine stackable -1 caster-level steps, one per two levels).
+      for (int i = 1; i <= 9; i++)
+      {
+        FeatureConfigurator.New($"ConstructCrafterDampenedSynthesis{i}", DampenedSynthesisGuid(i))
+          .SetDisplayName("DampenedSynthesis.Name")
+          .SetDescription("DampenedSynthesis.Description")
+          .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
+          .SetIsClassFeature()
+          .AddCasterLevelForSpellbook(
+            bonus: -1,
+            spellbooks: new List<Blueprint<BlueprintSpellbookReference>>
+            {
+              SpellbookRefs.AlchemistSpellbook,
+            })
+          .Configure();
+      }
+    }
+
+    private static string DampenedSynthesisGuid(int step)
+    {
+      return step switch
+      {
+        1 => Guids.DampenedSynthesis1,
+        2 => Guids.DampenedSynthesis2,
+        3 => Guids.DampenedSynthesis3,
+        4 => Guids.DampenedSynthesis4,
+        5 => Guids.DampenedSynthesis5,
+        6 => Guids.DampenedSynthesis6,
+        7 => Guids.DampenedSynthesis7,
+        8 => Guids.DampenedSynthesis8,
+        _ => Guids.DampenedSynthesis9,
+      };
+    }
+
     private static void ConfigureCoresAndPrograms()
     {
       // Basic Core: the default stat package (baked into each base's blueprint).
@@ -201,11 +283,14 @@ namespace MissionWOTR.Archetypes
         .SetAllFeatures(basicCore)
         .Configure();
 
+      var programFeatures = new List<Blueprint<BlueprintFeatureReference>> { basicProgram };
+      programFeatures.AddRange(
+        ConstructCrafterPrograms.Programs.Select(p => (Blueprint<BlueprintFeatureReference>)p.Feature));
       FeatureSelectionConfigurator.New(ProgramSelectionName, Guids.ConstructCrafterProgramSelection)
         .SetDisplayName("ProgramSelection.Name")
         .SetDescription("ProgramSelection.Description")
         .SetIcon(FeatureRefs.CombatReflexes.Reference.Get().Icon)
-        .SetAllFeatures(basicProgram)
+        .SetAllFeatures(programFeatures.ToArray())
         .Configure();
     }
 
@@ -228,6 +313,8 @@ namespace MissionWOTR.Archetypes
         .SetType(AbilityType.Special)
         .SetRange(AbilityRange.Personal)
         .SetActionType(UnitCommand.CommandType.Standard)
+        .SetAbilityIsFullRoundInTurnBased(
+          new AbilityIsFullRoundInTurnBased { FullRoundIfTurnBased = true })
         .SetCanTargetSelf()
         .AddAbilityEffectRunAction(
           ActionsBuilder.New().Add(new ContextActionDeployConstruct
@@ -277,8 +364,26 @@ namespace MissionWOTR.Archetypes
           return;
         }
 
+        var program = ConstructCrafterPrograms.GetActiveProgram(caster);
+        var alchemistLevel = caster.Descriptor.Progression
+          .GetClassLevel(CharacterClassRefs.AlchemistClass.Reference.Get());
+
         var state = Game.Instance.State.LoadedAreaState.MainState;
         var existing = state.AllEntityData.OfType<UnitEntityData>().ToList();
+
+        // Chaos program: while a chaos construct of this base lives, it cannot be redeployed.
+        if (program?.IsChaos == true)
+        {
+          var chaosAlive = existing.Any(
+            u => u.Blueprint == Unit && u.HPLeft > 0
+              && u.Buffs.GetBuff(ConstructCrafterPrograms.ChaosMarker) != null);
+          if (chaosAlive)
+          {
+            MissionFeats.Logger.Error(
+              "ConstructCrafter: a chaos construct of this base still lives; deployment blocked.");
+            return;
+          }
+        }
 
         // Replace the previous construct of this base (same blueprint = same base).
         foreach (var old in existing.Where(u => u.Blueprint == Unit && u.HPLeft > 0))
@@ -306,10 +411,26 @@ namespace MissionWOTR.Archetypes
         // Humanoid base: a fighter with (alchemist level - 2) levels.
         if (AddFighterLevels)
         {
-          var alchemistLevel = caster.Descriptor.Progression
-            .GetClassLevel(CharacterClassRefs.AlchemistClass.Reference.Get());
           var fighter = CharacterClassRefs.FighterClass.Reference.Get();
           construct.Descriptor.Progression.AddFakeClassLevels(fighter, Math.Max(1, alchemistLevel - 2));
+        }
+
+        // Program application: stat package + markers.
+        if (program?.ConstructBuff != null)
+        {
+          construct.AddBuff(program.ConstructBuff, Context);
+        }
+        if (program?.IsChaos == true)
+        {
+          construct.AddBuff(ConstructCrafterPrograms.ChaosMarker, Context);
+        }
+        if (program?.IsFlank == true)
+        {
+          // Sneak attack: one die per 2 alchemist levels (native rank accumulation).
+          var dice = (alchemistLevel + 1) / 2;
+          var sneakAttack = FeatureRefs.RogueSneakAttack.Reference.Get();
+          construct.Descriptor.Progression.AddFeatures(
+            Enumerable.Repeat(sneakAttack, dice).ToArray());
         }
 
         // Clockwork hound: scaling damage reduction (half alchemist level).
