@@ -165,7 +165,7 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetSelf()
         .AddAbilityResourceLogic(requiredResource: EldritchPoisoner.Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().ApplyBuff(BuffRefs.DelayPoisonBuff, ContextDuration.Fixed(10)))
+          ActionsBuilder.New().ApplyBuff(BuffRefs.DelayPoisonBuff.Reference.Get(), ContextDuration.Fixed(10)))
         .Configure();
       DiscoveryBase(AntidoteFeatName, Guids.AntidoteFeat,
         "Antidote.Name", "Antidote.Description", BuffRefs.DelayPoisonBuff.Reference.Get().Icon)
@@ -206,7 +206,8 @@ namespace MissionWOTR.Archetypes
           FeatureSelectionRefs.DiscoverySelection.Cast<BlueprintFeatureSelectionReference>());
       if (requiredLevel > 0)
       {
-        builder.AddPrerequisiteClassLevel(CharacterClassRefs.AlchemistClass, requiredLevel);
+        builder.AddPrerequisiteClassLevel(
+          CharacterClassRefs.AlchemistClass.Cast<BlueprintCharacterClassReference>(), requiredLevel);
       }
       return builder;
     }
