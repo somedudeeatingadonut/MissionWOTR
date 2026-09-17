@@ -116,5 +116,85 @@
     "Key": "MissionVanguard.Description",
     "ProcessTemplates": false,
     "enGB": "A test harness for the Mission WOTR mod: this archetype grants all seven Mission WOTR feats at level 1, along with the vanilla feats they normally require, so their mechanics can be exercised from the first fight. It removes nothing from the standard Magus kit. Intended to be expanded into a full class in a future version."
+  },
+  {
+    "Key": "AcrobaticMythic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Acrobatic (Mythic)"
+  },
+  {
+    "Key": "AcrobaticMythic.Description",
+    "ProcessTemplates": false,
+    "enGB": "You move with impossible grace, twisting through the air like a leaf on the wind. You gain an additional +2 bonus on Mobility and Athletics checks.\nAdapted from the tabletop mythic feat; Wrath folds Acrobatics and Fly into Mobility and Athletics."
+  },
+  {
+    "Key": "PersuasiveMythic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Persuasive (Mythic)"
+  },
+  {
+    "Key": "PersuasiveMythic.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your words bend wills like reeds in a storm. You gain an additional +2 bonus on Persuasion checks.\nPrerequisites: Persuasive."
+  },
+  {
+    "Key": "MagicalAptitudeMythic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Magical Aptitude (Mythic)"
+  },
+  {
+    "Key": "MagicalAptitudeMythic.Description",
+    "ProcessTemplates": false,
+    "enGB": "Magic answers your touch like an old friend. You gain an additional +2 bonus on Knowledge (Arcana) and Use Magic Device checks.\nAdapted from the tabletop mythic feat."
+  },
+  {
+    "Key": "AegisOfLegend.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aegis of Legend"
+  },
+  {
+    "Key": "AegisOfLegend.Description",
+    "ProcessTemplates": false,
+    "enGB": "Mythic power hardens around you like a second skin. You gain a +1 dodge bonus to AC for every 2 mythic ranks you possess (minimum +1)."
+  },
+  {
+    "Key": "SlayersVigor.Name",
+    "ProcessTemplates": false,
+    "enGB": "Slayer's Vigor"
+  },
+  {
+    "Key": "SlayersVigor.Description",
+    "ProcessTemplates": false,
+    "enGB": "Death feeds your legend. Whenever you reduce an enemy to 0 hit points with a weapon attack, you gain temporary hit points equal to your mythic rank (minimum 2) for 1 minute. This cannot be gained again while active."
+  },
+  {
+    "Key": "SlayersVigor.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Slayer's Vigor"
+  },
+  {
+    "Key": "SlayersVigor.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Legends are written in blood. The character's latest kill invigorates them, granting temporary hit points."
+  },
+  {
+    "Key": "AscendantEdge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ascendant Edge"
+  },
+  {
+    "Key": "AscendantEdge.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your spells leave a wake of power that sharpens your strikes. Whenever you cast a spell of 1st level or higher from one of your spellbooks, you gain a +1 insight bonus on attack rolls for 1 round, increasing by +1 for every 2 mythic ranks you possess (minimum +1). This cannot be gained again while active."
+  },
+  {
+    "Key": "AscendantEdge.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ascendant Edge"
+  },
+  {
+    "Key": "AscendantEdge.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The residue of a recent spell hones this character's aim, granting an insight bonus on attack rolls."
   }
 ]

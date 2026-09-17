@@ -23,14 +23,37 @@ mechanically distinct from anything in the base game or the major content mods
 Batch 2+ designs (mounted, aura, hex-line, reaction feats, ...) live in
 [`docs/FEAT-ROADMAP.md`](docs/FEAT-ROADMAP.md).
 
+## Mythic feats & abilities (batch 1)
+
+Mythic **feats** (tabletop ports from *Mythic Adventures*, adapted to Wrath's merged skill
+list, chosen to not overlap with the base game or other mods):
+
+| Mythic feat | Prerequisites | Benefit |
+|-------------|---------------|---------|
+| **Acrobatic (Mythic)** | - | +2 Mobility, +2 Athletics |
+| **Persuasive (Mythic)** | Persuasive | +2 Persuasion |
+| **Magical Aptitude (Mythic)** | - | +2 Knowledge (Arcana), +2 Use Magic Device |
+
+Original mythic **abilities**:
+
+| Mythic ability | Benefit |
+|----------------|---------|
+| **Aegis of Legend** | +1 dodge AC per 2 mythic ranks (min +1) |
+| **Slayer's Vigor** | Weapon kill → temp HP = mythic rank (min 2) for 1 min |
+| **Ascendant Edge** | Cast a non-cantrip spell → +½ mythic rank (min +1) insight to attacks for 1 round |
+
+All of them are selectable through the normal mythic feat/ability level-up picks (any mythic
+path), and Mission Vanguard grants them at level 1 for testing.
+
 ## Mission Vanguard (test archetype)
 
 **Mission Vanguard** is a Magus archetype that grants all seven Mission WOTR feats - plus the
 vanilla feats they normally require (Power Attack, Point-Blank Shot, Improved Unarmed Strike,
 Iron Will, Endurance, Combat Reflexes) - at level 1. Features granted through an archetype
 bypass prerequisite checks, so it exists to make playtesting the whole mod trivial: roll a
-Magus, pick Mission Vanguard, and everything is live from the first fight. It removes nothing
-from the base Magus and is planned to grow into a full class in a future version.
+Magus, pick Mission Vanguard, and everything is live from the first fight - including the
+mod's mythic feats and abilities. It removes nothing from the base Magus and is planned to
+grow into a full class in a future version.
 
 ## For players
 

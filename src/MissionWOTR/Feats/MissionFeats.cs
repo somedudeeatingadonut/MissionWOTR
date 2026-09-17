@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using MissionWOTR.Archetypes;
+using MissionWOTR.Mythics;
 using System;
 
 namespace MissionWOTR.Feats
@@ -23,6 +24,15 @@ namespace MissionWOTR.Feats
       Configure(nameof(TauntingBlows), TauntingBlows.Configure);
       Configure(nameof(ResonantStrikes), ResonantStrikes.Configure);
       Configure(nameof(WardedSoul), WardedSoul.Configure);
+
+      // Mythic feats (tabletop ports) and mythic abilities (originals).
+      Configure(nameof(AcrobaticMythic), AcrobaticMythic.Configure);
+      Configure(nameof(PersuasiveMythic), PersuasiveMythic.Configure);
+      Configure(nameof(MagicalAptitudeMythic), MagicalAptitudeMythic.Configure);
+      Configure(nameof(AegisOfLegend), AegisOfLegend.Configure);
+      Configure(nameof(SlayersVigor), SlayersVigor.Configure);
+      Configure(nameof(AscendantEdge), AscendantEdge.Configure);
+
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
 

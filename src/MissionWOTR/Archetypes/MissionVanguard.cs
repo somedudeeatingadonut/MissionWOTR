@@ -1,6 +1,7 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.References;
 using MissionWOTR.Feats;
+using MissionWOTR.Mythics;
 
 namespace MissionWOTR.Archetypes
 {
@@ -35,6 +36,13 @@ namespace MissionWOTR.Archetypes
           TauntingBlows.FeatName,
           ResonantStrikes.FeatName,
           WardedSoul.FeatName,
+          // The mod's mythic feats and abilities, for testing without mythic level-ups.
+          AcrobaticMythic.FeatName,
+          PersuasiveMythic.FeatName,
+          MagicalAptitudeMythic.FeatName,
+          AegisOfLegend.FeatName,
+          SlayersVigor.FeatName,
+          AscendantEdge.FeatName,
           // ...plus the vanilla feats they normally require, so every one of them is
           // immediately usable (e.g. Taunting Blows needs Power Attack's stance active).
           FeatureRefs.PowerAttackFeature.ToString(),

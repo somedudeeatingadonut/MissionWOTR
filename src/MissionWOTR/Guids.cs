@@ -20,6 +20,18 @@ namespace MissionWOTR
     internal const string ResonantStrikesFeat = "1032BE10-2006-41FD-8EA0-E8656192F241";
     internal const string WardedSoulFeat = "110B3D1B-1568-4D26-A755-89B1350EA044";
 
+    // ----- Mythic feats (tabletop ports, adapted) -----
+    internal const string AcrobaticMythicFeat = "1B21DC96-D3DF-4A9E-A80C-9A85E9589333";
+    internal const string PersuasiveMythicFeat = "31161773-8829-46A6-8521-94EE40B1FA45";
+    internal const string MagicalAptitudeMythicFeat = "C93A9C0D-E4E6-432C-A483-7AEE3B3CE92C";
+
+    // ----- Mythic abilities (original) -----
+    internal const string AegisOfLegendAbility = "18EBC389-DCB8-4CE3-9D75-9146B820A618";
+    internal const string SlayersVigorAbility = "A70B7C24-7B0E-4BCE-867E-C1791BB6724B";
+    internal const string SlayersVigorBuff = "C8B1FD88-0764-4BF9-946D-E74C83EAFA9C";
+    internal const string AscendantEdgeAbility = "2CAF92AB-AC6F-4791-AA00-94C6F8F0FED0";
+    internal const string AscendantEdgeBuff = "DD098F2B-D11C-4188-BD62-019894D81D2D";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.
@@ -43,5 +55,7 @@ namespace MissionWOTR
     internal const string TauntingBlowsTrigger = "589A4820-7B69-4F19-A18C-23AA6B3CB302";
     internal const string ResonantStrikesTrigger = "DC063EAC-8FAF-438E-AB98-FE37D548B0F9";
     internal const string ResonantStrikesAcDebuff = "217EB3DD-3631-4F97-AAE4-9FD53AF707D8";
+    internal const string SlayersVigorTrigger = "A7FB138A-47C6-4E8F-933E-93CA0917B2CA";
+    internal const string AscendantEdgeTrigger = "57F95FCA-7F99-460A-B820-9E48974B26C2";
   }
 }
