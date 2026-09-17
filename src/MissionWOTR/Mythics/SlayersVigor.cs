@@ -7,6 +7,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -49,7 +50,7 @@ namespace MissionWOTR.Mythics
 
       FeatureConfigurator.New(FeatName, Guids.SlayersVigorAbility)
         .SetDisplayName(DisplayName)
-        .SetLocalizedDescription(Description)
+        .SetDescription(Description)
         .SetIcon(FeatureRefs.Endurance.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddComponent(new SlayersVigorTrigger(buff))

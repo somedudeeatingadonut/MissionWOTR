@@ -46,7 +46,7 @@ namespace MissionWOTR.Mythics
 
       FeatureConfigurator.New(FeatName, Guids.AscendantEdgeAbility)
         .SetDisplayName(DisplayName)
-        .SetLocalizedDescription(Description)
+        .SetDescription(Description)
         .SetIcon(FeatureRefs.PowerAttackFeature.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddComponent(new AscendantEdgeTrigger(buff))

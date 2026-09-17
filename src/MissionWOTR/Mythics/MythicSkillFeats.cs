@@ -25,7 +25,7 @@ namespace MissionWOTR.Mythics
     {
       FeatureConfigurator.New(FeatName, Guids.AcrobaticMythicFeat, FeatureGroup.MythicFeat)
         .SetDisplayName(DisplayName)
-        .SetLocalizedDescription(Description)
+        .SetDescription(Description)
         .SetIcon(FeatureRefs.Dodge.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddContextStatBonus(StatType.SkillMobility, ContextValues.Constant(2), ModifierDescriptor.UntypedStackable)
@@ -49,7 +49,7 @@ namespace MissionWOTR.Mythics
     {
       FeatureConfigurator.New(FeatName, Guids.PersuasiveMythicFeat, FeatureGroup.MythicFeat)
         .SetDisplayName(DisplayName)
-        .SetLocalizedDescription(Description)
+        .SetDescription(Description)
         .SetIcon(FeatureRefs.Persuasive.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddPrerequisiteFeature(FeatureRefs.Persuasive.ToString())
@@ -74,7 +74,7 @@ namespace MissionWOTR.Mythics
     {
       FeatureConfigurator.New(FeatName, Guids.MagicalAptitudeMythicFeat, FeatureGroup.MythicFeat)
         .SetDisplayName(DisplayName)
-        .SetLocalizedDescription(Description)
+        .SetDescription(Description)
         .SetIcon(FeatureRefs.SkillFocusKnowledgeArcana.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddContextStatBonus(StatType.SkillKnowledgeArcana, ContextValues.Constant(2), ModifierDescriptor.UntypedStackable)

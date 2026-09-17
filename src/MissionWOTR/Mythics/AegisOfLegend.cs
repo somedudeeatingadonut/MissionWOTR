@@ -23,7 +23,7 @@ namespace MissionWOTR.Mythics
     {
       FeatureConfigurator.New(FeatName, Guids.AegisOfLegendAbility)
         .SetDisplayName(DisplayName)
-        .SetLocalizedDescription(Description)
+        .SetDescription(Description)
         .SetIcon(FeatureRefs.Dodge.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Dodge)
