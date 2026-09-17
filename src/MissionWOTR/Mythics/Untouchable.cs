@@ -9,19 +9,19 @@ using Kingmaker.Enums;
 namespace MissionWOTR.Mythics
 {
   /// <summary>
-  /// Aegis of Legend (original mythic ability)
-  /// Mythic power hardens around you: +1 dodge bonus to AC for every 2 mythic ranks
+  /// Untouchable (original mythic ability; formerly "Aegis of Legend")
+  /// Attacks simply fail to find you: +1 dodge bonus to AC for every 2 mythic ranks
   /// (minimum +1).
   /// </summary>
-  internal static class AegisOfLegend
+  internal static class Untouchable
   {
-    internal const string FeatName = "AegisOfLegend";
-    internal const string DisplayName = "AegisOfLegend.Name";
-    internal const string Description = "AegisOfLegend.Description";
+    internal const string FeatName = "Untouchable";
+    internal const string DisplayName = "Untouchable.Name";
+    internal const string Description = "Untouchable.Description";
 
     internal static void Configure()
     {
-      FeatureConfigurator.New(FeatName, Guids.AegisOfLegendAbility)
+      FeatureConfigurator.New(FeatName, Guids.UntouchableAbility)
         .SetDisplayName(DisplayName)
         .SetDescription(Description)
         .SetIcon(FeatureRefs.Dodge.Reference.Get().Icon)

@@ -125,7 +125,7 @@
   {
     "Key": "AcrobaticMythic.Description",
     "ProcessTemplates": false,
-    "enGB": "You move with impossible grace, twisting through the air like a leaf on the wind. You gain an additional +2 bonus on Mobility and Athletics checks.\nAdapted from the tabletop mythic feat; Wrath folds Acrobatics and Fly into Mobility and Athletics."
+    "enGB": "You move with impossible grace, twisting through the air like a leaf on the wind. You gain an additional +4 bonus on Mobility and Athletics checks.\nAdapted from the tabletop mythic feat; Wrath folds Acrobatics and Fly into Mobility and Athletics."
   },
   {
     "Key": "PersuasiveMythic.Name",
@@ -135,7 +135,7 @@
   {
     "Key": "PersuasiveMythic.Description",
     "ProcessTemplates": false,
-    "enGB": "Your words bend wills like reeds in a storm. You gain an additional +2 bonus on Persuasion checks.\nPrerequisites: Persuasive."
+    "enGB": "Your words bend wills like reeds in a storm, and no lie slips past you. You gain an additional +4 bonus on Persuasion checks and an additional +4 bonus on Perception checks.\nPrerequisites: Persuasive.\nAdapted from the tabletop mythic feat; Wrath folds Sense Motive into Persuasion and Perception."
   },
   {
     "Key": "MagicalAptitudeMythic.Name",
@@ -145,17 +145,7 @@
   {
     "Key": "MagicalAptitudeMythic.Description",
     "ProcessTemplates": false,
-    "enGB": "Magic answers your touch like an old friend. You gain an additional +2 bonus on Knowledge (Arcana) and Use Magic Device checks.\nAdapted from the tabletop mythic feat."
-  },
-  {
-    "Key": "AegisOfLegend.Name",
-    "ProcessTemplates": false,
-    "enGB": "Aegis of Legend"
-  },
-  {
-    "Key": "AegisOfLegend.Description",
-    "ProcessTemplates": false,
-    "enGB": "Mythic power hardens around you like a second skin. You gain a +1 dodge bonus to AC for every 2 mythic ranks you possess (minimum +1)."
+    "enGB": "Magic answers your touch like an old friend. You gain an additional +4 bonus on Knowledge (Arcana) and Use Magic Device checks.\nAdapted from the tabletop mythic feat."
   },
   {
     "Key": "SlayersVigor.Name",
@@ -196,5 +186,145 @@
     "Key": "AscendantEdge.Buff.Description",
     "ProcessTemplates": false,
     "enGB": "The residue of a recent spell hones this character's aim, granting an insight bonus on attack rolls."
+  },
+  {
+    "Key": "IronWillMythic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Iron Will (Mythic)"
+  },
+  {
+    "Key": "IronWillMythic.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your mind is a fortress no mortal power may breach. You gain a +1 insight bonus on Will saving throws for every 2 mythic ranks you possess (minimum +2).\nPrerequisites: Iron Will."
+  },
+  {
+    "Key": "LightningReflexesMythic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lightning Reflexes (Mythic)"
+  },
+  {
+    "Key": "LightningReflexesMythic.Description",
+    "ProcessTemplates": false,
+    "enGB": "You react to danger before it finishes arriving. You gain a +1 insight bonus on Reflex saving throws for every 2 mythic ranks you possess (minimum +2).\nPrerequisites: Lightning Reflexes."
+  },
+  {
+    "Key": "EnduranceMythic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Endurance (Mythic)"
+  },
+  {
+    "Key": "EnduranceMythic.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your body endures what should destroy it. You gain a +1 insight bonus on Fortitude saving throws for every 2 mythic ranks you possess (minimum +2).\nPrerequisites: Endurance."
+  },
+  {
+    "Key": "Untouchable.Name",
+    "ProcessTemplates": false,
+    "enGB": "Untouchable"
+  },
+  {
+    "Key": "Untouchable.Description",
+    "ProcessTemplates": false,
+    "enGB": "Blades pass through the spaces you occupied a heartbeat ago. You gain a +1 dodge bonus to AC for every 2 mythic ranks you possess (minimum +1)."
+  },
+  {
+    "Key": "LastStand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Last Stand"
+  },
+  {
+    "Key": "LastStand.Description",
+    "ProcessTemplates": false,
+    "enGB": "Wounds focus the legend within. While you are at or below half your hit points, you gain a +1 dodge bonus to AC for every 2 mythic ranks you possess (minimum +1)."
+  },
+  {
+    "Key": "DesperateFury.Name",
+    "ProcessTemplates": false,
+    "enGB": "Desperate Fury"
+  },
+  {
+    "Key": "DesperateFury.Description",
+    "ProcessTemplates": false,
+    "enGB": "Nothing sharpens the mind like mortality. While you are at or below half your hit points, you gain a +1 insight bonus on attack rolls for every 2 mythic ranks you possess (minimum +1)."
+  },
+  {
+    "Key": "DefiantSoul.Name",
+    "ProcessTemplates": false,
+    "enGB": "Defiant Soul"
+  },
+  {
+    "Key": "DefiantSoul.Description",
+    "ProcessTemplates": false,
+    "enGB": "Every assault you shrug off stokes the legend. Whenever you succeed at a saving throw against an effect created by another creature, you gain a +1 morale bonus on attack rolls for 1 round per 2 mythic ranks you possess (minimum +2). This cannot be gained again while active."
+  },
+  {
+    "Key": "DefiantSoul.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Defiant Soul"
+  },
+  {
+    "Key": "DefiantSoul.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Having just shrugged off an enemy effect, this character fights with renewed conviction, gaining a morale bonus on attack rolls."
+  },
+  {
+    "Key": "RelentlessOnslaught.Name",
+    "ProcessTemplates": false,
+    "enGB": "Relentless Onslaught"
+  },
+  {
+    "Key": "RelentlessOnslaught.Description",
+    "ProcessTemplates": false,
+    "enGB": "A kill today is momentum for the next. Whenever you reduce an enemy to 0 hit points with a weapon attack, you gain a +1 insight bonus on attack rolls for 1 round per 2 mythic ranks you possess (minimum +2). This cannot be gained again while active."
+  },
+  {
+    "Key": "RelentlessOnslaught.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Relentless Onslaught"
+  },
+  {
+    "Key": "RelentlessOnslaught.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Fresh from a kill, this character's next blows strike with terrifying precision, gaining an insight bonus on attack rolls."
+  },
+  {
+    "Key": "AetherialBulwark.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aetherial Bulwark"
+  },
+  {
+    "Key": "AetherialBulwark.Description",
+    "ProcessTemplates": false,
+    "enGB": "Magic leaves a shield in its wake. Whenever you cast a spell of 1st level or higher from one of your spellbooks, you gain a +1 deflection bonus to AC for 1 round per 2 mythic ranks you possess (minimum +1). This cannot be gained again while active."
+  },
+  {
+    "Key": "AetherialBulwark.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aetherial Bulwark"
+  },
+  {
+    "Key": "AetherialBulwark.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The residue of a recently cast spell forms a protective shell around this character, granting a deflection bonus to AC."
+  },
+  {
+    "Key": "TitansWrath.Name",
+    "ProcessTemplates": false,
+    "enGB": "Titan's Wrath"
+  },
+  {
+    "Key": "TitansWrath.Description",
+    "ProcessTemplates": false,
+    "enGB": "The strength of legend flows through every blow. You gain a +1 mythic bonus on weapon damage rolls for every mythic rank you possess."
+  },
+  {
+    "Key": "TitanHide.Name",
+    "ProcessTemplates": false,
+    "enGB": "Titan Hide"
+  },
+  {
+    "Key": "TitanHide.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your flesh hardens like living stone. You gain a +1 natural armor bonus to AC for every 2 mythic ranks you possess (minimum +1)."
   }
 ]

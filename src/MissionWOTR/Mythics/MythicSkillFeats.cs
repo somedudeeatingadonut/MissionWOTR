@@ -28,8 +28,8 @@ namespace MissionWOTR.Mythics
         .SetDescription(Description)
         .SetIcon(FeatureRefs.Dodge.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddContextStatBonus(StatType.SkillMobility, ContextValues.Constant(2), ModifierDescriptor.UntypedStackable)
-        .AddContextStatBonus(StatType.SkillAthletics, ContextValues.Constant(2), ModifierDescriptor.UntypedStackable)
+        .AddContextStatBonus(StatType.SkillMobility, ContextValues.Constant(4), ModifierDescriptor.UntypedStackable)
+        .AddContextStatBonus(StatType.SkillAthletics, ContextValues.Constant(4), ModifierDescriptor.UntypedStackable)
         .AddToFeatureSelection(FeatureSelectionRefs.MythicFeatSelection.Cast<BlueprintFeatureSelectionReference>())
         .Configure(delayed: true);
     }
@@ -53,7 +53,8 @@ namespace MissionWOTR.Mythics
         .SetIcon(FeatureRefs.Persuasive.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddPrerequisiteFeature(FeatureRefs.Persuasive.ToString())
-        .AddContextStatBonus(StatType.SkillPersuasion, ContextValues.Constant(2), ModifierDescriptor.UntypedStackable)
+        .AddContextStatBonus(StatType.SkillPersuasion, ContextValues.Constant(4), ModifierDescriptor.UntypedStackable)
+        .AddContextStatBonus(StatType.SkillPerception, ContextValues.Constant(4), ModifierDescriptor.UntypedStackable)
         .AddToFeatureSelection(FeatureSelectionRefs.MythicFeatSelection.Cast<BlueprintFeatureSelectionReference>())
         .Configure(delayed: true);
     }
@@ -77,8 +78,8 @@ namespace MissionWOTR.Mythics
         .SetDescription(Description)
         .SetIcon(FeatureRefs.SkillFocusKnowledgeArcana.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddContextStatBonus(StatType.SkillKnowledgeArcana, ContextValues.Constant(2), ModifierDescriptor.UntypedStackable)
-        .AddContextStatBonus(StatType.SkillUseMagicDevice, ContextValues.Constant(2), ModifierDescriptor.UntypedStackable)
+        .AddContextStatBonus(StatType.SkillKnowledgeArcana, ContextValues.Constant(4), ModifierDescriptor.UntypedStackable)
+        .AddContextStatBonus(StatType.SkillUseMagicDevice, ContextValues.Constant(4), ModifierDescriptor.UntypedStackable)
         .AddToFeatureSelection(FeatureSelectionRefs.MythicFeatSelection.Cast<BlueprintFeatureSelectionReference>())
         .Configure(delayed: true);
     }

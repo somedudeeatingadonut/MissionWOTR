@@ -30,17 +30,27 @@ list, chosen to not overlap with the base game or other mods):
 
 | Mythic feat | Prerequisites | Benefit |
 |-------------|---------------|---------|
-| **Acrobatic (Mythic)** | - | +2 Mobility, +2 Athletics |
-| **Persuasive (Mythic)** | Persuasive | +2 Persuasion |
-| **Magical Aptitude (Mythic)** | - | +2 Knowledge (Arcana), +2 Use Magic Device |
+| **Acrobatic (Mythic)** | - | +4 Mobility, +4 Athletics |
+| **Persuasive (Mythic)** | Persuasive | +4 Persuasion, +4 Perception |
+| **Magical Aptitude (Mythic)** | - | +4 Knowledge (Arcana), +4 Use Magic Device |
+| **Iron Will (Mythic)** | Iron Will | +1 Will per 2 mythic ranks (min +2) |
+| **Lightning Reflexes (Mythic)** | Lightning Reflexes | +1 Reflex per 2 mythic ranks (min +2) |
+| **Endurance (Mythic)** | Endurance | +1 Fortitude per 2 mythic ranks (min +2) |
 
 Original mythic **abilities**:
 
 | Mythic ability | Benefit |
 |----------------|---------|
-| **Aegis of Legend** | +1 dodge AC per 2 mythic ranks (min +1) |
+| **Untouchable** | +1 dodge AC per 2 mythic ranks (min +1) |
 | **Slayer's Vigor** | Weapon kill → temp HP = mythic rank (min 2) for 1 min |
 | **Ascendant Edge** | Cast a non-cantrip spell → +½ mythic rank (min +1) insight to attacks for 1 round |
+| **Last Stand** | At ≤ half HP: +1 dodge AC per 2 mythic ranks (min +1) |
+| **Desperate Fury** | At ≤ half HP: +1 insight to attacks per 2 mythic ranks (min +1) |
+| **Defiant Soul** | Succeed on a save vs. another's effect → +½ mythic rank (min +2) morale to attacks for 1 round |
+| **Relentless Onslaught** | Weapon kill → +½ mythic rank (min +2) insight to attacks for 1 round |
+| **Aetherial Bulwark** | Cast a non-cantrip spell → +½ mythic rank (min +1) deflection AC for 1 round |
+| **Titan's Wrath** | +1 mythic damage on weapon attacks per mythic rank |
+| **Titan Hide** | +1 natural armor AC per 2 mythic ranks (min +1) |
 
 All of them are selectable through the normal mythic feat/ability level-up picks (any mythic
 path), and Mission Vanguard grants them at level 1 for testing.

@@ -29,9 +29,19 @@ namespace MissionWOTR.Feats
       Configure(nameof(AcrobaticMythic), AcrobaticMythic.Configure);
       Configure(nameof(PersuasiveMythic), PersuasiveMythic.Configure);
       Configure(nameof(MagicalAptitudeMythic), MagicalAptitudeMythic.Configure);
-      Configure(nameof(AegisOfLegend), AegisOfLegend.Configure);
+      Configure(nameof(IronWillMythic), IronWillMythic.Configure);
+      Configure(nameof(LightningReflexesMythic), LightningReflexesMythic.Configure);
+      Configure(nameof(EnduranceMythic), EnduranceMythic.Configure);
+      Configure(nameof(Untouchable), Untouchable.Configure);
       Configure(nameof(SlayersVigor), SlayersVigor.Configure);
       Configure(nameof(AscendantEdge), AscendantEdge.Configure);
+      Configure(nameof(LastStand), LastStand.Configure);
+      Configure(nameof(DesperateFury), DesperateFury.Configure);
+      Configure(nameof(DefiantSoul), DefiantSoul.Configure);
+      Configure(nameof(RelentlessOnslaught), RelentlessOnslaught.Configure);
+      Configure(nameof(AetherialBulwark), AetherialBulwark.Configure);
+      Configure(nameof(TitansWrath), TitansWrath.Configure);
+      Configure(nameof(TitanHide), TitanHide.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);

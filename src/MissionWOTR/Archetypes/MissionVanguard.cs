@@ -40,9 +40,19 @@ namespace MissionWOTR.Archetypes
           AcrobaticMythic.FeatName,
           PersuasiveMythic.FeatName,
           MagicalAptitudeMythic.FeatName,
-          AegisOfLegend.FeatName,
+          IronWillMythic.FeatName,
+          LightningReflexesMythic.FeatName,
+          EnduranceMythic.FeatName,
+          Untouchable.FeatName,
           SlayersVigor.FeatName,
           AscendantEdge.FeatName,
+          LastStand.FeatName,
+          DesperateFury.FeatName,
+          DefiantSoul.FeatName,
+          RelentlessOnslaught.FeatName,
+          AetherialBulwark.FeatName,
+          TitansWrath.FeatName,
+          TitanHide.FeatName,
           // ...plus the vanilla feats they normally require, so every one of them is
           // immediately usable (e.g. Taunting Blows needs Power Attack's stance active).
           FeatureRefs.PowerAttackFeature.ToString(),
@@ -50,7 +60,8 @@ namespace MissionWOTR.Archetypes
           FeatureRefs.ImprovedUnarmedStrike.ToString(),
           FeatureRefs.IronWill.ToString(),
           FeatureRefs.Endurance.ToString(),
-          FeatureRefs.CombatReflexes.ToString())
+          FeatureRefs.CombatReflexes.ToString(),
+          FeatureRefs.LightningReflexes.ToString())
         .Configure(delayed: true);
     }
   }

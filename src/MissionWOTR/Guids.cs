@@ -25,8 +25,13 @@ namespace MissionWOTR
     internal const string PersuasiveMythicFeat = "31161773-8829-46A6-8521-94EE40B1FA45";
     internal const string MagicalAptitudeMythicFeat = "C93A9C0D-E4E6-432C-A483-7AEE3B3CE92C";
 
+    // ----- Mythic save feats (tabletop names absent from the base game) -----
+    internal const string IronWillMythicFeat = "540C602E-E604-4204-B6C8-503BCD531754";
+    internal const string LightningReflexesMythicFeat = "2E446B77-0E17-460A-9EE4-B6CE95ECFA55";
+    internal const string EnduranceMythicFeat = "79C8B88F-FEBD-4841-BA08-36A1407E911B";
+
     // ----- Mythic abilities (original) -----
-    internal const string AegisOfLegendAbility = "18EBC389-DCB8-4CE3-9D75-9146B820A618";
+    internal const string UntouchableAbility = "18EBC389-DCB8-4CE3-9D75-9146B820A618";
     internal const string SlayersVigorAbility = "A70B7C24-7B0E-4BCE-867E-C1791BB6724B";
     internal const string SlayersVigorBuff = "C8B1FD88-0764-4BF9-946D-E74C83EAFA9C";
     internal const string AscendantEdgeAbility = "2CAF92AB-AC6F-4791-AA00-94C6F8F0FED0";
@@ -57,5 +62,20 @@ namespace MissionWOTR
     internal const string ResonantStrikesAcDebuff = "217EB3DD-3631-4F97-AAE4-9FD53AF707D8";
     internal const string SlayersVigorTrigger = "A7FB138A-47C6-4E8F-933E-93CA0917B2CA";
     internal const string AscendantEdgeTrigger = "57F95FCA-7F99-460A-B820-9E48974B26C2";
+    internal const string LastStandAbility = "F5BE43E9-C5E8-4D43-AEEF-7DAB45A71E57";
+    internal const string LastStandAcBonus = "1E7DF36D-0709-431F-834A-53089FBBDC71";
+    internal const string DesperateFuryAbility = "1992FBD0-FFEF-4932-B66E-8341FC764AFA";
+    internal const string DesperateFuryAttackBonus = "E5A6DE17-7F3D-42B1-8881-905534F1C28B";
+    internal const string DefiantSoulAbility = "778EE9C1-E632-436E-8F5A-4A16EEE791A5";
+    internal const string DefiantSoulBuff = "30EB6824-164A-411B-8A9C-A1CBACDBE438";
+    internal const string DefiantSoulTrigger = "77E47B9E-B10B-4794-A164-6E67730658DB";
+    internal const string RelentlessOnslaughtAbility = "9B7646A9-9428-4C1F-B802-D2BE4CC355D9";
+    internal const string RelentlessOnslaughtBuff = "6C71C50C-50E4-4A57-B49E-FEC65E2B8A38";
+    internal const string RelentlessOnslaughtTrigger = "D8866A39-D7AA-4366-9B2D-B24E8A197271";
+    internal const string AetherialBulwarkAbility = "F2736857-F409-412D-AFBB-2D3CD7E811D6";
+    internal const string AetherialBulwarkBuff = "3C4AC86A-F330-4153-80CA-76FF93898650";
+    internal const string AetherialBulwarkTrigger = "714730BA-4C04-4E64-8F9F-8E89EECB3A2F";
+    internal const string TitansWrathAbility = "155717A3-F608-4C9C-B781-8113415D0C60";
+    internal const string TitanHideAbility = "6837349B-5EE9-4C36-875C-FEFF6A9EBE67";
   }
 }
