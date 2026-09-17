@@ -75,7 +75,10 @@ jobs:
                 continue
               }
               Write-Host "Downloading $asset"
-              & gh release download game-libs --pattern $asset --dir _gamelibs --clobber
+              $dlOut = & gh release download game-libs --pattern $asset --dir _gamelibs --clobber 2>&1
+              if ($LASTEXITCODE -ne 0) {
+                Add-Content _gamelibs-download-errors.txt ("ASSET {0} exited {1}: {2}" -f $asset, $LASTEXITCODE, ($dlOut -join ' | '))
+              }
               $global:LASTEXITCODE = 0
             }
 
@@ -127,7 +130,7 @@ jobs:
           exit 0
 
       - name: Inspect game DLL (temporary probe)
-        if: steps.libs.outputs.ready == 'true'
+        if: always() && steps.libs.outputs.ready != 'skipped'
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
