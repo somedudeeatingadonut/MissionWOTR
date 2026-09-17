@@ -95,7 +95,7 @@ namespace MissionWOTR.Archetypes
           .AddStatBonus(stat: StatType.AdditionalAttackBonus, value: -2, descriptor: ModifierDescriptor.Penalty)
           .AddStatBonus(stat: StatType.SaveWill, value: -2, descriptor: ModifierDescriptor.Penalty)
           .AddStatBonus(stat: StatType.SaveReflex, value: -2, descriptor: ModifierDescriptor.Penalty)
-          .AddStatBonus(stat: StatType.SaveFortitude, value: -2, descriptor: ModifierDescriptor.Penalty)),
+          .AddStatBonus(stat: StatType.SaveFortitude, value: -2, descriptor: ModifierDescriptor.Penalty),
         isDistance: true));
       // Guard
       Programs.Add(CreateProgram(
@@ -144,7 +144,7 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(StatType.AC, ContextValues.Rank(), ModifierDescriptor.Dodge)
           .AddContextStatBonus(StatType.SaveWill, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.SaveReflex, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)),
+          .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable),
         isPassive: true));
     }
 
