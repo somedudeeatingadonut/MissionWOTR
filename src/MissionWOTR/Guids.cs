@@ -270,5 +270,6 @@ namespace MissionWOTR
     internal const string AiFollowDistance = "14DF8243-0E04-4FBF-988C-B4E88F172B4E";
     internal const string CrafterPassiveBrain = "DA7A843F-940F-47A9-876C-B29978843751";
     internal const string CrafterGuardBrain = "589FB15B-6F5E-4A55-B0D3-40049241E33D";
+    internal const string CrafterDistanceBrain = "99F6B891-5F7C-4BAA-AF42-C60E71A98AF4";
   }
 }
