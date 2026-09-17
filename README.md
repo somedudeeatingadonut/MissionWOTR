@@ -63,6 +63,17 @@ Original mythic **abilities**:
 All of them are selectable through the normal mythic feat/ability level-up picks (any mythic
 path), and Mission Vanguard grants them at level 1 for testing.
 
+## Class archetypes
+
+Two archetypes per class is the long-term goal (one tabletop port, one homebrew) — plans and
+real level tables live in [`docs/ARCHETYPES.md`](docs/ARCHETYPES.md). All archetypes ship in
+**test mode**: every feature is granted at level 1; flip `LevelPlan.AllAtLevelOne` to false
+for normal leveling.
+
+| Class | Archetype | Kind | Summary |
+|-------|-----------|------|---------|
+| Alchemist | **Eldritch Poisoner** | Tabletop (Black Markets) | Trades bombs/Throw Anything/mutagen for arcanotoxin (supernatural poison that bypasses poison immunity at a +4 save penalty for the immune), toxicology, and rogue sneak attack. Mythic ability: **Expedited Synthesis** — swift-action brew for 25% max HP (15% on a Fort save) |
+
 ## Mission Vanguard (test archetype)
 
 **Mission Vanguard** is a Magus archetype that grants all seven Mission WOTR feats - plus the

@@ -47,6 +47,9 @@ namespace MissionWOTR.Feats
       Configure(nameof(TitansWrath), TitansWrath.Configure);
       Configure(nameof(TitanHide), TitanHide.Configure);
 
+      // Class archetypes (level 1 test mode; see LevelPlan + docs/ARCHETYPES.md).
+      Configure(nameof(EldritchPoisoner), EldritchPoisoner.Configure);
+
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
 

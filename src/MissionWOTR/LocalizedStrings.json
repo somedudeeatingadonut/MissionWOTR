@@ -376,5 +376,85 @@
     "Key": "TunnelFighter.Buff.Description",
     "ProcessTemplates": false,
     "enGB": "Fighting with the desperate precision of a cornered beast, this character makes any number of attacks of opportunity but suffers a penalty on attack rolls."
+  },
+  {
+    "Key": "EldritchPoisoner.Name",
+    "ProcessTemplates": false,
+    "enGB": "Eldritch Poisoner"
+  },
+  {
+    "Key": "EldritchPoisoner.Description",
+    "ProcessTemplates": false,
+    "enGB": "An eldritch poisoner blends volatile chemicals and her own personal magic to create deadly poisons known as arcanotoxins.\nArcanotoxin: A number of times per day equal to her alchemist level + her Intelligence modifier, she can brew a dose of arcanotoxin and coat a weapon with it. Weapon hits then deliver the toxin: Fortitude save (DC 10 + half alchemist level + Intelligence) or 1d2 Strength damage. Arcanotoxin is supernatural and bypasses poison immunity, though creatures immune to poison resist it (+4 on the save).\nThis archetype replaces bomb, Throw Anything, and mutagen; it grants sneak attack as a rogue.\nPorted from Pathfinder Player Companion: Black Markets."
+  },
+  {
+    "Key": "EldritchPoisonerArcanotoxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arcanotoxin"
+  },
+  {
+    "Key": "EldritchPoisonerArcanotoxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "You blend volatile chemicals and your own personal magic to create deadly poisons known as arcanotoxins. A number of times per day equal to your alchemist level + your Intelligence modifier, you can brew a dose of arcanotoxin and coat your weapon with it for 1 minute. While coated, your weapon hits deliver the toxin: the target must succeed at a Fortitude save (DC 10 + half your alchemist level + your Intelligence modifier) or take 1d2 Strength damage as the toxin courses through its veins for 2 rounds. A creature cannot be affected by a new dose while the toxin is already in its system.\nArcanotoxin is supernatural: it functions even against creatures immune to poison, though such creatures resist it and receive a +4 bonus on the saving throw."
+  },
+  {
+    "Key": "EldritchPoisonerBrewToxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Brew Arcanotoxin"
+  },
+  {
+    "Key": "EldritchPoisonerBrewToxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "Brew a dose of arcanotoxin (expending one daily use) and coat your weapon with it for 1 minute. Standard action."
+  },
+  {
+    "Key": "EldritchPoisonerSwiftBrew.Name",
+    "ProcessTemplates": false,
+    "enGB": "Brew Arcanotoxin (Expedited)"
+  },
+  {
+    "Key": "EldritchPoisonerSwiftBrew.Description",
+    "ProcessTemplates": false,
+    "enGB": "Brew and apply a dose of arcanotoxin as a swift action - at a price. You lose 25% of your maximum hit points, or only 15% if you succeed at a DC 15 Fortitude save. This can never reduce you below 1 hit point."
+  },
+  {
+    "Key": "EldritchPoisonerCoating.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arcanotoxin Coating"
+  },
+  {
+    "Key": "EldritchPoisonerCoating.Description",
+    "ProcessTemplates": false,
+    "enGB": "A sheen of supernatural poison coats this character's weapon. Hits with the weapon deliver the arcanotoxin."
+  },
+  {
+    "Key": "EldritchPoisonerToxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arcanotoxin"
+  },
+  {
+    "Key": "EldritchPoisonerToxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "A supernatural poison courses through this character's veins, weakening its muscles."
+  },
+  {
+    "Key": "EldritchPoisonerToxicologist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Toxicologist"
+  },
+  {
+    "Key": "EldritchPoisonerToxicologist.Description",
+    "ProcessTemplates": false,
+    "enGB": "You are trained in the creation of poisons and antitoxins. You gain a +2 bonus on Lore (Nature) checks related to alchemy and toxins."
+  },
+  {
+    "Key": "ExpeditedSynthesis.Name",
+    "ProcessTemplates": false,
+    "enGB": "Expedited Synthesis"
+  },
+  {
+    "Key": "ExpeditedSynthesis.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your body has become a catalyst. You may brew and apply a dose of arcanotoxin as a swift action instead of a standard action - but the accelerated reaction burns you: you lose 25% of your maximum hit points, or only 15% if you succeed at a DC 15 Fortitude save. This can never reduce you below 1 hit point."
   }
 ]

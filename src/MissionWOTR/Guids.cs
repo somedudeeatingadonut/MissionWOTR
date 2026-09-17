@@ -47,6 +47,19 @@ namespace MissionWOTR
     internal const string TunnelFighterAbility = "3713E9F9-B618-4FD2-91D1-8FAF2EDE7AD";
     internal const string TunnelFighterBuff = "439F9D7C-FDA7-4C84-A914-27DEBCCFB71A";
 
+    // ----- Eldritch Poisoner (Alchemist archetype) -----
+    internal const string EldritchPoisonerArchetype = "1DF8CC2E-A773-4C66-B771-31C335183A3E";
+    internal const string EldritchPoisonerArcanotoxin = "32AA2E9E-9BB4-4A0E-838F-566DA052D712";
+    internal const string EldritchPoisonerToxinDoses = "CEDF4E5F-0B72-482D-A373-3083C91839B5";
+    internal const string EldritchPoisonerBrewToxin = "1147727B-12CD-4FAB-BC1A-4B5C67596D80";
+    internal const string EldritchPoisonerCoatingBuff = "7ADEAEEB-AD28-4E19-AAED-7061A6AF37F7";
+    internal const string EldritchPoisonerToxinDebuff = "FE5E878C-42D7-49C9-8442-576D6341B398";
+    internal const string EldritchPoisonerToxicologist = "874DAAE6-4159-44D3-9133-99FEC6C30996";
+    internal const string EldritchPoisonerSwiftBrew = "3CFD3C02-E090-4C15-B08E-29913CEDE429";
+    internal const string ExpeditedSynthesisAbility = "37A06719-6094-497F-93C9-023948294056";
+    internal const string ArcanotoxinDelivery = "B2BC2538-7ED6-4E7A-A086-78093E886D40";
+    internal const string ExpeditedSynthesisCost = "F6EC63FD-8954-43A5-8DDC-2CB64739F07D";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.
