@@ -21,32 +21,27 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using MissionWOTR.Feats;
 using System;
+using System.Linq;
 
 namespace MissionWOTR.Archetypes
 {
   /// <summary>
   /// Eldritch Poisoner (Alchemist archetype, tabletop port from Pathfinder Player Companion:
   /// Black Markets) - a master of toxic arts who trades bombs, Throw Anything and mutagen for
-  /// a supernatural poison all her own.
+  /// a supernatural poison all her own. Discoveries live in EldritchPoisonerDiscoveries.cs.
   ///
   /// REAL LEVEL PLAN (used when LevelPlan.AllAtLevelOne is false):
-  ///   L1  Arcanotoxin (replaces bomb) - brew doses (level + Int per day), coat weapon,
-  ///       weapon hits deliver: Fort save DC 10 + 1/2 alch level + Int or 1d2 Str damage
-  ///   L1  Toxicologist (replaces Throw Anything) - +2 Lore (Nature)
-  ///   L1  Sneak attack 1d6 (replaces mutagen; also replaces persistent mutagen)
-  ///   L4/8/12/16/20  Sneak attack +1d6 each (RogueSneakAttack ranks)
-  ///   (Future, per tabletop: Careful Injection at L4 replaces the 4th-level discovery;
-  ///    arcanotoxin discoveries - Sickening, Mind-Altering, Paralytic, Lethal, etc.)
-  ///
-  /// WRATH ADAPTATIONS (documented in docs/ARCHETYPES.md):
-  ///   - Arcanotoxin is SUPERNATURAL: it bypasses poison immunity entirely, but creatures
-  ///     immune to poison resist it partially and receive a +4 bonus on the saving throw.
-  ///   - V1 applies the damage once on a failed save (2-round lockout on the target)
-  ///     instead of the tabletop's recurring 1/round-for-2-rounds frequency; the game's
-  ///     BuffPoisonStatDamage component can restore full frequency later.
+  ///   L1  Arcanotoxin (replaces bomb), Toxicologist (replaces Throw Anything),
+  ///       Sneak attack 1d6 (replaces mutagen)
+  ///   L4/8/12/16/20  Sneak attack +1d6 each
+  ///   L4  Careful Injection (tabletop: replaces the 4th-level discovery)
+  ///   Discoveries (Sickening, Mind-Altering, Paralytic, Lethal, Combine, Contact, Envenom,
+  ///   Antidote, Apothecary, Toxic Fumes) are ordinary alchemist discovery picks, level-gated
+  ///   per the tabletop; they are auto-granted only in test mode.
   /// </summary>
   public class EldritchPoisoner
   {
@@ -67,7 +62,11 @@ namespace MissionWOTR.Archetypes
     internal const string CoatingBuffName = "EldritchPoisonerCoatingBuff";
     internal const string CoatingDisplayName = "EldritchPoisonerCoating.Name";
     internal const string CoatingDescription = "EldritchPoisonerCoating.Description";
-    internal const string ToxinBuffName = "EldritchPoisonerToxinDebuff";
+    internal const string ToxinStrDiceName = "EldritchPoisonerToxinStrDice";
+    internal const string ToxinStrFlatName = "EldritchPoisonerToxinStrFlat";
+    internal const string ToxinDexFlatName = "EldritchPoisonerToxinDexFlat";
+    internal const string ToxinConDiceName = "EldritchPoisonerToxinConDice";
+    internal const string ToxinConFlatName = "EldritchPoisonerToxinConFlat";
     internal const string ToxinDisplayName = "EldritchPoisonerToxin.Name";
     internal const string ToxinDescription = "EldritchPoisonerToxin.Description";
     internal const string ToxicologistFeatName = "EldritchPoisonerToxicologist";
@@ -77,32 +76,42 @@ namespace MissionWOTR.Archetypes
     internal const string MythicDisplayName = "ExpeditedSynthesis.Name";
     internal const string MythicDescription = "ExpeditedSynthesis.Description";
 
+    // Runtime-accessible blueprints (set during Configure; used by the delivery logic).
+    internal static BlueprintBuff Coating;
+    internal static BlueprintBuff ToxinStrDice;
+    internal static BlueprintBuff ToxinStrFlat;
+    internal static BlueprintBuff ToxinDexFlat;
+    internal static BlueprintBuff ToxinConDice;
+    internal static BlueprintBuff ToxinConFlat;
+    internal static BlueprintAbilityResource Doses;
+
     public static void Configure()
     {
       var icon = AbilityRefs.BombStandart.Reference.Get().Icon;
 
-      // ----- Toxin debuff: 1d2 Strength damage when it lands, 2-round lockout -----
-      var toxin = BuffConfigurator.New(ToxinBuffName, Guids.EldritchPoisonerToxinDebuff)
-        .SetDisplayName(ToxinDisplayName)
-        .SetDescription(ToxinDescription)
-        .SetIcon(icon)
-        .AddFactContextActions(activated: ActionsBuilder.New().Add(new DealStatDamage
-        {
-          Stat = StatType.Strength,
-          DamageDice = new DiceFormula(1, DiceType.D2),
-        }))
-        .Configure();
+      // ----- Toxin debuff variants -----
+      // Base: 1d2 Strength. Combine Toxins: flat 1 to two scores. Lethal: Constitution.
+      ToxinStrDice = NewToxin(ToxinStrDiceName, Guids.EldritchPoisonerToxinDebuff,
+        StatType.Strength, new DiceFormula(1, DiceType.D2), 0);
+      ToxinStrFlat = NewToxin(ToxinStrFlatName, Guids.EldritchPoisonerToxinStrFlat,
+        StatType.Strength, new DiceFormula(0, DiceType.Zero), 1);
+      ToxinDexFlat = NewToxin(ToxinDexFlatName, Guids.EldritchPoisonerToxinDexFlat,
+        StatType.Dexterity, new DiceFormula(0, DiceType.Zero), 1);
+      ToxinConDice = NewToxin(ToxinConDiceName, Guids.EldritchPoisonerToxinConDice,
+        StatType.Constitution, new DiceFormula(1, DiceType.D2), 0);
+      ToxinConFlat = NewToxin(ToxinConFlatName, Guids.EldritchPoisonerToxinConFlat,
+        StatType.Constitution, new DiceFormula(0, DiceType.Zero), 1);
 
       // ----- Weapon coating: carries the delivery trigger -----
-      var coating = BuffConfigurator.New(CoatingBuffName, Guids.EldritchPoisonerCoatingBuff)
+      Coating = BuffConfigurator.New(CoatingBuffName, Guids.EldritchPoisonerCoatingBuff)
         .SetDisplayName(CoatingDisplayName)
         .SetDescription(CoatingDescription)
         .SetIcon(icon)
-        .AddComponent(new ArcanotoxinDelivery(toxin))
+        .AddComponent<ArcanotoxinDelivery>()
         .Configure();
 
       // ----- Dose pool: alchemist level + Intelligence modifier per day -----
-      var doses = AbilityResourceConfigurator.New(DosesResourceName, Guids.EldritchPoisonerToxinDoses)
+      Doses = AbilityResourceConfigurator.New(DosesResourceName, Guids.EldritchPoisonerToxinDoses)
         .SetMaxAmount(
           ResourceAmountBuilder.New(0)
             .IncreaseByLevel(new[] { CharacterClassRefs.AlchemistClass.ToString() }, 1)
@@ -117,9 +126,9 @@ namespace MissionWOTR.Archetypes
         .SetType(AbilityType.Special)
         .SetRange(AbilityRange.Personal)
         .SetActionType(UnitCommand.CommandType.Standard)
-        .AddAbilityResourceLogic(requiredResource: doses, amount: 1, isSpendResource: true)
+        .AddAbilityResourceLogic(requiredResource: Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().ApplyBuff(coating, ContextDuration.Fixed(10), toCaster: true))
+          ActionsBuilder.New().ApplyBuff(Coating, ContextDuration.Fixed(10), toCaster: true))
         .Configure();
 
       // ----- Arcanotoxin feature (L1, replaces bomb) -----
@@ -129,7 +138,7 @@ namespace MissionWOTR.Archetypes
         .SetIcon(icon)
         .SetIsClassFeature()
         .AddFacts(new() { BrewAbilityName })
-        .AddAbilityResources(resource: doses, restoreAmount: true)
+        .AddAbilityResources(resource: Doses, restoreAmount: true)
         .Configure();
 
       // ----- Toxicologist (L1, replaces Throw Anything) -----
@@ -149,11 +158,11 @@ namespace MissionWOTR.Archetypes
         .SetType(AbilityType.Special)
         .SetRange(AbilityRange.Personal)
         .SetActionType(UnitCommand.CommandType.Swift)
-        .AddAbilityResourceLogic(requiredResource: doses, amount: 1, isSpendResource: true)
+        .AddAbilityResourceLogic(requiredResource: Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
           ActionsBuilder.New()
             .Add(new ContextActionExpeditedSynthesisCost())
-            .ApplyBuff(coating, ContextDuration.Fixed(10), toCaster: true))
+            .ApplyBuff(Coating, ContextDuration.Fixed(10), toCaster: true))
         .Configure();
 
       FeatureConfigurator.New(MythicName, Guids.ExpeditedSynthesisAbility)
@@ -167,133 +176,246 @@ namespace MissionWOTR.Archetypes
           FeatureSelectionRefs.ExtraMythicAbilityMythicFeat.Cast<BlueprintFeatureSelectionReference>())
         .Configure();
 
+      // Discoveries must exist before the archetype references their names.
+      EldritchPoisonerDiscoveries.Configure();
+
       // ----- The archetype itself -----
-      ArchetypeConfigurator.New(ArchetypeName, Guids.EldritchPoisonerArchetype, CharacterClassRefs.AlchemistClass)
-        .SetLocalizedName(DisplayName)
-        .SetLocalizedDescription(Description)
-        // Replaces bomb (all of the class's bomb-granting entries).
-        .AddToRemoveFeatures(1,
-          FeatureRefs.AlchemistBombsFeature.ToString(),
-          FeatureRefs.AlchemistBombs.ToString())
-        // Replaces Throw Anything.
-        .AddToRemoveFeatures(1, FeatureRefs.AlchemistThrowAnything.ToString())
-        // Replaces mutagen (and, implicitly, persistent mutagen which improves it).
-        .AddToRemoveFeatures(1, FeatureRefs.AlchemistMutagen.ToString())
-        // Test mode: everything lands at L1; with LevelPlan off these are the real levels.
-        .AddToAddFeatures(LevelPlan.L(1), ArcanotoxinFeatName, ToxicologistFeatName)
-        .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.RogueSneakAttack.ToString())
-        .AddToAddFeatures(LevelPlan.L(4), FeatureRefs.RogueSneakAttack.ToString())
-        .AddToAddFeatures(LevelPlan.L(8), FeatureRefs.RogueSneakAttack.ToString())
-        .AddToAddFeatures(LevelPlan.L(12), FeatureRefs.RogueSneakAttack.ToString())
-        .AddToAddFeatures(LevelPlan.L(16), FeatureRefs.RogueSneakAttack.ToString())
-        .AddToAddFeatures(LevelPlan.L(20), FeatureRefs.RogueSneakAttack.ToString())
+      var archetype =
+        ArchetypeConfigurator.New(ArchetypeName, Guids.EldritchPoisonerArchetype, CharacterClassRefs.AlchemistClass)
+          .SetLocalizedName(DisplayName)
+          .SetLocalizedDescription(Description)
+          // Replaces bomb (all of the class's bomb-granting entries).
+          .AddToRemoveFeatures(1,
+            FeatureRefs.AlchemistBombsFeature.ToString(),
+            FeatureRefs.AlchemistBombs.ToString())
+          // Replaces Throw Anything.
+          .AddToRemoveFeatures(1, FeatureRefs.AlchemistThrowAnything.ToString())
+          // Replaces mutagen (and, implicitly, persistent mutagen which improves it).
+          .AddToRemoveFeatures(1, FeatureRefs.AlchemistMutagen.ToString())
+          .AddToAddFeatures(LevelPlan.L(1), ArcanotoxinFeatName, ToxicologistFeatName)
+          .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.RogueSneakAttack.ToString())
+          .AddToAddFeatures(LevelPlan.L(4), FeatureRefs.RogueSneakAttack.ToString())
+          .AddToAddFeatures(LevelPlan.L(8), FeatureRefs.RogueSneakAttack.ToString())
+          .AddToAddFeatures(LevelPlan.L(12), FeatureRefs.RogueSneakAttack.ToString())
+          .AddToAddFeatures(LevelPlan.L(16), FeatureRefs.RogueSneakAttack.ToString())
+          .AddToAddFeatures(LevelPlan.L(20), FeatureRefs.RogueSneakAttack.ToString());
+
+      if (LevelPlan.AllAtLevelOne)
+      {
+        // TEST MODE: the whole kit, discoveries included, from the first fight.
+        archetype.AddToAddFeatures(
+          1,
+          EldritchPoisonerDiscoveries.AllFeatNames
+            .Select(f => (Blueprint<BlueprintFeatureBaseReference>)f)
+            .ToArray());
+      }
+      else
+      {
+        // NORMAL MODE: discoveries are ordinary alchemist picks (level-gated per the
+        // tabletop); Careful Injection arrives with the 4th-level feature slot.
+        archetype.AddToAddFeatures(LevelPlan.L(4), EldritchPoisonerDiscoveries.CarefulInjectionFeatName);
+      }
+
+      archetype.Configure();
+    }
+
+    private static BlueprintBuff NewToxin(
+      string name, string guid, StatType stat, DiceFormula dice, int bonus)
+    {
+      return BuffConfigurator.New(name, guid)
+        .SetDisplayName(ToxinDisplayName)
+        .SetDescription(ToxinDescription)
+        .SetIcon(AbilityRefs.BombStandart.Reference.Get().Icon)
+        .AddFactContextActions(activated: ActionsBuilder.New().Add(new DealStatDamage
+        {
+          Stat = stat,
+          DamageDice = dice,
+          DamageBonus = bonus,
+        }))
         .Configure();
     }
+  }
 
-    /// <summary>
-    /// Delivers the arcanotoxin on the owner's weapon hits while the coating is active.
-    /// Arcanotoxin is supernatural: it ignores poison immunity, but creatures normally
-    /// immune to poison resist it and gain a +4 bonus on the save.
-    /// </summary>
-    [TypeId(Guids.ArcanotoxinDelivery)]
-    private class ArcanotoxinDelivery :
-      UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleAttackWithWeapon>
+  /// <summary>
+  /// Shared arcanotoxin delivery logic: save DC, immunity bypass, variant selection based
+  /// on the poisoner's discoveries, and secondary effects. Used by the weapon-coating
+  /// trigger and the thrown-toxin abilities.
+  /// </summary>
+  internal static class ArcanotoxinApply
+  {
+    private static BlueprintCharacterClass AlchemistClass;
+    private static BlueprintFeature PoisonImmunityA;
+    private static BlueprintFeature PoisonImmunityB;
+
+    private static readonly BlueprintBuff[] NoReapplyCache = new BlueprintBuff[5];
+
+    public static void Apply(
+      UnitEntityData owner,
+      UnitEntityData target,
+      MechanicsContext context,
+      EntityFact sourceFact,
+      int dcModifier,
+      bool sneakAttack)
     {
-      private static readonly BlueprintCharacterClass AlchemistClass =
-        CharacterClassRefs.AlchemistClass.Reference.Get();
-
-      private static readonly BlueprintFeature PoisonImmunityFeature =
-        FeatureRefs.ImmunityToPoison.Reference.Get();
-
-      private static readonly BlueprintFeature PoisonImmunityFeatureAlt =
-        FeatureRefs.PoisonImmunity.Reference.Get();
-
-      private readonly BlueprintBuff Toxin;
-
-      public ArcanotoxinDelivery(BlueprintBuff toxin)
+      try
       {
-        Toxin = toxin;
+        if (target is null || target.HPLeft <= 0)
+        {
+          return;
+        }
+
+        AlchemistClass ??= CharacterClassRefs.AlchemistClass.Reference.Get();
+        PoisonImmunityA ??= FeatureRefs.ImmunityToPoison.Reference.Get();
+        PoisonImmunityB ??= FeatureRefs.PoisonImmunity.Reference.Get();
+
+        // No reapplication while any strain of the toxin is already in the system.
+        var strains = new[]
+        {
+          EldritchPoisoner.ToxinStrDice, EldritchPoisoner.ToxinStrFlat,
+          EldritchPoisoner.ToxinDexFlat, EldritchPoisoner.ToxinConDice, EldritchPoisoner.ToxinConFlat,
+        };
+        foreach (var strain in strains)
+        {
+          if (strain is not null && target.Buffs.GetBuff(strain) is not null)
+          {
+            return;
+          }
+        }
+
+        var alchemistLevel = owner.Descriptor.Progression.GetClassLevel(AlchemistClass);
+        var dc = 10 + alchemistLevel / 2 + owner.Stats.Intelligence.Bonus + dcModifier;
+
+        // Careful Injection: sneak attacks deliver the toxin more precisely.
+        if (sneakAttack && owner.HasFact(EldritchPoisonerDiscoveries.CarefulInjection))
+        {
+          dc += 2;
+        }
+
+        // Supernatural toxin: bypasses poison immunity, but such creatures resist it.
+        if (target.HasFact(PoisonImmunityA) || target.HasFact(PoisonImmunityB))
+        {
+          dc -= 4;
+        }
+
+        var save = new RuleSavingThrow(target, SavingThrowType.Fortitude, dc) { Reason = sourceFact };
+        if (Rulebook.Trigger(save).IsPassed)
+        {
+          return;
+        }
+
+        // Pick the strain(s) based on the poisoner's discoveries.
+        var lethal = owner.HasFact(EldritchPoisonerDiscoveries.LethalToxin);
+        var combine = owner.HasFact(EldritchPoisonerDiscoveries.CombineToxins);
+        BlueprintBuff primary;
+        BlueprintBuff extra = null;
+        if (lethal && combine)
+        {
+          primary = EldritchPoisoner.ToxinConFlat;
+          extra = EldritchPoisoner.ToxinDexFlat;
+        }
+        else if (lethal)
+        {
+          primary = EldritchPoisoner.ToxinConDice;
+        }
+        else if (combine)
+        {
+          primary = EldritchPoisoner.ToxinStrFlat;
+          extra = EldritchPoisoner.ToxinDexFlat;
+        }
+        else
+        {
+          primary = EldritchPoisoner.ToxinStrDice;
+        }
+
+        var seconds = ContextDuration.Fixed(2).Calculate(context).Seconds;
+        target.AddBuff(primary, context, duration: seconds);
+        if (extra is not null)
+        {
+          target.AddBuff(extra, context, duration: seconds);
+        }
+
+        // One secondary effect per dose (worst first): Paralytic > Mind-Altering > Sickening.
+        var secondary = GetSecondary(owner, alchemistLevel);
+        if (secondary is not null)
+        {
+          target.AddBuff(secondary, context, duration: seconds);
+        }
       }
-
-      public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) { }
-
-      public void OnEventDidTrigger(RuleAttackWithWeapon evt)
+      catch (Exception e)
       {
-        try
-        {
-          // Only actual hits with a weapon...
-          if (evt.AttackRoll is null || !evt.AttackRoll.IsHit)
-          {
-            return;
-          }
-          var target = evt.Target;
-          if (target is null || target.HPLeft <= 0)
-          {
-            return;
-          }
-          // No reapplication while the toxin is already in the target's system.
-          if (target.Buffs.GetBuff(Toxin) != null)
-          {
-            return;
-          }
-
-          var alchemistLevel = Owner.Descriptor.Progression.GetClassLevel(AlchemistClass);
-          var dc = 10 + alchemistLevel / 2 + Owner.Stats.Intelligence.Bonus;
-
-          // Supernatural toxin: bypasses poison immunity, but such creatures resist (+4 save).
-          if (target.HasFact(PoisonImmunityFeature) || target.HasFact(PoisonImmunityFeatureAlt))
-          {
-            dc -= 4;
-          }
-
-          var save = new RuleSavingThrow(target, SavingThrowType.Fortitude, dc) { Reason = Fact };
-          if (Rulebook.Trigger(save).IsPassed)
-          {
-            return;
-          }
-
-          // 2 rounds of toxin in the veins.
-          target.AddBuff(Toxin, Context, duration: ContextDuration.Fixed(2).Calculate(Context).Seconds);
-        }
-        catch (Exception e)
-        {
-          MissionFeats.Logger.Error("EldritchPoisoner: failed to deliver arcanotoxin.", e);
-        }
+        MissionFeats.Logger.Error("EldritchPoisoner: failed to deliver arcanotoxin.", e);
       }
     }
 
-    /// <summary>
-    /// The price of haste: the caster loses 25% of maximum HP, or only 15% if they succeed
-    /// at a DC 15 Fortitude save. Never reduces the caster below 1 HP.
-    /// </summary>
-    [TypeId(Guids.ExpeditedSynthesisCost)]
-    private class ContextActionExpeditedSynthesisCost : ContextAction
+    private static BlueprintBuff GetSecondary(UnitEntityData owner, int alchemistLevel)
     {
-      public override string GetCaption() => "Expedited Synthesis HP cost";
-
-      public override void RunAction()
+      if (owner.HasFact(EldritchPoisonerDiscoveries.ParalyticToxin))
       {
-        try
+        return (alchemistLevel >= 15 ? BuffRefs.Paralyzed : BuffRefs.Staggered).Reference.Get();
+      }
+      if (owner.HasFact(EldritchPoisonerDiscoveries.MindAlteringToxin))
+      {
+        return (alchemistLevel >= 10 ? BuffRefs.Confusion : BuffRefs.DazzledBuff).Reference.Get();
+      }
+      if (owner.HasFact(EldritchPoisonerDiscoveries.SickeningToxin))
+      {
+        return (alchemistLevel >= 12 ? BuffRefs.Nauseated : BuffRefs.Sickened).Reference.Get();
+      }
+      return null;
+    }
+  }
+
+  /// <summary>
+  /// Delivers the arcanotoxin on the owner's weapon hits while the coating is active.
+  /// </summary>
+  [TypeId(Guids.ArcanotoxinDelivery)]
+  internal class ArcanotoxinDelivery :
+    UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleAttackWithWeapon>
+  {
+    public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) { }
+
+    public void OnEventDidTrigger(RuleAttackWithWeapon evt)
+    {
+      if (evt.AttackRoll is null || !evt.AttackRoll.IsHit)
+      {
+        return;
+      }
+      ArcanotoxinApply.Apply(
+        Owner, evt.Target, Context, Fact, 0, evt.AttackRoll.IsSneakAttack);
+    }
+  }
+
+  /// <summary>
+  /// The price of haste: the caster loses 25% of maximum HP, or only 15% if they succeed
+  /// at a DC 15 Fortitude save. Never reduces the caster below 1 HP.
+  /// </summary>
+  [TypeId(Guids.ExpeditedSynthesisCost)]
+  internal class ContextActionExpeditedSynthesisCost : ContextAction
+  {
+    public override string GetCaption() => "Expedited Synthesis HP cost";
+
+    public override void RunAction()
+    {
+      try
+      {
+        var unit = Target.Unit;
+        if (unit is null)
         {
-          var unit = Target.Unit;
-          if (unit is null)
-          {
-            return;
-          }
-          var save = new RuleSavingThrow(unit, SavingThrowType.Fortitude, 15);
-          var fraction = Rulebook.Trigger(save).IsPassed ? 0.15 : 0.25;
-          var amount = Math.Max(1, (int)Math.Round(unit.Descriptor.MaxHP * fraction));
-          // Never let the synthesis kill its own maker.
-          amount = Math.Min(amount, Math.Max(0, unit.HPLeft - 1));
-          if (amount > 0)
-          {
-            unit.Descriptor.Damage += amount;
-          }
+          return;
         }
-        catch (Exception e)
+        var save = new RuleSavingThrow(unit, SavingThrowType.Fortitude, 15);
+        var fraction = Rulebook.Trigger(save).IsPassed ? 0.15 : 0.25;
+        var amount = Math.Max(1, (int)Math.Round(unit.Descriptor.MaxHP * fraction));
+        // Never let the synthesis kill its own maker.
+        amount = Math.Min(amount, Math.Max(0, unit.HPLeft - 1));
+        if (amount > 0)
         {
-          MissionFeats.Logger.Error("EldritchPoisoner: failed to apply synthesis HP cost.", e);
+          unit.Descriptor.Damage += amount;
         }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("EldritchPoisoner: failed to apply synthesis HP cost.", e);
       }
     }
   }

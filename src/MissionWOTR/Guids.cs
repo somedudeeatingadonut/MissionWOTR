@@ -60,6 +60,28 @@ namespace MissionWOTR
     internal const string ArcanotoxinDelivery = "B2BC2538-7ED6-4E7A-A086-78093E886D40";
     internal const string ExpeditedSynthesisCost = "F6EC63FD-8954-43A5-8DDC-2CB64739F07D";
 
+    // ----- Eldritch Poisoner: toxin variants, discoveries, abilities -----
+    internal const string EldritchPoisonerToxinStrFlat = "D5BE2765-78EF-4D6D-A07A-2C71385EC0F3";
+    internal const string EldritchPoisonerToxinDexFlat = "997C7F2E-89EA-41FE-BEEF-3053DCDBE331";
+    internal const string EldritchPoisonerToxinConDice = "CA876C91-C292-419A-BF39-9A2FB25D1067";
+    internal const string EldritchPoisonerToxinConFlat = "FF329231-B5C3-4765-BD3A-47C591B1A607";
+    internal const string SickeningToxinFeat = "7324A8B6-D316-4577-99DC-DBA95B7C0340";
+    internal const string MindAlteringToxinFeat = "4CE4F875-1BDF-4BE3-BB86-1EA19C34F72C";
+    internal const string ParalyticToxinFeat = "5A208111-707A-402D-9A04-9249204582D0";
+    internal const string LethalToxinFeat = "E275ED7C-0C61-4F17-9662-DAB7D0A41583";
+    internal const string CombineToxinsFeat = "C1AC7EA0-FC2D-434D-9D3E-CCB88A69101D";
+    internal const string ContactToxinFeat = "AB285230-20DC-44E8-964B-1FBFBB89DF0E";
+    internal const string ToxicFumesFeat = "23D6E760-E433-4847-BF85-7ECABA09EA76";
+    internal const string EnvenomFeat = "AC0F9AA1-339E-4D46-809B-793BD26D9E2E";
+    internal const string AntidoteFeat = "C0FD6A38-AA66-41A3-9413-37510E8F2E02";
+    internal const string ApothecaryFeat = "CB4BC9BD-D6ED-4CE4-994A-B5AC23E83406";
+    internal const string CarefulInjectionFeat = "ACC18199-D49B-44BE-897D-882BE541538F";
+    internal const string ContactThrowAbility = "4943A732-A858-4CEE-9498-268FCCC0274C";
+    internal const string FumesThrowAbility = "B1F74AB8-D1DA-44D1-9C75-7F88B4940E40";
+    internal const string EnvenomAllyAbility = "E595A745-3D6B-4DC6-B033-01E480B6150C";
+    internal const string AntidoteAbility = "8F26411D-740F-42B3-A50F-7A03D91EBADE";
+    internal const string DeliverToxinAction = "928E0A5E-A6E1-4F42-A4CE-96671C3DF359";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.

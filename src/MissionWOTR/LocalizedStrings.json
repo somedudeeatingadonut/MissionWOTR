@@ -456,5 +456,155 @@
     "Key": "ExpeditedSynthesis.Description",
     "ProcessTemplates": false,
     "enGB": "Your body has become a catalyst. You may brew and apply a dose of arcanotoxin as a swift action instead of a standard action - but the accelerated reaction burns you: you lose 25% of your maximum hit points, or only 15% if you succeed at a DC 15 Fortitude save. This can never reduce you below 1 hit point."
+  },
+  {
+    "Key": "SickeningToxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sickening Toxin"
+  },
+  {
+    "Key": "SickeningToxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your arcanotoxin leaves victims retching. When a creature fails its saving throw against your arcanotoxin, it is also sickened for the toxin's duration. Beginning at 12th level, targets are nauseated instead."
+  },
+  {
+    "Key": "MindAlteringToxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mind-Altering Toxin"
+  },
+  {
+    "Key": "MindAlteringToxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your arcanotoxin induces vivid hallucinations. When a creature fails its saving throw against your arcanotoxin, it is also dazzled for the toxin's duration. Beginning at 10th level, targets are confused instead.\nPrerequisites: Eldritch Poisoner, alchemist level 6."
+  },
+  {
+    "Key": "ParalyticToxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Paralytic Toxin"
+  },
+  {
+    "Key": "ParalyticToxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your arcanotoxin locks muscles rigid. When a creature fails its saving throw against your arcanotoxin, it is also staggered for the toxin's duration. Beginning at 15th level, targets are paralyzed instead.\nPrerequisites: Eldritch Poisoner, alchemist level 8."
+  },
+  {
+    "Key": "LethalToxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lethal Toxin"
+  },
+  {
+    "Key": "LethalToxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your arcanotoxin attacks life itself. Your arcanotoxin deals Constitution damage instead of Strength damage.\nPrerequisites: Eldritch Poisoner, alchemist level 10."
+  },
+  {
+    "Key": "CombineToxins.Name",
+    "ProcessTemplates": false,
+    "enGB": "Combine Toxins"
+  },
+  {
+    "Key": "CombineToxins.Description",
+    "ProcessTemplates": false,
+    "enGB": "You diversify your arcanotoxin, striking both muscle and reflex. Your arcanotoxin deals 1 point of Strength damage and 1 point of Dexterity damage instead of its normal damage."
+  },
+  {
+    "Key": "ContactToxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Contact Toxin"
+  },
+  {
+    "Key": "ContactToxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "You can create your arcanotoxin as a contact poison, delivered by a hurled vial. You may throw a vial of arcanotoxin at an enemy within 30 feet as a standard action; on contact it delivers your arcanotoxin at a save DC 2 lower than normal.\nPrerequisites: Eldritch Poisoner, alchemist level 4."
+  },
+  {
+    "Key": "ContactToxinThrow.Name",
+    "ProcessTemplates": false,
+    "enGB": "Throw Contact Toxin"
+  },
+  {
+    "Key": "ContactToxinThrow.Description",
+    "ProcessTemplates": false,
+    "enGB": "Hurl a vial of contact arcanotoxin at an enemy (expending one daily use). On contact, it delivers your arcanotoxin with a save DC 2 lower than normal."
+  },
+  {
+    "Key": "ToxicFumes.Name",
+    "ProcessTemplates": false,
+    "enGB": "Toxic Fumes"
+  },
+  {
+    "Key": "ToxicFumes.Description",
+    "ProcessTemplates": false,
+    "enGB": "You can create your arcanotoxin as an inhaled poison. You may throw a vial of arcanotoxin that bursts in a 10-foot cloud (expending one daily use); enemies in the area are subjected to your arcanotoxin with a save DC 4 lower than normal.\nPrerequisites: Eldritch Poisoner, alchemist level 6."
+  },
+  {
+    "Key": "ToxicFumesThrow.Name",
+    "ProcessTemplates": false,
+    "enGB": "Throw Toxic Fumes"
+  },
+  {
+    "Key": "ToxicFumesThrow.Description",
+    "ProcessTemplates": false,
+    "enGB": "Hurl a vial of arcanotoxin that bursts into a 10-foot cloud of fumes (expending one daily use). Enemies in the area are subjected to your arcanotoxin with a save DC 4 lower than normal."
+  },
+  {
+    "Key": "Envenom.Name",
+    "ProcessTemplates": false,
+    "enGB": "Envenom"
+  },
+  {
+    "Key": "Envenom.Description",
+    "ProcessTemplates": false,
+    "enGB": "You can create and apply your arcanotoxin to a held weapon - your own or an ally's - as a move action. The toxin lasts 1 minute or until used."
+  },
+  {
+    "Key": "EnvenomAlly.Name",
+    "ProcessTemplates": false,
+    "enGB": "Envenom Ally's Weapon"
+  },
+  {
+    "Key": "EnvenomAlly.Description",
+    "ProcessTemplates": false,
+    "enGB": "Brew a dose of arcanotoxin (expending one daily use) and coat the target's weapon with it for 1 minute. Move action."
+  },
+  {
+    "Key": "Antidote.Name",
+    "ProcessTemplates": false,
+    "enGB": "Antidote"
+  },
+  {
+    "Key": "Antidote.Description",
+    "ProcessTemplates": false,
+    "enGB": "You can sacrifice one use of your arcanotoxin to create an extract of delay poison, which you can feed to an adjacent willing creature as a standard action."
+  },
+  {
+    "Key": "AntidoteAbility.Name",
+    "ProcessTemplates": false,
+    "enGB": "Antidote"
+  },
+  {
+    "Key": "AntidoteAbility.Description",
+    "ProcessTemplates": false,
+    "enGB": "Sacrifice one use of arcanotoxin to shield an ally from poison for 1 minute, as delay poison."
+  },
+  {
+    "Key": "Apothecary.Name",
+    "ProcessTemplates": false,
+    "enGB": "Apothecary"
+  },
+  {
+    "Key": "Apothecary.Description",
+    "ProcessTemplates": false,
+    "enGB": "You know venoms the way a scholar knows books. You gain a bonus on Lore (Nature) checks equal to half your alchemist level."
+  },
+  {
+    "Key": "CarefulInjection.Name",
+    "ProcessTemplates": false,
+    "enGB": "Careful Injection"
+  },
+  {
+    "Key": "CarefulInjection.Description",
+    "ProcessTemplates": false,
+    "enGB": "You know precisely where a blade carries poison best. When you deliver your arcanotoxin with a sneak attack, the saving throw DC increases by 2."
   }
 ]

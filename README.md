@@ -72,7 +72,7 @@ for normal leveling.
 
 | Class | Archetype | Kind | Summary |
 |-------|-----------|------|---------|
-| Alchemist | **Eldritch Poisoner** | Tabletop (Black Markets) | Trades bombs/Throw Anything/mutagen for arcanotoxin (supernatural poison that bypasses poison immunity at a +4 save penalty for the immune), toxicology, and rogue sneak attack. Mythic ability: **Expedited Synthesis** — swift-action brew for 25% max HP (15% on a Fort save) |
+| Alchemist | **Eldritch Poisoner** | Tabletop (Black Markets) | Trades bombs/Throw Anything/mutagen for arcanotoxin (supernatural poison that bypasses poison immunity at a +4 save penalty for the immune), toxicology, and rogue sneak attack. Ten arcanotoxin discoveries + Careful Injection. Mythic ability: **Expedited Synthesis** — swift-action brew for 25% max HP (15% on a Fort save) |
 
 ## Mission Vanguard (test archetype)
 
