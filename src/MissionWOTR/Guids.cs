@@ -193,6 +193,7 @@ namespace MissionWOTR
     internal const string MagnetizedCoreBuff = "37F07D72-780F-4877-B5DA-D80BFB2DBFAC";
     internal const string CoreNoAoOBuff = "8BEFC6AA-57D8-485E-B164-7D3499E10421";
     internal const string PeriodicSelfDamage = "DFF71E21-8D38-46D8-93DB-5912ACF0B88A";
+    internal const string ConstructOnHitBuff = "D6825DF7-33A8-45B8-A210-2CF8EBC67F60";
 
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full

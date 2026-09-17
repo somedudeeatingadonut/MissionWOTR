@@ -11,6 +11,8 @@ using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
+using Kingmaker.PubSubSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -119,19 +121,11 @@ namespace MissionWOTR.Archetypes
         humanoidBuff: buff => buff
           .AdditionalDamageOnHit(
             element: DamageEnergyType.Fire, energyDamageDice: new DiceFormula(2, DiceType.D6))
-          .AddComponent(new ApplyBuffOnHit
-          {
-            m_buff = BuffRefs.Burning.Reference,
-            time = 3,
-          }),
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Burning.Reference.Get(), Rounds = 3 }),
         golemBuff: buff => buff
-          .AddAreaEffect(areaEffect: AbilityAreaEffectRefs.FireDamageAreaEffect)
+          .AddAreaEffect(areaEffect: AbilityAreaEffectRefs.FireDamageAreaEffect.Cast<BlueprintAbilityAreaEffectReference>())
           .AddComponent(new PeriodicSelfDamage { DamagePerRound = 2 })
-          .AddComponent(new ApplyBuffOnHit
-          {
-            m_buff = BuffRefs.Burning.Reference,
-            time = 3,
-          }),
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Burning.Reference.Get(), Rounds = 3 }),
         saHound: 3, golemNoAoO: true));
 
       // ----- Cold: per-base -----
@@ -139,8 +133,8 @@ namespace MissionWOTR.Archetypes
         "ConstructCrafterCold", Guids.ColdCoreFeat, Guids.ColdCoreToggle,
         Guids.ColdCoreMarker, "ColdCore.Name", "ColdCore.Description",
         houndBuff: buff => buff
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Prone.Reference, time = 1 })
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Slowed.Reference, time = 6 })
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Prone.Reference.Get(), Rounds = 1 })
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Slowed.Reference.Get(), Rounds = 6 })
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.SaveWill,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.SaveFortitude,
@@ -155,15 +149,15 @@ namespace MissionWOTR.Archetypes
         golemBuff: buff => buff
           .AdditionalDamageOnHit(
             element: DamageEnergyType.Cold, energyDamageDice: new DiceFormula(1, DiceType.D6))
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Slowed.Reference, time = 6 })));
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Slowed.Reference.Get(), Rounds = 6 })));
 
       // ----- Bloody: bleed, debuffs, a little healing -----
       Cores.Add(CreateCore(
         "ConstructCrafterBloody", Guids.BloodyCoreFeat, Guids.BloodyCoreToggle,
         Guids.BloodyCoreMarker, "BloodyCore.Name", "BloodyCore.Description",
         buff => buff
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Bleed1d4Buff.Reference, time = 6 })
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Shaken.Reference, time = 6 })
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Bleed1d4Buff.Reference.Get(), Rounds = 6 })
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Shaken.Reference.Get(), Rounds = 6 })
           .AddEffectFastHealing(heal: 2)));
 
       // ----- Soft: the support/sponge core -----
@@ -190,7 +184,7 @@ namespace MissionWOTR.Archetypes
         buff => buff
           .AdditionalDamageOnHit(
             element: DamageEnergyType.Fire, energyDamageDice: new DiceFormula(2, DiceType.D6))
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Shaken.Reference, time = 6 })
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Shaken.Reference.Get(), Rounds = 6 })
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.Initiative,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.Speed,
@@ -211,8 +205,8 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AC,
             ContextValues.Rank(), ModifierDescriptor.Dodge),
         golemBuff: buff => buff
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Shaken.Reference, time = 6 })
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Frightened.Reference, time = 6 })
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Shaken.Reference.Get(), Rounds = 6 })
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Frightened.Reference.Get(), Rounds = 6 })
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.SaveWill,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable),
         saHound: 3, saHumanoid: 3));
@@ -226,7 +220,7 @@ namespace MissionWOTR.Archetypes
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalDamage,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddAreaEffect(areaEffect: AbilityAreaEffectRefs.FireDamageAreaEffect)
+          .AddAreaEffect(areaEffect: AbilityAreaEffectRefs.FireDamageAreaEffect.Cast<BlueprintAbilityAreaEffectReference>())
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AC,
             ContextValues.Rank(), ModifierDescriptor.Penalty)
           .AddStatBonus(stat: Kingmaker.EntitySystem.Stats.StatType.SaveWill, value: -2,
@@ -272,7 +266,7 @@ namespace MissionWOTR.Archetypes
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalCMD,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddComponent(new ApplyBuffOnHit { m_buff = BuffRefs.Slowed.Reference, time = 4 })));
+          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Slowed.Reference.Get(), Rounds = 4 })));
     }
 
     private static CoreDef CreateCore(
@@ -401,6 +395,46 @@ namespace MissionWOTR.Archetypes
         }
       }
       return null;
+    }
+  }
+
+  /// <summary>
+  /// Applies a buff to enemies the construct hits with a weapon attack. Custom component
+  /// (the game's own ApplyBuffOnHit changed shape between game versions).
+  /// </summary>
+  [TypeId(Guids.ConstructOnHitBuff)]
+  internal class ConstructOnHitBuff : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleAttackWithWeapon>
+  {
+    public BlueprintBuff Buff;
+    public int Rounds;
+
+    public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) { }
+
+    public void OnEventDidTrigger(RuleAttackWithWeapon evt)
+    {
+      try
+      {
+        if (evt.AttackRoll is null || !evt.AttackRoll.IsHit)
+        {
+          return;
+        }
+        var target = evt.Target;
+        if (target is null || target.HPLeft <= 0)
+        {
+          return;
+        }
+        if (target.Buffs.GetBuff(Buff) != null)
+        {
+          return;
+        }
+        target.AddBuff(
+          Buff, Context, duration: ContextDuration.Fixed(Rounds).Calculate(Context).Seconds);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ConstructCrafter: on-hit buff failed.", e);
+      }
     }
   }
 

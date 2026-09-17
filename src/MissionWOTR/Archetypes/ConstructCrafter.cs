@@ -480,8 +480,8 @@ namespace MissionWOTR.Archetypes
           construct, alchemistLevel, program?.IsFlank == true ? 2 : 0);
 
         // Core application: per-base stat package.
-        var isHound = Unit == HoundUnit;
-        var isHumanoid = Unit == HumanoidUnit;
+        var isHound = Unit == ConstructCrafter.HoundUnit;
+        var isHumanoid = Unit == ConstructCrafter.HumanoidUnit;
         var coreBuff = core is null
           ? null
           : isHound ? core.HoundBuff : isHumanoid ? core.HumanoidBuff : core.GolemBuff;
