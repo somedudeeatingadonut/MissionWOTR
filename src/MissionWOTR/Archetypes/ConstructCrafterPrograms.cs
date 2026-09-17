@@ -140,7 +140,7 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(StatType.Initiative, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.SaveWill, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.SaveReflex, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)),
+          .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable),
         isChaos: true));
     }
 
