@@ -126,6 +126,13 @@ jobs:
           }
           exit 0
 
+      - name: Inspect game DLL (temporary probe)
+        if: steps.libs.outputs.ready == 'true'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: .github/scripts/probe-gamedll.ps1
+
       - name: Build mod
         if: steps.libs.outputs.ready == 'true'
         shell: pwsh

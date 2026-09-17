@@ -12,6 +12,7 @@ using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
@@ -229,7 +230,7 @@ namespace MissionWOTR.Archetypes
           "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit)
         .CopyFrom(UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male)
         .SetFaction(dogFaction)
-        .SetStartingInventory(ItemWeaponRefs.CompositeLongbow)
+        .SetStartingInventory(ItemWeaponRefs.CompositeLongbow.Cast<BlueprintItemReference>())
         .Configure();
 
       // Caster humanoid / caster golem / ranged hound: custom brains.
