@@ -221,7 +221,7 @@ namespace MissionWOTR.Archetypes
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalDamage,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
-          .AddAreaEffect(areaEffect: AbilityAreaEffectRefs.FireDamageAreaEffect.Cast<BlueprintAbilityAreaEffectReference>())
+          .AddComponent(new ConstructSonicBoom())
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AC,
             ContextValues.Rank(), ModifierDescriptor.Penalty)
           .AddStatBonus(stat: Kingmaker.EntitySystem.Stats.StatType.SaveWill, value: -2,
@@ -257,6 +257,20 @@ namespace MissionWOTR.Archetypes
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.Speed,
             ContextValues.Constant(10), ModifierDescriptor.UntypedStackable)));
+
+      // ----- Arbalest (original): the archery playstyle -----
+      Cores.Add(CreateCore(
+        "ConstructCrafterArbalest", Guids.ArbalestCoreFeat, Guids.ArbalestCoreToggle,
+        Guids.ArbalestCoreMarker, "ArbalestCore.Name", "ArbalestCore.Description",
+        buff => buff
+          .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalAttackBonus,
+            ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalDamage,
+            ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.Speed,
+            ContextValues.Constant(10), ModifierDescriptor.UntypedStackable)
+          .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AC,
+            ContextValues.Rank(), ModifierDescriptor.Penalty)));
 
       // ----- Magnetized (original): living lodestone -----
       Cores.Add(CreateCore(

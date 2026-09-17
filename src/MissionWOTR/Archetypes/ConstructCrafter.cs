@@ -89,6 +89,7 @@ namespace MissionWOTR.Archetypes
       ConfigureUnits();
       ConstructCrafterPrograms.Configure();
       ConstructCrafterCores.Configure();
+      ConstructCrafterAbilities.Configure();
       ConfigureChassis();
       ConfigureCoresAndPrograms();
 
@@ -96,20 +97,22 @@ namespace MissionWOTR.Archetypes
         DeployHoundFeatureName, Guids.ConstructCrafterDeployHoundFeature,
         DeployHoundAbilityName, Guids.ConstructCrafterDeployHoundAbility,
         "DeployHound.Name", "DeployHound.Description", HoundUnit,
-        applyPlating: true, addFighterLevels: false, icon: FeatureRefs.RideAnimalCompanionFeature);
+        applyPlating: true, addFighterLevels: false, icon: FeatureRefs.RideAnimalCompanionFeature,
+        baseKind: 0);
 
       DeployBase(
         DeployHumanoidFeatureName, Guids.ConstructCrafterDeployHumanoidFeature,
         DeployHumanoidAbilityName, Guids.ConstructCrafterDeployHumanoidAbility,
         "DeployHumanoid.Name", "DeployHumanoid.Description", HumanoidUnit,
         applyPlating: false, addFighterLevels: true,
-        icon: FeatureRefs.MartialWeaponProficiency);
+        icon: FeatureRefs.MartialWeaponProficiency, baseKind: 1);
 
       DeployBase(
         DeployGolemFeatureName, Guids.ConstructCrafterDeployGolemFeature,
         DeployGolemAbilityName, Guids.ConstructCrafterDeployGolemAbility,
         "DeployGolem.Name", "DeployGolem.Description", GolemUnit,
-        applyPlating: false, addFighterLevels: false, icon: FeatureRefs.HeavyArmorProficiency);
+        applyPlating: false, addFighterLevels: false, icon: FeatureRefs.HeavyArmorProficiency,
+        baseKind: 2);
 
       // ----- The archetype itself -----
       var archetype =
@@ -330,7 +333,8 @@ namespace MissionWOTR.Archetypes
       BlueprintUnit unit,
       bool applyPlating,
       bool addFighterLevels,
-      Blueprint<BlueprintReference<BlueprintFeature>> icon)
+      Blueprint<BlueprintReference<BlueprintFeature>> icon,
+      int baseKind)
     {
       var ability = AbilityConfigurator.New(abilityName, abilityGuid)
         .SetDisplayName(displayKey)
@@ -348,6 +352,7 @@ namespace MissionWOTR.Archetypes
             Unit = unit,
             ApplyPlating = applyPlating,
             AddFighterLevels = addFighterLevels,
+            BaseKind = baseKind,
           }))
         .Configure();
 
@@ -377,6 +382,63 @@ namespace MissionWOTR.Archetypes
 
     /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
     public bool AddFighterLevels;
+
+    /// <summary>Which base is deploying: 0 hound, 1 humanoid, 2 golem.</summary>
+    public int BaseKind;
+
+    private static BlueprintUnit ResolveUnit(
+      ConstructCrafterCores.CoreDef core, int baseKind, BlueprintUnit fallback)
+    {
+      if (core is null)
+      {
+        return fallback;
+      }
+      var arbalest = core.Name == "ConstructCrafterArbalest";
+      var flaming = core.Name == "ConstructCrafterFlaming";
+      var cold = core.Name == "ConstructCrafterCold";
+      var soft = core.Name == "ConstructCrafterSoft";
+      if (baseKind == 0)
+      {
+        return arbalest || soft ? ConstructCrafterAbilities.HoundRangedUnit : fallback;
+      }
+      if (baseKind == 1)
+      {
+        return arbalest ? ConstructCrafterAbilities.HumanoidArcherUnit
+          : flaming || soft ? ConstructCrafterAbilities.HumanoidCasterUnit
+          : fallback;
+      }
+      return arbalest || cold || soft ? ConstructCrafterAbilities.GolemCasterUnit : fallback;
+    }
+
+    private static System.Collections.Generic.IEnumerable<BlueprintAbility> ResolveCoreAbilities(
+      ConstructCrafterCores.CoreDef core, int baseKind)
+    {
+      if (core is null)
+      {
+        yield break;
+      }
+      var arbalest = core.Name == "ConstructCrafterArbalest";
+      var flaming = core.Name == "ConstructCrafterFlaming";
+      var cold = core.Name == "ConstructCrafterCold";
+      var soft = core.Name == "ConstructCrafterSoft";
+      // The archer humanoid uses its bow; other bases spit bolts.
+      if (arbalest && baseKind != 1)
+      {
+        yield return ConstructCrafterAbilities.BoltSpit;
+      }
+      if (flaming && baseKind == 1)
+      {
+        yield return ConstructCrafterAbilities.FireBlast;
+      }
+      if (cold && baseKind == 2)
+      {
+        yield return ConstructCrafterAbilities.IceRay;
+      }
+      if (soft)
+      {
+        yield return ConstructCrafterAbilities.Mend;
+      }
+    }
 
     private static void ApplySneakAttackRanks(
       UnitEntityData construct, int alchemistLevel, int dicePerLevels)
@@ -423,11 +485,15 @@ namespace MissionWOTR.Archetypes
         var state = Game.Instance.State.LoadedAreaState.MainState;
         var existing = state.AllEntityData.OfType<UnitEntityData>().ToList();
 
+        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.HoundBaseMarker
+          : BaseKind == 1 ? ConstructCrafterAbilities.ManBaseMarker
+          : ConstructCrafterAbilities.GolemBaseMarker;
+
         // Chaos program: while a chaos construct of this base lives, it cannot be redeployed.
         if (program?.IsChaos == true)
         {
           var chaosAlive = existing.Any(
-            u => u.Blueprint == Unit && u.HPLeft > 0
+            u => u.HPLeft > 0 && u.Buffs.GetBuff(baseMarker) != null
               && u.Buffs.GetBuff(ConstructCrafterPrograms.ChaosMarker) != null);
           if (chaosAlive)
           {
@@ -437,8 +503,8 @@ namespace MissionWOTR.Archetypes
           }
         }
 
-        // Replace the previous construct of this base (same blueprint = same base).
-        foreach (var old in existing.Where(u => u.Blueprint == Unit && u.HPLeft > 0))
+        // Replace the previous construct of this base (marker-based: any variant counts).
+        foreach (var old in existing.Where(u => u.HPLeft > 0 && u.Buffs.GetBuff(baseMarker) != null))
         {
           old.IsInGame = false;
         }
@@ -448,12 +514,16 @@ namespace MissionWOTR.Archetypes
         var spawnPosition = new Vector3(
           caster.Position.x + offset.x, caster.Position.y, caster.Position.z + offset.z);
 
+        // Role variant: the active core may swap in a specialized chassis (archer,
+        // caster, ranged) instead of the default base unit.
+        var spawnUnit = ResolveUnit(core, BaseKind, Unit);
         var knownIds = existing.Select(u => u.UniqueId).ToHashSet();
-        Game.Instance.EntityCreator.SpawnUnit(Unit, spawnPosition, Quaternion.identity, state);
+        Game.Instance.EntityCreator.SpawnUnit(spawnUnit, spawnPosition, Quaternion.identity, state);
 
         // Find the freshly spawned unit (works regardless of SpawnUnit's return type).
         var construct = state.AllEntityData.OfType<UnitEntityData>()
-          .FirstOrDefault(u => u.Blueprint == Unit && !knownIds.Contains(u.UniqueId));
+          .FirstOrDefault(u => !knownIds.Contains(u.UniqueId)
+            && u.Buffs.GetBuff(baseMarker) is null);
         if (construct is null)
         {
           MissionFeats.Logger.Error("ConstructCrafter: spawned unit could not be found.");
@@ -467,6 +537,9 @@ namespace MissionWOTR.Archetypes
           construct.Descriptor.Progression.AddFakeClassLevels(fighter, Math.Max(1, alchemistLevel - 2));
         }
 
+        // Base identity marker (replacement tracking across variants).
+        construct.AddBuff(baseMarker, Context);
+
         // Program application: stat package + markers.
         if (program?.ConstructBuff != null)
         {
@@ -479,9 +552,13 @@ namespace MissionWOTR.Archetypes
         ApplySneakAttackRanks(
           construct, alchemistLevel, program?.IsFlank == true ? 2 : 0);
 
-        // Core application: per-base stat package.
-        var isHound = Unit == ConstructCrafter.HoundUnit;
-        var isHumanoid = Unit == ConstructCrafter.HumanoidUnit;
+        // Core application: per-base stat package + role abilities.
+        var isHound = BaseKind == 0;
+        var isHumanoid = BaseKind == 1;
+        foreach (var ability in ResolveCoreAbilities(core, BaseKind))
+        {
+          construct.AddFact(ability);
+        }
         var coreBuff = core is null
           ? null
           : isHound ? core.HoundBuff : isHumanoid ? core.HumanoidBuff : core.GolemBuff;

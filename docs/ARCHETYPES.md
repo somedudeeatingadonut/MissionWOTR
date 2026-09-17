@@ -80,19 +80,32 @@ levels 3/8/13/19 — 12 cores, 4 picks, purposefully limited):
 | Soft | +AL/2 AC/saves, fast healing 1, −AL/2 damage (sponge/decoy) |
 | Infernal | +2d6 fire on hit, shaken on hit, +10 speed, +init |
 | Lightless (per-base) | Hound/Humanoid: SA 1/3 AL + attack/AC · Golem: shaken + frightened on hit, +Will |
-| Booming | +AL damage, fire aura, −AL/2 AC, −2 saves (glass cannon) |
+| Booming | +AL damage, **every hit detonates: 2d6 sonic to enemies near the target**, −AL/2 AC, −2 saves (glass cannon) |
 | Quick | Extra attack (haste-style), +10 speed, +init, −AL/2 damage |
 | Galvanized *(original)* | +1d6 electricity on hit, +init/+Reflex, +10 speed |
 | Magnetized *(original)* | +AL/2 CMB & CMD, slow on hit |
+| Arbalest *(original)* | +AL/2 attack & damage, +10 speed, −AL/2 AC; **archery playstyle** — humanoid fields a composite longbow, hound/golem spit bolts from range |
 
 Core adaptations (v1): on-hit riders and self-burn use fixed values (not AL-scaled) —
 `AdditionalDamageOnHit` takes static dice and the DoT is a flat component; casting-flavored
-cores (fire mage, ice rays, necromancy) are delivered as on-hit riders + auras because
-constructs can't cast without custom brains (next iteration); Infernal's teleport-attacks
+cores are now real casters via **brains v1** (see below); Infernal's teleport-attacks
 are approximated with speed/init until brain support; Cold humanoid's charge immunity to
 AoOs has no native hook (documented); the Flaming-golem/Guard interaction restores AoOs but
 does not yet halve the aura damage; Soft's ally-support auras are approximated by a
 tanky self-healing chassis. Auras use the stock `FireDamageAreaEffect`.
+
+**Brains v1 (custom AI):** Wrath brains are ordered AiAction lists. Two custom brains
+(`CrafterCasterBrain`: cast any granted construct ability then attack;
+`CrafterRangedBrain`: bolt spit then attack) built from BPCore's AI configurators
+(`BrainConfigurator`, `AiCastSpellConfigurator`, `AiAttackConfigurator`) — no custom
+considerations yet (defaults). The deploy action now spawns **role-variant units** by core:
+Flaming humanoid → caster with **Fire Blast** (15-ft burst, 6d6 fire, Reflex half); Cold
+golem → caster with **Ice Ray** (4d6 cold + slow); Soft → casters with **Mend** (temp HP =
+alch level patch — context-heal actions are evaluator-based, so healing ships as temp HP
+for now); Arbalest → archer humanoid (composite longbow) / bolt-spitting hound & golem.
+Base identity is tracked with marker buffs, so any variant replaces any construct of the
+same base. Program-behavior brains (Passive retreat, Guard protect, Distance kite) are the
+next iteration once core brains are validated in play.
 
 **Programs** (toggle on the crafter; applied to constructs at deploy; stat changes scale
 +1 per 2 AL, min 1):

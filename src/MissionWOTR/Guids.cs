@@ -195,6 +195,32 @@ namespace MissionWOTR
     internal const string PeriodicSelfDamage = "DFF71E21-8D38-46D8-93DB-5912ACF0B88A";
     internal const string ConstructOnHitBuff = "D6825DF7-33A8-45B8-A210-2CF8EBC67F60";
 
+    // ----- Construct Crafter: brains, abilities, variants (brains v1) -----
+    internal const string HoundBaseMarker = "7581331C-F366-4AB5-A832-274A50E68C45";
+    internal const string ManBaseMarker = "FB5D8B16-79A4-43DD-92F7-E0F05E1C1F8C";
+    internal const string GolemBaseMarker = "7CC10602-CA2A-4309-A5F9-7ECAF82F5AE0";
+    internal const string FireBlastAbility = "091C18CA-0209-444D-8D8C-09CDA16262CE";
+    internal const string IceRayAbility = "0133CF9E-2D3B-484D-89AF-6C501E086472";
+    internal const string MendBuff = "9F9B62AB-B5D1-449E-A7FC-AF5B83C808FE";
+    internal const string MendAbility = "B28C9ACF-2BDB-4798-B524-0FD8E886E2B0";
+    internal const string BoltSpitAbility = "3306BA0B-935E-42B8-A40D-97C85D542A5A";
+    internal const string AiCastFireBlast = "3D9FD2FE-AA8F-41AD-A60A-94C929485CFC";
+    internal const string AiCastIceRay = "0BFE15F0-2677-4B0E-B5FA-BBB26EC5AF9B";
+    internal const string AiCastMend = "AA2F293E-DE59-4F49-8CA3-0881E8F95BA1";
+    internal const string AiCastBoltSpit = "BB11E083-7CE4-4BAB-BA60-96211652B672";
+    internal const string AiAttack = "B6716FFB-15C1-438F-A545-078A3D7B124A";
+    internal const string CrafterCasterBrain = "CE32F665-0D17-44EC-9453-AB5279A5B8B1";
+    internal const string CrafterRangedBrain = "DE122A4F-F625-4245-9581-D313342EB806";
+    internal const string ConstructCrafterHumanoidArcherUnit = "7CEB29EC-743F-413B-A4D9-2E4295143C2F";
+    internal const string ConstructCrafterHumanoidCasterUnit = "C67A81F9-2427-4FF7-9A3B-384CDC328995";
+    internal const string ConstructCrafterGolemCasterUnit = "F0675585-E550-4668-A2A7-1482AE39B623";
+    internal const string ConstructCrafterHoundRangedUnit = "4064431D-EC01-43CF-A619-CCCA34D74157";
+    internal const string ArbalestCoreFeat = "214B7A98-EC21-4029-A743-C0BC4741E61B";
+    internal const string ArbalestCoreToggle = "3ABA99D2-5A5B-48CD-A16E-43653C559683";
+    internal const string ArbalestCoreMarker = "35993425-632C-46E1-B41D-8FBD83AD77F9";
+    internal const string ArbalestCoreBuff = "69916384-74A3-4CA3-A616-7474804A04DB";
+    internal const string ConstructSonicBoom = "722843D1-AEB8-46B6-AFFA-F50DC492C40F";
+
     // ----- Archetypes -----
     // Test harness: grants all Mission WOTR feats at level 1. Intended to become a full
     // class later - do not change once shipped.

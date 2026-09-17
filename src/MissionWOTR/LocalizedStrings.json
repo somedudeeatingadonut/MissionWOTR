@@ -875,7 +875,7 @@
   {
     "Key": "BoomingCore.Description",
     "ProcessTemplates": false,
-    "enGB": "An unstable resonator. While this core is active, deployed constructs deal greatly increased damage and radiate damaging shockwaves, but suffer reduced AC and -2 on all saving throws. Handle with distance."
+    "enGB": "An unstable resonator. While this core is active, deployed constructs deal greatly increased damage and every weapon hit detonates in a concussive blast that deals 2d6 sonic damage to enemies near the target, but the construct suffers reduced AC and -2 on all saving throws. Handle with distance."
   },
   {
     "Key": "QuickCore.Name",
@@ -916,5 +916,95 @@
     "Key": "CoreNoAoO.Description",
     "ProcessTemplates": false,
     "enGB": "This construct's chassis cannot make attacks of opportunity."
+  },
+  {
+    "Key": "HoundBaseMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Clockwork Hound Chassis"
+  },
+  {
+    "Key": "HoundBaseMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "This unit was deployed by a Construct Crafter (hound base)."
+  },
+  {
+    "Key": "ManBaseMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Humanoid Construct Chassis"
+  },
+  {
+    "Key": "ManBaseMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "This unit was deployed by a Construct Crafter (humanoid base)."
+  },
+  {
+    "Key": "GolemBaseMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Clay Golem Chassis"
+  },
+  {
+    "Key": "GolemBaseMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "This unit was deployed by a Construct Crafter (golem base)."
+  },
+  {
+    "Key": "FireBlast.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fire Blast"
+  },
+  {
+    "Key": "FireBlast.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct vent its core: a 15-foot burst of flame deals 6d6 fire damage (Reflex half)."
+  },
+  {
+    "Key": "IceRay.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ice Ray"
+  },
+  {
+    "Key": "IceRay.Description",
+    "ProcessTemplates": false,
+    "enGB": "A freezing ray deals 4d6 cold damage (Reflex half) and slows the target for 3 rounds."
+  },
+  {
+    "Key": "MendBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Field Mend"
+  },
+  {
+    "Key": "MendBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Hasty patchwork grants this unit temporary hit points from its crafter's alchemist level."
+  },
+  {
+    "Key": "Mend.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mend Construct"
+  },
+  {
+    "Key": "Mend.Description",
+    "ProcessTemplates": false,
+    "enGB": "Patch an ally's plating: the target gains temporary hit points equal to the crafter's alchemist level (minimum 5) for 1 minute."
+  },
+  {
+    "Key": "BoltSpit.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bolt Spit"
+  },
+  {
+    "Key": "BoltSpit.Description",
+    "ProcessTemplates": false,
+    "enGB": "The construct launches a shard of metal: 2d6 piercing damage (Reflex half)."
+  },
+  {
+    "Key": "ArbalestCore.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arbalest Core"
+  },
+  {
+    "Key": "ArbalestCore.Description",
+    "ProcessTemplates": false,
+    "enGB": "A mounted ballista assembly. While this core is active, deployed constructs gain a bonus on attack rolls and damage equal to half your alchemist level and +10 foot speed, but suffer an equal penalty to AC. The humanoid construct fields a longbow; the hound and golem spit bolts from range."
   }
 ]
