@@ -17,6 +17,31 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Validate GUID strings
+        shell: pwsh
+        run: |
+          # GUIDs are plain strings to the compiler; a malformed one only explodes at
+          # runtime in the player's game. Fail the build instead.
+          $bad = @()
+          Get-ChildItem -Recurse src -Filter *.cs | ForEach-Object {
+            $file = $_
+            Select-String -Path $file.FullName -Pattern '"([0-9A-Fa-f][0-9A-Fa-f-]{28,40})"' -AllMatches |
+              ForEach-Object {
+                foreach ($m in $_.Matches) {
+                  $s = $m.Groups[1].Value
+                  $g = [guid]::Empty
+                  if (-not [guid]::TryParse($s, [ref]$g)) {
+                    $bad += "$($file.FullName):$($_.LineNumber): $s"
+                  }
+                }
+              }
+          }
+          if ($bad.Count -gt 0) {
+            $bad | ForEach-Object { Write-Host "::error::$_" }
+            exit 1
+          }
+          Write-Host "All GUID strings valid."
+
       - name: Setup MSBuild (VS)
         uses: microsoft/setup-msbuild@v2
 

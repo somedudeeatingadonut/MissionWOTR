@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.BasicEx;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
@@ -11,6 +12,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem;
@@ -229,12 +231,11 @@ namespace MissionWOTR.Archetypes
         .SetDisplayName(ToxinDisplayName)
         .SetDescription(ToxinDescription)
         .SetIcon(AbilityRefs.BombStandart.Reference.Get().Icon)
-        .AddFactContextActions(activated: ActionsBuilder.New().Add(new DealStatDamage
-        {
-          Stat = stat,
-          DamageDice = dice,
-          DamageBonus = bonus,
-        }))
+        // The toxin hits the unit the debuff lands on (the poisoned target); no source
+        // unit (NoSource) - the damage is the poison itself. Built via BPCore's helper
+        // so the action's required evaluators are wired correctly.
+        .AddFactContextActions(activated: ActionsBuilder.New().DealStatDamage(
+          dice, stat, ElementTool.Create<ContextTargetUnit>(), damageBonus: bonus))
         .Configure();
     }
   }

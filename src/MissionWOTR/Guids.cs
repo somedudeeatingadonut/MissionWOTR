@@ -44,7 +44,7 @@ namespace MissionWOTR
     internal const string GuardedMomentumBuff = "429EBBEC-7100-4234-AD75-E3386558C08E";
     internal const string GuardedMomentumTrigger = "A17F33B1-64B3-45DE-9C41-6F2B4A93C1E0";
     internal const string TunnelFighterFeat = "29B0CB95-0A0B-4DC8-BB7E-EE83EB022D79";
-    internal const string TunnelFighterAbility = "3713E9F9-B618-4FD2-91D1-8FAF2EDE7AD";
+    internal const string TunnelFighterAbility = "E48F8CED-016F-4FC6-B0C7-C12B7EDFCB4E";
     internal const string TunnelFighterBuff = "439F9D7C-FDA7-4C84-A914-27DEBCCFB71A";
 
     // ----- Eldritch Poisoner (Alchemist archetype) -----
@@ -92,7 +92,7 @@ namespace MissionWOTR
     internal const string ConstructCrafterDeployGolemFeature = "C20D0B80-E21F-4EA2-8490-9C557A5467E7";
     internal const string ConstructCrafterDeployHoundAbility = "E32258EF-3707-4887-99D9-81008740BAE1";
     internal const string ConstructCrafterDeployHumanoidAbility = "ACD09AC3-13F2-48E5-9391-879C86A61AD2";
-    internal const string ConstructCrafterDeployGolemAbility = "21E1D7BB-E3D9-46F8-86D9-584190DAD2E";
+    internal const string ConstructCrafterDeployGolemAbility = "63E8F9FB-13E2-4F3C-A250-A0F1A7A9B2C3";
     internal const string ConstructCrafterCoreSelection = "34AB2E8B-DC7C-4676-9FD8-6449F6CAC8A2";
     internal const string ConstructCrafterProgramSelection = "82A97F43-D0EA-4252-8370-96BFD13396DF";
     internal const string ConstructCrafterBasicCore = "3DE65605-7F74-4D4B-A225-D5FA82A4031B";

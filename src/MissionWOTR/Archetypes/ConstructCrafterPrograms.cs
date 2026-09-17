@@ -63,7 +63,7 @@ namespace MissionWOTR.Archetypes
 
     internal static void Configure()
     {
-      ChaosMarker = BuffConfigurator.New("ConstructCrafterChaosMarker", Guids.ChaosMarkerBuff)
+      ChaosMarker = BuffConfigurator.New("ConstructCrafterChaosLockMarker", Guids.ChaosMarkerBuff)
         .SetDisplayName("ChaosMarker.Name")
         .SetDescription("ChaosMarker.Description")
         .SetIcon(BuffRefs.Confusion.Reference.Get().Icon)
