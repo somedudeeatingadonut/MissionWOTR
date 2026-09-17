@@ -63,7 +63,7 @@ jobs:
 
             # Source 2: 'game-libs' release assets (skip the blueprint dump and anything
             # already harvested from the repo root).
-            $assets = @(& gh release view game-libs --json assets --jq '.[].name')
+            $assets = @(& gh release view game-libs --json assets --jq '.assets[].name')
             $global:LASTEXITCODE = 0
             foreach ($asset in $assets) {
               if ($asset -match 'blueprint') {
