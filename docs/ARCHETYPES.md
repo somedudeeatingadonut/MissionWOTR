@@ -52,9 +52,39 @@ tabletop) **and** granted at level 1 in test mode.
    **swift action** at the cost of **25% max HP, reduced to 15% on a successful DC 15
    Fortitude save** (never below 1 HP). Standard mythic ability pick.
 
-### Alchemist homebrew archetype
+### Alchemist homebrew archetype — Construct Crafter (working name, user concept)
 
-**Planned** — slot free.
+Archetype revolves around building construct summons (NOT animal companions):
+uncontrollable, up to three active at once, deliberately less customizable than a companion.
+
+Flow: deploy a **base** (dog base at alch 1, humanoid at alch 7, golem/construct at alch 16),
+then install a **core** and a **program** into it — the combination determines what the
+construct becomes. A construct lasts until destroyed or until the same base type is
+deployed again (replacing the old one).
+
+**Feasibility (verified against Assembly-CSharp.dll + BPCore):**
+
+- Summoning: the game's own `SummonUnitCopy` action (CopyFrom/Locator/OnSummon fields) +
+  `UnitConfigurator.CopyFrom` for new construct units; `UnitPartSummonedMonster` links
+  summon → summoner. Spawned units have no built-in duration → "lasts until it dies" is
+  the default behavior.
+- Uncontrollable: AI-driven behavior is the default for spawned units — no player control.
+- Multiple/replacement: three different bases = three blueprints, no conflict;
+  "replace same-base" is a small custom spawn action (find owner's prior summon of that
+  base, remove it, spawn the new one).
+- Textures: model *selection* is blueprint-level (`BlueprintUnit.Prefab` — dog, humanoid,
+  stone/iron/brass/gold/adamantine golem prefabs all exist). TRUE custom
+  textures/reskins require shipping a Unity asset bundle (needs Unity Editor + game art
+  assets — outside this repo's code-only pipeline; can be wired to load a user-provided
+  bundle later). V1: existing model variants.
+- Core/program implementation shape (recommended): core & program chosen pre-deployment
+  and applied as blueprint buffs via the spawn action's OnSummon list — core = stat/role
+  package (scales with alchemist level via context ranks), program = behavior package.
+  The dormant-base-then-activate flow is also possible but needs runtime state juggling
+  (riskier).
+
+**Open design questions:** core list, program list, base stat blocks, deploy action cost
+(standard? resource?), whether cores/programs are swappable per rest or fixed choices.
 
 ## Level plan per class (test-mode rule)
 
