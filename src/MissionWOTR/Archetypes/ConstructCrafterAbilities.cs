@@ -11,6 +11,7 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
+using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
@@ -28,6 +29,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using MissionWOTR.Feats;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Linq;
 using UnityEngine;
 
@@ -209,15 +211,30 @@ namespace MissionWOTR.Archetypes
       var castBoltSpit = AiCastSpellConfigurator.New("ConstructCrafterAiBoltSpit", Guids.AiCastBoltSpit)
         .SetAbility(BoltSpit)
         .Configure();
-      var attack = AiAttackConfigurator.New("ConstructCrafterAiAttack", Guids.AiAttack)
-        .Configure();
+      // The game's BlueprintAiAttack is compiled internal, so a custom attack action
+      // cannot be created from mod code. The stock attack action is instead lifted out
+      // of a base-game unit's brain and reused as the weapon-attack fallback.
+      var attack = LiftStockAttackAction();
+      if (attack is null)
+      {
+        Main.Logger.Warn("Construct Crafter: no stock attack action found; brains will only cast.");
+      }
+
+      var casterActions = new List<Blueprint<BlueprintAiActionReference>>
+        { castFireBlast, castIceRay, castMend, castBoltSpit };
+      var rangedActions = new List<Blueprint<BlueprintAiActionReference>> { castBoltSpit };
+      if (attack != null)
+      {
+        casterActions.Add(attack);
+        rangedActions.Add(attack);
+      }
 
       BrainConfigurator.New("ConstructCrafterCasterBrain", Guids.CrafterCasterBrain)
-        .SetActions(castFireBlast, castIceRay, castMend, castBoltSpit, attack)
+        .SetActions(casterActions.ToArray())
         .Configure();
 
       BrainConfigurator.New("ConstructCrafterRangedBrain", Guids.CrafterRangedBrain)
-        .SetActions(castBoltSpit, attack)
+        .SetActions(rangedActions.ToArray())
         .Configure();
     }
 
@@ -266,8 +283,51 @@ namespace MissionWOTR.Archetypes
 
     private static void SetBrain(string unitGuid, string brainName)
     {
+      // BlueprintUnit.m_Brain is private in current game builds (only a public
+      // DefaultBrain getter is exposed), so the reference is assigned via reflection.
       var unit = BlueprintTool.Get<BlueprintUnit>(unitGuid);
-      unit.m_Brain = BlueprintTool.GetRef<BlueprintBrainReference>(brainName);
+      var brainRef = BlueprintTool.GetRef<BlueprintBrainReference>(brainName);
+      var field = typeof(BlueprintUnit).GetField(
+        "m_Brain", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+      if (field is null)
+      {
+        Main.Logger.Warn($"SetBrain: BlueprintUnit.m_Brain not found; {unitGuid} keeps its copied brain.");
+        return;
+      }
+      field.SetValue(unit, brainRef);
+    }
+
+    /// <summary>
+    /// Returns the game's stock weapon-attack AiAction (reference form), taken from a
+    /// base-game unit's brain. BlueprintAiAttack itself is internal, so the match is by
+    /// runtime type name and the stock reference is reused directly.
+    /// </summary>
+    private static Blueprint<BlueprintAiActionReference> LiftStockAttackAction()
+    {
+      var sources = new[]
+      {
+        UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get(),
+        UnitRefs.AnimalCompanionUnitDog.Reference.Get()
+      };
+      var actionsField = typeof(BlueprintBrain).GetField(
+        "m_Actions", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+      foreach (var source in sources)
+      {
+        var brain = source?.DefaultBrain;
+        if (brain is null || actionsField is null) { continue; }
+        if (actionsField.GetValue(brain) is BlueprintAiActionReference[] actions)
+        {
+          foreach (var action in actions)
+          {
+            var actionBlueprint = action?.Get();
+            if (actionBlueprint != null && actionBlueprint.GetType().Name == "BlueprintAiAttack")
+            {
+              return action;
+            }
+          }
+        }
+      }
+      return null;
     }
   }
 
