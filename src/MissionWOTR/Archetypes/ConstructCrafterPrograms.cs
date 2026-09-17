@@ -82,7 +82,6 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(StatType.SaveReflex, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable),
         isChaos: true));
-    }
 
       // Distance
       Programs.Add(CreateProgram(
@@ -147,6 +146,7 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(StatType.SaveReflex, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)),
         isPassive: true));
+    }
 
     private static ProgramDef CreateProgram(
       string featName,
