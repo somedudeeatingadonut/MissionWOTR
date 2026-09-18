@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using MissionWOTR.Feats;
 using System;
 using System.IO;
+using System.Linq;
 using UnityModManagerNet;
 
 namespace MissionWOTR
@@ -21,8 +22,11 @@ namespace MissionWOTR
       {
         modEntry.OnToggle = OnToggle;
         ModPath = modEntry.Path;
+        // First line in the game log: identifies the RUNNING build, so a stale or
+        // missing install is obvious from the log alone (cost us a debugging round).
+        Logger.Info($"MissionWOTR v{modEntry.Info.Version} loading.");
         var harmony = new Harmony(modEntry.Info.Id);
-        harmony.PatchAll();
+        PatchAllSafely(harmony);
         Logger.Info("MissionWOTR loaded; patches applied.");
       }
       catch (Exception e)
@@ -30,6 +34,32 @@ namespace MissionWOTR
         Logger.Error("Failed to patch", e);
       }
       return true;
+    }
+
+    /// <summary>
+    /// Applies every [HarmonyPatch] class in its own try/catch: one broken patch is
+    /// logged and skipped instead of aborting the mod's load (same doctrine as the
+    /// per-feat configure try/catch).
+    /// </summary>
+    private static void PatchAllSafely(Harmony harmony)
+    {
+      var patchTypes = typeof(Main).Assembly.GetTypes()
+        .Where(t => t.IsClass && t.IsDefined(typeof(HarmonyPatch), false))
+        .ToList();
+      var applied = 0;
+      foreach (var t in patchTypes)
+      {
+        try
+        {
+          harmony.CreateClassProcessor(t).Patch();
+          applied++;
+        }
+        catch (Exception e)
+        {
+          Logger.Error($"[patch] {t.Name} failed to apply - continuing without it.", e);
+        }
+      }
+      Logger.Info($"[patch] {applied}/{patchTypes.Count} patch classes applied.");
     }
 
     public static bool OnToggle(UnityModManager.ModEntry modEntry, bool value)

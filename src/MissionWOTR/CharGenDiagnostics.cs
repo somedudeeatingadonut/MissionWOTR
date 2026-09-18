@@ -1,6 +1,8 @@
 using BlueprintCore.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.UI.MVVM._VM.CharGen.Phases.Class;
+using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main;
 using System;
 using System.Collections;
 
@@ -13,17 +15,19 @@ namespace MissionWOTR
   // PrestigePlus's FixNoToybox2 is a prefix on ClassProgressionVM.DisposeImplementation:
   //     if (__instance.ProgressionVms.First() == null) __instance.ProgressionVms = [];
   // .First() (not FirstOrDefault) throws InvalidOperationException("Sequence contains
-  // no elements") whenever the list is EMPTY - e.g. a VM disposed twice. The throw
-  // propagates up through UnitProgressionVM.RefreshData into CharGenVM.UpdateAllPhases
-  // and aborts the phase update, leaving the class/archetype list half-refreshed:
-  // our archetype renders greyed out with an empty tooltip even though it is fully
-  // registered and selectable (confirmed by [diag] lines: onClass/inAvailableList/minLevel).
-  // The finalizer below swallows exactly that crash so the update completes.
+  // no elements") whenever the list is EMPTY. The throw propagates up through
+  // UnitProgressionVM.RefreshData into CharGenVM.UpdateAllPhases and aborts the phase
+  // update, leaving the class/archetype list half-refreshed: our archetype renders
+  // greyed out with an empty tooltip even though it is fully registered and selectable
+  // (confirmed by [diag] lines: onClass/inAvailableList/minLevel). The finalizer below
+  // swallows exactly that crash so the update completes.
+  //
+  // NOTE: IsArchetypeAvailable is STATIC, so its postfix must not declare __instance.
+  // Patch classes are applied one-by-one by Main.PatchAllSafely - a bad patch can
+  // never take the whole mod down.
   // ---------------------------------------------------------------------------
 
-  [HarmonyPatch(
-    "Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM",
-    "DisposeImplementation")]
+  [HarmonyPatch(typeof(ClassProgressionVM), nameof(ClassProgressionVM.DisposeImplementation))]
   internal static class ClassProgressionDisposeSuppressor
   {
     private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
@@ -45,35 +49,26 @@ namespace MissionWOTR
 
   /// <summary>
   /// Logs the availability computation for our archetypes while the class phase builds.
-  /// IsArchetypeAvailable = archetype.MeetsPrerequisites (0 components = true) combined
-  /// with the class item's PrerequisitesDone, or IsClassAvailable when the archetype is
-  /// alignment-locked. This tells us at runtime which term (if any) fails.
+  /// IsArchetypeAvailable(controller, archetype) is static; the result is what feeds the
+  /// item's canSelect at level-up (at fresh char-gen the item is forced available, so a
+  //  greyed item here means the phase build itself was aborted - see the suppressor).
   /// </summary>
-  [HarmonyPatch(
-    "Kingmaker.UI.MVVM._VM.CharGen.Phases.Class.CharGenClassSelectorItemVM",
-    "IsArchetypeAvailable")]
+  [HarmonyPatch(typeof(CharGenClassSelectorItemVM), "IsArchetypeAvailable")]
   internal static class ArchetypeAvailabilityLogger
   {
     private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
 
     [HarmonyPostfix]
-    internal static void Postfix(object __instance, bool __result, BlueprintArchetype __1)
+    internal static void Postfix(bool __result, BlueprintArchetype __1)
     {
       try
       {
-        if (__1 is null || __1.name is null)
+        var n = __1?.name;
+        if (n is null || !(n.Contains("Eldritch") || n.Contains("Construct") || n.Contains("Vanguard")))
         {
           return;
         }
-        var n = __1.name;
-        if (!(n.Contains("Eldritch") || n.Contains("Construct") || n.Contains("Vanguard")))
-        {
-          return;
-        }
-        var prerequisitesDone =
-          Traverse.Create(__instance).Field("PrerequisitesDone").GetValue<bool>();
-        Logger.Info(
-          $"[diag] IsArchetypeAvailable({n}) = {__result}; item.PrerequisitesDone = {prerequisitesDone}.");
+        Logger.Info($"[diag] IsArchetypeAvailable({n}) = {__result}.");
       }
       catch (Exception e)
       {
@@ -84,12 +79,10 @@ namespace MissionWOTR
 
   /// <summary>
   /// Dumps the final state of every archetype item the class phase actually rendered,
-  /// plus the archetype gate inputs, so a playtest log answers "was the item built
-  /// available?" without guessing. Throttled: only the first few invocations are logged.
+  /// so a playtest log answers "was the item built available?" without guessing.
+  /// Throttled: only the first few invocations are logged.
   /// </summary>
-  [HarmonyPatch(
-    "Kingmaker.UI.MVVM._VM.CharGen.Phases.Class.CharGenClassSelectorItemVM",
-    "GetArchetypesList")]
+  [HarmonyPatch(typeof(CharGenClassSelectorItemVM), "GetArchetypesList")]
   internal static class ArchetypeListLogger
   {
     private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
