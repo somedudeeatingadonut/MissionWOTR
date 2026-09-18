@@ -42,6 +42,35 @@ jobs:
           }
           Write-Host "All GUID strings valid."
 
+      - name: Detect duplicate GUID values
+        shell: pwsh
+        run: |
+          # Two constants holding the same GUID value = two blueprints colliding on one
+          # id = "Already in use" crash at load time (cost us the 0.4.1 playtest round).
+          # Sharing one constant is fine; two names for one value never is.
+          $byValue = @{}
+          $dupes = @()
+          Get-ChildItem -Recurse src -Filter *.cs | ForEach-Object {
+            $file = $_
+            Select-String -Path $file.FullName -Pattern 'const string (\w+) = "([0-9A-Fa-f-]{36})"' -AllMatches |
+              ForEach-Object {
+                foreach ($m in $_.Matches) {
+                  $name = $m.Groups[1].Value
+                  $value = $m.Groups[2].Value.ToUpper()
+                  if ($byValue.ContainsKey($value)) {
+                    $dupes += "$($file.FullName):$($_.LineNumber): $name duplicates $($byValue[$value]) ($value)"
+                  } else {
+                    $byValue[$value] = $name
+                  }
+                }
+              }
+          }
+          if ($dupes.Count -gt 0) {
+            $dupes | ForEach-Object { Write-Host "::error::$_" }
+            exit 1
+          }
+          Write-Host "No duplicate GUID values ($($byValue.Count) distinct guids)."
+
       - name: Setup MSBuild (VS)
         uses: microsoft/setup-msbuild@v2
 

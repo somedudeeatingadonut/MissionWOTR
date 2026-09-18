@@ -3,6 +3,7 @@ using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.References;
+using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -106,7 +107,7 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetEnemies()
         .AddAbilityResourceLogic(requiredResource: EldritchPoisoner.Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(new ContextActionDeliverToxin { DcModifier = -2 }))
+          ActionsBuilder.New().Add(ElementTool.Create<ContextActionDeliverToxin>() { DcModifier = -2 }))
         .Configure();
       DiscoveryBase(ContactToxinFeatName, Guids.ContactToxinFeat,
         "ContactToxin.Name", "ContactToxin.Description", bombIcon, requiredLevel: 4)
@@ -127,7 +128,7 @@ namespace MissionWOTR.Archetypes
           targetType: Kingmaker.UnitLogic.Abilities.Components.TargetType.Enemy)
         .AddAbilityResourceLogic(requiredResource: EldritchPoisoner.Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(new ContextActionDeliverToxin { DcModifier = -4 }))
+          ActionsBuilder.New().Add(ElementTool.Create<ContextActionDeliverToxin>() { DcModifier = -4 }))
         .Configure();
       DiscoveryBase(ToxicFumesFeatName, Guids.ToxicFumesFeat,
         "ToxicFumes.Name", "ToxicFumes.Description", bombIcon, requiredLevel: 6)

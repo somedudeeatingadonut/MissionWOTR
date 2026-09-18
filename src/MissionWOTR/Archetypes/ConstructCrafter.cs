@@ -56,6 +56,8 @@ namespace MissionWOTR.Archetypes
   /// </summary>
   public class ConstructCrafter
   {
+    internal static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.ConstructCrafter");
+
     internal const string ArchetypeName = "ConstructCrafter";
     internal const string DisplayName = "ConstructCrafter.Name";
     internal const string Description = "ConstructCrafter.Description";
@@ -87,13 +89,35 @@ namespace MissionWOTR.Archetypes
 
     public static void Configure()
     {
-      ConfigureUnits();
-      ConstructCrafterPrograms.Configure();
-      ConstructCrafterCores.Configure();
-      ConstructCrafterAbilities.Configure();
-      ConfigureChassis();
-      ConfigureCoresAndPrograms();
+      // Every step gets its own try/catch: a failure in one step is logged and the
+      // rest still run, so a single playtest log reveals ALL broken steps at once
+      // instead of one per build. (Cores crashing used to hide Abilities/Chassis/
+      // selections/archetype, none of which have ever executed yet.)
+      Step("units", ConfigureUnits);
+      Step("programs", ConstructCrafterPrograms.Configure);
+      Step("cores", ConstructCrafterCores.Configure);
+      Step("abilities", ConstructCrafterAbilities.Configure);
+      Step("chassis", ConfigureChassis);
+      Step("selections", ConfigureCoresAndPrograms);
+      Step("deploy-bases", ConfigureDeployBases);
+      Step("archetype", ConfigureArchetype);
+    }
 
+    private static void Step(string name, Action action)
+    {
+      try
+      {
+        action();
+        Logger.Info($"[CC] step {name}: ok.");
+      }
+      catch (Exception e)
+      {
+        Logger.Error($"[CC] step {name}: FAILED - {e.Message}", e);
+      }
+    }
+
+    private static void ConfigureDeployBases()
+    {
       DeployBase(
         DeployHoundFeatureName, Guids.ConstructCrafterDeployHoundFeature,
         DeployHoundAbilityName, Guids.ConstructCrafterDeployHoundAbility,
@@ -115,6 +139,10 @@ namespace MissionWOTR.Archetypes
         applyPlating: false, addFighterLevels: false, icon: FeatureRefs.HeavyArmorProficiency,
         baseKind: 2);
 
+    }
+
+    private static void ConfigureArchetype()
+    {
       // ----- The archetype itself -----
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.ConstructCrafterArchetype, CharacterClassRefs.AlchemistClass)
@@ -342,7 +370,7 @@ namespace MissionWOTR.Archetypes
           new AbilityIsFullRoundInTurnBased { FullRoundIfTurnBased = true })
         .SetCanTargetSelf()
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(new ContextActionDeployConstruct
+          ActionsBuilder.New().Add(ElementTool.Create<ContextActionDeployConstruct>()
           {
             Unit = unit,
             ApplyPlating = applyPlating,

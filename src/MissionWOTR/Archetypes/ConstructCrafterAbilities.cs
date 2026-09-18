@@ -224,7 +224,7 @@ namespace MissionWOTR.Archetypes
         .SetActionType(UnitCommand.CommandType.Standard)
         .SetCanTargetEnemies()
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(new ContextActionBlinkStrike()))
+          ActionsBuilder.New().Add(ElementTool.Create<ContextActionBlinkStrike>()))
         .Configure();
     }
 

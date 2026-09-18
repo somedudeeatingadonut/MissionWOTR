@@ -166,7 +166,7 @@ namespace MissionWOTR.Archetypes
         .AddAbilityResourceLogic(requiredResource: Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
           ActionsBuilder.New()
-            .Add(new ContextActionExpeditedSynthesisCost())
+            .Add(ElementTool.Create<ContextActionExpeditedSynthesisCost>())
             .ApplyBuff(Coating, ContextDuration.Fixed(10), toCaster: true))
         .Configure();
 
