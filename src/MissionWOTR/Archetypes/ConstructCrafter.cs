@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
@@ -641,7 +642,12 @@ namespace MissionWOTR.Archetypes
 
         var summonAction =
           ElementTool.Create<Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnMonster>();
-        summonAction.m_Blueprint = spawnUnit.ToReference<BlueprintUnitReference>();
+        // m_Blueprint is private in current Wrath builds (DarkCodex's helper sets it
+        // against a publicized assembly; we don't publicize, hence reflection).
+        typeof(Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnMonster)
+          .GetField("m_Blueprint", System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+          ?.SetValue(summonAction, spawnUnit.ToReference<BlueprintUnitReference>());
         summonAction.DurationValue = ContextDuration.Fixed(100000);
         summonAction.DoNotLinkToCaster = false;
         summonAction.IsDirectlyControllable = false;
