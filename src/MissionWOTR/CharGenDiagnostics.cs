@@ -2,56 +2,32 @@ using BlueprintCore.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.UI.MVVM._VM.CharGen.Phases.Class;
-using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main;
 using System;
 using System.Collections;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 
 namespace MissionWOTR
 {
   // ---------------------------------------------------------------------------
-  // Char-gen runtime diagnostics + a defensive patch for a PrestigePlus bug that
-  // breaks the class phase exactly where our archetypes live.
+  // Char-gen runtime diagnostics for the greyed-archetype investigation.
   //
-  // PrestigePlus's FixNoToybox2 is a prefix on ClassProgressionVM.DisposeImplementation:
-  //     if (__instance.ProgressionVms.First() == null) __instance.ProgressionVms = [];
-  // .First() (not FirstOrDefault) throws InvalidOperationException("Sequence contains
-  // no elements") whenever the list is EMPTY. The throw propagates up through
-  // UnitProgressionVM.RefreshData into CharGenVM.UpdateAllPhases and aborts the phase
-  // update, leaving the class/archetype list half-refreshed: our archetype renders
-  // greyed out with an empty tooltip even though it is fully registered and selectable
-  // (confirmed by [diag] lines: onClass/inAvailableList/minLevel). The finalizer below
-  // swallows exactly that crash so the update completes.
+  // Proven so far (0.4.6 logs): our archetypes are fully registered
+  // (onClass/inAvailableList/minLevel all good), the item VMs are built with
+  // available=True, prerequisitesDone=True - identical to base archetypes - and
+  // the PrestigePlus DisposeImplementation crash fires on EVERY class phase
+  // (magus too) yet never blocked MissionVanguard. The grey-out therefore lives
+  // BELOW the availability VM state: in the view/selection layer, silently.
   //
-  // NOTE: IsArchetypeAvailable is STATIC, so its postfix must not declare __instance.
-  // Patch classes are applied one-by-one by Main.PatchAllSafely - a bad patch can
-  // never take the whole mod down.
+  // This probe diffs the full runtime state of OUR items against BASE items:
+  // exact item type (a mod subclassing/replacing item VMs shows instantly),
+  // every bool/enum/string property, and a forced tooltip build - an exception
+  // there names the exact broken piece of archetype data.
   // ---------------------------------------------------------------------------
-
-  [HarmonyPatch(typeof(ClassProgressionVM), "DisposeImplementation")]
-  internal static class ClassProgressionDisposeSuppressor
-  {
-    private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
-
-    [HarmonyFinalizer]
-    internal static bool Finalizer(Exception __exception)
-    {
-      if (__exception is InvalidOperationException)
-      {
-        Logger.Info(
-          "[diag] Suppressed crash in ClassProgressionVM.DisposeImplementation " +
-          $"({__exception.Message}); PrestigePlus's FixNoToybox2 calls ProgressionVms.First() " +
-          "on an empty list, which aborts char-gen phase updates.");
-        return false; // swallow so CharGenVM.UpdateAllPhases finishes
-      }
-      return true;
-    }
-  }
 
   /// <summary>
   /// Logs the availability computation for our archetypes while the class phase builds.
-  /// IsArchetypeAvailable(controller, archetype) is static; the result is what feeds the
-  /// item's canSelect at level-up (at fresh char-gen the item is forced available, so a
-  //  greyed item here means the phase build itself was aborted - see the suppressor).
   /// </summary>
   [HarmonyPatch(typeof(CharGenClassSelectorItemVM), "IsArchetypeAvailable")]
   internal static class ArchetypeAvailabilityLogger
@@ -78,9 +54,9 @@ namespace MissionWOTR
   }
 
   /// <summary>
-  /// Dumps the final state of every archetype item the class phase actually rendered,
-  /// so a playtest log answers "was the item built available?" without guessing.
-  /// Throttled: only the first few invocations are logged.
+  /// Full state probe: for each rendered archetype item (ours plus base controls),
+  /// dumps item type, all simple properties, and forces the tooltip build so any
+  /// data-level failure surfaces with its exception. Throttled.
   /// </summary>
   [HarmonyPatch(typeof(CharGenClassSelectorItemVM), "GetArchetypesList")]
   internal static class ArchetypeListLogger
@@ -97,6 +73,7 @@ namespace MissionWOTR
         {
           return;
         }
+        var probed = 0;
         foreach (var item in items)
         {
           if (item is null)
@@ -105,25 +82,72 @@ namespace MissionWOTR
           }
           var t = Traverse.Create(item);
           var archetype = t.Field("Archetype").GetValue<BlueprintArchetype>();
-          var prerequisitesDone = t.Field("PrerequisitesDone").GetValue<bool>();
-          string available;
-          try
+          var name = archetype?.name;
+          var ours = name is not null &&
+            (name.Contains("Eldritch") || name.Contains("Construct") || name.Contains("Vanguard"));
+          // Probe our items plus the first base item as a control sample.
+          if (!ours && probed > 0)
           {
-            available = Convert.ToString(t.Property("IsAvailible").GetValue());
+            continue;
           }
-          catch
+          if (probed >= 5)
           {
-            available = "?";
+            break;
           }
-          Logger.Info(
-            $"[diag] archetype item {archetype?.name ?? "<class base>"}: " +
-            $"available={available}, prerequisitesDone={prerequisitesDone}.");
+          probed++;
+          Logger.Info($"[probe] {Describe(item, archetype)}");
         }
       }
       catch (Exception e)
       {
         Logger.Info($"[diag] archetype list log failed: {e.Message}");
       }
+    }
+
+    private static string Describe(object item, BlueprintArchetype archetype)
+    {
+      var sb = new StringBuilder();
+      sb.Append(item.GetType().Name);
+      sb.Append($" [{archetype?.name ?? "<class base>"}]");
+      sb.Append($" icon={(archetype?.Icon != null ? "set" : "null")}");
+
+      // Every simple readable property: IsAvailable/IsAvailible/IsSelected/nesting...
+      foreach (var p in item.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)
+        .Where(p => p.CanRead &&
+          (p.PropertyType == typeof(bool) || p.PropertyType == typeof(string) ||
+           p.PropertyType.IsEnum || p.PropertyType == typeof(int)))
+        .OrderBy(p => p.Name))
+      {
+        string value;
+        try
+        {
+          value = p.GetValue(item)?.ToString() ?? "null";
+        }
+        catch (Exception e)
+        {
+          value = $"THREW: {e.InnerException?.Message ?? e.Message}";
+        }
+        sb.Append($" | {p.Name}={value}");
+      }
+
+      // Force the tooltip template build: if our archetype's data breaks it, the
+      // exception names the culprit. (The empty tooltip is a live symptom.)
+      try
+      {
+        var tip = item.GetType().GetProperty("TooltipTemplate",
+          BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(item);
+        sb.Append($" | tooltip={(tip is null ? "NULL" : tip.GetType().Name)}");
+      }
+      catch (Exception e)
+      {
+        var root = e;
+        while (root.InnerException is not null)
+        {
+          root = root.InnerException;
+        }
+        sb.Append($" | tooltip THREW: {root.GetType().Name}: {root.Message}");
+      }
+      return sb.ToString();
     }
   }
 }
