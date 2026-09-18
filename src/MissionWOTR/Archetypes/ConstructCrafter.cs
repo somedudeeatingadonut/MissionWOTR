@@ -359,6 +359,12 @@ namespace MissionWOTR.Archetypes
       Blueprint<BlueprintReference<BlueprintFeature>> icon,
       int baseKind)
     {
+      var deploy = ElementTool.Create<ContextActionDeployConstruct>();
+      deploy.Unit = unit;
+      deploy.ApplyPlating = applyPlating;
+      deploy.AddFighterLevels = addFighterLevels;
+      deploy.BaseKind = baseKind;
+
       var ability = AbilityConfigurator.New(abilityName, abilityGuid)
         .SetDisplayName(displayKey)
         .SetDescription(descriptionKey)
@@ -370,13 +376,7 @@ namespace MissionWOTR.Archetypes
           new AbilityIsFullRoundInTurnBased { FullRoundIfTurnBased = true })
         .SetCanTargetSelf()
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(ElementTool.Create<ContextActionDeployConstruct>()
-          {
-            Unit = unit,
-            ApplyPlating = applyPlating,
-            AddFighterLevels = addFighterLevels,
-            BaseKind = baseKind,
-          }))
+          ActionsBuilder.New().Add(deploy))
         .Configure();
 
       FeatureConfigurator.New(featureName, featureGuid)

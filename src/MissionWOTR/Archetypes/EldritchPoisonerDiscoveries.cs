@@ -97,6 +97,8 @@ namespace MissionWOTR.Archetypes
         FeatureRefs.SneakAttack.Reference.Get().Icon).Configure();
 
       // --- Contact Toxin (4th): throw a vial at one enemy, DC -2. ---
+      var contactThrow = ElementTool.Create<ContextActionDeliverToxin>();
+      contactThrow.DcModifier = -2;
       AbilityConfigurator.New(ContactThrowAbilityName, Guids.ContactThrowAbility)
         .SetDisplayName("ContactToxinThrow.Name")
         .SetDescription("ContactToxinThrow.Description")
@@ -107,7 +109,7 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetEnemies()
         .AddAbilityResourceLogic(requiredResource: EldritchPoisoner.Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(ElementTool.Create<ContextActionDeliverToxin>() { DcModifier = -2 }))
+          ActionsBuilder.New().Add(contactThrow))
         .Configure();
       DiscoveryBase(ContactToxinFeatName, Guids.ContactToxinFeat,
         "ContactToxin.Name", "ContactToxin.Description", bombIcon, requiredLevel: 4)
@@ -115,6 +117,8 @@ namespace MissionWOTR.Archetypes
         .Configure();
 
       // --- Toxic Fumes (6th): inhaled vial, 10-ft area, DC -4. ---
+      var fumesThrow = ElementTool.Create<ContextActionDeliverToxin>();
+      fumesThrow.DcModifier = -4;
       AbilityConfigurator.New(FumesThrowAbilityName, Guids.FumesThrowAbility)
         .SetDisplayName("ToxicFumesThrow.Name")
         .SetDescription("ToxicFumesThrow.Description")
@@ -128,7 +132,7 @@ namespace MissionWOTR.Archetypes
           targetType: Kingmaker.UnitLogic.Abilities.Components.TargetType.Enemy)
         .AddAbilityResourceLogic(requiredResource: EldritchPoisoner.Doses, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(ElementTool.Create<ContextActionDeliverToxin>() { DcModifier = -4 }))
+          ActionsBuilder.New().Add(fumesThrow))
         .Configure();
       DiscoveryBase(ToxicFumesFeatName, Guids.ToxicFumesFeat,
         "ToxicFumes.Name", "ToxicFumes.Description", bombIcon, requiredLevel: 6)
