@@ -225,10 +225,11 @@ namespace MissionWOTR.Archetypes
         .SetMaxHP(Math.Max(4, dog.MaxHP - 4))
         .SetFaction(dogFaction)
         .Configure();
-      // CopyFrom copies COMPONENTS only - the brain is a field (m_Brain) and was
-      // never copied, so the hound spawned with no AI at all (first CC playtest:
-      // 'just standing there'). Copy the dog's brain reference directly.
-      HoundUnit.m_Brain = dog.m_Brain;
+      // CopyFrom copies COMPONENTS only - the brain is a field and was never
+      // copied, so the hound spawned with no AI at all (first CC playtest:
+      // 'just standing there'). Copy the dog's brain reference (field access
+      // varies by game version, hence reflection).
+      CopyBrain(dog, HoundUnit);
 
       // --- Humanoid Construct: fighter with (AL-2) levels, applied at deploy time ---
       var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
@@ -236,7 +237,7 @@ namespace MissionWOTR.Archetypes
         .CopyFrom(UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male)
         .SetFaction(dogFaction)
         .Configure();
-      HumanoidUnit.m_Brain = bandit.m_Brain;
+      CopyBrain(bandit, HumanoidUnit);
 
       // --- Clay Golem: tabletop chassis (no berserk, -20 HP, -2 Str) ---
       // Built on the stone golem body; the slow breath component is stripped where
@@ -253,7 +254,7 @@ namespace MissionWOTR.Archetypes
         .AddDamageResistancePhysical(
           value: 5, bypassedByMaterial: true, material: PhysicalDamageMaterial.Adamantite)
         .Configure();
-      GolemUnit.m_Brain = stoneGolem.m_Brain;
+      CopyBrain(stoneGolem, GolemUnit);
 
       // --- Clockwork Plating: the hound's scaling DR (half alchemist level). ---
       ClockworkPlatingBuff = BuffConfigurator.New(PlatingBuffName, Guids.ConstructCrafterPlatingBuff)
@@ -266,6 +267,32 @@ namespace MissionWOTR.Archetypes
           ContextRankConfigs.ClassLevel(new[] { CharacterClassRefs.AlchemistClass.ToString() })
             .WithDiv2Progression())
         .Configure();
+    }
+
+    /// <summary>
+    /// Copies a unit blueprint's default-brain reference onto one of our construct
+    /// blueprints. The brain field is not a BlueprintComponent, so CopyFrom skips it;
+    /// its accessibility varies by game version, so it is moved via reflection.
+    /// </summary>
+    private static void CopyBrain(Kingmaker.Blueprints.BlueprintUnit from, Kingmaker.Blueprints.BlueprintUnit to)
+    {
+      const System.Reflection.BindingFlags flags =
+        System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+        System.Reflection.BindingFlags.Instance;
+      var field = typeof(Kingmaker.Blueprints.BlueprintUnit).GetField("m_Brain", flags);
+      if (field is null)
+      {
+        Logger.Warn($"[units] no m_Brain field found; {to.name} will spawn brainless.");
+        return;
+      }
+      var brain = field.GetValue(from);
+      if (brain is null)
+      {
+        Logger.Warn($"[units] {from.name} has no default brain to copy for {to.name}.");
+        return;
+      }
+      field.SetValue(to, brain);
+      Logger.Info($"[units] {to.name} brain set from {from.name}.");
     }
 
     private static void ConfigureChassis()
