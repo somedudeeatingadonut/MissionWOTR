@@ -105,6 +105,16 @@ namespace MissionWOTR.Feats
             $"[diag] {entry.Name}: created={true}, components={archetype.ComponentsArray.Length} [{componentNames}], " +
             $"addLevels={(archetype.AddFeatures?.Length ?? 0)}, removeLevels={(archetype.RemoveFeatures?.Length ?? 0)}, " +
             $"minLevel={archetype.MinFeatureLevel}, onClass={inClass}, inAvailableList={inAvailable}.");
+          // Level-1 grant list with dereferenced names: a null here means a dangling
+          // reference - the feature would silently never reach the character.
+          var levelOneNames = (archetype.AddFeatures ?? Array.Empty<LevelEntry>())
+            .Where(e => e.Level == 1)
+            .SelectMany(e => e.m_Features.Select(f => f.Get()?.name ?? "NULL-REF"))
+            .OrderBy(n => n)
+            .ToList();
+          Logger.Info(
+            $"[diag] {entry.Name} level-1 grants ({levelOneNames.Count}): " +
+            string.Join(", ", levelOneNames));
         }
         Logger.Info(
           $"[diag] alchemist archetypes={alchemist.Archetypes.Length} " +

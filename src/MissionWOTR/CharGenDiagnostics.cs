@@ -2,6 +2,10 @@ using BlueprintCore.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.UI.MVVM._VM.CharGen.Phases.Class;
+using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Class;
+using Kingmaker.UnitLogic.Class.LevelUp;
+using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using System;
 using System.Collections;
 using System.Linq;
@@ -151,3 +155,83 @@ namespace MissionWOTR
     }
   }
 }
+
+  /// <summary>
+  /// Logs when one of OUR archetypes enters the level-up plan (char-gen selection),
+  /// then dumps everything ConstructCrafter-flavored the unit actually received once
+  /// the progression grant runs - features AND abilities - so 'the gimmicks are
+  /// missing' becomes a precise list in the log.
+  /// </summary>
+  [HarmonyPatch(typeof(LevelUpController), "AddArchetype")]
+  internal static class ArchetypeAddedLogger
+  {
+    private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
+
+    [HarmonyPostfix]
+    internal static void Postfix(BlueprintArchetype __0)
+    {
+      try
+      {
+        var n = __0?.name;
+        if (n is not null &&
+          (n.Contains("Eldritch") || n.Contains("Construct") || n.Contains("Vanguard")))
+        {
+          Logger.Info($"[levelup] archetype {n} added to the level-up plan.");
+        }
+      }
+      catch (Exception e)
+      {
+        Logger.Info($"[levelup] archetype-added log failed: {e.Message}");
+      }
+    }
+  }
+
+  [HarmonyPatch(typeof(LevelUpHelper), "UpdateProgression")]
+  internal static class ProgressionGrantLogger
+  {
+    private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
+    private static int logged;
+
+    [HarmonyPostfix]
+    internal static void Postfix(UnitDescriptor __1)
+    {
+      try
+      {
+        if (__1 is null || logged > 20)
+        {
+          return;
+        }
+        var classes = string.Join(", ", __1.Progression.Classes.Select(c =>
+          $"{c.CharacterClass.name}({c.Level})" +
+          (c.Archetypes.Count == 0 ? "" :
+            "/" + string.Join("+", c.Archetypes.Select(a => a.name)))));
+        var ours = __1.Progression.Features
+          .Select(f => f.Blueprint?.name)
+          .Where(n => n is not null && n.StartsWith("ConstructCrafter"))
+          .OrderBy(n => n)
+          .ToList();
+        if (ours.Count == 0 && !classes.Contains("Construct"))
+        {
+          return;
+        }
+        logged++;
+        Logger.Info($"[levelup] unit={__1.Unit?.Blueprint?.name ?? "?"} classes={classes}");
+        Logger.Info(
+          $"[levelup] ConstructCrafter features on unit ({ours.Count}): " +
+          string.Join(", ", ours));
+        // Abilities are facts too - dump any ConstructCrafter-named ones.
+        var abilityNames = __1.Abilities?
+          .Where(a => a.Blueprint?.name?.StartsWith("ConstructCrafter") == true)
+          .Select(a => a.Blueprint.name).ToList();
+        if (abilityNames is not null)
+        {
+          Logger.Info($"[levelup] ConstructCrafter abilities on unit ({abilityNames.Count}): " +
+            string.Join(", ", abilityNames));
+        }
+      }
+      catch (Exception e)
+      {
+        Logger.Info($"[levelup] progression log failed: {e.Message}");
+      }
+    }
+  }

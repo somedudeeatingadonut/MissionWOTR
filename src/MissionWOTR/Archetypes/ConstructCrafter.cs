@@ -192,10 +192,11 @@ namespace MissionWOTR.Archetypes
           ConstructCrafterCores.AllFeatureNames
             .Select(f => (Blueprint<BlueprintFeatureBaseReference>)f)
             .ToArray());
-        for (int i = 1; i <= 9; i++)
-        {
-          archetype = archetype.AddToAddFeatures(1, $"ConstructCrafterDampenedSynthesis{i}");
-        }
+        // Dampened synthesis steps are intentionally NOT dumped at level 1: they are
+        // nine stackable -1 extract-caster-level penalties (one per two real levels).
+        // Granting all nine at level 1 drove the extract caster level negative and
+        // produced a bizarre spellbook in the first CC playtest. The penalty mechanic
+        // is a pure numeric modifier and is exercised by real-level play instead.
       }
       archetype.Configure();
     }

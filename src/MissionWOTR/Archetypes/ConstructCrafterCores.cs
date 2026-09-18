@@ -157,7 +157,6 @@ namespace MissionWOTR.Archetypes
         Guids.BloodyCoreMarker, "BloodyCore.Name", "BloodyCore.Description",
         buff => buff
           .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Bleed1d4Buff.Reference.Get(), Rounds = 6 })
-          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Shaken.Reference.Get(), Rounds = 6 })
           .AddEffectFastHealing(heal: 2)));
 
       // ----- Soft: the support/sponge core -----
@@ -205,7 +204,6 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AC,
             ContextValues.Rank(), ModifierDescriptor.Dodge),
         golemBuff: buff => buff
-          .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Shaken.Reference.Get(), Rounds = 6 })
           .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Frightened.Reference.Get(), Rounds = 6 })
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.SaveWill,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable),
