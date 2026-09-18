@@ -1,4 +1,4 @@
-using BlueprintCore.Blueprints.Configurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.References;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
