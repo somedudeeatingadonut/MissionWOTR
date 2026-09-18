@@ -292,7 +292,7 @@ namespace MissionWOTR
       {
         foreach (var reference in Kingmaker.Game.Instance.Player.PartyCharacters)
         {
-          var unit = reference?.Value;
+          var unit = reference.Value;
           if (unit is null)
           {
             continue;

@@ -483,6 +483,12 @@ namespace MissionWOTR.Archetypes
     /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
     public bool AddFighterLevels;
 
+    /// <summary>
+    /// The stock "summoned creature" processing buff every game summon receives
+    /// (DarkCodex's Wrath helper uses the same id).
+    /// </summary>
+    private const string StockSummonBuffGuid = "8728e884eeaa8b047be04197ecf1a0e4";
+
     /// <summary>Which base is deploying: 0 sentry, 1 humanoid, 2 golem.</summary>
     public int BaseKind;
 
@@ -510,7 +516,7 @@ namespace MissionWOTR.Archetypes
       return arbalest || cold || soft ? ConstructCrafterAbilities.GolemCasterUnit : fallback;
     }
 
-    private static System.Collections.Generic.IEnumerable<BlueprintAbility> ResolveCoreAbilities(
+    internal static System.Collections.Generic.IEnumerable<BlueprintAbility> ResolveCoreAbilities(
       ConstructCrafterCores.CoreDef core, int baseKind)
     {
       if (core is null)
@@ -546,7 +552,7 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    private static void ApplySneakAttackRanks(
+    internal static void ApplySneakAttackRanks(
       UnitEntityData construct, int alchemistLevel, int dicePerLevels)
     {
       if (dicePerLevels <= 0)
@@ -615,40 +621,85 @@ namespace MissionWOTR.Archetypes
           old.IsInGame = false;
         }
 
-        // Spawn near the caster (small random offset, ToyBox-style).
-        var offset = 5f * UnityEngine.Random.insideUnitSphere;
-        var spawnPosition = new Vector3(
-          caster.Position.x + offset.x, caster.Position.y, caster.Position.z + offset.z);
-
         // Role variant: the active core may swap in a specialized chassis (archer,
         // caster, ranged) instead of the default base unit.
         var spawnUnit = ResolveUnit(core, BaseKind, Unit);
-        // Spawn through the engine's own summon pipeline (the same rule every
-        // summon ability uses): it places the unit on reachable ground via
-        // FreePlaceSelector and LINKS it to the caster - the link is what makes
-        // stock summons follow their summoner around, which is exactly the
-        // pre-combat utility this archetype needs.
-        Kingmaker.Utility.FreePlaceSelector.PlaceSpawnPlaces(1, 0.5f, caster.Position);
-        var summonPosition = Kingmaker.Utility.FreePlaceSelector.GetRelaxedPosition(0, true);
-        if (summonPosition == UnityEngine.Vector3.zero)
-        {
-          summonPosition = spawnPosition;
-        }
-        var summonRule = new Kingmaker.RuleSystem.Rules.RulePerformSummonUnit(
-          caster, spawnUnit, summonPosition)
-        {
-          Context = Context,
-        };
-        var construct = Context.TriggerRule(summonRule)?.SummonedUnit;
-        if (construct is null)
+
+        // Spawn through the engine's own summon action - the same mechanism every
+        // summon ability uses (field-for-field the way DarkCodex's Wrath helper
+        // builds it): it places the unit on reachable ground, LINKS it to the
+        // caster (the link is what makes stock summons follow their summoner - the
+        // pre-combat utility this archetype needs) and leaves it AI-controlled
+        // (IsDirectlyControllable=false: our constructs are never controllable).
+        // All construct configuration runs in AfterSpawn, whose action list
+        // executes in the fresh unit's data scope, so the finisher reads
+        // Target.Unit to find the construct.
+        var finisher = ElementTool.Create<ContextActionDeployFinish>();
+        finisher.BaseKind = BaseKind;
+        finisher.ApplyPlating = ApplyPlating;
+        finisher.AddFighterLevels = AddFighterLevels;
+
+        var summonAction =
+          ElementTool.Create<Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnMonster>();
+        summonAction.m_Blueprint = spawnUnit.ToReference<BlueprintUnitReference>();
+        summonAction.DurationValue = ContextDuration.Fixed(100000);
+        summonAction.DoNotLinkToCaster = false;
+        summonAction.IsDirectlyControllable = false;
+        summonAction.AfterSpawn = ActionsBuilder.New()
+          .ApplyBuff(
+            BlueprintTool.Get<BlueprintBuff>(StockSummonBuffGuid),
+            ContextDuration.Fixed(100000))
+          .Add(finisher)
+          .Build();
+        summonAction.RunAction();
+        MissionFeats.Logger.Info(
+          $"[deploy] spawn action run for {spawnUnit.name} (base {BaseKind}).");
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ConstructCrafter: deploy failed.", e);
+      }
+    }
+  }
+  /// <summary>
+  /// Runs inside ContextActionSpawnMonster's AfterSpawn list, where the action
+  /// context's current target is the freshly summoned construct. Applies the base
+  /// marker (replacement tracking), program and core packages, fighter levels for
+  /// the humanoid base, and the deploy-time brain.
+  /// </summary>
+  [TypeId(Guids.DeployFinishAction)]
+  internal class ContextActionDeployFinish : ContextAction
+  {
+    /// <summary>Which base is deploying: 0 sentry, 1 humanoid, 2 golem.</summary>
+    public int BaseKind;
+
+    /// <summary>Apply the scaling DR buff (wooden sentry).</summary>
+    public bool ApplyPlating;
+
+    /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
+    public bool AddFighterLevels;
+
+    public override string GetCaption() => "Configure deployed construct";
+
+    public override void RunAction()
+    {
+      try
+      {
+        var construct = Target.Unit;
+        var caster = Context.MaybeCaster;
+        if (construct is null || caster is null)
         {
           MissionFeats.Logger.Error(
-            $"ConstructCrafter: summon rule returned no unit for {spawnUnit?.name}.");
+            "ConstructCrafter: deploy finisher could not resolve construct or caster.");
           return;
         }
-        MissionFeats.Logger.Info(
-          $"[deploy] spawned {spawnUnit.name} (base {BaseKind}) at {summonPosition:0.0}; " +
-          $"brain={(spawnUnit.DefaultBrain?.name ?? "NONE")}.");
+
+        var program = ConstructCrafterPrograms.GetActiveProgram(caster);
+        var core = ConstructCrafterCores.GetActiveCore(caster);
+        var alchemistLevel = caster.Descriptor.Progression
+          .GetClassLevel(CharacterClassRefs.AlchemistClass.Reference.Get());
+        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.SentryBaseMarker
+          : BaseKind == 1 ? ConstructCrafterAbilities.ManBaseMarker
+          : ConstructCrafterAbilities.GolemBaseMarker;
 
         // Humanoid base: a fighter with (alchemist level - 2) levels.
         if (AddFighterLevels)
@@ -669,13 +720,14 @@ namespace MissionWOTR.Archetypes
         {
           construct.AddBuff(ConstructCrafterPrograms.ChaosMarker, Context);
         }
-        ApplySneakAttackRanks(
+        ContextActionDeployConstruct.ApplySneakAttackRanks(
           construct, alchemistLevel, program?.IsFlank == true ? 2 : 0);
 
         // Core application: per-base stat package + role abilities.
         var isSentry = BaseKind == 0;
         var isHumanoid = BaseKind == 1;
-        var grantedAbilities = ResolveCoreAbilities(core, BaseKind).ToList();
+        var grantedAbilities =
+          ContextActionDeployConstruct.ResolveCoreAbilities(core, BaseKind).ToList();
         foreach (var ability in grantedAbilities)
         {
           construct.AddFact(ability);
@@ -692,7 +744,7 @@ namespace MissionWOTR.Archetypes
         var saDivisor = core is null
           ? 0
           : isSentry ? core.SaSentry : isHumanoid ? core.SaHumanoid : core.SaGolem;
-        ApplySneakAttackRanks(construct, alchemistLevel, saDivisor);
+        ContextActionDeployConstruct.ApplySneakAttackRanks(construct, alchemistLevel, saDivisor);
 
         // Flaming golem: no attacks of opportunity - unless the Guard program runs
         // (Guard trades the aura's ferocity for a disciplined watch).
@@ -702,17 +754,14 @@ namespace MissionWOTR.Archetypes
           construct.AddBuff(ConstructCrafterCores.NoAoOBuff, Context);
         }
 
-        // Clockwork sentry: scaling damage reduction (half alchemist level).
+        // Wooden sentry: scaling damage reduction (half alchemist level).
         if (ApplyPlating && ConstructCrafter.ClockworkPlatingBuff is not null)
         {
           construct.AddBuff(ConstructCrafter.ClockworkPlatingBuff, Context);
         }
 
-        // Brains v2: assign the brain at deploy time. Program behaviors take priority
-        // over the caster role; without either, the variant's baked brain stays.
-        // UnitBrain.SetBrain rebuilds the action list at runtime, and
-        // RestoreAvailableActions filters cast actions down to owned abilities
-        // (abilities were granted above, before this call).
+        // Deploy-time brain: program behaviors take priority over the caster role;
+        // with neither, the default brain (follow the crafter + attack) applies.
         BlueprintBrain chosenBrain = null;
         if (program?.IsPassive == true)
         {
@@ -732,42 +781,37 @@ namespace MissionWOTR.Archetypes
         }
         if (chosenBrain == null)
         {
-          // No program and no role abilities: the default brain still follows the
-          // crafter and fights - a construct that just stands around is useless
-          // between fights (first playtest lesson: the copied companion brain
-          // 'Character_Brain' waits for player orders and never acts).
           chosenBrain = ConstructCrafterAbilities.DefaultBrain;
         }
-        if (chosenBrain != null)
+        if (construct.Brain != null && chosenBrain != null)
         {
-          if (construct.Brain != null)
-          {
-            construct.Brain.SetBrain(chosenBrain);
-            construct.Brain.RestoreAvailableActions();
-          }
-          else
-          {
-            MissionFeats.Logger.Warn(
-              $"[deploy] {construct.Blueprint.name} has no brain instance; " +
-              $"brain {chosenBrain.name} could not be applied.");
-          }
+          construct.Brain.SetBrain(chosenBrain);
+          construct.Brain.RestoreAvailableActions();
+        }
+        else
+        {
+          MissionFeats.Logger.Warn(
+            $"[deploy] {construct.Blueprint.name}: brain instance or chosen brain missing " +
+            $"(instance={construct.Brain != null}, chosen={chosenBrain?.name ?? "none"}).");
         }
 
         // Mark the crafter so follow actions can home in on them even when no
         // program toggle is active (see CrafterMarkerBuff).
-        if (CrafterMarkerBuff != null && caster.Buffs.GetBuff(CrafterMarkerBuff) is null)
+        if (ConstructCrafter.CrafterMarkerBuff != null &&
+          caster.Buffs.GetBuff(ConstructCrafter.CrafterMarkerBuff) is null)
         {
-          caster.AddBuff(CrafterMarkerBuff, Context);
+          caster.AddBuff(ConstructCrafter.CrafterMarkerBuff, Context);
         }
 
         MissionFeats.Logger.Info(
           $"[deploy] done: {construct.Blueprint.name} uid={construct.UniqueId} " +
           $"brain={(construct.Brain != null ? "present" : "NULL")}, " +
-          $"master={(construct.Master != null ? "set" : "none")}.");
+          $"master={(construct.Master != null ? "set" : "none")}, " +
+          $"hp={construct.HPLeft}/{construct.MaxHP}.");
       }
       catch (Exception e)
       {
-        MissionFeats.Logger.Error("ConstructCrafter: deploy failed.", e);
+        MissionFeats.Logger.Error("ConstructCrafter: deploy finish failed.", e);
       }
     }
   }
