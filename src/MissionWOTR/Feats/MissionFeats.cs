@@ -107,11 +107,21 @@ namespace MissionWOTR.Feats
             $"minLevel={archetype.MinFeatureLevel}, onClass={inClass}, inAvailableList={inAvailable}.");
           // Level-1 grant list with dereferenced names: a null here means a dangling
           // reference - the feature would silently never reach the character.
-          var levelOneNames = (archetype.AddFeatures ?? Array.Empty<LevelEntry>())
-            .Where(e => e.Level == 1)
-            .SelectMany(e => e.m_Features.Select(f => f.Get()?.name ?? "NULL-REF"))
-            .OrderBy(n => n)
-            .ToList();
+          // (Reflection: the game's LevelEntry feature-list member name varies by
+          // version, so both spellings are tried.)
+          var levelOneNames = new List<string>();
+          foreach (var e in archetype.AddFeatures ?? Array.Empty<LevelEntry>())
+          {
+            if (e.Level != 1)
+            {
+              continue;
+            }
+            foreach (var name in LevelEntryFeatureNames(e))
+            {
+              levelOneNames.Add(name);
+            }
+          }
+          levelOneNames.Sort();
           Logger.Info(
             $"[diag] {entry.Name} level-1 grants ({levelOneNames.Count}): " +
             string.Join(", ", levelOneNames));
@@ -124,6 +134,47 @@ namespace MissionWOTR.Feats
       {
         Logger.Error("[diag] archetype diagnostics failed.", e);
       }
+    }
+
+    /// <summary>
+    /// Reflection dump of a LevelEntry's feature reference list (names, or NULL-REF
+    /// for dangling references). Falls back between member spellings.
+    /// </summary>
+    private static IEnumerable<string> LevelEntryFeatureNames(LevelEntry entry)
+    {
+      var list = ReflectMember(entry, "Features") ?? ReflectMember(entry, "m_Features");
+      if (list is not System.Collections.IEnumerable items)
+      {
+        yield return "<no feature list member>";
+        yield break;
+      }
+      foreach (var item in items)
+      {
+        if (item is null)
+        {
+          yield return "NULL-REF";
+          continue;
+        }
+        var blueprint = ReflectMember(item, "Get") is System.Reflection.MethodInfo get
+          ? get.Invoke(item, null)
+          : item;
+        yield return ReflectMember(blueprint, "name") as string ?? "NULL-REF";
+      }
+    }
+
+    private static object ReflectMember(object obj, string name)
+    {
+      if (obj is null)
+      {
+        return null;
+      }
+      const System.Reflection.BindingFlags flags =
+        System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+        System.Reflection.BindingFlags.Instance;
+      var type = obj as System.Type ?? obj.GetType();
+      return (object)type.GetProperty(name, flags)?.GetValue(obj) ??
+        (object)type.GetField(name, flags)?.GetValue(obj) ??
+        (object)type.GetMethod(name, flags);
     }
 
     private static void Configure(string name, Action configure)

@@ -201,33 +201,51 @@ namespace MissionWOTR
         {
           return;
         }
-        var classes = string.Join(", ", __1.Progression.Classes.Select(c =>
-          $"{c.CharacterClass.name}({c.Level})" +
-          (c.Archetypes.Count == 0 ? "" :
-            "/" + string.Join("+", c.Archetypes.Select(a => a.name)))));
-        var ours = __1.Progression.Features
-          .Select(f => f.Blueprint?.name)
-          .Where(n => n is not null && n.StartsWith("ConstructCrafter"))
-          .OrderBy(n => n)
-          .ToList();
-        if (ours.Count == 0 && !classes.Contains("Construct"))
+        var classes = new System.Text.StringBuilder();
+        var ours = new System.Collections.Generic.List<string>();
+        foreach (var c in __1.Progression.Classes)
+        {
+          if (classes.Length > 0)
+          {
+            classes.Append(", ");
+          }
+          classes.Append($"{c.CharacterClass.name}({c.Level})");
+          foreach (var a in c.Archetypes)
+          {
+            classes.Append($"/{a.name}");
+          }
+        }
+        foreach (var f in __1.Progression.Features)
+        {
+          if (f is Kingmaker.UnitLogic.Feature fe &&
+            fe.Blueprint?.name?.StartsWith("ConstructCrafter") == true)
+          {
+            ours.Add(fe.Blueprint.name);
+          }
+        }
+        if (ours.Count == 0 && !classes.ToString().Contains("Construct"))
         {
           return;
         }
         logged++;
+        ours.Sort();
         Logger.Info($"[levelup] unit={__1.Unit?.Blueprint?.name ?? "?"} classes={classes}");
         Logger.Info(
           $"[levelup] ConstructCrafter features on unit ({ours.Count}): " +
           string.Join(", ", ours));
         // Abilities are facts too - dump any ConstructCrafter-named ones.
-        var abilityNames = __1.Abilities?
-          .Where(a => a.Blueprint?.name?.StartsWith("ConstructCrafter") == true)
-          .Select(a => a.Blueprint.name).ToList();
-        if (abilityNames is not null)
+        var abilityNames = new System.Collections.Generic.List<string>();
+        foreach (var a in __1.Abilities)
         {
-          Logger.Info($"[levelup] ConstructCrafter abilities on unit ({abilityNames.Count}): " +
-            string.Join(", ", abilityNames));
+          if (a is Kingmaker.UnitLogic.Abilities.Ability ab &&
+            ab.Blueprint?.name?.StartsWith("ConstructCrafter") == true)
+          {
+            abilityNames.Add(ab.Blueprint.name);
+          }
         }
+        Logger.Info(
+          $"[levelup] ConstructCrafter abilities on unit ({abilityNames.Count}): " +
+          string.Join(", ", abilityNames));
       }
       catch (Exception e)
       {
