@@ -225,12 +225,18 @@ namespace MissionWOTR.Archetypes
         .SetMaxHP(Math.Max(4, dog.MaxHP - 4))
         .SetFaction(dogFaction)
         .Configure();
+      // CopyFrom copies COMPONENTS only - the brain is a field (m_Brain) and was
+      // never copied, so the hound spawned with no AI at all (first CC playtest:
+      // 'just standing there'). Copy the dog's brain reference directly.
+      HoundUnit.m_Brain = dog.m_Brain;
 
       // --- Humanoid Construct: fighter with (AL-2) levels, applied at deploy time ---
+      var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
       HumanoidUnit = UnitConfigurator.New(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit)
         .CopyFrom(UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male)
         .SetFaction(dogFaction)
         .Configure();
+      HumanoidUnit.m_Brain = bandit.m_Brain;
 
       // --- Clay Golem: tabletop chassis (no berserk, -20 HP, -2 Str) ---
       // Built on the stone golem body; the slow breath component is stripped where
@@ -247,6 +253,7 @@ namespace MissionWOTR.Archetypes
         .AddDamageResistancePhysical(
           value: 5, bypassedByMaterial: true, material: PhysicalDamageMaterial.Adamantite)
         .Configure();
+      GolemUnit.m_Brain = stoneGolem.m_Brain;
 
       // --- Clockwork Plating: the hound's scaling DR (half alchemist level). ---
       ClockworkPlatingBuff = BuffConfigurator.New(PlatingBuffName, Guids.ConstructCrafterPlatingBuff)
@@ -557,18 +564,21 @@ namespace MissionWOTR.Archetypes
         // Role variant: the active core may swap in a specialized chassis (archer,
         // caster, ranged) instead of the default base unit.
         var spawnUnit = ResolveUnit(core, BaseKind, Unit);
-        var knownIds = existing.Select(u => u.UniqueId).ToHashSet();
-        Game.Instance.EntityCreator.SpawnUnit(spawnUnit, spawnPosition, Quaternion.identity, state);
-
-        // Find the freshly spawned unit (works regardless of SpawnUnit's return type).
-        var construct = state.AllEntityData.OfType<UnitEntityData>()
-          .FirstOrDefault(u => !knownIds.Contains(u.UniqueId)
-            && u.Buffs.GetBuff(baseMarker) is null);
+        // SpawnUnit RETURNS the spawned UnitEntityData (same call ToyBox and
+        // DarkCodex's companion summoner use). The previous 'find the new unit by
+        // diffing entity ids' heuristic was racy and logged 'spawned unit could
+        // not be found' on the second/third deploy attempts.
+        var construct = Game.Instance.EntityCreator.SpawnUnit(
+          spawnUnit, spawnPosition, Quaternion.identity, state);
         if (construct is null)
         {
-          MissionFeats.Logger.Error("ConstructCrafter: spawned unit could not be found.");
+          MissionFeats.Logger.Error(
+            $"ConstructCrafter: SpawnUnit returned null for {spawnUnit?.name}.");
           return;
         }
+        MissionFeats.Logger.Info(
+          $"[deploy] spawned {spawnUnit.name} (base {BaseKind}) at {spawnPosition:0.0}; " +
+          $"brain={(spawnUnit.DefaultBrain?.name ?? "NONE")}.");
 
         // Humanoid base: a fighter with (alchemist level - 2) levels.
         if (AddFighterLevels)
@@ -650,11 +660,23 @@ namespace MissionWOTR.Archetypes
         {
           chosenBrain = ConstructCrafterAbilities.CasterBrain;
         }
-        if (chosenBrain != null && construct.Brain != null)
+        if (chosenBrain != null)
         {
-          construct.Brain.SetBrain(chosenBrain);
-          construct.Brain.RestoreAvailableActions();
+          if (construct.Brain != null)
+          {
+            construct.Brain.SetBrain(chosenBrain);
+            construct.Brain.RestoreAvailableActions();
+          }
+          else
+          {
+            MissionFeats.Logger.Warn(
+              $"[deploy] {construct.Blueprint.name} has no brain instance; " +
+              $"program brain {chosenBrain.name} could not be applied.");
+          }
         }
+        MissionFeats.Logger.Info(
+          $"[deploy] done: {construct.Blueprint.name} uid={construct.UniqueId} " +
+          $"brain={(construct.Brain != null ? "present" : "NULL")}.");
       }
       catch (Exception e)
       {

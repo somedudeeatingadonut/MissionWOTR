@@ -44,9 +44,9 @@ namespace MissionWOTR.Archetypes
         if (level is null)
         {
           MissionWOTR.Main.Logger.Warn(
-            $"[removals] {featureName} not found in {clazz.name} progression - removal skipped " +
-            "(the feature is not granted by the class; removing it would make the archetype " +
-            "un-addable at char-gen).");
+            $"[removals] {featureName} not found in {clazz.name} progression (checked feature " +
+            "names and guids) - removal skipped. If this feature should be removed, its " +
+            "blueprint id may not match the progression entry.");
           continue;
         }
         archetype = archetype.AddToRemoveFeatures(level.Value, featureName);
@@ -64,9 +64,11 @@ namespace MissionWOTR.Archetypes
       }
       foreach (var entry in progression.LevelEntries)
       {
-        foreach (var feature in EntryFeatures(entry))
+        foreach (var id in EntryFeatureIds(entry))
         {
-          if (string.Equals(feature, featureName, StringComparison.Ordinal))
+          // Callers pass either a blueprint name or (as BPCore's FeatureRefs
+          // ToString() does) the GUID - match either.
+          if (string.Equals(id, featureName, StringComparison.OrdinalIgnoreCase))
           {
             return entry.Level;
           }
@@ -76,10 +78,11 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
-    /// Dereferenced feature names of a LevelEntry. Reflection with both member
-    /// spellings, because the game's LevelEntry layout varies by version.
+    /// Dereferenced feature ids (name AND asset guid) of a LevelEntry. Reflection
+    /// with both member spellings, because the game's LevelEntry layout varies by
+    /// version.
     /// </summary>
-    private static IEnumerable<string> EntryFeatures(LevelEntry entry)
+    private static IEnumerable<string> EntryFeatureIds(LevelEntry entry)
     {
       var list = Get(entry, "Features") ?? Get(entry, "m_Features");
       if (list is not IEnumerable items)
@@ -97,6 +100,11 @@ namespace MissionWOTR.Archetypes
         if (name is not null)
         {
           yield return name;
+        }
+        var guid = Get(blueprint, "AssetGuid") as string;
+        if (guid is not null)
+        {
+          yield return guid;
         }
       }
     }
