@@ -654,6 +654,7 @@ namespace MissionWOTR.Archetypes
         summonAction.RunAction();
         MissionFeats.Logger.Info(
           $"[deploy] spawn action run for {spawnUnit.name} (base {BaseKind}).");
+      }
       catch (Exception e)
       {
         MissionFeats.Logger.Error("ConstructCrafter: deploy failed.", e);
