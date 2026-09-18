@@ -27,7 +27,7 @@ namespace MissionWOTR
   // never take the whole mod down.
   // ---------------------------------------------------------------------------
 
-  [HarmonyPatch(typeof(ClassProgressionVM), nameof(ClassProgressionVM.DisposeImplementation))]
+  [HarmonyPatch(typeof(ClassProgressionVM), "DisposeImplementation")]
   internal static class ClassProgressionDisposeSuppressor
   {
     private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
