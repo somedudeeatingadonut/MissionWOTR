@@ -162,21 +162,42 @@ namespace MissionWOTR
   /// the progression grant runs - features AND abilities - so 'the gimmicks are
   /// missing' becomes a precise list in the log.
   /// </summary>
-  [HarmonyPatch(typeof(LevelUpController), "AddArchetype")]
+  /// <summary>
+  /// The gate itself: LevelUpController.AddArchetype(BlueprintArchetype) validates the
+  /// archetype via CanAddArchetype and returns FALSE when it is rejected - which the
+  /// vanilla char-gen UI silently ignores (the item stays visually selected while the
+  /// character gets a plain class). This postfix makes every rejection visible.
+  /// </summary>
+  [HarmonyPatch(
+    typeof(LevelUpController), nameof(LevelUpController.AddArchetype),
+    new Type[] { typeof(BlueprintArchetype) })]
   internal static class ArchetypeAddedLogger
   {
     private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
 
     [HarmonyPostfix]
-    internal static void Postfix(BlueprintArchetype __0)
+    internal static void Postfix(BlueprintArchetype __0, bool __result)
     {
       try
       {
         var n = __0?.name;
-        if (n is not null &&
-          (n.Contains("Eldritch") || n.Contains("Construct") || n.Contains("Vanguard")))
+        if (n is null)
         {
-          Logger.Info($"[levelup] archetype {n} added to the level-up plan.");
+          return;
+        }
+        if (__result)
+        {
+          if (n.Contains("Eldritch") || n.Contains("Construct") || n.Contains("Vanguard"))
+          {
+            Logger.Info($"[levelup] archetype {n} ADDED to the level-up plan.");
+          }
+        }
+        else
+        {
+          Logger.Warn(
+            $"[levelup] archetype {n} REJECTED by AddArchetype (CanAddArchetype failed - " +
+            "usually a RemoveFeatures entry that the class progression does not grant at " +
+            "that level). The UI will NOT show this.");
         }
       }
       catch (Exception e)

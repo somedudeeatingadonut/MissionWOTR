@@ -188,15 +188,22 @@ namespace MissionWOTR.Archetypes
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.EldritchPoisonerArchetype, CharacterClassRefs.AlchemistClass)
           .SetLocalizedName(DisplayName)
-          .SetLocalizedDescription(Description)
-          // Replaces bomb (all of the class's bomb-granting entries).
-          .AddToRemoveFeatures(1,
-            FeatureRefs.AlchemistBombsFeature.ToString(),
-            FeatureRefs.AlchemistBombs.ToString())
-          // Replaces Throw Anything.
-          .AddToRemoveFeatures(1, FeatureRefs.AlchemistThrowAnything.ToString())
-          // Replaces mutagen (and, implicitly, persistent mutagen which improves it).
-          .AddToRemoveFeatures(1, FeatureRefs.AlchemistMutagen.ToString())
+          .SetLocalizedDescription(Description);
+
+      // Replaces bombs / Throw Anything / mutagen. Removal LEVELS are derived from
+      // the live alchemist progression: the char-gen gate (CanAddArchetype, inside
+      // LevelUpController.AddArchetype) silently rejects archetypes that remove a
+      // feature the class does not grant at that exact level - a hardcoded guess
+      // made both alchemist archetypes apply as plain alchemists.
+      archetype = ArchetypeRemovals.AddRemovals(
+        archetype,
+        CharacterClassRefs.AlchemistClass.Reference.Get(),
+        FeatureRefs.AlchemistBombs.ToString(),
+        FeatureRefs.AlchemistBombsFeature.ToString(),
+        FeatureRefs.AlchemistThrowAnything.ToString(),
+        FeatureRefs.AlchemistMutagen.ToString());
+
+      archetype = archetype
           .AddToAddFeatures(LevelPlan.L(1), ArcanotoxinFeatName, ToxicologistFeatName)
           .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.RogueSneakAttack.ToString())
           .AddToAddFeatures(LevelPlan.L(4), FeatureRefs.RogueSneakAttack.ToString())

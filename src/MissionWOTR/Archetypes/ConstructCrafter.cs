@@ -147,12 +147,22 @@ namespace MissionWOTR.Archetypes
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.ConstructCrafterArchetype, CharacterClassRefs.AlchemistClass)
           .SetLocalizedName(DisplayName)
-          .SetLocalizedDescription(Description)
-          // Chassis removals (best-effort levels; see docs for the poison-feature notes).
-          .AddToRemoveFeatures(1, FeatureRefs.AlchemistMutagen.ToString())
-          .AddToRemoveFeatures(2, FeatureRefs.PoisonResistance.ToString())
-          .AddToRemoveFeatures(5, FeatureRefs.PoisonResistance4Feature.ToString())
-          .AddToRemoveFeatures(10, FeatureRefs.ImmunityToPoison.ToString())
+          .SetLocalizedDescription(Description);
+
+      // Chassis removals (mutagen + the poison-resistance chain). Levels are derived
+      // from the live alchemist progression: the char-gen gate (CanAddArchetype)
+      // silently rejects archetypes whose removals do not match what the class
+      // actually grants at that level - hardcoded guesses made CC apply as a plain
+      // alchemist. (See docs/ARCHETYPES.md for the poison-feature notes.)
+      archetype = ArchetypeRemovals.AddRemovals(
+        archetype,
+        CharacterClassRefs.AlchemistClass.Reference.Get(),
+        FeatureRefs.AlchemistMutagen.ToString(),
+        FeatureRefs.PoisonResistance.ToString(),
+        FeatureRefs.PoisonResistance4Feature.ToString(),
+        FeatureRefs.ImmunityToPoison.ToString());
+
+      archetype = archetype
           // Core kit.
           .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.ToString())
           .AddToAddFeatures(LevelPlan.L(1), CoreSelectionName, ProgramSelectionName)
