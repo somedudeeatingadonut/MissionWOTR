@@ -200,6 +200,7 @@ namespace MissionWOTR
     internal const string CrafterMarkerBuff = "1210D7DB-183F-426E-A355-DC3FD762772C";
     internal const string CrafterDefaultBrain = "37D3971A-EE8B-4558-8BF7-90E0474420D4";
     internal const string AiFollowDefault = "2E584480-42AF-40E5-B957-EDA2D9DAAEDC";
+    internal const string DeployFinishAction = "8F10D8D3-C49D-4778-87E3-088CCA9DBB52";
     internal const string ManBaseMarker = "FB5D8B16-79A4-43DD-92F7-E0F05E1C1F8C";
     internal const string GolemBaseMarker = "7CC10602-CA2A-4309-A5F9-7ECAF82F5AE0";
     internal const string FireBlastAbility = "091C18CA-0209-444D-8D8C-09CDA16262CE";
