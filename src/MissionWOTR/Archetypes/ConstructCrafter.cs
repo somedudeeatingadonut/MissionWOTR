@@ -40,7 +40,7 @@ namespace MissionWOTR.Archetypes
   /// (one per base), and they are far less customizable than a companion.
   ///
   /// REAL LEVEL PLAN (used when LevelPlan.AllAtLevelOne is false):
-  ///   L1  Deploy Clockwork Hound (dog base), extra combat feat, Basic Core selection,
+  ///   L1  Deploy Clockwork Sentry (dog base), extra combat feat, Basic Core selection,
   ///       Basic Program selection
   ///   L7  Deploy Humanoid Construct (humanoid base: fighter with AL-2 levels)
   ///   L16 Deploy Clay Golem (golem base: tabletop clay golem minus berserk, -20 HP, -2 Str)
@@ -62,14 +62,14 @@ namespace MissionWOTR.Archetypes
     internal const string DisplayName = "ConstructCrafter.Name";
     internal const string Description = "ConstructCrafter.Description";
 
-    internal const string HoundUnitName = "ConstructCrafterClockworkHound";
+    internal const string SentryUnitName = "ConstructCrafterWoodenSentry";
     internal const string HumanoidUnitName = "ConstructCrafterHumanoidConstruct";
     internal const string GolemUnitName = "ConstructCrafterClayGolem";
 
-    internal const string DeployHoundFeatureName = "ConstructCrafterDeployHound";
+    internal const string DeploySentryFeatureName = "ConstructCrafterDeploySentry";
     internal const string DeployHumanoidFeatureName = "ConstructCrafterDeployHumanoid";
     internal const string DeployGolemFeatureName = "ConstructCrafterDeployGolem";
-    internal const string DeployHoundAbilityName = "ConstructCrafterDeployHoundAbility";
+    internal const string DeploySentryAbilityName = "ConstructCrafterDeploySentryAbility";
     internal const string DeployHumanoidAbilityName = "ConstructCrafterDeployHumanoidAbility";
     internal const string DeployGolemAbilityName = "ConstructCrafterDeployGolemAbility";
 
@@ -82,10 +82,11 @@ namespace MissionWOTR.Archetypes
     internal const string ProficienciesName = "ConstructCrafterProficiencies";
 
     // Runtime handles for the deploy action.
-    internal static BlueprintUnit HoundUnit;
+    internal static BlueprintUnit SentryUnit;
     internal static BlueprintUnit HumanoidUnit;
     internal static BlueprintUnit GolemUnit;
     internal static BlueprintBuff ClockworkPlatingBuff;
+    internal static BlueprintBuff CrafterMarkerBuff;
 
     public static void Configure()
     {
@@ -119,9 +120,9 @@ namespace MissionWOTR.Archetypes
     private static void ConfigureDeployBases()
     {
       DeployBase(
-        DeployHoundFeatureName, Guids.ConstructCrafterDeployHoundFeature,
-        DeployHoundAbilityName, Guids.ConstructCrafterDeployHoundAbility,
-        "DeployHound.Name", "DeployHound.Description", HoundUnit,
+        DeploySentryFeatureName, Guids.ConstructCrafterDeploySentryFeature,
+        DeploySentryAbilityName, Guids.ConstructCrafterDeploySentryAbility,
+        "DeploySentry.Name", "DeploySentry.Description", SentryUnit,
         applyPlating: true, addFighterLevels: false, icon: FeatureRefs.RideAnimalCompanionFeature,
         baseKind: 0);
 
@@ -167,7 +168,7 @@ namespace MissionWOTR.Archetypes
           .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.ToString())
           .AddToAddFeatures(LevelPlan.L(1), CoreSelectionName, ProgramSelectionName)
           // Bases.
-          .AddToAddFeatures(LevelPlan.L(1), DeployHoundFeatureName)
+          .AddToAddFeatures(LevelPlan.L(1), DeploySentryFeatureName)
           .AddToAddFeatures(LevelPlan.L(7), DeployHumanoidFeatureName)
           .AddToAddFeatures(LevelPlan.L(16), DeployGolemFeatureName)
           // Chassis: proficiencies (plus vanilla simple-weapon proficiency).
@@ -215,48 +216,50 @@ namespace MissionWOTR.Archetypes
     {
       // Player-friendly faction taken from the game's own dog companion.
       var dogFaction = UnitRefs.AnimalCompanionUnitDog.Reference.Get().Faction;
-      var dog = UnitRefs.AnimalCompanionUnitDog.Reference.Get();
 
-      // --- Clockwork Hound: slightly worse than a normal dog ---
-      HoundUnit = UnitConfigurator.New(HoundUnitName, Guids.ConstructCrafterHoundUnit)
-        .CopyFrom(UnitRefs.AnimalCompanionUnitDog)
-        .SetStrength(dog.Strength - 2)
-        .SetDexterity(dog.Dexterity - 2)
-        .SetMaxHP(Math.Max(4, dog.MaxHP - 4))
+      // Units are built by FULL-CLONING a stock game unit. Critical lesson from the
+      // first playtests: BPCore's CopyFrom(blueprint) with no matcher binds to the
+      // params-Type[] overload and copies NOTHING (zero types = zero components), and
+      // even with a matcher it never touches FIELDS - so the old units had no model
+      // prefab, no brain wiring, no attack routines (the visible "dog" was a fallback
+      // render, and the sentry just stood there). CloneUnit copies every component
+      // AND every BlueprintUnit field (prefab/model, size, stats, brain, sounds);
+      // overrides are applied on top via configurator setters.
+      var woodGolem = UnitRefs.CR6_GolemWood.Reference.Get();
+
+      // --- Wooden Sentry: hand-carved scout construct (wood golem chassis) ---
+      SentryUnit = CloneUnit(SentryUnitName, Guids.ConstructCrafterSentryUnit, woodGolem);
+      UnitConfigurator.For(SentryUnitName)
+        .SetMaxHP(Math.Max(8, woodGolem.MaxHP / 3))
+        .SetStrength(woodGolem.Strength - 4)
+        .SetDexterity(woodGolem.Dexterity - 2)
         .SetFaction(dogFaction)
         .Configure();
-      // CopyFrom copies COMPONENTS only - the brain is a field and was never
-      // copied, so the hound spawned with no AI at all (first CC playtest:
-      // 'just standing there'). Copy the dog's brain reference (field access
-      // varies by game version, hence reflection).
-      CopyBrain(dog, HoundUnit);
 
       // --- Humanoid Construct: fighter with (AL-2) levels, applied at deploy time ---
       var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
-      HumanoidUnit = UnitConfigurator.New(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit)
-        .CopyFrom(UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male)
+      HumanoidUnit = CloneUnit(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit, bandit);
+      UnitConfigurator.For(HumanoidUnitName)
         .SetFaction(dogFaction)
         .Configure();
-      CopyBrain(bandit, HumanoidUnit);
 
       // --- Clay Golem: tabletop chassis (no berserk, -20 HP, -2 Str) ---
-      // Built on the stone golem body; the slow breath component is stripped where
-      // possible (see adaptation notes in docs/ARCHETYPES.md).
+      // Built on the stone golem body; the slow breath component is stripped and the
+      // golem's physical DR replaced with our constant 5/adamantine package
+      // (see adaptation notes in docs/ARCHETYPES.md).
       var stoneGolem = UnitRefs.CR11_GolemStone.Reference.Get();
-      GolemUnit = UnitConfigurator.New(GolemUnitName, Guids.ConstructCrafterGolemUnit)
-        .CopyFrom(
-          UnitRefs.CR11_GolemStone,
-          c => !c.name.Contains("Slow")
-            && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical)
+      GolemUnit = CloneUnit(GolemUnitName, Guids.ConstructCrafterGolemUnit, stoneGolem,
+        c => !c.name.Contains("Slow")
+          && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical);
+      UnitConfigurator.For(GolemUnitName)
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
         .SetFaction(dogFaction)
         .AddDamageResistancePhysical(
           value: 5, bypassedByMaterial: true, material: PhysicalDamageMaterial.Adamantite)
         .Configure();
-      CopyBrain(stoneGolem, GolemUnit);
 
-      // --- Clockwork Plating: the hound's scaling DR (half alchemist level). ---
+      // --- Clockwork Plating: the sentry's scaling DR (half alchemist level). ---
       ClockworkPlatingBuff = BuffConfigurator.New(PlatingBuffName, Guids.ConstructCrafterPlatingBuff)
         .SetDisplayName("ClockworkPlating.Name")
         .SetDescription("ClockworkPlating.Description")
@@ -267,32 +270,61 @@ namespace MissionWOTR.Archetypes
           ContextRankConfigs.ClassLevel(new[] { CharacterClassRefs.AlchemistClass.ToString() })
             .WithDiv2Progression())
         .Configure();
+
+      // --- Crafter marker: sits on the crafter while constructs are deployed so the
+      // AI follow actions can home in on them (the program markers only exist while a
+      // program toggle is on; without a marker the follow action has no target). ---
+      CrafterMarkerBuff = BuffConfigurator.New(
+          "ConstructCrafterCrafterMarker", Guids.CrafterMarkerBuff)
+        .SetDisplayName("CrafterMarker.Name")
+        .SetDescription("CrafterMarker.Description")
+        .SetIcon(FeatureRefs.CombatReflexes.Reference.Get().Icon)
+        .Configure();
     }
 
     /// <summary>
-    /// Copies a unit blueprint's default-brain reference onto one of our construct
-    /// blueprints. The brain field is not a BlueprintComponent, so CopyFrom skips it;
-    /// its accessibility varies by game version, so it is moved via reflection.
+    /// Creates a new unit blueprint that is a full clone of a stock unit: every
+    /// component (via CopyFrom with an all-matcher) plus every field declared on
+    /// BlueprintUnit itself (model prefab, size, base stats, brain, sounds) copied
+    /// by reflection. Callers then re-apply their overrides with configurator
+    /// setters - field copies would otherwise clobber them.
     /// </summary>
-    private static void CopyBrain(Kingmaker.Blueprints.BlueprintUnit from, Kingmaker.Blueprints.BlueprintUnit to)
+    internal static Kingmaker.Blueprints.BlueprintUnit CloneUnit(
+      string name, string guid, Kingmaker.Blueprints.BlueprintUnit source,
+      Predicate<Kingmaker.Blueprints.BlueprintComponent> componentMatcher = null)
     {
+      var configurator = UnitConfigurator.New(name, guid);
+      if (componentMatcher != null)
+      {
+        configurator = configurator.CopyFrom(source, componentMatcher);
+      }
+      else
+      {
+        configurator = configurator.CopyFrom(source, _ => true);
+      }
+      var unit = configurator.Configure();
+
       const System.Reflection.BindingFlags flags =
         System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
-        System.Reflection.BindingFlags.Instance;
-      var field = typeof(Kingmaker.Blueprints.BlueprintUnit).GetField("m_Brain", flags);
-      if (field is null)
+        System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.DeclaredOnly;
+      int copied = 0;
+      foreach (var field in typeof(Kingmaker.Blueprints.BlueprintUnit).GetFields(flags))
       {
-        Logger.Warn($"[units] no m_Brain field found; {to.name} will spawn brainless.");
-        return;
+        try
+        {
+          field.SetValue(unit, field.GetValue(source));
+          copied++;
+        }
+        catch
+        {
+          // Init-only or compiler-generated members are skipped.
+        }
       }
-      var brain = field.GetValue(from);
-      if (brain is null)
-      {
-        Logger.Warn($"[units] {from.name} has no default brain to copy for {to.name}.");
-        return;
-      }
-      field.SetValue(to, brain);
-      Logger.Info($"[units] {to.name} brain set from {from.name}.");
+      Logger.Info(
+        $"[units] {name} cloned from {source.name}: {copied} fields, " +
+        $"prefab={(unit.Prefab != null ? "set" : "NULL")}, " +
+        $"brain={(unit.DefaultBrain != null ? unit.DefaultBrain.name : "NONE")}.");
+      return unit;
     }
 
     private static void ConfigureChassis()
@@ -445,13 +477,13 @@ namespace MissionWOTR.Archetypes
     /// <summary>The construct's unit blueprint (one per base).</summary>
     public BlueprintUnit Unit;
 
-    /// <summary>Apply the scaling DR buff (clockwork hound).</summary>
+    /// <summary>Apply the scaling DR buff (clockwork sentry).</summary>
     public bool ApplyPlating;
 
     /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
     public bool AddFighterLevels;
 
-    /// <summary>Which base is deploying: 0 hound, 1 humanoid, 2 golem.</summary>
+    /// <summary>Which base is deploying: 0 sentry, 1 humanoid, 2 golem.</summary>
     public int BaseKind;
 
     private static BlueprintUnit ResolveUnit(
@@ -467,7 +499,7 @@ namespace MissionWOTR.Archetypes
       var soft = core.Name == "ConstructCrafterSoft";
       if (baseKind == 0)
       {
-        return arbalest || soft ? ConstructCrafterAbilities.HoundRangedUnit : fallback;
+        return arbalest || soft ? ConstructCrafterAbilities.SentryRangedUnit : fallback;
       }
       if (baseKind == 1)
       {
@@ -559,7 +591,7 @@ namespace MissionWOTR.Archetypes
         var state = Game.Instance.State.LoadedAreaState.MainState;
         var existing = state.AllEntityData.OfType<UnitEntityData>().ToList();
 
-        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.HoundBaseMarker
+        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.SentryBaseMarker
           : BaseKind == 1 ? ConstructCrafterAbilities.ManBaseMarker
           : ConstructCrafterAbilities.GolemBaseMarker;
 
@@ -591,20 +623,31 @@ namespace MissionWOTR.Archetypes
         // Role variant: the active core may swap in a specialized chassis (archer,
         // caster, ranged) instead of the default base unit.
         var spawnUnit = ResolveUnit(core, BaseKind, Unit);
-        // SpawnUnit RETURNS the spawned UnitEntityData (same call ToyBox and
-        // DarkCodex's companion summoner use). The previous 'find the new unit by
-        // diffing entity ids' heuristic was racy and logged 'spawned unit could
-        // not be found' on the second/third deploy attempts.
-        var construct = Game.Instance.EntityCreator.SpawnUnit(
-          spawnUnit, spawnPosition, Quaternion.identity, state);
+        // Spawn through the engine's own summon pipeline (the same rule every
+        // summon ability uses): it places the unit on reachable ground via
+        // FreePlaceSelector and LINKS it to the caster - the link is what makes
+        // stock summons follow their summoner around, which is exactly the
+        // pre-combat utility this archetype needs.
+        Kingmaker.Utility.FreePlaceSelector.PlaceSpawnPlaces(1, 0.5f, caster.Position);
+        var summonPosition = Kingmaker.Utility.FreePlaceSelector.GetRelaxedPosition(0, true);
+        if (summonPosition == UnityEngine.Vector3.zero)
+        {
+          summonPosition = spawnPosition;
+        }
+        var summonRule = new Kingmaker.RuleSystem.Rules.RulePerformSummonUnit(
+          caster, spawnUnit, summonPosition)
+        {
+          Context = Context,
+        };
+        var construct = Context.TriggerRule(summonRule)?.SummonedUnit;
         if (construct is null)
         {
           MissionFeats.Logger.Error(
-            $"ConstructCrafter: SpawnUnit returned null for {spawnUnit?.name}.");
+            $"ConstructCrafter: summon rule returned no unit for {spawnUnit?.name}.");
           return;
         }
         MissionFeats.Logger.Info(
-          $"[deploy] spawned {spawnUnit.name} (base {BaseKind}) at {spawnPosition:0.0}; " +
+          $"[deploy] spawned {spawnUnit.name} (base {BaseKind}) at {summonPosition:0.0}; " +
           $"brain={(spawnUnit.DefaultBrain?.name ?? "NONE")}.");
 
         // Humanoid base: a fighter with (alchemist level - 2) levels.
@@ -630,7 +673,7 @@ namespace MissionWOTR.Archetypes
           construct, alchemistLevel, program?.IsFlank == true ? 2 : 0);
 
         // Core application: per-base stat package + role abilities.
-        var isHound = BaseKind == 0;
+        var isSentry = BaseKind == 0;
         var isHumanoid = BaseKind == 1;
         var grantedAbilities = ResolveCoreAbilities(core, BaseKind).ToList();
         foreach (var ability in grantedAbilities)
@@ -639,7 +682,7 @@ namespace MissionWOTR.Archetypes
         }
         var coreBuff = core is null
           ? null
-          : isHound ? core.HoundBuff : isHumanoid ? core.HumanoidBuff : core.GolemBuff;
+          : isSentry ? core.SentryBuff : isHumanoid ? core.HumanoidBuff : core.GolemBuff;
         if (coreBuff != null)
         {
           construct.AddBuff(coreBuff, Context);
@@ -648,18 +691,18 @@ namespace MissionWOTR.Archetypes
         // Core sneak attack: one die per N alchemist levels (N from the core def).
         var saDivisor = core is null
           ? 0
-          : isHound ? core.SaHound : isHumanoid ? core.SaHumanoid : core.SaGolem;
+          : isSentry ? core.SaSentry : isHumanoid ? core.SaHumanoid : core.SaGolem;
         ApplySneakAttackRanks(construct, alchemistLevel, saDivisor);
 
         // Flaming golem: no attacks of opportunity - unless the Guard program runs
         // (Guard trades the aura's ferocity for a disciplined watch).
-        if (core?.GolemNoAoO == true && !isHound && !isHumanoid
+        if (core?.GolemNoAoO == true && !isSentry && !isHumanoid
           && program?.IsGuard != true)
         {
           construct.AddBuff(ConstructCrafterCores.NoAoOBuff, Context);
         }
 
-        // Clockwork hound: scaling damage reduction (half alchemist level).
+        // Clockwork sentry: scaling damage reduction (half alchemist level).
         if (ApplyPlating && ConstructCrafter.ClockworkPlatingBuff is not null)
         {
           construct.AddBuff(ConstructCrafter.ClockworkPlatingBuff, Context);
@@ -687,6 +730,14 @@ namespace MissionWOTR.Archetypes
         {
           chosenBrain = ConstructCrafterAbilities.CasterBrain;
         }
+        if (chosenBrain == null)
+        {
+          // No program and no role abilities: the default brain still follows the
+          // crafter and fights - a construct that just stands around is useless
+          // between fights (first playtest lesson: the copied companion brain
+          // 'Character_Brain' waits for player orders and never acts).
+          chosenBrain = ConstructCrafterAbilities.DefaultBrain;
+        }
         if (chosenBrain != null)
         {
           if (construct.Brain != null)
@@ -698,12 +749,21 @@ namespace MissionWOTR.Archetypes
           {
             MissionFeats.Logger.Warn(
               $"[deploy] {construct.Blueprint.name} has no brain instance; " +
-              $"program brain {chosenBrain.name} could not be applied.");
+              $"brain {chosenBrain.name} could not be applied.");
           }
         }
+
+        // Mark the crafter so follow actions can home in on them even when no
+        // program toggle is active (see CrafterMarkerBuff).
+        if (CrafterMarkerBuff != null && caster.Buffs.GetBuff(CrafterMarkerBuff) is null)
+        {
+          caster.AddBuff(CrafterMarkerBuff, Context);
+        }
+
         MissionFeats.Logger.Info(
           $"[deploy] done: {construct.Blueprint.name} uid={construct.UniqueId} " +
-          $"brain={(construct.Brain != null ? "present" : "NULL")}.");
+          $"brain={(construct.Brain != null ? "present" : "NULL")}, " +
+          $"master={(construct.Master != null ? "set" : "none")}.");
       }
       catch (Exception e)
       {

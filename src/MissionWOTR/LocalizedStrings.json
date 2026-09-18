@@ -615,17 +615,17 @@
   {
     "Key": "ConstructCrafter.Description",
     "ProcessTemplates": false,
-    "enGB": "A metallics-themed engineer who deploys construct summons: uncontrollable, relentless, and deliberately less customizable than any companion. You may have one construct of each base active at a time; deploying the same base again replaces the old construct.\nDeployable bases: Clockwork Hound (level 1), Humanoid Construct (level 7), Clay Golem (level 16). Cores (stat packages) and programs (behavior packages) are chosen before deployment.\nThe archetype keeps the alchemist's hit dice and attack progression but trades away mutagen and the alchemist's poison-related features, and grants an extra combat feat at level 1."
+    "enGB": "A metallics-themed engineer who deploys construct summons: uncontrollable, relentless, and deliberately less customizable than any companion. You may have one construct of each base active at a time; deploying the same base again replaces the old construct.\nDeployable bases: Wooden Sentry (level 1), Humanoid Construct (level 7), Clay Golem (level 16). Cores (stat packages) and programs (behavior packages) are chosen before deployment.\nThe archetype keeps the alchemist's hit dice and attack progression but trades away mutagen and the alchemist's poison-related features, and grants an extra combat feat at level 1."
   },
   {
-    "Key": "DeployHound.Name",
+    "Key": "DeploySentry.Name",
     "ProcessTemplates": false,
-    "enGB": "Deploy Clockwork Hound"
+    "enGB": "Deploy Wooden Sentry"
   },
   {
-    "Key": "DeployHound.Description",
+    "Key": "DeploySentry.Description",
     "ProcessTemplates": false,
-    "enGB": "Deploy a clockwork hound (standard action). Slightly weaker than a natural dog, its plating grants damage reduction equal to half your alchemist level, bypassed by adamantine. The hound acts on its own - it cannot be controlled - and remains until destroyed or until you deploy another hound."
+    "enGB": "Deploy a wooden sentry - a hand-carved construct scout (standard action). Its plating grants damage reduction equal to half your alchemist level, bypassed by adamantine. The sentry acts on its own - it cannot be controlled - and remains until destroyed or until you deploy another sentry."
   },
   {
     "Key": "DeployHumanoid.Name",
@@ -655,7 +655,7 @@
   {
     "Key": "BasicCore.Description",
     "ProcessTemplates": false,
-    "enGB": "The basic core: each base deploys with its standard chassis - the hound's plating, the humanoid's fighter training, and the golem's bulk. Future cores will offer different stat packages."
+    "enGB": "The basic core: each base deploys with its standard chassis - the sentry's plating, the humanoid's fighter training, and the golem's bulk. Future cores will offer different stat packages."
   },
   {
     "Key": "BasicProgram.Name",
@@ -815,7 +815,7 @@
   {
     "Key": "FlamingCore.Description",
     "ProcessTemplates": false,
-    "enGB": "Bind an elemental fire. Clockwork Hound: +10 foot speed, +damage (half alchemist level), +saves (half alchemist level), sneak attack, but -AC and it burns for 1 damage each round. Humanoid Construct: attacks deal +2d6 fire damage and set enemies burning. Clay Golem: wreathed in flame that scorches nearby enemies and ignites those it strikes, but it has no attacks of opportunity (the Guard program restores them) and burns for 2 damage each round."
+    "enGB": "Bind an elemental fire. Wooden Sentry: +10 foot speed, +damage (half alchemist level), +saves (half alchemist level), sneak attack, but -AC and it burns for 1 damage each round. Humanoid Construct: attacks deal +2d6 fire damage and set enemies burning. Clay Golem: wreathed in flame that scorches nearby enemies and ignites those it strikes, but it has no attacks of opportunity (the Guard program restores them) and burns for 2 damage each round."
   },
   {
     "Key": "ColdCore.Name",
@@ -825,7 +825,7 @@
   {
     "Key": "ColdCore.Description",
     "ProcessTemplates": false,
-    "enGB": "Bind an elemental rime. Clockwork Hound: hits knock enemies prone and slow them; +saves (half alchemist level), -10 foot speed. Humanoid Construct: +20 foot speed and +damage (half alchemist level) - it charges like a skater on black ice. Clay Golem: attacks deal +1d6 cold damage and slow enemies."
+    "enGB": "Bind an elemental rime. Wooden Sentry: hits knock enemies prone and slow them; +saves (half alchemist level), -10 foot speed. Humanoid Construct: +20 foot speed and +damage (half alchemist level) - it charges like a skater on black ice. Clay Golem: attacks deal +1d6 cold damage and slow enemies."
   },
   {
     "Key": "BloodyCore.Name",
@@ -865,7 +865,7 @@
   {
     "Key": "LightlessCore.Description",
     "ProcessTemplates": false,
-    "enGB": "A heart of pure shadow. Clockwork Hound and Humanoid Construct: sneak attack (1 die per 3 alchemist levels) plus attack and dodge bonuses (half alchemist level). Clay Golem: strikes shake and frighten enemies, and it gains will save bonuses."
+    "enGB": "A heart of pure shadow. Wooden Sentry and Humanoid Construct: sneak attack (1 die per 3 alchemist levels) plus attack and dodge bonuses (half alchemist level). Clay Golem: strikes shake and frighten enemies, and it gains will save bonuses."
   },
   {
     "Key": "BoomingCore.Name",
@@ -918,14 +918,14 @@
     "enGB": "This construct's chassis cannot make attacks of opportunity."
   },
   {
-    "Key": "HoundBaseMarker.Name",
+    "Key": "SentryBaseMarker.Name",
     "ProcessTemplates": false,
-    "enGB": "Clockwork Hound Chassis"
+    "enGB": "Wooden Sentry Chassis"
   },
   {
-    "Key": "HoundBaseMarker.Description",
+    "Key": "SentryBaseMarker.Description",
     "ProcessTemplates": false,
-    "enGB": "This unit was deployed by a Construct Crafter (hound base)."
+    "enGB": "This unit was deployed by a Construct Crafter (sentry base)."
   },
   {
     "Key": "ManBaseMarker.Name",
@@ -1005,7 +1005,7 @@
   {
     "Key": "ArbalestCore.Description",
     "ProcessTemplates": false,
-    "enGB": "A mounted ballista assembly. While this core is active, deployed constructs gain a bonus on attack rolls and damage equal to half your alchemist level and +10 foot speed, but suffer an equal penalty to AC. The humanoid construct fields a longbow; the hound and golem spit bolts from range."
+    "enGB": "A mounted ballista assembly. While this core is active, deployed constructs gain a bonus on attack rolls and damage equal to half your alchemist level and +10 foot speed, but suffer an equal penalty to AC. The humanoid construct fields a longbow; the sentry and golem spit bolts from range."
   },
   {
     "Key": "BlinkStrike.Name",
@@ -1016,5 +1016,13 @@
     "Key": "BlinkStrike.Description",
     "ProcessTemplates": false,
     "enGB": "The construct tears a hole in space and appears beside its prey, striking with its weapon. This is a teleporting attack: the construct moves next to the target and makes a full weapon attack (attack roll, critical hits, and sneak attack all apply). Usable once per round."
+  },
+  {
+    "Key": "CrafterMarker.Name",
+    "enGB": "Clockwork Bond"
+  },
+  {
+    "Key": "CrafterMarker.Description",
+    "enGB": "Your constructs are bound to you and follow their maker."
   }
 ]

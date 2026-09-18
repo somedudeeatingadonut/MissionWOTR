@@ -27,6 +27,7 @@ namespace MissionWOTR
         Logger.Info($"MissionWOTR v{modEntry.Info.Version} loading.");
         var harmony = new Harmony(modEntry.Info.Id);
         PatchAllSafely(harmony);
+        Kingmaker.PubSubSystem.EventBus.Subscribe(new ConstructAreaProbe());
         Logger.Info("MissionWOTR loaded; patches applied.");
       }
       catch (Exception e)

@@ -58,7 +58,7 @@ namespace MissionWOTR.Archetypes
   /// Role variants: the deploy action picks a variant unit by active core:
   ///   HumanoidArcher (Arbalest - bow in inventory, attacks with equipped weapon),
   ///   HumanoidCaster (Flaming/Soft), GolemCaster (Cold/Arbalest/Soft),
-  ///   HoundRanged (Arbalest/Soft). Base identity is tracked with marker buffs so any
+  ///   SentryRanged (Arbalest/Soft). Base identity is tracked with marker buffs so any
   ///   variant replaces any earlier construct of the same base.
   /// </summary>
   internal static class ConstructCrafterAbilities
@@ -70,18 +70,19 @@ namespace MissionWOTR.Archetypes
     internal static BlueprintAbility BlinkStrike;
 
     internal static BlueprintBuff MendBuff;
-    internal static BlueprintBuff HoundBaseMarker;
+    internal static BlueprintBuff SentryBaseMarker;
     internal static BlueprintBuff ManBaseMarker;
     internal static BlueprintBuff GolemBaseMarker;
 
     internal static BlueprintUnit HumanoidArcherUnit;
     internal static BlueprintUnit HumanoidCasterUnit;
     internal static BlueprintUnit GolemCasterUnit;
-    internal static BlueprintUnit HoundRangedUnit;
+    internal static BlueprintUnit SentryRangedUnit;
 
     // Brains: role (v1) and program-behavior (v2) handles for the deploy-time
     // runtime brain assignment (UnitBrain.SetBrain).
     internal static BlueprintBrain CasterBrain;
+    internal static BlueprintBrain DefaultBrain;
     internal static BlueprintBrain PassiveBrain;
     internal static BlueprintBrain GuardBrain;
     internal static BlueprintBrain DistanceBrain;
@@ -97,9 +98,9 @@ namespace MissionWOTR.Archetypes
     private static void ConfigureMarkers()
     {
       var icon = FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon;
-      HoundBaseMarker = BuffConfigurator.New("ConstructCrafterHoundBaseMarker", Guids.HoundBaseMarker)
-        .SetDisplayName("HoundBaseMarker.Name")
-        .SetDescription("HoundBaseMarker.Description")
+      SentryBaseMarker = BuffConfigurator.New("ConstructCrafterSentryBaseMarker", Guids.SentryBaseMarker)
+        .SetDisplayName("SentryBaseMarker.Name")
+        .SetDescription("SentryBaseMarker.Description")
         .SetIcon(icon)
         .Configure();
       ManBaseMarker = BuffConfigurator.New("ConstructCrafterManBaseMarker", Guids.ManBaseMarker)
@@ -333,6 +334,30 @@ namespace MissionWOTR.Archetypes
       var followDistance = FollowAction(
         "ConstructCrafterAiFollowDistance", Guids.AiFollowDistance, approachFeet: 30f, score: 8f);
 
+      // Default: follow the crafter closely and fight. Assigned at deploy when no
+      // program is active and the core grants no role abilities - without this the
+      // unit keeps its (player-companion) blueprint brain and just stands around.
+      var followDefault = FollowAction(
+        "ConstructCrafterAiFollowDefault", Guids.AiFollowDefault, approachFeet: 10f, score: 15f);
+      var defaultActions = new List<Blueprint<BlueprintAiActionReference>> { followDefault };
+      if (attack != null)
+      {
+        defaultActions.Add(attack);
+      }
+      DefaultBrain = BrainConfigurator.New("ConstructCrafterDefaultBrain", Guids.CrafterDefaultBrain)
+        .SetActions(defaultActions.ToArray())
+        .Configure();
+
+      // Caster and ranged variants also escort the crafter when idle (low priority).
+      casterActions.Add(followGuard);
+      rangedActions.Add(followGuard);
+      BrainConfigurator.For("ConstructCrafterCasterBrain")
+        .SetActions(casterActions.ToArray())
+        .Configure();
+      BrainConfigurator.For("ConstructCrafterRangedBrain")
+        .SetActions(rangedActions.ToArray())
+        .Configure();
+
       var passiveActions = new List<Blueprint<BlueprintAiActionReference>> { followPassive };
       if (attack != null)
       {
@@ -373,53 +398,67 @@ namespace MissionWOTR.Archetypes
     /// </summary>
     private static Blueprint<BlueprintUnitFactReference>[] ProgramMarkersForFollow()
     {
-      return ConstructCrafterPrograms.Programs
+      // The crafter marker is always included: it sits on the crafter whenever a
+      // construct has been deployed, so follow actions find their target even when
+      // no program toggle is active.
+      var markers = ConstructCrafterPrograms.Programs
         .Where(p => p.IsPassive || p.IsGuard || p.IsDistance)
         .Select(p => (Blueprint<BlueprintUnitFactReference>)p.Marker)
-        .ToArray();
+        .ToList();
+      if (ConstructCrafter.CrafterMarkerBuff != null)
+      {
+        markers.Add(ConstructCrafter.CrafterMarkerBuff);
+      }
+      return markers.ToArray();
     }
 
     private static void ConfigureVariantUnits()
     {
       var dogFaction = UnitRefs.AnimalCompanionUnitDog.Reference.Get().Faction;
+      var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
+      var stoneGolem = UnitRefs.CR11_GolemStone.Reference.Get();
+      var woodGolem = UnitRefs.CR6_GolemWood.Reference.Get();
+
+      // Variant units are FULL clones of their stock units (see ConstructCrafter.
+      // CloneUnit for why bare CopyFrom produced empty units), with role overrides
+      // and custom brains applied on top.
 
       // Archer humanoid: bow in inventory; the stock brain attacks with the equipped weapon.
-      HumanoidArcherUnit = UnitConfigurator.New(
-          "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit)
-        .CopyFrom(UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male)
+      HumanoidArcherUnit = ConstructCrafter.CloneUnit(
+        "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit, bandit);
+      UnitConfigurator.For("ConstructCrafterHumanoidArcher")
         .SetFaction(dogFaction)
         .SetStartingInventory(ItemWeaponRefs.CompositeLongbow.Cast<BlueprintItemReference>())
         .Configure();
 
-      // Caster humanoid / caster golem / ranged hound: custom brains.
-      HumanoidCasterUnit = UnitConfigurator.New(
-          "ConstructCrafterHumanoidCaster", Guids.ConstructCrafterHumanoidCasterUnit)
-        .CopyFrom(UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male)
+      // Caster humanoid / caster golem / ranged sentry: custom brains.
+      HumanoidCasterUnit = ConstructCrafter.CloneUnit(
+        "ConstructCrafterHumanoidCaster", Guids.ConstructCrafterHumanoidCasterUnit, bandit);
+      UnitConfigurator.For("ConstructCrafterHumanoidCaster")
         .SetFaction(dogFaction)
         .Configure();
       SetBrain(Guids.ConstructCrafterHumanoidCasterUnit, "ConstructCrafterCasterBrain");
 
-      GolemCasterUnit = UnitConfigurator.New(
-          "ConstructCrafterGolemCaster", Guids.ConstructCrafterGolemCasterUnit)
-        .CopyFrom(
-          UnitRefs.CR11_GolemStone,
-          c => !c.name.Contains("Slow")
-            && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical)
+      GolemCasterUnit = ConstructCrafter.CloneUnit(
+        "ConstructCrafterGolemCaster", Guids.ConstructCrafterGolemCasterUnit, stoneGolem,
+        c => !c.name.Contains("Slow")
+          && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical);
+      UnitConfigurator.For("ConstructCrafterGolemCaster")
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
         .SetFaction(dogFaction)
         .Configure();
       SetBrain(Guids.ConstructCrafterGolemCasterUnit, "ConstructCrafterCasterBrain");
 
-      HoundRangedUnit = UnitConfigurator.New(
-          "ConstructCrafterHoundRanged", Guids.ConstructCrafterHoundRangedUnit)
-        .CopyFrom(UnitRefs.AnimalCompanionUnitDog)
-        .SetStrength(UnitRefs.AnimalCompanionUnitDog.Reference.Get().Strength - 2)
-        .SetDexterity(UnitRefs.AnimalCompanionUnitDog.Reference.Get().Dexterity - 2)
-        .SetMaxHP(Math.Max(4, UnitRefs.AnimalCompanionUnitDog.Reference.Get().MaxHP - 4))
+      SentryRangedUnit = ConstructCrafter.CloneUnit(
+        "ConstructCrafterSentryRanged", Guids.ConstructCrafterSentryRangedUnit, woodGolem);
+      UnitConfigurator.For("ConstructCrafterSentryRanged")
+        .SetMaxHP(Math.Max(8, woodGolem.MaxHP / 3))
+        .SetStrength(woodGolem.Strength - 4)
+        .SetDexterity(woodGolem.Dexterity - 2)
         .SetFaction(dogFaction)
         .Configure();
-      SetBrain(Guids.ConstructCrafterHoundRangedUnit, "ConstructCrafterRangedBrain");
+      SetBrain(Guids.ConstructCrafterSentryRangedUnit, "ConstructCrafterRangedBrain");
     }
 
     private static void SetBrain(string unitGuid, string brainName)

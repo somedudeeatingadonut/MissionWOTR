@@ -274,3 +274,55 @@ namespace MissionWOTR
       }
     }
   }
+
+  /// <summary>
+  /// Logs each party member's ConstructCrafter deploy features and abilities on every
+  /// area load. Settles the 'humanoid/golem buttons missing' report with data: if the
+  /// facts are present the issue is action-bar UI; if absent, the grant chain broke.
+  /// </summary>
+  internal class ConstructAreaProbe : Kingmaker.PubSubSystem.IAreaHandler
+  {
+    private static readonly LogWrapper Logger = LogWrapper.Get("MissionWOTR.CharGen");
+
+    public void OnAreaBeginUnloading() { }
+
+    public void OnAreaDidLoad()
+    {
+      try
+      {
+        foreach (var reference in Kingmaker.Game.Instance.Player.PartyCharacters)
+        {
+          var unit = reference?.Value;
+          if (unit is null)
+          {
+            continue;
+          }
+          var features = new System.Collections.Generic.List<string>();
+          foreach (var f in unit.Progression.Features)
+          {
+            if (f is Kingmaker.UnitLogic.Feature fe &&
+              fe.Blueprint?.name?.StartsWith("ConstructCrafterDeploy") == true)
+            {
+              features.Add(fe.Blueprint.name);
+            }
+          }
+          var abilities = new System.Collections.Generic.List<string>();
+          foreach (var a in unit.Abilities)
+          {
+            if (a is Kingmaker.UnitLogic.Abilities.Ability ab &&
+              ab.Blueprint?.name?.StartsWith("ConstructCrafterDeploy") == true)
+            {
+              abilities.Add(ab.Blueprint.name);
+            }
+          }
+          Logger.Info(
+            $"[probe-area] {unit.CharacterName}: deploy features [{string.Join(", ", features)}], " +
+            $"abilities [{string.Join(", ", abilities)}].");
+        }
+      }
+      catch (Exception e)
+      {
+        Logger.Info($"[probe-area] failed: {e.Message}");
+      }
+    }
+  }

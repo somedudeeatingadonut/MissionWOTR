@@ -30,7 +30,7 @@ namespace MissionWOTR.Archetypes
   /// limited) through the Core selection. The active core is a crafter-side toggle; the
   /// deploy action applies the core's construct package. Stat bonuses scale +1 per 2 AL
   /// (min 1); on-hit riders and damage-over-time effects use fixed values (see
-  /// docs/ARCHETYPES.md). Cores marked per-base behave differently on hound/humanoid/golem.
+  /// docs/ARCHETYPES.md). Cores marked per-base behave differently on sentry/humanoid/golem.
   ///
   /// Cores: Overdrive, Hardened, Flaming (per-base), Cold (per-base), Bloody, Soft,
   /// Infernal, Lightless (per-base), Booming, Quick, Galvanized (original), Magnetized
@@ -43,11 +43,11 @@ namespace MissionWOTR.Archetypes
       public string Name;
       public BlueprintFeature Feature;
       public BlueprintBuff Marker;
-      public BlueprintBuff HoundBuff;
+      public BlueprintBuff SentryBuff;
       public BlueprintBuff HumanoidBuff;
       public BlueprintBuff GolemBuff;
       public bool IsOverdrive;
-      public int SaHound;
+      public int SaSentry;
       public int SaHumanoid;
       public int SaGolem;
       public bool GolemNoAoO;
@@ -105,7 +105,7 @@ namespace MissionWOTR.Archetypes
       Cores.Add(CreateCore(
         "ConstructCrafterFlaming", Guids.FlamingCoreFeat, Guids.FlamingCoreToggle,
         Guids.FlamingCoreMarker, "FlamingCore.Name", "FlamingCore.Description",
-        houndBuff: buff => buff
+        sentryBuff: buff => buff
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.Speed,
             ContextValues.Constant(10), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalDamage,
@@ -127,13 +127,13 @@ namespace MissionWOTR.Archetypes
           .AddAreaEffect(areaEffect: AbilityAreaEffectRefs.FireDamageAreaEffect.Cast<BlueprintAbilityAreaEffectReference>())
           .AddComponent(new PeriodicSelfDamage { DamagePerRound = 2 })
           .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Burning.Reference.Get(), Rounds = 3 }),
-        saHound: 3, golemNoAoO: true));
+        saSentry: 3, golemNoAoO: true));
 
       // ----- Cold: per-base -----
       Cores.Add(CreateCore(
         "ConstructCrafterCold", Guids.ColdCoreFeat, Guids.ColdCoreToggle,
         Guids.ColdCoreMarker, "ColdCore.Name", "ColdCore.Description",
-        houndBuff: buff => buff
+        sentryBuff: buff => buff
           .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Slowed.Reference.Get(), Rounds = 6 })
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.SaveWill,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
@@ -193,7 +193,7 @@ namespace MissionWOTR.Archetypes
       Cores.Add(CreateCore(
         "ConstructCrafterLightless", Guids.LightlessCoreFeat, Guids.LightlessCoreToggle,
         Guids.LightlessCoreMarker, "LightlessCore.Name", "LightlessCore.Description",
-        houndBuff: buff => buff
+        sentryBuff: buff => buff
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalAttackBonus,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AC,
@@ -207,7 +207,7 @@ namespace MissionWOTR.Archetypes
           .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Frightened.Reference.Get(), Rounds = 6 })
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.SaveWill,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable),
-        saHound: 3, saHumanoid: 3));
+        saSentry: 3, saHumanoid: 3));
 
       // ----- Booming: walking catastrophe, glass chassis -----
       Cores.Add(CreateCore(
@@ -289,11 +289,11 @@ namespace MissionWOTR.Archetypes
       string displayKey,
       string descriptionKey,
       Action<BuffConfigurator> buff = null,
-      Action<BuffConfigurator> houndBuff = null,
+      Action<BuffConfigurator> sentryBuff = null,
       Action<BuffConfigurator> humanoidBuff = null,
       Action<BuffConfigurator> golemBuff = null,
       bool isOverdrive = false,
-      int saHound = 0,
+      int saSentry = 0,
       int saHumanoid = 0,
       int saGolem = 0,
       bool golemNoAoO = false)
@@ -348,11 +348,11 @@ namespace MissionWOTR.Archetypes
         Name = featName,
         Feature = feature,
         Marker = marker,
-        HoundBuff = makeBuff(houndBuff ?? buff, "HoundBuff"),
+        SentryBuff = makeBuff(sentryBuff ?? buff, "SentryBuff"),
         HumanoidBuff = makeBuff(humanoidBuff ?? buff, "HumanoidBuff"),
         GolemBuff = makeBuff(golemBuff ?? buff, "GolemBuff"),
         IsOverdrive = isOverdrive,
-        SaHound = saHound,
+        SaSentry = saSentry,
         SaHumanoid = saHumanoid,
         SaGolem = saGolem,
         GolemNoAoO = golemNoAoO,
@@ -361,43 +361,43 @@ namespace MissionWOTR.Archetypes
 
     private static readonly Dictionary<(string, string), string> BuffGuidMap = new()
     {
-      { ("ConstructCrafterArbalest", "HoundBuff"), Guids.ArbalestCoreBuff },
+      { ("ConstructCrafterArbalest", "SentryBuff"), Guids.ArbalestCoreBuff },
       { ("ConstructCrafterArbalest", "HumanoidBuff"), Guids.ArbalestCoreBuff },
       { ("ConstructCrafterArbalest", "GolemBuff"), Guids.ArbalestCoreBuff },
-      { ("ConstructCrafterOverdrive", "HoundBuff"), Guids.OverdriveCoreBuff },
+      { ("ConstructCrafterOverdrive", "SentryBuff"), Guids.OverdriveCoreBuff },
       { ("ConstructCrafterOverdrive", "HumanoidBuff"), Guids.OverdriveCoreBuff },
       { ("ConstructCrafterOverdrive", "GolemBuff"), Guids.OverdriveCoreBuff },
-      { ("ConstructCrafterHardened", "HoundBuff"), Guids.HardenedCoreBuff },
+      { ("ConstructCrafterHardened", "SentryBuff"), Guids.HardenedCoreBuff },
       { ("ConstructCrafterHardened", "HumanoidBuff"), Guids.HardenedCoreBuff },
       { ("ConstructCrafterHardened", "GolemBuff"), Guids.HardenedCoreBuff },
-      { ("ConstructCrafterFlaming", "HoundBuff"), Guids.FlamingHoundBuff },
+      { ("ConstructCrafterFlaming", "SentryBuff"), Guids.FlamingSentryBuff },
       { ("ConstructCrafterFlaming", "HumanoidBuff"), Guids.FlamingHumanoidBuff },
       { ("ConstructCrafterFlaming", "GolemBuff"), Guids.FlamingGolemBuff },
-      { ("ConstructCrafterCold", "HoundBuff"), Guids.ColdHoundBuff },
+      { ("ConstructCrafterCold", "SentryBuff"), Guids.ColdSentryBuff },
       { ("ConstructCrafterCold", "HumanoidBuff"), Guids.ColdHumanoidBuff },
       { ("ConstructCrafterCold", "GolemBuff"), Guids.ColdGolemBuff },
-      { ("ConstructCrafterBloody", "HoundBuff"), Guids.BloodyCoreBuff },
+      { ("ConstructCrafterBloody", "SentryBuff"), Guids.BloodyCoreBuff },
       { ("ConstructCrafterBloody", "HumanoidBuff"), Guids.BloodyCoreBuff },
       { ("ConstructCrafterBloody", "GolemBuff"), Guids.BloodyCoreBuff },
-      { ("ConstructCrafterSoft", "HoundBuff"), Guids.SoftCoreBuff },
+      { ("ConstructCrafterSoft", "SentryBuff"), Guids.SoftCoreBuff },
       { ("ConstructCrafterSoft", "HumanoidBuff"), Guids.SoftCoreBuff },
       { ("ConstructCrafterSoft", "GolemBuff"), Guids.SoftCoreBuff },
-      { ("ConstructCrafterInfernal", "HoundBuff"), Guids.InfernalCoreBuff },
+      { ("ConstructCrafterInfernal", "SentryBuff"), Guids.InfernalCoreBuff },
       { ("ConstructCrafterInfernal", "HumanoidBuff"), Guids.InfernalCoreBuff },
       { ("ConstructCrafterInfernal", "GolemBuff"), Guids.InfernalCoreBuff },
-      { ("ConstructCrafterLightless", "HoundBuff"), Guids.LightlessHoundBuff },
-      { ("ConstructCrafterLightless", "HumanoidBuff"), Guids.LightlessHoundBuff },
+      { ("ConstructCrafterLightless", "SentryBuff"), Guids.LightlessSentryBuff },
+      { ("ConstructCrafterLightless", "HumanoidBuff"), Guids.LightlessSentryBuff },
       { ("ConstructCrafterLightless", "GolemBuff"), Guids.LightlessGolemBuff },
-      { ("ConstructCrafterBooming", "HoundBuff"), Guids.BoomingCoreBuff },
+      { ("ConstructCrafterBooming", "SentryBuff"), Guids.BoomingCoreBuff },
       { ("ConstructCrafterBooming", "HumanoidBuff"), Guids.BoomingCoreBuff },
       { ("ConstructCrafterBooming", "GolemBuff"), Guids.BoomingCoreBuff },
-      { ("ConstructCrafterQuick", "HoundBuff"), Guids.QuickCoreBuff },
+      { ("ConstructCrafterQuick", "SentryBuff"), Guids.QuickCoreBuff },
       { ("ConstructCrafterQuick", "HumanoidBuff"), Guids.QuickCoreBuff },
       { ("ConstructCrafterQuick", "GolemBuff"), Guids.QuickCoreBuff },
-      { ("ConstructCrafterGalvanized", "HoundBuff"), Guids.GalvanizedCoreBuff },
+      { ("ConstructCrafterGalvanized", "SentryBuff"), Guids.GalvanizedCoreBuff },
       { ("ConstructCrafterGalvanized", "HumanoidBuff"), Guids.GalvanizedCoreBuff },
       { ("ConstructCrafterGalvanized", "GolemBuff"), Guids.GalvanizedCoreBuff },
-      { ("ConstructCrafterMagnetized", "HoundBuff"), Guids.MagnetizedCoreBuff },
+      { ("ConstructCrafterMagnetized", "SentryBuff"), Guids.MagnetizedCoreBuff },
       { ("ConstructCrafterMagnetized", "HumanoidBuff"), Guids.MagnetizedCoreBuff },
       { ("ConstructCrafterMagnetized", "GolemBuff"), Guids.MagnetizedCoreBuff },
     };
