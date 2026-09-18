@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using BlueprintCore.Blueprints.References;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 using System.Linq;
 using MissionWOTR.Archetypes;
 using MissionWOTR.Mythics;
