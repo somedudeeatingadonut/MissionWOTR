@@ -22,16 +22,16 @@ Begin MonoManager ReloadAssembly
 [Manager] IsSupportOnSessionStart: False.
 [Manager] IsSupportOnSessionStop: False.
 [Manager] Mods path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods.
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000001F5A0BE98B0.dll
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000001F5A0C68180.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-00000296EC71BC70.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-00000296EFDB3AF0.dll
 [Manager] Injection successful.
-- Completed reload, in  0.691 seconds
+- Completed reload, in  0.659 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 [startup.json] Check path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\startup.json
 [startup.json] Loaded
-UnloadTime: 0.342800 ms
+UnloadTime: 0.300800 ms
 No cloud project ID was found by the Analytics SDK. This means Analytics events will not be sent. Please make sure to link your cloud project in the Unity editor to fix this problem.
 [Manager] Starting.
 [Manager] Start parsing game version.
@@ -93,7 +93,7 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [Manager] Loading mods.
 [!ManyModsPerformanceFix] Version '1.8.5'. Loading.
 [!ManyModsPerformanceFix] Active.
-[!ManyModsPerformanceFix] Loading time 0.25 s.
+[!ManyModsPerformanceFix] Loading time 0.23 s.
 [!!!FirstStart] Version '1.0.0'. Loading.
 [!!!FirstStart] Active.
 [!!!FirstStart] Loading time 0.01 s.
@@ -101,9 +101,9 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [0ToyBox0] Starting Integrity Check.
 [0ToyBox0] Integrity Check succeeded.
 [0ToyBox0] Compatability Check succeeded
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000001F5A0BEB0D0.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-00000296EC71B060.dll
 [0ToyBox0] Active.
-[0ToyBox0] Loading time 1.73 s.
+[0ToyBox0] Loading time 1.60 s.
 [TabletopTweaks-Core] Version '0.7.14a'. Loading.
 [TabletopTweaks-Core] Optional mod 'MewsiferConsole.Mod' not found.
 [TabletopTweaks-Core] PostPatchInitializer: TabletopTweaks-Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -151,7 +151,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [TabletopTweaks-Core] Loading Static String: AbilityTargetNoSplitHexRepeat.SplitHex
 [TabletopTweaks-Core] Loading Static String: AbilityRequirementHasBlackBlade.UIText
 [TabletopTweaks-Core] Active.
-[TabletopTweaks-Core] Loading time 0.34 s.
+[TabletopTweaks-Core] Loading time 0.30 s.
 [AddedFeats] Version '1.7.0'. Loading.
 [AddedFeats] Active.
 [AddedFeats] Loading time 0.02 s.
@@ -163,7 +163,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [ModMenu] Method was found
 [ModMenu] Finished loading.
 [ModMenu] Active.
-[ModMenu] Loading time 3.90 s.
+[ModMenu] Loading time 3.77 s.
 [AlterAsc.CombatRelief] Version '2.3.0'. Loading.
 [AlterAsc.CombatRelief] Optional mod 'MewsiferConsole.Mod' not found.
 [AlterAsc.CombatRelief] Active.
@@ -209,17 +209,17 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [CharacterOptionsPlus] Version '1.4.0'. Loading.
 [COP+Main] Finished patching.
 [CharacterOptionsPlus] Active.
-[CharacterOptionsPlus] Loading time 0.09 s.
+[CharacterOptionsPlus] Loading time 0.08 s.
 [DarkCodex] Version '1.9.6'. Loading.
 [DarkCodex] AssemblyResolve F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DarkCodex\CodexLib.dll
 [DarkCodex] Patching Patches
 [CodexLib] Patching BpCache
 [CodexLib] Patching Patch_SaveExtension
 [DarkCodex] Active.
-[DarkCodex] Loading time 0.05 s.
+[DarkCodex] Loading time 0.06 s.
 [DragonLibrary] Version '1.2.10'. Loading.
 [DragonLibrary] Active.
-[DragonLibrary] Loading time 0.03 s.
+[DragonLibrary] Loading time 0.01 s.
 [deceiverbuff] Version '1.5.2'. Loading.
 [deceiverbuff] Active.
 [deceiverbuff] Loading time 0.01 s.
@@ -287,7 +287,7 @@ HarmonyLib.HarmonyException: Patching exception in method Kingmaker.EntitySystem
 [MonoSingleton] There is no object of type Kingmaker.Settings.Graphics.ApplicationFocusObserver. Creating new.
 Set BugReport Layer: BugReportInputLayer.
 [WrathPatches] Active.
-[WrathPatches] Loading time 0.37 s.
+[WrathPatches] Loading time 0.38 s.
 [DragonChanges] Version '1.23.1'. Loading.
 [DragonChanges] Active.
 [DragonChanges] Loading time 0.01 s.
@@ -306,7 +306,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [EbonsContentMod] [Miracle UI] Patched MVVM conversion request: Kingmaker.UI.MVVM._VM.ActionBar.ActionBarSlotVM.OnShowConvertRequest()
 [EbonsContentMod] CreateAssetLinks.LoadAssetLinks: Found 11 asset links in 1 bundles
 [EbonsContentMod] Active.
-[EbonsContentMod] Loading time 0.24 s.
+[EbonsContentMod] Loading time 0.23 s.
 [ExpandedContent] Version '0.13.68'. Loading.
 [ExpandedContent] Active.
 [ExpandedContent] Loading time 0.71 s.
@@ -327,7 +327,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [KineticistElementsExpanded] Loading time 0.03 s.
 [KMBF2] Version '1.1.0'. Loading.
 [KMBF2] Active.
-[KMBF2] Loading time 0.02 s.
+[KMBF2] Loading time 0.04 s.
 [TabletopTweaks-Base] Version '2.6.17a'. Loading.
 [TabletopTweaks-Base] PostPatchInitializer: TabletopTweaks-Base, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Base] Executing Post Patch: InherentBonuses.Update_ModifiableValue_FilterIsPermanent
@@ -337,7 +337,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Base] 0,2,3,3,4,5,6,6,7,8,9,9,10,11,12,12,13,14,15,15,16
 [TabletopTweaks-Base] Loading Static String: CharInfoFeaturePCView_Suppression_Patchs.Suppressed
 [TabletopTweaks-Base] Active.
-[TabletopTweaks-Base] Loading time 0.93 s.
+[TabletopTweaks-Base] Loading time 0.94 s.
 [LibramOfThePhoenix] Version '1.2.0'. Loading.
 [LibramOfThePhoenix] Optional mod 'AlternateRacialTraits' not found.
 [LibramOfThePhoenix] Loading Blueprints
@@ -351,18 +351,18 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [lvl1companions] Loading time 0.04 s.
 [Mesmerist] Version '3.3'. Loading.
 [Mesmerist] Active.
-[Mesmerist] Loading time 0.04 s.
+[Mesmerist] Loading time 0.06 s.
 [MicroscopicContentExpansion] Version '1.21.1'. Loading.
 [MicroscopicContentExpansion] Optional mod 'MewsiferConsole.Mod' not found.
 [MicroscopicContentExpansion] PostPatchInitializer: MicroscopicContentExpansion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 [MicroscopicContentExpansion] Active.
-[MicroscopicContentExpansion] Loading time 0.12 s.
-[MissionWOTR] Version '0.4.6'. Loading.
+[MicroscopicContentExpansion] Loading time 0.09 s.
+[MissionWOTR] Version '0.4.7'. Loading.
 [MissionWOTR] Active.
-[MissionWOTR] Loading time 0.28 s.
+[MissionWOTR] Loading time 0.03 s.
 [ModTagEx] Version '1.0.1'. Loading.
-[ModTagEx] Took 00:00:00.0593306 to load guid db of size 25121
-[ModTagEx] Took 00:00:00.0357867 to load base game guids of size 236661
+[ModTagEx] Took 00:00:00.0554734 to load guid db of size 25121
+[ModTagEx] Took 00:00:00.0390582 to load base game guids of size 236661
 [ModTagEx] Active.
 [ModTagEx] Loading time 0.12 s.
 [MoreBackgrounds] Version '1.0.0'. Loading.
@@ -376,13 +376,13 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [MultipleArchetypes] Loading time 0.04 s.
 [SpellbookMerge] Version '1.7.1'. Loading.
 [SpellbookMerge] Active.
-[SpellbookMerge] Loading time 0.03 s.
+[SpellbookMerge] Loading time 0.02 s.
 [MythicMagicMayhem] Version '1.1.4'. Loading.
 [MythicMagicMayhem] Active.
 [MythicMagicMayhem] Loading time 0.09 s.
 [NoFilmGrainWrath] Version '1.0.0'. Loading.
 [NoFilmGrainWrath] Active.
-[NoFilmGrainWrath] Loading time 0.77 s.
+[NoFilmGrainWrath] Loading time 0.80 s.
 [PC_Female_BG_Viconia] Version '1.2.0'. Loading.
 [PC_Female_BG_Viconia] Active.
 [PC_Female_BG_Viconia] Loading time 0.01 s.
@@ -392,14 +392,14 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [PrestigePlus] Version '3.8.0'. Loading.
 [PrestigePlus] Optional mod 'MewsiferConsole.Mod' not found.
 [PrestigePlus] Active.
-[PrestigePlus] Loading time 0.27 s.
+[PrestigePlus] Loading time 0.31 s.
 [RandomEquipment] Version '2.0.10'. Loading.
 [RandomEquipment] Active.
-[RandomEquipment] Loading time 0.86 s.
+[RandomEquipment] Loading time 0.84 s.
 [RandomReinforcementsPerEncounter] Version '1.1.13'. Loading.
 [RandomReinforcementsPerEncounter] RandomReinforcementsPerEncounter loaded with Harmony
 [RandomReinforcementsPerEncounter] Active.
-[RandomReinforcementsPerEncounter] Loading time 0.06 s.
+[RandomReinforcementsPerEncounter] Loading time 0.07 s.
 [WOTR_MAKING_FRIENDS] Version '0.2.4'. Loading.
 [WOTR_MAKING_FRIENDS] Patching...
 [WOTR_MAKING_FRIENDS] Finished patching.
@@ -424,11 +424,11 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Flanking] PostPatchInitializer: TabletopTweaks-Flanking, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Flanking] TabletopTweaks-Core FlankingProvider set by TabletopTweaks-Flanking
 [TabletopTweaks-Flanking] Active.
-[TabletopTweaks-Flanking] Loading time 0.09 s.
+[TabletopTweaks-Flanking] Loading time 0.08 s.
 [TabletopTweaks-Reworks] Version '1.4.6'. Loading.
 [TabletopTweaks-Reworks] PostPatchInitializer: TabletopTweaks-Reworks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Reworks] Active.
-[TabletopTweaks-Reworks] Loading time 0.16 s.
+[TabletopTweaks-Reworks] Loading time 0.15 s.
 [VoicePortAbelard] Version '1.0.0'. Loading.
 [VoicePortAbelard] Active.
 [VoicePortAbelard] Loading time 0.01 s.
@@ -7774,7 +7774,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [COP+UnshakableZeal] Configuring UnshakableZeal
 [COP+WeaponOfAwe] Configuring WeaponOfAwe
 [COP+Wrath] Configuring Wrath
-[CodexLib] Loaded blueprints in 6751ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
+[CodexLib] Loaded blueprints in 6571ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
 [DragonLibrary] Checking for mods for compatibility patches
 [DragonLibrary] Checking for MicroscopicContentExpansion
 [DragonLibrary] MicroscopicContentExpansion is found and enabled
@@ -14051,7 +14051,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [EbonsContentMod]     OrcSorcererBloodlineClassSkill, GUID=d2ec15253bb84db38194146e9ef9bf9c, Type=BlueprintFeature
 [EbonsContentMod]     OrcSorcererBloodlineRequisiteFeature, GUID=09ae4a9f250c42ad9f31a15b3fced759, Type=BlueprintFeature
 [EbonsContentMod]     BloodlineRequisiteFeature, GUID=e2cfd3cedf7c40088b25aa82d6db3c77, Type=BlueprintFeature
-[0ToyBox0] [Info] Threaded loaded roughly 258720 blueprints in 8131 milliseconds
+[0ToyBox0] [Info] Threaded loaded roughly 258720 blueprints in 7826 milliseconds
 [0ToyBox0] [Info] Starting to build BPId Cache
 [0ToyBox0] [Info] Finished rebuilding BPId Cache
 [EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
@@ -14114,8 +14114,8 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 [ModMenu] Added Mods Menu View
 [ModMenu] Adding new type prefabs.
-[ModMenu] Creating image template.
 Curl error 6: Could not resolve host: siren.owlcat.local
+[ModMenu] Creating image template.
 [ModMenu] Creating button template.
 [ModMenu] Creating collapsible header template.
 [ModMenu] Creating sub header template.
@@ -14132,17 +14132,48 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 [ModMenu] Instantiating layout settings.
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (ascending order)</color></b>' in default locale
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (descending order)</color></b>' in default locale
-[CodexLib] Applying PowerAttackFeature for Unit[StartGame_Player_Unit]#3f487ddb-0c85-4e04-a83a-f7b89794e56f is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGame_Player_Unit]#3f487ddb-0c85-4e04-a83a-f7b89794e56f is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGame_Player_Unit]#3f487ddb-0c85-4e04-a83a-f7b89794e56f is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGame_Player_Unit]#3f487ddb-0c85-4e04-a83a-f7b89794e56f is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGame_Player_Unit]#3f487ddb-0c85-4e04-a83a-f7b89794e56f is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PowerAttackFeature for Unit[StartGame_Player_Unit]#96dfbfd4-5a4d-4d32-b1ea-b59e40d9f3d8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PointBlankShot for Unit[StartGame_Player_Unit]#96dfbfd4-5a4d-4d32-b1ea-b59e40d9f3d8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying CombatExpertiseFeature for Unit[StartGame_Player_Unit]#96dfbfd4-5a4d-4d32-b1ea-b59e40d9f3d8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying WeaponFinesse for Unit[StartGame_Player_Unit]#96dfbfd4-5a4d-4d32-b1ea-b59e40d9f3d8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying DeadlyAimFeature for Unit[StartGame_Player_Unit]#96dfbfd4-5a4d-4d32-b1ea-b59e40d9f3d8 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
 [RespecWrath] Creating sprite
-[CodexLib] Applying PowerAttackFeature for Unit[StartGamePregenCavalierUnit]#a35aff0e-7ba9-4297-8ada-78c4eee47a8b is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGamePregenCavalierUnit]#a35aff0e-7ba9-4297-8ada-78c4eee47a8b is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGamePregenCavalierUnit]#a35aff0e-7ba9-4297-8ada-78c4eee47a8b is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGamePregenCavalierUnit]#a35aff0e-7ba9-4297-8ada-78c4eee47a8b is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGamePregenCavalierUnit]#a35aff0e-7ba9-4297-8ada-78c4eee47a8b is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PowerAttackFeature for Unit[StartGamePregenCavalierUnit]#87d3c570-8d44-4a91-9ab5-23ef52969314 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PointBlankShot for Unit[StartGamePregenCavalierUnit]#87d3c570-8d44-4a91-9ab5-23ef52969314 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying CombatExpertiseFeature for Unit[StartGamePregenCavalierUnit]#87d3c570-8d44-4a91-9ab5-23ef52969314 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying WeaponFinesse for Unit[StartGamePregenCavalierUnit]#87d3c570-8d44-4a91-9ab5-23ef52969314 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying DeadlyAimFeature for Unit[StartGamePregenCavalierUnit]#87d3c570-8d44-4a91-9ab5-23ef52969314 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+[0ToyBox0] [Info] System.NullReferenceException: Object reference not set to an instance of an object
+  at Kingmaker.QA.LogChannelEx.ErrorWithReport (Owlcat.Runtime.Core.Logging.LogChannel channel, UnityEngine.Object ctx, System.String msgFormat, System.Object[] params) [0x0001a] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at (wrapper dynamic-method) Kingmaker.QA.LogChannelEx.Kingmaker.QA.LogChannelEx.ErrorWithReport_Patch1(Owlcat.Runtime.Core.Logging.LogChannel,string,object[])
+[0ToyBox0] [Info] System.NullReferenceException: Object reference not set to an instance of an object
+  at Kingmaker.QA.LogChannelEx.ErrorWithReport (Owlcat.Runtime.Core.Logging.LogChannel channel, UnityEngine.Object ctx, System.String msgFormat, System.Object[] params) [0x0001a] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at (wrapper dynamic-method) Kingmaker.QA.LogChannelEx.Kingmaker.QA.LogChannelEx.ErrorWithReport_Patch1(Owlcat.Runtime.Core.Logging.LogChannel,string,object[])
+[0ToyBox0] [Info] System.NullReferenceException: Object reference not set to an instance of an object
+  at Kingmaker.QA.LogChannelEx.ErrorWithReport (Owlcat.Runtime.Core.Logging.LogChannel channel, UnityEngine.Object ctx, System.String msgFormat, System.Object[] params) [0x0001a] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at (wrapper dynamic-method) Kingmaker.QA.LogChannelEx.Kingmaker.QA.LogChannelEx.ErrorWithReport_Patch1(Owlcat.Runtime.Core.Logging.LogChannel,string,object[])
 InvalidOperationException: Sequence contains no elements
   at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
   at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
@@ -14187,12 +14218,970 @@ InvalidOperationException: Sequence contains no elements
   at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
   at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
 
+[WrathPatches] Adding types to binder from Performance Fixes
+[WrathPatches] Adding types to binder from Performance Fixes Load Order
+[WrathPatches] Adding types to binder from ToyBox
+[WrathPatches] Adding types to binder from Tabletop Tweaks Core
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddArmorACModifier with TypeId 886fbb8c19184266ad117d62b17a20ad to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddContextCasterLevelBonus with TypeId 4494a51dbdfe493b9e9a95bafb4b1a4c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddSpecificSpellConversion with TypeId 31d6b6b03ae14037a0785d9c7870f124 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BonusStatDamageMultiplerReplacement with TypeId eceed4ce1340485195bb13ce1f0ac06c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SecondaryWeaponOverride with TypeId 5b61a8c461f941f497abf23f24abd66a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddAdditionalLimbConditional with TypeId 5f5a69e7ffc0460a97d25d8daf8065b5 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddAdditionalWeaponDamageOnHit with TypeId 8ff5982c28664957b9b29e63075ef3cd to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddConditionalWeaponDamageBonus with TypeId 59f389ba1bad4451a4e1286fb463cf82 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddExtraSkillPoint with TypeId fcb8e58de3aa4dbab92026c7789ac790 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BuffDescriptorImmunityIgnore with TypeId ebd1d39947344e15a478755d551b2a46 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BurningMagic with TypeId d9558dff3102481dbd918c2abdd0c95b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ChangeSpellHalfDamageIgnoreImmunityAndResist with TypeId b6ae817008344774b06eeef4364fe6c4 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.DamageRetributionInitiatorComponent with TypeId eff875ec05f64613b34f21970041f111 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.IncreaseSpellDiceSize with TypeId a4d48fc6e20e42bb8226e279d730d918 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.PartialEnergyResistanceIgnore with TypeId b25a641d55694b5eb9bf5293be79292f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.PolymorphDamagePropertyTransfer with TypeId b0f80e02154a46c5aacafbb776064b3e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SetPetMinimumStat with TypeId e248fa7c86974b30b0954ce4cee5050b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SpellCastersOnslaught with TypeId b5385c03dd58459aa33cc7ef5dde7648 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SpellDescriptorImmunityIgnore with TypeId fa39b200501a498c95c16d36612f5bf7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.WeaponChangeSizeParametrized with TypeId 66a9a23164554207bf8245d3417f3dec to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.DuplicateAbilityComponent with TypeId 52e3fe63d19a437bb79e4fc9529b22c6 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddFlatCriticalRangeIncrease with TypeId 6ae68d43906f4ccfba4f98e9f267353a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddIncomingDamageBonus with TypeId da89a30a249443eebaa1cefe10dabf32 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddSneakAttackDamageTrigger with TypeId ab899b2357d14767bb091548f9cee543 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddSpellResistancePenaltyTTT with TypeId d1cf71ca58a6480481e0574de51bc771 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ContextConditionCasterHasResource with TypeId a364529376b34037b59a71b9306e1365 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.IncreaseActivatableAbilitySpeed with TypeId 6615ed84b34245629adf3da8e5ef1c47 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddArmorEnhancementBonusToStat with TypeId 5a17b3c967e746a6a9071a3c397de217 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddMythicSpellbook with TypeId b5dccdaa75dd4cc28343d9cb08b468db to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ChangeUnitBaseSize with TypeId bc8e9ee439304cf8a208f32f1f116f3a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ContextArmorCheckPenaltyIncrease with TypeId 5c83ff59ace044d19376f4bbe035b544 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ContextConditionSizeDifferneceFromCaster with TypeId 1012b102496f4bfd98c0b854bfe5f98e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.CritAutoconfirmAgainstClass with TypeId 8b46f45c3ca24c4c877f1b4464f3720f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.RerollFortification with TypeId ef0e2207f0a341c19277f1481b0b8c57 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SavingThrowBonusAgainstFavoredEnemy with TypeId d7a54fb55c154e618a3aff5d40cb7e6f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BonusCasterLevelParametrized with TypeId 9593096f04ca4c63afee29478efac0cc to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BonusDamagePerDie with TypeId 5608ad3529df47a1821463fa85ce10b9 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SharedSpellListCLIncrease with TypeId 2e06e1dac73940c3b46ca0db611856a3 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SharedSpellListDCIncrease with TypeId 8eaee9bcf0ac4dab8cdcf8d21d38a876 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.IgnoreEnergyImmunityOnTarget with TypeId 8eb56941c0744505ae2e470528f9f1dd to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ModifySavingThrowD20 with TypeId e8651c2865ee48f4a877df9d376bc37c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.WeaponExtraDamageDice with TypeId 9ea33bacd9fb466e996d243274f84f9a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityRequirementHasResource with TypeId e797289b00ee463d886561ad79c2ad4f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityRequirementHasWeaponTrainingWithWeapon with TypeId df38cda426724a6b9d5065585340d9d0 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityRestoreArcanistSpell with TypeId 3d768a2d4890495c8a76167a1c411c60 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityShowIfCasterHasArchetype with TypeId faaed80f2d01490bb8be1424f8d12665 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityShowIfCasterWeaponTrainingRank with TypeId 94cb46b01f8a458fa8fe39732047d10d to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityShowIfCasterCanCastSpells with TypeId 974cd54a86984c36b459847fec6b2c4b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityActionTypeConversion with TypeId d2cf98b4e2854b90b4d451059cc581c0 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ACBonusAgainstSizeDifference with TypeId b3a1e6c7233e4388a09b149964705b03 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddAdditionalRacialFeatures with TypeId 459d17478d434bbb881b99d766113cb9 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddAdditionalWeaponDamage with TypeId 9ea33bacd9fb466e996d243274f84f9a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddContextWeaponDamageBonus with TypeId fc8175648c844fbda84dc1cf7f0f670b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddCustomMechanicsFeature with TypeId 38965e585f1c4da78db9276a47571209 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AdditionalSpellSelection with TypeId 070fd2a4a2cb4f198a44ae036082818c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddWeaponDamageTrigger with TypeId d6c77d2de4804f8e9aa06e01c9fb77fa to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ArmoredJuggernautDRProperty with TypeId 83b5b02d9c3f4190be0eadbd2b14b23a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ArmorEnchantsToWeapon with TypeId 1c41e810627b489bbdc47138903dbc86 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ContextArcaneSpellFailureIncrease with TypeId 83ce1f63bacb4494887fb0b2080eddcd to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ContextArmorMaxDexBonusIncrease with TypeId 39d2343f6d254e44ac05f3efb2c1937d to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.CustomSpecialSlotAmount with TypeId 076df57c9d7d415c81a3b968437d98ec to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ContextDispelBonusOnType with TypeId fd7dabc757e74a52a6a0c6e64fd5fd6b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ForceACUpdate with TypeId a736dbb1331c456488c601cefdbcd886 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ForceFlatFooted with TypeId 68de0e05a62241a6bd00a9107a493041 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.IncreaseResourceAmountByWeaponTraining with TypeId 11729578161344d99990125910019bfd to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.NestedPseudoActivatableAbilities with TypeId a9892b3a72f349fe8acb2e7565d18f93 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.PseudoActivatable with TypeId 9b6e1ed4932a4932827c7fecb2c57427 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityEffectToggleBuff with TypeId 6dc16c033e0d4f94827db76f1fbab421 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.RecalculateOnEquipmentChange with TypeId 3bc123b6862c42d987955e4350a7fd94 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AddOutgoingWeaponDamageBonus with TypeId 03f55b5c7cb0445ab32ce2c8d44704ec to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ArmorFeatureUnlock with TypeId 708754fe955c4c83922dddf4e89c86a7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BuffExtraEffectsRequirements with TypeId bbd018ab3de94718bbcdd0a737629873 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ConstrainTargetFeatureRank with TypeId c1e7344a9870459a8c9fe2f8f4cf5b5e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.EnsureProgressionAdded with TypeId f60835ac5ca54ff4b29cf0e3c65a465e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.IgnoreArmorCheckPenalty with TypeId f361784981e6444d84312f063c506e76 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.IgnoreArmorMaxDexBonus with TypeId 0542dd3cbb5949a7b120f2165758db9b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.NegateArmorCheckSkillPenalty with TypeId 4cc6ea51fc1b40dd965e44aa645751ff to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OutcomingAdditionalDamageAndHealingModifier with TypeId f9bd6635909c40e09c3f4a22b711945b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.IgnoreClassPrerequisites with TypeId dfe914ad124c45fc81815cac4b4bf4b5 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.RecalculateOnLevelUp with TypeId 0104e3c3ea2e4f789bc1b1ac4a874d7b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.RecommendationWeaponCategoryFocus with TypeId 29c2f378da99404a948453b832deb097 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SavingThrowBonusAgainstAbility with TypeId c19c12bbbba146dca21b7ef7e6867acf to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.InitiatorSpellCritAutoconfirm with TypeId 6342f290ed63432e9195488d8259330b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.RemoveBuffAfterSpellResistCheck with TypeId ee58a44d90014e58a3c5320e53975043 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.RemoveBuffRankOnAttack with TypeId 00008ebd4ddb41e6895baa47a7f19708 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilityRequirementHasBuff with TypeId 8c2d2cced7a44fa7a352e65a120466d6 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SavingThrowBonusWhileUnaware with TypeId 95dfe16fb6c4457bafb5eb56c983b8b5 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SelectionDefaultFeature with TypeId 2476cd4ea3674fc58402daf57bf72562 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SpontaneousSpecialListConversion with TypeId a0c9a0074a8944aca4b83d16126bfdb2 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SurviveDeathWithSave with TypeId 6ac52746855e4c82a1427a787bb26edb to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.UpdateSlotsOnEquipmentChange with TypeId 60689f3632da4205b776a2c4a02485a7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.WeaponDamageMultiplierReplacement with TypeId 34455dfff53d4c349bd19eb9ebb85ab6 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BlockSpellDuplicationComponent with TypeId 3a74b0b3999e433098f1ed4069d76563 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ContextConditionHasFreeHand with TypeId 5e7a0461a88943ea862df008d52e2cff to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SuppressBuffsEveryRound with TypeId 44703c29059c48f8bd7d398b874c708e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.BuffDescriptorImmunityAgainstAlignment with TypeId 5b18fee676234c20afb6ee8321a7dd40 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.SpellImmunityToSpellDescriptorAgainstAlignment with TypeId 7faa8aa8ecb445629a804248ac4fdba1 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.NewBaseTypes.ItemEntityRestriction with TypeId 342e5233ad9042ad820cec4d62e6e7c3 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.BuffCountGetter with TypeId 5f193022788a43d28c0bdaa913a21117 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.MasterSimplePropertyGetter with TypeId 08b794694fb94e85abf600faf6e5d92f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.CompositeCustomPropertyGetter with TypeId 762c31d6c5284ff5964a4af007ec5325 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.MadDogPetDRProperty with TypeId bb71b6a071064d13b28aa71d626085d2 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.CompositePropertyGetter with TypeId 8050a764a88e4f199015f70ddb0c8eee to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.ProgressionRankGetter with TypeId b310257badf44a9d97d8f8fe8b3df3f6 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.StatValueGetterTTT with TypeId 5f193022788a43d28c0bdaa913a21117 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Properties.StalwartDRProperty with TypeId 157d986776584a2da0729efd762e5598 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteDeityAlignment with TypeId 57d33f58eb4a460fbf27964e54caa2a8 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteOracleMystery with TypeId 064cb6d3927e4972a6d2846fb4fef335 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteInPlayerParty with TypeId cb189aeff170432c856d0f3f837ddf4f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteCasterLevel with TypeId 59c3025feecf4113bef90196f2ce4ef9 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteSpellKnown with TypeId e523c74b8da74fec91ae651138ec0ca0 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteMythicSpellbook with TypeId 08d2e61c79c64ee1afdca9fc834ffc32 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteSpellbook with TypeId 7686e2d0ab864daaaf01150c62741aba to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteSpellBookType with TypeId 1cdf85e299bf474d89e2ce827aa6ecbf to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteStatBonus with TypeId 282fa36ad9784f639bbdec2e281e7bed to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteStatValues with TypeId 8dccf39766ed482eb9b7f2ae31e50428 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteSize with TypeId e5db1c3ea30a44559f1f7542ed3b9d0d to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteFeaturesFromListFormatted with TypeId 41005dacdb6742e09ae8176f55ac2f3d to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteNoClassLevelVisible with TypeId cb76145587814eabbbbaed3d2a9b5d99 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.Prerequisites.PrerequisiteNoFeaturesFromList with TypeId 33c66b9aaaa348cfa8efd39841cf255b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.BuffEnchantAnyWeaponTTT with TypeId 04083e8bd6fa4c39b1a5e7590e0ce9bd to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.ExpandedArsenalMagicSchoolsTTT with TypeId 70f053af93104dcbab7ee6580a85de63 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.ImprovedCriticalMythicParametrizedTTT with TypeId 5f0b94b3bdaf464bbefc9869e39804c2 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AddAbilityUseTargetTriggerTTT with TypeId d9675b68ab7715d42ba3bb44256ddd6b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AddAbilityUseTriggerTTT with TypeId 56291ed53e7845f59586a77820c27e3b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AttackBonusAgainstTargetTTT with TypeId 2a55c3471cbf44409a6193a7a8b8655f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.ClassLevelsForPrerequisitesTTT with TypeId 9fb8efb1b84a413798c12ffb1e515eea to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageBonusOrderOfCockatriceTTT with TypeId d1841cc836ad46399f3ad16f1deba7c3 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.FavoredEnemyTTT with TypeId 8eb0ff68ec104810924118f4963fec9b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.ProfaneAscensionTTT with TypeId 3bc52621bb2d42ae9233b55e38882b21 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.WeaponGroupAttackBonusTTT with TypeId 8e2425fe221c4c189983b8fe4add4f59 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.WeaponGroupDamageBonusTTT with TypeId 13606541914542f3a1d22f5a666cddc7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.WeaponSizeChangeTTT with TypeId b64469c566b94f2d9b83c66d777ad5df to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.EnduringSpellsTTT with TypeId e55852cfb50c47d6a8eace820445a165 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.TricksterParryTTT with TypeId 30b36119dec242d19273366e0baebbb7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.WeaponConditionalDamageDiceTTT with TypeId 4d34be1ec1c24ed4aeff48da776720ac to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.WeaponAttackTrigger with TypeId 58b0ca9a50214e418c4c4565df6578c4 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.WeaponBuffOnConfirmedCritTTT with TypeId ae9e3debc1c64fc5bd2ba05e34541293 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AddOutgoingDamageTriggerTTT with TypeId d9558dff3102481dbd918c2abdd0c95b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AddStatBonusIfHasFactTTT with TypeId 7601b8133d844f04956d9bc9a1cce210 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AlliedSpellcasterTTT with TypeId 8c5941da63e245a5aa9ef7a1cbabbc33 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AttackStatReplacementTTT with TypeId a2f09aa00803458fb96caa907389a8e7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.ContextRestoreResourcesTTT with TypeId febcdf299ca242a7be5bacfda8e4254f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.CoupDeGraceTTT with TypeId 5da9ff47fe484e0faadd0330ec998a95 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageGraceTTT with TypeId dc2527466a094a85bcd325f7425dbf13 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.MountedCombatTTT with TypeId 6529138e5e96494f958a758ee21e451e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AzataFavorableMagicTTT with TypeId e3b2dcf430cb449684c76fd854e732ea to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.AzataZippyMagicTTT with TypeId 39daf11ada364bbab00b4ff8a92dba1d to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.SuppressBuffsTTT with TypeId f97c2c9ad47743b49972f7c8c026d416 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTAddDamageResistanceHardness with TypeId c1b871587fd24447a770da78f1319445 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTAddDamageResistanceEnergy with TypeId e0d77b86ac824bf487e508ad06831911 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTAddDamageResistanceBase with TypeId 3543db673ac347bda9afc1f58793e6a0 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTAddDamageResistanceForce with TypeId 539a6b8bf234438c918ad81fc89dcf5c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTAddDamageResistancePhysical with TypeId 84824fcead6d41bf8d8a683b817a4e6b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTProtectionFromEnergy with TypeId 0820cc56c9fa41e2a98cdb49256df47c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTResistEnergy with TypeId 030d370d17474a15bd6a1f2dfed82b0c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTResistEnergyContext with TypeId 4b2963ec396849b580f268d139ad3b22 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTWizardAbjurationResistance with TypeId 3d883633ca184f348ce77cd5376c78cb to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance.TTWizardEnergyAbsorption with TypeId 38d9082bfa624e3ab039a6d810cf99db to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AbilityDeliverCluster with TypeId eff703a2d201448eadc9c18570e49149 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AbiliyShowIfArcaneMetamastery with TypeId 9708f7b7c8694421bb6b9f60a6917a1a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AccursedHexBuffComponent with TypeId be94df924525444390b9d96fe2edf2ee to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AccursedHexComponent with TypeId 06ce0cbace4243da87384dd4afb6f206 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AdamantineMindTrigger with TypeId 4e0c887660ff412fa3fe63524e475e90 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AddAgeNegate with TypeId 43f6a6c5a7bf4141a1ebea193cb5b3f7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AddAgeStatChanges with TypeId bd85e64331034ea89821382babf4a521 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.ChainChallengeComponent with TypeId c35b164a27ce4a608a3cb898c23f279d to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.ElementalBarrageIncomingTrigger with TypeId d8a317a699f041868c65268a97cc6920 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.ElementalBarrageOutgoingTrigger with TypeId 98cbc7a6c41240199426a87ac018686c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.MythicMediumArmorFocusEndurance with TypeId cf98f0d59230406d99ec6d88fc639d41 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.MaximizedCriticalComponent with TypeId 5f0b94b3bdaf464bbefc9869e39804c2 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.SplitHexBuffComponent with TypeId 4d50378d99f943988d64a46f9ed880b5 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.SplitHexComponent with TypeId 00d2d2c9def641d3844a98a5a95f238e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.SplitHexComponentAutomatic with TypeId 4656e3c83ed94900900313383aaa6980 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AbilityTargetHasNoFactUnlessAccursedHex with TypeId 5c27ac1d0dd84cca82563d8b07f06765 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AbilityTargetNoSplitHexRepeat with TypeId ae92531991984946a1708bb00f1f48b1 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.ShiftersEdgeComponent with TypeId 17ba8e7a5a584c2882cf6b7862509f1f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AddFeatureOnClassLevelToPlayers with TypeId fee1dc0c040845ba8abcdca526d0f52e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AddSpellKenningSpellList with TypeId bcb34c0bffd94a8b85b97c0865a30e23 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.DisjointedEffect with TypeId 74a953732ee34497b79fe48728c69188 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.OutflankProvokeAttackTTT with TypeId af21183db47748f5b3227f293afff0fb to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.SiezeTheMomentTTT with TypeId 43ffe8145cf14cf0aa7148e1e2da8e33 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.SpellKenningComponent with TypeId 74f00427d6194decb20524bc0d284a1a to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.TricksterLoreNatureRestLootTriggerTTT with TypeId f6433147a6d44348b79355a96d581380 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AbilityCustomDimensionalRetribution with TypeId 4b22554ea5ff4068ac8ef350e766bc8e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.DimensionalRetributionLogic with TypeId e7a4d4a377d44ab997dbaf1ec66b4b8b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AeonPowerOfLaw with TypeId df847aa8e2f94af2a4efe8c73228dc97 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.OppositionResearchComponent with TypeId 12a7be82e1c945239fce42ad3410521f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AberrantArcanaExtendComponent with TypeId e9cfd3c8b2ee49caada37795d9925af3 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AbilityRequirementHasBlackBlade with TypeId a0ff3623a0154448a082b1c5ea9898fc to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AddBlackBlade with TypeId 446f9e9a24684cbdb77e3b270af7b5dc to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AddWarriorSpiritEnchantment with TypeId a23b7a08964d4a3792a6754884eee8aa to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.AeonGazeResouceLogic with TypeId 1034d09d808c4a39b9d59c8a3097e126 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.BlackBladeEffect with TypeId aac8d3adce2c4251ba6531b47d099186 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.DestructiveDispelComponent with TypeId ea475e4be98f4eabb361ed8ce58870ad to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.ItemEntityRestrictionBlackBlade with TypeId 914ecd4aa8a04c24aa8dae7fd9d618de to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.FocusedWeaponComponent with TypeId fd74a9c62e844ac09f9aa5ce81a427cc to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.MetaRageComponent with TypeId b522a7a4b3a44772bc5cfbdd55b1e0f9 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.MythicSneakAttack with TypeId aabbfeda974c455aafe14d05efca4f67 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.SpellSpecializationGreaterComponent with TypeId 8390a2bda2e74bfb83cb0483adfcf5f7 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.SpellSpecializationParametrizedExtension with TypeId b104bfacc8a3446ab149fb3241778d8e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.TitanStrikeComponent with TypeId 4a2247bdf0cf4b139863f0136abd4af8 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.WeaponBlackBladeElementalAttunement with TypeId 2f13fd3858d642d3ba16351be5168254 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.MagicalVestmentComponent with TypeId 4db6644b48ed43a69e16d8c9b60dd775 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.ArmoredMightComponent with TypeId e90c706b6fd84f90b4dcd35ef2699483 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.BroadStudyComponent with TypeId 594783c6f70b4eb3bc848902976d215b to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.BroadStudyMythicComponent with TypeId 02978cf43c6c4959883c9e31734f183c to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.DefensiveWeaponTrainingComponent with TypeId 9f0ac1baab294739912163ea4b318c28 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.FocusedWeaponDamageComponent with TypeId a945c1d2b2d44247bd37d651665d4f54 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.QuickStudyComponent with TypeId 4515aeab69cc419ba926987dd2cce54f to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.DestinedArcanaComponent with TypeId 080a6418d97c4bd48cd37851b9cfe89e to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.ShatterDefensesInitiator with TypeId 52c4991ee89544a2973b7e8b95396aba to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.TrainedGraceComponent with TypeId a07e963bb1e74da1a615e3a426004c47 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.AbilitySpecific.WeaponBlackBladeStrike with TypeId e3c345a3c9ae4f84a0f86b42101b294d to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.ContextDuplicateCastSpellOnNewTarget with TypeId c4530225242448a3a56a27276c2e46ed to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.AbilityCustomCleaveTTT with TypeId 24573debba5648bab789542144871d98 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.ContextActionApplyBuffRanks with TypeId 4b0dd1fb0abf4bd9865214ebbba6bb02 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.ContextActionCleaveAttack with TypeId d083a4cefb794764ba79eb921e322fd9 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.ContextActionDisjointEnchantments with TypeId 74a953732ee34497b79fe48728c69188 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.ContextActionApplyWeaponEnchant with TypeId 891df14e8a9b4f72a28dd2b7a8c2de08 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.ContextActionTransferArcana with TypeId c932d7de9d3b4c558933292395aeda38 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewActions.ContextActionWarriorSpiritEnhance with TypeId 229877cc362b41de85f45b30007aee19 to binder cache
+[WrathPatches] Adding TabletopTweaks.Core.NewComponents.ArmorFeatureUnlock+ArmorFeatureUnlockData with TypeId ba0c9c406dd448d89e8ec941f8c5ff56 to binder cache
+[WrathPatches] Adding types to binder from AddedFeats
+[WrathPatches] Adding AddedFeats.NewComponents.AddForcefulCharge with TypeId 2a364f2990da40148a22ee61fcad0201 to binder cache
+[WrathPatches] Adding AddedFeats.NewComponents.AddImprovedForcefulCharge with TypeId 1a344f2340da40347a11ee61fcad7223 to binder cache
+[WrathPatches] Adding AddedFeats.NewComponents.AddSpellSharing with TypeId cb6f3ba3cc1f45909e5bae27177c1668 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from ModMenu
+[WrathPatches] Adding types to binder from Combat Relief
+[WrathPatches] Adding types to binder from Bubble Buffs
+[WrathPatches] Adding types to binder from Buff It 2 The Limit
+[WrathPatches] Adding types to binder from Character Options+
+[WrathPatches] Adding CharacterOptionsPlus.UnitParts.ProjectileControllerComponent with TypeId 9ac5f05d-3710-42b1-a378-0630b55e6ee7 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.UnitParts.AbilityDeliverControlledProjectile with TypeId d64f7afb-419b-48a5-a8f0-b343724fe5a4 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.UnitParts.ControlledProjectilesHolder with TypeId 03ed7c7d-3859-48a7-a91a-0ec3e09e575e to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.UnitParts.AddSpellToSpellList with TypeId 5b143c58-e784-45de-87a1-b1bbae34db7c to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.UnitParts.UnitPartTouchCharges+TouchCharges with TypeId 10e90122-6ef9-4967-a284-259aed042cd7 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.BladedDash+BladedDashBuff with TypeId 4784aa37-5464-41b1-923f-8eff1a932a6d to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.BurningDisarm+Disarm with TypeId 4671134d-cc49-4d75-9e02-b6dd149b4b85 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.BurningDisarm+WantsToDropWeapon with TypeId 01c302b4-0642-4947-b0e2-5b309f9899cd to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.Consecrate+ConsecrateComponent with TypeId 347e2d99-e462-47c1-aadf-677946bd05c3 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.Desecrate+DesecrateComponent with TypeId e2dd3665-24d8-4db9-a192-2434529c10bd to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.DimensionalBlade+DimensionalBladeComponent with TypeId 53a29a8c-a710-429a-9c1c-6eb9ac4aaa5f to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.HedgingWeapons+HedgingWeaponsController with TypeId 45444d3f-4e06-4294-a6d5-7905a77f54b4 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.HorrificDoubles+HorrifiedComponent with TypeId 8f520a35-dbc0-4d3d-9650-dba44f14a40f to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.IceSlick+IceSlickEffect with TypeId 998be8d7-fd17-4474-a440-baa5ac051fee to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.IceSpears+ApplyIceSpears with TypeId 929cf077-685a-40a5-8d12-d9a14ffdf857 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.Implosion+ImplosionCasterLevel with TypeId 7d3e66c3-21b1-4588-95b9-2a0b68a243b9 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.Implosion+ImplosionComponent with TypeId 9365d00f-c4e2-41e8-a3fa-2768f11f9c57 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.InvisibilityPurge+InvisibilityPurgeComponent with TypeId 4f3f7044-e3ce-4922-99dc-7cf9d41491a7 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.JudgementLight+JudgementLightAlignment with TypeId d9cd0fc0-f7fe-4c04-a978-58fc6dc547c1 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.NineLives+NineLivesComponent with TypeId 5792b1f0-f0ac-46db-846c-34b7158d2747 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.StrickenHeart+DidAttackCrit with TypeId 0b243cd9-bfe7-4445-847e-bb4a7370cc65 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.UnshakableZeal+UnshakableZealComponent with TypeId 1239ba46-45b3-4c4b-bd98-ae8ace1f3252 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Spells.Wrath+WrathfulCritical with TypeId e004e2f3-84f7-4a74-923e-c2d97397bc8e to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+AdvancedTechniqueGrant with TypeId 270e0386-855e-42d4-8284-1977e61267ba to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+AsmodeusAdvancedTechnique with TypeId 54c920fb-711e-4b5f-8ce2-f86fa8ecb5b9 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+AsmodeusCritical with TypeId db0de5c9-48dc-4b6e-818c-fb676e14c1b6 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+AsmodeusTrick with TypeId 70347e3f-30b2-43a1-9e73-2b8e332f2daa to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+Distract with TypeId 6405060b-3cad-4a3e-99ff-00180fd5180e to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+FocusedAC with TypeId 9c2dbfee-2aa0-4a84-8e65-eea8fbbc536b to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+GorumsStrike with TypeId 9a1c3f73-4805-4a67-93d1-6ae52cd69862 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+InspiringCharge with TypeId 075ea01f-a0d5-4951-8fd2-2a3276a8951e to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+Inspire with TypeId 3fc7e68a-f73d-4f3f-8d5b-be53a1ae9db9 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+IrorisFist with TypeId 54d0ac2f-b470-4a04-a414-2fd87d31280f to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+LamashtusCarving with TypeId 2f11e903-f246-4db2-8a65-a41412d03273 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+LamashtusStaggeringSlice with TypeId c6db8fd4-3374-47c7-8ac8-dbdd4bf3e3a3 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+NorgorbersStealth with TypeId 05cee077-0dda-4a71-800c-2597df2d0822 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+NorgorbersHeavyShiv with TypeId d1d19b7a-6b62-4db0-987d-b78a9163aeee to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+RovagugsSmash with TypeId 4e0d37de-2577-4ae2-92c2-903c8fdc3c72 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+RovagugsThunder with TypeId 8cc21aa2-fb78-438a-a6c7-f36e93782ef8 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+ToragsTrip with TypeId 95d246a7-9551-47ef-b844-fe260c040299 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+UrgathoasContagion with TypeId 57e11b34-efb5-40a1-b0e8-b79d6bbc5e1c to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.DivineFightingTechnique+UrgathoasConsume with TypeId 8d5ac3ab-9497-4ec1-8f62-353e947a9c45 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.EldritchHeritage+SorcererLevelGetter with TypeId 7970fae3-1dba-4f52-9bf7-44fa8b4d4a09 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.EldritchHeritage+BindToEffectiveLevel with TypeId cf0a51da-5296-4463-ad8d-ccf5c4a7598d to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.EnergyChannel+BonusDamage with TypeId 9086afa7-61ea-49b2-bf79-7d98d656d533 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.FuriousFocus+FuriousFocusBonus with TypeId d7aa29aa-b4d0-4739-8856-6ee954d84aa8 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.GloriousHeat+GloriousHeatTrigger with TypeId 51ba2dc7-12a2-4915-919b-3381242ea498 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.Hurtful+HurtfulComponent with TypeId fe3bdf24-c75d-4a6f-b8df-2df18f96ecbd to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.PairedOpportunists+PairedOpportunistsComponent with TypeId ce4218b8-27b6-4484-93df-2458aa7ae788 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+RecommendationSignatureSkill with TypeId d97a84e9-bde0-4bad-ab33-89a41841e26a to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SuppressSlow with TypeId 567d5b5e-65b7-423d-81ef-86a2229a4dab to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SuppressSlowAbilityRequirements with TypeId ceaf8034-d3cb-46a5-b452-7eb6713d27a4 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+BreakFree with TypeId ef1e6886-95d1-4e56-8081-0573378ef701 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+BreakFreeAbilityRequirements with TypeId 62f99d41-f2c2-4e6f-9aad-b84094db9cd2 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignatureAthleticsComponent with TypeId 885b1244-2816-47a7-a4ad-4bd48fd75695 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignatureKnowledgeComponent with TypeId 769750b3-8f3b-42c5-8cbd-f6aa9910ab62 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+ApplySignatureSkillBuff with TypeId 3addba51-c42a-476c-9847-d547b29757cc to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignatureKnowledgeAbilityRequirements with TypeId 77039b8b-eb62-407d-b959-c301905d3882 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignatureMobilityComponent with TypeId c8b24af9-38cf-4abb-b037-53fbbf45943a to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignaturePerceptionComponent with TypeId e48b6792-f51c-465a-87d8-5903ac170bfb to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignaturePersuasionComponent with TypeId c01de10e-c307-450d-8c78-81bc2fdaacb3 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignatureStealthSurprise with TypeId 5c66b62f-d712-4585-bef4-623a0af65403 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SignatureSkill+SignatureStealthComponent with TypeId c01de10e-c307-450d-8c78-81bc2fdaacb3 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Feats.SkaldsVigor+InspiredRageDeactivationHandler with TypeId 5ae05713-a303-4b4e-8bec-be5f6d17108a to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Conditions.DistanceFromCaster with TypeId fc411c44-2931-41b9-afde-d142d2d8adc3 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Conditions.HasCondition with TypeId 1ca328f5-2b39-496c-9241-98577942d946 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Conditions.HasWeaponFocus with TypeId 19bb9236-efc6-45d0-b793-eea016fc5dc6 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Conditions.IsImmuneToPrecisionDamage with TypeId 6920e96f-2fa3-4f31-914c-8dcf5eaef476 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AbilityAreaEffectRunActionExtended with TypeId d2e40f9a-36f9-42dc-aa15-5c80f934a3b2 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AbilityCasterHasWeaponSubcategory with TypeId 446b614c-fbd4-4c25-98f6-94c3cc0f5eae to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AbilityDeliverBurst with TypeId bed832dd-3701-4d7b-9f66-552bf89a8cfe to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AbilityTargetHasWeaponDamageType with TypeId 065f5e6a-f98f-418b-b701-ff6e7488a584 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AbilityTargetHasWeaponEquipped with TypeId f1878982-2799-4927-b8df-c742c6b5e56b to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AbilityTargetHasWeaponSubcategory with TypeId 198f1661-1db2-48d4-b336-d8fa5e289a07 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.ActivatableAbilityVariant with TypeId 96a7530c-6473-48aa-bdf4-3d72eea0bd03 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AddFactsOnSkillRank with TypeId 1d9c63dd-c285-42e5-93ca-2978d5404d93 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AddFeatureOnCharacterLevel with TypeId 15c28aa4-c943-4cab-ae6a-3892c92a6c06 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.AlwaysAddToActionBar with TypeId 44b89d49-a223-4b98-bd5d-76c67657ff66 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.ApplyFeatureOnCharacterLevel with TypeId 611365a4-832a-4a2c-a4b0-ae8bc2ce8b41 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.RecommendationWeaponFocus with TypeId d8da02d0-1483-49e6-b816-4767d14bf3aa to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.ReplaceCommandType with TypeId 02a70e00-915c-4843-8851-b16517b67603 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.QualifyForPrerequisiteFeature with TypeId 3792e31d-00ee-4679-aa37-08176046f8c4 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.SetResourceMax with TypeId 2d933a77-2c29-42ef-aad1-cfd2a4197ac1 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.SpellPenBonusAgainstTarget with TypeId cb1e92e7-0a39-4b5a-841b-bc6a723d67f2 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.SuppressConditions with TypeId c7869037-c989-45e0-a4e1-d00daf644fbc to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.WeaponCriticalEffect with TypeId a6e5e854-5ae6-48dd-950f-ee364768e171 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Components.WeaponDamageBonus with TypeId e4f9b2e9-02c9-4479-a740-09d539efa04f to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.ClassFeatures.ArmoredMarauder+ArmoredSwiftness with TypeId b8ebc7f2-eeaa-488f-bf71-de721348c41c to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.ClassFeatures.ShadowDuplicate+ResourceLogic with TypeId 37b4ba63-b7b4-45f0-8856-564aabae312a to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Archetypes.WinterWitch+FrozenCaressComponent with TypeId 52af25ca-44f8-41fb-99a5-dc6e09933e5e to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Actions.CountRunAction with TypeId 54c90b97-d6d7-4550-b9d9-068965776cd1 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Actions.RemoveHalfBuffRanks with TypeId e15472f7-2357-4cde-b2f2-b6f10d330049 to binder cache
+[WrathPatches] Adding CharacterOptionsPlus.Actions.SetHitPoints with TypeId 1ae0c78e-df94-4fc6-bbc9-81f6922b2ab3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from DarkCodex
+[WrathPatches] Adding CodexLib.AbilityTargetHasFactExcept with TypeId 266a47455a4547dfb964feb6fbb260ca to binder cache
+[WrathPatches] Adding types to binder from DragonLibrary
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.AddArcanistSpellSlots with TypeId 8D7DDA99-E1A0-451D-98C8-F6BA07415FC2 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.AttackStatReplacementForWeaponGroup with TypeId C218F7AF-7CBC-448F-BB23-FAD602A3465D to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.BonusDoubler with TypeId 2D51354C-0457-44DE-8ADC-64B675471121 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.BonusToAbilityDC with TypeId b0b250f5-7957-482c-b46a-5188179eea28 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.BonusToBuffDC with TypeId 2f80d83c-70b7-402d-8dec-6aee57df9043 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.CasterStatToDC with TypeId 3F44074E-6DB3-4714-B1B7-DC140682F451 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.ChargingThrow with TypeId F6CABA0C-7B39-44D7-BC74-D9CBF0753E6C to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.ConditionIsFaction with TypeId B3B6BE0F-FD36-450D-A0B4-2D97EAAC46B1 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.ConditionIsSummon with TypeId 680E4821-99FB-43CD-A9EF-7981DF8B1613 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.ConditionIsWeaponCategoryEquipped with TypeId 598A78A6-A1ED-44A9-878A-6987F60657ED to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.ConditionSpecificWeapon with TypeId 54600673-2CCD-4A65-BEBE-768A652B8CB7 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.CriticalMultiplierBonus with TypeId F83FDDD5-8E68-4473-B72D-8E75BD59FE66 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.CriticalRangeBonus with TypeId 7F59444B-8623-45EA-8456-5B768E6587C1 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.FeatMythicScaling with TypeId D842B0E7-57D2-452D-91BC-94BDEF63447F to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.FixedFavoredTerrain with TypeId C14AEBA7-AC8A-40E8-BBC3-248636337522 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.FortReducer with TypeId FDEC26D9-A25C-446C-BE4C-4E714B2E91DD to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.IncreaseCasterLevelForSpells with TypeId d3d8b6f4b5f9481f8f5e5b6e5a6d0c11 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.AddSneakAttackRollTrigger with TypeId 0d5b6fdf-0ee1-43f9-a1f2-a1361a8c08ca to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.SneakDiceSizeIncrease with TypeId 42544507-9771-461C-925C-558BEFA61C36 to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.SpellToBook with TypeId 4A25A5B0-E180-42BF-81E0-45334182EDCB to binder cache
+[WrathPatches] Adding DragonLibrary.NewComponents.StatBonusToSpellDamage with TypeId 5C1F023B-8822-4187-9358-65718D5C460D to binder cache
+[WrathPatches] Adding types to binder from Deceiver Buffs
+[WrathPatches] Adding types to binder from WrathPatches
+[WrathPatches] Adding types to binder from DragonChanges&Additions
+[WrathPatches] Adding DragonChanges.New_Components.UpgradeUnitsToVendors with TypeId 4F5D96D8-C7B6-42B1-B7AD-935685242164 to binder cache
+[WrathPatches] Adding DragonChanges.New_Components.RedditorComponents.CritComponent with TypeId CE9B8477-90C8-4D9A-8626-A00F432C4B7B to binder cache
+[WrathPatches] Adding DragonChanges.New_Components.RedditorComponents.DRComponent with TypeId A9675332-F963-4F5F-AA97-7E6E85E0D8D1 to binder cache
+[WrathPatches] Adding DragonChanges.New_Components.RedditorComponents.SpellDCComponent with TypeId 1b58faae-f925-4d08-a318-79fc5f4cff51 to binder cache
+[WrathPatches] Adding DragonChanges.New_Components.RedditorComponents.SpellPenComponent with TypeId d3942470-7eff-4819-b12d-73072e9d7581 to binder cache
+[WrathPatches] Adding DragonChanges.New_Components.RedditorComponents.SRComponent with TypeId 4CA4807D-DD7B-4CCB-A495-69F12E5EF676 to binder cache
+[WrathPatches] Adding types to binder from EbonsContentMod
+[WrathPatches] Adding Kingmaker.UnitLogic.Abilities.Components.AbilityDeliverProjectileDynamic with TypeId a7ec15576fb827040bfe609a904482cd to binder cache
+[WrathPatches] Adding EbonsContentMod.UnitParts.UnitPartTouchCharges+TouchCharges with TypeId 10e90122-6ef9-4967-a284-259aed042cd7 to binder cache
+[WrathPatches] Adding EbonsContentMod.Items.BannerOfTheAncientKingsWeaponWatcher with TypeId {0A5A9B67-7957-4C2C-A334-A4AE76233B44} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.AbilityDuplicateSpell with TypeId ff2679a56baf4eceaa471bb8144c9db2 to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.AbilityRequirementNotSpell with TypeId {C438E2E7-1FC7-4DC9-A1D4-2CDB099151DA} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.AbilityShowIfCasterHasAnyFact with TypeId 7fe92cad9ebd4b45b87ad72116bdf98e to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.AddParametrizedWeaponProficiency with TypeId b24cb50ee67d46c4db9961c8a6947b02 to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.BattleHeraldFlankingBonus with TypeId 3427CC83E0BC4CFA9C4D1CF105361C12 to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.BlackTentaclesGrappleAction with TypeId e4ccb4b9c9a44a86bb01feffcf38acab to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.CMDBonusFromKineticOverflow with TypeId {2985DC9D-F2DE-479B-ACA7-6861B56242A8} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.ContextActionRemoveAllNegativeEffects with TypeId c026dd01a6434ec6b8b45d4e47270218 to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.DuergarImmunitiesComponent with TypeId 85af7290b5fa5d943968ea17ae8c3b27 to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.InspireCourageEffectiveLevelScaling with TypeId 9B4B77E84F1F4CC395E94270F82EFA5A to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.InspireCompetenceEffectiveLevelScaling with TypeId {4B982214-5022-4775-BEB7-B19FEBA53B33} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.ThreeReasonsToLiveEffectiveLevelScaling with TypeId {4B982214-5022-4775-BEB7-B19FEBA53B33} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.MusicBeyondTheSpheresCost with TypeId {36CB6B7F-96C9-4FF2-A70D-3E2CBDE8CB9A} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.PageantOfThePeacockSkillReplacement with TypeId {FA8BFC77-875F-4767-9A24-BAE7174F6ABD} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.PrerequisiteSex with TypeId fb876f3084f01754db3a4acbbb328a89 to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.RemoveGrantedBuffOnRest with TypeId {0180EB7C-396D-4D40-A02F-622ECBCF2A9A} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.ReplaceCasterLevelFromBuffCaster with TypeId 7D9B98E1-64AD-4B67-AB56-8177A589C255 to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.SongOfSarkorisTrigger with TypeId {AA105D3F-572D-43CD-A198-9EB34D0A80B6} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.ThreeReasonsToLivePerformanceParams with TypeId {E037538F-BFA0-43A1-9E5E-528412B7A379} to binder cache
+[WrathPatches] Adding EbonsContentMod.Components.UnitVisualScale with TypeId BDA18528047447FE8A54243EC1A8377B to binder cache
+[WrathPatches] Adding EbonsContentMod.Abilities.EbonsMasterpieceLogic with TypeId {0784BF3B-783F-469E-AE0E-833E3FE19715} to binder cache
+[WrathPatches] Adding EbonsContentMod.Abilities.MusicBeyondTheSpheresWishUnlock with TypeId {40AF7B3C-AF1B-43F1-B48A-5A732E88A708} to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Expanded Content
+[WrathPatches] Adding ExpandedContent.Utilities.PrerequisiteSize with TypeId e5db1c3ea30a44559f1f7542ed3b9d0d to binder cache
+[WrathPatches] Adding ExpandedContent.Tweaks.Components.LearnDomainSpell with TypeId a3db9e6a8bb9403b95ea0f6aacb1d4e3 to binder cache
+[WrathPatches] Adding ExpandedContent.Tweaks.Components.ReplaceAbilitiesStatFromArchetype with TypeId 1ce850fdf5f24b8182e4b53a6de47e4e to binder cache
+[WrathPatches] Adding types to binder from Feat Organizer
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Fix Subsonic Bullshit
+[WrathPatches] Adding types to binder from Kinetic Archetypes
+[WrathPatches] Adding KineticArchetypes.Heal1BurnAcceptedThisTurn with TypeId 0ABAAC72-2ED7-4170-992A-6AEBFA5FD440 to binder cache
+[WrathPatches] Adding KineticArchetypes.ExtraAttackWithOffhanBlade with TypeId E0240606-8CD2-4858-8510-4C328E342152 to binder cache
+[WrathPatches] Adding KineticArchetypes.ReactivateKineticBladeComponent with TypeId 4C86281E-8574-4A1C-8CAA-8098679E76B0 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Kineticist Elements Expanded
+[WrathPatches] Adding CodexLib.AbilityTargetHasFactExcept with TypeId 266a47455a4547dfb964feb6fbb260ca to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Kab's Many Bugfixes
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Tabletop Tweaks Base
+[WrathPatches] Adding types to binder from Libram Of The Phoenix
+[WrathPatches] Adding LibramOfThePhoenix.New_Components.UnitPartTouchChargesBirb+TouchChargesBirb with TypeId 10e90122-6ef9-4967-a284-259aed042cd7 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Literate Companions
+[WrathPatches] Adding types to binder from Level 1 Companions
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Mesmerist
+[WrathPatches] Adding Mesmerist.NewContexts.ContextActionOnEnemiesWithFact with TypeId efd42e9514d047899c797a5c2ca5f09a to binder cache
+[WrathPatches] Adding Mesmerist.NewConditions.ContextConditionInitiatorHasFact with TypeId be99edf87902467097bd566f17485098 to binder cache
+[WrathPatches] Adding Mesmerist.NewComponents.AbilitySpecific.AddCombatStare with TypeId fe4eb0615e264792b1d3030a9c010277 to binder cache
+[WrathPatches] Adding Mesmerist.NewComponents.AbilitySpecific.AddPsychicInception with TypeId fe4eb0615e264792b1d3030a9c010277 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Microscopic Content Expansion
+[WrathPatches] Adding MicroscopicContentExpansion.RebalancedContent.MythicArmor.ArmorACAsDamage with TypeId 5d9f3651218e44cc91f5d7a0092abed7 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.RebalancedContent.DragonbloodShifterArchetype.DragonbloodWingController with TypeId 268eb90086c44966b5eae821e050c555 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AbilityCasterHasChosenWeaponFromGroup with TypeId 3eee2cfa0d254f78b495be783a635f4e to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AbilityCasterHasSwiftAction with TypeId 08a2ac736acf45fa82b484593d88cab9 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AbilityCustomDimensionalAssault with TypeId 29cfc39737054920bdef50529a521699 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AbilityCustomDimensionalDervish with TypeId 3eda209f2af8431ab8093f6ceb4e73e8 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.TeleportAfterAttackToNextTarget with TypeId 461bb5f8eb0b418da9a4b1bd4003c92c to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AbilityCustomFlyingKick with TypeId 7d967f2e6e4043c2a490963bb6d40027 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AbilityCustomStartossComet with TypeId 73cfbad567f948ae87712cb76d59d879 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AddUnitFactDependingOnClassLevel with TypeId 1981eee498aa42ce92459d460b9681b9 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.AuraFeatureComponentWithWiden with TypeId 42a0a56bec4a47df89aa6e8b7ddd8157 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.ContextActionArmorEnchantPoolMCE with TypeId b0880fc55e33413db74fe74d0f4ef3aa to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.CriticalConfirmationUnarmed with TypeId 001209d9eeeb4484a5fc8652010c2d60 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.CrusadersFlurryUnlock with TypeId c934325c5cbb494f914507761f531ac3 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.LegionBlessingApplySpell with TypeId c184044ab8934085bc7ed8eded0ddb4c to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.LegionBlessingSacrificeSpellAbility with TypeId e626812134a646d2bbd1be80b7fad21d to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.MasterClassLevelGetter with TypeId 378aa84e70d44cceb01e884e690e623c to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.RuleAttackWithWeaponChaining with TypeId a3477f19abb04c9ab98337f9e31d0392 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.SnakeFangOnMissHandler with TypeId ac67128448634c5b88bfc44d3009bb8d to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.SpecialAnimationMonkKick with TypeId 494e9bf94233487f9284c94ba51d94f3 to binder cache
+[WrathPatches] Adding MicroscopicContentExpansion.NewComponents.StartossStyleComponent with TypeId 8b13837d88a24b63bd3ce04b76b2664e to binder cache
+[WrathPatches] Adding types to binder from Mission WOTR
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeployConstruct with TypeId 566F9DA1-C17B-4774-832A-73C1018ADF90 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ConstructSonicBoom with TypeId 722843D1-AEB8-46B6-AFFA-F50DC492C40F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionBlinkStrike with TypeId 59BDF120-4DA0-433C-917B-FC410092CDCC to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ConstructFlankCasterLevelPenalty with TypeId 90535812-2EFF-4EDB-A687-260C2303D047 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ConstructOnHitBuff with TypeId D6825DF7-33A8-45B8-A210-2CF8EBC67F60 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.PeriodicSelfDamage with TypeId DFF71E21-8D38-46D8-93DB-5912ACF0B88A to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ArcanotoxinDelivery with TypeId B2BC2538-7ED6-4E7A-A086-78093E886D40 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionExpeditedSynthesisCost with TypeId F6EC63FD-8954-43A5-8DDC-2CB64739F07D to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeliverToxin with TypeId 928E0A5E-A6E1-4F42-A4CE-96671C3DF359 to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.AetherialBulwark+AetherialBulwarkTrigger with TypeId 714730BA-4C04-4E64-8F9F-8E89EECB3A2F to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.AscendantEdge+AscendantEdgeTrigger with TypeId 57F95FCA-7F99-460A-B820-9E48974B26C2 to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.DefiantSoul+DefiantSoulTrigger with TypeId 77E47B9E-B10B-4794-A164-6E67730658DB to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.LastStand+LastStandAcBonus with TypeId 1E7DF36D-0709-431F-834A-53089FBBDC71 to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.DesperateFury+DesperateFuryAttackBonus with TypeId E5A6DE17-7F3D-42B1-8881-905534F1C28B to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.RelentlessOnslaught+RelentlessOnslaughtTrigger with TypeId D8866A39-D7AA-4366-9B2D-B24E8A197271 to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.SlayersVigor+SlayersVigorTrigger with TypeId A7FB138A-47C6-4E8F-933E-93CA0917B2CA to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.ArcaneMomentum+ArcaneMomentumAcBonus with TypeId 0AA569EA-F3B1-4ACB-8506-EBAB0387243C to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.ArcaneMomentum+ArcaneMomentumTrigger with TypeId D5EE4029-4A7A-428C-ABDC-1022C5FE3DC4 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.BattlefieldScavenger+BattlefieldScavengerTrigger with TypeId FE7FA670-A087-4D01-960E-E381400E2195 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.BattlefieldScavenger+BattlefieldScavengerAttackBonus with TypeId 994E14A6-A512-4E30-AF0A-B8193B0697FB to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.GuardedMomentum+GuardedMomentumTrigger with TypeId A17F33B1-64B3-45DE-9C41-6F2B4A93C1E0 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.ResonantStrikes+ResonantStrikesTrigger with TypeId DC063EAC-8FAF-438E-AB98-FE37D548B0F9 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.ResonantStrikes+ResonantStrikesAcDebuff with TypeId 217EB3DD-3631-4F97-AAE4-9FD53AF707D8 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.SecondWind+SecondWindTrigger with TypeId B5C62611-D5BF-4B84-ABE6-9306EC64BCF3 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.SteadfastAim+SteadfastAimAttackBonus with TypeId 29B50BFA-E7DD-4A87-895C-10184F434484 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.TauntingBlows+TauntingBlowsTrigger with TypeId 589A4820-7B69-4F19-A18C-23AA6B3CB302 to binder cache
+[WrathPatches] Adding MissionWOTR.Feats.VengefulCounterstrike+VengefulCounterstrikeTrigger with TypeId 32497A0F-7D98-47BE-88D4-2C45EF6583F8 to binder cache
+[WrathPatches] Adding types to binder from ModTagEx
+[WrathPatches] Adding types to binder from MoreBackgrounds
+[WrathPatches] Adding MoreBackgrounds.Components.DeadshotComponent with TypeId 53E28206-43B2-43F4-AECF-1829A8ADE4D3 to binder cache
+[WrathPatches] Adding MoreBackgrounds.Components.KnightErrantComponent with TypeId 5fe2f5e3-2353-4bf4-98e2-0dc89f8c4e64 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from MorePartySlots
+[WrathPatches] Adding types to binder from Multiple Archetypes
+[WrathPatches] Adding types to binder from Spellbook Merge
+[WrathPatches] Adding types to binder from Mythic Magic Mayhem
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from No Film Grain
+[WrathPatches] Adding types to binder from PC Female Viconia DeVir Soundset
+[WrathPatches] Adding types to binder from PC Male Balthasar Gelt Soundset
+[WrathPatches] Adding types to binder from PrestigePlus
+[WrathPatches] Adding PrestigePlus.CustomComponent.ArmorUnlockPP with TypeId {C9384AA7-88A4-490D-8685-7AE4641602A6} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.ArmorUnlockPP+ArmorFeatureUnlockData with TypeId {B8C047E0-4E9F-4492-803C-D4410F2C101B} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.FakeLevelUpClass with TypeId {EECCF91C-0225-4F5A-96B7-1B33E9CB4CD0} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.PrestigeClass.EnergyDrainLife with TypeId {6A9DFE50-27EE-473A-A0AB-7533DDB6CDAB} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.PrestigeClass.ScarSacrifice with TypeId {E086C833-5097-415D-8243-6AEC44B01A7E} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.PrestigeClass.SymbolicWeaponBonus with TypeId {5722B4CC-BD83-45D6-A21E-5AEF7A537931} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.Feat.GuidedHandDamage with TypeId {7A6AB932-67E6-49B5-B0D5-4C1E58C1082B} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.Feat.GuidedHandWis with TypeId {25ECC6AB-7EAD-4C05-9AA9-059A539A8121} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.Archetype.TruthSeekerLore with TypeId {C53D7688-EF62-41C1-8AE8-F32F36C4050F} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.Archetype.TruthSeekerMagic with TypeId {B353F7AB-919F-4C07-86CF-2C59BA365103} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.Archetype.TruthSookerLore with TypeId {50DFB7EA-F736-4472-8691-BC6CD7A5233F} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomComponent.Archetype.TruthSookerMagic with TypeId {A59DC783-C646-40BD-866F-3C1CFFBD0B3C} to binder cache
+[WrathPatches] Adding PrestigePlus.CustomAction.RangedAttackExtended with TypeId {2BB0DDCD-E84B-4689-996F-06A0DC220E9E} to binder cache
+[WrathPatches] Adding PrestigePlus.Modify.CustomDC with TypeId {1826B09B-766F-46C0-B964-9A231BAD1E81} to binder cache
+[WrathPatches] Adding PrestigePlus.Modify.EnergyArrow with TypeId {52F7DBF3-1AD6-4445-A87F-0D6C0B5E840E} to binder cache
+[WrathPatches] Adding PrestigePlus.Modify.MalevolenceEnchant with TypeId {5855D2C2-EB89-4A7E-8157-4F1F3C0E3E8D} to binder cache
+[WrathPatches] Adding PrestigePlus.Modify.PainfulPurification with TypeId {A681EAE8-B2D8-490C-9188-D3452A18DDE4} to binder cache
+[WrathPatches] Adding PrestigePlus.Modify.PhaseArrow with TypeId {29896BE9-4421-4B70-9A39-461444E1741C} to binder cache
+[WrathPatches] Adding PrestigePlus.Modify.AddAbilityResourceDepletedTrigger with TypeId {077420F3-929A-49BA-BF46-694A32EC40B0} to binder cache
+[WrathPatches] Adding PrestigePlus.Blueprint.MasterpieceLogic with TypeId {2B304194-B7F4-4EA0-8D2B-FAEFF51C2169} to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from RandomEquipment
+[WrathPatches] Adding types to binder from Random Reinforcements per Encounter
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from MAKING FRIENDS
+[WrathPatches] Adding Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsMaster with TypeId 31cff19a77cb4088b3290f01b6ad63f5 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityCasterHasFactRank with TypeId e566e0a0546b4780a30ca83383468394 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityCasterHasResource with TypeId e187fa66def2416b99df66d7eba5a32c to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityCasterRankIsHigherThanFeatureAmount with TypeId 1b650f07db8e488d80e9fdca40158fec to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityCustomDimensionDoorToCaster with TypeId 1558014072294f50a6da0b2209218574 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityEidolonHasResource with TypeId c33ae1bcd5d94b9eb2022c9187af9bf5 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityOwnerOrPetHasFacts with TypeId 8aeaeb9fbd9d431b972ac56354f34c46 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityTargetHasFactRank with TypeId 79f47bdc467d47e8b33b2b5e8d000541 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AbilityTargetIsEidolon with TypeId f92d3401beff4a90aa0f6148914d1642 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AddAdditionalBothHandsAttacks with TypeId b70b2cb73f3f47e58aa0b376366331e9 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AddContextFeatureToPet with TypeId 5fed8b619ce448efb629e94661f6c607 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AddEidolon with TypeId b3804dff48aa4493bbbafb1d6da905c5 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AddFactsOnArray with TypeId e1a2e76c422b402b891ecc6c587a72bd to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.ContextActionAddFeatureIfPrevious with TypeId 2c6eaa7a71104deaa86bff2868ea2fc8 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AddOutgoingPhysicalDamagePropertyMasterAlignment with TypeId 339fb222a0a843fc870ce0b401696958 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.AddSecondaryAttacksItemsByRank with TypeId 21fd1f974a29beb40bcce671b17b7de4 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.BlackTentaclesGrappleAction with TypeId e4ccb4b9c9a44a86bb01feffcf38acab to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.BondedSensesComponent with TypeId 88b2e594e9024a8a8618d5d9e8ab81fb to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.ContextActionAddFeatureRanks with TypeId 936e80d100074b18a4545bfa4bf9f973 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.ContextActionAddRemoveFeature with TypeId f18368ca428447bd86eaffa2f0f4348e to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.ContextConditionCasterHasResource with TypeId 1a14ef5954ca40a49c5aa2ba2e965407 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.IncreaseResourceAmountRank with TypeId c9e8881126c5418fb5d445a013960ee3 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.LifeBond with TypeId c14ee9ac16fb43ed8869b2791420d437 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.LifeLinkEidolon with TypeId 082d1e0ef881457699f7df1870a451b6 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.LockEquipmentSlotFactException with TypeId 537c8f834c094964db16dd2ba24fdb69 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.OnSpawnEvolution with TypeId b207cc0c03c84df8966a32ee85397d13 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.RemoveFactWithGroup with TypeId 63bedbf5fa6040788ccb3a8ca7dd7e11 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.ContextRestoreResourceOnPets with TypeId 719dcd5a9c0849f88cd9910cf0a98f0e to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.UnlockEquipmentSlot with TypeId 537c8f834c094964db16dd2ba24fdb69 to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.WeaponRend with TypeId db01e594eb7b41fc986af0261cfa0e9d to binder cache
+[WrathPatches] Adding WOTR_MAKING_FRIENDS.ComponentsNew.WeaponSizeChangeWeaponGroup with TypeId 90a4c1ac8a96d3f4482fb894883d7649 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Expanded Epilogue
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Respec Mod
+[WrathPatches] Adding types to binder from Tabletop Tweaks Flanking
+[WrathPatches] Adding types to binder from Tabletop Tweaks Reworks
+[WrathPatches] Adding types to binder from Voice Port - Abelard
+[WrathPatches] Adding types to binder from Voice Ports - Kingmaker Companions
+[WrathPatches] Adding types to binder from Tome of Battle: Nine Swords
+[WrathPatches] Adding VoidHeadWOTRNineSwords.Components.AbilityCasterHasWeaponSubcategory with TypeId 446b614c-fbd4-4c25-98f6-94c3cc0f5eae to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.HasActionsAvailable with TypeId 3299aa43-95f5-4d1d-a504-668a83b06ed3 to binder cache
+[WrathPatches] Adding BlueprintCore.Conditions.New.TargetInMeleeRange with TypeId 6cd26af1-b735-401e-9527-0e3661c2715e to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed with TypeId d085f1af-4790-4597-a024-ae9aad966a40 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AddStatBonusIfHasFactFixed with TypeId 3dcfce44-a7dd-48fe-9331-3681a43dbfa4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed with TypeId 574986d1-510c-40d7-ba51-92dd3b6d057d to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
+[WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
+[WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding types to binder from Weapon Focus Plus
+Slightly Wizardly Owl
 Setting up 6 worker threads for Enlighten.
-  Thread -> id: 1a14 -> priority: 1 
-  Thread -> id: 2bb8 -> priority: 1 
-  Thread -> id: 4280 -> priority: 1 
-  Thread -> id: 4ca8 -> priority: 1 
-  Thread -> id: 4908 -> priority: 1 
-  Thread -> id: 222c -> priority: 1 
+  Thread -> id: 45d8 -> priority: 1 
+  Thread -> id: 41f8 -> priority: 1 
+  Thread -> id: 4c9c -> priority: 1 
+  Thread -> id: 41fc -> priority: 1 
+  Thread -> id: 4e08 -> priority: 1 
+  Thread -> id: 1334 -> priority: 1 
+Received stats and achievements from Steam
+Unloading 4 Unused Serialized files (Serialized files now loaded: 843)
+
+Unloading 42901 unused Assets to reduce memory usage. Loaded Objects now: 236534.
+Total: 1143.204200 ms (FindLiveObjects: 8.476000 ms CreateObjectMapping: 8.252800 ms MarkObjects: 1112.333600 ms  DeleteObjects: 14.141600 ms)
+
+[EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
+Unloading 0 Unused Serialized files (Serialized files now loaded: 371)
+
+Unloading 70120 unused Assets to reduce memory usage. Loaded Objects now: 165942.
+Total: 1136.276500 ms (FindLiveObjects: 6.490500 ms CreateObjectMapping: 7.046500 ms MarkObjects: 1101.720000 ms  DeleteObjects: 21.019100 ms)
+
+[0ToyBox0] <b><color=orange>[Warn] </color></b>per save settings not found, creating new...
+The referenced script on this Behaviour (Game Object '<null>') is missing!
+The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_14]_sittig_b_Leave3') is missing!
+The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_14]_siting_b_Leave4') is missing!
+The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_15]_sittig_b_Leave4') is missing!
+The referenced script on this Behaviour (Game Object 'Spawner [Citizen_Female_7]_siting_b_Leave1') is missing!
+The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_10]_sittig_b_Leave3') is missing!
+The referenced script on this Behaviour (Game Object 'Spawner [Citizen_GnomeFemale_2]_siting_b_Leave3') is missing!
+The referenced script on this Behaviour (Game Object 'leaves_foliage_01') is missing!
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+[CodexLib] Applying Mobility for Unit[Seelah_Companion]#2E1B is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
+[0ToyBox0] [Info] OnAreaDidLoad
+[BuffIt2TheLimit] [TryInstallUI] Installing BubbleBuffGlobalController on persistent canvas
+[BuffIt2TheLimit] COULD NOT LOAD: a4093c3baac79f243b8a204e2b1e33e2 - Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable
+[BuffIt2TheLimit] COULD NOT LOAD: 0e76af02588cad04a8ea5bfebdc9fb40 - Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable
+[BuffIt2TheLimit] COULD NOT LOAD: 9e1ad5d6f87d19e4d8c094b114ab2f51 - Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility
+[BuffIt2TheLimit] COULD NOT LOAD: 0e76af02588cad04a8ea5bfebdc9fb40 - Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable
+[BuffIt2TheLimit] COULD NOT LOAD: 7bb9eb2042e67bf489c4a7ba8232c6e0 - Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility
+[BuffIt2TheLimit] COULD NOT LOAD: 5250c10feed9f8744850fa3b4814e7c0 - Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility
+[BuffIt2TheLimit] COULD NOT LOAD: 9972f33f977fc724c838e59641b2fca5 - Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
+GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
+[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Trash</color></b>' in default locale
+[0ToyBox0] [Info] SaveManager_SaveRoutine_Patch
+[DarkCodex] Saved patch metadata
 Releasing render texture that is set as Camera.targetTexture!
 [Manager] Destroying when exit.
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Object.GetName(UnityEngine.Object)
+  at UnityEngine.Object.get_name () [0x00001] in <4fae2288737c4dfda349689bbefabfcc>:0 
+  at Kingmaker.View.CameraRig.ApplyBindAction (System.Action`2[T1,T2] bindAction) [0x0000c] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.View.CameraRig.OnDisable () [0x00011] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+Kingmaker.Utility.SystemUtil:SendMessage(IntPtr, Int32, UInt32, UInt32)
+Kingmaker.Utility.SystemUtil:ApplicationQuit()
+Kingmaker.UI.MVVM._VM.EscMenu.EscMenuVM:OnQuitAction(ButtonType)
+Kingmaker.UI.MVVM._VM.MessageBox.MessageModalVM:OnAcceptPressed()
+Kingmaker.UI.MVVM._PCView.Common.MessageModal.MessageModalPCView:<BindViewImplementation>b__12_2(Unit)
+UniRx.Subscribe`1:OnNextInternal(Unit)
+UniRx.BaseObserver`1:OnNext(Unit)
+UniRx.Operators.FromEvent:OnNext()
+UnityEngine.Events.InvokableCall:Invoke()
+UnityEngine.Events.UnityEvent:Invoke()
+Owlcat.Runtime.UI.Controls.Button.OwlcatButton:OnPointerClick(PointerEventData)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ReleaseMouse(PointerEventData, GameObject)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+
+[Physics.PhysX] Foundation destruction failed due to pending module references. Close/release all depending modules first.
+Culling group was not disposed. You have to call Dispose explicitly from the main thread. This will likely result in a crash.
