@@ -22,16 +22,16 @@ Begin MonoManager ReloadAssembly
 [Manager] IsSupportOnSessionStart: False.
 [Manager] IsSupportOnSessionStop: False.
 [Manager] Mods path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods.
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000002B0ED3D27C0.dll
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000002B0F09AFB30.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000020BE6C834A0.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000020DA0BC3100.dll
 [Manager] Injection successful.
-- Completed reload, in  0.650 seconds
+- Completed reload, in  0.667 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 [startup.json] Check path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\startup.json
 [startup.json] Loaded
-UnloadTime: 0.357200 ms
+UnloadTime: 0.323200 ms
 No cloud project ID was found by the Analytics SDK. This means Analytics events will not be sent. Please make sure to link your cloud project in the Unity editor to fix this problem.
 [Manager] Starting.
 [Manager] Start parsing game version.
@@ -93,7 +93,7 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [Manager] Loading mods.
 [!ManyModsPerformanceFix] Version '1.8.5'. Loading.
 [!ManyModsPerformanceFix] Active.
-[!ManyModsPerformanceFix] Loading time 0.23 s.
+[!ManyModsPerformanceFix] Loading time 0.24 s.
 [!!!FirstStart] Version '1.0.0'. Loading.
 [!!!FirstStart] Active.
 [!!!FirstStart] Loading time 0.01 s.
@@ -101,9 +101,9 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [0ToyBox0] Starting Integrity Check.
 [0ToyBox0] Integrity Check succeeded.
 [0ToyBox0] Compatability Check succeeded
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000002B0ED3D3FE0.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000020BE6C81070.dll
 [0ToyBox0] Active.
-[0ToyBox0] Loading time 1.54 s.
+[0ToyBox0] Loading time 1.68 s.
 [TabletopTweaks-Core] Version '0.7.14a'. Loading.
 [TabletopTweaks-Core] Optional mod 'MewsiferConsole.Mod' not found.
 [TabletopTweaks-Core] PostPatchInitializer: TabletopTweaks-Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -151,7 +151,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [TabletopTweaks-Core] Loading Static String: AbilityTargetNoSplitHexRepeat.SplitHex
 [TabletopTweaks-Core] Loading Static String: AbilityRequirementHasBlackBlade.UIText
 [TabletopTweaks-Core] Active.
-[TabletopTweaks-Core] Loading time 0.30 s.
+[TabletopTweaks-Core] Loading time 0.33 s.
 [AddedFeats] Version '1.7.0'. Loading.
 [AddedFeats] Active.
 [AddedFeats] Loading time 0.02 s.
@@ -163,7 +163,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [ModMenu] Method was found
 [ModMenu] Finished loading.
 [ModMenu] Active.
-[ModMenu] Loading time 3.68 s.
+[ModMenu] Loading time 3.85 s.
 [AlterAsc.CombatRelief] Version '2.3.0'. Loading.
 [AlterAsc.CombatRelief] Optional mod 'MewsiferConsole.Mod' not found.
 [AlterAsc.CombatRelief] Active.
@@ -186,7 +186,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Texture2D]
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Sprite]
 [BubbleBuffs] Active.
-[BubbleBuffs] Loading time 0.02 s.
+[BubbleBuffs] Loading time 0.03 s.
 [BuffIt2TheLimit] Version '1.21.1'. Loading.
 [BuffIt2TheLimit] Optional mod 'EnhancedInventory' not found.
 [BuffIt2TheLimit] LOADING BuffIt2TheLimit
@@ -205,11 +205,11 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [BuffIt2TheLimit] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Texture2D]
 [BuffIt2TheLimit] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Sprite]
 [BuffIt2TheLimit] Active.
-[BuffIt2TheLimit] Loading time 0.02 s.
+[BuffIt2TheLimit] Loading time 0.04 s.
 [CharacterOptionsPlus] Version '1.4.0'. Loading.
 [COP+Main] Finished patching.
 [CharacterOptionsPlus] Active.
-[CharacterOptionsPlus] Loading time 0.08 s.
+[CharacterOptionsPlus] Loading time 0.07 s.
 [DarkCodex] Version '1.9.6'. Loading.
 [DarkCodex] AssemblyResolve F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DarkCodex\CodexLib.dll
 [DarkCodex] Patching Patches
@@ -219,10 +219,10 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [DarkCodex] Loading time 0.07 s.
 [DragonLibrary] Version '1.2.10'. Loading.
 [DragonLibrary] Active.
-[DragonLibrary] Loading time 0.02 s.
+[DragonLibrary] Loading time 0.01 s.
 [deceiverbuff] Version '1.5.2'. Loading.
 [deceiverbuff] Active.
-[deceiverbuff] Loading time 0.03 s.
+[deceiverbuff] Loading time 0.01 s.
 [WrathPatches] Version '1.19.1'. Loading.
 [WrathPatches] Running patch class TheEnhance
 [WrathPatches] Running patch class ActuallyFixSharedStrings
@@ -287,10 +287,10 @@ HarmonyLib.HarmonyException: Patching exception in method Kingmaker.EntitySystem
 [MonoSingleton] There is no object of type Kingmaker.Settings.Graphics.ApplicationFocusObserver. Creating new.
 Set BugReport Layer: BugReportInputLayer.
 [WrathPatches] Active.
-[WrathPatches] Loading time 0.36 s.
+[WrathPatches] Loading time 0.37 s.
 [DragonChanges] Version '1.23.1'. Loading.
 [DragonChanges] Active.
-[DragonChanges] Loading time 0.03 s.
+[DragonChanges] Loading time 0.01 s.
 [DragonFixes] Version '1.33.0'. Loading.
 [DragonFixes] [Error] Error loading file 'F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DragonFixes\DragonFixes.dll'.
 [DragonFixes] [Exception] TypeLoadException - Could not resolve type with token 01000039 (from typeref, class/assembly HarmonyLib.HarmonyPatchCategory, 0Harmony, Version=2.3.6.0, Culture=neutral, PublicKeyToken=null)
@@ -309,7 +309,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [EbonsContentMod] Loading time 0.24 s.
 [ExpandedContent] Version '0.13.68'. Loading.
 [ExpandedContent] Active.
-[ExpandedContent] Loading time 0.74 s.
+[ExpandedContent] Loading time 0.71 s.
 [FeatOrganizer] Version '1.0.1'. Loading.
 [FeatOrganizer] UMM entry loaded.
 [FeatOrganizer] Enabled. Harmony patches applied and handlers subscribed.
@@ -337,74 +337,74 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Base] 0,2,3,3,4,5,6,6,7,8,9,9,10,11,12,12,13,14,15,15,16
 [TabletopTweaks-Base] Loading Static String: CharInfoFeaturePCView_Suppression_Patchs.Suppressed
 [TabletopTweaks-Base] Active.
-[TabletopTweaks-Base] Loading time 0.89 s.
+[TabletopTweaks-Base] Loading time 0.94 s.
 [LibramOfThePhoenix] Version '1.2.0'. Loading.
 [LibramOfThePhoenix] Optional mod 'AlternateRacialTraits' not found.
 [LibramOfThePhoenix] Loading Blueprints
 [LibramOfThePhoenix] Active.
-[LibramOfThePhoenix] Loading time 0.06 s.
+[LibramOfThePhoenix] Loading time 0.07 s.
 [LiterateCompanions] Version '1.0.0'. Loading.
 [LiterateCompanions] Active.
 [LiterateCompanions] Loading time 0.01 s.
 [lvl1companions] Version '1.1.0'. Loading.
 [lvl1companions] Active.
-[lvl1companions] Loading time 0.03 s.
+[lvl1companions] Loading time 0.04 s.
 [Mesmerist] Version '3.3'. Loading.
 [Mesmerist] Active.
-[Mesmerist] Loading time 0.04 s.
+[Mesmerist] Loading time 0.06 s.
 [MicroscopicContentExpansion] Version '1.21.1'. Loading.
 [MicroscopicContentExpansion] Optional mod 'MewsiferConsole.Mod' not found.
 [MicroscopicContentExpansion] PostPatchInitializer: MicroscopicContentExpansion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 [MicroscopicContentExpansion] Active.
 [MicroscopicContentExpansion] Loading time 0.10 s.
-[MissionWOTR] Version '0.4.9'. Loading.
+[MissionWOTR] Version '0.4.10'. Loading.
 [MissionWOTR] Active.
-[MissionWOTR] Loading time 0.03 s.
+[MissionWOTR] Loading time 0.04 s.
 [ModTagEx] Version '1.0.1'. Loading.
-[ModTagEx] Took 00:00:00.0586464 to load guid db of size 25121
-[ModTagEx] Took 00:00:00.0344376 to load base game guids of size 236661
+[ModTagEx] Took 00:00:00.0596653 to load guid db of size 25121
+[ModTagEx] Took 00:00:00.0368663 to load base game guids of size 236661
 [ModTagEx] Active.
-[ModTagEx] Loading time 0.12 s.
+[ModTagEx] Loading time 0.13 s.
 [MoreBackgrounds] Version '1.0.0'. Loading.
 [MoreBackgrounds] Active.
 [MoreBackgrounds] Loading time 0.04 s.
 [MorePartySlots] Version '1.0.1'. Loading.
 [MorePartySlots] Active.
-[MorePartySlots] Loading time 0.07 s.
+[MorePartySlots] Loading time 0.08 s.
 [MultipleArchetypes] Version '1.0.2'. Loading.
 [MultipleArchetypes] Active.
 [MultipleArchetypes] Loading time 0.04 s.
 [SpellbookMerge] Version '1.7.1'. Loading.
 [SpellbookMerge] Active.
-[SpellbookMerge] Loading time 0.02 s.
+[SpellbookMerge] Loading time 0.03 s.
 [MythicMagicMayhem] Version '1.1.4'. Loading.
 [MythicMagicMayhem] Active.
-[MythicMagicMayhem] Loading time 0.08 s.
+[MythicMagicMayhem] Loading time 0.10 s.
 [NoFilmGrainWrath] Version '1.0.0'. Loading.
 [NoFilmGrainWrath] Active.
-[NoFilmGrainWrath] Loading time 0.80 s.
+[NoFilmGrainWrath] Loading time 0.84 s.
 [PC_Female_BG_Viconia] Version '1.2.0'. Loading.
 [PC_Female_BG_Viconia] Active.
-[PC_Female_BG_Viconia] Loading time 0.01 s.
+[PC_Female_BG_Viconia] Loading time 0.02 s.
 [PC_TWWH_Balthasar_Gelt] Version '1.2.0'. Loading.
 [PC_TWWH_Balthasar_Gelt] Active.
 [PC_TWWH_Balthasar_Gelt] Loading time 0.01 s.
 [PrestigePlus] Version '3.8.0'. Loading.
 [PrestigePlus] Optional mod 'MewsiferConsole.Mod' not found.
 [PrestigePlus] Active.
-[PrestigePlus] Loading time 0.25 s.
+[PrestigePlus] Loading time 0.29 s.
 [RandomEquipment] Version '2.0.10'. Loading.
 [RandomEquipment] Active.
-[RandomEquipment] Loading time 0.91 s.
+[RandomEquipment] Loading time 0.86 s.
 [RandomReinforcementsPerEncounter] Version '1.1.13'. Loading.
 [RandomReinforcementsPerEncounter] RandomReinforcementsPerEncounter loaded with Harmony
 [RandomReinforcementsPerEncounter] Active.
-[RandomReinforcementsPerEncounter] Loading time 0.06 s.
+[RandomReinforcementsPerEncounter] Loading time 0.07 s.
 [WOTR_MAKING_FRIENDS] Version '0.2.4'. Loading.
 [WOTR_MAKING_FRIENDS] Patching...
 [WOTR_MAKING_FRIENDS] Finished patching.
 [WOTR_MAKING_FRIENDS] Active.
-[WOTR_MAKING_FRIENDS] Loading time 0.08 s.
+[WOTR_MAKING_FRIENDS] Loading time 0.09 s.
 [RanEpilogue] Version '1.3.1'. Loading.
 [RanEpilogue] Optional mod 'WOTR_WoljifRomanceMod' not found.
 [RanEpilogue] Optional mod 'CamelliaRomanceExpandedEnd' not found.
@@ -412,7 +412,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [RanEpilogue] Loading time 0.05 s.
 [RespecWrath] Version '1.10.25'. Loading.
 [RespecWrath] Active.
-[RespecWrath] Loading time 0.07 s.
+[RespecWrath] Loading time 0.08 s.
 [TabletopTweaks-Flanking] Version '0.2.1'. Loading.
 [TabletopTweaks-Flanking] RuleAttackRoll_OnTrigger - Replacing flanking at index: 102
 [TabletopTweaks-Flanking] RuleAttackRoll_OnTrigger - Replacing flanking at index: 236
@@ -428,7 +428,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Reworks] Version '1.4.6'. Loading.
 [TabletopTweaks-Reworks] PostPatchInitializer: TabletopTweaks-Reworks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Reworks] Active.
-[TabletopTweaks-Reworks] Loading time 0.16 s.
+[TabletopTweaks-Reworks] Loading time 0.15 s.
 [VoicePortAbelard] Version '1.0.0'. Loading.
 [VoicePortAbelard] Active.
 [VoicePortAbelard] Loading time 0.01 s.
@@ -7774,7 +7774,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [COP+UnshakableZeal] Configuring UnshakableZeal
 [COP+WeaponOfAwe] Configuring WeaponOfAwe
 [COP+Wrath] Configuring Wrath
-[CodexLib] Loaded blueprints in 6601ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
+[CodexLib] Loaded blueprints in 6636ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
 [DragonLibrary] Checking for mods for compatibility patches
 [DragonLibrary] Checking for MicroscopicContentExpansion
 [DragonLibrary] MicroscopicContentExpansion is found and enabled
@@ -14051,7 +14051,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [EbonsContentMod]     OrcSorcererBloodlineClassSkill, GUID=d2ec15253bb84db38194146e9ef9bf9c, Type=BlueprintFeature
 [EbonsContentMod]     OrcSorcererBloodlineRequisiteFeature, GUID=09ae4a9f250c42ad9f31a15b3fced759, Type=BlueprintFeature
 [EbonsContentMod]     BloodlineRequisiteFeature, GUID=e2cfd3cedf7c40088b25aa82d6db3c77, Type=BlueprintFeature
-[0ToyBox0] [Info] Threaded loaded roughly 258720 blueprints in 7990 milliseconds
+[0ToyBox0] [Info] Threaded loaded roughly 258720 blueprints in 7946 milliseconds
 [0ToyBox0] [Info] Starting to build BPId Cache
 [0ToyBox0] [Info] Finished rebuilding BPId Cache
 [EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
@@ -14114,12 +14114,12 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
 [ModMenu] Added Mods Menu View
 [ModMenu] Adding new type prefabs.
+Curl error 6: Could not resolve host: siren.owlcat.local
 [ModMenu] Creating image template.
 [ModMenu] Creating button template.
 [ModMenu] Creating collapsible header template.
 [ModMenu] Creating sub header template.
 [ModMenu] Creating dropdown button template.
-Curl error 6: Could not resolve host: siren.owlcat.local
 [ModMenu] Instantiating layout settings.
 The referenced script on this Behaviour (Game Object '<null>') is missing!
 [ModMenu] Adding new type prefabs.
@@ -14132,39 +14132,6 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 [ModMenu] Instantiating layout settings.
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (ascending order)</color></b>' in default locale
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (descending order)</color></b>' in default locale
-[CodexLib] Applying PowerAttackFeature for Unit[StartGame_Player_Unit]#356e758d-9ba3-4868-803a-b17ca51b8d36 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGame_Player_Unit]#356e758d-9ba3-4868-803a-b17ca51b8d36 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGame_Player_Unit]#356e758d-9ba3-4868-803a-b17ca51b8d36 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGame_Player_Unit]#356e758d-9ba3-4868-803a-b17ca51b8d36 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGame_Player_Unit]#356e758d-9ba3-4868-803a-b17ca51b8d36 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[RespecWrath] Creating sprite
-[CodexLib] Applying PowerAttackFeature for Unit[StartGamePregenCavalierUnit]#0050ef04-774d-490a-8740-3177b07c36ca is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGamePregenCavalierUnit]#0050ef04-774d-490a-8740-3177b07c36ca is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGamePregenCavalierUnit]#0050ef04-774d-490a-8740-3177b07c36ca is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGamePregenCavalierUnit]#0050ef04-774d-490a-8740-3177b07c36ca is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGamePregenCavalierUnit]#0050ef04-774d-490a-8740-3177b07c36ca is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-InvalidOperationException: Sequence contains no elements
-  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
-  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
-  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
-  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
-  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
-  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
-  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
-  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
-  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
-  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
-  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
-  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
-  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
-  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
-  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
-
 [WrathPatches] Adding types to binder from Performance Fixes
 [WrathPatches] Adding types to binder from Performance Fixes Load Order
 [WrathPatches] Adding types to binder from ToyBox
@@ -14855,138 +14822,26 @@ InvalidOperationException: Sequence contains no elements
 [WrathPatches] Adding types to binder from Weapon Focus Plus
 Slightly Wizardly Owl
 Setting up 6 worker threads for Enlighten.
-  Thread -> id: 3fcc -> priority: 1 
-  Thread -> id: 13b8 -> priority: 1 
-  Thread -> id: 38c4 -> priority: 1 
-  Thread -> id: 4c24 -> priority: 1 
-  Thread -> id: cbc -> priority: 1 
-  Thread -> id: 3884 -> priority: 1 
+  Thread -> id: 3f68 -> priority: 1 
+  Thread -> id: 2924 -> priority: 1 
+  Thread -> id: 44cc -> priority: 1 
+  Thread -> id: 386c -> priority: 1 
+  Thread -> id: 19c8 -> priority: 1 
+  Thread -> id: 4a24 -> priority: 1 
 Received stats and achievements from Steam
-Unloading 4 Unused Serialized files (Serialized files now loaded: 843)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 730)
 
-Unloading 42911 unused Assets to reduce memory usage. Loaded Objects now: 256491.
-Total: 1260.598600 ms (FindLiveObjects: 9.969800 ms CreateObjectMapping: 9.142900 ms MarkObjects: 1229.594800 ms  DeleteObjects: 11.890900 ms)
+Unloading 39944 unused Assets to reduce memory usage. Loaded Objects now: 150397.
+Total: 921.555900 ms (FindLiveObjects: 5.343700 ms CreateObjectMapping: 7.036500 ms MarkObjects: 899.882800 ms  DeleteObjects: 9.292700 ms)
 
 [EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
-Unloading 0 Unused Serialized files (Serialized files now loaded: 371)
+Unloading 0 Unused Serialized files (Serialized files now loaded: 372)
 
-Unloading 70121 unused Assets to reduce memory usage. Loaded Objects now: 185898.
-Total: 1126.955800 ms (FindLiveObjects: 7.653000 ms CreateObjectMapping: 6.695900 ms MarkObjects: 1090.543900 ms  DeleteObjects: 22.062800 ms)
+Unloading 69301 unused Assets to reduce memory usage. Loaded Objects now: 80738.
+Total: 979.379800 ms (FindLiveObjects: 3.730900 ms CreateObjectMapping: 6.319700 ms MarkObjects: 944.604300 ms  DeleteObjects: 24.724700 ms)
 
-[0ToyBox0] <b><color=orange>[Warn] </color></b>per save settings not found, creating new...
 The referenced script on this Behaviour (Game Object '<null>') is missing!
-The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_14]_sittig_b_Leave3') is missing!
-The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_14]_siting_b_Leave4') is missing!
-The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_15]_sittig_b_Leave4') is missing!
-The referenced script on this Behaviour (Game Object 'Spawner [Citizen_Female_7]_siting_b_Leave1') is missing!
-The referenced script on this Behaviour (Game Object 'Spawner [Citizen_male_10]_sittig_b_Leave3') is missing!
-The referenced script on this Behaviour (Game Object 'Spawner [Citizen_GnomeFemale_2]_siting_b_Leave3') is missing!
-The referenced script on this Behaviour (Game Object 'leaves_foliage_01') is missing!
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-[CodexLib] Applying Mobility for Unit[Seelah_Companion]#3251 is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
+Parameter 'Hash -1571987243' does not exist.
 [0ToyBox0] [Info] OnAreaDidLoad
 [BuffIt2TheLimit] [TryInstallUI] Installing BubbleBuffGlobalController on persistent canvas
 [BuffIt2TheLimit] COULD NOT LOAD: a4093c3baac79f243b8a204e2b1e33e2 - Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentUsable
@@ -14996,152 +14851,14 @@ GI: material 'Standard' does not have Meta pass, and could not find default mate
 [BuffIt2TheLimit] COULD NOT LOAD: 7bb9eb2042e67bf489c4a7ba8232c6e0 - Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility
 [BuffIt2TheLimit] COULD NOT LOAD: 5250c10feed9f8744850fa3b4814e7c0 - Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility
 [BuffIt2TheLimit] COULD NOT LOAD: 9972f33f977fc724c838e59641b2fca5 - Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_house_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'town_house_big_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_extra_02_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'drezen_wall_sink_01_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'Wood' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'kenabres_tower_gate_01_no_shed_!Visual' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'rotate_floor' will not be affecting GI.
-GI: material 'Standard' does not have Meta pass, and could not find default material. Object 'tower' will not be affecting GI.
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Trash</color></b>' in default locale
-[0ToyBox0] [Info] SaveManager_SaveRoutine_Patch
-[DarkCodex] Saved patch metadata
-Visual Effect EffectWeather_Locust00_DropsSingle don't have 'System_BoundsSize' property
-Visual Effect EffectWeather_Locust00_DropsSingle_Shadows don't have 'System_BoundsSize' property
-[MonoSingleton] There is no object of type Owlcat.Runtime.Visual.Effects.ParticleSumEmitter.ParticleSystemCustomSubEmitterDelegate. Creating new.
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.Component.get_gameObject(UnityEngine.Component)
-  at Kingmaker.UnitLogic.Parts.UnitPartPolymorphTransition.StartFx (Kingmaker.UnitLogic.Parts.UnitPartPolymorphTransition+TransitionSettings settings, Kingmaker.View.UnitEntityView view, System.Boolean isPlayerFaction) [0x0001a] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at Kingmaker.UnitLogic.Parts.UnitPartPolymorphTransition+<InTransition>d__15.MoveNext () [0x00053] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at Kingmaker.UnitLogic.Parts.UnitPartPolymorphTransition+<TransitionAnimation>d__13.MoveNext () [0x000c8] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x00026] in <4fae2288737c4dfda349689bbefabfcc>:0 
-
-[0ToyBox0] [Info] SaveManager_SaveRoutine_Patch
-NullReferenceException: Object reference not set to an instance of an object
-  at Kingmaker.Visual.Animation.AnimationManager.StopEvents () [0x00006] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-  at Kingmaker.Visual.Animation.AnimationManager.OnDestroy () [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 501)
-
-Unloading 79905 unused Assets to reduce memory usage. Loaded Objects now: 221703.
-Total: 1197.814700 ms (FindLiveObjects: 9.165700 ms CreateObjectMapping: 11.995100 ms MarkObjects: 1145.239800 ms  DeleteObjects: 31.413300 ms)
-
-Unloading 0 Unused Serialized files (Serialized files now loaded: 431)
-Releasing render texture that is set as Camera.targetTexture!
-
-Unloading 110032 unused Assets to reduce memory usage. Loaded Objects now: 111601.
-Total: 1105.897800 ms (FindLiveObjects: 6.008800 ms CreateObjectMapping: 9.499100 ms MarkObjects: 1049.693100 ms  DeleteObjects: 40.696500 ms)
-
-The referenced script on this Behaviour (Game Object '<null>') is missing!
-[CodexLib] Applying Mobility for Unit[Seelah_Companion]#4C40 is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
-[0ToyBox0] [Info] OnAreaDidLoad
-Parameter 'Hash -1571987243' does not exist.
-[BuffIt2TheLimit] [TryInstallUI] Installing BubbleBuffGlobalController on persistent canvas
-[0ToyBox0] [Info] SaveManager_SaveRoutine_Patch
-[DarkCodex] Saved patch metadata
+[CodexLib] Applying Mobility for Unit[Seelah_Companion]#52A6 is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
+[CodexLib] Applying Mobility for Unit[Seelah_Companion]#dbbe78ed-9c19-45db-a997-125abfe0119e is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
 [ModMenu] TryGetConfig - 4
 [ModMenu] Generated SaveSlotWithModListPCView config
 [0ToyBox0] [Info] SaveManager_SaveRoutine_Patch
 [DarkCodex] Saved patch metadata
 Releasing render texture that is set as Camera.targetTexture!
-[Manager] Destroying when exit.
 NullReferenceException
   at (wrapper managed-to-native) UnityEngine.Object.GetName(UnityEngine.Object)
   at UnityEngine.Object.get_name () [0x00001] in <4fae2288737c4dfda349689bbefabfcc>:0 
@@ -15167,5 +14884,6 @@ UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
 UnityEngine.EventSystems.StandaloneInputModule:Process()
 UnityEngine.EventSystems.EventSystem:Update()
 
+[Manager] Destroying when exit.
 [Physics.PhysX] Foundation destruction failed due to pending module references. Close/release all depending modules first.
 Culling group was not disposed. You have to call Dispose explicitly from the main thread. This will likely result in a crash.
