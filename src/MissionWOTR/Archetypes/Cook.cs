@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
@@ -14,6 +15,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics;
@@ -22,6 +24,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using MissionWOTR.Feats;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MissionWOTR.Archetypes
 {
@@ -109,7 +112,7 @@ namespace MissionWOTR.Archetypes
         ("ChiliPepper", new[] { (StatType.AdditionalDamage, 1, 8) }),
         ("Cheese", new[]
         {
-          (StatType.SkillLoreArcana, 2, 6),
+          (StatType.SkillKnowledgeArcana, 2, 6),
           (StatType.SkillLoreReligion, 2, 6),
           (StatType.SkillLoreNature, 2, 6),
           (StatType.SkillKnowledgeWorld, 2, 6),
@@ -148,7 +151,7 @@ namespace MissionWOTR.Archetypes
         .SetIcon(FeatureRefs.Toughness.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddAbilityResources(resource: charges, restoreAmount: true)
-        .AddFacts(ingredientFeatures)
+        .AddFacts(ingredientFeatures.Select(f => (Blueprint<BlueprintUnitFactReference>)f).ToList())
         .Configure();
 
       // ----- Pantry (4th and every 4 levels): learn a new ingredient -----
@@ -157,7 +160,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("CookPantry.Description")
         .SetIcon(FeatureRefs.Toughness.Reference.Get().Icon)
         .SetIsClassFeature()
-        .SetAllFeatures(pantryFeatures.Cast<Blueprint<BlueprintFeatureReference>>().ToArray())
+        .SetAllFeatures(pantryFeatures.Select(f => (Blueprint<BlueprintFeatureReference>)f).ToArray())
         .Configure();
 
       // ----- Archetype -----
@@ -224,14 +227,9 @@ namespace MissionWOTR.Archetypes
       }
       if (step > 0)
       {
-        buffCfg = buffCfg.AddComponent(new ContextRankConfig
-        {
-          m_BaseValueType = ContextRankBaseValueType.ClassLevel,
-          m_Progression = ContextRankProgression.AsIs,
-          m_StartLevel = 0,
-          m_StepLevel = step,
-          m_Class = new[] { bard.ToReference<BlueprintCharacterClassReference>() },
-        });
+        buffCfg = buffCfg.AddContextRankConfig(
+          ContextRankConfigs.ClassLevel(new[] { CharacterClassRefs.BardClass.ToString() })
+            .WithDivStepProgression(step));
         foreach (var (stat, _, s) in stats)
         {
           if (s > 0)

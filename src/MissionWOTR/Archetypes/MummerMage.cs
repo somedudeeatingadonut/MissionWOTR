@@ -101,11 +101,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("MummerImitation.Description")
         .SetIcon(AbilityRefs.BombStandart.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddComponent(new Kingmaker.Designers.Mechanics.Facts.LearnSpellParametrized
-        {
-          SpellcasterClass = bard,
-          SpellList = wizardList,
-        })
+        .AddComponent(BuildImitation(bard, wizardList))
         .Configure();
 
       // ----- Shtick Attunement (5th): the prop becomes a bonded item -----
@@ -189,6 +185,33 @@ namespace MissionWOTR.Archetypes
       archetype.Configure();
 
       MissionFeats.Logger.Info("MummerMage: configured.");
+    }
+
+    /// <summary>
+    /// LearnSpellParametrized with its class and spell list set by reflection -
+    /// the properties are read-only in this build (the same treatment as the
+    /// construct fake-class levels).
+    /// </summary>
+    private static Kingmaker.Designers.Mechanics.Facts.LearnSpellParametrized BuildImitation(
+      BlueprintCharacterClass bard, Kingmaker.Blueprints.Classes.Spells.BlueprintSpellList wizardList)
+    {
+      var component = new Kingmaker.Designers.Mechanics.Facts.LearnSpellParametrized();
+      const System.Reflection.BindingFlags flags =
+        System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
+        System.Reflection.BindingFlags.NonPublic;
+      var classField = typeof(Kingmaker.Designers.Mechanics.Facts.LearnSpellParametrized)
+        .GetField("m_SpellcasterClass", flags);
+      var listField = typeof(Kingmaker.Designers.Mechanics.Facts.LearnSpellParametrized)
+        .GetField("m_SpellList", flags);
+      if (classField is null || listField is null)
+      {
+        MissionFeats.Logger.Warn(
+          "[mummer] LearnSpellParametrized field names not found - Arcane Imitation picks will be broken.");
+        return component;
+      }
+      classField.SetValue(component, bard.ToReference<BlueprintCharacterClassReference>());
+      listField.SetValue(component, wizardList.ToReference<BlueprintSpellListReference>());
+      return component;
     }
   }
 }
