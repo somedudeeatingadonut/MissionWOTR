@@ -19,7 +19,10 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;
@@ -526,7 +529,7 @@ namespace MissionWOTR.Archetypes
         {
           ally.Descriptor.AddBuff(
             Buff, Context, ContextDuration.Fixed(1).Calculate(Context).Seconds);
-          if (ally != caster && ally.IsAlive &&
+          if (ally != caster && !ally.Descriptor.State.IsDead &&
             ally.DistanceTo(target) <= 7.Feet().Meters)
           {
             Kingmaker.Game.Instance.CombatEngagementController

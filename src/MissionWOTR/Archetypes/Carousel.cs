@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -15,7 +16,6 @@ using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
-using Kingmaker.Pathfinding;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
@@ -23,6 +23,8 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
+using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
+using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands;
 using Kingmaker.UnitLogic.Commands.Base;
@@ -32,6 +34,7 @@ using MissionWOTR.Feats;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TurnBased.Controllers;
 using UnityEngine;
 
@@ -290,7 +293,7 @@ namespace MissionWOTR.Archetypes
 
     bool IAbilityRestriction.IsAbilityRestrictionPassed(AbilityData ability)
     {
-      var caster = ability.Caster;
+      var caster = ability.Caster?.Unit;
       if (caster is null)
       {
         return false;
@@ -359,11 +362,7 @@ namespace MissionWOTR.Archetypes
       Vector3 endPoint = target.Position;
       caster.View.StopMoving();
       caster.View.AgentASP.IsCharging = true;
-      caster.View.AgentASP.ForcePath(new ForcedPath(new List<Vector3>
-      {
-        position,
-        endPoint,
-      }), true);
+      ForceChargePath(caster, position, endPoint);
       caster.Descriptor.AddBuff(
         BlueprintRoot.Instance.SystemMechanics.ChargeBuff, context, 1.Rounds().Seconds);
       caster.Descriptor.State.IsCharging = true;
@@ -413,6 +412,42 @@ namespace MissionWOTR.Archetypes
       }
     }
 
+    /// <summary>
+    /// ForcePath without a compile-time AstarPathfindingProject reference
+    /// (the mod's lib set does not ship that assembly): the ForcedPath object
+    /// and the ForcePath call are built by reflection.
+    /// </summary>
+    private static void ForceChargePath(UnitEntityData caster, Vector3 from, Vector3 to)
+    {
+      try
+      {
+        var forcedPathType = typeof(CarouselChargeLogic).Assembly
+          .GetType("Kingmaker.Pathfinding.ForcedPath");
+        if (forcedPathType is null)
+        {
+          MissionFeats.Logger.Warn("[carousel] ForcedPath type not found.");
+          return;
+        }
+        var path = Activator.CreateInstance(
+          forcedPathType, new object[] { new List<Vector3> { from, to } });
+        var agent = caster.View.AgentASP;
+        var method = agent.GetType().GetMethod(
+          "ForcePath",
+          BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
+          null, new[] { forcedPathType, typeof(bool) }, null);
+        if (method is null)
+        {
+          MissionFeats.Logger.Warn("[carousel] ForcePath method not found.");
+          return;
+        }
+        method.Invoke(agent, new[] { path, true });
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[carousel] forced path failed.", e);
+      }
+    }
+
     private static IEnumerator TurnBasedRoutine(
       UnitEntityData caster, UnitEntityData target, UnitAttack attack)
     {
@@ -440,11 +475,7 @@ namespace MissionWOTR.Archetypes
             }
             if (!agentASP.IsReallyMoving)
             {
-              agentASP.ForcePath(new ForcedPath(new List<Vector3>
-              {
-                caster.Position,
-                target.Position,
-              }), true);
+              ForceChargePath(caster, caster.Position, target.Position);
               if (!agentASP.IsReallyMoving)
               {
                 break;
@@ -503,11 +534,7 @@ namespace MissionWOTR.Archetypes
           if (position != endPoint)
           {
             endPoint = position;
-            caster.View.AgentASP.ForcePath(new ForcedPath(new List<Vector3>
-            {
-              caster.Position,
-              endPoint,
-            }), true);
+            ForceChargePath(caster, caster.Position, endPoint);
           }
           yield return null;
         }
