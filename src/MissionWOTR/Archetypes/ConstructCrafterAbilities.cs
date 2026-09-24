@@ -328,17 +328,22 @@ namespace MissionWOTR.Archetypes
       var followPassive = FollowAction(
         "ConstructCrafterAiFollowPassive", Guids.AiFollowPassive, approachFeet: 5f, score: 25f);
       // Guard: hold the crafter's company (10 ft) when nothing threatens.
+      // 0.4.13 lesson: the follow score must stay BELOW the weapon attack (~10) -
+      // with follow at 10-15 the constructs preferred escorting the crafter over
+      // fighting ("stood there" in combat). Following out of combat is handled by
+      // the engine's summon link anyway; the in-brain follow is only a low-priority
+      // backstop for when the crafter wanders off mid-fight.
       var followGuard = FollowAction(
-        "ConstructCrafterAiFollowGuard", Guids.AiFollowGuard, approachFeet: 10f, score: 10f);
+        "ConstructCrafterAiFollowGuard", Guids.AiFollowGuard, approachFeet: 10f, score: 3f);
       // Distance: shadow the crafter loosely (30 ft), fight from range.
       var followDistance = FollowAction(
-        "ConstructCrafterAiFollowDistance", Guids.AiFollowDistance, approachFeet: 30f, score: 8f);
+        "ConstructCrafterAiFollowDistance", Guids.AiFollowDistance, approachFeet: 30f, score: 3f);
 
-      // Default: follow the crafter closely and fight. Assigned at deploy when no
-      // program is active and the core grants no role abilities - without this the
-      // unit keeps its (player-companion) blueprint brain and just stands around.
+      // Default: fight first, follow the crafter only when no enemy is engageable.
+      // Assigned at deploy when no program is active and the core grants no role
+      // abilities.
       var followDefault = FollowAction(
-        "ConstructCrafterAiFollowDefault", Guids.AiFollowDefault, approachFeet: 10f, score: 15f);
+        "ConstructCrafterAiFollowDefault", Guids.AiFollowDefault, approachFeet: 10f, score: 3f);
       var defaultActions = new List<Blueprint<BlueprintAiActionReference>> { followDefault };
       if (attack != null)
       {
@@ -414,9 +419,11 @@ namespace MissionWOTR.Archetypes
 
     private static void ConfigureVariantUnits()
     {
-      // Same Summoned faction as the base units (see ConstructCrafter.ConfigureUnits).
+      // Same Summoned faction and class-level control as the base units (see
+      // ConstructCrafter.ConfigureUnits and SetClassLevels - copied components are
+      // never mutated; the chassis' class-level component is excluded and replaced).
       var summonFaction = FactionRefs.Summoned.Reference.Get();
-      var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
+      var kolyarut = UnitRefs.CR12_InevitableKolyarutStandard.Reference.Get();
       var stoneSummon = UnitRefs.GolemStoneSummon.Reference.Get();
       var woodSummon = UnitRefs.GolemWoodSummon.Reference.Get();
 
@@ -426,40 +433,60 @@ namespace MissionWOTR.Archetypes
 
       // Archer humanoid: bow in inventory; the stock brain attacks with the equipped weapon.
       HumanoidArcherUnit = ConstructCrafter.CloneUnit(
-        "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit, bandit);
+        "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit, kolyarut,
+        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
       UnitConfigurator.For("ConstructCrafterHumanoidArcher")
+        .SetStrength(18)
+        .SetDexterity(16)
+        .SetConstitution(12)
+        .SetMaxHP(10)
         .SetFaction(summonFaction)
         .SetStartingInventory(ItemWeaponRefs.CompositeLongbow.Cast<BlueprintItemReference>())
         .Configure();
+      ConstructCrafter.SetClassLevels(
+        "ConstructCrafterHumanoidArcher", CharacterClassRefs.FighterClass, 6);
 
       // Caster humanoid / caster golem / ranged sentry: custom brains.
       HumanoidCasterUnit = ConstructCrafter.CloneUnit(
-        "ConstructCrafterHumanoidCaster", Guids.ConstructCrafterHumanoidCasterUnit, bandit);
+        "ConstructCrafterHumanoidCaster", Guids.ConstructCrafterHumanoidCasterUnit, kolyarut,
+        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
       UnitConfigurator.For("ConstructCrafterHumanoidCaster")
+        .SetStrength(18)
+        .SetDexterity(14)
+        .SetConstitution(12)
+        .SetMaxHP(10)
         .SetFaction(summonFaction)
+        .SetStartingInventory(ItemWeaponRefs.ColdIronLongsword.Cast<BlueprintItemReference>())
         .Configure();
+      ConstructCrafter.SetClassLevels(
+        "ConstructCrafterHumanoidCaster", CharacterClassRefs.FighterClass, 6);
       SetBrain(Guids.ConstructCrafterHumanoidCasterUnit, "ConstructCrafterCasterBrain");
 
       GolemCasterUnit = ConstructCrafter.CloneUnit(
         "ConstructCrafterGolemCaster", Guids.ConstructCrafterGolemCasterUnit, stoneSummon,
         c => !c.name.Contains("Slow")
-          && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical);
+          && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical
+          && c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
       UnitConfigurator.For("ConstructCrafterGolemCaster")
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
         .SetFaction(summonFaction)
         .Configure();
+      ConstructCrafter.SetClassLevels(
+        "ConstructCrafterGolemCaster", CharacterClassRefs.ConstructClass, 14);
       SetBrain(Guids.ConstructCrafterGolemCasterUnit, "ConstructCrafterCasterBrain");
 
       SentryRangedUnit = ConstructCrafter.CloneUnit(
-        "ConstructCrafterSentryRanged", Guids.ConstructCrafterSentryRangedUnit, woodSummon);
+        "ConstructCrafterSentryRanged", Guids.ConstructCrafterSentryRangedUnit, woodSummon,
+        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
       UnitConfigurator.For("ConstructCrafterSentryRanged")
         .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
         .SetStrength(woodSummon.Strength - 4)
         .SetDexterity(woodSummon.Dexterity - 2)
         .SetFaction(summonFaction)
-        .SetColor(new UnityEngine.Color(0.42f, 0.45f, 0.48f))
         .Configure();
+      ConstructCrafter.SetClassLevels(
+        "ConstructCrafterSentryRanged", CharacterClassRefs.ConstructClass, 2);
       SetBrain(Guids.ConstructCrafterSentryRangedUnit, "ConstructCrafterRangedBrain");
     }
 

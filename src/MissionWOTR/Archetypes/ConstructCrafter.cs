@@ -16,6 +16,8 @@ using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Items;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
@@ -44,7 +46,7 @@ namespace MissionWOTR.Archetypes
   ///   L1  Deploy Clockwork Sentry (dog base), extra combat feat, Basic Core selection,
   ///       Basic Program selection
   ///   L7  Deploy Humanoid Construct (humanoid base: fighter with AL-2 levels)
-  ///   L16 Deploy Clay Golem (golem base: tabletop clay golem minus berserk, -20 HP, -2 Str)
+  ///   L16 Deploy Stone Golem (golem base: tabletop clay-golem role on the stone golem chassis)
   ///
   /// A base is deployed as a standard action; the construct lasts until destroyed or until
   /// the same base is deployed again (the old one is replaced). Cores and programs are
@@ -63,9 +65,9 @@ namespace MissionWOTR.Archetypes
     internal const string DisplayName = "ConstructCrafter.Name";
     internal const string Description = "ConstructCrafter.Description";
 
-    internal const string SentryUnitName = "ConstructCrafterIronSentry";
+    internal const string SentryUnitName = "ConstructCrafterCarvedSentry";
     internal const string HumanoidUnitName = "ConstructCrafterHumanoidConstruct";
-    internal const string GolemUnitName = "ConstructCrafterClayGolem";
+    internal const string GolemUnitName = "ConstructCrafterStoneGolem";
 
     internal const string DeploySentryFeatureName = "ConstructCrafterDeploySentry";
     internal const string DeployHumanoidFeatureName = "ConstructCrafterDeployHumanoid";
@@ -231,35 +233,57 @@ namespace MissionWOTR.Archetypes
       // stats, brain, sounds); the summon variants additionally bring the summon
       // brain, Summoned faction baseline and a pre-tuned statblock; overrides are
       // applied on top via configurator setters.
+      // 0.4.13 lesson: the chassis' own AddClassLevels component drives the real
+      // statblock (hit points, BAB - the wood golem's 8 construct levels made the
+      // "weakest" sentry spawn with 72 HP). Copied components may be SHARED with
+      // the stock unit, so they are never mutated: the stock class-level component
+      // is excluded by the clone matcher and a fresh one with our own level count
+      // is added (SetClassLevels below).
       var woodSummon = UnitRefs.GolemWoodSummon.Reference.Get();
 
-      // --- Iron Sentry: wrought-iron scout construct (wood golem model, gunmetal
-      // tint). The wood golem is the only dog-shaped construct model in the game -
-      // the grey tint reads it as forged metal. --- 
-      SentryUnit = CloneUnit(SentryUnitName, Guids.ConstructCrafterSentryUnit, woodSummon);
+      // --- Carved Sentry: carved-wood scout construct (the wood golem is the only
+      // dog-shaped construct model in the game; a blueprint cannot retint the model
+      // materials, so the look stays wooden and the name says so). Two construct
+      // levels - deliberately the weakest summon. ---
+      SentryUnit = CloneUnit(SentryUnitName, Guids.ConstructCrafterSentryUnit, woodSummon,
+        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
       UnitConfigurator.For(SentryUnitName)
         .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
         .SetStrength(woodSummon.Strength - 4)
         .SetDexterity(woodSummon.Dexterity - 2)
         .SetFaction(summonFaction)
-        .SetColor(new UnityEngine.Color(0.42f, 0.45f, 0.48f))
         .Configure();
+      SetClassLevels(SentryUnitName, CharacterClassRefs.ConstructClass, 2);
 
-      // --- Humanoid Construct: fighter with (AL-2) levels, applied at deploy time ---
-      var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
-      HumanoidUnit = CloneUnit(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit, bandit);
+      // --- Humanoid Construct: wrought like the inevitables - a metal construct
+      // body cloned from the game's own Kolyarut (the android-looking inevitable),
+      // with a fighter's training. Six real fighter levels bake in the hit dice;
+      // the deploy finisher adds fake fighter levels on top so the final level is
+      // (alchemist level - 2). ---
+      var kolyarut = UnitRefs.CR12_InevitableKolyarutStandard.Reference.Get();
+      HumanoidUnit = CloneUnit(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit, kolyarut,
+        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
       UnitConfigurator.For(HumanoidUnitName)
+        .SetStrength(18)
+        .SetDexterity(14)
+        .SetConstitution(12)
+        .SetMaxHP(10)
         .SetFaction(summonFaction)
+        // Fallback weapon in case the chassis' own attack routines do not survive
+        // the clone: the fighter levels grant martial proficiency.
+        .SetStartingInventory(ItemWeaponRefs.ColdIronLongsword.Cast<BlueprintItemReference>())
         .Configure();
+      SetClassLevels(HumanoidUnitName, CharacterClassRefs.FighterClass, 6);
 
-      // --- Clay Golem: tabletop chassis (no berserk, -20 HP, -2 Str) ---
-      // Built on the game's stone golem SUMMON variant (GolemStoneSummon); the slow
-      // breath component is stripped and the golem's physical DR replaced with our
-      // constant 5/adamantine package (see adaptation notes in docs/ARCHETYPES.md).
+      // --- Stone Golem: the clay-golem role on the stone golem's body (no clay
+      // golem exists in Wrath - and the stone look is the keeper). No berserk,
+      // -20 HP, -2 Str; the golem's physical DR is replaced with our constant
+      // 5/adamantine package (see adaptation notes in docs/ARCHETYPES.md). ---
       var stoneSummon = UnitRefs.GolemStoneSummon.Reference.Get();
       GolemUnit = CloneUnit(GolemUnitName, Guids.ConstructCrafterGolemUnit, stoneSummon,
         c => !c.name.Contains("Slow")
-          && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical);
+          && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical
+          && c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
       UnitConfigurator.For(GolemUnitName)
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
@@ -267,6 +291,7 @@ namespace MissionWOTR.Archetypes
         .AddDamageResistancePhysical(
           value: 5, bypassedByMaterial: true, material: PhysicalDamageMaterial.Adamantite)
         .Configure();
+      SetClassLevels(GolemUnitName, CharacterClassRefs.ConstructClass, 14);
 
       // --- Clockwork Plating: the sentry's scaling DR (half alchemist level). ---
       ClockworkPlatingBuff = BuffConfigurator.New(PlatingBuffName, Guids.ConstructCrafterPlatingBuff)
@@ -289,6 +314,37 @@ namespace MissionWOTR.Archetypes
         .SetDescription("CrafterMarker.Description")
         .SetIcon(FeatureRefs.CombatReflexes.Reference.Get().Icon)
         .Configure();
+    }
+
+    /// <summary>
+    /// Adds a fresh AddClassLevels component to a configured unit blueprint with a
+    /// controlled level count (the chassis' own class-level component is excluded
+    /// during cloning - copied components can be shared with the stock unit and are
+    /// never mutated). Shaped after ExpandedContent's golem summons: no skill or
+    /// feat selections, applied automatically on spawn.
+    /// </summary>
+    internal static void SetClassLevels(
+      string unitName, Blueprint<BlueprintReference<BlueprintCharacterClass>> cls, int levels)
+    {
+      var classRef = cls.Reference.Get().ToReference<BlueprintCharacterClassReference>();
+      UnitConfigurator.For(unitName)
+        .AddComponent<Kingmaker.UnitLogic.FactLogic.AddClassLevels>(c =>
+        {
+          c.Levels = levels;
+          c.RaceStat = StatType.Constitution;
+          c.LevelsStat = StatType.Unknown;
+          c.Skills = new StatType[0];
+          c.DoNotApplyAutomatically = false;
+          // m_CharacterClass is not public in current game builds - same reflection
+          // treatment as BlueprintUnit.m_Brain and ContextActionSpawnMonster.m_Blueprint.
+          typeof(Kingmaker.UnitLogic.FactLogic.AddClassLevels).GetField(
+            "m_CharacterClass",
+            System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance)
+            ?.SetValue(c, classRef);
+        })
+        .Configure();
+      Logger.Info($"[units] {unitName}: class levels set to {levels}.");
     }
 
     /// <summary>
@@ -659,6 +715,18 @@ namespace MissionWOTR.Archetypes
           MissionFeats.Logger.Info(
             $"[deploy] removing stray construct {old.Blueprint.name} (uid={old.UniqueId}).");
           old.IsInGame = false;
+          // IsInGame=false alone does not remove the unit from the saved area
+          // state (the ghosts kept re-restoring every load, each restore crashing
+          // item creation); destroy them outright, falling back to hiding.
+          try
+          {
+            old.MarkForDestroy();
+          }
+          catch (Exception destroyEx)
+          {
+            MissionFeats.Logger.Warn(
+              $"[deploy] could not destroy stray {old.UniqueId}: {destroyEx.Message}");
+          }
         }
 
         // Role variant: the active core may swap in a specialized chassis (archer,
@@ -772,11 +840,15 @@ namespace MissionWOTR.Archetypes
           : BaseKind == 1 ? ConstructCrafterAbilities.ManBaseMarker
           : ConstructCrafterAbilities.GolemBaseMarker;
 
-        // Humanoid base: a fighter with (alchemist level - 2) levels.
+        // Humanoid base: a fighter whose final level is (alchemist level - 2). Six
+        // real fighter levels are baked into the chassis (real hit dice); the rest
+        // come as fake levels (BAB/saves scaling - fake levels add no hit points,
+        // which is why the real levels are baked).
         if (AddFighterLevels)
         {
           var fighter = CharacterClassRefs.FighterClass.Reference.Get();
-          construct.Descriptor.Progression.AddFakeClassLevels(fighter, Math.Max(1, alchemistLevel - 2));
+          construct.Descriptor.Progression.AddFakeClassLevels(
+            fighter, Math.Max(1, alchemistLevel - 2 - 6));
         }
 
         // Base identity marker (replacement tracking across variants).
@@ -825,21 +897,21 @@ namespace MissionWOTR.Archetypes
           construct.AddBuff(ConstructCrafterCores.NoAoOBuff, Context);
         }
 
-        // Iron sentry: scaling damage reduction (half alchemist level).
+        // Carved sentry: scaling damage reduction (half alchemist level).
         if (ApplyPlating && ConstructCrafter.ClockworkPlatingBuff is not null)
         {
           construct.AddBuff(ConstructCrafter.ClockworkPlatingBuff, Context);
         }
 
-        // Deploy-time brain: program behaviors take priority over the caster role.
-        // With neither, the construct KEEPS its stock summon brain (cloned from the
-        // game's own summon-variant units): the engine's SummonedUnitsController
-        // moves any summon-linked unit to its summoner out of combat, and the stock
-        // brain fights - the exact behavior of an ordinary summon, which needs no
-        // help from us. (The old code force-swapped in our custom DefaultBrain here;
-        // that brain family is still unproven in play, so it is no longer load-
-        // bearing for the default case.)
-        BlueprintBrain chosenBrain = null;
+        // Deploy-time brain: program behaviors take priority over the caster role;
+        // with neither, the default brain (attack first, follow the crafter when
+        // idle) applies. 0.4.12 let no-program constructs keep the stock summon
+        // brain, which idled or cast the chassis' own (unsuited) specials - every
+        // construct now runs one of OUR brains, whose actions reference only the
+        // weapon attack and the abilities we grant. Out-of-combat following is
+        // engine-driven (SummonedUnitsController moves summon-linked units to
+        // their summoner), so the brain change does not affect it.
+        BlueprintBrain chosenBrain;
         if (program?.IsPassive == true)
         {
           chosenBrain = ConstructCrafterAbilities.PassiveBrain;
@@ -856,27 +928,31 @@ namespace MissionWOTR.Archetypes
         {
           chosenBrain = ConstructCrafterAbilities.CasterBrain;
         }
-        if (chosenBrain != null)
+        else
         {
-          if (construct.Brain != null)
-          {
-            construct.Brain.SetBrain(chosenBrain);
-            construct.Brain.RestoreAvailableActions();
-            MissionFeats.Logger.Info(
-              $"[deploy] {construct.Blueprint.name}: brain set to {chosenBrain.name}.");
-          }
-          else
-          {
-            MissionFeats.Logger.Warn(
-              $"[deploy] {construct.Blueprint.name}: brain instance missing, cannot set {chosenBrain.name}.");
-          }
+          chosenBrain = ConstructCrafterAbilities.DefaultBrain;
+        }
+        if (construct.Brain != null && chosenBrain != null)
+        {
+          construct.Brain.SetBrain(chosenBrain);
+          construct.Brain.RestoreAvailableActions();
+          MissionFeats.Logger.Info(
+            $"[deploy] {construct.Blueprint.name}: brain set to {chosenBrain.name}.");
         }
         else
         {
-          MissionFeats.Logger.Info(
-            $"[deploy] {construct.Blueprint.name}: no program/role brain - " +
-            $"keeping stock summon brain (engine handles follow + combat).");
+          MissionFeats.Logger.Warn(
+            $"[deploy] {construct.Blueprint.name}: brain instance or chosen brain missing " +
+            $"(instance={construct.Brain != null}, chosen={chosenBrain?.name ?? "none"}).");
         }
+
+        // Owned facts at deploy time - settles "what did it cast" questions from
+        // the next playtest log without guesswork.
+        var ownedFacts = construct.Abilities.Select(a => a.Blueprint?.name).Where(n => n != null)
+          .Take(12).ToList();
+        MissionFeats.Logger.Info(
+          $"[deploy] {construct.Blueprint.name} owned abilities: " +
+          $"{(ownedFacts.Count > 0 ? string.Join(", ", ownedFacts) : "none")}.");
 
         // Mark the crafter so follow actions can home in on them even when no
         // program toggle is active (see CrafterMarkerBuff).

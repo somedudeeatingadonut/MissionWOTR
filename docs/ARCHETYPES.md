@@ -60,7 +60,7 @@ the construct lasts until destroyed or until the same base is deployed again.
 
 | Feature | Real level | Details |
 |---|---|---|
-| Deploy Iron Sentry | 1 | Full clone of the game's own GolemWoodSummon (dog-shaped wood golem, gunmetal tint), Summoned faction, toned down (−4 Str, −2 Dex, HP/3); DR = ½ alchemist level, bypassed by adamantine (dynamic buff applied at deploy); engine summon link makes it follow the crafter out of combat |
+| Deploy Carved Sentry | 1 | Full clone of the game's own GolemWoodSummon (dog-shaped wood golem — no metal dog model exists and blueprints cannot retint model materials, so the look is honestly wooden), Summoned faction, 2 construct levels (weakest base), −4 Str, −2 Dex, HP/3; DR = ½ alchemist level, bypassed by adamantine (applied at deploy); engine summon link follows the crafter out of combat |
 | Extra combat feat | 1 | FighterFeatSelection (fighter bonus-feat list) |
 | Basic Core + Basic Program selections | 1 | Core selection v1: Basic only; Program selection: Basic + six programs |
 | Proficiencies | 1 | Light armor, longbow, shortbow, throwing axe, flail, heavy flail, warhammer, greatclub + vanilla simple weapons |
@@ -154,8 +154,8 @@ package).
 | Guard | +dodge AC, +AoOs, DR 2/−, −damage (×2 the rate) |
 | Distance | +BAB, −AC, flat −2 attack, flat −2 saves |
 | Chaos | +attack, +AC, +initiative, +all saves; same-base redeploy blocked while the chaos construct lives |
-| Deploy Humanoid Construct | 7 | Fighter with (alchemist level − 2) fake fighter levels, simple equipment chassis |
-| Deploy Clay Golem | 16 | Tabletop clay golem: no berserk, −20 HP (87), Str 30, DR 5/adamantine |
+| Deploy Humanoid Construct | 7 | Metal construct body (Kolyarut chassis, the android-looking inevitable) with 6 real fighter levels baked in + fake fighter levels at deploy so the final level is (alchemist level − 2); cold iron longsword fallback |
+| Deploy Stone Golem | 16 | Tabletop clay-golem role on the stone golem chassis (renamed to match the model): no berserk, −20 HP (87), Str 30, 14 construct levels, DR 5/adamantine |
 
 Chassis: keeps alchemist BAB/HD; removes mutagen (L1), poison resistance (L2/L5), poison
 immunity (L10, best-effort). Cores/programs are chosen before deployment (selections).

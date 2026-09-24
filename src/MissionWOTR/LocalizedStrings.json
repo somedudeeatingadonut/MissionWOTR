@@ -615,17 +615,17 @@
   {
     "Key": "ConstructCrafter.Description",
     "ProcessTemplates": false,
-    "enGB": "A metallics-themed engineer who deploys construct summons: uncontrollable, relentless, and deliberately less customizable than any companion. You may have one construct of each base active at a time; deploying the same base again replaces the old construct.\nDeployable bases: Iron Sentry (level 1), Humanoid Construct (level 7), Clay Golem (level 16). Cores (stat packages) and programs (behavior packages) are chosen before deployment.\nThe archetype keeps the alchemist's hit dice and attack progression but trades away mutagen and the alchemist's poison-related features, and grants an extra combat feat at level 1."
+    "enGB": "A metallics-themed engineer who deploys construct summons: uncontrollable, relentless, and deliberately less customizable than any companion. You may have one construct of each base active at a time; deploying the same base again replaces the old construct.\nDeployable bases: Carved Sentry (level 1), Humanoid Construct (level 7), Stone Golem (level 16). Cores (stat packages) and programs (behavior packages) are chosen before deployment.\nThe archetype keeps the alchemist's hit dice and attack progression but trades away mutagen and the alchemist's poison-related features, and grants an extra combat feat at level 1."
   },
   {
     "Key": "DeploySentry.Name",
     "ProcessTemplates": false,
-    "enGB": "Deploy Iron Sentry"
+    "enGB": "Deploy Carved Sentry"
   },
   {
     "Key": "DeploySentry.Description",
     "ProcessTemplates": false,
-    "enGB": "Deploy an iron sentry - a wrought-iron construct scout (standard action). Its plating grants damage reduction equal to half your alchemist level, bypassed by adamantine. The sentry acts on its own - it cannot be controlled - and remains until destroyed or until you deploy another sentry."
+    "enGB": "Deploy a carved sentry - a carved-wood construct scout (standard action). Its plating grants damage reduction equal to half your alchemist level, bypassed by adamantine. The sentry acts on its own - it cannot be controlled - and remains until destroyed or until you deploy another sentry."
   },
   {
     "Key": "DeployHumanoid.Name",
@@ -640,12 +640,12 @@
   {
     "Key": "DeployGolem.Name",
     "ProcessTemplates": false,
-    "enGB": "Deploy Clay Golem"
+    "enGB": "Deploy Stone Golem"
   },
   {
     "Key": "DeployGolem.Description",
     "ProcessTemplates": false,
-    "enGB": "Deploy a clay golem (standard action): a hulking construct without its kind's berserk tendency and somewhat weaker than the standard golem. It acts on its own and remains until destroyed or replaced."
+    "enGB": "Deploy a stone golem (standard action): a hulking construct without its kind's berserk tendency and somewhat weaker than the standard golem. It acts on its own and remains until destroyed or replaced."
   },
   {
     "Key": "BasicCore.Name",
@@ -815,7 +815,7 @@
   {
     "Key": "FlamingCore.Description",
     "ProcessTemplates": false,
-    "enGB": "Bind an elemental fire. Iron Sentry: +10 foot speed, +damage (half alchemist level), +saves (half alchemist level), sneak attack, but -AC and it burns for 1 damage each round. Humanoid Construct: attacks deal +2d6 fire damage and set enemies burning. Clay Golem: wreathed in flame that scorches nearby enemies and ignites those it strikes, but it has no attacks of opportunity (the Guard program restores them) and burns for 2 damage each round."
+    "enGB": "Bind an elemental fire. Carved Sentry: +10 foot speed, +damage (half alchemist level), +saves (half alchemist level), sneak attack, but -AC and it burns for 1 damage each round. Humanoid Construct: attacks deal +2d6 fire damage and set enemies burning. Stone Golem: wreathed in flame that scorches nearby enemies and ignites those it strikes, but it has no attacks of opportunity (the Guard program restores them) and burns for 2 damage each round."
   },
   {
     "Key": "ColdCore.Name",
@@ -825,7 +825,7 @@
   {
     "Key": "ColdCore.Description",
     "ProcessTemplates": false,
-    "enGB": "Bind an elemental rime. Iron Sentry: hits knock enemies prone and slow them; +saves (half alchemist level), -10 foot speed. Humanoid Construct: +20 foot speed and +damage (half alchemist level) - it charges like a skater on black ice. Clay Golem: attacks deal +1d6 cold damage and slow enemies."
+    "enGB": "Bind an elemental rime. Carved Sentry: hits knock enemies prone and slow them; +saves (half alchemist level), -10 foot speed. Humanoid Construct: +20 foot speed and +damage (half alchemist level) - it charges like a skater on black ice. Stone Golem: attacks deal +1d6 cold damage and slow enemies."
   },
   {
     "Key": "BloodyCore.Name",
@@ -865,7 +865,7 @@
   {
     "Key": "LightlessCore.Description",
     "ProcessTemplates": false,
-    "enGB": "A heart of pure shadow. Iron Sentry and Humanoid Construct: sneak attack (1 die per 3 alchemist levels) plus attack and dodge bonuses (half alchemist level). Clay Golem: strikes shake and frighten enemies, and it gains will save bonuses."
+    "enGB": "A heart of pure shadow. Carved Sentry and Humanoid Construct: sneak attack (1 die per 3 alchemist levels) plus attack and dodge bonuses (half alchemist level). Stone Golem: strikes shake and frighten enemies, and it gains will save bonuses."
   },
   {
     "Key": "BoomingCore.Name",
@@ -920,7 +920,7 @@
   {
     "Key": "SentryBaseMarker.Name",
     "ProcessTemplates": false,
-    "enGB": "Iron Sentry Chassis"
+    "enGB": "Carved Sentry Chassis"
   },
   {
     "Key": "SentryBaseMarker.Description",
@@ -940,7 +940,7 @@
   {
     "Key": "GolemBaseMarker.Name",
     "ProcessTemplates": false,
-    "enGB": "Clay Golem Chassis"
+    "enGB": "Stone Golem Chassis"
   },
   {
     "Key": "GolemBaseMarker.Description",
