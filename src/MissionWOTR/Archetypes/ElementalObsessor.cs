@@ -272,6 +272,7 @@ namespace MissionWOTR.Archetypes
           yield return bp;
         }
       }
+      var instanceResults = new List<T>();
       try
       {
         var cache = ResourcesLibrary.BlueprintsCache;
@@ -283,16 +284,17 @@ namespace MissionWOTR.Archetypes
             {
               continue;
             }
-            foreach (var bp in Probe(field.GetValue(cache)))
-            {
-              yield return bp;
-            }
+            instanceResults.AddRange(Probe(field.GetValue(cache)));
           }
         }
       }
       catch (Exception e)
       {
         MissionFeats.Logger.Error("ElementalObsessor: cache enumeration failed.", e);
+      }
+      foreach (var bp in instanceResults)
+      {
+        yield return bp;
       }
     }
 
