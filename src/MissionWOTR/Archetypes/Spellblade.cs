@@ -15,6 +15,7 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
@@ -156,7 +157,7 @@ namespace MissionWOTR.Archetypes
           .SetDamageType(new DamageTypeDescription
           {
             Type = DamageType.Energy,
-            Energy = DamageEnergyType.Force,
+            Energy = DamageEnergyType.Magic,
           })
           .SetEnchantments(TemporaryEnhancement[i])
           .Configure();
@@ -269,7 +270,7 @@ namespace MissionWOTR.Archetypes
         .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard)
         .AllowTargeting(enemies: true)
         .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
-        .AddAbilityCasterHasFacts(facts: AthameFactRefs, needsAll: false)
+        .AddAbilityCasterHasFacts(facts: athameFactRefs, needsAll: false)
         .AddAbilityEffectRunAction(ActionsBuilder.New()
           .Add(new SpellbladeThrowAthameAction
           {
@@ -288,7 +289,7 @@ namespace MissionWOTR.Archetypes
         .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard)
         .AllowTargeting(enemies: true)
         .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
-        .AddAbilityCasterHasFacts(facts: AthameFactRefs, needsAll: false)
+        .AddAbilityCasterHasFacts(facts: athameFactRefs, needsAll: false)
         .AddAbilityResourceLogic(
           requiredResource: ArcanePoolResourceGuid, amount: 2, isSpendResource: true)
         .AddAbilityEffectRunAction(ActionsBuilder.New()
@@ -486,7 +487,7 @@ namespace MissionWOTR.Archetypes
           {
             var bundle = new DamageBundle();
             bundle.Add(new EnergyDamage(
-              new DiceFormula(BonusDice, DiceType.D6), 0, DamageEnergyType.Force));
+              new DiceFormula(BonusDice, DiceType.D6), 0, DamageEnergyType.Magic));
             Rulebook.Trigger(new RuleDealDamage(caster, target, bundle));
           }
           MissionFeats.Logger.Info(
