@@ -742,6 +742,7 @@ namespace MissionWOTR.Archetypes
         }
 
         int removed = 0;
+        var seen = new HashSet<string>();
 
         // PRIMARY sweep - the summon pool. Engine summons spawn into the CASTER's
         // holding state (RulePerformSummonUnit uses ConcreteInitiator.
@@ -769,23 +770,55 @@ namespace MissionWOTR.Archetypes
             {
               continue;
             }
-            Desummon(old, "pool");
-            removed++;
+            if (seen.Add(old.UniqueId))
+            {
+              Desummon(old, "pool");
+              removed++;
+            }
+          }
+        }
+
+        // SECOND sweep - the crafter's own holding state. RulePerformSummonUnit
+        // spawns summons into the CASTER's holding state (ConcreteInitiator.
+        // HoldingState), so this is exactly where restored constructs live after
+        // a save/load - the 0.4.13 log showed the area-state scan never seeing
+        // them (uids 5709/5748/577E survived redeployment while the area sweep
+        // only caught the two pre-0.4.11 ghosts). The pool above covers the
+        // in-session case; this covers the restored case even if pool
+        // registration does not persist.
+        if (caster.HoldingState != null)
+        {
+          foreach (var old in caster.HoldingState.AllEntityData.OfType<UnitEntityData>())
+          {
+            if (old is null || old.HPLeft <= 0 || old.Blueprint is null ||
+              !family.Any(n => string.Equals(n, old.Blueprint.name,
+                StringComparison.OrdinalIgnoreCase)))
+            {
+              continue;
+            }
+            if (seen.Add(old.UniqueId))
+            {
+              Desummon(old, "caster-state");
+              removed++;
+            }
           }
         }
 
         // BACKUP sweep - the loaded area state. Catches marker-tagged units the
-        // pool may have missed (e.g. half-initialized ghosts from pre-0.4.11
-        // saves, whose restore crashed before buffs loaded) and any same-family
-        // leftovers.
+        // other sweeps may have missed (e.g. half-initialized ghosts from
+        // pre-0.4.11 saves, whose restore crashed before buffs loaded) and any
+        // same-family leftovers.
         foreach (var old in existing.Where(
           u => u.HPLeft > 0 && u.Blueprint != null &&
             (u.Buffs.GetBuff(baseMarker) != null ||
               family.Any(n => string.Equals(n, u.Blueprint.name,
                 StringComparison.OrdinalIgnoreCase)))))
         {
-          Desummon(old, "area");
-          removed++;
+          if (seen.Add(old.UniqueId))
+          {
+            Desummon(old, "area");
+            removed++;
+          }
         }
 
         MissionFeats.Logger.Info(
