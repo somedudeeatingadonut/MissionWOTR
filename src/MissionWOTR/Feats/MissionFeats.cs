@@ -60,6 +60,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(ElementalObsessor), ElementalObsessor.Configure);
       Configure(nameof(MummerMage), MummerMage.Configure);
       Configure(nameof(Cook), Cook.Configure);
+      Configure(nameof(Spellfist), Spellfist.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);

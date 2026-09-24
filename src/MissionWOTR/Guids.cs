@@ -406,5 +406,23 @@ namespace MissionWOTR
 
 
 
+
+    // ----- Spellfist (magus/monk fusion, 0.5.0) -----
+    internal const string SpellfistArchetype = "22656936-1307-47F6-8692-9615827C0A20";
+    internal const string SpellfistSpellbook = "E8C8B0CE-BC6D-4F06-A7B5-2EC4D433EB40";
+    internal const string SpellfistSpellList = "7A4045D2-C5D2-4B0B-990B-792369776C4E";
+    internal const string SpellfistCascade = "A20D2F56-304F-4837-B41E-8076846E2AD5";
+    internal const string SpellfistCascadeComponent = "54634A4C-2CBB-4817-B8FD-2FC1B072D05E";
+    internal const string SpellfistChargeBuff = "5AADB336-AAA6-430A-A045-350BE2BCFA08";
+    internal const string SpellfistBareFist = "1A81EECA-4CF1-4C6C-8CE3-ECD2248F5DF7";
+    internal const string SpellfistKiFlurry = "59772B52-0528-4E50-B778-0F5E3C77D0A0";
+    internal const string SpellfistFlurryBuff = "4BDB9EBF-F58D-44FA-9354-642423040A1B";
+    internal const string SpellfistSunder = "84E9B879-481D-432F-BA0F-E90CDC4E7628";
+    internal const string SpellfistSunderComponent = "E7648BFB-9967-426C-B66B-A38D1AA23F98";
+    internal const string SpellfistSunderedBuff = "9A8EE9A2-7ADE-4923-81B6-94BB0BBED65B";
+    internal const string SpellfistSunderRefundComponent = "AC79AFE4-99F4-4B53-BC5F-655C6BFB21CE";
+    internal const string SpellfistCarapace = "669CE651-6CA8-4A13-8864-E1C023713846";
+    internal const string SpellfistCarapaceBuff = "E55FF037-72A4-4C57-9EED-163ED1F7A6E5";
+
   }
 }

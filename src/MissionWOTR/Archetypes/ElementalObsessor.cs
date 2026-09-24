@@ -312,8 +312,9 @@ namespace MissionWOTR.Archetypes
     /// differences between game builds (the MakeDragonGreatAgain probe pattern:
     /// static fields on BlueprintsCache plus instance fields of
     /// ResourcesLibrary.BlueprintsCache, dictionary or enumerable shapes).
+    /// Shared with the other spell-list-building archetypes (Spellfist).
     /// </summary>
-    private static IEnumerable<T> AllBlueprints<T>() where T : BlueprintScriptableObject
+    internal static IEnumerable<T> AllBlueprints<T>() where T : BlueprintScriptableObject
     {
       var flags = System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public
         | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;

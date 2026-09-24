@@ -1534,5 +1534,105 @@
     "Key": "CookIngredientButter.Description",
     "ProcessTemplates": false,
     "enGB": "Everything is better with it: the eater gains a +1 bonus on all saving throws."
+  },
+  {
+    "Key": "Spellfist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spellfist"
+  },
+  {
+    "Key": "Spellfist.Description",
+    "ProcessTemplates": false,
+    "enGB": "A magus who eschews weapons and armor alike, charging his bare fists with every spell he knows. The Spellfist casts with Wisdom, learns only touch-range spells - drawn from every magical tradition in the game - and never delivers a spell as a single blow: each cast is split across every punch of his full attack. His flurry of blows cracks the enemy's damage reduction, his casting hardens his skin, and the longer he fights, the harder he is to kill.\nBare Fist Discipline: no weapon or armor proficiencies; fights with fists (reduced monk-style fist dice).\nSpell Cascade: touch spell damage is divided across all attacks of the full attack instead of one delivery; casts outside a full attack dissipate.\nKi Flurry: while unarmored, gains an extra unarmed attack at a -2 penalty and adds Wisdom to AC.\nSundering Blows: unarmed hits reduce the target's damage reduction for everyone.\nCasting Carapace: while a spell is charged, gains damage reduction.\nThe Spellfist also gains the Mission WOTR feat line as he levels."
+  },
+  {
+    "Key": "SpellfistCascade.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spell Cascade"
+  },
+  {
+    "Key": "SpellfistCascade.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Spellfist never lands a spell as one blow. When he casts a touch spell, the magic charges his fists for 2 rounds; the spell's damage is divided into one share per attack of his full attack, and each successful unarmed strike delivers one share of the original dice and energy. A cast that is not followed by unarmed attacks dissipates harmlessly. Non-damaging touch effects apply normally."
+  },
+  {
+    "Key": "SpellfistCharge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Charged Fists"
+  },
+  {
+    "Key": "SpellfistCharge.Description",
+    "ProcessTemplates": false,
+    "enGB": "A touch spell is held in the Spellfist's fists. Each successful unarmed attack delivers one share of the spell's damage. If the fists do not strike before the charge fades, the spell dissipates."
+  },
+  {
+    "Key": "SpellfistBareFist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bare Fist Discipline"
+  },
+  {
+    "Key": "SpellfistBareFist.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Spellfist forgos all weapons and armor. He gains Improved Unarmed Strike and the first of a monk's unarmed damage increases, but no weapon or armor proficiencies - anything he wields swings with non-proficient penalties, and his fists never grow as mighty as a true monk's."
+  },
+  {
+    "Key": "SpellfistKiFlurry.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Flurry"
+  },
+  {
+    "Key": "SpellfistKiFlurry.Description",
+    "ProcessTemplates": false,
+    "enGB": "While unarmored and unshielded, the Spellfist adds his Wisdom modifier to his AC, and his fists blur: he gains one extra attack when taking a full attack, at a -2 penalty on all attacks during the flurry."
+  },
+  {
+    "Key": "SpellfistFlurryBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Flurry of Fists"
+  },
+  {
+    "Key": "SpellfistFlurryBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Extra unarmed attack from the flurry; -2 on attack rolls; Wisdom bonus to AC."
+  },
+  {
+    "Key": "SpellfistSunder.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sundering Blows"
+  },
+  {
+    "Key": "SpellfistSundered.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sundered"
+  },
+  {
+    "Key": "SpellfistSunder.Description",
+    "ProcessTemplates": false,
+    "enGB": "Each of the Spellfist's unarmed hits cracks the target's guard, stacking the Sundered effect: every weapon attack against the target treats its damage reduction as 2 lower per stack (up to a rank cap that grows with level)."
+  },
+  {
+    "Key": "SpellfistSundered.Description",
+    "ProcessTemplates": false,
+    "enGB": "This creature's damage reduction is compromised: every weapon attack against it treats its DR as 2 lower per rank of this effect."
+  },
+  {
+    "Key": "SpellfistCarapace.Name",
+    "ProcessTemplates": false,
+    "enGB": "Casting Carapace"
+  },
+  {
+    "Key": "SpellfistCarapace.Description",
+    "ProcessTemplates": false,
+    "enGB": "The act of casting hardens the Spellfist. While his fists are charged with a spell, he gains damage reduction equal to a quarter of his class level (minimum 1 at 7th)."
+  },
+  {
+    "Key": "SpellfistCarapaceBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arcane Carapace"
+  },
+  {
+    "Key": "SpellfistCarapaceBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Casting has hardened the Spellfist's skin: he has damage reduction while this lasts."
   }
 ]
