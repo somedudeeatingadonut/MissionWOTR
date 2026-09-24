@@ -58,7 +58,7 @@ namespace MissionWOTR.Archetypes
   /// Role variants: the deploy action picks a variant unit by active core:
   ///   HumanoidArcher (Arbalest - bow in inventory, attacks with equipped weapon),
   ///   HumanoidCaster (Flaming/Soft), GolemCaster (Cold/Arbalest/Soft),
-  ///   SentryRanged (Arbalest/Soft). Base identity is tracked with marker buffs so any
+  ///   HoundRanged (Arbalest/Soft). Base identity is tracked with marker buffs so any
   ///   variant replaces any earlier construct of the same base.
   /// </summary>
   internal static class ConstructCrafterAbilities
@@ -70,14 +70,14 @@ namespace MissionWOTR.Archetypes
     internal static BlueprintAbility BlinkStrike;
 
     internal static BlueprintBuff MendBuff;
-    internal static BlueprintBuff SentryBaseMarker;
+    internal static BlueprintBuff HoundBaseMarker;
     internal static BlueprintBuff ManBaseMarker;
     internal static BlueprintBuff GolemBaseMarker;
 
     internal static BlueprintUnit HumanoidArcherUnit;
     internal static BlueprintUnit HumanoidCasterUnit;
     internal static BlueprintUnit GolemCasterUnit;
-    internal static BlueprintUnit SentryRangedUnit;
+    internal static BlueprintUnit HoundRangedUnit;
 
     // Brains: role (v1) and program-behavior (v2) handles for the deploy-time
     // runtime brain assignment (UnitBrain.SetBrain).
@@ -98,9 +98,9 @@ namespace MissionWOTR.Archetypes
     private static void ConfigureMarkers()
     {
       var icon = FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon;
-      SentryBaseMarker = BuffConfigurator.New("ConstructCrafterSentryBaseMarker", Guids.SentryBaseMarker)
-        .SetDisplayName("SentryBaseMarker.Name")
-        .SetDescription("SentryBaseMarker.Description")
+      HoundBaseMarker = BuffConfigurator.New("ConstructCrafterHoundBaseMarker", Guids.HoundBaseMarker)
+        .SetDisplayName("HoundBaseMarker.Name")
+        .SetDescription("HoundBaseMarker.Description")
         .SetIcon(icon)
         .Configure();
       ManBaseMarker = BuffConfigurator.New("ConstructCrafterManBaseMarker", Guids.ManBaseMarker)
@@ -425,7 +425,6 @@ namespace MissionWOTR.Archetypes
       var summonFaction = FactionRefs.Summoned.Reference.Get();
       var kolyarut = UnitRefs.CR12_InevitableKolyarutStandard.Reference.Get();
       var stoneSummon = UnitRefs.GolemStoneSummon.Reference.Get();
-      var woodSummon = UnitRefs.GolemWoodSummon.Reference.Get();
 
       // Variant units are FULL clones of their stock units (see ConstructCrafter.
       // CloneUnit for why bare CopyFrom produced empty units), with role overrides
@@ -436,7 +435,7 @@ namespace MissionWOTR.Archetypes
         "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit, kolyarut,
         c => c is not AddClassLevels);
       UnitConfigurator.For("ConstructCrafterHumanoidArcher")
-        .SetStrength(18)
+        .SetStrength(16)
         .SetDexterity(16)
         .SetConstitution(12)
         .SetMaxHP(10)
@@ -444,14 +443,15 @@ namespace MissionWOTR.Archetypes
         .SetStartingInventory(ItemWeaponRefs.CompositeLongbow.Cast<BlueprintItemReference>())
         .Configure();
       ConstructCrafter.SetClassLevels(
-        "ConstructCrafterHumanoidArcher", CharacterClassRefs.FighterClass, 6);
+        "ConstructCrafterHumanoidArcher", CharacterClassRefs.FighterClass,
+        ConstructCrafter.BakedFighterLevels);
 
-      // Caster humanoid / caster golem / ranged sentry: custom brains.
+      // Caster humanoid / caster golem / ranged hound: custom brains.
       HumanoidCasterUnit = ConstructCrafter.CloneUnit(
         "ConstructCrafterHumanoidCaster", Guids.ConstructCrafterHumanoidCasterUnit, kolyarut,
         c => c is not AddClassLevels);
       UnitConfigurator.For("ConstructCrafterHumanoidCaster")
-        .SetStrength(18)
+        .SetStrength(16)
         .SetDexterity(14)
         .SetConstitution(12)
         .SetMaxHP(10)
@@ -459,7 +459,8 @@ namespace MissionWOTR.Archetypes
         .SetStartingInventory(ItemWeaponRefs.ColdIronLongsword.Cast<BlueprintItemReference>())
         .Configure();
       ConstructCrafter.SetClassLevels(
-        "ConstructCrafterHumanoidCaster", CharacterClassRefs.FighterClass, 6);
+        "ConstructCrafterHumanoidCaster", CharacterClassRefs.FighterClass,
+        ConstructCrafter.BakedFighterLevels);
       SetBrain(Guids.ConstructCrafterHumanoidCasterUnit, "ConstructCrafterCasterBrain");
 
       GolemCasterUnit = ConstructCrafter.CloneUnit(
@@ -468,26 +469,27 @@ namespace MissionWOTR.Archetypes
           && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical
           && c is not AddClassLevels);
       UnitConfigurator.For("ConstructCrafterGolemCaster")
-        .SetStrength(32 - 2)
-        .SetMaxHP(107 - 20)
+        .SetStrength(26)
+        .SetMaxHP(64)
         .SetFaction(summonFaction)
         .Configure();
       ConstructCrafter.SetClassLevels(
-        "ConstructCrafterGolemCaster", CharacterClassRefs.ConstructClass, 14);
+        "ConstructCrafterGolemCaster", CharacterClassRefs.ConstructClass, 8);
       SetBrain(Guids.ConstructCrafterGolemCasterUnit, "ConstructCrafterCasterBrain");
 
-      SentryRangedUnit = ConstructCrafter.CloneUnit(
-        "ConstructCrafterSentryRanged", Guids.ConstructCrafterSentryRangedUnit, woodSummon,
-        c => c is not AddClassLevels);
-      UnitConfigurator.For("ConstructCrafterSentryRanged")
-        .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
-        .SetStrength(woodSummon.Strength - 4)
-        .SetDexterity(woodSummon.Dexterity - 2)
+      // Ranged hound variant: same dog chassis + iron heart, ranged brain.
+      var dog = UnitRefs.CR0_DogStandard.Reference.Get();
+      HoundRangedUnit = ConstructCrafter.CloneUnit(
+        "ConstructCrafterHoundRanged", Guids.ConstructCrafterHoundRangedUnit, dog);
+      UnitConfigurator.For("ConstructCrafterHoundRanged")
         .SetFaction(summonFaction)
+        .SetAddFacts(new Blueprint<BlueprintUnitFactReference>[]
+        {
+          FeatureRefs.ImmunityToFear.Cast<BlueprintUnitFactReference>(),
+          FeatureRefs.ImmunityToMindAffecting.Cast<BlueprintUnitFactReference>(),
+        })
         .Configure();
-      ConstructCrafter.SetClassLevels(
-        "ConstructCrafterSentryRanged", CharacterClassRefs.ConstructClass, 2);
-      SetBrain(Guids.ConstructCrafterSentryRangedUnit, "ConstructCrafterRangedBrain");
+      SetBrain(Guids.ConstructCrafterHoundRangedUnit, "ConstructCrafterRangedBrain");
     }
 
     private static void SetBrain(string unitGuid, string brainName)

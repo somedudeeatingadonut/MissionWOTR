@@ -60,7 +60,7 @@ the construct lasts until destroyed or until the same base is deployed again.
 
 | Feature | Real level | Details |
 |---|---|---|
-| Deploy Carved Sentry | 1 | Full clone of the game's own GolemWoodSummon (dog-shaped wood golem — no metal dog model exists and blueprints cannot retint model materials, so the look is honestly wooden), Summoned faction, 2 construct levels (weakest base), −4 Str, −2 Dex, HP/3; DR = ½ alchemist level, bypassed by adamantine (applied at deploy); engine summon link follows the crafter out of combat |
+| Deploy Iron-Hearted Hound | 1 | Full clone of the game's own GolemWoodSummon (dog-shaped wood golem — no metal dog model exists and blueprints cannot retint model materials, so the look is honestly wooden), Summoned faction, 2 construct levels (weakest base), −4 Str, −2 Dex, HP/3; DR = ½ alchemist level, bypassed by adamantine (applied at deploy); engine summon link follows the crafter out of combat |
 | Extra combat feat | 1 | FighterFeatSelection (fighter bonus-feat list) |
 | Basic Core + Basic Program selections | 1 | Core selection v1: Basic only; Program selection: Basic + six programs |
 | Proficiencies | 1 | Light armor, longbow, shortbow, throwing axe, flail, heavy flail, warhammer, greatclub + vanilla simple weapons |

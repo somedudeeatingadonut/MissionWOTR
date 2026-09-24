@@ -43,7 +43,7 @@ namespace MissionWOTR.Archetypes
   /// (one per base), and they are far less customizable than a companion.
   ///
   /// REAL LEVEL PLAN (used when LevelPlan.AllAtLevelOne is false):
-  ///   L1  Deploy Clockwork Sentry (dog base), extra combat feat, Basic Core selection,
+  ///   L1  Deploy Clockwork Hound (dog base), extra combat feat, Basic Core selection,
   ///       Basic Program selection
   ///   L7  Deploy Humanoid Construct (humanoid base: fighter with AL-2 levels)
   ///   L16 Deploy Stone Golem (golem base: tabletop clay-golem role on the stone golem chassis)
@@ -65,14 +65,21 @@ namespace MissionWOTR.Archetypes
     internal const string DisplayName = "ConstructCrafter.Name";
     internal const string Description = "ConstructCrafter.Description";
 
-    internal const string SentryUnitName = "ConstructCrafterCarvedSentry";
+    internal const string HoundUnitName = "ConstructCrafterIronHeartedHound";
     internal const string HumanoidUnitName = "ConstructCrafterHumanoidConstruct";
     internal const string GolemUnitName = "ConstructCrafterStoneGolem";
 
-    internal const string DeploySentryFeatureName = "ConstructCrafterDeploySentry";
+    /// <summary>
+    /// Real fighter levels baked into the humanoid construct chassis (real hit
+    /// dice; the rest of its level comes as fake levels at deploy, which scale
+    /// BAB/saves but add no hit points).
+    /// </summary>
+    internal const int BakedFighterLevels = 3;
+
+    internal const string DeployHoundFeatureName = "ConstructCrafterDeployHound";
     internal const string DeployHumanoidFeatureName = "ConstructCrafterDeployHumanoid";
     internal const string DeployGolemFeatureName = "ConstructCrafterDeployGolem";
-    internal const string DeploySentryAbilityName = "ConstructCrafterDeploySentryAbility";
+    internal const string DeployHoundAbilityName = "ConstructCrafterDeployHoundAbility";
     internal const string DeployHumanoidAbilityName = "ConstructCrafterDeployHumanoidAbility";
     internal const string DeployGolemAbilityName = "ConstructCrafterDeployGolemAbility";
 
@@ -85,7 +92,7 @@ namespace MissionWOTR.Archetypes
     internal const string ProficienciesName = "ConstructCrafterProficiencies";
 
     // Runtime handles for the deploy action.
-    internal static BlueprintUnit SentryUnit;
+    internal static BlueprintUnit HoundUnit;
     internal static BlueprintUnit HumanoidUnit;
     internal static BlueprintUnit GolemUnit;
     internal static BlueprintBuff ClockworkPlatingBuff;
@@ -123,9 +130,9 @@ namespace MissionWOTR.Archetypes
     private static void ConfigureDeployBases()
     {
       DeployBase(
-        DeploySentryFeatureName, Guids.ConstructCrafterDeploySentryFeature,
-        DeploySentryAbilityName, Guids.ConstructCrafterDeploySentryAbility,
-        "DeploySentry.Name", "DeploySentry.Description", SentryUnit,
+        DeployHoundFeatureName, Guids.ConstructCrafterDeployHoundFeature,
+        DeployHoundAbilityName, Guids.ConstructCrafterDeployHoundAbility,
+        "DeployHound.Name", "DeployHound.Description", HoundUnit,
         applyPlating: true, addFighterLevels: false, icon: FeatureRefs.RideAnimalCompanionFeature,
         baseKind: 0);
 
@@ -171,7 +178,7 @@ namespace MissionWOTR.Archetypes
           .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.ToString())
           .AddToAddFeatures(LevelPlan.L(1), CoreSelectionName, ProgramSelectionName)
           // Bases.
-          .AddToAddFeatures(LevelPlan.L(1), DeploySentryFeatureName)
+          .AddToAddFeatures(LevelPlan.L(1), DeployHoundFeatureName)
           .AddToAddFeatures(LevelPlan.L(7), DeployHumanoidFeatureName)
           .AddToAddFeatures(LevelPlan.L(16), DeployGolemFeatureName)
           // Chassis: proficiencies (plus vanilla simple-weapon proficiency).
@@ -228,43 +235,45 @@ namespace MissionWOTR.Archetypes
       // to the params-Type[] overload and copies NOTHING (zero types = zero
       // components), and even with a matcher it never touches FIELDS - so the old
       // units had no model prefab, no brain wiring, no attack routines (the visible
-      // "dog" was a fallback render, and the sentry just stood there). CloneUnit
+      // "dog" was a fallback render, and the hound just stood there). CloneUnit
       // copies every component AND every BlueprintUnit field (prefab/model, size,
       // stats, brain, sounds); the summon variants additionally bring the summon
       // brain, Summoned faction baseline and a pre-tuned statblock; overrides are
       // applied on top via configurator setters.
       // 0.4.13 lesson: the chassis' own AddClassLevels component drives the real
       // statblock (hit points, BAB - the wood golem's 8 construct levels made the
-      // "weakest" sentry spawn with 72 HP). Copied components may be SHARED with
+      // "weakest" hound spawn with 72 HP). Copied components may be SHARED with
       // the stock unit, so they are never mutated: the stock class-level component
       // is excluded by the clone matcher and a fresh one with our own level count
       // is added (SetClassLevels below).
-      var woodSummon = UnitRefs.GolemWoodSummon.Reference.Get();
 
-      // --- Carved Sentry: carved-wood scout construct (the wood golem is the only
-      // dog-shaped construct model in the game; a blueprint cannot retint the model
-      // materials, so the look stays wooden and the name says so). Two construct
-      // levels - deliberately the weakest summon. ---
-      SentryUnit = CloneUnit(SentryUnitName, Guids.ConstructCrafterSentryUnit, woodSummon,
-        c => c is not AddClassLevels);
-      UnitConfigurator.For(SentryUnitName)
-        .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
-        .SetStrength(woodSummon.Strength - 4)
-        .SetDexterity(woodSummon.Dexterity - 2)
+      // --- Iron-Hearted Hound: a dog - literally. No artificial dog model exists
+      // and blueprints cannot retint model materials, so the design is honest
+      // about the model instead: a normal dog whose "iron heart" grants immunity
+      // to fear and mind control. Stats are the dog's own (the weakest summon by
+      // a wide margin); the scaling plating DR still applies at deploy. ---
+      var dog = UnitRefs.CR0_DogStandard.Reference.Get();
+      HoundUnit = CloneUnit(HoundUnitName, Guids.ConstructCrafterHoundUnit, dog);
+      UnitConfigurator.For(HoundUnitName)
         .SetFaction(summonFaction)
+        .SetAddFacts(new Blueprint<BlueprintUnitFactReference>[]
+        {
+          FeatureRefs.ImmunityToFear.Cast<BlueprintUnitFactReference>(),
+          FeatureRefs.ImmunityToMindAffecting.Cast<BlueprintUnitFactReference>(),
+        })
         .Configure();
-      SetClassLevels(SentryUnitName, CharacterClassRefs.ConstructClass, 2);
 
       // --- Humanoid Construct: wrought like the inevitables - a metal construct
       // body cloned from the game's own Kolyarut (the android-looking inevitable),
-      // with a fighter's training. Six real fighter levels bake in the hit dice;
-      // the deploy finisher adds fake fighter levels on top so the final level is
-      // (alchemist level - 2). ---
+      // with a fighter's training. BakedFighterLevels real fighter levels bake in
+      // the hit dice; the deploy finisher adds fake fighter levels on top so the
+      // final level is (alchemist level - 2). (0.4.14: nerfed from 6 baked levels
+      // at Str 18 - three mostly-permanent summons should not each be a hero.) ---
       var kolyarut = UnitRefs.CR12_InevitableKolyarutStandard.Reference.Get();
       HumanoidUnit = CloneUnit(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit, kolyarut,
         c => c is not AddClassLevels);
       UnitConfigurator.For(HumanoidUnitName)
-        .SetStrength(18)
+        .SetStrength(16)
         .SetDexterity(14)
         .SetConstitution(12)
         .SetMaxHP(10)
@@ -273,27 +282,28 @@ namespace MissionWOTR.Archetypes
         // the clone: the fighter levels grant martial proficiency.
         .SetStartingInventory(ItemWeaponRefs.ColdIronLongsword.Cast<BlueprintItemReference>())
         .Configure();
-      SetClassLevels(HumanoidUnitName, CharacterClassRefs.FighterClass, 6);
+      SetClassLevels(HumanoidUnitName, CharacterClassRefs.FighterClass, BakedFighterLevels);
 
       // --- Stone Golem: the clay-golem role on the stone golem's body (no clay
-      // golem exists in Wrath - and the stone look is the keeper). No berserk,
-      // -20 HP, -2 Str; the golem's physical DR is replaced with our constant
-      // 5/adamantine package (see adaptation notes in docs/ARCHETYPES.md). ---
+      // golem exists in Wrath - and the stone look is the keeper). No berserk;
+      // 0.4.14 nerf: 8 construct levels (was 14), Str 26 (was 30), 64 HP (was 87)
+      // - the strongest base, but one third of a character's budget, not two
+      // thirds. The golem's physical DR is our constant 5/adamantine package. ---
       var stoneSummon = UnitRefs.GolemStoneSummon.Reference.Get();
       GolemUnit = CloneUnit(GolemUnitName, Guids.ConstructCrafterGolemUnit, stoneSummon,
         c => !c.name.Contains("Slow")
           && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical
           && c is not AddClassLevels);
       UnitConfigurator.For(GolemUnitName)
-        .SetStrength(32 - 2)
-        .SetMaxHP(107 - 20)
+        .SetStrength(26)
+        .SetMaxHP(64)
         .SetFaction(summonFaction)
         .AddDamageResistancePhysical(
           value: 5, bypassedByMaterial: true, material: PhysicalDamageMaterial.Adamantite)
         .Configure();
-      SetClassLevels(GolemUnitName, CharacterClassRefs.ConstructClass, 14);
+      SetClassLevels(GolemUnitName, CharacterClassRefs.ConstructClass, 8);
 
-      // --- Clockwork Plating: the sentry's scaling DR (half alchemist level). ---
+      // --- Clockwork Plating: the hound's scaling DR (half alchemist level). ---
       ClockworkPlatingBuff = BuffConfigurator.New(PlatingBuffName, Guids.ConstructCrafterPlatingBuff)
         .SetDisplayName("ClockworkPlating.Name")
         .SetDescription("ClockworkPlating.Description")
@@ -549,7 +559,7 @@ namespace MissionWOTR.Archetypes
     /// <summary>The construct's unit blueprint (one per base).</summary>
     public BlueprintUnit Unit;
 
-    /// <summary>Apply the scaling DR buff (clockwork sentry).</summary>
+    /// <summary>Apply the scaling DR buff (clockwork hound).</summary>
     public bool ApplyPlating;
 
     /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
@@ -567,7 +577,7 @@ namespace MissionWOTR.Archetypes
     /// </summary>
     private const string SummonPoolGuid = "d94c93e7240f10e41ae41db4c83d1cbe";
 
-    /// <summary>Which base is deploying: 0 sentry, 1 humanoid, 2 golem.</summary>
+    /// <summary>Which base is deploying: 0 hound, 1 humanoid, 2 golem.</summary>
     public int BaseKind;
 
     private static BlueprintUnit ResolveUnit(
@@ -583,7 +593,7 @@ namespace MissionWOTR.Archetypes
       var soft = core.Name == "ConstructCrafterSoft";
       if (baseKind == 0)
       {
-        return arbalest || soft ? ConstructCrafterAbilities.SentryRangedUnit : fallback;
+        return arbalest || soft ? ConstructCrafterAbilities.HoundRangedUnit : fallback;
       }
       if (baseKind == 1)
       {
@@ -675,7 +685,7 @@ namespace MissionWOTR.Archetypes
         var state = Game.Instance.State.LoadedAreaState.MainState;
         var existing = state.AllEntityData.OfType<UnitEntityData>().ToList();
 
-        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.SentryBaseMarker
+        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.HoundBaseMarker
           : BaseKind == 1 ? ConstructCrafterAbilities.ManBaseMarker
           : ConstructCrafterAbilities.GolemBaseMarker;
 
@@ -693,32 +703,33 @@ namespace MissionWOTR.Archetypes
           }
         }
 
-        // Replace the previous construct of this base (marker-based: any variant counts).
-        foreach (var old in existing.Where(u => u.HPLeft > 0 && u.Buffs.GetBuff(baseMarker) != null))
-        {
-          old.IsInGame = false;
-        }
-
-        // Blueprint sweep of the same base family: saves made before 0.4.11 can hold
-        // half-initialized construct units (their restore crashed in ItemEntity..ctor
-        // before buffs ever loaded), which the marker check above cannot see. Any
-        // living unit whose blueprint is one of this base's constructs goes away.
+        // The base family (all variants of this base, current and legacy names).
         var family = BaseKind == 0
-          ? new[] { ConstructCrafter.SentryUnitName, "ConstructCrafterSentryRanged" }
+          ? new[] { ConstructCrafter.HoundUnitName, "ConstructCrafterHoundRanged" }
           : BaseKind == 1
             ? new[] { ConstructCrafter.HumanoidUnitName, "ConstructCrafterHumanoidArcher", "ConstructCrafterHumanoidCaster" }
             : new[] { ConstructCrafter.GolemUnitName, "ConstructCrafterGolemCaster" };
-        foreach (var old in existing.Where(
-          u => u.HPLeft > 0 && u.Blueprint != null &&
-            family.Any(n => string.Equals(n, u.Blueprint.name,
-              StringComparison.OrdinalIgnoreCase))))
+
+        // The engine's despawn, all in one place: removing the stock summon buff is
+        // how the game itself ends summons (the buff's removal handling unsummons),
+        // hiding stops it acting immediately, and MarkForDestroy removes it from the
+        // saved state outright (IsInGame=false alone never persisted - old summons
+        // kept restoring and fighting every reload).
+        void Desummon(UnitEntityData old, string source)
         {
           MissionFeats.Logger.Info(
-            $"[deploy] removing stray construct {old.Blueprint.name} (uid={old.UniqueId}).");
+            $"[deploy] desummoning {old.Blueprint?.name} (uid={old.UniqueId}, {source}).");
+          try
+          {
+            old.Buffs.RemoveFact(
+              Game.Instance.BlueprintRoot.SystemMechanics.SummonedUnitBuff);
+          }
+          catch (Exception buffEx)
+          {
+            MissionFeats.Logger.Warn(
+              $"[deploy] summon-buff removal failed on {old.UniqueId}: {buffEx.Message}");
+          }
           old.IsInGame = false;
-          // IsInGame=false alone does not remove the unit from the saved area
-          // state (the ghosts kept re-restoring every load, each restore crashing
-          // item creation); destroy them outright, falling back to hiding.
           try
           {
             old.MarkForDestroy();
@@ -726,9 +737,59 @@ namespace MissionWOTR.Archetypes
           catch (Exception destroyEx)
           {
             MissionFeats.Logger.Warn(
-              $"[deploy] could not destroy stray {old.UniqueId}: {destroyEx.Message}");
+              $"[deploy] could not destroy {old.UniqueId}: {destroyEx.Message}");
           }
         }
+
+        int removed = 0;
+
+        // PRIMARY sweep - the summon pool. Engine summons spawn into the CASTER's
+        // holding state (RulePerformSummonUnit uses ConcreteInitiator.
+        // HoldingState), not the area state scanned below, which is exactly why
+        // constructs from a previous session survived redeployment un-noticed.
+        // Every construct is registered in the game's SummonMonsterPool at spawn;
+        // the pool is the engine's own registry of live summons, so this finds
+        // saved and fresh constructs alike. Only THIS crafter's constructs of THIS
+        // base's family are touched.
+        var pool = Game.Instance.SummonPools.GetPool(
+          BlueprintTool.Get<BlueprintSummonPool>(SummonPoolGuid));
+        if (pool != null)
+        {
+          foreach (var old in pool.Units.ToList())
+          {
+            if (old is null || old.Blueprint is null ||
+              !family.Any(n => string.Equals(n, old.Blueprint.name,
+                StringComparison.OrdinalIgnoreCase)))
+            {
+              continue;
+            }
+            var summoner = old
+              .Get<Kingmaker.UnitLogic.Parts.UnitPartSummonedMonster>()?.Summoner;
+            if (summoner is null || summoner.UniqueId != caster.UniqueId)
+            {
+              continue;
+            }
+            Desummon(old, "pool");
+            removed++;
+          }
+        }
+
+        // BACKUP sweep - the loaded area state. Catches marker-tagged units the
+        // pool may have missed (e.g. half-initialized ghosts from pre-0.4.11
+        // saves, whose restore crashed before buffs loaded) and any same-family
+        // leftovers.
+        foreach (var old in existing.Where(
+          u => u.HPLeft > 0 && u.Blueprint != null &&
+            (u.Buffs.GetBuff(baseMarker) != null ||
+              family.Any(n => string.Equals(n, u.Blueprint.name,
+                StringComparison.OrdinalIgnoreCase)))))
+        {
+          Desummon(old, "area");
+          removed++;
+        }
+
+        MissionFeats.Logger.Info(
+          $"[deploy] replacement sweep for base {BaseKind}: {removed} construct(s) removed.");
 
         // Role variant: the active core may swap in a specialized chassis (archer,
         // caster, ranged) instead of the default base unit.
@@ -809,10 +870,10 @@ namespace MissionWOTR.Archetypes
   [TypeId(Guids.DeployFinishAction)]
   internal class ContextActionDeployFinish : ContextAction
   {
-    /// <summary>Which base is deploying: 0 sentry, 1 humanoid, 2 golem.</summary>
+    /// <summary>Which base is deploying: 0 hound, 1 humanoid, 2 golem.</summary>
     public int BaseKind;
 
-    /// <summary>Apply the scaling DR buff (iron sentry).</summary>
+    /// <summary>Apply the scaling DR buff (iron hound).</summary>
     public bool ApplyPlating;
 
     /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
@@ -837,7 +898,7 @@ namespace MissionWOTR.Archetypes
         var core = ConstructCrafterCores.GetActiveCore(caster);
         var alchemistLevel = caster.Descriptor.Progression
           .GetClassLevel(CharacterClassRefs.AlchemistClass.Reference.Get());
-        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.SentryBaseMarker
+        var baseMarker = BaseKind == 0 ? ConstructCrafterAbilities.HoundBaseMarker
           : BaseKind == 1 ? ConstructCrafterAbilities.ManBaseMarker
           : ConstructCrafterAbilities.GolemBaseMarker;
 
@@ -849,7 +910,7 @@ namespace MissionWOTR.Archetypes
         {
           var fighter = CharacterClassRefs.FighterClass.Reference.Get();
           construct.Descriptor.Progression.AddFakeClassLevels(
-            fighter, Math.Max(1, alchemistLevel - 2 - 6));
+            fighter, Math.Max(1, alchemistLevel - 2 - ConstructCrafter.BakedFighterLevels));
         }
 
         // Base identity marker (replacement tracking across variants).
@@ -868,7 +929,7 @@ namespace MissionWOTR.Archetypes
           construct, alchemistLevel, program?.IsFlank == true ? 2 : 0);
 
         // Core application: per-base stat package + role abilities.
-        var isSentry = BaseKind == 0;
+        var isHound = BaseKind == 0;
         var isHumanoid = BaseKind == 1;
         var grantedAbilities =
           ContextActionDeployConstruct.ResolveCoreAbilities(core, BaseKind).ToList();
@@ -878,7 +939,7 @@ namespace MissionWOTR.Archetypes
         }
         var coreBuff = core is null
           ? null
-          : isSentry ? core.SentryBuff : isHumanoid ? core.HumanoidBuff : core.GolemBuff;
+          : isHound ? core.HoundBuff : isHumanoid ? core.HumanoidBuff : core.GolemBuff;
         if (coreBuff != null)
         {
           construct.AddBuff(coreBuff, Context);
@@ -887,18 +948,18 @@ namespace MissionWOTR.Archetypes
         // Core sneak attack: one die per N alchemist levels (N from the core def).
         var saDivisor = core is null
           ? 0
-          : isSentry ? core.SaSentry : isHumanoid ? core.SaHumanoid : core.SaGolem;
+          : isHound ? core.SaHound : isHumanoid ? core.SaHumanoid : core.SaGolem;
         ContextActionDeployConstruct.ApplySneakAttackRanks(construct, alchemistLevel, saDivisor);
 
         // Flaming golem: no attacks of opportunity - unless the Guard program runs
         // (Guard trades the aura's ferocity for a disciplined watch).
-        if (core?.GolemNoAoO == true && !isSentry && !isHumanoid
+        if (core?.GolemNoAoO == true && !isHound && !isHumanoid
           && program?.IsGuard != true)
         {
           construct.AddBuff(ConstructCrafterCores.NoAoOBuff, Context);
         }
 
-        // Carved sentry: scaling damage reduction (half alchemist level).
+        // Iron-hearted hound: scaling damage reduction (half alchemist level).
         if (ApplyPlating && ConstructCrafter.ClockworkPlatingBuff is not null)
         {
           construct.AddBuff(ConstructCrafter.ClockworkPlatingBuff, Context);

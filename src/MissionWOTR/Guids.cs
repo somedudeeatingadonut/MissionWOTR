@@ -84,13 +84,13 @@ namespace MissionWOTR
 
     // ----- Construct Crafter (homebrew Alchemist archetype) -----
     internal const string ConstructCrafterArchetype = "99CD1AEE-C1AE-4840-9620-826E473BCE70";
-    internal const string ConstructCrafterSentryUnit = "65390579-2547-455D-AF0E-1723EAADF79E";
+    internal const string ConstructCrafterHoundUnit = "65390579-2547-455D-AF0E-1723EAADF79E";
     internal const string ConstructCrafterHumanoidUnit = "A98145CA-1052-419C-9DE8-413627863E15";
     internal const string ConstructCrafterGolemUnit = "63FF37B6-F13F-4BD7-BD32-4AEFBAEF94BE";
-    internal const string ConstructCrafterDeploySentryFeature = "36FA83AF-0E8F-48AB-AA6E-274022C04BB8";
+    internal const string ConstructCrafterDeployHoundFeature = "36FA83AF-0E8F-48AB-AA6E-274022C04BB8";
     internal const string ConstructCrafterDeployHumanoidFeature = "23F62645-2BEB-4E4A-9E60-88716C8C145B";
     internal const string ConstructCrafterDeployGolemFeature = "C20D0B80-E21F-4EA2-8490-9C557A5467E7";
-    internal const string ConstructCrafterDeploySentryAbility = "E32258EF-3707-4887-99D9-81008740BAE1";
+    internal const string ConstructCrafterDeployHoundAbility = "E32258EF-3707-4887-99D9-81008740BAE1";
     internal const string ConstructCrafterDeployHumanoidAbility = "ACD09AC3-13F2-48E5-9391-879C86A61AD2";
     internal const string ConstructCrafterDeployGolemAbility = "63E8F9FB-13E2-4F3C-A250-A0F1A7A9B2C3";
     internal const string ConstructCrafterCoreSelection = "34AB2E8B-DC7C-4676-9FD8-6449F6CAC8A2";
@@ -149,13 +149,13 @@ namespace MissionWOTR
     internal const string FlamingCoreFeat = "D4B95D68-23AE-4D56-8FCA-AFA4A9646F01";
     internal const string FlamingCoreToggle = "2F368881-5AA0-4339-8840-A2C3AECA7BD5";
     internal const string FlamingCoreMarker = "758CB736-15B3-4A5A-B23C-C12C7AF8D10B";
-    internal const string FlamingSentryBuff = "2DECB76A-7670-400C-9EC5-5713BE3C239A";
+    internal const string FlamingHoundBuff = "2DECB76A-7670-400C-9EC5-5713BE3C239A";
     internal const string FlamingHumanoidBuff = "5324E48E-4D91-4CE5-83E3-649852428AFC";
     internal const string FlamingGolemBuff = "8BE652D4-4019-45D2-A40E-0CBEF729363D";
     internal const string ColdCoreFeat = "EE7933D4-EB84-4F52-88AE-2C7AFEF07F5E";
     internal const string ColdCoreToggle = "4A88627A-9A6C-4B5F-B454-1C690B7D44AB";
     internal const string ColdCoreMarker = "CE9929F3-9631-419F-8E77-DB761C99A198";
-    internal const string ColdSentryBuff = "021B2BF3-9559-4F85-B72E-9B69F344DA29";
+    internal const string ColdHoundBuff = "021B2BF3-9559-4F85-B72E-9B69F344DA29";
     internal const string ColdHumanoidBuff = "07225CCA-180B-4D53-81A7-4BB12B2BA0F4";
     internal const string ColdGolemBuff = "72FC62CB-FE8E-4E1F-9884-A11460C31C78";
     internal const string BloodyCoreFeat = "F0341C4C-EA52-4871-B25F-88AAF61515DF";
@@ -173,7 +173,7 @@ namespace MissionWOTR
     internal const string LightlessCoreFeat = "534DEE63-3180-4A8F-9338-3526B2D7DC10";
     internal const string LightlessCoreToggle = "FCF49C33-4DD2-44FD-974E-3CE1EF392960";
     internal const string LightlessCoreMarker = "F1CA5CE2-B049-4A49-A0D3-FFAD9BB252AA";
-    internal const string LightlessSentryBuff = "0148F7E1-0E8F-4CC0-8DE2-F925FF293538";
+    internal const string LightlessHoundBuff = "0148F7E1-0E8F-4CC0-8DE2-F925FF293538";
     internal const string LightlessGolemBuff = "D2A6BA7C-1F64-42DD-A504-EDD382E8AB79";
     internal const string BoomingCoreFeat = "C292B872-88AC-4263-9E88-DBCE3D51EBB6";
     internal const string BoomingCoreToggle = "89DBB9FA-CB3B-45A0-B965-5E7987BA0822";
@@ -196,7 +196,7 @@ namespace MissionWOTR
     internal const string ConstructOnHitBuff = "D6825DF7-33A8-45B8-A210-2CF8EBC67F60";
 
     // ----- Construct Crafter: brains, abilities, variants (brains v1) -----
-    internal const string SentryBaseMarker = "7581331C-F366-4AB5-A832-274A50E68C45";
+    internal const string HoundBaseMarker = "7581331C-F366-4AB5-A832-274A50E68C45";
     internal const string CrafterMarkerBuff = "1210D7DB-183F-426E-A355-DC3FD762772C";
     internal const string CrafterDefaultBrain = "37D3971A-EE8B-4558-8BF7-90E0474420D4";
     internal const string AiFollowDefault = "2E584480-42AF-40E5-B957-EDA2D9DAAEDC";
@@ -218,7 +218,7 @@ namespace MissionWOTR
     internal const string ConstructCrafterHumanoidArcherUnit = "7CEB29EC-743F-413B-A4D9-2E4295143C2F";
     internal const string ConstructCrafterHumanoidCasterUnit = "C67A81F9-2427-4FF7-9A3B-384CDC328995";
     internal const string ConstructCrafterGolemCasterUnit = "F0675585-E550-4668-A2A7-1482AE39B623";
-    internal const string ConstructCrafterSentryRangedUnit = "4064431D-EC01-43CF-A619-CCCA34D74157";
+    internal const string ConstructCrafterHoundRangedUnit = "4064431D-EC01-43CF-A619-CCCA34D74157";
     internal const string ArbalestCoreFeat = "214B7A98-EC21-4029-A743-C0BC4741E61B";
     internal const string ArbalestCoreToggle = "3ABA99D2-5A5B-48CD-A16E-43653C559683";
     internal const string ArbalestCoreMarker = "35993425-632C-46E1-B41D-8FBD83AD77F9";
