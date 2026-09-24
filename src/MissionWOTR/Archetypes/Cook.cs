@@ -39,18 +39,22 @@ namespace MissionWOTR.Archetypes
   /// day to feed an army.
   ///
   /// - Hearty Cooking (1st): 3 meal charges per long rest. Each "Serve" ability
-  ///   spends one charge and feeds an ally a meal whose buff lasts 8 hours and
-  ///   cannot be dispelled. Meal effects scale with bard level.
-  /// - Pantry (4th and every 4 levels): learn one new ingredient.
-  ///   Starting pantry: Bacon Wrap, Chicken Breast, Rice, Beans, Lettuce.
-  ///   Pantry picks: Garlic, Chili Pepper, Cheese, Mushroom, Potato, Onion,
+  ///   spends one charge and feeds EVERY ally within 30 feet a meal whose buff
+  ///   lasts 8 hours and cannot be dispelled. Meals are a bit weaker than the
+  ///   old single-serve ingredients (playtest rework: ingredients fed one ally;
+  ///   meals feed the whole camp, so each serving is worth less per head).
+  /// - Recipe Book (4th and every 4 levels): learn one new meal.
+  ///   Starting menu: Bacon Wrap, Chicken Breast, Rice, Beans, Lettuce.
+  ///   Recipe picks: Garlic, Chili Pepper, Cheese, Mushroom, Potato, Onion,
   ///   Coffee, Butter.
   ///
   /// Implementation notes: meal charges are an ability resource restored on rest
   /// (the EldritchPoisoner doses pattern); each meal buff is untyped (WOTR has no
   /// food-buff category; the native cooking-recipe party buffs are plain buffs
-  /// too) and is flagged non-dispelable when served. Values are flat + one rank
-  /// per N bard levels (ContextRankConfig with StepLevel) - tuning candidates.
+  /// too) and is flagged non-dispelable when served. Party-wide serving iterates
+  /// Game.Instance.State.Units with IsAlly + DistanceTo (the Sanguine Font aura
+  /// idiom). Values are flat + one rank per N bard levels (ContextRankConfig
+  /// with StepLevel) - tuning candidates.
   /// </summary>
   internal static class Cook
   {
@@ -60,12 +64,12 @@ namespace MissionWOTR.Archetypes
 
     internal const string HeartyName = "CookHeartyCooking";
     internal const string ResourceName = "CookMealCharges";
-    internal const string PantryName = "CookPantrySelection";
+    internal const string PantryName = "CookRecipeSelection";
 
     /// <summary>Meal buff duration: 8 hours.</summary>
     internal static readonly TimeSpan MealDuration = TimeSpan.FromHours(8.0);
 
-    /// <summary>Ingredient key -> (feature, buff, serve ability) GUIDs.</summary>
+    /// <summary>Meal key -> (feature, buff, serve ability) GUIDs.</summary>
     private static readonly Dictionary<string, string[]> GuidsByKey = new()
     {
       { "BaconWrap", new[] { Guids.CookIngredientBaconWrap, Guids.CookBuffBaconWrap, Guids.CookServeBaconWrap } },
@@ -94,36 +98,39 @@ namespace MissionWOTR.Archetypes
 
       // ----- Ingredients: (name key, stat lines). Each line: stat, flat bonus,
       // one rank per Step levels (0 = flat only). -----
+      // Meals (playtest rework): weaker per-head than the old single-serve
+      // ingredients - party-wide servings, so the flat values drop and only a
+      // few meals keep (slower) level scaling.
       var starters = new (string Key, (StatType Stat, int Flat, int Step)[] Stats)[]
       {
-        ("BaconWrap", new[] { (StatType.HitPoints, 2, 3) }),
-        ("ChickenBreast", new[] { (StatType.AdditionalAttackBonus, 1, 8) }),
+        ("BaconWrap", new[] { (StatType.HitPoints, 1, 4) }),
+        ("ChickenBreast", new[] { (StatType.AdditionalAttackBonus, 1, 0) }),
         ("Rice", new[]
         {
-          (StatType.SaveFortitude, 1, 8),
-          (StatType.SaveReflex, 1, 8),
-          (StatType.SaveWill, 1, 8),
+          (StatType.SaveFortitude, 1, 0),
+          (StatType.SaveReflex, 1, 0),
+          (StatType.SaveWill, 1, 0),
         }),
-        ("Beans", new[] { (StatType.Speed, 10, 12) }),
-        ("Lettuce", new[] { (StatType.AC, 1, 12) }),
+        ("Beans", new[] { (StatType.Speed, 5, 0) }),
+        ("Lettuce", new[] { (StatType.AC, 0, 12) }),
       };
-      var pantryPicks = new (string Key, (StatType Stat, int Flat, int Step)[] Stats)[]
+      var recipePicks = new (string Key, (StatType Stat, int Flat, int Step)[] Stats)[]
       {
-        ("Garlic", new[] { (StatType.SkillPersuasion, 2, 6) }),
-        ("ChiliPepper", new[] { (StatType.AdditionalDamage, 1, 8) }),
+        ("Garlic", new[] { (StatType.SkillPersuasion, 2, 0) }),
+        ("ChiliPepper", new[] { (StatType.AdditionalDamage, 1, 0) }),
         ("Cheese", new[]
         {
-          (StatType.SkillKnowledgeArcana, 2, 6),
-          (StatType.SkillLoreReligion, 2, 6),
-          (StatType.SkillLoreNature, 2, 6),
-          (StatType.SkillKnowledgeWorld, 2, 6),
+          (StatType.SkillKnowledgeArcana, 2, 0),
+          (StatType.SkillLoreReligion, 2, 0),
+          (StatType.SkillLoreNature, 2, 0),
+          (StatType.SkillKnowledgeWorld, 2, 0),
         }),
-        ("Mushroom", new[] { (StatType.Initiative, 2, 6) }),
-        ("Potato", new[] { (StatType.SaveFortitude, 2, 6) }),
-        ("Onion", new[] { (StatType.SkillPerception, 2, 6) }),
+        ("Mushroom", new[] { (StatType.Initiative, 2, 0) }),
+        ("Potato", new[] { (StatType.SaveFortitude, 2, 0) }),
+        ("Onion", new[] { (StatType.SkillPerception, 2, 0) }),
         ("Coffee", new[]
         {
-          (StatType.Initiative, 2, 8),
+          (StatType.Initiative, 2, 0),
           (StatType.Speed, 5, 0),
         }),
         ("Butter", new[]
@@ -134,15 +141,15 @@ namespace MissionWOTR.Archetypes
         }),
       };
 
-      var ingredientFeatures = new List<BlueprintFeature>();
+      var starterFeatures = new List<BlueprintFeature>();
       foreach (var (key, stats) in starters)
       {
-        ingredientFeatures.Add(BuildIngredient(key, stats, bard, charges));
+        starterFeatures.Add(BuildMeal(key, stats, bard, charges));
       }
-      var pantryFeatures = new List<BlueprintFeature>();
-      foreach (var (key, stats) in pantryPicks)
+      var recipeFeatures = new List<BlueprintFeature>();
+      foreach (var (key, stats) in recipePicks)
       {
-        pantryFeatures.Add(BuildIngredient(key, stats, bard, charges));
+        recipeFeatures.Add(BuildMeal(key, stats, bard, charges));
       }
 
       // ----- Hearty Cooking (1st): charges + the starting pantry -----
@@ -152,16 +159,16 @@ namespace MissionWOTR.Archetypes
         .SetIcon(FeatureRefs.Toughness.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddAbilityResources(resource: charges, restoreAmount: true)
-        .AddFacts(ingredientFeatures.Select(f => (Blueprint<BlueprintUnitFactReference>)f).ToList())
+        .AddFacts(starterFeatures.Select(f => (Blueprint<BlueprintUnitFactReference>)f).ToList())
         .Configure();
 
-      // ----- Pantry (4th and every 4 levels): learn a new ingredient -----
-      var pantry = FeatureSelectionConfigurator.New(PantryName, Guids.CookPantrySelection)
+      // ----- Recipe Book (4th and every 4 levels): learn a new meal -----
+      var recipes = FeatureSelectionConfigurator.New(PantryName, Guids.CookPantrySelection)
         .SetDisplayName("CookPantry.Name")
         .SetDescription("CookPantry.Description")
         .SetIcon(FeatureRefs.Toughness.Reference.Get().Icon)
         .SetIsClassFeature()
-        .SetAllFeatures(pantryFeatures.Select(f => (Blueprint<BlueprintFeatureReference>)f).ToArray())
+        .SetAllFeatures(recipeFeatures.Select(f => (Blueprint<BlueprintFeatureReference>)f).ToArray())
         .Configure();
 
       // ----- Archetype -----
@@ -200,18 +207,19 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
-    /// One ingredient: a meal buff (untyped, flat + one rank per step levels), a
-    /// serve ability (standard action, one meal charge, feeds one ally, 8-hour
-    /// non-dispelable buff), and the pantry feature carrying the ability.
+    /// One meal: a meal buff (untyped, flat + one rank per step levels), a serve
+    /// ability (standard action, one meal charge, feeds EVERY ally within 30
+    /// feet, 8-hour non-dispelable buff), and the recipe feature carrying the
+    /// ability.
     /// </summary>
-    private static BlueprintFeature BuildIngredient(
+    private static BlueprintFeature BuildMeal(
       string key, (StatType Stat, int Flat, int Step)[] stats,
       BlueprintCharacterClass bard, BlueprintAbilityResource charges)
     {
       var guids = GuidsByKey[key];
       var icon = GetIcon(key);
 
-      var buffCfg = BuffConfigurator.New($"CookMeal{key}Buff", guids[1])
+      var buffCfg = BuffConfigurator.New($"CookMealBuff{key}", guids[1])
         .SetDisplayName($"CookIngredient{key}.Name")
         .SetDescription($"CookIngredient{key}.Description")
         .SetIcon(icon)
@@ -242,20 +250,21 @@ namespace MissionWOTR.Archetypes
       }
       var buff = buffCfg.Configure();
 
+      var serveAction = ElementTool.Create<CookServeMeal>();
+      serveAction.Buff = buff;
       var serve = AbilityConfigurator.New($"CookServe{key}", guids[2])
         .SetDisplayName($"CookIngredient{key}.Name")
         .SetDescription($"CookIngredient{key}.Description")
         .SetIcon(icon)
         .SetType(AbilityType.Special)
-        .SetRange(AbilityRange.Close)
+        .SetRange(AbilityRange.Personal)
         .SetActionType(UnitCommand.CommandType.Standard)
-        .SetCanTargetFriends()
+        .AllowTargeting(self: true)
         .AddAbilityResourceLogic(requiredResource: charges, amount: 1, isSpendResource: true)
-        .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(new CookServeMeal { Buff = buff }))
+        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(serveAction).Build())
         .Configure();
 
-      return FeatureConfigurator.New($"CookIngredient{key}", guids[0])
+      return FeatureConfigurator.New($"CookMeal{key}", guids[0])
         .SetDisplayName($"CookIngredient{key}.Name")
         .SetDescription($"CookIngredient{key}.Description")
         .SetIcon(icon)
@@ -278,8 +287,9 @@ namespace MissionWOTR.Archetypes
   }
 
   /// <summary>
-  /// Serves a meal: applies the ingredient buff for 8 hours and makes it
-  /// non-dispelable - a good meal cannot be undone, only digested.
+  /// Serves a meal to the whole camp: every ally within 30 feet of the cook
+  /// (herself included) gains the meal buff for 8 hours, non-dispelable - a
+  /// good meal cannot be undone, only digested.
   /// </summary>
   [TypeId(Guids.CookServeMealAction)]
   internal class CookServeMeal : ContextAction
@@ -292,18 +302,23 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        var target = Target.Unit;
-        if (target is null || Buff is null)
+        var caster = Context.MaybeCaster;
+        if (caster is null || Buff is null)
         {
           return;
         }
-        var buff = target.Descriptor.AddBuff(Buff, Context, Cook.MealDuration);
-        if (buff != null)
+        int fed = 0;
+        foreach (var ally in SanguineFont.AlliesWithin(caster, 30))
         {
-          buff.IsNotDispelable = true;
+          var applied = ally.Descriptor.AddBuff(Buff, Context, Cook.MealDuration);
+          if (applied != null)
+          {
+            applied.IsNotDispelable = true;
+            fed++;
+          }
         }
         MissionFeats.Logger.Info(
-          $"[cook] served {Buff.name} to {target.CharacterName} (8 hours).");
+          $"[cook] served {Buff.name} to {fed} allies (8 hours).");
       }
       catch (Exception e)
       {

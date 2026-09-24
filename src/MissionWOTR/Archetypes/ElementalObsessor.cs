@@ -147,7 +147,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("ElementFixation.Description")
         .SetIcon(icon)
         .SetObligatory(true)
-        .SetAllFeatures(features.Cast<Blueprint<BlueprintFeatureReference>>().ToArray())
+        .SetAllFeatures(ToFeatureRefs(features))
         .Configure();
 
       // ----- Obsessive Focus (1st): bonus damage, once per cast, halved on cantrips -----
@@ -236,7 +236,7 @@ namespace MissionWOTR.Archetypes
         .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
         .SetHideNotAvailibleInUI(true)
         .AddPrerequisiteFeature(acidFixation)
-        .SetAllFeatures(candidates.Cast<Blueprint<BlueprintFeatureReference>>().ToArray())
+        .SetAllFeatures(ToFeatureRefs(candidates))
         .Configure();
       MissionFeats.Logger.Info(
         $"[obsessor] Corrosive Adaptation: {candidates.Count} candidate spells.");
@@ -266,6 +266,22 @@ namespace MissionWOTR.Archetypes
       archetype.Configure();
 
       MissionFeats.Logger.Info("ElementalObsessor: configured.");
+    }
+
+    /// <summary>
+    /// Builds a BPCore feature-reference list from feature blueprints. A plain
+    /// .Cast&lt;Blueprint&lt;TRef&gt;&gt;() throws at runtime: implicit
+    /// conversions are not casts, they must be applied per element.
+    /// </summary>
+    private static Blueprint<BlueprintFeatureReference>[] ToFeatureRefs(
+      IEnumerable<BlueprintFeature> features)
+    {
+      var refs = new List<Blueprint<BlueprintFeatureReference>>();
+      foreach (var feature in features)
+      {
+        refs.Add(feature);
+      }
+      return refs.ToArray();
     }
 
     private static string GetFeatureGuid(string key)
@@ -308,74 +324,79 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
-    /// Enumerates every loaded blueprint of a type, across cache field naming
-    /// differences between game builds (the MakeDragonGreatAgain probe pattern:
-    /// static fields on BlueprintsCache plus instance fields of
-    /// ResourcesLibrary.BlueprintsCache, dictionary or enumerable shapes).
-    /// Shared with the other spell-list-building archetypes (Spellfist).
+    /// Enumerates every loaded blueprint of a type. The cache dictionary
+    /// (BlueprintsCache.m_LoadedBlueprints) maps BlueprintGuid to cache-entry
+    /// wrapper objects, each exposing ".Blueprint" (null until materialized)
+    /// and ".Offset"; the DarkCodex blueprint-loader pattern, via reflection
+    /// because this build compiles against non-publicized game DLLs. Shared
+    /// with the other spell-list-building archetypes (Spellfist).
     /// </summary>
-    internal static IEnumerable<T> AllBlueprints<T>() where T : BlueprintScriptableObject
+    internal static List<T> AllBlueprints<T>() where T : BlueprintScriptableObject
     {
-      var flags = System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public
-        | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
+      var results = new List<T>();
       var seen = new HashSet<BlueprintScriptableObject>();
-      IEnumerable<T> Probe(object container)
-      {
-        if (container is System.Collections.IDictionary dict)
-        {
-          foreach (System.Collections.DictionaryEntry kv in dict)
-          {
-            if (kv.Value is T t && seen.Add(t))
-            {
-              yield return t;
-            }
-          }
-        }
-        else if (container is System.Collections.IEnumerable en)
-        {
-          foreach (var v in en)
-          {
-            if (v is T t && seen.Add(t))
-            {
-              yield return t;
-            }
-            else if (v is KeyValuePair<BlueprintGuid, SimpleBlueprint> kvp
-              && kvp.Value is T t2 && seen.Add(t2))
-            {
-              yield return t2;
-            }
-          }
-        }
-      }
-      foreach (var name in new[]
-      {
-        "m_LoadedBlueprints", "s_LoadedBlueprints", "m_Blueprints",
-        "m_Cache", "m_LoadedBlueprintsByAssetId",
-      })
-      {
-        var field = typeof(BlueprintsCache).GetField(name, flags);
-        if (field is null || !field.IsStatic)
-        {
-          continue;
-        }
-        foreach (var bp in Probe(field.GetValue(null)))
-        {
-          yield return bp;
-        }
-      }
-      var instanceResults = new List<T>();
       try
       {
         var cache = ResourcesLibrary.BlueprintsCache;
-        if (cache != null)
+        if (cache is null)
         {
-          foreach (var field in typeof(BlueprintsCache).GetFields(flags))
+          MissionFeats.Logger.Warn("[obsessor] ResourcesLibrary.BlueprintsCache is null.");
+          return results;
+        }
+        const System.Reflection.BindingFlags flags =
+          System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+          System.Reflection.BindingFlags.Instance;
+        var dict = typeof(BlueprintsCache).GetField("m_LoadedBlueprints", flags)?.GetValue(cache)
+          as System.Collections.IDictionary;
+        if (dict is null)
+        {
+          MissionFeats.Logger.Warn("[obsessor] m_LoadedBlueprints not found on the cache.");
+          return results;
+        }
+        // BlueprintCacheEntry: ".Blueprint" (property/field, may be null until
+        // loaded) and ".Offset"; BlueprintsCache.Load(guid) materializes on demand.
+        System.Reflection.MethodInfo loadMethod = null;
+        foreach (var m in typeof(BlueprintsCache).GetMethods(flags))
+        {
+          var pars = m.GetParameters();
+          if (m.Name == "Load" && pars.Length == 1 &&
+            pars[0].ParameterType.Name == "BlueprintGuid")
           {
-            if (field.IsStatic)
+            loadMethod = m;
+            break;
+          }
+        }
+        foreach (System.Collections.DictionaryEntry kv in dict)
+        {
+          object blueprint = null;
+          try
+          {
+            if (kv.Value is not null)
             {
-              continue;
+              var entryType = kv.Value.GetType();
+              blueprint =
+                entryType.GetProperty("Blueprint", flags)?.GetValue(kv.Value) ??
+                entryType.GetField("Blueprint", flags)?.GetValue(kv.Value);
+              if (blueprint is null && loadMethod is not null)
+              {
+                try
+                {
+                  blueprint = loadMethod.Invoke(cache, new[] { kv.Key });
+                }
+                catch
+                {
+                  // Not loadable (yet) - skip this entry.
+                }
+              }
             }
-            instanceResults.AddRange(Probe(field.GetValue(cache)));
+          }
+          catch
+          {
+            // Unreadable entry - skip.
+          }
+          if (blueprint is T typed && seen.Add(typed))
+          {
+            results.Add(typed);
           }
         }
       }
@@ -383,10 +404,9 @@ namespace MissionWOTR.Archetypes
       {
         MissionFeats.Logger.Error("ElementalObsessor: cache enumeration failed.", e);
       }
-      foreach (var bp in instanceResults)
-      {
-        yield return bp;
-      }
+      MissionFeats.Logger.Info(
+        $"[obsessor] enumerated {results.Count} {typeof(T).Name} blueprints.");
+      return results;
     }
 
     /// <summary>

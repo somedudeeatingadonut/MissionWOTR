@@ -77,6 +77,7 @@ namespace MissionWOTR.Archetypes
 
     internal const string TrainingName = "CovertMageTraining";
     internal const string MesmerizingTouchName = "CovertMageMesmerizingTouch";
+    internal const string MesmerizingTouchFeatureName = "CovertMageMesmerizingTouchFeature";
     internal const string MesmerizingDeliveryName = "CovertMageMesmerizingTouchDelivery";
     internal const string MesmerizingDebuffName = "CovertMageMesmerizingTouchDebuff";
     internal const string SpellTrickName = "CovertMageSpellTrick";
@@ -120,8 +121,7 @@ namespace MissionWOTR.Archetypes
         .SetType(AbilityType.Special)
         .SetRange(AbilityRange.Touch)
         .SetCanTargetEnemies()
-        .AddAbilityEffectRunAction(
-          ActionsBuilder.New().Add(new CovertMageMesmerizingAction { Debuff = MesmerizingDebuff }))
+        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(BuildMesmerizingAction()))
         .Configure();
 
       // ----- Mesmerizing Touch (the cast): 1 arcane reservoir point, touch attack -----
@@ -154,7 +154,7 @@ namespace MissionWOTR.Archetypes
         .Configure();
 
       // ----- Mesmerizing Touch feature (3rd; replaces the 3rd-level exploit) -----
-      var mesmerizingFeature = FeatureConfigurator.New(MesmerizingTouchName, Guids.CovertMageMesmerizingFeature)
+      var mesmerizingFeature = FeatureConfigurator.New(MesmerizingTouchFeatureName, Guids.CovertMageMesmerizingFeature)
         .SetDisplayName("CovertMageMesmerizingTouch.Name")
         .SetDescription("CovertMageMesmerizingTouch.Description")
         .SetIcon(BuffRefs.Confusion.Reference.Get().Icon)
@@ -196,13 +196,25 @@ namespace MissionWOTR.Archetypes
 
       archetype = archetype
         .AddToAddFeatures(LevelPlan.L(1), TrainingName)
-        .AddToAddFeatures(LevelPlan.L(3), MesmerizingTouchName)
+        .AddToAddFeatures(LevelPlan.L(3), MesmerizingTouchFeatureName)
         .AddToAddFeatures(LevelPlan.L(7), SpellTrickName)
         .AddToAddFeatures(LevelPlan.L(11), IllusionSpotterName);
 
       archetype.Configure();
 
       MissionFeats.Logger.Info("CovertMage: configured.");
+    }
+
+    /// <summary>
+    /// Builds the mesmerizing-touch delivery action. ElementTool is mandatory:
+    /// raw `new` elements fail BPCore validation (missing element name) and skip
+    /// required init logic.
+    /// </summary>
+    private static CovertMageMesmerizingAction BuildMesmerizingAction()
+    {
+      var action = ElementTool.Create<CovertMageMesmerizingAction>();
+      action.Debuff = MesmerizingDebuff;
+      return action;
     }
   }
 

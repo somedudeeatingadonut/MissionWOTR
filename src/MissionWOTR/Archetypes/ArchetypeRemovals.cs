@@ -1,6 +1,4 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
-using BlueprintCore.Blueprints.References;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using System;
 using System.Collections;
@@ -25,12 +23,22 @@ namespace MissionWOTR.Archetypes
   /// the live class progression that grants each feature and registers the
   /// removal there - adapting automatically to other mods that reshape the
   /// class. Features not present in the progression are skipped and logged.
+  ///
+  /// Matching notes (learned the hard way in playtest logs):
+  /// - Callers pass either an asset name ("MagusSpellRecall") or a guid string,
+  ///   dashed or undashed (BPCore's FeatureRefs.ToString() yields the DASHED
+  ///   form). Both sides are normalized before comparison.
+  /// - SimpleBlueprint.AssetGuid is a BlueprintGuid STRUCT, not a string; it
+  ///   must be stringified before comparing.
+  /// - The resolved feature BLUEPRINT is passed to AddToRemoveFeatures (not the
+  ///   name string): BPCore's implicit string conversion runs Guid.Parse, which
+  ///   throws on names.
   /// </summary>
   internal static class ArchetypeRemovals
   {
     /// <summary>
-    /// For each feature name, finds its level in the class's progression and
-    /// registers the removal at that level. Returns the configurator for chaining.
+    /// For each feature name or guid, finds its level in the class's progression
+    /// and registers the removal at that level. Returns the configurator for chaining.
     /// </summary>
     internal static ArchetypeConfigurator AddRemovals(
       ArchetypeConfigurator archetype,
@@ -40,51 +48,73 @@ namespace MissionWOTR.Archetypes
       var progression = clazz.Progression;
       foreach (var featureName in featureNames)
       {
-        var level = FindFeatureLevel(progression, featureName);
-        if (level is null)
+        var match = FindFeature(progression, featureName);
+        if (match is null)
         {
           MissionWOTR.Main.Logger.Warn(
             $"[removals] {featureName} not found in {clazz.name} progression (checked feature " +
-            "names and guids) - removal skipped. If this feature should be removed, its " +
-            "blueprint id may not match the progression entry.");
+            "names and guids, dashed and undashed) - removal skipped. If this feature should " +
+            "be removed, its blueprint id may not match the progression entry.");
           continue;
         }
-        archetype = archetype.AddToRemoveFeatures(level.Value, featureName);
+        archetype = archetype.AddToRemoveFeatures(match.Value.Level, match.Value.Feature);
       }
       return archetype;
     }
 
-    private static int? FindFeatureLevel(
-      Kingmaker.Blueprints.Classes.BlueprintProgression progression,
+    private static (int Level, BlueprintFeatureBase Feature)? FindFeature(
+      BlueprintProgression progression,
       string featureName)
     {
       if (progression?.LevelEntries is null)
       {
         return null;
       }
+      string wantedGuid = NormalizeGuid(featureName);
       foreach (var entry in progression.LevelEntries)
       {
-        foreach (var id in EntryFeatureIds(entry))
+        if (entry is null)
         {
-          // Callers pass either a blueprint name or (as BPCore's FeatureRefs
-          // ToString() does) the GUID - match either.
-          if (string.Equals(id, featureName, StringComparison.OrdinalIgnoreCase))
+          continue;
+        }
+        foreach (var feature in EntryFeatures(entry))
+        {
+          if (feature is null)
           {
-            return entry.Level;
+            continue;
+          }
+          var name = Read(feature, "name") as string;
+          if (name is not null &&
+            string.Equals(name, featureName, StringComparison.OrdinalIgnoreCase))
+          {
+            return (entry.Level, feature);
+          }
+          var guid = NormalizeGuid(Read(feature, "AssetGuid")?.ToString());
+          if (guid.Length > 0 && guid == wantedGuid)
+          {
+            return (entry.Level, feature);
           }
         }
       }
       return null;
     }
 
-    /// <summary>
-    /// Dereferenced feature ids (name AND asset guid) of a LevelEntry. Reflection
-    /// with both member spellings, because the game's LevelEntry layout varies by
-    /// version.
-    /// </summary>
-    private static IEnumerable<string> EntryFeatureIds(LevelEntry entry)
+    /// <summary>Strips dash/brace formatting and lowercases: guids compare equal
+    /// in dashed, undashed, and braced spellings.</summary>
+    private static string NormalizeGuid(string s)
     {
-      var list = Get(entry, "Features") ?? Get(entry, "m_Features");
+      return (s ?? string.Empty).Replace("-", "").Replace("{", "").Replace("}", "")
+        .Trim().ToLowerInvariant();
+    }
+
+    /// <summary>
+    /// Dereferenced features of a LevelEntry. Handles both member spellings:
+    /// the dereferenced "Features" list (blueprint objects) and the serialized
+    /// "m_Features" list (references with a Get() method).
+    /// </summary>
+    private static IEnumerable<BlueprintFeatureBase> EntryFeatures(LevelEntry entry)
+    {
+      var list = Read(entry, "Features") ?? Read(entry, "m_Features");
       if (list is not IEnumerable items)
       {
         yield break;
@@ -95,21 +125,19 @@ namespace MissionWOTR.Archetypes
         {
           continue;
         }
-        var blueprint = Invoke(item, "Get") ?? item;
-        var name = Get(blueprint, "name") as string;
-        if (name is not null)
+        if (item is BlueprintFeatureBase direct)
         {
-          yield return name;
+          yield return direct;
+          continue;
         }
-        var guid = Get(blueprint, "AssetGuid") as string;
-        if (guid is not null)
+        if (Call(item, "Get") is BlueprintFeatureBase dereferenced)
         {
-          yield return guid;
+          yield return dereferenced;
         }
       }
     }
 
-    private static object Get(object obj, string name)
+    private static object Read(object obj, string name)
     {
       if (obj is null)
       {
@@ -118,11 +146,20 @@ namespace MissionWOTR.Archetypes
       const BindingFlags flags =
         BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
       var type = obj as Type ?? obj.GetType();
-      return type.GetProperty(name, flags)?.GetValue(obj) ??
-        type.GetField(name, flags)?.GetValue(obj);
+      try
+      {
+        return type.GetProperty(name, flags)?.GetValue(obj) ??
+          type.GetField(name, flags)?.GetValue(obj);
+      }
+      catch
+      {
+        // Members that throw on read (e.g. lazy properties mid-load) are treated
+        // as absent.
+        return null;
+      }
     }
 
-    private static object Invoke(object obj, string methodName)
+    private static object Call(object obj, string methodName)
     {
       if (obj is null)
       {
@@ -130,8 +167,16 @@ namespace MissionWOTR.Archetypes
       }
       const BindingFlags flags =
         BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
-      var method = (obj as Type ?? obj.GetType()).GetMethod(methodName, flags, null, Type.EmptyTypes, null);
-      return method is null ? null : method.Invoke(obj, null);
+      try
+      {
+        var method = (obj as Type ?? obj.GetType()).GetMethod(
+          methodName, flags, null, Type.EmptyTypes, null);
+        return method is null ? null : method.Invoke(obj, null);
+      }
+      catch
+      {
+        return null;
+      }
     }
   }
 }

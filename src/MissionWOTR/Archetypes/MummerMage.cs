@@ -49,10 +49,12 @@ namespace MissionWOTR.Archetypes
   /// - The 5th-level bonded-item benefit grants the vanilla BondedItem feature
   ///   (2fb5e65bd57caa943b45ee32d825e9b9): once per day, cast any spell from her
   ///   spellbook through the prop, as a full-round action.
-  /// - Versatile performance does not exist in WOTR (no Perform skill), so Arcane
-  ///   Imitation's trade is void - the feature is additive, like Breaker's Battle
-  ///   Scavenger. Each pick learns one wizard spell (of a level she can cast); the
-  ///   tabletop's "or two lower-level spells" clause is simplified away.
+  /// - Versatile performance does not exist in WOTR (no Perform skill), so
+  ///   Arcane Imitation instead trades inspire competence - the closest
+  ///   skill-support feature the WOTR bard progression actually grants, so the
+  ///   wizard-spell theft is not free. Each pick learns one wizard spell (of a
+  ///   level she can cast); the tabletop's "or two lower-level spells" clause
+  ///   is simplified away.
   /// - Method Actor: WOTR has no wizard-level feat prerequisites to redirect, so
   ///   the persona mastery becomes: all Knowledge (Lore) skills use Charisma
   ///   instead of Intelligence - she remembers playing a scholar convincingly.
@@ -165,8 +167,10 @@ namespace MissionWOTR.Archetypes
 
       // Trades: bardic knowledge (Shtick), well-versed (Imperious Gestures),
       // lore master (Method Actor), jack-of-all-trades (Eucatastrophe).
-      // Versatile performance does not exist in WOTR - the name is passed
-      // speculatively and safely skipped if unfound.
+      // Versatile performance does not exist in WOTR, so Arcane Imitation
+      // trades inspire competence instead - the closest skill-support ribbon
+      // the bard progression actually grants (playtest-driven change: the
+      // wizard-spell theft was otherwise free).
       archetype = ArchetypeRemovals.AddRemovals(
         archetype,
         bard,
@@ -174,8 +178,7 @@ namespace MissionWOTR.Archetypes
         FeatureRefs.BardWellVersed.ToString(),
         FeatureRefs.BardLoreMaster.ToString(),
         FeatureRefs.BardJackOfAllTrades.ToString(),
-        "VersatilePerformance",
-        "VersatilePerformanceSelection");
+        FeatureRefs.InspireCompetenceFeature.ToString());
 
       archetype = archetype
         .AddToAddFeatures(LevelPlan.L(1), ShtickName)

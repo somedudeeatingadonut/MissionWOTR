@@ -7,6 +7,51 @@ at level 1. To switch the whole mod to normal leveling, set
 [`src/MissionWOTR/Archetypes/LevelPlan.cs`](../src/MissionWOTR/Archetypes/LevelPlan.cs).
 Each `LevelPlan.L(n)` call site then uses the real level `n` listed below.
 
+## 0.5.3 — first playtest patch (from in-game logs)
+
+Fixes found in the first full in-game pass:
+
+1. **Archetype trades were silently skipped for everyone.** The
+   `ArchetypeRemovals` helper compared caller-supplied guids against
+   `SimpleBlueprint.AssetGuid` — which is a `BlueprintGuid` struct, not a
+   string, so the `as string` cast always produced null and EVERY removal was
+   skipped ("things the class should have taken away are still there"). The
+   helper now stringifies and dash-normalizes both sides and passes the resolved
+   feature blueprint to `AddToRemoveFeatures` (the old code passed feature
+   NAMES into BPCore's guid parser, which is what crashed Spellblade).
+2. **No arcanist archetypes appeared.** CovertMage: the cast ability and its
+   granting feature shared one asset name with two GUIDs — BlueprintCore threw
+   "Duplicate GuidByName" and the whole archetype died (renamed the feature).
+   ElementalObsessor: `.Cast<Blueprint<…>>()` over feature arrays throws at
+   runtime (implicit conversions are not casts) — replaced with per-element
+   conversion.
+3. **Spellfist's spellbook (and the Obsessor's five elemental lists) built with
+   0 spells.** The shared blueprint enumerator probed the cache dictionary but
+   its values are cache-entry wrappers (`.Blueprint` / `.Offset`), not
+   blueprints — nothing ever matched. Rewritten for the real
+   `m_LoadedBlueprints` shape (DarkCodex blueprint-loader pattern).
+4. **Sanguine Font never appeared**: it was never registered in
+   `MissionFeats.ConfigureAll` (the diagnostics entry existed; the configure
+   call did not).
+5. **Spellfist was still granting the feats the 0.5.1 revision removed** — that
+   revision's edit never actually landed in the code (verified against the
+   playtest log's grant dump). The real schedule is now in: no Combat
+   Reflexes / Combat Expertise / Endurance / Battlefield Scavenger / Steadfast
+   Aim; Swiftness at 6th; monk fist dice Level4@8th / Level12@20th.
+6. **Spellfist recommends Wis/Dex/Con** (archetype-level
+   `OverrideAttributeRecommendations`; it casts with Wisdom).
+7. **Mummer Mage**: versatile performance doesn't exist in WOTR, so Arcane
+   Imitation's trade was void — it now trades **inspire competence**.
+8. **Cook rework: ingredients -> meals.** Each charge now feeds EVERY ally
+   within 30 ft a weaker meal (values rebalanced; see the Cook section).
+9. Custom `ContextAction`s are now built with `ElementTool.Create` (raw `new`
+   elements failed BlueprintCore validation — the "CookServeMeal failed
+   validation" spam — and skip required init logic).
+10. Literal `\n` removed from the Breaker/Bloodstorm descriptions; homebrew
+    archetype descriptions rewritten to read like game text instead of spec
+    sheets.
+
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -301,7 +346,7 @@ spell, owns the casting attribute (same as the game's merged spellbooks).
 |---|---|---|
 | Shtick of the Magi | 1 | +2 circumstance Persuasion (the prop; Perform/Bluff do not exist in WOTR). Replaces bardic knowledge |
 | Imperious Gestures | 2 | +2 concentration (CheckConcentration stat). Replaces well-versed |
-| Arcane Imitation | 2 | LearnSpellParametrized from the wizard list; picks at 2/6/10/14/18. Replaces versatile performance (void in WOTR - additive) |
+| Arcane Imitation | 2 | LearnSpellParametrized from the wizard list; picks at 2/6/10/14/18. Replaces **inspire competence** (0.5.3: versatile performance does not exist in WOTR, so the wizard-spell theft now costs the closest skill-support feature instead of being free) |
 | Shtick Attunement | 5 | Grants the vanilla BondedItem feature (cast any spell from her spellbook 1/day, full-round) |
 | Method Actor | 5 | All Lore skills use Charisma (ReplaceStatBaseAttribute - "she remembers playing a scholar"). Replaces lore master |
 | Eucatastrophe | 10/16/19 | Adapted: extra Arcane Imitation picks (no "cast any unlearned spell" UI outside the bond). Replaces jack-of-all-trades |
@@ -313,15 +358,19 @@ of doom, no jack of all trades, no mass suggestion - just meals.
 
 | Feature | Real level | Details |
 |---|---|---|
-| Hearty Cooking | 1 | 3 meal charges per rest (resource, restore on rest). Each Serve ability: standard action, 1 charge, feeds an ally an 8-hour non-dispelable meal buff (untyped; WOTR has no food-buff category - native cooking-recipe buffs are plain buffs too) |
-| Pantry | 4/8/12/16/20 | Learn one new ingredient each pick |
+| Hearty Cooking | 1 | 3 meal charges per rest (resource, restore on rest). Each Serve ability: standard action, 1 charge, feeds EVERY ally within 30 ft an 8-hour non-dispelable meal buff (untyped; WOTR has no food-buff category - native cooking-recipe buffs are plain buffs too) |
+| Recipe Book | 4/8/12/16/20 | Learn one new meal each pick |
 
-Starting pantry: Bacon Wrap (+HP), Chicken Breast (+attack), Rice (+saves),
-Beans (+speed), Lettuce (+AC). Pantry picks: Garlic (+Persuasion), Chili Pepper
-(+damage), Cheese (+Lore skills), Mushroom (+initiative), Potato (+Fort),
-Onion (+Perception), Coffee (+initiative/+speed), Butter (+saves flat).
-All meal values are flat + one rank per N bard levels (StepLevel) - tuning
-candidates for the playtest pass.
+**0.5.3 playtest rework:** ingredients became meals. Old design: one charge fed
+one ally a strong buff. New design: one charge feeds the whole camp (30 ft) a
+weaker buff - flat values dropped (HP +2/+1-per-3 -> +1/+1-per-4, speed +10 ->
++5, attack/saves keep +1 but lose their rank scaling, Lettuce AC becomes
+rank-only at 1/12 levels) and only Bacon Wrap and Lettuce keep (slower) level
+scaling. Starting menu: Bacon Wrap (+HP), Chicken Breast (+attack), Rice
+(+saves), Beans (+speed), Lettuce (+AC). Recipe picks: Garlic (+Persuasion),
+Chili Pepper (+damage), Cheese (+Lore skills), Mushroom (+initiative), Potato
+(+Fort), Onion (+Perception), Coffee (+initiative/+speed), Butter (+saves
+flat). All meal values are tuning candidates for the playtest pass.
 
 ## Magus
 

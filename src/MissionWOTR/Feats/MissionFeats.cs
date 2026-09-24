@@ -62,6 +62,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Cook), Cook.Configure);
       Configure(nameof(Spellfist), Spellfist.Configure);
       Configure(nameof(Spellblade), Spellblade.Configure);
+      Configure(nameof(SanguineFont), SanguineFont.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -123,10 +124,13 @@ namespace MissionWOTR.Feats
           var inAvailable = entry.Class.AvailableArchetypes.Contains(archetype);
           var componentNames = string.Join(",", archetype.ComponentsArray
             .Select(c => c.GetType().Name).OrderBy(n => n));
+          // MinFeatureLevel is Min() over AddFeatures and throws when empty.
+          var addLevels = archetype.AddFeatures?.Length ?? 0;
+          var minLevel = addLevels > 0 ? archetype.MinFeatureLevel : 0;
           Logger.Info(
             $"[diag] {entry.Name}: created={true}, components={archetype.ComponentsArray.Length} [{componentNames}], " +
-            $"addLevels={(archetype.AddFeatures?.Length ?? 0)}, removeLevels={(archetype.RemoveFeatures?.Length ?? 0)}, " +
-            $"minLevel={archetype.MinFeatureLevel}, onClass={inClass}, inAvailableList={inAvailable}.");
+            $"addLevels={addLevels}, removeLevels={(archetype.RemoveFeatures?.Length ?? 0)}, " +
+            $"minLevel={minLevel}, onClass={inClass}, inAvailableList={inAvailable}.");
           // Level-1 grant list with dereferenced names: a null here means a dangling
           // reference - the feature would silently never reach the character.
           // (Reflection: the game's LevelEntry feature-list member name varies by

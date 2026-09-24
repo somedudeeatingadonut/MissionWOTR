@@ -228,6 +228,10 @@ namespace MissionWOTR.Archetypes
         ArchetypeConfigurator.New(ArchetypeName, Guids.SpellfistArchetype, CharacterClassRefs.MagusClass)
           .SetLocalizedName(DisplayName)
           .SetLocalizedDescription(Description)
+          // The class recommends Dex/Int; this archetype casts with Wisdom, so
+          // the archetype carries its own recommendation (shown in char-gen).
+          .SetOverrideAttributeRecommendations(true)
+          .SetRecommendedAttributes(StatType.Wisdom, StatType.Dexterity, StatType.Constitution)
           // The class's spellbook itself is replaced, so Spell Combat's
           // UnitPartMagus resolves OUR book (the Eldritch Scion mechanism).
           .SetReplaceSpellbook(Guids.SpellfistSpellbook);
@@ -244,23 +248,18 @@ namespace MissionWOTR.Archetypes
 
       archetype
         .AddToAddFeatures(LevelPlan.L(1), CascadeName, BareFistName, KiFlurryName)
-        .AddToAddFeatures(LevelPlan.L(2),
-          ResonantStrikes.FeatName, FeatureRefs.CombatReflexes.ToString())
+        .AddToAddFeatures(LevelPlan.L(2), ResonantStrikes.FeatName)
         .AddToAddFeatures(LevelPlan.L(3), SunderName)
         .AddToAddFeatures(LevelPlan.L(4), ArcaneMomentum.FeatName)
         .AddToAddFeatures(LevelPlan.L(5), VengefulCounterstrike.FeatName)
-        .AddToAddFeatures(LevelPlan.L(6),
-          GuardedMomentum.FeatName, FeatureRefs.CombatExpertiseFeature.ToString())
+        .AddToAddFeatures(LevelPlan.L(6), GuardedMomentum.FeatName, SwiftnessName)
         .AddToAddFeatures(LevelPlan.L(7),
           TauntingBlows.FeatName, FeatureRefs.PowerAttackFeature.ToString(), CarapaceName)
         .AddToAddFeatures(LevelPlan.L(8),
-          TunnelFighter.FeatName, FeatureRefs.MonkUnarmedStrikeLevel8.ToString())
-        .AddToAddFeatures(LevelPlan.L(9),
-          SecondWind.FeatName, FeatureRefs.Endurance.ToString())
+          TunnelFighter.FeatName, FeatureRefs.MonkUnarmedStrikeLevel4.ToString())
+        .AddToAddFeatures(LevelPlan.L(9), SecondWind.FeatName)
         .AddToAddFeatures(LevelPlan.L(11), WardedSoul.FeatName)
-        .AddToAddFeatures(LevelPlan.L(13), BattlefieldScavenger.FeatName)
-        .AddToAddFeatures(LevelPlan.L(15), SteadfastAim.FeatName)
-        .AddToAddFeatures(LevelPlan.L(16), FeatureRefs.MonkUnarmedStrikeLevel16.ToString())
+        .AddToAddFeatures(LevelPlan.L(20), FeatureRefs.MonkUnarmedStrikeLevel12.ToString())
         .Configure(delayed: true);
     }
 

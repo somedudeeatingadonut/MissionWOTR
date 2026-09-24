@@ -272,11 +272,7 @@ namespace MissionWOTR.Archetypes
         .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
         .AddAbilityCasterHasFacts(facts: athameFactRefs, needsAll: false)
         .AddAbilityEffectRunAction(ActionsBuilder.New()
-          .Add(new SpellbladeThrowAthameAction
-          {
-            AthameBuffs = athameBuffs,
-            Weapons = weapons,
-          })
+          .Add(BuildThrowAction(athameBuffs, weapons))
           .Build())
         .Configure();
 
@@ -292,13 +288,8 @@ namespace MissionWOTR.Archetypes
         .AddAbilityCasterHasFacts(facts: athameFactRefs, needsAll: false)
         .AddAbilityResourceLogic(
           requiredResource: ArcanePoolResourceGuid, amount: 2, isSpendResource: true)
-        .AddAbilityEffectRunAction(ActionsBuilder.New()
-          .Add(new SpellbladeThrowAthameAction
-          {
-            AthameBuffs = athameBuffs,
-            Weapons = weapons,
-            BonusDice = 2,
-          })
+          .AddAbilityEffectRunAction(ActionsBuilder.New()
+          .Add(BuildThrowAction(athameBuffs, weapons, bonusDice: 2))
           .Build())
         .Configure();
 
@@ -332,6 +323,21 @@ namespace MissionWOTR.Archetypes
       archetype
         .AddToAddFeatures(LevelPlan.L(2), AthameFeatureName)
         .Configure(delayed: true);
+    }
+
+    /// <summary>
+    /// Builds the throw-athame action. ElementTool is mandatory for custom
+    /// ContextActions: raw `new` elements fail BPCore validation (missing
+    /// element name) and skip required init logic.
+    /// </summary>
+    private static SpellbladeThrowAthameAction BuildThrowAction(
+      BlueprintBuff[] athameBuffs, BlueprintItemWeapon[] weapons, int bonusDice = 0)
+    {
+      var action = ElementTool.Create<SpellbladeThrowAthameAction>();
+      action.AthameBuffs = athameBuffs;
+      action.Weapons = weapons;
+      action.BonusDice = bonusDice;
+      return action;
     }
   }
 

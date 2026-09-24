@@ -466,13 +466,7 @@ namespace MissionWOTR.Archetypes
         .AllowTargeting(enemies: true)
         .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
         .AddAbilityEffectRunAction(ActionsBuilder.New()
-          .Add(new SanguineBlastAction
-          {
-            CharacterClass = bloodrager,
-            BlastWeapon = blastWeapon,
-            ElementFeatures = elementFeatureArray,
-            Energies = Elements.Select(x => x.Energy).ToArray(),
-          })
+          .Add(BuildBlastAction(bloodrager, blastWeapon, elementFeatureArray))
           .Build())
         .Configure();
 
@@ -513,6 +507,23 @@ namespace MissionWOTR.Archetypes
         .AddToAddFeatures(LevelPlan.L(11), BlastFeatureName)
         .AddToAddFeatures(LevelPlan.L(20), ApotheosisName)
         .Configure(delayed: true);
+    }
+
+    /// <summary>
+    /// Builds the kinetic blast action. ElementTool is mandatory for custom
+    /// ContextActions: raw `new` elements fail BPCore validation and skip
+    /// required init logic.
+    /// </summary>
+    private static SanguineBlastAction BuildBlastAction(
+      BlueprintCharacterClass bloodrager, BlueprintItemWeapon blastWeapon,
+      BlueprintFeature[] elementFeatureArray)
+    {
+      var action = ElementTool.Create<SanguineBlastAction>();
+      action.CharacterClass = bloodrager;
+      action.BlastWeapon = blastWeapon;
+      action.ElementFeatures = elementFeatureArray;
+      action.Energies = Elements.Select(x => x.Energy).ToArray();
+      return action;
     }
 
     /// <summary>Clone of the bloodrager spellbook with the trimmed list.</summary>

@@ -1033,7 +1033,7 @@
   {
     "Key": "Breaker.Description",
     "ProcessTemplates": false,
-    "enGB": "A barbarian devoted to destruction itself - walls, armor, constructs, whatever stands. Destructive adds half your barbarian level as bonus damage on weapon attacks against constructs. Battle Scavenger lets you fight just as well with junk pulled off a battlefield - clubs, staves, spears and the like - gaining bonus damage with them as you level.\\n(Wrath adaptation: the tabletop version keys on sunder maneuvers, unattended objects, and improvised or broken weapons, none of which exist in Wrath.)"
+    "enGB": "Some soldiers fight the enemy. You fight whatever the enemy is hiding behind. Destructive lends half your barbarian level as bonus damage on weapon attacks against constructs, and Battle Scavenger lets you swing battlefield junk - clubs, staves, spears - with growing, almost professional expertise. (Adapted for Wrath: the original keys on sunder maneuvers, unattended objects, and improvised weapons, none of which exist here.)"
   },
   {
     "Key": "BreakerDestructive.Name",
@@ -1063,7 +1063,7 @@
   {
     "Key": "Bloodstorm.Description",
     "ProcessTemplates": false,
-    "enGB": "Your rage turns wounds into weather. While raging, your weapon attacks open Bleeding Wounds that stack up to five times; you gain fast healing while enemies within 30 feet are bleeding (the more of them, the stronger); critical hits against bleeding targets spray blood and fear onto nearby foes; and Open the Floodgate consumes every bleed stack nearby for a surge of self-healing.\\nYou trade away uncanny dodge, improved uncanny dodge, and your damage reduction - all offense, no safety net."
+    "enGB": "There is a storm in your blood, and it does not fall on you. While raging, your weapon attacks open bleeding wounds that stack up to five deep; you heal faster for every bleeding enemy nearby - the more of them, the stronger - and critical hits against bleeding foes spray gore and terror across their neighbors. Open the Floodgate spends every bleed stack around you in a single surge of self-healing. For all this you give up uncanny dodge, improved uncanny dodge, and your damage reduction: all tempest, no shelter."
   },
   {
     "Key": "BloodstormFeature.Name",
@@ -1113,7 +1113,7 @@
   {
     "Key": "CovertMage.Description",
     "ProcessTemplates": false,
-    "enGB": "Some see the world as a maze of deceit, lies, and trickery, and the only way to get along in such a world is to become a master of guile yourself. A covert mage is an expert at using her magic to manipulate others without their knowledge, as well as learning some non-magical tricks to help her deceive and confound her foes.\nClass skills: Persuasion, Perception, Stealth, Thievery. Gains light armor proficiency and casts arcanist spells in light armor without arcane spell failure."
+    "enGB": "Any fool can blast a door off its hinges. You would rather pick the lock, slip through, and be three streets away before anyone notices the door was locked. The covert mage treats her magic as one more con in the kit: Persuasion, Perception, Stealth, and Thievery become class skills, she casts comfortably in light armor, her mesmerizing touch softens a mind, her spell tricks provoke nothing from a mark she has feinted, and her practiced eye sees through illusions that would fool a more honest caster. She trades the arcanist exploits gained at 3rd, 7th, and 11th level for the repertoire."
   },
   {
     "Key": "CovertMageTraining.Name",
@@ -1183,7 +1183,7 @@
   {
     "Key": "ElementalObsessor.Description",
     "ProcessTemplates": false,
-    "enGB": "Total, single-minded devotion to one element. The obsessor can only cast spells of her chosen element - but her fixation reaches across every non-mythic spellbook in the game, so her element's whole arsenal is hers, cast with Intelligence like any arcanist.\nObsessive Focus hones every cast; Unstoppable Obsession makes immunity and resistance leak; Cathartic Release erupts on kills; and every elemental kill refills her arcane reservoir - the same well that powers her exploits and Consume Spells."
+    "enGB": "She does not merely study her element; she is possessed by it. The Elemental Obsessor forsakes every spell that is not of her chosen element - and in exchange her fixation rakes through every magical tradition in the world and claims its entire arsenal for her own book. Her focus adds force to every cast, her obsession makes resistances and immunities leak like cracked dams, her kills erupt cathartically, and every death by her element refills the arcane reservoir that drives her exploits. She surrenders the arcanist exploits gained at 1st, 3rd, and 7th level for the privilege."
   },
   {
     "Key": "ElementFixation.Name",
@@ -1313,7 +1313,7 @@
   {
     "Key": "MummerMage.Description",
     "ProcessTemplates": false,
-    "enGB": "While most bards perform for admiration, the mummer mage longs for the prestige only true spellcasters command - so she pretends. Eccentric actor or pretentious fraud, she bluffs her way to ever higher stations, brandishing an ornate staff andborrowed wizardry."
+    "enGB": "Most bards perform for applause. The mummer mage performs for prestige - the kind commanded by real wizards - and she is very, very good at pretending. With an ornate prop staff and borrowed wizardry she bluffs her way to ever higher station, and the longer the role is played, the truer it becomes. Her shtick of the magi replaces bardic knowledge; imperious gestures replace well-versed; arcane imitation - lifting wizard spells into her own repertoire - replaces inspire competence; method acting replaces lore master; and eucatastrophe, the scene where the performance finally becomes real, replaces jack-of-all-trades."
   },
   {
     "Key": "MummerShtick.Name",
@@ -1383,7 +1383,7 @@
   {
     "Key": "Cook.Description",
     "ProcessTemplates": false,
-    "enGB": "One of the older meanings of 'bard' is to barding: wrapping meat in bacon or fat to keep it moist. This bard took that definition personally. She trades every performance, all bardic knowledge, dirge of doom, jack of all trades and mass suggestion for a fire, a knife, and three good meals a day.\nHearty Cooking: 3 meal charges per rest, each feeding an ally an 8-hour non-dispelable meal buff that scales with her bard level.\nPantry: she learns a new ingredient at 4th level and every 4 levels thereafter."
+    "enGB": "Some bards sing for their supper. You cook it. Trading away every performance, all bardic knowledge, dirge of doom, jack-of-all-trades, and mass suggestion, the Cook keeps a fire, a knife, and three good meals a day. Hearty Cooking grants 3 meal charges per rest, and each serving feeds every ally within 30 feet a hearty meal whose benefits last 8 hours and cannot be dispelled. A new recipe joins her repertoire at 4th level and every 4 levels thereafter."
   },
   {
     "Key": "CookHeartyCooking.Name",
@@ -1393,17 +1393,17 @@
   {
     "Key": "CookHeartyCooking.Description",
     "ProcessTemplates": false,
-    "enGB": "The cook prepares 3 meals per long rest. Each Serve ability spends one meal charge and feeds an ally: the meal's buff lasts 8 hours and cannot be dispelled. Meal effects improve as the cook gains bard levels."
+    "enGB": "The cook prepares 3 meals per long rest. Each Serve ability spends one meal charge and feeds every ally within 30 feet: the meal's buff lasts 8 hours, scales with her bard level, and cannot be dispelled."
   },
   {
     "Key": "CookPantry.Name",
     "ProcessTemplates": false,
-    "enGB": "Pantry"
+    "enGB": "Recipe Book"
   },
   {
     "Key": "CookPantry.Description",
     "ProcessTemplates": false,
-    "enGB": "The cook's repertoire grows. She learns one new ingredient: Garlic, Chili Pepper, Cheese, Mushroom, Potato, Onion, Coffee or Butter. She may choose again at 8th, 12th, 16th and 20th level."
+    "enGB": "The cook's repertoire grows. She learns one new meal: Garlic, Chili Pepper, Cheese, Mushroom, Potato, Onion, Coffee, or Butter."
   },
   {
     "Key": "CookIngredientBaconWrap.Name",
@@ -1413,7 +1413,7 @@
   {
     "Key": "CookIngredientBaconWrap.Description",
     "ProcessTemplates": false,
-    "enGB": "Barded meat, tender and rich: the eater gains 2 bonus hit points, plus 1 more for every 3 cook levels."
+    "enGB": "Barded meat, tender and rich: everyone served gains 1 bonus hit point, plus 1 more for every 4 cook levels."
   },
   {
     "Key": "CookIngredientChickenBreast.Name",
@@ -1423,7 +1423,7 @@
   {
     "Key": "CookIngredientChickenBreast.Description",
     "ProcessTemplates": false,
-    "enGB": "Lean protein, honest food: the eater gains a +1 bonus on attack rolls, plus 1 more for every 8 cook levels."
+    "enGB": "Lean protein, honest food: everyone served gains a +1 bonus on attack rolls."
   },
   {
     "Key": "CookIngredientRice.Name",
@@ -1433,7 +1433,7 @@
   {
     "Key": "CookIngredientRice.Description",
     "ProcessTemplates": false,
-    "enGB": "A steady staple: the eater gains a +1 bonus on all saving throws, plus 1 more for every 8 cook levels."
+    "enGB": "A steady staple: everyone served gains a +1 bonus on all saving throws."
   },
   {
     "Key": "CookIngredientBeans.Name",
@@ -1443,7 +1443,7 @@
   {
     "Key": "CookIngredientBeans.Description",
     "ProcessTemplates": false,
-    "enGB": "Fiber and fuel: the eater's movement speed increases by 10 feet, plus 5 more for every 12 cook levels."
+    "enGB": "Fiber and fuel: everyone served gains 5 feet of movement speed."
   },
   {
     "Key": "CookIngredientLettuce.Name",
@@ -1453,7 +1453,7 @@
   {
     "Key": "CookIngredientLettuce.Description",
     "ProcessTemplates": false,
-    "enGB": "Light and crisp: the eater gains a +1 dodge bonus to AC, plus 1 more for every 12 cook levels."
+    "enGB": "Light and crisp: everyone served gains a +1 bonus to AC that grows as the cook levels."
   },
   {
     "Key": "CookIngredientGarlic.Name",
@@ -1463,7 +1463,7 @@
   {
     "Key": "CookIngredientGarlic.Description",
     "ProcessTemplates": false,
-    "enGB": "Pungent and persuasive: the eater gains a +2 bonus on Persuasion checks, plus 1 more for every 6 cook levels."
+    "enGB": "Pungent and persuasive: everyone served gains a +2 bonus on Persuasion checks."
   },
   {
     "Key": "CookIngredientChiliPepper.Name",
@@ -1473,7 +1473,7 @@
   {
     "Key": "CookIngredientChiliPepper.Description",
     "ProcessTemplates": false,
-    "enGB": "It bites back: the eater deals 1 bonus damage on attacks, plus 1 more for every 8 cook levels."
+    "enGB": "It bites back: everyone served deals 1 bonus damage on attacks."
   },
   {
     "Key": "CookIngredientCheese.Name",
@@ -1483,7 +1483,7 @@
   {
     "Key": "CookIngredientCheese.Description",
     "ProcessTemplates": false,
-    "enGB": "Aged and cultured: the eater gains a +2 bonus on all Knowledge (Lore) checks, plus 1 more for every 6 cook levels."
+    "enGB": "Aged and cultured: everyone served gains a +2 bonus on all Knowledge (Lore) checks."
   },
   {
     "Key": "CookIngredientMushroom.Name",
@@ -1493,7 +1493,7 @@
   {
     "Key": "CookIngredientMushroom.Description",
     "ProcessTemplates": false,
-    "enGB": "Foraged and earthy: the eater gains a +2 bonus on initiative checks, plus 1 more for every 6 cook levels."
+    "enGB": "Foraged and earthy: everyone served gains a +2 bonus on initiative checks."
   },
   {
     "Key": "CookIngredientPotato.Name",
@@ -1503,7 +1503,7 @@
   {
     "Key": "CookIngredientPotato.Description",
     "ProcessTemplates": false,
-    "enGB": "Sturdy root vegetable: the eater gains a +2 bonus on Fortitude saves, plus 1 more for every 6 cook levels."
+    "enGB": "Sturdy root vegetable: everyone served gains a +2 bonus on Fortitude saves."
   },
   {
     "Key": "CookIngredientOnion.Name",
@@ -1513,7 +1513,7 @@
   {
     "Key": "CookIngredientOnion.Description",
     "ProcessTemplates": false,
-    "enGB": "It brings tears - sharpens the senses: the eater gains a +2 bonus on Perception checks, plus 1 more for every 6 cook levels."
+    "enGB": "It brings tears and sharpens the senses: everyone served gains a +2 bonus on Perception checks."
   },
   {
     "Key": "CookIngredientCoffee.Name",
@@ -1523,7 +1523,7 @@
   {
     "Key": "CookIngredientCoffee.Description",
     "ProcessTemplates": false,
-    "enGB": "Black and bitter: the eater gains a +2 bonus on initiative checks (plus 1 more for every 8 cook levels) and 5 feet of movement speed."
+    "enGB": "Black and bitter: everyone served gains a +2 bonus on initiative checks and 5 feet of movement speed."
   },
   {
     "Key": "CookIngredientButter.Name",
@@ -1533,7 +1533,7 @@
   {
     "Key": "CookIngredientButter.Description",
     "ProcessTemplates": false,
-    "enGB": "Everything is better with it: the eater gains a +1 bonus on all saving throws."
+    "enGB": "Everything is better with it: everyone served gains a +1 bonus on all saving throws."
   },
   {
     "Key": "Spellfist.Name",
@@ -1543,7 +1543,7 @@
   {
     "Key": "Spellfist.Description",
     "ProcessTemplates": false,
-    "enGB": "A magus who eschews weapons and armor alike, charging his bare fists with every spell he knows. The Spellfist casts with Wisdom, learns only touch-range spells - drawn from every magical tradition in the game - and never delivers a spell as a single blow: each cast is split across every punch of his full attack. His flurry of blows cracks the enemy's damage reduction, his casting hardens his skin, and the longer he fights, the harder he is to kill.\nBare Fist Discipline: no weapon or armor proficiencies; fights with fists (reduced monk-style fist dice).\nSpell Cascade: touch spell damage is divided across all attacks of the full attack instead of one delivery; casts outside a full attack dissipate.\nKi Flurry: while unarmored, gains an extra unarmed attack at a -2 penalty and adds Wisdom to AC.\nSundering Blows: unarmed hits reduce the target's damage reduction for everyone.\nCasting Carapace: while a spell is charged, gains damage reduction.\nThe Spellfist also gains the Mission WOTR feat line as he levels."
+    "enGB": "The academies teach that magic flows best through steel. You never had a sword, so you learned to pour it through your knuckles instead. The Spellfist casts with Wisdom from a spellbook of nothing but touch spells - every touch tradition in the world, gathered into one ascetic discipline - and never lands a spell as a single blow: each cast is divided among the blows of his full attack, each fist paying its share. His flurry borrows the monk's arts, cracking armor and damage reduction alike; his magic hardens his skin while it burns in him; and his fists grow from 1d6 to 1d8 and finally 2d6 across twenty levels. He keeps spell combat, spell strike, and his arcane pool, and trades every weapon and armor proficiency for improved unarmed strike and a monk's bare-knuckled wisdom."
   },
   {
     "Key": "SpellfistCascade.Name",
@@ -1733,7 +1733,7 @@
   {
     "Key": "SanguineFont.Description",
     "ProcessTemplates": false,
-    "enGB": "A bloodrager whose rage does not tear wounds open - it pours them shut. The Sanguine Font bleeds so her allies do not: while bloodraging she radiates healing, can release pulses of restorative energy at the cost of her rage, and shapes raw kinetic force into blade and blast in place of her mightiest spells.\nVital Blood: while bloodraging, a 10-foot aura heals wounded allies at the start of each of her turns.\nBloodletting Pulse: swift action, expend 1 bloodrage round to heal all allies within 20 feet.\nShared Vitality: the pulse can instead grant fast healing - at the cost of her own bleeding.\nGreater Bloodletting Pulse: 30 feet, stronger healing.\nKinetic Blade and Kinetic Blast: kineticist powers (as a kineticist two levels lower), replacing her 4th-level spells.\nSanguine Apotheosis: the aura grows to 40 feet, the pulse becomes free, and once per bloodrage she can spend all her remaining rage to save a dying ally.\nShe trades away her proficiencies (simple weapons and light armor only), damage reduction, and uncanny dodge."
+    "enGB": "A bloodrager whose rage does not tear wounds open - it pours them shut. The Sanguine Font bleeds so her allies do not: while bloodraging she radiates an aura that knits her wounded companions at the start of each of her turns, and she can spend her fury itself - a round of rage at a time - to release pulses of restorative energy or grant her allies fast healing she pays for in blood. In place of her mightiest spells she shapes raw kinetic force into blade and blast, and at the very height of fury she can pour out every remaining round of rage to drag a dying ally back from death's door. Her arms and armor are simple and light, she forgoes uncanny dodge and damage reduction, and her magic reaches only the third circle - her blood is the real spellbook."
   },
   {
     "Key": "SanguineVitalBlood.Name",
