@@ -23,6 +23,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using MissionWOTR.Feats;
@@ -225,7 +226,7 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        int rounds = Math.Max(1, (caster.Stats.Charisma.Value - 10) / 2);
+        int rounds = Math.Max(1, caster.Stats.Charisma.Bonus);
         target.AddBuff(
           Debuff, Context, duration: ContextDuration.Fixed(rounds).Calculate(Context).Seconds);
         MissionFeats.Logger.Info(
@@ -323,7 +324,7 @@ namespace MissionWOTR.Archetypes
         }
         // Feint: Persuasion vs 15 + target Perception (Bluff vs 10 + BAB + Sense
         // Motive on the tabletop; WOTR exposes neither Bluff nor BAB).
-        int dc = 15 + target.Stats.SkillPerception.Value;
+        int dc = 15 + target.Stats.SkillPerception.Bonus;
         var check = new RuleSkillCheck(Owner, StatType.SkillPersuasion, dc);
         Rulebook.Trigger(check);
         if (!check.Success)
