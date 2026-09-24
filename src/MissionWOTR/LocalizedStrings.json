@@ -2314,5 +2314,45 @@
     "Key": "CarouselEternal.Description",
     "ProcessTemplates": false,
     "enGB": "The wheel knows no limit - every round is one long charge. Replaces supreme charge."
+  },
+  {
+    "Key": "Cardinal.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cardinal"
+  },
+  {
+    "Key": "Cardinal.Description",
+    "ProcessTemplates": false,
+    "enGB": "Not every priest serves at an altar. The cardinal serves at a table - councils, courts, and cloistered backrooms where the church's true business is done. She keeps her spells and her devotion, but her calling is the world: she trains as a scholar and a schemer rather than a soldier of the faith, learning 6 skill ranks per level instead of the usual 2 and counting Trickery among her class skills. The price of that education is paid in steel - she wears only light armor and never a shield, fights with a scholar's grace rather than a crusader's (her attack bonus grows as slowly as a wizard's), keeps only a single domain, and can no longer convert her prepared spells into healing or harm on the fly."
+  },
+  {
+    "Key": "CardinalPoliticalSkill.Name",
+    "ProcessTemplates": false,
+    "enGB": "Political Skill"
+  },
+  {
+    "Key": "CardinalPoliticalSkill.Description",
+    "ProcessTemplates": false,
+    "enGB": "The cardinal's education spans salons and war-rooms alike. She gains 6 skill ranks per level instead of 2, and Trickery counts as a class skill for her. In the wider world her gift for deception and local knowledge folds into the Persuasion and Knowledge skills clerics already command. Her martial training suffers for it: her base attack bonus from cleric levels is that of a wizard."
+  },
+  {
+    "Key": "Solipsist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Solipsist"
+  },
+  {
+    "Key": "Solipsist.Description",
+    "ProcessTemplates": false,
+    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul - only at himself - and the channel of holy energy is denied him entirely, for there is no flock to heal. What he keeps is intensity. Each spell he casts upon himself settles twice: the blessing itself, and beneath it an echo of the same blessing that carries no type at all, so it stacks with the original, with potions, with another cleric's work, and with everything else. A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
+  },
+  {
+    "Key": "SolipsistSolipsism.Name",
+    "ProcessTemplates": false,
+    "enGB": "Solipsism"
+  },
+  {
+    "Key": "SolipsistSolipsism.Description",
+    "ProcessTemplates": false,
+    "enGB": "Every cleric spell that could target an ally can now only target the solipsist himself; hostile targets are unaffected, so cure spells still burn the undead. When he casts such a spell on himself, every blessing it bestows is laid down a second time as an untyped echo that stacks with the original and cannot be overridden by same-type effects, and healing spells roll their healing twice. In exchange, he never gains channel energy."
   }
 ]

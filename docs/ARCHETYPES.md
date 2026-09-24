@@ -337,6 +337,63 @@ The wheel is the same logic as a free action whose gates (priming/spent
 markers) read the archetype's features at runtime. Kept: mount, challenge,
 order, tactician.
 
+## Cleric
+
+### Faithful port — Cardinal (Ultimate Intrigue) — IMPLEMENTED (0.7.0)
+
+| Level | Cardinal grants | Cleric normally grants |
+|---|---|---|
+| 1 | Political Skill (6+Int ranks, Trickery as class skill), light armor + simple weapons | ClericProficiencies (light/medium armor, shields, weapons), second domain, spontaneous casting |
+
+Trades (all real removals against the live progression):
+- ClericProficiencies → re-granted as LightArmorProficiency +
+  SimpleWeaponProficiency (medium armor and ALL shields are gone; if the
+  deity's favored-weapon proficiency rides the removed package it is lost -
+  the honest cost of the armor trade).
+- SecondDomainsSelection → nothing (ONE domain).
+- ClericSpontaneousCast → nothing (no converting prepared spells into cures).
+- Base attack bonus: the archetype carries the slow (wizard) table via
+  `SetBaseAttackBonus`; skill ranks via `SetAddSkillPoints(4)` on top of the
+  cleric's 2+Int.
+
+Adaptation: WOTR folds Bluff/Intimidate into Persuasion and the Knowledges
+into Knowledge (World) - both already cleric class skills - so the tabletop's
+four extra class skills collapse into existing ones; Trickery (the game's
+deception skill) is granted as the intrigue-flavored stand-in.
+
+### Homebrew — The Solipsist (user design: the selfish cleric) — IMPLEMENTED (0.7.0)
+
+| Level | Solipsist grants | Cleric normally grants |
+|---|---|---|
+| 1 (channel's level) | Solipsism | Channel Energy |
+
+Solipsism, as commissioned:
+- Every cleric spell that can target an ally can now only target the
+  solipsist himself (enemy targets pass - cure spells still sear undead;
+  ground-point spells are untouched).
+- Every blessing such a spell applies to him is laid down a SECOND time as an
+  untyped echo: a clone of the buff whose bonus descriptors are all rewritten
+  to None, so it stacks with the original's typed bonus and cannot be
+  overridden by same-type effects. Two Blesses' worth of attack, two Shields
+  of Faith' worth of deflection, a doubled communal resistance pool.
+- Healing spells he casts on himself roll their healing twice (a second,
+  independent heal roll in the same context).
+- Channel energy is removed entirely - a congregation of one has no flock.
+
+Engine notes: the lock is a custom `IAbilityTargetRestriction` added to the
+shared vanilla spell abilities (inert for every caster without the Solipsism
+fact, so other classes are untouched); the scan walks the cleric spellbook's
+spell list plus ability variants and picks CanTargetFriends spells that are
+Helpful on allies or carry heals; the echo is an extra AbilityEffectRunAction
+appended to each qualifying spell, holding element-copies of the spell's own
+apply-buff actions (buff reference swapped to the untyped clone) and heal
+actions. Echo-buff guids derive deterministically from the original buff's
+guid (XOR a fixed mask), so they are save-stable. Actions nested under a
+Conditional gate are never doubled (no guessed variants); utility ally-spells
+with no buffs or heals (remove curse and friends) get the lock but no echo;
+domain spells are not part of the scanned list. The log lists every converted
+spell at load (`[solipsist]` prefix).
+
 ## Level plan per class (test-mode rule)
 
 All archetype features land at level 1 while `LevelPlan.AllAtLevelOne == true`. The table

@@ -104,9 +104,11 @@ namespace MissionWOTR.Feats
           ("Spellblade", Guids.SpellbladeArchetype, magus),
           ("SanguineFont", Guids.SanguineFontArchetype, bloodrager),
           ("UntouchableRager", Guids.UntouchableRagerArchetype, bloodrager),
-          ("SisterInArms", Guids.SisterArchetype, cavalier),
-          ("Carousel", Guids.CarouselArchetype, cavalier),
-        };
+      ("SisterInArms", Guids.SisterArchetype, cavalier),
+      ("Carousel", Guids.CarouselArchetype, cavalier),
+      ("Cardinal", Guids.CardinalArchetype, cleric),
+      ("Solipsist", Guids.SolipsistArchetype, cleric),
+    };
         foreach (var entry in entries)
         {
           BlueprintArchetype archetype;

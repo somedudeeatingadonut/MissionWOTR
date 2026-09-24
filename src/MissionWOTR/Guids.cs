@@ -556,6 +556,12 @@ namespace MissionWOTR
     internal const string CarouselGrand = "BB164186-D4DF-4F08-A56D-1374B7502F55";
     internal const string CarouselGrandBuff = "1D6061B4-7961-4D2E-9637-BDFF369F179F";
     internal const string CarouselEternal = "C8A71A33-6B1A-4C23-8E0B-DFC47B257F4C";
+    internal const string CardinalArchetype = "2A12440E-5EC0-4739-AB7B-28DE2606F0EF";
+    internal const string CardinalPoliticalSkill = "FF26F953-D5D5-405A-AB5D-A85A3947155E";
+    internal const string SolipsistArchetype = "24FA563E-156A-42E7-A21F-11D60D5C4799";
+    internal const string SolipsistFeature = "1356E90D-D4D8-4E60-A85F-6F1F55892A56";
+    internal const string SolipsistTargetLock = "F61B2B27-5213-4046-957C-7F185C151AE1";
+    internal const string SolipsistEchoAction = "29D5E92A-C6F6-43E4-88DA-4CCD79CFD0BA";
 
   }
 }

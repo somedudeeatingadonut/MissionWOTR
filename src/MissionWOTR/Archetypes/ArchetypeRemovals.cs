@@ -63,6 +63,24 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// First level at which any of the named features appears in the
+    /// progression (asset name or guid, dashed or not); 1 if none match -
+    /// callers use it to place replacement features at the traded level.
+    /// </summary>
+    internal static int FindLevel(BlueprintProgression progression, params string[] featureNames)
+    {
+      foreach (var featureName in featureNames)
+      {
+        var match = FindFeature(progression, featureName);
+        if (match is not null)
+        {
+          return match.Value.Level;
+        }
+      }
+      return 1;
+    }
+
+    /// <summary>
     /// Removes a class's spellcasting: finds every progression feature whose
     /// AddSpellbook component grants the given spellbook and registers removals
     /// at the levels the progression actually grants them. Component-based on
