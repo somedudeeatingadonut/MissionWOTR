@@ -207,7 +207,10 @@ namespace MissionWOTR.Archetypes
           }
           else if (sr is null)
           {
-            Owner.AddBuff(SrBuff, Context, 3600f);
+            // The UnitDescriptor.AddBuff overload (the Cook meal pattern);
+            // the maintenance component removes the buff explicitly, so the
+            // duration only needs to outlast any rage.
+            Owner.Descriptor.AddBuff(SrBuff, Context, TimeSpan.FromHours(1));
             MissionFeats.Logger.Info(
               "[untouchable] raging resistance raised (spell resistance active).");
           }

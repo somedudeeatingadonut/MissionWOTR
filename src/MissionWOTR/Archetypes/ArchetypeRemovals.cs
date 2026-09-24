@@ -90,20 +90,31 @@ namespace MissionWOTR.Archetypes
         }
         foreach (var feature in EntryFeatures(entry))
         {
-          if (feature?.GetComponent<Kingmaker.UnitLogic.FactLogic.AddSpellbook>() is not
-            { } add)
+          if (feature?.ComponentsArray is null)
           {
             continue;
           }
-          if (add.m_Spellbook?.Get() != spellbook)
+          foreach (var component in feature.ComponentsArray)
           {
-            continue;
+            // The AddSpellbook component's namespace moved between game
+            // builds - matched by type NAME and read by reflection so this
+            // compiles against any of them.
+            if (component is null || component.GetType().Name != "AddSpellbook")
+            {
+              continue;
+            }
+            var book = Call(Read(component, "m_Spellbook"), "Get");
+            if (book != spellbook)
+            {
+              continue;
+            }
+            archetype = archetype.AddToRemoveFeatures(entry.Level, feature);
+            removed++;
+            MissionWOTR.Main.Logger.Info(
+              $"[removals] {clazz.name}: spellcasting feature {feature.name} " +
+              $"({spellbook.name}) removed at level {entry.Level}.");
+            break;
           }
-          archetype = archetype.AddToRemoveFeatures(entry.Level, feature);
-          removed++;
-          MissionWOTR.Main.Logger.Info(
-            $"[removals] {clazz.name}: spellcasting feature {feature.name} " +
-            $"({spellbook.name}) removed at level {entry.Level}.");
         }
       }
       if (removed == 0)
