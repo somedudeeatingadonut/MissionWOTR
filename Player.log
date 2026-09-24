@@ -22,16 +22,16 @@ Begin MonoManager ReloadAssembly
 [Manager] IsSupportOnSessionStart: False.
 [Manager] IsSupportOnSessionStop: False.
 [Manager] Mods path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods.
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000020BE6C834A0.dll
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000020DA0BC3100.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000002677CA764B0.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-00000267A050A150.dll
 [Manager] Injection successful.
-- Completed reload, in  0.667 seconds
+- Completed reload, in  0.772 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 [startup.json] Check path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\startup.json
 [startup.json] Loaded
-UnloadTime: 0.323200 ms
+UnloadTime: 31.771100 ms
 No cloud project ID was found by the Analytics SDK. This means Analytics events will not be sent. Please make sure to link your cloud project in the Unity editor to fix this problem.
 [Manager] Starting.
 [Manager] Start parsing game version.
@@ -93,17 +93,17 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [Manager] Loading mods.
 [!ManyModsPerformanceFix] Version '1.8.5'. Loading.
 [!ManyModsPerformanceFix] Active.
-[!ManyModsPerformanceFix] Loading time 0.24 s.
+[!ManyModsPerformanceFix] Loading time 0.29 s.
 [!!!FirstStart] Version '1.0.0'. Loading.
 [!!!FirstStart] Active.
 [!!!FirstStart] Loading time 0.01 s.
-[0ToyBox0] Version '1.7.24'. Loading.
+[0ToyBox0] Version '1.7.26'. Loading.
 [0ToyBox0] Starting Integrity Check.
 [0ToyBox0] Integrity Check succeeded.
 [0ToyBox0] Compatability Check succeeded
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000020BE6C81070.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000002677CA770C0.dll
 [0ToyBox0] Active.
-[0ToyBox0] Loading time 1.68 s.
+[0ToyBox0] Loading time 1.96 s.
 [TabletopTweaks-Core] Version '0.7.14a'. Loading.
 [TabletopTweaks-Core] Optional mod 'MewsiferConsole.Mod' not found.
 [TabletopTweaks-Core] PostPatchInitializer: TabletopTweaks-Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -154,7 +154,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [TabletopTweaks-Core] Loading time 0.33 s.
 [AddedFeats] Version '1.7.0'. Loading.
 [AddedFeats] Active.
-[AddedFeats] Loading time 0.02 s.
+[AddedFeats] Loading time 0.06 s.
 [ModMenu] Version '2.0.14'. Loading.
 [ModMenu] Optional mod 'MewsiferConsole.Mod' not found.
 [ModMenu] Detected toybox, will try to add SaveLoadViews.SaveLoadVMPatch.UpdateSavesCollection method to patches
@@ -163,11 +163,11 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [ModMenu] Method was found
 [ModMenu] Finished loading.
 [ModMenu] Active.
-[ModMenu] Loading time 3.85 s.
+[ModMenu] Loading time 3.71 s.
 [AlterAsc.CombatRelief] Version '2.3.0'. Loading.
 [AlterAsc.CombatRelief] Optional mod 'MewsiferConsole.Mod' not found.
 [AlterAsc.CombatRelief] Active.
-[AlterAsc.CombatRelief] Loading time 0.01 s.
+[AlterAsc.CombatRelief] Loading time 0.02 s.
 [BubbleBuffs] Version '5.2.3'. Loading.
 [BubbleBuffs] Optional mod 'EnhancedInventory' not found.
 [BubbleBuffs] LOADING
@@ -186,7 +186,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Texture2D]
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Sprite]
 [BubbleBuffs] Active.
-[BubbleBuffs] Loading time 0.03 s.
+[BubbleBuffs] Loading time 0.05 s.
 [BuffIt2TheLimit] Version '1.21.1'. Loading.
 [BuffIt2TheLimit] Optional mod 'EnhancedInventory' not found.
 [BuffIt2TheLimit] LOADING BuffIt2TheLimit
@@ -205,11 +205,11 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [BuffIt2TheLimit] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Texture2D]
 [BuffIt2TheLimit] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Sprite]
 [BuffIt2TheLimit] Active.
-[BuffIt2TheLimit] Loading time 0.04 s.
+[BuffIt2TheLimit] Loading time 0.03 s.
 [CharacterOptionsPlus] Version '1.4.0'. Loading.
 [COP+Main] Finished patching.
 [CharacterOptionsPlus] Active.
-[CharacterOptionsPlus] Loading time 0.07 s.
+[CharacterOptionsPlus] Loading time 0.11 s.
 [DarkCodex] Version '1.9.6'. Loading.
 [DarkCodex] AssemblyResolve F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DarkCodex\CodexLib.dll
 [DarkCodex] Patching Patches
@@ -217,12 +217,12 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [CodexLib] Patching Patch_SaveExtension
 [DarkCodex] Active.
 [DarkCodex] Loading time 0.07 s.
-[DragonLibrary] Version '1.2.10'. Loading.
+[DragonLibrary] Version '1.2.11'. Loading.
 [DragonLibrary] Active.
-[DragonLibrary] Loading time 0.01 s.
+[DragonLibrary] Loading time 0.04 s.
 [deceiverbuff] Version '1.5.2'. Loading.
 [deceiverbuff] Active.
-[deceiverbuff] Loading time 0.01 s.
+[deceiverbuff] Loading time 0.03 s.
 [WrathPatches] Version '1.19.1'. Loading.
 [WrathPatches] Running patch class TheEnhance
 [WrathPatches] Running patch class ActuallyFixSharedStrings
@@ -287,11 +287,11 @@ HarmonyLib.HarmonyException: Patching exception in method Kingmaker.EntitySystem
 [MonoSingleton] There is no object of type Kingmaker.Settings.Graphics.ApplicationFocusObserver. Creating new.
 Set BugReport Layer: BugReportInputLayer.
 [WrathPatches] Active.
-[WrathPatches] Loading time 0.37 s.
-[DragonChanges] Version '1.23.1'. Loading.
+[WrathPatches] Loading time 0.36 s.
+[DragonChanges] Version '1.23.3'. Loading.
 [DragonChanges] Active.
-[DragonChanges] Loading time 0.01 s.
-[DragonFixes] Version '1.33.0'. Loading.
+[DragonChanges] Loading time 0.04 s.
+[DragonFixes] Version '1.33.1'. Loading.
 [DragonFixes] [Error] Error loading file 'F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DragonFixes\DragonFixes.dll'.
 [DragonFixes] [Exception] TypeLoadException - Could not resolve type with token 01000039 (from typeref, class/assembly HarmonyLib.HarmonyPatchCategory, 0Harmony, Version=2.3.6.0, Culture=neutral, PublicKeyToken=null)
 System.TypeLoadException: Could not resolve type with token 01000039 (from typeref, class/assembly HarmonyLib.HarmonyPatchCategory, 0Harmony, Version=2.3.6.0, Culture=neutral, PublicKeyToken=null)
@@ -306,10 +306,10 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [EbonsContentMod] [Miracle UI] Patched MVVM conversion request: Kingmaker.UI.MVVM._VM.ActionBar.ActionBarSlotVM.OnShowConvertRequest()
 [EbonsContentMod] CreateAssetLinks.LoadAssetLinks: Found 11 asset links in 1 bundles
 [EbonsContentMod] Active.
-[EbonsContentMod] Loading time 0.24 s.
+[EbonsContentMod] Loading time 0.27 s.
 [ExpandedContent] Version '0.13.68'. Loading.
 [ExpandedContent] Active.
-[ExpandedContent] Loading time 0.71 s.
+[ExpandedContent] Loading time 0.70 s.
 [FeatOrganizer] Version '1.0.1'. Loading.
 [FeatOrganizer] UMM entry loaded.
 [FeatOrganizer] Enabled. Harmony patches applied and handlers subscribed.
@@ -321,13 +321,13 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [FixSubsonicBullshit] Loading time 0.01 s.
 [KineticArchetypes] Version '1.1.11'. Loading.
 [KineticArchetypes] Active.
-[KineticArchetypes] Loading time 0.09 s.
+[KineticArchetypes] Loading time 0.12 s.
 [KineticistElementsExpanded] Version '3.3.2'. Loading.
 [KineticistElementsExpanded] Active.
-[KineticistElementsExpanded] Loading time 0.04 s.
+[KineticistElementsExpanded] Loading time 0.06 s.
 [KMBF2] Version '1.1.0'. Loading.
 [KMBF2] Active.
-[KMBF2] Loading time 0.02 s.
+[KMBF2] Loading time 0.05 s.
 [TabletopTweaks-Base] Version '2.6.17a'. Loading.
 [TabletopTweaks-Base] PostPatchInitializer: TabletopTweaks-Base, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Base] Executing Post Patch: InherentBonuses.Update_ModifiableValue_FilterIsPermanent
@@ -337,69 +337,69 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Base] 0,2,3,3,4,5,6,6,7,8,9,9,10,11,12,12,13,14,15,15,16
 [TabletopTweaks-Base] Loading Static String: CharInfoFeaturePCView_Suppression_Patchs.Suppressed
 [TabletopTweaks-Base] Active.
-[TabletopTweaks-Base] Loading time 0.94 s.
+[TabletopTweaks-Base] Loading time 0.91 s.
 [LibramOfThePhoenix] Version '1.2.0'. Loading.
 [LibramOfThePhoenix] Optional mod 'AlternateRacialTraits' not found.
 [LibramOfThePhoenix] Loading Blueprints
 [LibramOfThePhoenix] Active.
-[LibramOfThePhoenix] Loading time 0.07 s.
+[LibramOfThePhoenix] Loading time 0.10 s.
 [LiterateCompanions] Version '1.0.0'. Loading.
 [LiterateCompanions] Active.
 [LiterateCompanions] Loading time 0.01 s.
 [lvl1companions] Version '1.1.0'. Loading.
 [lvl1companions] Active.
-[lvl1companions] Loading time 0.04 s.
+[lvl1companions] Loading time 0.07 s.
 [Mesmerist] Version '3.3'. Loading.
 [Mesmerist] Active.
-[Mesmerist] Loading time 0.06 s.
+[Mesmerist] Loading time 0.07 s.
 [MicroscopicContentExpansion] Version '1.21.1'. Loading.
 [MicroscopicContentExpansion] Optional mod 'MewsiferConsole.Mod' not found.
 [MicroscopicContentExpansion] PostPatchInitializer: MicroscopicContentExpansion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 [MicroscopicContentExpansion] Active.
-[MicroscopicContentExpansion] Loading time 0.10 s.
-[MissionWOTR] Version '0.4.10'. Loading.
+[MicroscopicContentExpansion] Loading time 0.11 s.
+[MissionWOTR] Version '0.4.11'. Loading.
 [MissionWOTR] Active.
-[MissionWOTR] Loading time 0.04 s.
+[MissionWOTR] Loading time 0.06 s.
 [ModTagEx] Version '1.0.1'. Loading.
-[ModTagEx] Took 00:00:00.0596653 to load guid db of size 25121
-[ModTagEx] Took 00:00:00.0368663 to load base game guids of size 236661
+[ModTagEx] Took 00:00:00.0565768 to load guid db of size 25121
+[ModTagEx] Took 00:00:00.0423542 to load base game guids of size 236661
 [ModTagEx] Active.
 [ModTagEx] Loading time 0.13 s.
 [MoreBackgrounds] Version '1.0.0'. Loading.
 [MoreBackgrounds] Active.
-[MoreBackgrounds] Loading time 0.04 s.
+[MoreBackgrounds] Loading time 0.09 s.
 [MorePartySlots] Version '1.0.1'. Loading.
 [MorePartySlots] Active.
-[MorePartySlots] Loading time 0.08 s.
+[MorePartySlots] Loading time 0.05 s.
 [MultipleArchetypes] Version '1.0.2'. Loading.
 [MultipleArchetypes] Active.
 [MultipleArchetypes] Loading time 0.04 s.
 [SpellbookMerge] Version '1.7.1'. Loading.
 [SpellbookMerge] Active.
-[SpellbookMerge] Loading time 0.03 s.
+[SpellbookMerge] Loading time 0.05 s.
 [MythicMagicMayhem] Version '1.1.4'. Loading.
 [MythicMagicMayhem] Active.
 [MythicMagicMayhem] Loading time 0.10 s.
 [NoFilmGrainWrath] Version '1.0.0'. Loading.
 [NoFilmGrainWrath] Active.
-[NoFilmGrainWrath] Loading time 0.84 s.
+[NoFilmGrainWrath] Loading time 0.78 s.
 [PC_Female_BG_Viconia] Version '1.2.0'. Loading.
 [PC_Female_BG_Viconia] Active.
 [PC_Female_BG_Viconia] Loading time 0.02 s.
 [PC_TWWH_Balthasar_Gelt] Version '1.2.0'. Loading.
 [PC_TWWH_Balthasar_Gelt] Active.
-[PC_TWWH_Balthasar_Gelt] Loading time 0.01 s.
+[PC_TWWH_Balthasar_Gelt] Loading time 0.02 s.
 [PrestigePlus] Version '3.8.0'. Loading.
 [PrestigePlus] Optional mod 'MewsiferConsole.Mod' not found.
 [PrestigePlus] Active.
-[PrestigePlus] Loading time 0.29 s.
+[PrestigePlus] Loading time 0.34 s.
 [RandomEquipment] Version '2.0.10'. Loading.
 [RandomEquipment] Active.
 [RandomEquipment] Loading time 0.86 s.
 [RandomReinforcementsPerEncounter] Version '1.1.13'. Loading.
 [RandomReinforcementsPerEncounter] RandomReinforcementsPerEncounter loaded with Harmony
 [RandomReinforcementsPerEncounter] Active.
-[RandomReinforcementsPerEncounter] Loading time 0.07 s.
+[RandomReinforcementsPerEncounter] Loading time 0.08 s.
 [WOTR_MAKING_FRIENDS] Version '0.2.4'. Loading.
 [WOTR_MAKING_FRIENDS] Patching...
 [WOTR_MAKING_FRIENDS] Finished patching.
@@ -409,7 +409,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [RanEpilogue] Optional mod 'WOTR_WoljifRomanceMod' not found.
 [RanEpilogue] Optional mod 'CamelliaRomanceExpandedEnd' not found.
 [RanEpilogue] Active.
-[RanEpilogue] Loading time 0.05 s.
+[RanEpilogue] Loading time 0.10 s.
 [RespecWrath] Version '1.10.25'. Loading.
 [RespecWrath] Active.
 [RespecWrath] Loading time 0.08 s.
@@ -424,20 +424,20 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Flanking] PostPatchInitializer: TabletopTweaks-Flanking, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Flanking] TabletopTweaks-Core FlankingProvider set by TabletopTweaks-Flanking
 [TabletopTweaks-Flanking] Active.
-[TabletopTweaks-Flanking] Loading time 0.09 s.
+[TabletopTweaks-Flanking] Loading time 0.08 s.
 [TabletopTweaks-Reworks] Version '1.4.6'. Loading.
 [TabletopTweaks-Reworks] PostPatchInitializer: TabletopTweaks-Reworks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Reworks] Active.
-[TabletopTweaks-Reworks] Loading time 0.15 s.
+[TabletopTweaks-Reworks] Loading time 0.16 s.
 [VoicePortAbelard] Version '1.0.0'. Loading.
 [VoicePortAbelard] Active.
-[VoicePortAbelard] Loading time 0.01 s.
+[VoicePortAbelard] Loading time 0.04 s.
 [VoicePortsKingmaker] Version '1.0.1'. Loading.
 [VoicePortsKingmaker] Active.
-[VoicePortsKingmaker] Loading time 0.01 s.
+[VoicePortsKingmaker] Loading time 0.02 s.
 [VoidHeadWOTRNineSwords] Version '2.0.6'. Loading.
 [VoidHeadWOTRNineSwords] Active.
-[VoidHeadWOTRNineSwords] Loading time 0.07 s.
+[VoidHeadWOTRNineSwords] Loading time 0.08 s.
 [WeaponFocusPlus] Version '1.2.3'. Loading.
 [WeaponFocusPlus] Active.
 [WeaponFocusPlus] Loading time 0.02 s.
@@ -980,6 +980,7 @@ Cannot Prepare a disabled VideoPlayer
 [WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
 [WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeployConstruct with TypeId 566F9DA1-C17B-4774-832A-73C1018ADF90 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeployFinish with TypeId 8F10D8D3-C49D-4778-87E3-088CCA9DBB52 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ConstructSonicBoom with TypeId 722843D1-AEB8-46B6-AFFA-F50DC492C40F to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionBlinkStrike with TypeId 59BDF120-4DA0-433C-917B-FC410092CDCC to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ConstructFlankCasterLevelPenalty with TypeId 90535812-2EFF-4EDB-A687-260C2303D047 to binder cache
@@ -7774,7 +7775,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [COP+UnshakableZeal] Configuring UnshakableZeal
 [COP+WeaponOfAwe] Configuring WeaponOfAwe
 [COP+Wrath] Configuring Wrath
-[CodexLib] Loaded blueprints in 6636ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
+[CodexLib] Loaded blueprints in 6699ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
 [DragonLibrary] Checking for mods for compatibility patches
 [DragonLibrary] Checking for MicroscopicContentExpansion
 [DragonLibrary] MicroscopicContentExpansion is found and enabled
@@ -9702,33 +9703,48 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [DragonChanges] Applying wooloo modification.
 [DragonChanges] Patching blueprints.
 [DragonChanges] Starting to create vendor list
-[DragonChanges] AbundantAIS feature enabled, configuring
-[DragonChanges] SuperDexShot feature enabled, configuring
-[DragonChanges] SpellcasterDelights-Damage feature enabled, configuring
-[DragonChanges] SpellcasterDelights feature enabled, configuring
-[DragonChanges] ChargingHurler-feat feature enabled, configuring
-[DragonChanges] StudentOfNethys feature enabled, configuring
-[DragonChanges] ExoticWeaponMaster feature enabled, configuring
-[DragonChanges] extra-discovery-mw feature enabled, configuring
+[DragonChanges] Adding Walls of Sanctuary to anevia vendor
+[DragonChanges] Adding Helmet of Guiding Light to anevia vendor
+[DragonChanges] Adding The Priceless Woe to anevia vendor
+[DragonChanges] Add Butchers Cleaver (DLC3) to anevia vendor
+[DragonChanges] Add Martyrs Blade to anevia vendor
+[DragonChanges] Add OpressorBastardSword to anevia vendor
+[DragonChanges] Add JagannathKhanda to anevia vendor
+[DragonChanges] Add GreaterMagicWeaponScroll to anevia vendor
+[DragonChanges] Add PawsOfTheBearGodItem to anevia vendor
+[DragonChanges] Add RuinItem to anevia vendor
+[DragonChanges] Add SerpentPrinceFauchItem to anevia vendor
+[DragonChanges] Add LionsClaw to anevia vendor
+[DragonChanges] Add AcerbicRingItem to anevia vendor
+[DragonChanges] Add RingOfBigBoom to anevia vendor
+[DragonChanges] Add ColdIronArrowsQuiverItem to anevia vendor
 [DragonChanges] Configuring griffon mount
 [DragonChanges] Creating griffon mount unit
 [DragonChanges] Creating griffon mount feature
-[DragonChanges] Undead mount feature disabling, configuring dummies
-[DragonChanges] LimitlessSwordOfHeaven feature enabled, configuring
-[DragonChanges] GraveSingerPlus feature enabled, configuring
-[DragonChanges] MyThicFeat disabled, configuring dummy
-[DragonChanges] PowerfulThrow feature enabled, configuring
-[DragonChanges] PowerfulWings feature enabled, configuring
-[DragonChanges] PresenceofMind feature enabled, configuring
-[DragonChanges] LesbianPolyculeDeity feature enabled, configuring
-[DragonChanges] TranceMaster feature enabled, configuring
 [DragonChanges] Configuring undead mount
 [DragonChanges] Creating undead mount unit
 [DragonChanges] Creating undead mount feature
 [DragonChanges] Configuring unicorn mount
 [DragonChanges] Creating unicorn mount unit
 [DragonChanges] Creating unicorn mount feature
+[DragonChanges] GraveSingerPlus feature enabled, configuring
+[DragonChanges] mythicdisruptingspells feature enabled, configuring
+[DragonChanges] AbundantAIS feature enabled, configuring
+[DragonChanges] SuperDexShot feature enabled, configuring
+[DragonChanges] LimitlessSwordOfHeaven feature enabled, configuring
 [DragonChanges] VaelsSuperSpecialFeat feature enabled, configuring
+[DragonChanges] SpellcasterDelights-Damage feature enabled, configuring
+[DragonChanges] SpellcasterDelights feature enabled, configuring
+[DragonChanges] ChargingHurler-feat feature enabled, configuring
+[DragonChanges] StudentOfNethys feature enabled, configuring
+[DragonChanges] disruptingspells feature enabled, configuring
+[DragonChanges] ExoticWeaponMaster feature enabled, configuring
+[DragonChanges] extra-discovery-mw feature enabled, configuring
+[DragonChanges] Undead mount feature disabling, configuring dummies
+[DragonChanges] MyThicFeat disabled, configuring dummy
+[DragonChanges] PowerfulThrow feature enabled, configuring
+[DragonChanges] PowerfulWings feature enabled, configuring
+[DragonChanges] PresenceofMind feature enabled, configuring
 [DragonChanges] AutoBolstered feature enabled, configuring
 [DragonChanges] AutoBurning feature enabled, configuring
 [DragonChanges] AutoEmpower feature enabled, configuring
@@ -9764,6 +9780,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [DragonChanges] superlongarm spell enabled, configuring
 [DragonChanges] warriorreflexs enabled, configuring
 [DragonChanges] ChaMemeRingAC item enabled, configuring
+[DragonChanges] level2abring item enabled, configuring
 [DragonChanges] MemeRing2 item enabled, configuring
 [DragonChanges] FTKMemeRing item enabled, configuring
 [DragonChanges] mithchainbarding item enabled, configuring
@@ -9782,12 +9799,14 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [DragonChanges] OnyxRhomboidItem item enabled, configuring
 [DragonChanges] OrangePrismItem item enabled, configuring
 [DragonChanges] PaleBlueRhomboidItem item enabled, configuring
+[DragonChanges] LesbianPolyculeDeity feature enabled, configuring
 [DragonChanges] swordmaster class disabled, configuring dummies
 [DragonChanges] redditor class disabled, configuring dummies
 [DragonChanges] buildsenjoyer class disabled, configuring dummies
 [DragonChanges] Cursed background feature enabled, configuring
 [DragonChanges] swordmaster-tengu archetype enabled, configuring started
 [DragonChanges] swordmaster-tengu configuration done!
+[DragonChanges] TranceMaster feature enabled, configuring
 [DragonChanges] Juggernaut archetype enabled, configuring
 [DragonChanges] Patching various animal selections to include Nightmare horse (Microscopic)
 [DragonChanges] Adding Dimensional Blade to Warpriest spell list
@@ -9804,18 +9823,6 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [DragonChanges] twincrystals item enabled, configuring
 [DragonChanges] Patching various animal selections to include Hippogriff
 [DragonChanges] Adding Carrier of Disease to Extra Hex
-[DragonChanges] Adding Walls of Sanctuary to anevia vendor
-[DragonChanges] Adding Helmet of Guiding Light to anevia vendor
-[DragonChanges] Adding The Priceless Woe to anevia vendor
-[DragonChanges] Add Butchers Cleaver (DLC3) to anevia vendor
-[DragonChanges] Add Martyrs Blade to anevia vendor
-[DragonChanges] Add OpressorBastardSword to anevia vendor
-[DragonChanges] Add JagannathKhanda to anevia vendor
-[DragonChanges] Add GreaterMagicWeaponScroll to anevia vendor
-[DragonChanges] Add PawsOfTheBearGodItem to anevia vendor
-[DragonChanges] Add RuinItem to anevia vendor
-[DragonChanges] Add SerpentPrinceFauchItem to anevia vendor
-[DragonChanges] Add LionsClaw to anevia vendor
 [DragonChanges] Buffing Call of Fiery Things to work on SLAs.
 [DragonChanges] Enabling Wooloo companion
 [DragonChanges] Patching various animal selections to include Wooloo
@@ -12875,7 +12882,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [0ToyBox0] [Info] Successfully applied 0 of 0 patches in 0ms
 [COP+Main] Configuring feats delayed.
 [COP+EldritchHeritage] Configuring EldritchHeritage for TTT bloodlines
-[0ToyBox0] [Info] Loading 256978 Blueprints
+[0ToyBox0] [Info] Loading 256985 Blueprints
 [COP+Main] Configuring Archetypes delayed.
 [COP+ArrowsongMinstrel] Patching TTT Loremaster compatbility for Arrowsong Minstrel
 [COP+WinterWitch] Patching TTT Loremaster compatbility for Winter Witch
@@ -14051,7 +14058,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [EbonsContentMod]     OrcSorcererBloodlineClassSkill, GUID=d2ec15253bb84db38194146e9ef9bf9c, Type=BlueprintFeature
 [EbonsContentMod]     OrcSorcererBloodlineRequisiteFeature, GUID=09ae4a9f250c42ad9f31a15b3fced759, Type=BlueprintFeature
 [EbonsContentMod]     BloodlineRequisiteFeature, GUID=e2cfd3cedf7c40088b25aa82d6db3c77, Type=BlueprintFeature
-[0ToyBox0] [Info] Threaded loaded roughly 258720 blueprints in 7946 milliseconds
+[0ToyBox0] [Info] Threaded loaded roughly 258727 blueprints in 7631 milliseconds
 [0ToyBox0] [Info] Starting to build BPId Cache
 [0ToyBox0] [Info] Finished rebuilding BPId Cache
 [EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
@@ -14112,9 +14119,9 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 The referenced script on this Behaviour (Game Object '<null>') is missing!
 The referenced script on this Behaviour (Game Object '<null>') is missing!
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+Curl error 6: Could not resolve host: siren.owlcat.local
 [ModMenu] Added Mods Menu View
 [ModMenu] Adding new type prefabs.
-Curl error 6: Could not resolve host: siren.owlcat.local
 [ModMenu] Creating image template.
 [ModMenu] Creating button template.
 [ModMenu] Creating collapsible header template.
@@ -14129,6 +14136,8 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 [ModMenu] Creating sub header template.
 [ModMenu] Creating dropdown button template.
 [Manager] Spawning.
+[Manager] Checking updates.
+[Manager] The nexus api key is missing. Without it, you won't be able to check for updates. You can configure it via the UnityModManager Installer. If you don't need it, just ignore.
 [ModMenu] Instantiating layout settings.
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (ascending order)</color></b>' in default locale
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (descending order)</color></b>' in default locale
@@ -14663,6 +14672,7 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 [WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
 [WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeployConstruct with TypeId 566F9DA1-C17B-4774-832A-73C1018ADF90 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeployFinish with TypeId 8F10D8D3-C49D-4778-87E3-088CCA9DBB52 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ConstructSonicBoom with TypeId 722843D1-AEB8-46B6-AFFA-F50DC492C40F to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionBlinkStrike with TypeId 59BDF120-4DA0-433C-917B-FC410092CDCC to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ConstructFlankCasterLevelPenalty with TypeId 90535812-2EFF-4EDB-A687-260C2303D047 to binder cache
@@ -14822,23 +14832,23 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 [WrathPatches] Adding types to binder from Weapon Focus Plus
 Slightly Wizardly Owl
 Setting up 6 worker threads for Enlighten.
-  Thread -> id: 3f68 -> priority: 1 
-  Thread -> id: 2924 -> priority: 1 
-  Thread -> id: 44cc -> priority: 1 
-  Thread -> id: 386c -> priority: 1 
-  Thread -> id: 19c8 -> priority: 1 
-  Thread -> id: 4a24 -> priority: 1 
+  Thread -> id: 2324 -> priority: 1 
+  Thread -> id: 2f78 -> priority: 1 
+  Thread -> id: 3960 -> priority: 1 
+  Thread -> id: 15cc -> priority: 1 
+  Thread -> id: 1148 -> priority: 1 
+  Thread -> id: 263c -> priority: 1 
 Received stats and achievements from Steam
 Unloading 4 Unused Serialized files (Serialized files now loaded: 730)
 
-Unloading 39944 unused Assets to reduce memory usage. Loaded Objects now: 150397.
-Total: 921.555900 ms (FindLiveObjects: 5.343700 ms CreateObjectMapping: 7.036500 ms MarkObjects: 899.882800 ms  DeleteObjects: 9.292700 ms)
+Unloading 39944 unused Assets to reduce memory usage. Loaded Objects now: 150399.
+Total: 913.560900 ms (FindLiveObjects: 5.086500 ms CreateObjectMapping: 6.671200 ms MarkObjects: 891.772000 ms  DeleteObjects: 10.030800 ms)
 
 [EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
 Unloading 0 Unused Serialized files (Serialized files now loaded: 372)
 
-Unloading 69301 unused Assets to reduce memory usage. Loaded Objects now: 80738.
-Total: 979.379800 ms (FindLiveObjects: 3.730900 ms CreateObjectMapping: 6.319700 ms MarkObjects: 944.604300 ms  DeleteObjects: 24.724700 ms)
+Unloading 69301 unused Assets to reduce memory usage. Loaded Objects now: 80740.
+Total: 885.496300 ms (FindLiveObjects: 3.569800 ms CreateObjectMapping: 5.393900 ms MarkObjects: 854.959300 ms  DeleteObjects: 21.573100 ms)
 
 The referenced script on this Behaviour (Game Object '<null>') is missing!
 Parameter 'Hash -1571987243' does not exist.
@@ -14851,14 +14861,25 @@ Parameter 'Hash -1571987243' does not exist.
 [BuffIt2TheLimit] COULD NOT LOAD: 7bb9eb2042e67bf489c4a7ba8232c6e0 - Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility
 [BuffIt2TheLimit] COULD NOT LOAD: 5250c10feed9f8744850fa3b4814e7c0 - Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility
 [BuffIt2TheLimit] COULD NOT LOAD: 9972f33f977fc724c838e59641b2fca5 - Kingmaker.UnitLogic.ActivatableAbilities.BlueprintActivatableAbility
+[DragonChanges] New area loaded
+[DragonChanges] Current Area - bad465e5404604346bdf71ef50b3299a
+[DragonChanges] Current Area Part - bad465e5404604346bdf71ef50b3299a
+[DragonChanges] New area loaded - End
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Trash</color></b>' in default locale
-[CodexLib] Applying Mobility for Unit[Seelah_Companion]#52A6 is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
-[CodexLib] Applying Mobility for Unit[Seelah_Companion]#dbbe78ed-9c19-45db-a997-125abfe0119e is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
-[ModMenu] TryGetConfig - 4
-[ModMenu] Generated SaveSlotWithModListPCView config
-[0ToyBox0] [Info] SaveManager_SaveRoutine_Patch
-[DarkCodex] Saved patch metadata
+[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Epic</color></b>' in default locale
+[0ToyBox0] [Info] InventoryPCView.HideWindow
+[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Uncommon</color></b>' in default locale
+[CodexLib] Applying Mobility for Unit[Camelia_Companion]#2412dd25-54ed-4343-ae9c-437535977d03 is IsPet=False IsMainCharacter=False IsCustomCompanion=False IsStoryCompanion=True
+[0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rare</color></b>' in default locale
+[MonoSingleton] There is no object of type Owlcat.Runtime.Visual.Effects.ParticleSumEmitter.ParticleSystemCustomSubEmitterDelegate. Creating new.
+[BuffIt2TheLimit] [CSD] === Combat Start ===
+[BuffIt2TheLimit] Scan complete: 51 buffs (Buff=8, Ability=14, Equipment=0, Song=0, Toggle=29)
+[BuffIt2TheLimit] [CSD] Mod=1.21.1 SkipAnim=False CastAll=False Active=3 Reserve=0
+[BuffIt2TheLimit] [CSD] ActiveParty: Testbuilder, Seelah, Camellia
+[BuffIt2TheLimit] [CSD] Marked=0 (of 51 total)
+[BuffIt2TheLimit] [CSD] Summary activatables=0 spell-tasks=0 skipped-already-active=0
 Releasing render texture that is set as Camera.targetTexture!
+[Manager] Destroying when exit.
 NullReferenceException
   at (wrapper managed-to-native) UnityEngine.Object.GetName(UnityEngine.Object)
   at UnityEngine.Object.get_name () [0x00001] in <4fae2288737c4dfda349689bbefabfcc>:0 
@@ -14884,6 +14905,5 @@ UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
 UnityEngine.EventSystems.StandaloneInputModule:Process()
 UnityEngine.EventSystems.EventSystem:Update()
 
-[Manager] Destroying when exit.
 [Physics.PhysX] Foundation destruction failed due to pending module references. Close/release all depending modules first.
 Culling group was not disposed. You have to call Dispose explicitly from the main thread. This will likely result in a crash.
