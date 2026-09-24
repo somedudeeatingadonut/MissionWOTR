@@ -16,6 +16,7 @@ using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -248,7 +249,7 @@ namespace MissionWOTR.Archetypes
 
     private ModifiableValue.Modifier m_Modifier;
 
-    public override void OnTurnOn()
+    protected override void OnTurnOn()
     {
       try
       {
@@ -262,7 +263,7 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    public override void OnTurnOff()
+    protected override void OnTurnOff()
     {
       try
       {
