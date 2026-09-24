@@ -63,7 +63,7 @@ namespace MissionWOTR.Archetypes
     internal const string DisplayName = "ConstructCrafter.Name";
     internal const string Description = "ConstructCrafter.Description";
 
-    internal const string SentryUnitName = "ConstructCrafterWoodenSentry";
+    internal const string SentryUnitName = "ConstructCrafterIronSentry";
     internal const string HumanoidUnitName = "ConstructCrafterHumanoidConstruct";
     internal const string GolemUnitName = "ConstructCrafterClayGolem";
 
@@ -215,47 +215,55 @@ namespace MissionWOTR.Archetypes
 
     private static void ConfigureUnits()
     {
-      // Player-friendly faction taken from the game's own dog companion.
-      var dogFaction = UnitRefs.AnimalCompanionUnitDog.Reference.Get().Faction;
+      // Summons belong to the game's own "Summoned" faction - the same faction every
+      // stock summon monster and ExpandedContent's golem summons use. (The animal
+      // companion's faction used previously is for party pets, not combat summons.)
+      var summonFaction = FactionRefs.Summoned.Reference.Get();
 
-      // Units are built by FULL-CLONING a stock game unit. Critical lesson from the
-      // first playtests: BPCore's CopyFrom(blueprint) with no matcher binds to the
-      // params-Type[] overload and copies NOTHING (zero types = zero components), and
-      // even with a matcher it never touches FIELDS - so the old units had no model
-      // prefab, no brain wiring, no attack routines (the visible "dog" was a fallback
-      // render, and the sentry just stood there). CloneUnit copies every component
-      // AND every BlueprintUnit field (prefab/model, size, stats, brain, sounds);
-      // overrides are applied on top via configurator setters.
-      var woodGolem = UnitRefs.CR6_GolemWood.Reference.Get();
+      // Units are built by FULL-CLONING one of the game's own SUMMON-VARIANT units
+      // (the units stock summon spells use, e.g. GolemWoodSummon). Critical lessons
+      // from the first playtests: BPCore's CopyFrom(blueprint) with no matcher binds
+      // to the params-Type[] overload and copies NOTHING (zero types = zero
+      // components), and even with a matcher it never touches FIELDS - so the old
+      // units had no model prefab, no brain wiring, no attack routines (the visible
+      // "dog" was a fallback render, and the sentry just stood there). CloneUnit
+      // copies every component AND every BlueprintUnit field (prefab/model, size,
+      // stats, brain, sounds); the summon variants additionally bring the summon
+      // brain, Summoned faction baseline and a pre-tuned statblock; overrides are
+      // applied on top via configurator setters.
+      var woodSummon = UnitRefs.GolemWoodSummon.Reference.Get();
 
-      // --- Wooden Sentry: hand-carved scout construct (wood golem chassis) ---
-      SentryUnit = CloneUnit(SentryUnitName, Guids.ConstructCrafterSentryUnit, woodGolem);
+      // --- Iron Sentry: wrought-iron scout construct (wood golem model, gunmetal
+      // tint). The wood golem is the only dog-shaped construct model in the game -
+      // the grey tint reads it as forged metal. --- 
+      SentryUnit = CloneUnit(SentryUnitName, Guids.ConstructCrafterSentryUnit, woodSummon);
       UnitConfigurator.For(SentryUnitName)
-        .SetMaxHP(Math.Max(8, woodGolem.MaxHP / 3))
-        .SetStrength(woodGolem.Strength - 4)
-        .SetDexterity(woodGolem.Dexterity - 2)
-        .SetFaction(dogFaction)
+        .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
+        .SetStrength(woodSummon.Strength - 4)
+        .SetDexterity(woodSummon.Dexterity - 2)
+        .SetFaction(summonFaction)
+        .SetColor(new UnityEngine.Color(0.42f, 0.45f, 0.48f))
         .Configure();
 
       // --- Humanoid Construct: fighter with (AL-2) levels, applied at deploy time ---
       var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
       HumanoidUnit = CloneUnit(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit, bandit);
       UnitConfigurator.For(HumanoidUnitName)
-        .SetFaction(dogFaction)
+        .SetFaction(summonFaction)
         .Configure();
 
       // --- Clay Golem: tabletop chassis (no berserk, -20 HP, -2 Str) ---
-      // Built on the stone golem body; the slow breath component is stripped and the
-      // golem's physical DR replaced with our constant 5/adamantine package
-      // (see adaptation notes in docs/ARCHETYPES.md).
-      var stoneGolem = UnitRefs.CR11_GolemStone.Reference.Get();
-      GolemUnit = CloneUnit(GolemUnitName, Guids.ConstructCrafterGolemUnit, stoneGolem,
+      // Built on the game's stone golem SUMMON variant (GolemStoneSummon); the slow
+      // breath component is stripped and the golem's physical DR replaced with our
+      // constant 5/adamantine package (see adaptation notes in docs/ARCHETYPES.md).
+      var stoneSummon = UnitRefs.GolemStoneSummon.Reference.Get();
+      GolemUnit = CloneUnit(GolemUnitName, Guids.ConstructCrafterGolemUnit, stoneSummon,
         c => !c.name.Contains("Slow")
           && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical);
       UnitConfigurator.For(GolemUnitName)
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
-        .SetFaction(dogFaction)
+        .SetFaction(summonFaction)
         .AddDamageResistancePhysical(
           value: 5, bypassedByMaterial: true, material: PhysicalDamageMaterial.Adamantite)
         .Configure();
@@ -453,6 +461,12 @@ namespace MissionWOTR.Archetypes
         .SetAbilityIsFullRoundInTurnBased(
           new AbilityIsFullRoundInTurnBased { FullRoundIfTurnBased = true })
         .SetCanTargetSelf()
+        // Explicitly player-facing: both flags default to false on a fresh
+        // blueprint, but the deploy abilities were reported invisible in every
+        // ability list while existing as facts - pin the flags and log them from
+        // the area probe so the next log shows exactly what the UI sees.
+        .SetHidden(false)
+        .SetActionBarAutoFillIgnored(false)
         .AddAbilityEffectRunAction(
           ActionsBuilder.New().Add(deploy))
         .Configure();
@@ -489,6 +503,12 @@ namespace MissionWOTR.Archetypes
     /// (DarkCodex's Wrath helper uses the same id).
     /// </summary>
     private const string StockSummonBuffGuid = "8728e884eeaa8b047be04197ecf1a0e4";
+
+    /// <summary>
+    /// The game's own SummonMonsterPool - what DarkCodex registers its summons in
+    /// (UseLimitFromSummonPool stays false, so the pool is bookkeeping only).
+    /// </summary>
+    private const string SummonPoolGuid = "d94c93e7240f10e41ae41db4c83d1cbe";
 
     /// <summary>Which base is deploying: 0 sentry, 1 humanoid, 2 golem.</summary>
     public int BaseKind;
@@ -622,41 +642,85 @@ namespace MissionWOTR.Archetypes
           old.IsInGame = false;
         }
 
+        // Blueprint sweep of the same base family: saves made before 0.4.11 can hold
+        // half-initialized construct units (their restore crashed in ItemEntity..ctor
+        // before buffs ever loaded), which the marker check above cannot see. Any
+        // living unit whose blueprint is one of this base's constructs goes away.
+        var family = BaseKind == 0
+          ? new[] { SentryUnitName, "ConstructCrafterSentryRanged" }
+          : BaseKind == 1
+            ? new[] { HumanoidUnitName, "ConstructCrafterHumanoidArcher", "ConstructCrafterHumanoidCaster" }
+            : new[] { GolemUnitName, "ConstructCrafterGolemCaster" };
+        foreach (var old in existing.Where(
+          u => u.HPLeft > 0 && u.Blueprint != null &&
+            family.Any(n => string.Equals(n, u.Blueprint.name,
+              StringComparison.OrdinalIgnoreCase))))
+        {
+          MissionFeats.Logger.Info(
+            $"[deploy] removing stray construct {old.Blueprint.name} (uid={old.UniqueId}).");
+          old.IsInGame = false;
+        }
+
         // Role variant: the active core may swap in a specialized chassis (archer,
         // caster, ranged) instead of the default base unit.
         var spawnUnit = ResolveUnit(core, BaseKind, Unit);
 
         // Spawn through the engine's own summon action - the same mechanism every
-        // summon ability uses (field-for-field the way DarkCodex's Wrath helper
-        // builds it): it places the unit on reachable ground, LINKS it to the
-        // caster (the link is what makes stock summons follow their summoner - the
-        // pre-combat utility this archetype needs) and leaves it AI-controlled
-        // (IsDirectlyControllable=false: our constructs are never controllable).
-        // All construct configuration runs in AfterSpawn, whose action list
-        // executes in the fresh unit's data scope, so the finisher reads
-        // Target.Unit to find the construct.
+        // summon ability uses (field-for-field the way DarkCodex's Wrath helper and
+        // ExpandedContent's WoodenPhalanx build it): it places the unit on reachable
+        // ground, LINKS it to the caster (SummonedUnitsController then moves any
+        // linked unit to its summoner while out of combat - the pre-combat utility
+        // this archetype needs) and leaves it AI-controlled (IsDirectlyControllable=
+        // false: our constructs are never controllable). All construct configuration
+        // runs in AfterSpawn, whose action list executes in the fresh unit's data
+        // scope, so the finisher reads Target.Unit to find the construct.
         var finisher = ElementTool.Create<ContextActionDeployFinish>();
         finisher.BaseKind = BaseKind;
         finisher.ApplyPlating = ApplyPlating;
         finisher.AddFighterLevels = AddFighterLevels;
 
+        var spawnType = typeof(Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnMonster);
+        const System.Reflection.BindingFlags fieldFlags =
+          System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+          System.Reflection.BindingFlags.Instance;
         var summonAction =
           ElementTool.Create<Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnMonster>();
         // m_Blueprint is private in current Wrath builds (DarkCodex's helper sets it
         // against a publicized assembly; we don't publicize, hence reflection).
-        typeof(Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSpawnMonster)
-          .GetField("m_Blueprint", System.Reflection.BindingFlags.Public |
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-          ?.SetValue(summonAction, spawnUnit.ToReference<BlueprintUnitReference>());
+        var blueprintField = spawnType.GetField("m_Blueprint", fieldFlags);
+        blueprintField?.SetValue(summonAction, spawnUnit.ToReference<BlueprintUnitReference>());
+        // 0.4.11 lesson: the engine dereferences CountValue unconditionally
+        // (Unity's serializer normally auto-creates these fields on deserialized
+        // blueprints, but a code-created action leaves them null) - leaving it unset
+        // NRE'd inside ContextActionSpawnMonster.RunAction and no construct ever
+        // spawned. Exactly one construct per cast: zero dice + bonus 1.
+        summonAction.CountValue = new ContextDiceValue
+        {
+          DiceType = DiceType.Zero,
+          DiceCountValue = ContextValues.Constant(0),
+          BonusValue = ContextValues.Constant(1),
+        };
         summonAction.DurationValue = ContextDuration.Fixed(100000);
         summonAction.DoNotLinkToCaster = false;
         summonAction.IsDirectlyControllable = false;
+        // Summon-pool registration (DarkCodex's default pool) and the level value:
+        // same reflection treatment as m_Blueprint.
+        spawnType.GetField("m_SummonPool", fieldFlags)?.SetValue(
+          summonAction, BlueprintTool.GetRef<BlueprintSummonPoolReference>(SummonPoolGuid));
+        spawnType.GetField("LevelValue", fieldFlags)?.SetValue(
+          summonAction, ContextValues.Constant(0));
         summonAction.AfterSpawn = ActionsBuilder.New()
           .ApplyBuff(
             BlueprintTool.Get<BlueprintBuff>(StockSummonBuffGuid),
             ContextDuration.Fixed(100000))
           .Add(finisher)
           .Build();
+        // Prove the wiring before running: if this logs NULL the reflection set
+        // silently failed and the action would crash again.
+        var wiredBlueprint = blueprintField?.GetValue(summonAction) as BlueprintUnitReference;
+        MissionFeats.Logger.Info(
+          $"[deploy] spawn action: unit={spawnUnit.name}, " +
+          $"wired={(wiredBlueprint != null && wiredBlueprint.Get() != null ? wiredBlueprint.Get().name : "NULL")}, count=1.");
         summonAction.RunAction();
         MissionFeats.Logger.Info(
           $"[deploy] spawn action run for {spawnUnit.name} (base {BaseKind}).");
@@ -679,7 +743,7 @@ namespace MissionWOTR.Archetypes
     /// <summary>Which base is deploying: 0 sentry, 1 humanoid, 2 golem.</summary>
     public int BaseKind;
 
-    /// <summary>Apply the scaling DR buff (wooden sentry).</summary>
+    /// <summary>Apply the scaling DR buff (iron sentry).</summary>
     public bool ApplyPlating;
 
     /// <summary>Give the construct fighter levels equal to (alchemist level - 2).</summary>
@@ -761,14 +825,20 @@ namespace MissionWOTR.Archetypes
           construct.AddBuff(ConstructCrafterCores.NoAoOBuff, Context);
         }
 
-        // Wooden sentry: scaling damage reduction (half alchemist level).
+        // Iron sentry: scaling damage reduction (half alchemist level).
         if (ApplyPlating && ConstructCrafter.ClockworkPlatingBuff is not null)
         {
           construct.AddBuff(ConstructCrafter.ClockworkPlatingBuff, Context);
         }
 
-        // Deploy-time brain: program behaviors take priority over the caster role;
-        // with neither, the default brain (follow the crafter + attack) applies.
+        // Deploy-time brain: program behaviors take priority over the caster role.
+        // With neither, the construct KEEPS its stock summon brain (cloned from the
+        // game's own summon-variant units): the engine's SummonedUnitsController
+        // moves any summon-linked unit to its summoner out of combat, and the stock
+        // brain fights - the exact behavior of an ordinary summon, which needs no
+        // help from us. (The old code force-swapped in our custom DefaultBrain here;
+        // that brain family is still unproven in play, so it is no longer load-
+        // bearing for the default case.)
         BlueprintBrain chosenBrain = null;
         if (program?.IsPassive == true)
         {
@@ -786,20 +856,26 @@ namespace MissionWOTR.Archetypes
         {
           chosenBrain = ConstructCrafterAbilities.CasterBrain;
         }
-        if (chosenBrain == null)
+        if (chosenBrain != null)
         {
-          chosenBrain = ConstructCrafterAbilities.DefaultBrain;
-        }
-        if (construct.Brain != null && chosenBrain != null)
-        {
-          construct.Brain.SetBrain(chosenBrain);
-          construct.Brain.RestoreAvailableActions();
+          if (construct.Brain != null)
+          {
+            construct.Brain.SetBrain(chosenBrain);
+            construct.Brain.RestoreAvailableActions();
+            MissionFeats.Logger.Info(
+              $"[deploy] {construct.Blueprint.name}: brain set to {chosenBrain.name}.");
+          }
+          else
+          {
+            MissionFeats.Logger.Warn(
+              $"[deploy] {construct.Blueprint.name}: brain instance missing, cannot set {chosenBrain.name}.");
+          }
         }
         else
         {
-          MissionFeats.Logger.Warn(
-            $"[deploy] {construct.Blueprint.name}: brain instance or chosen brain missing " +
-            $"(instance={construct.Brain != null}, chosen={chosenBrain?.name ?? "none"}).");
+          MissionFeats.Logger.Info(
+            $"[deploy] {construct.Blueprint.name}: no program/role brain - " +
+            $"keeping stock summon brain (engine handles follow + combat).");
         }
 
         // Mark the crafter so follow actions can home in on them even when no

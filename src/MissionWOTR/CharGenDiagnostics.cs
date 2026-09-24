@@ -312,7 +312,14 @@ namespace MissionWOTR
             if (a is Kingmaker.UnitLogic.Abilities.Ability ab &&
               ab.Blueprint?.name?.StartsWith("ConstructCrafterDeploy") == true)
             {
-              abilities.Add(ab.Blueprint.name);
+              // Full UI-relevant state of the ability: if it is still invisible in
+              // game after 0.4.12, this line shows exactly which flag the UI reads
+              // differently from what we configured.
+              abilities.Add(
+                $"{ab.Blueprint.name}(type={ab.Blueprint.Type}, range={ab.Blueprint.Range}, " +
+                $"hidden={ab.Blueprint.Hidden}, " +
+                $"autofillIgnored={ab.Blueprint.ActionBarAutoFillIgnored}, " +
+                $"icon={(ab.Blueprint.Icon != null ? "set" : "NULL")})");
             }
           }
           Logger.Info(

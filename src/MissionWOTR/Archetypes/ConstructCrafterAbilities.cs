@@ -414,10 +414,11 @@ namespace MissionWOTR.Archetypes
 
     private static void ConfigureVariantUnits()
     {
-      var dogFaction = UnitRefs.AnimalCompanionUnitDog.Reference.Get().Faction;
+      // Same Summoned faction as the base units (see ConstructCrafter.ConfigureUnits).
+      var summonFaction = FactionRefs.Summoned.Reference.Get();
       var bandit = UnitRefs.CR0_5_Bandit_Human_FighterMelee_Male.Reference.Get();
-      var stoneGolem = UnitRefs.CR11_GolemStone.Reference.Get();
-      var woodGolem = UnitRefs.CR6_GolemWood.Reference.Get();
+      var stoneSummon = UnitRefs.GolemStoneSummon.Reference.Get();
+      var woodSummon = UnitRefs.GolemWoodSummon.Reference.Get();
 
       // Variant units are FULL clones of their stock units (see ConstructCrafter.
       // CloneUnit for why bare CopyFrom produced empty units), with role overrides
@@ -427,7 +428,7 @@ namespace MissionWOTR.Archetypes
       HumanoidArcherUnit = ConstructCrafter.CloneUnit(
         "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit, bandit);
       UnitConfigurator.For("ConstructCrafterHumanoidArcher")
-        .SetFaction(dogFaction)
+        .SetFaction(summonFaction)
         .SetStartingInventory(ItemWeaponRefs.CompositeLongbow.Cast<BlueprintItemReference>())
         .Configure();
 
@@ -435,28 +436,29 @@ namespace MissionWOTR.Archetypes
       HumanoidCasterUnit = ConstructCrafter.CloneUnit(
         "ConstructCrafterHumanoidCaster", Guids.ConstructCrafterHumanoidCasterUnit, bandit);
       UnitConfigurator.For("ConstructCrafterHumanoidCaster")
-        .SetFaction(dogFaction)
+        .SetFaction(summonFaction)
         .Configure();
       SetBrain(Guids.ConstructCrafterHumanoidCasterUnit, "ConstructCrafterCasterBrain");
 
       GolemCasterUnit = ConstructCrafter.CloneUnit(
-        "ConstructCrafterGolemCaster", Guids.ConstructCrafterGolemCasterUnit, stoneGolem,
+        "ConstructCrafterGolemCaster", Guids.ConstructCrafterGolemCasterUnit, stoneSummon,
         c => !c.name.Contains("Slow")
           && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical);
       UnitConfigurator.For("ConstructCrafterGolemCaster")
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
-        .SetFaction(dogFaction)
+        .SetFaction(summonFaction)
         .Configure();
       SetBrain(Guids.ConstructCrafterGolemCasterUnit, "ConstructCrafterCasterBrain");
 
       SentryRangedUnit = ConstructCrafter.CloneUnit(
-        "ConstructCrafterSentryRanged", Guids.ConstructCrafterSentryRangedUnit, woodGolem);
+        "ConstructCrafterSentryRanged", Guids.ConstructCrafterSentryRangedUnit, woodSummon);
       UnitConfigurator.For("ConstructCrafterSentryRanged")
-        .SetMaxHP(Math.Max(8, woodGolem.MaxHP / 3))
-        .SetStrength(woodGolem.Strength - 4)
-        .SetDexterity(woodGolem.Dexterity - 2)
-        .SetFaction(dogFaction)
+        .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
+        .SetStrength(woodSummon.Strength - 4)
+        .SetDexterity(woodSummon.Dexterity - 2)
+        .SetFaction(summonFaction)
+        .SetColor(new UnityEngine.Color(0.42f, 0.45f, 0.48f))
         .Configure();
       SetBrain(Guids.ConstructCrafterSentryRangedUnit, "ConstructCrafterRangedBrain");
     }

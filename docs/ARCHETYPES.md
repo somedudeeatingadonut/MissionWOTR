@@ -60,7 +60,7 @@ the construct lasts until destroyed or until the same base is deployed again.
 
 | Feature | Real level | Details |
 |---|---|---|
-| Deploy Clockwork Hound | 1 | Dog chassis slightly worse than a normal dog (−2 Str, −2 Dex, −4 HP); DR = ½ alchemist level, bypassed by adamantine (dynamic buff applied at deploy) |
+| Deploy Iron Sentry | 1 | Full clone of the game's own GolemWoodSummon (dog-shaped wood golem, gunmetal tint), Summoned faction, toned down (−4 Str, −2 Dex, HP/3); DR = ½ alchemist level, bypassed by adamantine (dynamic buff applied at deploy); engine summon link makes it follow the crafter out of combat |
 | Extra combat feat | 1 | FighterFeatSelection (fighter bonus-feat list) |
 | Basic Core + Basic Program selections | 1 | Core selection v1: Basic only; Program selection: Basic + six programs |
 | Proficiencies | 1 | Light armor, longbow, shortbow, throwing axe, flail, heavy flail, warhammer, greatclub + vanilla simple weapons |
@@ -187,9 +187,10 @@ faction on all three blueprints.
    `BlueprintCharacterClass`; an archetype cannot remove it without modifying every
    alchemist. Options: leave as-is (current), or promote this to a full custom class later.
 2. **Bombs are NOT removed** and keep full damage (final user decision).
-3. **Clay golem chassis** is built on the stone golem's body (no clay golem exists in
-   Wrath's unit list); slow-breath components are stripped by name where possible — if the
-   golem occasionally slows a target, that's the leftover (report it).
+3. **Clay golem chassis** is built on the game's stone golem SUMMON variant
+   (GolemStoneSummon — no clay golem exists in Wrath's unit list); slow-breath components
+   are stripped by name where possible — if the golem occasionally slows a target, that's
+   the leftover (report it).
 4. **Unit names** show the source creature's name (SharedStringAsset authoring needs an
    asset bundle — same territory as custom textures).
 5. Deploy has **no resource cost** yet (standard action only) — cost TBD with user.
