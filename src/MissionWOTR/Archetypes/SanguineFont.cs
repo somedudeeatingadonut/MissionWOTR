@@ -354,7 +354,7 @@ namespace MissionWOTR.Archetypes
                 AllowRepeat = true,
                 Shared = false,
               })
-              .             .Build())
+              .Build())
             .Configure(),
         })
         .Configure();
