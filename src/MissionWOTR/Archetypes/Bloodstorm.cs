@@ -8,6 +8,9 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Controllers.Units;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.PubSubSystem;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -214,7 +217,7 @@ namespace MissionWOTR.Archetypes
   /// PeriodicSelfDamage pattern, inverted onto the victim).
   /// </summary>
   [TypeId(Guids.BloodstormBleedTick)]
-  internal class BloodstormBleedTick : UnitBuffComponentDelegate, ITickEachRound
+  internal class BloodstormBleedTick : UnitFactComponentDelegate, ITickEachRound
   {
     public int MaxRanks;
 
