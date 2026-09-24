@@ -242,7 +242,6 @@ namespace MissionWOTR.Archetypes
         .SetDisplayName("SanguinePulseUsedBuff.Name")
         .SetDescription("SanguinePulseUsedBuff.Description")
         .SetIcon(blastIcon)
-        .AddToFlags(BlueprintBuff.Flags.HiddenInUi)
         .Configure();
 
       // ----- Fast healing + bleed buff pairs (Shared Vitality) -----
@@ -265,6 +264,14 @@ namespace MissionWOTR.Archetypes
           .AddComponent(new SanguineBleed { Amount = value })
           .Configure();
       }
+
+      // ----- Greater Pulse feature (built early: pulse components capture it) -----
+      var greaterPulse = FeatureConfigurator.New(GreaterPulseName, Guids.SanguineGreaterPulse)
+        .SetDisplayName("SanguineGreaterPulse.Name")
+        .SetDescription("SanguineGreaterPulse.Description")
+        .SetIcon(blastIcon)
+        .SetIsClassFeature()
+        .Configure();
 
       // ----- The three pulse abilities -----
       BlueprintAbility BuildPulse(
@@ -317,11 +324,8 @@ namespace MissionWOTR.Archetypes
         })
         .Configure();
 
-      var greaterPulse = FeatureConfigurator.New(GreaterPulseName, Guids.SanguineGreaterPulse)
-        .SetDisplayName("SanguineGreaterPulse.Name")
-        .SetDescription("SanguineGreaterPulse.Description")
-        .SetIcon(blastIcon)
-        .SetIsClassFeature()
+      // Restore the defensive prerequisite now that pulseFeature exists.
+      FeatureConfigurator.For(greaterPulse)
         .AddPrerequisiteFeature(pulseFeature)
         .Configure();
 
@@ -482,13 +486,7 @@ namespace MissionWOTR.Archetypes
 
       // ----- Limitless Rage is off-limits (the rage economy IS the class) -----
       FeatureConfigurator.For(LimitlessRageGuid)
-        .AddComponent(new PrerequisiteArchetypeLevel
-        {
-          m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(Guids.SanguineFontArchetype),
-          m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(BloodragerClassGuid),
-          Level = 1,
-          Not = true,
-        })
+        .AddPrerequisiteNoArchetype(Guids.SanguineFontArchetype, BloodragerClassGuid)
         .Configure();
       MissionFeats.Logger.Info("[sanguine] LimitlessRage blocked for Sanguine Fonts.");
 
