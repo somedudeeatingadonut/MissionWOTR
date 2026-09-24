@@ -483,12 +483,18 @@ namespace MissionWOTR.Archetypes
           });
         }
         // The delivery itself deals nothing - only the fists do (dice modified
-        // to zero in place - the DarkCodex KineticBlastDiceIncrease pattern).
+        // to zero in place - the DarkCodex KineticBlastDiceIncrease pattern;
+        // flat bonuses canceled with a negative modifier - TTT's
+        // OutgoingWeaponDamageBonus pattern; Bonus/BonusTargetRelated are
+        // read-only properties in this build).
         foreach (BaseDamage damage in evt.DamageBundle)
         {
           damage.Dice.Modify(DiceFormula.Zero, Fact);
-          damage.Bonus = 0;
-          damage.BonusTargetRelated = 0;
+          int flat = damage.Bonus + damage.BonusTargetRelated;
+          if (flat != 0)
+          {
+            damage.AddModifier(new Modifier(-flat, Fact, ModifierDescriptor.UntypedStackable));
+          }
         }
 
         if (Owner.Buffs.GetBuff(ChargeBuff) is null)
