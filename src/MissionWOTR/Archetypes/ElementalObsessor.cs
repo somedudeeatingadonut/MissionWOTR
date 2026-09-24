@@ -7,6 +7,7 @@ using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem;
@@ -47,9 +48,23 @@ namespace MissionWOTR.Archetypes
   ///   cannot be denied - when her chosen element's damage is reduced by immunity
   ///   or resistance, the target still takes at least 20% of the raw damage; the
   ///   minimum rises 5% every two levels after 3rd (60% at 19th).
+  /// - Obsessive Wellspring (5th, additive - the arcanist identity hook): a kill
+  ///   with her element's magic restores 1 arcane reservoir point, feeding the
+  ///   exploits she still gains from 9th level on (and Consume Spells).
   /// - Cathartic Release (7th, trades the 7th-level exploit): when a SINGLE-TARGET
   ///   spell of hers kills an enemy, the element erupts - other enemies within
-  ///   10 feet take 1d4 per two levels beyond 7th (1d4 at 7th, 7d4 at 19th).
+  ///   10 feet take 1d4 per two levels beyond 7th (1d4 at 7th, 7d4 at 19th; fire
+  ///   and cold erupt one extra die - their element perk).
+  /// - Shattering Pitch (7th, additive - sonic perk): her single-target sonic
+  ///   spells splash 25% of the damage dealt to enemies within 10 ft of the target.
+  /// - Corrosive Adaptation (acid perk, picks at 12/16/20): adopt any spell from
+  ///   another element's list - it joins the acid list and its damage becomes acid
+  ///   (ReplaceEnergy on RulePrepareDamage, the TTT Elemental Spell mechanism).
+  ///
+  /// Element perks (deliberate equalizers): fire/cold +1d4 on Cathartic Release;
+  /// acid Corrosive Adaptation (late-game spell access); electricity's Unstoppable
+  /// Obsession floor begins at 40% instead of 20%; sonic Shattering Pitch splash.
+  /// Unstoppable Obsession: base floor 20% (40% electricity), +5% at 19th level.
   ///
   /// Implementation notes: riders are separate DirectDamage instances triggered
   /// from outgoing spell damage (Elemental Barrage detection pattern); per-cast
@@ -68,12 +83,16 @@ namespace MissionWOTR.Archetypes
     internal const string FocusName = "ElementObsessorFocus";
     internal const string PermeationName = "ElementObsessorPermeation";
     internal const string CatharticName = "ElementObsessorCathartic";
+    internal const string WellspringName = "ElementObsessorWellspring";
+    internal const string ShatteringName = "ElementObsessorShatteringPitch";
+    internal const string AdaptationName = "ElementObsessorCorrosiveAdaptation";
 
     // Vanilla: the exploit selection granted at every odd arcanist level.
     private const string ArcanistExploitSelectionGuid = "b8bf3d5023f2d8c428fdf6438cecaea7";
 
     internal static BlueprintFeature[] ElementFeatures;
     internal static DamageEnergyType[] ElementEnergies;
+    internal static SpellDescriptor[] ElementDescriptors;
 
     public static void Configure()
     {
@@ -94,10 +113,13 @@ namespace MissionWOTR.Archetypes
       // ----- Per element: spell list, spellbook, fixation feature -----
       var features = new List<BlueprintFeature>();
       var energies = new List<DamageEnergyType>();
+      var descriptors = new List<SpellDescriptor>();
+      var levelsByElement = new Dictionary<SpellDescriptor, Dictionary<BlueprintAbility, int>>();
       foreach (var e in elements)
       {
-        var list = BuildElementList(
+        var (list, spellLevels) = BuildElementList(
           $"ElementObsessorSpellList{e.Key}", GetListGuid(e.Key), e.Descriptor);
+        levelsByElement[e.Descriptor] = spellLevels;
         var book = BuildSpellbook(
           $"ElementObsessorSpellbook{e.Key}", GetBookGuid(e.Key), arcanistBook, list);
         var feature = FeatureReplaceSpellbookConfigurator.New(
@@ -110,9 +132,11 @@ namespace MissionWOTR.Archetypes
           .Configure();
         features.Add(feature);
         energies.Add(e.Energy);
+        descriptors.Add(e.Descriptor);
       }
       ElementFeatures = features.ToArray();
       ElementEnergies = energies.ToArray();
+      ElementDescriptors = descriptors.ToArray();
 
       // ----- Elemental Fixation: the choice -----
       var selection = FeatureSelectionConfigurator.New(FixationSelectionName, Guids.ElementObsessorFixationSelection)
@@ -155,6 +179,65 @@ namespace MissionWOTR.Archetypes
         .AddComponent(new ObsessorCathartic { CharacterClass = arcanist })
         .Configure();
 
+      // ----- Obsessive Wellspring (5th): arcanist identity - the DPS loop feeds
+      // the arcane reservoir that powers the class's exploits and Consume Spells. -----
+      var reservoir = BlueprintTool.Get<BlueprintAbilityResource>(ArcaneReservoirResourceGuid);
+      var wellspring = FeatureConfigurator.New(WellspringName, Guids.ElementObsessorWellspringFeature)
+        .SetDisplayName("ObsessiveWellspring.Name")
+        .SetDescription("ObsessiveWellspring.Description")
+        .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddComponent(new ObsessorWellspring
+        {
+          CharacterClass = arcanist,
+          Reservoir = reservoir,
+        })
+        .Configure();
+
+      // ----- Shattering Pitch (7th, sonic perk): single-target sonic spells splash -----
+      var shattering = FeatureConfigurator.New(ShatteringName, Guids.ElementObsessorShatteringFeature)
+        .SetDisplayName("ShatteringPitch.Name")
+        .SetDescription("ShatteringPitch.Description")
+        .SetIcon(AbilityRefs.BloodragerInfernalHellfireStrikeAbility.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddComponent(new ObsessorSonicSplash())
+        .Configure();
+
+      // ----- Corrosive Adaptation (acid perk, picks at 12/16/20): adopt any spell
+      // from another element's list - it joins the acid list and its damage
+      // becomes acid (ReplaceEnergy on RulePrepareDamage, the Elemental Spell
+      // metamagic mechanism). -----
+      var acidGuid = GetListGuid("Acid");
+      var acidSpells = new HashSet<BlueprintAbility>(levelsByElement[SpellDescriptor.Acid].Keys);
+      var candidates = new List<BlueprintFeature>();
+      var seenSpells = new HashSet<BlueprintAbility>();
+      foreach (var e in elements)
+      {
+        if (e.Descriptor == SpellDescriptor.Acid)
+        {
+          continue;
+        }
+        foreach (var pair in levelsByElement[e.Descriptor])
+        {
+          if (pair.Value < 1 || !seenSpells.Add(pair.Key) || acidSpells.Contains(pair.Key))
+          {
+            continue;
+          }
+          candidates.Add(BuildAdaptationCandidate(pair.Key, pair.Value, acidGuid));
+        }
+      }
+      var acidFixation = features[2]; // elements array order: Fire, Cold, Acid, ...
+      var adaptation = FeatureSelectionConfigurator.New(AdaptationName, Guids.ElementObsessorAdaptationSelection)
+        .SetDisplayName("CorrosiveAdaptation.Name")
+        .SetDescription("CorrosiveAdaptation.Description")
+        .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
+        .SetHideNotAvailibleInUI(true)
+        .AddComponent(new PrerequisiteFeature { Feature = acidFixation })
+        .SetAllFeatures(candidates.Cast<Blueprint<BlueprintFeatureReference>>().ToArray())
+        .Configure();
+      MissionFeats.Logger.Info(
+        $"[obsessor] Corrosive Adaptation: {candidates.Count} candidate spells.");
+
       // ----- Archetype -----
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.ElementObsessorArchetype, CharacterClassRefs.ArcanistClass)
@@ -171,7 +254,11 @@ namespace MissionWOTR.Archetypes
       archetype = archetype
         .AddToAddFeatures(LevelPlan.L(1), FixationSelectionName, FocusName)
         .AddToAddFeatures(LevelPlan.L(3), PermeationName)
-        .AddToAddFeatures(LevelPlan.L(7), CatharticName);
+        .AddToAddFeatures(LevelPlan.L(5), WellspringName)
+        .AddToAddFeatures(LevelPlan.L(7), CatharticName, ShatteringName)
+        .AddToAddFeatures(LevelPlan.L(12), AdaptationName)
+        .AddToAddFeatures(LevelPlan.L(16), AdaptationName)
+        .AddToAddFeatures(LevelPlan.L(20), AdaptationName);
 
       archetype.Configure();
 
@@ -302,8 +389,8 @@ namespace MissionWOTR.Archetypes
     /// Every spell of the element's descriptor from every non-mythic spellbook in
     /// the game, each at its lowest level anywhere (cantrips stay cantrips).
     /// </summary>
-    private static BlueprintSpellList BuildElementList(
-      string name, string guid, SpellDescriptor element)
+    private static (BlueprintSpellList list, Dictionary<BlueprintAbility, int> levels)
+      BuildElementList(string name, string guid, SpellDescriptor element)
     {
       var minLevel = new Dictionary<BlueprintAbility, int>();
       foreach (var book in AllBlueprints<BlueprintSpellbook>())
@@ -349,7 +436,43 @@ namespace MissionWOTR.Archetypes
       result.SpellsByLevel = byLevel;
       MissionFeats.Logger.Info(
         $"[obsessor] {element} list built: {minLevel.Count} spells.");
-      return result;
+      return (result, minLevel);
+    }
+
+    /// <summary>Stable GUID for an adaptation candidate (never persisted as a const:
+    /// derived from the source spell's asset id at configure time).</summary>
+    private static string DeterministicGuid(string seed)
+    {
+      using (var md5 = System.Security.Cryptography.MD5.Create())
+      {
+        var hash = md5.ComputeHash(System.Text.Encoding.UTF8.GetBytes(seed));
+        return new Guid(hash).ToString("D").ToUpperInvariant();
+      }
+    }
+
+    /// <summary>
+    /// One Corrosive Adaptation option: the adopted spell, shown under its own
+    /// name, icon and description. On attach it joins the acid spell list; while
+    /// owned its damage is converted to acid at the RulePrepareDamage stage.
+    /// </summary>
+    private static BlueprintFeature BuildAdaptationCandidate(
+      BlueprintAbility spell, int level, string acidListGuid)
+    {
+      var name = "ElementObsessorAdaptation" + spell.name;
+      var guid = DeterministicGuid("MissionWOTR.ObsessorAdaptation." + spell.AssetGuid);
+      var feature = FeatureConfigurator.New(name, guid)
+        .SetIsClassFeature()
+        .AddComponent(new ObsessorAcidAdaptation
+        {
+          Spell = spell,
+          Level = level,
+          AcidListGuid = acidListGuid,
+        })
+        .Configure();
+      feature.m_Icon = spell.m_Icon;
+      feature.m_DisplayName = spell.m_DisplayName;
+      feature.m_Description = spell.m_Description;
+      return feature;
     }
 
     /// <summary>
@@ -357,7 +480,7 @@ namespace MissionWOTR.Archetypes
     /// naming (Spells may be List&lt;BlueprintAbilityReference&gt; or
     /// List&lt;BlueprintAbility&gt;, field or property, possibly null-initialized).
     /// </summary>
-    private static void AddSpellToEntry(SpellLevelList entry, BlueprintAbility spell)
+    internal static void AddSpellToEntry(SpellLevelList entry, BlueprintAbility spell)
     {
       const System.Reflection.BindingFlags flags =
         System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
@@ -448,6 +571,17 @@ namespace MissionWOTR.Archetypes
         {
           // Skipped.
         }
+      }
+      // All spells in this book - whatever their origin spellbook - cast off the
+      // arcanist's Intelligence: the spellbook, not the spell, owns the casting
+      // attribute (same behavior as the game's own merged spellbooks).
+      try
+      {
+        book.CastingAttribute = source.CastingAttribute;
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: casting attribute pin failed.", e);
       }
       var listField = typeof(BlueprintSpellbook).GetFields(
           System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
@@ -618,7 +752,10 @@ namespace MissionWOTR.Archetypes
           return;
         }
         int level = Owner.Descriptor.Progression.GetClassLevel(CharacterClass);
-        int floorPct = 20 + 5 * Math.Max(0, (level - 3) / 2);
+        // Base floor 20% (electricity begins at 40% - its perk, countering the
+        // many immune enemies it faces); +5% arrives at 19th level, no further.
+        int baseFloor = Energies[chosen] == DamageEnergyType.Electricity ? 40 : 20;
+        int floorPct = baseFloor + (level >= 19 ? 5 : 0);
         int minimum = raw * floorPct / 100;
         if (applied >= minimum)
         {
@@ -682,7 +819,13 @@ namespace MissionWOTR.Archetypes
           Erupted.Clear();
         }
         int level = Owner.Descriptor.Progression.GetClassLevel(CharacterClass);
-        var dice = new DiceFormula(1 + Math.Max(0, (level - 7) / 2), DiceType.D4);
+        // Fire and cold erupt harder (+1 die - their perk).
+        int chosen = ElementalObsessor.ChosenElementIndex(Owner);
+        int extraDice = chosen >= 0
+          && (ElementalObsessor.ElementEnergies[chosen] == DamageEnergyType.Fire
+            || ElementalObsessor.ElementEnergies[chosen] == DamageEnergyType.Cold)
+          ? 1 : 0;
+        var dice = new DiceFormula(1 + Math.Max(0, (level - 7) / 2) + extraDice, DiceType.D4);
         int hits = 0;
         foreach (var u in Game.Instance.State.LoadedAreaState.MainState.AllEntityData
           .OfType<UnitEntityData>())
@@ -703,6 +846,216 @@ namespace MissionWOTR.Archetypes
       catch (Exception e)
       {
         MissionFeats.Logger.Error("ElementalObsessor: Cathartic Release failed.", e);
+      }
+    }
+  }
+
+  /// <summary>
+  /// Obsessive Wellspring: when a spell of her chosen element kills an enemy, the
+  /// arcanist regains 1 arcane reservoir point (never exceeding her maximum) - the
+  /// DPS loop feeds the same reservoir that powers her exploits and Consume Spells.
+  /// </summary>
+  [TypeId(Guids.ElementObsessorWellspring)]
+  internal class ObsessorWellspring : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleDealDamage>, IRulebookHandler<RuleDealDamage>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public BlueprintCharacterClass CharacterClass;
+    public BlueprintAbilityResource Reservoir;
+
+    private static readonly HashSet<string> Rewarded = new();
+
+    public void OnEventAboutToTrigger(RuleDealDamage evt) { }
+
+    public void OnEventDidTrigger(RuleDealDamage evt)
+    {
+      try
+      {
+        if (!ElementalObsessor.IsOwnSpellDamage(evt, Owner, Fact))
+        {
+          return;
+        }
+        var victim = evt.Target;
+        if (victim.HPLeft > 0 || Rewarded.Contains(victim.UniqueId))
+        {
+          return;
+        }
+        int chosen = ElementalObsessor.ChosenElementIndex(Owner);
+        if (chosen < 0 || Reservoir is null)
+        {
+          return;
+        }
+        var energy = ElementalObsessor.ElementEnergies[chosen];
+        bool has = false;
+        foreach (var value in evt.ResultList)
+        {
+          if ((value.Source as EnergyDamage)?.EnergyType == energy)
+          {
+            has = true;
+            break;
+          }
+        }
+        if (!has)
+        {
+          return;
+        }
+        Rewarded.Add(victim.UniqueId);
+        if (Rewarded.Count > 64)
+        {
+          Rewarded.Clear();
+        }
+        Owner.Descriptor.Resources.Restore(Reservoir, 1);
+        MissionFeats.Logger.Info(
+          $"[obsessor] Obsessive Wellspring: {victim.CharacterName}'s death restores 1 arcane reservoir point.");
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: Obsessive Wellspring failed.", e);
+      }
+    }
+  }
+
+  /// <summary>
+  /// Shattering Pitch (sonic perk): single-target sonic spells splash - every
+  /// other enemy within 10 feet of the target takes 25% of the damage dealt.
+  /// </summary>
+  [TypeId(Guids.ElementObsessorShattering)]
+  internal class ObsessorSonicSplash : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleDealDamage>, IRulebookHandler<RuleDealDamage>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public void OnEventAboutToTrigger(RuleDealDamage evt) { }
+
+    public void OnEventDidTrigger(RuleDealDamage evt)
+    {
+      try
+      {
+        if (!ElementalObsessor.IsOwnSpellDamage(evt, Owner, Fact) || evt.SourceArea)
+        {
+          return;
+        }
+        var ability = evt.Reason.Ability;
+        if (ability is null || ability.IsAOE)
+        {
+          return;
+        }
+        int chosen = ElementalObsessor.ChosenElementIndex(Owner);
+        if (chosen < 0
+          || ElementalObsessor.ElementEnergies[chosen] != DamageEnergyType.Sonic
+          || !(ability.Blueprint?.SpellDescriptor.HasFlag(
+                 ElementalObsessor.ElementDescriptors[chosen]) == true))
+        {
+          return;
+        }
+        int dealt = 0;
+        foreach (var value in evt.ResultList)
+        {
+          dealt += value.FinalValue;
+        }
+        if (dealt <= 0)
+        {
+          return;
+        }
+        int splash = Math.Max(1, dealt / 4);
+        int hits = 0;
+        foreach (var u in Game.Instance.State.LoadedAreaState.MainState.AllEntityData
+          .OfType<UnitEntityData>())
+        {
+          if (u != evt.Target && u.HPLeft > 0 && u.IsEnemy(Owner)
+            && Vector3.Distance(u.Position, evt.Target.Position) <= 3.5f)
+          {
+            ElementalObsessor.DealRider(Owner, u, Fact, DiceFormula.Zero, splash);
+            hits++;
+          }
+        }
+        if (hits > 0)
+        {
+          MissionFeats.Logger.Info(
+            $"[obsessor] Shattering Pitch: {splash} splash damage hit {hits} enemies near {evt.Target.CharacterName}.");
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: Shattering Pitch failed.", e);
+      }
+    }
+  }
+
+  /// <summary>
+  /// Corrosive Adaptation (acid perk option): the adopted spell joins the acid
+  /// spell list when picked, and while owned its energy damage is converted to
+  /// acid at the RulePrepareDamage stage (ReplaceEnergy - the TTT Elemental Spell
+  /// metamagic mechanism).
+  /// </summary>
+  [TypeId(Guids.ElementObsessorAcidAdaptation)]
+  internal class ObsessorAcidAdaptation : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RulePrepareDamage>, IRulebookHandler<RulePrepareDamage>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public BlueprintAbility Spell;
+    public int Level;
+    public string AcidListGuid;
+
+    private static readonly HashSet<string> AddedToList = new();
+
+    protected override void OnTurnOn()
+    {
+      try
+      {
+        if (Spell is null || AcidListGuid is null)
+        {
+          return;
+        }
+        string key = Spell.AssetGuid.ToString();
+        if (AddedToList.Contains(key))
+        {
+          return;
+        }
+        var list = BlueprintTool.Get<BlueprintSpellList>(AcidListGuid);
+        if (list?.SpellsByLevel is null)
+        {
+          return;
+        }
+        int level = Math.Max(1, Math.Min(9, Level));
+        foreach (var entry in list.SpellsByLevel)
+        {
+          if (entry != null && entry.SpellLevel == level)
+          {
+            ElementalObsessor.AddSpellToEntry(entry, Spell);
+            AddedToList.Add(key);
+            MissionFeats.Logger.Info(
+              $"[obsessor] Corrosive Adaptation: {Spell.name} joins the acid list at level {level}.");
+            return;
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: adaptation list add failed.", e);
+      }
+    }
+
+    public void OnEventAboutToTrigger(RulePrepareDamage evt) { }
+
+    public void OnEventDidTrigger(RulePrepareDamage evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner || evt.Reason.Ability?.Blueprint != Spell)
+        {
+          return;
+        }
+        foreach (BaseDamage damage in evt.DamageBundle)
+        {
+          if (damage is EnergyDamage energy && energy.EnergyType != DamageEnergyType.Acid)
+          {
+            energy.ReplaceEnergy(DamageEnergyType.Acid);
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: damage conversion failed.", e);
       }
     }
   }

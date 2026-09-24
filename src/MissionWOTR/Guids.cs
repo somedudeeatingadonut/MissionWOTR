@@ -341,6 +341,13 @@ namespace MissionWOTR
     internal const string ElementObsessorPermeation = "8A100EC8-817D-427D-8957-05896B5017D6";
     internal const string ElementObsessorCatharticFeature = "C353B1D5-8144-4FBE-AE9A-CE69D162A8D9";
     internal const string ElementObsessorCathartic = "94359AF8-7D26-44C8-A35C-A232CCD015FB";
+    internal const string ElementObsessorWellspringFeature = "489DA0FD-9DE3-42F4-ABF6-068680EB7738";
+    internal const string ElementObsessorWellspring = "931027DA-4A70-4D1D-99CB-3FCB1FB22C70";
+    internal const string ElementObsessorShatteringFeature = "5B42412C-531B-4647-B19B-7F5BB79848BF";
+    internal const string ElementObsessorShattering = "DBA223DF-6BD4-409C-B44E-4240D5C61D55";
+    internal const string ElementObsessorAdaptationSelection = "999A7DC6-D29C-4CEC-B739-1FB06CC80A58";
+    internal const string ElementObsessorAcidAdaptation = "7D5A2BCA-AA76-4E2E-9B9E-B6245A5F503F";
+
 
 
   }
