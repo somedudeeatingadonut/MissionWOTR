@@ -89,6 +89,8 @@ namespace MissionWOTR.Archetypes
 
     // Vanilla: the exploit selection granted at every odd arcanist level.
     private const string ArcanistExploitSelectionGuid = "b8bf3d5023f2d8c428fdf6438cecaea7";
+    // Vanilla: the arcane reservoir.
+    private const string ArcaneReservoirResourceGuid = "cac948cbbe79b55459459dd6a8fe44ce";
 
     internal static BlueprintFeature[] ElementFeatures;
     internal static DamageEnergyType[] ElementEnergies;
@@ -232,7 +234,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("CorrosiveAdaptation.Description")
         .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
         .SetHideNotAvailibleInUI(true)
-        .AddComponent(new PrerequisiteFeature { Feature = acidFixation })
+        .AddPrerequisiteFeature(acidFixation)
         .SetAllFeatures(candidates.Cast<Blueprint<BlueprintFeatureReference>>().ToArray())
         .Configure();
       MissionFeats.Logger.Info(
@@ -462,6 +464,7 @@ namespace MissionWOTR.Archetypes
       var guid = DeterministicGuid("MissionWOTR.ObsessorAdaptation." + spell.AssetGuid);
       var feature = FeatureConfigurator.New(name, guid)
         .SetIsClassFeature()
+        .SetIcon(spell.Icon)
         .AddComponent(new ObsessorAcidAdaptation
         {
           Spell = spell,
@@ -469,10 +472,49 @@ namespace MissionWOTR.Archetypes
           AcidListGuid = acidListGuid,
         })
         .Configure();
-      feature.m_Icon = spell.m_Icon;
-      feature.m_DisplayName = spell.m_DisplayName;
-      feature.m_Description = spell.m_Description;
+      CopyStringFields(feature, spell);
       return feature;
+    }
+
+    /// <summary>
+    /// Copies the spell's localized display name and description onto the
+    /// adaptation feature. The string fields are not public in this build, so
+    /// they are located by type on the shared base chain and set by reflection.
+    /// </summary>
+    private static void CopyStringFields(BlueprintFeature feature, BlueprintAbility spell)
+    {
+      const System.Reflection.BindingFlags flags =
+        System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
+        System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.DeclaredOnly;
+      var targetFields = new Dictionary<string, System.Reflection.FieldInfo>();
+      for (var t = (System.Type)typeof(BlueprintFeature); t != null && t != typeof(object); t = t.BaseType)
+      {
+        foreach (var f in t.GetFields(flags))
+        {
+          if (!targetFields.ContainsKey(f.Name))
+          {
+            targetFields[f.Name] = f;
+          }
+        }
+      }
+      for (var t = (System.Type)spell.GetType(); t != null && t != typeof(object); t = t.BaseType)
+      {
+        foreach (var f in t.GetFields(flags))
+        {
+          if (targetFields.TryGetValue(f.Name, out var target) && target.FieldType == f.FieldType
+            && f.FieldType.Name.Contains("String"))
+          {
+            try
+            {
+              target.SetValue(feature, f.GetValue(spell));
+            }
+            catch
+            {
+              // Read-only or init-only members are skipped.
+            }
+          }
+        }
+      }
     }
 
     /// <summary>
