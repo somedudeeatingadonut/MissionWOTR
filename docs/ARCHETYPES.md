@@ -292,3 +292,33 @@ Adaptation (late-game spell access via adaptation); electricity floors at 40%
 (early-game immunities); sonic Shattering Pitch splash (small-list multiplier).
 All spells in the replaced book cast off Intelligence - the spellbook, not the
 spell, owns the casting attribute (same as the game's merged spellbooks).
+
+## Bard
+
+### Faithful port — Mummer Mage (Legendary Games) — IMPLEMENTED (v1)
+
+| Feature | Real level | Details |
+|---|---|---|
+| Shtick of the Magi | 1 | +2 circumstance Persuasion (the prop; Perform/Bluff do not exist in WOTR). Replaces bardic knowledge |
+| Imperious Gestures | 2 | +2 concentration (CheckConcentration stat). Replaces well-versed |
+| Arcane Imitation | 2 | LearnSpellParametrized from the wizard list; picks at 2/6/10/14/18. Replaces versatile performance (void in WOTR - additive) |
+| Shtick Attunement | 5 | Grants the vanilla BondedItem feature (cast any spell from her spellbook 1/day, full-round) |
+| Method Actor | 5 | All Lore skills use Charisma (ReplaceStatBaseAttribute - "she remembers playing a scholar"). Replaces lore master |
+| Eucatastrophe | 10/16/19 | Adapted: extra Arcane Imitation picks (no "cast any unlearned spell" UI outside the bond). Replaces jack-of-all-trades |
+
+### Homebrew — The Cook (user-commissioned) — IMPLEMENTED (v1)
+
+The barding pun, taken literally: no performances, no bardic knowledge, no dirge
+of doom, no jack of all trades, no mass suggestion - just meals.
+
+| Feature | Real level | Details |
+|---|---|---|
+| Hearty Cooking | 1 | 3 meal charges per rest (resource, restore on rest). Each Serve ability: standard action, 1 charge, feeds an ally an 8-hour non-dispelable meal buff (untyped; WOTR has no food-buff category - native cooking-recipe buffs are plain buffs too) |
+| Pantry | 4/8/12/16/20 | Learn one new ingredient each pick |
+
+Starting pantry: Bacon Wrap (+HP), Chicken Breast (+attack), Rice (+saves),
+Beans (+speed), Lettuce (+AC). Pantry picks: Garlic (+Persuasion), Chili Pepper
+(+damage), Cheese (+Lore skills), Mushroom (+initiative), Potato (+Fort),
+Onion (+Perception), Coffee (+initiative/+speed), Butter (+saves flat).
+All meal values are flat + one rank per N bard levels (StepLevel) - tuning
+candidates for the playtest pass.

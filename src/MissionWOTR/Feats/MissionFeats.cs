@@ -58,6 +58,8 @@ namespace MissionWOTR.Feats
       Configure(nameof(Bloodstorm), Bloodstorm.Configure);
       Configure(nameof(CovertMage), CovertMage.Configure);
       Configure(nameof(ElementalObsessor), ElementalObsessor.Configure);
+      Configure(nameof(MummerMage), MummerMage.Configure);
+      Configure(nameof(Cook), Cook.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);

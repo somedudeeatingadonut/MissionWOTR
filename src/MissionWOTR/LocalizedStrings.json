@@ -1304,5 +1304,235 @@
     "Key": "CorrosiveAdaptation.Description",
     "ProcessTemplates": false,
     "enGB": "Your acid digests even magic that was never acid to begin with. Choose a spell from another element's list: it is added to your acid spell list, and whenever you cast it its damage is converted to acid damage. You may choose again at 16th and 20th level."
+  },
+  {
+    "Key": "MummerMage.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mummer Mage"
+  },
+  {
+    "Key": "MummerMage.Description",
+    "ProcessTemplates": false,
+    "enGB": "While most bards perform for admiration, the mummer mage longs for the prestige only true spellcasters command - so she pretends. Eccentric actor or pretentious fraud, she bluffs her way to ever higher stations, brandishing an ornate staff andborrowed wizardry."
+  },
+  {
+    "Key": "MummerShtick.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shtick of the Magi"
+  },
+  {
+    "Key": "MummerShtick.Description",
+    "ProcessTemplates": false,
+    "enGB": "The mummer mage begins with an ornate masterwork quarterstaff that serves as a masterwork prop, granting a +2 circumstance bonus on Persuasion checks to convince others of her arcane mastery. If it is ever lost, she can replace it for 400 gp. Replaces bardic knowledge."
+  },
+  {
+    "Key": "MummerImperious.Name",
+    "ProcessTemplates": false,
+    "enGB": "Imperious Gestures"
+  },
+  {
+    "Key": "MummerImperious.Description",
+    "ProcessTemplates": false,
+    "enGB": "Starting at 2nd level, the mummer mage gains a +2 bonus on concentration checks when casting bard spells (WOTR simplification: all her casting). Replaces well-versed."
+  },
+  {
+    "Key": "MummerImitation.Name",
+    "ProcessTemplates": false,
+    "enGB": "Arcane Imitation"
+  },
+  {
+    "Key": "MummerImitation.Description",
+    "ProcessTemplates": false,
+    "enGB": "The mummer mage selects one spell from the wizard spell list of a level she can cast and adds it to her bard spells known. She gains an additional pick at 6th level and every 4 levels thereafter, and again at 16th and 19th level (Eucatastrophe). Replaces versatile performance (which does not exist in Wrath - the feature is additive)."
+  },
+  {
+    "Key": "MummerAttunement.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shtick Attunement"
+  },
+  {
+    "Key": "MummerAttunement.Description",
+    "ProcessTemplates": false,
+    "enGB": "Starting at 5th level, the shtick of the magi grants the mummer mage all the benefits of a bonded item, as the wizard's arcane bond class feature: once per day she may cast any one spell from her spellbook through the prop as a full-round action."
+  },
+  {
+    "Key": "MummerMethodActor.Name",
+    "ProcessTemplates": false,
+    "enGB": "Method Actor"
+  },
+  {
+    "Key": "MummerMethodActor.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 5th level, the mummer mage so thoroughly maintains her wizardly persona that knowledge comes easy: she uses her Charisma instead of Intelligence on all Knowledge (Lore) skill checks - she remembers playing a scholar, convincingly. Replaces lore master."
+  },
+  {
+    "Key": "MummerEucatastrophe.Name",
+    "ProcessTemplates": false,
+    "enGB": "Eucatastrophe"
+  },
+  {
+    "Key": "MummerEucatastrophe.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 10th level, the mummer mage's role becomes real at the climax: she gains an additional Arcane Imitation pick (a wizard spell of a level she can cast), and again at 16th and 19th level - a total of three extra spells beyond her regular imitation. Together with the bonded prop's daily cast, any bard spell she knows is one flourish away. Replaces jack-of-all-trades."
+  },
+  {
+    "Key": "Cook.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Cook"
+  },
+  {
+    "Key": "Cook.Description",
+    "ProcessTemplates": false,
+    "enGB": "One of the older meanings of 'bard' is to barding: wrapping meat in bacon or fat to keep it moist. This bard took that definition personally. She trades every performance, all bardic knowledge, dirge of doom, jack of all trades and mass suggestion for a fire, a knife, and three good meals a day.\nHearty Cooking: 3 meal charges per rest, each feeding an ally an 8-hour non-dispelable meal buff that scales with her bard level.\nPantry: she learns a new ingredient at 4th level and every 4 levels thereafter."
+  },
+  {
+    "Key": "CookHeartyCooking.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hearty Cooking"
+  },
+  {
+    "Key": "CookHeartyCooking.Description",
+    "ProcessTemplates": false,
+    "enGB": "The cook prepares 3 meals per long rest. Each Serve ability spends one meal charge and feeds an ally: the meal's buff lasts 8 hours and cannot be dispelled. Meal effects improve as the cook gains bard levels."
+  },
+  {
+    "Key": "CookPantry.Name",
+    "ProcessTemplates": false,
+    "enGB": "Pantry"
+  },
+  {
+    "Key": "CookPantry.Description",
+    "ProcessTemplates": false,
+    "enGB": "The cook's repertoire grows. She learns one new ingredient: Garlic, Chili Pepper, Cheese, Mushroom, Potato, Onion, Coffee or Butter. She may choose again at 8th, 12th, 16th and 20th level."
+  },
+  {
+    "Key": "CookIngredientBaconWrap.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bacon-Wrapped Meal"
+  },
+  {
+    "Key": "CookIngredientBaconWrap.Description",
+    "ProcessTemplates": false,
+    "enGB": "Barded meat, tender and rich: the eater gains 2 bonus hit points, plus 1 more for every 3 cook levels."
+  },
+  {
+    "Key": "CookIngredientChickenBreast.Name",
+    "ProcessTemplates": false,
+    "enGB": "Chicken Breast Meal"
+  },
+  {
+    "Key": "CookIngredientChickenBreast.Description",
+    "ProcessTemplates": false,
+    "enGB": "Lean protein, honest food: the eater gains a +1 bonus on attack rolls, plus 1 more for every 8 cook levels."
+  },
+  {
+    "Key": "CookIngredientRice.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rice Meal"
+  },
+  {
+    "Key": "CookIngredientRice.Description",
+    "ProcessTemplates": false,
+    "enGB": "A steady staple: the eater gains a +1 bonus on all saving throws, plus 1 more for every 8 cook levels."
+  },
+  {
+    "Key": "CookIngredientBeans.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bean Meal"
+  },
+  {
+    "Key": "CookIngredientBeans.Description",
+    "ProcessTemplates": false,
+    "enGB": "Fiber and fuel: the eater's movement speed increases by 10 feet, plus 5 more for every 12 cook levels."
+  },
+  {
+    "Key": "CookIngredientLettuce.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lettuce Meal"
+  },
+  {
+    "Key": "CookIngredientLettuce.Description",
+    "ProcessTemplates": false,
+    "enGB": "Light and crisp: the eater gains a +1 dodge bonus to AC, plus 1 more for every 12 cook levels."
+  },
+  {
+    "Key": "CookIngredientGarlic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Garlic Meal"
+  },
+  {
+    "Key": "CookIngredientGarlic.Description",
+    "ProcessTemplates": false,
+    "enGB": "Pungent and persuasive: the eater gains a +2 bonus on Persuasion checks, plus 1 more for every 6 cook levels."
+  },
+  {
+    "Key": "CookIngredientChiliPepper.Name",
+    "ProcessTemplates": false,
+    "enGB": "Chili Pepper Meal"
+  },
+  {
+    "Key": "CookIngredientChiliPepper.Description",
+    "ProcessTemplates": false,
+    "enGB": "It bites back: the eater deals 1 bonus damage on attacks, plus 1 more for every 8 cook levels."
+  },
+  {
+    "Key": "CookIngredientCheese.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cheese Meal"
+  },
+  {
+    "Key": "CookIngredientCheese.Description",
+    "ProcessTemplates": false,
+    "enGB": "Aged and cultured: the eater gains a +2 bonus on all Knowledge (Lore) checks, plus 1 more for every 6 cook levels."
+  },
+  {
+    "Key": "CookIngredientMushroom.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mushroom Meal"
+  },
+  {
+    "Key": "CookIngredientMushroom.Description",
+    "ProcessTemplates": false,
+    "enGB": "Foraged and earthy: the eater gains a +2 bonus on initiative checks, plus 1 more for every 6 cook levels."
+  },
+  {
+    "Key": "CookIngredientPotato.Name",
+    "ProcessTemplates": false,
+    "enGB": "Potato Meal"
+  },
+  {
+    "Key": "CookIngredientPotato.Description",
+    "ProcessTemplates": false,
+    "enGB": "Sturdy root vegetable: the eater gains a +2 bonus on Fortitude saves, plus 1 more for every 6 cook levels."
+  },
+  {
+    "Key": "CookIngredientOnion.Name",
+    "ProcessTemplates": false,
+    "enGB": "Onion Meal"
+  },
+  {
+    "Key": "CookIngredientOnion.Description",
+    "ProcessTemplates": false,
+    "enGB": "It brings tears - sharpens the senses: the eater gains a +2 bonus on Perception checks, plus 1 more for every 6 cook levels."
+  },
+  {
+    "Key": "CookIngredientCoffee.Name",
+    "ProcessTemplates": false,
+    "enGB": "Coffee Meal"
+  },
+  {
+    "Key": "CookIngredientCoffee.Description",
+    "ProcessTemplates": false,
+    "enGB": "Black and bitter: the eater gains a +2 bonus on initiative checks (plus 1 more for every 8 cook levels) and 5 feet of movement speed."
+  },
+  {
+    "Key": "CookIngredientButter.Name",
+    "ProcessTemplates": false,
+    "enGB": "Butter Meal"
+  },
+  {
+    "Key": "CookIngredientButter.Description",
+    "ProcessTemplates": false,
+    "enGB": "Everything is better with it: the eater gains a +1 bonus on all saving throws."
   }
 ]

@@ -348,6 +348,60 @@ namespace MissionWOTR
     internal const string ElementObsessorAdaptationSelection = "999A7DC6-D29C-4CEC-B739-1FB06CC80A58";
     internal const string ElementObsessorAcidAdaptation = "7D5A2BCA-AA76-4E2E-9B9E-B6245A5F503F";
 
+    // ----- Bard: Mummer Mage (faithful port) + Cook (homebrew) -----
+    internal const string MummerArchetype = "09D3473B-CECB-4022-8F0C-5FBD56734EB8";
+    internal const string MummerShtick = "0A9F9B49-9D46-4DE4-A077-66DEC8C66D19";
+    internal const string MummerImperious = "FC53A009-9867-44F0-ACB9-F80B685CEE7B";
+    internal const string MummerImitation = "A0D6FCB6-F8C6-4FA5-ABD2-C2E72B7F6B1E";
+    internal const string MummerAttunement = "8BB980E7-FFE0-4A87-8330-F6DF8D496501";
+    internal const string MummerMethodActor = "57554658-B03F-43A2-A4D9-53EED31F886D";
+    internal const string MummerEucatastrophe = "12A2218D-D33F-4BE6-AC89-F3A62E5841B8";
+    internal const string CookArchetype = "7CE29903-C9A1-416E-8C39-7720034A671A";
+    internal const string CookHeartyCooking = "97B72D46-C383-46A3-95AC-D8E3C4EAD5A7";
+    internal const string CookMealCharges = "B8501E6B-6128-4045-A1F6-C7FBE2021C9E";
+    internal const string CookPantrySelection = "0452B152-E7BD-4612-AB6B-87514F937186";
+    internal const string CookServeMealAction = "C9F1B958-85B6-4925-AB69-4436C333019D";
+    internal const string CookIngredientBaconWrap = "A23D1B35-4C69-4711-825E-219E7808BA44";
+    internal const string CookBuffBaconWrap = "634FE502-BAD3-4A65-98F3-F81DCCF15CFC";
+    internal const string CookServeBaconWrap = "6ADADC77-72AA-4118-A3AD-86C8C98469CF";
+    internal const string CookIngredientChickenBreast = "84A0D737-A364-4CB4-8407-D735A6F58BE8";
+    internal const string CookBuffChickenBreast = "B91533D7-A995-4E6E-89CD-CE4A58466D03";
+    internal const string CookServeChickenBreast = "800C9C82-08EB-4170-93F6-D903C4E25B16";
+    internal const string CookIngredientRice = "56CC213C-9A5A-41A8-B985-E0FDBBF5B547";
+    internal const string CookBuffRice = "9C4E530E-AADB-4037-A3A6-A2C935379C66";
+    internal const string CookServeRice = "E70365F6-7D67-41AB-A41F-440C268CAC37";
+    internal const string CookIngredientBeans = "FA188B86-0D5E-4798-9F6D-390F3FC81406";
+    internal const string CookBuffBeans = "BD4C988C-7F22-48B0-B0E5-B854A37113EE";
+    internal const string CookServeBeans = "BC7FE26D-8070-4E1B-B3C4-03CF5D2837B5";
+    internal const string CookIngredientLettuce = "A2DF0E89-955B-4615-A685-95D82163CF95";
+    internal const string CookBuffLettuce = "C3497A62-785F-4949-B093-F11C1EB361EB";
+    internal const string CookServeLettuce = "CB75F11C-8A46-4FF9-92A9-5A44E79C8280";
+    internal const string CookIngredientGarlic = "43F9B606-3710-497F-A2DD-1F7CAA04CE1B";
+    internal const string CookBuffGarlic = "0093B2EC-464D-4E66-B6A4-E68D8667D607";
+    internal const string CookServeGarlic = "3241C031-0F49-4FD6-BDAC-0FB5635CB0DC";
+    internal const string CookIngredientChiliPepper = "0F82A532-74E3-41D5-800A-73AEE8657946";
+    internal const string CookBuffChiliPepper = "0CDED1C4-D44B-4B4C-9D36-32DB1C87645D";
+    internal const string CookServeChiliPepper = "1A6EA5E0-9FD9-4B01-B5AA-036205B7AC37";
+    internal const string CookIngredientCheese = "770D8FAD-9E1D-49F2-BE50-5FB0916C9CC9";
+    internal const string CookBuffCheese = "FFB174CA-9A44-4B53-981E-2BBA0C040E63";
+    internal const string CookServeCheese = "A7B33AD4-C5B8-42E8-9EC4-C37147FC3835";
+    internal const string CookIngredientMushroom = "E3F12A1B-8A7E-47FD-9AA8-13A13B8E06BE";
+    internal const string CookBuffMushroom = "F4279C2A-D091-4303-82B9-0F58DCC49060";
+    internal const string CookServeMushroom = "DA166177-1994-4C54-B875-D01EFDA68D96";
+    internal const string CookIngredientPotato = "66A37F1A-926C-4AC2-85F9-91580073B3B5";
+    internal const string CookBuffPotato = "33DFF826-C487-4B82-B88D-FE210BFF9DAF";
+    internal const string CookServePotato = "66DA1B3D-1DE9-494A-AB2F-2885842D426C";
+    internal const string CookIngredientOnion = "2D242D01-DF5D-4F50-B53F-8CA297473783";
+    internal const string CookBuffOnion = "F9E40748-C068-41D3-9F8D-F8799093720E";
+    internal const string CookServeOnion = "210D6091-6D39-43DE-BACB-6B709E6B5D2D";
+    internal const string CookIngredientCoffee = "8C00649A-521D-4F43-9DEA-448FD9F7FE77";
+    internal const string CookBuffCoffee = "8F345D64-7AC6-4F22-A7CE-69F1BB1C04C2";
+    internal const string CookServeCoffee = "8F418992-B7DC-4E02-B934-14FEF69931CB";
+    internal const string CookIngredientButter = "6639F4CF-1B0A-411D-B8CC-5AE4C3CD3A0E";
+    internal const string CookBuffButter = "FC07DFF5-72A1-4F9F-9969-021DC80EE142";
+    internal const string CookServeButter = "042F1F5B-1DD0-4892-956C-84A749EA113C";
+
+
 
 
   }
