@@ -1,3 +1,4 @@
+using BlueprintCore.Blueprints.Configurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.References;
@@ -7,6 +8,9 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.PubSubSystem;
+using Kingmaker.RuleSystem.Rules;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -91,8 +95,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("MummerImperious.Description")
         .SetIcon(FeatureRefs.Toughness.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddStatBonus(stat: StatType.CheckConcentration, value: 2,
-          descriptor: ModifierDescriptor.Circumstance)
+        .AddComponent(new MummerImperiousConcentration { Bonus = 2 })
         .Configure();
 
       // ----- Arcane Imitation (2nd): steal from the wizard's list -----
@@ -122,7 +125,7 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .AddComponent(new ReplaceStatBaseAttribute
         {
-          TargetStat = StatType.SkillLoreArcana,
+          TargetStat = StatType.SkillKnowledgeArcana,
           BaseAttributeReplacement = StatType.Charisma,
         })
         .AddComponent(new ReplaceStatBaseAttribute
@@ -213,5 +216,64 @@ namespace MissionWOTR.Archetypes
       listField.SetValue(component, wizardList.ToReference<BlueprintSpellListReference>());
       return component;
     }
+  }
+
+  /// <summary>
+  /// Imperious Gestures: +2 on concentration checks while casting her spells.
+  /// WOTR exposes almost no concentration surface (there is no concentration
+  /// stat), so the bonus is applied where the build allows it: the DC is lowered
+  /// when it is visible (CustomDC), or a bonus-shaped int member is adjusted by
+  /// reflection. If neither path exists, a warning is logged once.
+  /// </summary>
+  [TypeId(Guids.MummerImperiousComponent)]
+  internal class MummerImperiousConcentration : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleCheckConcentration>, IRulebookHandler<RuleCheckConcentration>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public int Bonus;
+
+    private static bool m_Warned;
+
+    public void OnEventAboutToTrigger(RuleCheckConcentration evt)
+    {
+      try
+      {
+        if (evt.CustomDC.HasValue)
+        {
+          evt.CustomDC = evt.CustomDC.Value - Bonus;
+          return;
+        }
+        const System.Reflection.BindingFlags flags =
+          System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
+          System.Reflection.BindingFlags.NonPublic;
+        foreach (var name in new[] { "Bonus", "m_Bonus", "ConcentrationBonus" })
+        {
+          var field = typeof(RuleCheckConcentration).GetField(name, flags);
+          if (field != null && field.FieldType == typeof(int))
+          {
+            field.SetValue(evt, (int)field.GetValue(evt) + Bonus);
+            return;
+          }
+          var prop = typeof(RuleCheckConcentration).GetProperty(name, flags);
+          if (prop != null && prop.CanWrite && prop.PropertyType == typeof(int))
+          {
+            prop.SetValue(evt, (int)prop.GetValue(evt, null) + Bonus, null);
+            return;
+          }
+        }
+        if (!m_Warned)
+        {
+          m_Warned = true;
+          MissionFeats.Logger.Warn(
+            "[mummer] Imperious Gestures: no concentration adjustment path found on this build.");
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("MummerMage: Imperious Gestures failed.", e);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleCheckConcentration evt) { }
   }
 }

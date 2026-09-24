@@ -356,6 +356,8 @@ namespace MissionWOTR
     internal const string MummerAttunement = "8BB980E7-FFE0-4A87-8330-F6DF8D496501";
     internal const string MummerMethodActor = "57554658-B03F-43A2-A4D9-53EED31F886D";
     internal const string MummerEucatastrophe = "12A2218D-D33F-4BE6-AC89-F3A62E5841B8";
+    internal const string MummerImperiousComponent = "25FBDE0F-6B5B-4601-B44E-E4E2EC58C987";
+
     internal const string CookArchetype = "7CE29903-C9A1-416E-8C39-7720034A671A";
     internal const string CookHeartyCooking = "97B72D46-C383-46A3-95AC-D8E3C4EAD5A7";
     internal const string CookMealCharges = "B8501E6B-6128-4045-A1F6-C7FBE2021C9E";
