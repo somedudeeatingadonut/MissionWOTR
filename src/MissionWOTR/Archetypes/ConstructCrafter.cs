@@ -647,10 +647,10 @@ namespace MissionWOTR.Archetypes
         // before buffs ever loaded), which the marker check above cannot see. Any
         // living unit whose blueprint is one of this base's constructs goes away.
         var family = BaseKind == 0
-          ? new[] { SentryUnitName, "ConstructCrafterSentryRanged" }
+          ? new[] { ConstructCrafter.SentryUnitName, "ConstructCrafterSentryRanged" }
           : BaseKind == 1
-            ? new[] { HumanoidUnitName, "ConstructCrafterHumanoidArcher", "ConstructCrafterHumanoidCaster" }
-            : new[] { GolemUnitName, "ConstructCrafterGolemCaster" };
+            ? new[] { ConstructCrafter.HumanoidUnitName, "ConstructCrafterHumanoidArcher", "ConstructCrafterHumanoidCaster" }
+            : new[] { ConstructCrafter.GolemUnitName, "ConstructCrafterGolemCaster" };
         foreach (var old in existing.Where(
           u => u.HPLeft > 0 && u.Blueprint != null &&
             family.Any(n => string.Equals(n, u.Blueprint.name,
