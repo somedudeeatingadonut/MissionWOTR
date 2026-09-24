@@ -424,5 +424,38 @@ namespace MissionWOTR
     internal const string SpellfistCarapace = "669CE651-6CA8-4A13-8864-E1C023713846";
     internal const string SpellfistCarapaceBuff = "E55FF037-72A4-4C57-9EED-163ED1F7A6E5";
 
+
+    // ----- Spellfist additions (0.5.1) -----
+    internal const string SpellfistSwiftness = "3396C3CD-5C68-4566-BB37-5C6C9DBB6EA8";
+
+    // ----- Spellblade (Paizo magus archetype port, 0.5.1) -----
+    internal const string SpellbladeArchetype = "1864B1CC-7457-4A55-9415-0D1631F531FF";
+    internal const string SpellbladeForceAthameFeature = "ABEBC0BF-EA13-4849-884A-5BFFD831410B";
+    internal const string SpellbladeAthameCast = "3DF98A2C-FEAF-4B9A-9829-117FC71FE1DE";
+    internal const string SpellbladeCreateAthameAction = "14811CE9-1479-411E-A424-482740521EB8";
+    internal const string SpellbladeAthameWeapon1 = "0B307CFA-72CB-48A5-8149-A326000A96ED";
+    internal const string SpellbladeAthameWeapon2 = "76CF0BDC-BC13-4450-AB20-1CEB5CA3CAC4";
+    internal const string SpellbladeAthameWeapon3 = "45789BC4-122F-4D09-8788-D33931403A64";
+    internal const string SpellbladeAthameWeapon4 = "CC35A20C-3CE8-4023-A4F5-F7B031AF60AF";
+    internal const string SpellbladeAthameWeapon5 = "034521CD-85E7-4C6E-B4A6-EBBD7039DB58";
+    internal const string SpellbladeAthameBuff1 = "49E66ED5-ECD6-4051-8A8D-8E57F048EC04";
+    internal const string SpellbladeAthameBuff2 = "6B71E5DE-4E18-4CDA-86EA-2426884DFED3";
+    internal const string SpellbladeAthameBuff3 = "C07F7236-DE17-4A30-A712-B67BAEFD774A";
+    internal const string SpellbladeAthameBuff4 = "40E508E7-6A13-460B-B8B4-6D28110835D9";
+    internal const string SpellbladeAthameBuff5 = "F1C9C74F-353F-4AB5-A367-CDE994E9837F";
+    internal const string SpellbladeParryBuff1 = "ACB9D4F3-F0A2-4F86-9FD5-18EA0FC9B4FD";
+    internal const string SpellbladeParryBuff2 = "EB062759-B7E8-4CD4-BF3B-8147042B49A6";
+    internal const string SpellbladeParryBuff3 = "E3BD740A-06CE-42B9-9751-E22CF8F605F5";
+    internal const string SpellbladeParryBuff4 = "07F61905-CCB5-4356-853E-39578429F109";
+    internal const string SpellbladeParryBuff5 = "D2981111-6B28-416C-9121-0068D616DA0E";
+    internal const string SpellbladePoolAthameFeature = "FC38ECC9-C06D-402D-91C6-22BEBA496AEB";
+    internal const string SpellbladePoolAthameCast = "31AE88B4-6F18-428E-9140-DC54FEA4682A";
+    internal const string SpellbladeParryFeature = "6AF5E910-4B5E-4066-BB8A-69CDCB8581C4";
+    internal const string SpellbladeParryComponent = "D9FDE7D8-F619-4AC9-8079-DF9E655068BF";
+    internal const string SpellbladeThrowAthameFeature = "E6F7C651-C494-40AA-9B32-3BA303255BE0";
+    internal const string SpellbladeThrowAthameAbility = "DD6276FA-6A1B-4BFD-AB72-10EBE01204A3";
+    internal const string SpellbladeThrowEmpowered = "D34E2701-2AA9-49D9-863D-354F5FEEFBFB";
+    internal const string SpellbladeThrowAction = "AB34F314-9CB6-4B00-9FA6-8C7391CDA6AC";
+
   }
 }

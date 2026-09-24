@@ -54,18 +54,21 @@ namespace MissionWOTR.Archetypes
   ///   (bare fists count), gains the flurry buff: one extra attack, -2 on attacks,
   ///   and Wisdom to AC (the vanilla MonkNoArmorAndMonkWeaponFeatureUnlock gate,
   ///   the TTT MonkACBonus recipe for the stat bonus).
-  /// - Fist dice: a FEW of the monk's upgrades only - 1st/8th/16th (1d6 -> 1d10 ->
-  ///   2d8); a 20th-level Spellfist never reaches a 20th-level monk's fists.
+  /// - Fist dice: a FEW of the monk's upgrades only - 1st/8th/20th (1d6 -> 1d8 ->
+  ///   2d6 cap); a 20th-level Spellfist's fists stay far below a 20th monk's.
+  /// - Swiftness (6th): +5 feet of movement speed.
   /// - Sundering Blows (3rd): each unarmed hit stacks "Sundered" on the target
   ///   (max ranks scale with level); each rank lets ALL incoming weapon damage
   ///   treat the target's damage reduction as 2 lower (DamageValue.ReductionPenalty,
   ///   the COP Divine Fighting Technique mechanism).
   /// - Casting Carapace (7th): while fists are charged (a spell cast this round),
   ///   gains DR equal to a quarter of class level - casting literally hardens them.
-  /// - The Mission WOTR feat line, granted across 20 levels (plus the vanilla
-  ///   feats some of them switch on): Resonant Strikes, Arcane Momentum, Tunnel
-  ///   Fighter, Vengeful Counterstrike, Guarded Momentum, Taunting Blows, Second
-  ///   Wind, Warded Soul, Battlefield Scavenger, Steadfast Aim.
+  /// - The Mission WOTR feat line (the melee-compatible core): Resonant
+  ///   Strikes, Arcane Momentum, Vengeful Counterstrike, Guarded Momentum,
+  ///   Taunting Blows (+ Power Attack, which its mechanic requires), Tunnel
+  ///   Fighter, Second Wind, Warded Soul. Gate-only prerequisite feats are NOT
+  ///   granted (archetype features bypass prereq checks); the ranged feats
+  ///   (Battlefield Scavenger, Steadfast Aim) are excluded.
   ///
   /// Kept vanilla features: Spell Combat and Spell Strike (the delivery vehicle
   /// the cascade hijacks), Arcane Pool and the full arcana selection (weapon
@@ -98,6 +101,7 @@ namespace MissionWOTR.Archetypes
     internal const string SunderedBuffName = "SpellfistSunderedBuff";
     internal const string CarapaceName = "SpellfistCarapace";
     internal const string CarapaceBuffName = "SpellfistCarapaceBuff";
+    internal const string SwiftnessName = "SpellfistSwiftness";
 
     /// <summary>Every touch spell found in the game, for delivery matching.</summary>
     internal static BlueprintAbility[] TouchSpells;
@@ -196,6 +200,15 @@ namespace MissionWOTR.Archetypes
         .SetIcon(FeatureRefs.FlurryOfBlows.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddMonkNoArmorAndMonkWeaponFeatureUnlock(newFact: flurryBuff)
+        .Configure();
+
+      // ----- Swiftness: +5 movement (6th) -----
+      var swiftness = FeatureConfigurator.New(SwiftnessName, Guids.SpellfistSwiftness)
+        .SetDisplayName("SpellfistSwiftness.Name")
+        .SetDescription("SpellfistSwiftness.Description")
+        .SetIcon(FeatureRefs.MonkFastMovement.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddStatBonus(stat: StatType.Speed, value: 5, descriptor: ModifierDescriptor.UntypedStackable)
         .Configure();
 
       var sunder = FeatureConfigurator.New(SunderName, Guids.SpellfistSunder)

@@ -341,16 +341,21 @@ clone).
 | Spell Cascade | 1 | Replaces Spell Strike's payload: the delivery's dice are captured and zeroed, then divided into one share per expected full-attack punch (2 + BAB iteratives at 6/11/16, cap 5); each successful unarmed hit pays one share as an energy rider. Casts with no follow-up attacks dissipate (zeroed, warn-once). Non-damaging touch effects apply normally. Charge window: 2 rounds (a standard-action cast can unload on the next turn's full attack) |
 | Bare Fist Discipline | 1 | Trades ALL proficiencies (weapons/armor/shields — manufactured weapons swing at non-proficient penalties). Grants Improved Unarmed Strike + MonkUnarmedStrikeLevel1 |
 | Ki Flurry | 1 | While unarmored/unshielded (vanilla MonkNoArmorAndMonkWeaponFeatureUnlock gate): extra unarmed attack, −2 attacks, Wisdom to AC (TTT MonkACBonus recipe) |
-| Fist dice | 1 / 8 / 16 | MonkUnarmedStrikeLevel1/8/16 — "a few of the +damage dice features": 1d6 → 1d10 → 2d8, never the 20th-level monk's 2d10 |
+| Fist dice | 1 / 8 / 20 | MonkUnarmedStrikeLevel1/4/12 — "a few of the +damage dice features": 1d6 → 1d8 → 2d6 cap at 20th (0.5.1 correction) |
+| Fleet Step | 6 | +5 ft movement speed |
 | Sundering Blows | 3 | Each unarmed hit stacks Sundered (rank cap 1 + level/4, max 5); each rank = all weapon damage vs the target treats its DR as 2 lower (DamageValue.ReductionPenalty — the COP Divine Fighting Technique mechanism) |
 | Casting Carapace | 7 | While charged (a spell cast this window): DR = class level / 4 (DivStep) |
 | Feat line | 2–15 | Resonant Strikes (2), Tunnel Fighter (8), Arcane Momentum (4), Vengeful Counterstrike (5), Guarded Momentum (6), Taunting Blows (7), Second Wind (9), Warded Soul (11), Battlefield Scavenger (13), Steadfast Aim (15) — plus Combat Reflexes (2), Combat Expertise (6), Power Attack (7), Endurance (9) so the switch-on feats work. Scavenger/Steadfast Aim are ranged oddities, granted per the "all of them" brief |
 
-Feat grant schedule as shipped: L2 Resonant Strikes + Combat Reflexes; L3
+Feat grant schedule as shipped (0.5.1 revision): L2 Resonant Strikes; L3
 Sundering Blows; L4 Arcane Momentum; L5 Vengeful Counterstrike; L6 Guarded
-Momentum + Combat Expertise; L7 Taunting Blows + Power Attack + Casting
-Carapace; L8 Tunnel Fighter + fist die; L9 Second Wind + Endurance; L11 Warded
-Soul; L13 Battlefield Scavenger; L15 Steadfast Aim; L16 fist die.
+Momentum + Fleet Step; L7 Taunting Blows + Power Attack (its mechanic requires
+the stance) + Casting Carapace; L8 Tunnel Fighter + fist die (1d8); L9 Second
+Wind; L11 Warded Soul; L20 fist die (2d6). Removed per user direction: the
+ranged feats (Battlefield Scavenger, Steadfast Aim) and all gate-only
+prerequisite grants (Combat Reflexes, Combat Expertise, Endurance, and with
+them Point-Blank Shot) — archetype-granted features bypass prerequisite
+checks anyway.
 
 **Kept vanilla:** Spell Combat + Spell Strike (the delivery vehicle the cascade
 hijacks), Arcane Pool and the full MagusArcanaSelection (weapon enchants apply
@@ -368,3 +373,35 @@ non-monk; the dissipate warn for standard-action casts.
 **Tuning candidates:** share count N (BAB formula, ignores haste/rapid-style
 extras); −2 flurry penalty; sunder 2/rank and rank caps; carapace DR curve;
 charge window 2 rounds; fist-die levels (1/8/16).
+
+## Magus (continued)
+
+### Faithful port — Spellblade (Paizo, Ultimate Magic) — IMPLEMENTED (v1)
+
+"A spellblade magus can manifest a ghostly blade of force that can be used as
+an off-hand weapon."
+
+| Feature | Real level | Details |
+|---|---|---|
+| Force Athame (Sp) | 2 | Swift action: sacrifice a prepared magus spell of 1st level+ to create a +N force dagger in the off hand (N = sacrificed spell's level, max +5); lasts 1 minute; force damage, dagger stats (1d4, 19–20/×2). **Replaces spellstrike** |
+| Pool-Sourced Athame (arcana) | any arcana | Spend 3 arcane pool points instead of a spell → +3 athame (adaptation of "enhancement equal to points spent"; tuning candidate) |
+| Spellblade Parry (arcana) | any arcana | First enemy melee attack while the athame is up shatters it: ends the athame, grants deflection AC = sacrificed spell's level (max +5) until end of next turn. (Tabletop immediate action made automatic — ending the athame is the cost) |
+| Throw Athame (arcana) | any arcana | Standard action ranged attack with the athame; hit → deals its damage and ends; miss → returns untouched. Throw Athame (Empowered) spends 2 pool for +2d6 force on hit (the tabletop's optional 2-point spend as a separate ability) |
+
+**Engine mappings:** the sacrifice is spontaneous spell conversion (pplus
+SpireDefender mechanism — converting a prepared magus slot into the "Force
+Athame" cast consumes the slot natively, and Context.SpellLevel carries the
+sacrificed level); the athame is five conjured item weapons (force damage via
+the item's damage-type override, TemporaryEnhancement1–5 enchants) granted as
+off-hand attacks through vanilla AddSecondaryAttacks — the off-hand slot stays
+empty so spell combat keeps working (the tabletop's "hand still free" clause;
+the either/or restriction is not enforced). The throw is a triggered
+RuleAttackWithWeapon with a runtime-spawned athame entity (DarkCodex
+ContextActionAttack pattern). The three arcana are registered in
+MagusArcanaSelection with a prerequisite on the archetype's Force Athame
+feature, so only spellblades see them. Playtest log prefix: [spellblade].
+
+**Playtest targets:** the conversion UI showing "Force Athame" in the magus
+spellbook (convert-a-prepared-spell flow); secondary off-hand force attacks
+appearing; slot consumption on conversion; throw hit/miss handling; parry
+trigger + deflection value; pool costs.

@@ -61,6 +61,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(MummerMage), MummerMage.Configure);
       Configure(nameof(Cook), Cook.Configure);
       Configure(nameof(Spellfist), Spellfist.Configure);
+      Configure(nameof(Spellblade), Spellblade.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -93,6 +94,8 @@ namespace MissionWOTR.Feats
           ("ElementalObsessor", Guids.ElementObsessorArchetype, arcanist),
           ("MummerMage", Guids.MummerArchetype, bard),
           ("Cook", Guids.CookArchetype, bard),
+          ("Spellfist", Guids.SpellfistArchetype, magus),
+          ("Spellblade", Guids.SpellbladeArchetype, magus),
         };
         foreach (var entry in entries)
         {

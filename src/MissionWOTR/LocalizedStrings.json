@@ -1634,5 +1634,95 @@
     "Key": "SpellfistCarapaceBuff.Description",
     "ProcessTemplates": false,
     "enGB": "Casting has hardened the Spellfist's skin: he has damage reduction while this lasts."
+  },
+  {
+    "Key": "SpellfistSwiftness.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fleet Step"
+  },
+  {
+    "Key": "SpellfistSwiftness.Description",
+    "ProcessTemplates": false,
+    "enGB": "Light of foot and light of hand: the Spellfist's base movement speed increases by 5 feet."
+  },
+  {
+    "Key": "Spellblade.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spellblade"
+  },
+  {
+    "Key": "Spellblade.Description",
+    "ProcessTemplates": false,
+    "enGB": "A spellblade magus can manifest a ghostly blade of force that can be used as an off-hand weapon.\nForce Athame (Sp): At 2nd level, a spellblade magus can sacrifice a prepared magus spell of 1st level or higher as a swift action to create a dagger of force in his off hand. The athame lasts for 1 minute or until dismissed, has an enhancement bonus on attack and damage rolls equal to the level of the spell sacrificed (maximum +5), acts as a dagger, and attacks with it are force attacks that deal force damage. The hand holding it is still considered free for spell combat and delivering touch attacks.\nThis ability replaces spellstrike."
+  },
+  {
+    "Key": "SpellbladeForceAthame.Name",
+    "ProcessTemplates": false,
+    "enGB": "Force Athame"
+  },
+  {
+    "Key": "SpellbladeForceAthame.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a swift action, sacrifice a prepared magus spell of 1st level or higher (cast it as Force Athame from your spellbook) to create a dagger of force in your off hand. The athame lasts 1 minute, has an enhancement bonus on attack and damage equal to the sacrificed spell's level (maximum +5), and deals force damage. The off hand remains free for spell combat."
+  },
+  {
+    "Key": "SpellbladeAthameBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Force Athame"
+  },
+  {
+    "Key": "SpellbladeAthameBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "A dagger of force hovers at the spellblade's side, striking as a force dagger with an enhancement bonus equal to the level of the spell sacrificed to create it. It shatters if thrown true or parried with."
+  },
+  {
+    "Key": "SpellbladeParryBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Athame Shatter-Ward"
+  },
+  {
+    "Key": "SpellbladeParryBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The shattered athame's force wraps around the spellblade as a deflection bonus to AC until the end of his next turn."
+  },
+  {
+    "Key": "SpellbladePoolAthame.Name",
+    "ProcessTemplates": false,
+    "enGB": "Pool-Sourced Athame"
+  },
+  {
+    "Key": "SpellbladePoolAthame.Description",
+    "ProcessTemplates": false,
+    "enGB": "Instead of sacrificing a prepared spell, the spellblade can spend 3 points from his arcane pool as a swift action to create the force athame with a +3 enhancement bonus."
+  },
+  {
+    "Key": "SpellbladeParry.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spellblade Parry"
+  },
+  {
+    "Key": "SpellbladeParry.Description",
+    "ProcessTemplates": false,
+    "enGB": "When an enemy makes a melee attack against the spellblade while his athame is active, the athame shatters into a ward: it ends immediately and grants him a deflection bonus to AC until the end of his next turn equal to the level of the spell sacrificed to create it (maximum +5)."
+  },
+  {
+    "Key": "SpellbladeThrowAthame.Name",
+    "ProcessTemplates": false,
+    "enGB": "Throw Athame"
+  },
+  {
+    "Key": "SpellbladeThrowAthame.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a standard action, the spellblade can throw his athame as a ranged attack. If it misses, it returns automatically just before his next turn. If it hits, it deals its damage and its duration ends."
+  },
+  {
+    "Key": "SpellbladeThrowAthameEmpowered.Name",
+    "ProcessTemplates": false,
+    "enGB": "Throw Athame (Empowered)"
+  },
+  {
+    "Key": "SpellbladeThrowAthameEmpowered.Description",
+    "ProcessTemplates": false,
+    "enGB": "As Throw Athame, but the spellblade spends 2 arcane pool points to add +2d6 force damage on a hit."
   }
 ]
