@@ -434,7 +434,7 @@ namespace MissionWOTR.Archetypes
       // Archer humanoid: bow in inventory; the stock brain attacks with the equipped weapon.
       HumanoidArcherUnit = ConstructCrafter.CloneUnit(
         "ConstructCrafterHumanoidArcher", Guids.ConstructCrafterHumanoidArcherUnit, kolyarut,
-        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
+        c => c is not AddClassLevels);
       UnitConfigurator.For("ConstructCrafterHumanoidArcher")
         .SetStrength(18)
         .SetDexterity(16)
@@ -449,7 +449,7 @@ namespace MissionWOTR.Archetypes
       // Caster humanoid / caster golem / ranged sentry: custom brains.
       HumanoidCasterUnit = ConstructCrafter.CloneUnit(
         "ConstructCrafterHumanoidCaster", Guids.ConstructCrafterHumanoidCasterUnit, kolyarut,
-        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
+        c => c is not AddClassLevels);
       UnitConfigurator.For("ConstructCrafterHumanoidCaster")
         .SetStrength(18)
         .SetDexterity(14)
@@ -466,7 +466,7 @@ namespace MissionWOTR.Archetypes
         "ConstructCrafterGolemCaster", Guids.ConstructCrafterGolemCasterUnit, stoneSummon,
         c => !c.name.Contains("Slow")
           && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical
-          && c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
+          && c is not AddClassLevels);
       UnitConfigurator.For("ConstructCrafterGolemCaster")
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
@@ -478,7 +478,7 @@ namespace MissionWOTR.Archetypes
 
       SentryRangedUnit = ConstructCrafter.CloneUnit(
         "ConstructCrafterSentryRanged", Guids.ConstructCrafterSentryRangedUnit, woodSummon,
-        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
+        c => c is not AddClassLevels);
       UnitConfigurator.For("ConstructCrafterSentryRanged")
         .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
         .SetStrength(woodSummon.Strength - 4)

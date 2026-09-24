@@ -246,7 +246,7 @@ namespace MissionWOTR.Archetypes
       // materials, so the look stays wooden and the name says so). Two construct
       // levels - deliberately the weakest summon. ---
       SentryUnit = CloneUnit(SentryUnitName, Guids.ConstructCrafterSentryUnit, woodSummon,
-        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
+        c => c is not AddClassLevels);
       UnitConfigurator.For(SentryUnitName)
         .SetMaxHP(Math.Max(8, woodSummon.MaxHP / 3))
         .SetStrength(woodSummon.Strength - 4)
@@ -262,7 +262,7 @@ namespace MissionWOTR.Archetypes
       // (alchemist level - 2). ---
       var kolyarut = UnitRefs.CR12_InevitableKolyarutStandard.Reference.Get();
       HumanoidUnit = CloneUnit(HumanoidUnitName, Guids.ConstructCrafterHumanoidUnit, kolyarut,
-        c => c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
+        c => c is not AddClassLevels);
       UnitConfigurator.For(HumanoidUnitName)
         .SetStrength(18)
         .SetDexterity(14)
@@ -283,7 +283,7 @@ namespace MissionWOTR.Archetypes
       GolemUnit = CloneUnit(GolemUnitName, Guids.ConstructCrafterGolemUnit, stoneSummon,
         c => !c.name.Contains("Slow")
           && c is not Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical
-          && c is not Kingmaker.UnitLogic.FactLogic.AddClassLevels);
+          && c is not AddClassLevels);
       UnitConfigurator.For(GolemUnitName)
         .SetStrength(32 - 2)
         .SetMaxHP(107 - 20)
@@ -328,20 +328,14 @@ namespace MissionWOTR.Archetypes
     {
       var classRef = cls.Reference.Get().ToReference<BlueprintCharacterClassReference>();
       UnitConfigurator.For(unitName)
-        .AddComponent<Kingmaker.UnitLogic.FactLogic.AddClassLevels>(c =>
+        .AddComponent<AddClassLevels>(c =>
         {
           c.Levels = levels;
           c.RaceStat = StatType.Constitution;
           c.LevelsStat = StatType.Unknown;
           c.Skills = new StatType[0];
           c.DoNotApplyAutomatically = false;
-          // m_CharacterClass is not public in current game builds - same reflection
-          // treatment as BlueprintUnit.m_Brain and ContextActionSpawnMonster.m_Blueprint.
-          typeof(Kingmaker.UnitLogic.FactLogic.AddClassLevels).GetField(
-            "m_CharacterClass",
-            System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
-            System.Reflection.BindingFlags.Instance)
-            ?.SetValue(c, classRef);
+          c.m_CharacterClass = classRef;
         })
         .Configure();
       Logger.Info($"[units] {unitName}: class levels set to {levels}.");
@@ -948,8 +942,19 @@ namespace MissionWOTR.Archetypes
 
         // Owned facts at deploy time - settles "what did it cast" questions from
         // the next playtest log without guesswork.
-        var ownedFacts = construct.Abilities.Select(a => a.Blueprint?.name).Where(n => n != null)
-          .Take(12).ToList();
+        var ownedFacts = new List<string>();
+        foreach (var a in construct.Abilities)
+        {
+          var factName = a?.Blueprint?.name;
+          if (factName != null)
+          {
+            ownedFacts.Add(factName);
+            if (ownedFacts.Count >= 12)
+            {
+              break;
+            }
+          }
+        }
         MissionFeats.Logger.Info(
           $"[deploy] {construct.Blueprint.name} owned abilities: " +
           $"{(ownedFacts.Count > 0 ? string.Join(", ", ownedFacts) : "none")}.");
