@@ -509,6 +509,13 @@ namespace MissionWOTR
     internal const string SanguineBlastComponent = "0B7F9CD2-BE3B-412B-AF72-780FA57E2658";
     internal const string SanguineApotheosis = "BB4ECBF9-6617-456D-BBF9-6B818DB92ADC";
     internal const string SanguineDeathSaveComponent = "19C0D261-1B41-48C8-943B-55BDF37C4648";
+    internal const string UntouchableRagerArchetype = "7153C8DA-0800-4A0D-8E49-AECF0F1C15E0";
+    internal const string UntouchableRagingResistance = "FC71FDC7-E35E-4B29-895B-52793B30F76F";
+    internal const string UntouchableSrBuff = "8A29773F-F7DD-4203-A01A-76FBBF6DFEA7";
+    internal const string UntouchableControl = "B9C26823-77B1-4D3C-9BA5-AC0E5395CAC3";
+    internal const string UntouchableControlActivatable = "61CF9DAB-333B-4AE7-A6C2-A4D2EE3B8160";
+    internal const string UntouchableControlBuff = "62FFA0B6-078C-4B18-909E-2EA2FAFB06BC";
+    internal const string UntouchableMaintenanceComponent = "155F0A52-36E8-44BF-A780-89EFB7683256";
 
   }
 }

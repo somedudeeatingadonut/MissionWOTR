@@ -1954,5 +1954,35 @@
     "Key": "SanguineApotheosis.Description",
     "ProcessTemplates": false,
     "enGB": "The Font becomes a living wellspring. While bloodraging her aura grows to 40 feet and heals 2d8 + Constitution + Charisma + 1/8 of her current hit points + bloodrager level at the start of each turn. Her Bloodletting Pulse becomes a free action usable any number of times per round (each use still costs a round of bloodrage). And once per bloodrage, when an ally in the aura would die, she may expend ALL her remaining bloodrage rounds: that ally instead remains at 1 hit point and is healed for 10d8 + bloodrager level."
+  },
+  {
+    "Key": "UntouchableRager.Name",
+    "ProcessTemplates": false,
+    "enGB": "Untouchable Rager"
+  },
+  {
+    "Key": "UntouchableRager.Description",
+    "ProcessTemplates": false,
+    "enGB": "Where another bloodrager's lineage spills out as fire and fang, hers curls inward and becomes a wall. Magic slides off her blood like rain off oiled steel - including, to her private annoyance, the friendly kind. She trades away every drop of bloodrager spellcasting - spells, blood casting, eschew materials, even her bloodline's bonus spells - and gains in its place Raging Resistance: while bloodraging, spell resistance equal to 8 plus her bloodrager level, growing by 1 each time her bloodline would have granted a new spell (7th, 10th, 13th, and 16th level - SR 32 at the peak of fury). The ward cannot be lowered while the rage holds. At 14th level, Resistance Control keeps the spell resistance standing even in calm moments - and while calm, she can finally switch it off (the party's clerics may resume healing her at range)."
+  },
+  {
+    "Key": "UntouchableRagingResistance.Name",
+    "ProcessTemplates": false,
+    "enGB": "Raging Resistance"
+  },
+  {
+    "Key": "UntouchableRagingResistance.Description",
+    "ProcessTemplates": false,
+    "enGB": "While bloodraging, the untouchable rager gains spell resistance equal to 8 plus her bloodrager level, plus 1 at 7th, 10th, 13th, and 16th level. The resistance cannot be voluntarily lowered while the rage lasts."
+  },
+  {
+    "Key": "UntouchableResistanceControl.Name",
+    "ProcessTemplates": false,
+    "enGB": "Resistance Control"
+  },
+  {
+    "Key": "UntouchableResistanceControl.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 14th level, the untouchable rager keeps her spell resistance even while not bloodraging - and while calm, she can toggle it off to let allies' magic through. Toggling it off never works mid-rage: the blood refuses."
   }
 ]

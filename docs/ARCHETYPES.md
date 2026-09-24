@@ -52,6 +52,17 @@ Fixes found in the first full in-game pass:
     sheets.
 
 
+## 0.5.4 — Untouchable Rager
+
+First post-playtest content drop: the faithful-port half of the bloodrager pair
+(the Advanced Class Guide Untouchable Rager — no spells, SR 8+level while
+bloodraging, permanent + toggleable at 14th). Chosen after checking the loaded
+mod list: vanilla WOTR already ships Spelleater, Steelblood, Bloodrider,
+Greenrager, Primalist and Crossblooded, and PrestigePlus adds Drunken Brute —
+Untouchable Rager was the strongest Paizo pick nobody else covers. This also
+completes "two archetypes per class" for the bloodrager (homebrew: Sanguine
+Font).
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -456,6 +467,36 @@ appearing; slot consumption on conversion; throw hit/miss handling; parry
 trigger + deflection value; pool costs.
 
 ## Bloodrager
+
+### Faithful port — Untouchable Rager (Advanced Class Guide) — IMPLEMENTED (0.5.4)
+
+The bloodrager pair completes: Sanguine Font pours her magic out as healing;
+the Untouchable Rager's bloodline refuses magic entirely - hers included.
+
+| Feature | Real level | Details |
+|---|---|---|
+| Raging Resistance | 4 | No bloodrager spells at all. While bloodraging: SR = 8 + bloodrager level, +1 at 7th/10th/13th/16th (SR 32 at 20th). Cannot be lowered while the rage lasts |
+| Resistance Control | 14 | The SR persists while calm - and while calm it can be switched off (default-on activatable toggle) |
+
+**Trades:** spells, blood casting, eschew materials, and bloodline spells —
+implemented as a component scan that removes every progression feature whose
+`AddSpellbook` grants the bloodrager spellbook (`ArchetypeRemovals.RemoveSpellcasting`;
+bloodline bonus-spell features live in the bloodline progressions and have no
+spellbook left to touch once the casting kit is gone).
+
+**Wrath adaptations:**
+
+1. WOTR has no "lower your SR" action, so Resistance Control is a default-ON
+   activatable: switching it off drops the calm-state ward (mid-rage the blood
+   refuses - the maintenance component forces the resistance back on, exactly
+   as the tabletop forbids lowering it).
+2. The SR lives on two buffs (rage-granted + toggle's); the maintenance
+   component guarantees exactly ONE is active at any moment, so the two sources
+   can never stack. Maintenance runs on round ticks and on every
+   `RuleSpellResistanceCheck` aimed at the rager, so the ward snaps on the
+   moment it matters.
+3. SR value: vanilla `AddSpellResistance` component (the "Spell Resistance"
+   spell mechanism) with a custom rank progression baked to the tabletop table.
 
 ### Homebrew — Sanguine Font (user-commissioned; working title "Crimson Heart") — IMPLEMENTED (v1)
 

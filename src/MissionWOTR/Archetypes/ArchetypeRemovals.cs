@@ -62,6 +62,59 @@ namespace MissionWOTR.Archetypes
       return archetype;
     }
 
+    /// <summary>
+    /// Removes a class's spellcasting: finds every progression feature whose
+    /// AddSpellbook component grants the given spellbook and registers removals
+    /// at the levels the progression actually grants them. Component-based on
+    /// purpose - the feature's asset name is not needed (and names proved
+    /// unreliable across builds).
+    /// </summary>
+    internal static ArchetypeConfigurator RemoveSpellcasting(
+      ArchetypeConfigurator archetype,
+      BlueprintCharacterClass clazz,
+      Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook spellbook)
+    {
+      int removed = 0;
+      var progression = clazz.Progression;
+      if (progression?.LevelEntries is null)
+      {
+        MissionWOTR.Main.Logger.Warn(
+          $"[removals] {clazz.name} has no progression - spellcasting NOT removed!");
+        return archetype;
+      }
+      foreach (var entry in progression.LevelEntries)
+      {
+        if (entry is null)
+        {
+          continue;
+        }
+        foreach (var feature in EntryFeatures(entry))
+        {
+          if (feature?.GetComponent<Kingmaker.UnitLogic.FactLogic.AddSpellbook>() is not
+            { } add)
+          {
+            continue;
+          }
+          if (add.m_Spellbook?.Get() != spellbook)
+          {
+            continue;
+          }
+          archetype = archetype.AddToRemoveFeatures(entry.Level, feature);
+          removed++;
+          MissionWOTR.Main.Logger.Info(
+            $"[removals] {clazz.name}: spellcasting feature {feature.name} " +
+            $"({spellbook.name}) removed at level {entry.Level}.");
+        }
+      }
+      if (removed == 0)
+      {
+        MissionWOTR.Main.Logger.Warn(
+          $"[removals] no feature granting {spellbook.name} found in {clazz.name} " +
+          "progression - spellcasting NOT removed!");
+      }
+      return archetype;
+    }
+
     private static (int Level, BlueprintFeatureBase Feature)? FindFeature(
       BlueprintProgression progression,
       string featureName)

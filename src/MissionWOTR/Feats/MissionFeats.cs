@@ -63,6 +63,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Spellfist), Spellfist.Configure);
       Configure(nameof(Spellblade), Spellblade.Configure);
       Configure(nameof(SanguineFont), SanguineFont.Configure);
+      Configure(nameof(UntouchableRager), UntouchableRager.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -99,6 +100,7 @@ namespace MissionWOTR.Feats
           ("Spellfist", Guids.SpellfistArchetype, magus),
           ("Spellblade", Guids.SpellbladeArchetype, magus),
           ("SanguineFont", Guids.SanguineFontArchetype, bloodrager),
+          ("UntouchableRager", Guids.UntouchableRagerArchetype, bloodrager),
         };
         foreach (var entry in entries)
         {
