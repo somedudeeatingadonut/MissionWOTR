@@ -78,11 +78,20 @@ namespace MissionWOTR.Feats
       {
         var alchemist = CharacterClassRefs.AlchemistClass.Reference.Get();
         var magus = CharacterClassRefs.MagusClass.Reference.Get();
+        var barbarian = CharacterClassRefs.BarbarianClass.Reference.Get();
+        var arcanist = CharacterClassRefs.ArcanistClass.Reference.Get();
+        var bard = CharacterClassRefs.BardClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
           ("ConstructCrafter", Guids.ConstructCrafterArchetype, alchemist),
           ("MissionVanguard", Guids.MissionVanguardArchetype, magus),
+          ("Breaker", Guids.BreakerArchetype, barbarian),
+          ("Bloodstorm", Guids.BloodstormArchetype, barbarian),
+          ("CovertMage", Guids.CovertMageArchetype, arcanist),
+          ("ElementalObsessor", Guids.ElementObsessorArchetype, arcanist),
+          ("MummerMage", Guids.MummerArchetype, bard),
+          ("Cook", Guids.CookArchetype, bard),
         };
         foreach (var entry in entries)
         {
@@ -135,7 +144,10 @@ namespace MissionWOTR.Feats
         }
         Logger.Info(
           $"[diag] alchemist archetypes={alchemist.Archetypes.Length} " +
-          $"(available={alchemist.AvailableArchetypes.Length}), magus archetypes={magus.Archetypes.Length}.");
+          $"(available={alchemist.AvailableArchetypes.Length}), magus archetypes={magus.Archetypes.Length}, " +
+          $"barbarian archetypes={barbarian.Archetypes.Length} (available={barbarian.AvailableArchetypes.Length}), " +
+          $"arcanist archetypes={arcanist.Archetypes.Length} (available={arcanist.AvailableArchetypes.Length}), " +
+          $"bard archetypes={bard.Archetypes.Length} (available={bard.AvailableArchetypes.Length}).");
       }
       catch (Exception e)
       {
