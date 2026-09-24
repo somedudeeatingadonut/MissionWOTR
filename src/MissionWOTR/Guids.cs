@@ -516,6 +516,46 @@ namespace MissionWOTR
     internal const string UntouchableControlActivatable = "61CF9DAB-333B-4AE7-A6C2-A4D2EE3B8160";
     internal const string UntouchableControlBuff = "62FFA0B6-078C-4B18-909E-2EA2FAFB06BC";
     internal const string UntouchableMaintenanceComponent = "155F0A52-36E8-44BF-A780-89EFB7683256";
+    internal const string SisterArchetype = "6BAEBBFB-372E-4D9E-B35A-AB4BA789DE78";
+    internal const string SisterHalfhearted = "DA84143A-9BFA-42F4-B7E5-6D35CF491143";
+    internal const string SisterHalfheartedComponent = "72D927ED-118A-42C5-A199-FAA14B71C571";
+    internal const string SisterMaidensOrder = "A976585A-85E1-4B3E-AA5E-DFAC9CF4C553";
+    internal const string SisterDragonSkills = "4DD466FA-8BB6-4EFF-B033-5EAFE7074691";
+    internal const string SisterDragonChallenge = "585743D1-0F0C-4F82-B2F7-6E0684BA1286";
+    internal const string SisterDragonAuraComponent = "2966B54F-6B32-4B32-8693-7736FAD3AD18";
+    internal const string SisterDragonAllyBuff = "EC9E6F51-32DF-40C3-9D14-202268068138";
+    internal const string SisterAidAllies = "7A8F9A8C-A48D-4117-9A6E-FC310D79F97C";
+    internal const string SisterAidBuff = "097EB623-08DA-4948-BE13-965CA665DCD5";
+    internal const string SisterDragonProgression = "4F067DD9-6BCB-4842-A566-9842FF94E3B3";
+    internal const string SisterStrategyAbility = "CEC55827-6CA9-470E-8FB3-85E7D78154E9";
+    internal const string SisterStrategyComponent = "12CAB9BF-8C6A-4125-9423-9F66F51953E0";
+    internal const string SisterStrategyBuff = "4BCF73F3-4DDF-469E-AB02-AD3BCE5AA023";
+    internal const string SisterActAsOneAbility = "C3D960B2-EC9C-44E3-B9DB-2D3F791463AA";
+    internal const string SisterActAsOneComponent = "26D1987F-784B-45FE-ACF0-F5C76FECFDE3";
+    internal const string SisterActAsOneBuff = "FF7284BF-9D31-4F8E-80B2-9A51B5D09886";
+    internal const string SisterDevotedDefender = "5F600606-C0DC-433A-85D5-FDAF841115A4";
+    internal const string SisterLoyalty = "74D2C94D-02B1-4D3D-8940-42FC42441512";
+    internal const string SisterLoyaltyComponent = "5679B90C-8B5D-4676-A8F4-AA5502E3BF9C";
+    internal const string SisterCommander = "47921AF8-AA51-4DAF-94AC-A19B1EF9A940";
+    internal const string SisterLionsCallMove = "1A3793C7-B64C-46E8-B454-06155A6B6C86";
+    internal const string SisterLionsCallSwift = "F331A5A4-9055-4BAD-8EA5-35C8049C4CC3";
+    internal const string SisterCommanderSwift = "0739354B-1724-463B-A8E6-783B6B1BE2A0";
+    internal const string CarouselArchetype = "0AAB2444-0644-45C1-8116-1FA090AF3963";
+    internal const string CarouselTraining = "AA101DED-841A-47C4-B192-D7E8F8F69F58";
+    internal const string CarouselChargeAbility = "4B3CB141-0E19-4520-A48B-1E54E5B18321";
+    internal const string CarouselChargeLogic = "DD8F1C0B-340C-4EBC-9622-6E2442DCF7AA";
+    internal const string CarouselChargeConditions = "29EB6647-0152-4E6E-9444-34DB3497F672";
+    internal const string CarouselWindRiderBuff = "006C0052-8281-4256-9A73-BB022E8C108E";
+    internal const string CarouselWheel = "6DC395BC-5D1A-4736-B702-2BED763130A6";
+    internal const string CarouselWheelAbility = "644151A2-DCFC-4E39-A414-F29B44CA69E5";
+    internal const string CarouselWheelReadyBuff = "7CF44408-B18D-4D53-8B9C-3B1D4DAECFD0";
+    internal const string CarouselWheelSpentBuff = "9AE3D210-9FDF-449F-A4B8-D09AC0E11885";
+    internal const string CarouselSurefoot = "68A320E1-224A-47E5-B15F-8F810653CD47";
+    internal const string CarouselSurefootMount = "51E9D8B9-563A-434E-A386-A25210779DB0";
+    internal const string CarouselSlipLine = "2F0A06E5-A5A0-4C1A-97CE-8491C1B393B3";
+    internal const string CarouselGrand = "BB164186-D4DF-4F08-A56D-1374B7502F55";
+    internal const string CarouselGrandBuff = "1D6061B4-7961-4D2E-9637-BDFF369F179F";
+    internal const string CarouselEternal = "C8A71A33-6B1A-4C23-8E0B-DFC47B257F4C";
 
   }
 }

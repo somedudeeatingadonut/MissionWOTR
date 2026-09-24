@@ -64,6 +64,8 @@ namespace MissionWOTR.Feats
       Configure(nameof(Spellblade), Spellblade.Configure);
       Configure(nameof(SanguineFont), SanguineFont.Configure);
       Configure(nameof(UntouchableRager), UntouchableRager.Configure);
+      Configure(nameof(SisterInArms), SisterInArms.Configure);
+      Configure(nameof(Carousel), Carousel.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -86,6 +88,7 @@ namespace MissionWOTR.Feats
         var arcanist = CharacterClassRefs.ArcanistClass.Reference.Get();
         var bard = CharacterClassRefs.BardClass.Reference.Get();
         var bloodrager = CharacterClassRefs.BloodragerClass.Reference.Get();
+        var cavalier = CharacterClassRefs.CavalierClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -101,6 +104,8 @@ namespace MissionWOTR.Feats
           ("Spellblade", Guids.SpellbladeArchetype, magus),
           ("SanguineFont", Guids.SanguineFontArchetype, bloodrager),
           ("UntouchableRager", Guids.UntouchableRagerArchetype, bloodrager),
+          ("SisterInArms", Guids.SisterArchetype, cavalier),
+          ("Carousel", Guids.CarouselArchetype, cavalier),
         };
         foreach (var entry in entries)
         {

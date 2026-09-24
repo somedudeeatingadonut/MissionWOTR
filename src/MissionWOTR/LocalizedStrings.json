@@ -1984,5 +1984,335 @@
     "Key": "UntouchableResistanceControl.Description",
     "ProcessTemplates": false,
     "enGB": "At 14th level, the untouchable rager keeps her spell resistance even while not bloodraging - and while calm, she can toggle it off to let allies' magic through. Toggling it off never works mid-rage: the blood refuses."
+  },
+  {
+    "Key": "SisterInArms.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sister-in-Arms"
+  },
+  {
+    "Key": "SisterInArms.Description",
+    "ProcessTemplates": false,
+    "enGB": "Not every Gray Maiden hides her scars behind iron. The sister-in-arms wears hers in the open and turns the Maidens' discipline outward: where other cavaliers glory in the single duel, she fights for the shield line. Her challenge is halfhearted - her attention belongs to her sisters, not her foe - but she carries the devotion of two orders at once, dragon and lion, guards her wards with her own body, and cannot be turned against the women she bled for. She trades her mount, her cavalier's charge, mighty charge and supreme charge for the role she was always meant to play: the one who keeps everyone else alive."
+  },
+  {
+    "Key": "SisterHalfhearted.Name",
+    "ProcessTemplates": false,
+    "enGB": "Halfhearted Challenge"
+  },
+  {
+    "Key": "SisterHalfhearted.Description",
+    "ProcessTemplates": false,
+    "enGB": "Her challenge adds only half her cavalier level (minimum 1) to damage against the challenged foe. A sister's focus is never that narrow."
+  },
+  {
+    "Key": "SisterMaidensOrder.Name",
+    "ProcessTemplates": false,
+    "enGB": "Maiden's Order"
+  },
+  {
+    "Key": "SisterMaidensOrder.Description",
+    "ProcessTemplates": false,
+    "enGB": "She does not choose an order - she belongs to both the order of the dragon and the order of the lion, and gains every benefit of each at the appropriate levels: the lion's regal command and the dragon's wholehearted devotion to the group. She trades her mount for this. Infantry, like the sisters she fights beside."
+  },
+  {
+    "Key": "SisterDragonOrder.Name",
+    "ProcessTemplates": false,
+    "enGB": "Order of the Dragon"
+  },
+  {
+    "Key": "SisterDragonOrder.Description",
+    "ProcessTemplates": false,
+    "enGB": "The sister's bloodline of loyalty: allies strike her challenge target harder, her presence shields them, and at the heights of the craft she commands the whole line at once."
+  },
+  {
+    "Key": "SisterDragonSkills.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dragon's Skills"
+  },
+  {
+    "Key": "SisterDragonSkills.Description",
+    "ProcessTemplates": false,
+    "enGB": "Perception and Lore (Nature) become class skills. The dragon's Survival is a hunter's skill; in the Worldwound it falls to Lore (Nature)."
+  },
+  {
+    "Key": "SisterDragonChallenge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dragon's Challenge"
+  },
+  {
+    "Key": "SisterDragonChallenge.Description",
+    "ProcessTemplates": false,
+    "enGB": "While her challenge is active, every ally within 30 feet gains a circumstance bonus on attack rolls against her challenge target, growing with her cavalier level."
+  },
+  {
+    "Key": "SisterDragonChallengeBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dragon's Challenge"
+  },
+  {
+    "Key": "SisterDragonChallengeBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Bonus on attack rolls against the sister's challenge target."
+  },
+  {
+    "Key": "SisterAidAllies.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aid Allies"
+  },
+  {
+    "Key": "SisterAidAllies.Description",
+    "ProcessTemplates": false,
+    "enGB": "While her challenge is active, allies within 30 feet gain a +2 circumstance bonus to AC and on saving throws, rising to +3 at 8th level and +4 at 14th. (Adapted: Wrath has no aid another action - a sister's aid is simply always there.)"
+  },
+  {
+    "Key": "SisterAidAlliesBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aid Allies"
+  },
+  {
+    "Key": "SisterAidAlliesBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Circumstance bonus to AC and saves while the sister's challenge holds."
+  },
+  {
+    "Key": "SisterStrategy.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dragon's Strategy"
+  },
+  {
+    "Key": "SisterStrategy.Description",
+    "ProcessTemplates": false,
+    "enGB": "Standard action: every ally within 30 feet (herself included) gains +2 dodge AC and +2 morale on attack rolls for 1 round. The plan is simple; the execution is everything."
+  },
+  {
+    "Key": "SisterStrategyBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dragon's Strategy"
+  },
+  {
+    "Key": "SisterStrategyBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "+2 dodge AC and +2 morale on attack rolls."
+  },
+  {
+    "Key": "SisterActAsOne.Name",
+    "ProcessTemplates": false,
+    "enGB": "Act as One"
+  },
+  {
+    "Key": "SisterActAsOne.Description",
+    "ProcessTemplates": false,
+    "enGB": "Standard action against one enemy: every ally within 30 feet gains +2 dodge AC for 1 round, and each ally beside the mark strikes it immediately. (Adapted: the tabletop moves every ally; Wrath settles for the blows.)"
+  },
+  {
+    "Key": "SisterActAsOneBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Act as One"
+  },
+  {
+    "Key": "SisterActAsOneBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "+2 dodge AC."
+  },
+  {
+    "Key": "SisterDevotedDefender.Name",
+    "ProcessTemplates": false,
+    "enGB": "Devoted Defender"
+  },
+  {
+    "Key": "SisterDevotedDefender.Description",
+    "ProcessTemplates": false,
+    "enGB": "She gains the Divine Guardian's bodyguard training: when a ward beside her is attacked, she interposes. (Wrath has no Bodyguard feat; the guardian's version stands in.)"
+  },
+  {
+    "Key": "SisterLoyalty.Name",
+    "ProcessTemplates": false,
+    "enGB": "Maiden's Loyalty"
+  },
+  {
+    "Key": "SisterLoyalty.Description",
+    "ProcessTemplates": false,
+    "enGB": "+2 on Will saves against compulsion and mind-affecting effects that would compel her to attack or betray her allies, +1 more every 4 levels beyond 4th. They tried to make her a weapon against her sisters. They failed."
+  },
+  {
+    "Key": "SisterCommander.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dedicated Commander"
+  },
+  {
+    "Key": "SisterCommander.Description",
+    "ProcessTemplates": false,
+    "enGB": "Lion's call becomes a move action, and she learns Dragon's Strategy and Act as One. She replaces mighty charge - a commander's voice carries further than one good hit."
+  },
+  {
+    "Key": "SisterCommanderSwift.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dedicated Commander (Swift)"
+  },
+  {
+    "Key": "SisterCommanderSwift.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 20th level, lion's call becomes a swift action."
+  },
+  {
+    "Key": "SisterLionsCallMove.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lion's Call (Move Action)"
+  },
+  {
+    "Key": "SisterLionsCallMove.Description",
+    "ProcessTemplates": false,
+    "enGB": "The lion's roar, delivered without breaking stride."
+  },
+  {
+    "Key": "SisterLionsCallSwift.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lion's Call (Swift Action)"
+  },
+  {
+    "Key": "SisterLionsCallSwift.Description",
+    "ProcessTemplates": false,
+    "enGB": "The lion's roar, a word in battle."
+  },
+  {
+    "Key": "Carousel.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Carousel"
+  },
+  {
+    "Key": "Carousel.Description",
+    "ProcessTemplates": false,
+    "enGB": "Some cavalry break on the enemy like a wave. The Carousel never breaks - she wheels. Her whole fighting style is the charge: strike one foe, spin, strike the next, hooves and steel and momentum without end. She provokes no attacks of opportunity while charging, her horse reads the ground like a dancer - mud, grease and worse do not exist for a mount this sure - her own line never blocks her gallop, and with practice one charge becomes two, then two become a storm that stops only when the enemy does. She trades the banner, mighty charge and supreme charge for the ring: the fight never leaves her orbit."
+  },
+  {
+    "Key": "CarouselTraining.Name",
+    "ProcessTemplates": false,
+    "enGB": "Carousel Training"
+  },
+  {
+    "Key": "CarouselTraining.Description",
+    "ProcessTemplates": false,
+    "enGB": "Gains Carousel Charge: a standard-action charge at double speed whose rider provokes no attacks of opportunity."
+  },
+  {
+    "Key": "CarouselCharge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Carousel Charge"
+  },
+  {
+    "Key": "CarouselCharge.Description",
+    "ProcessTemplates": false,
+    "enGB": "Charge the target: move at double speed and make a single charge attack. While charging, you provoke no attacks of opportunity."
+  },
+  {
+    "Key": "CarouselWindRider.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wind-Rider"
+  },
+  {
+    "Key": "CarouselWindRider.Description",
+    "ProcessTemplates": false,
+    "enGB": "While charging, you do not provoke attacks of opportunity. A rider at full gallop is a hard target."
+  },
+  {
+    "Key": "CarouselWheel.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wheel About"
+  },
+  {
+    "Key": "CarouselWheel.Description",
+    "ProcessTemplates": false,
+    "enGB": "After you charge this round, you may immediately charge a different enemy as a free action. Once per round. Replaces cavalier's charge - the line is upgraded, not lost."
+  },
+  {
+    "Key": "CarouselWheelAbility.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wheel About"
+  },
+  {
+    "Key": "CarouselWheelAbility.Description",
+    "ProcessTemplates": false,
+    "enGB": "A free-action charge against a new enemy. Requires a charge this round; once per round."
+  },
+  {
+    "Key": "CarouselWheelReady.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wheel About Ready"
+  },
+  {
+    "Key": "CarouselWheelReady.Description",
+    "ProcessTemplates": false,
+    "enGB": "A charge this round has primed the wheel."
+  },
+  {
+    "Key": "CarouselWheelSpent.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wheel Spent"
+  },
+  {
+    "Key": "CarouselWheelSpent.Description",
+    "ProcessTemplates": false,
+    "enGB": "The wheel has already turned this round."
+  },
+  {
+    "Key": "CarouselSurefoot.Name",
+    "ProcessTemplates": false,
+    "enGB": "Surefooted Steed"
+  },
+  {
+    "Key": "CarouselSurefoot.Description",
+    "ProcessTemplates": false,
+    "enGB": "Her mount ignores difficult terrain - magical mud, grease and entangling ground do not slow the gallop - and gains +2 on all saving throws. Her charges ignore difficult terrain as well."
+  },
+  {
+    "Key": "CarouselSurefootMount.Name",
+    "ProcessTemplates": false,
+    "enGB": "Surefooted"
+  },
+  {
+    "Key": "CarouselSurefootMount.Description",
+    "ProcessTemplates": false,
+    "enGB": "Ignores difficult terrain; +2 on all saving throws."
+  },
+  {
+    "Key": "CarouselSlipLine.Name",
+    "ProcessTemplates": false,
+    "enGB": "Slip the Line"
+  },
+  {
+    "Key": "CarouselSlipLine.Description",
+    "ProcessTemplates": false,
+    "enGB": "Allies never block her charge line - she threads the gaps in her own formation at full gallop. Replaces banner; a standard is a thing for soldiers who stand still."
+  },
+  {
+    "Key": "CarouselGrand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Grand Carousel"
+  },
+  {
+    "Key": "CarouselGrand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The wheel no longer needs priming: once per round, any round, she may wheel. Her charges gain +2 on attack rolls. Replaces mighty charge."
+  },
+  {
+    "Key": "CarouselGrandBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Grand Carousel"
+  },
+  {
+    "Key": "CarouselGrandBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "+2 morale on attack rolls while charging."
+  },
+  {
+    "Key": "CarouselEternal.Name",
+    "ProcessTemplates": false,
+    "enGB": "Eternal Carousel"
+  },
+  {
+    "Key": "CarouselEternal.Description",
+    "ProcessTemplates": false,
+    "enGB": "The wheel knows no limit - every round is one long charge. Replaces supreme charge."
   }
 ]

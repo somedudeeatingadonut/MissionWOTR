@@ -63,6 +63,24 @@ Untouchable Rager was the strongest Paizo pick nobody else covers. This also
 completes "two archetypes per class" for the bloodrager (homebrew: Sanguine
 Font).
 
+## 0.6.0 — the cavalier pair
+
+First new class since the playtest patch: the game's (DLC-era) cavalier now has
+its two archetypes. Verified against the loaded mod list - vanilla WOTR ships
+Gendarme, Order of the Paw and friends; nothing in the loadout covers these:
+
+1. **Sister-in-Arms** (faithful port, Adventurer's Guide - the Gray Maiden
+   commander): half-strength challenge, BOTH orders (the Lion from vanilla +
+   the Dragon ported whole - WOTR never had it), Bodyguard, scaling loyalty
+   saves, and lion's call at move/swift action. Full adaptation notes in the
+   section below.
+2. **The Carousel** (homebrew, user-commissioned): the charge archetype. A
+   custom charge engine adapted from pplus's StagCharge (real navmesh movement
+   at double speed, the vanilla charge buff, a true charge attack), AoO-free
+   charging, a free-action "Wheel About" chain charge, a surefooted mount that
+   ignores magical mud, allies that never block the line, and an unlimited
+   wheel at the capstone.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -108,7 +126,25 @@ tabletop) **and** granted at level 1 in test mode.
    **swift action** at the cost of **25% max HP, reduced to 15% on a successful DC 15
    Fortitude save** (never below 1 HP). Standard mythic ability pick.
 
-### Alchemist homebrew archetype — Construct Crafter (user design) — IMPLEMENTED (v1)
+### 0.6.0 — the cavalier pair
+
+First new class since the playtest patch: the game's (DLC-era) cavalier now has
+its two archetypes. Verified against the loaded mod list - vanilla WOTR ships
+Gendarme, Order of the Paw and friends; nothing in the loadout covers these:
+
+1. **Sister-in-Arms** (faithful port, Adventurer's Guide - the Gray Maiden
+   commander): half-strength challenge, BOTH orders (the Lion from vanilla +
+   the Dragon ported whole - WOTR never had it), Bodyguard, scaling loyalty
+   saves, and lion's call at move/swift action. Full adaptation notes in the
+   section below.
+2. **The Carousel** (homebrew, user-commissioned): the charge archetype. A
+   custom charge engine adapted from pplus's StagCharge (real navmesh movement
+   at double speed, the vanilla charge buff, a true charge attack), AoO-free
+   charging, a free-action "Wheel About" chain charge, a surefooted mount that
+   ignores magical mud, allies that never block the line, and an unlimited
+   wheel at the capstone.
+
+## Alchemist homebrew archetype — Construct Crafter (user design) — IMPLEMENTED (v1)
 
 Construct summons, NOT animal companions: uncontrollable (AI-driven), up to three active
 (one per base), less customizable than a companion. Deploy a base as a standard action;
@@ -257,6 +293,49 @@ faction on all three blueprints.
 
 **Open design questions:** deploy resource cost, future core list, future program list,
 whether constructs persist through area transitions (they are scene-local today).
+
+## Cavalier
+
+### Faithful port — Sister-in-Arms (Adventurer's Guide) — IMPLEMENTED (0.6.0)
+
+| Feature | Real level | Details |
+|---|---|---|
+| Halfhearted Challenge | 1 | Challenge damage bonus is half level (negative untyped modifier while the target carries the vanilla challenge buff). Alters challenge |
+| Maiden's Order | 1 | Both orders: the vanilla Lion progression + a ported Dragon progression, granted as facts. Replaces mount (CavalierMountSelection) and the order choice (CavalierOrderSelection) |
+| Devoted Defender | 3 | Grants the vanilla Divine Guardian's Bodyguard feature (Wrath has no Bodyguard feat). Replaces cavalier's charge |
+| Maiden's Loyalty | 4 | +2 Will vs compulsion/mind-affecting, +1 per 4 levels beyond 4th. Replaces expert trainer (name passed speculatively - warn-and-skip if absent) |
+| Dedicated Commander | 11/20 | Lion's call as move action (swift at 20th) + Dragon's Strategy + Act as One. Replaces mighty charge and supreme charge |
+
+**Ported Order of the Dragon** (WOTR never had it; built with the pplus
+Inquisition custom-order recipe): class skills (Perception, Lore (Nature) as
+Survival's stand-in); challenge benefit = ally attack aura vs the challenge
+target (AddAttackBonusAgainstFactOwner on the vanilla challenge-target buff);
+Aid Allies adapted to a challenge-gated +2/+3/+4 AC-and-saves aura (no aid
+another action in Wrath); Strategy (8th) as a standard-action party buff; Act
+as One (15th) as a dodge aura + immediate attacks for adjacent allies
+(ForceAttackOfOpportunity - Wrath cannot move other units on command).
+
+### Homebrew — The Carousel (user-commissioned) — IMPLEMENTED (0.6.0)
+
+The charge archetype: strike one enemy, wheel, strike the next.
+
+| Feature | Real level | Details |
+|---|---|---|
+| Carousel Training | 1 | Carousel Charge: standard-action charge (StagCharge engine - real movement, double speed, vanilla ChargeBuff, true charge attack) + Wind-Rider: no AoOs while charging (AddBuffExtraEffects on ChargeBuff) |
+| Wheel About | 3 | Free-action second charge against a new enemy; primed by any charge that round (priming marker rides ChargeBuff), once per round. Replaces cavalier's charge |
+| Surefooted Steed | 4 | Mount ignores difficult terrain (AddConditionImmunity via AddFeatureToPet) + +2 all saves; charges ignore difficult terrain too |
+| Slip the Line | 5 | Allies never block her charge line (target-restriction bypass). Replaces banner |
+| Grand Carousel | 11 | Wheel needs no priming (once/round, any round); +2 attack while charging. Replaces mighty charge |
+| Eternal Carousel | 20 | The wheel is unlimited. Replaces supreme charge |
+
+Engine notes: the charge is an AbilityCustomLogic coroutine adapted from
+pplus's StagCharge (ForcedPath movement, charge state, UnitAttack with
+IsCharge, turn-based and real-time branches, mounted command sync via
+GetSaddledUnit/GetRider); ability wiring follows pplus's AerialAssault recipe
+(CopyFrom the vanilla ChargeAbility, excluding its own behavior components).
+The wheel is the same logic as a free action whose gates (priming/spent
+markers) read the archetype's features at runtime. Kept: mount, challenge,
+order, tactician.
 
 ## Level plan per class (test-mode rule)
 
