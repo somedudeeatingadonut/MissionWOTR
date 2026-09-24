@@ -392,7 +392,7 @@ namespace MissionWOTR.Archetypes
     private class Share
     {
       public int Rolls;
-      public DieType Die;
+      public DiceType Die;
       public int Flat;
       public DamageEnergyType? Energy;
     }
