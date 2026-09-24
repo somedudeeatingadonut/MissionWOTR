@@ -281,5 +281,26 @@ namespace MissionWOTR
     internal const string AiCastBlinkStrike = "F4436C5A-989A-47AE-87C3-B278B869478E";
     internal const string BlinkStrikeAction = "59BDF120-4DA0-433C-917B-FC410092CDCC";
     internal const string FlankCasterLevelPenalty = "90535812-2EFF-4EDB-A687-260C2303D047";
+
+
+    // ----- Barbarian: Breaker (faithful port) -----
+    internal const string BreakerArchetype = "DC5D71FA-78AF-4D46-B70A-E436E06A7844";
+    internal const string BreakerDestructiveFeature = "5B852E32-6470-46AC-B472-D93A300E82D8";
+    internal const string BreakerScavengerFeature = "5FD52671-B5BC-4319-A00D-761986F141D6";
+    internal const string BreakerDestructiveDamage = "220C14E5-7ED0-43EF-8788-FB77F8F42FAC";
+    internal const string BreakerScavengerDamage = "4BC233A2-3FF2-4815-8154-5291A8E019BE";
+
+    // ----- Barbarian: Bloodstorm (homebrew) -----
+    internal const string BloodstormArchetype = "D7C10F23-CFE9-43D0-8F30-E4836ACD8023";
+    internal const string BloodstormFeature = "8E9CE0A6-D120-4BBF-9D19-7F724E47F14C";
+    internal const string BloodstormBleedBuff = "B7C55F5C-E901-4F1C-84F0-AD31C84D3970";
+    internal const string BloodstormBleedTick = "2D006EB0-374A-489E-BC04-B6133AA89630";
+    internal const string BloodstormOnHit = "BA5AD08C-91DD-4C18-A983-2BCDDA373B21";
+    internal const string BloodstormFeed = "D3FF35D8-9E76-46D0-86B1-C381B842D236";
+    internal const string BloodstormCritSpray = "260F3603-3B6A-42A2-A5D3-6CD81B896DFD";
+    internal const string BloodspoutFeature = "2CC7095E-02CE-45D9-A77D-98A04DAB7FB2";
+    internal const string BloodstormFloodgateFeature = "FE811E7B-A607-4BA6-B71F-2F3B68978E7A";
+    internal const string BloodstormFloodgateAbility = "BDF617C2-C4EF-4F25-AB95-348A7F973C3B";
+    internal const string BloodstormFloodgateAction = "45EEEE13-CEC1-4F0E-B873-EEDA15ADB2DA";
   }
 }

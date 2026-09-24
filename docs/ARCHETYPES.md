@@ -207,3 +207,31 @@ whether constructs persist through area transitions (they are scene-local today)
 All archetype features land at level 1 while `LevelPlan.AllAtLevelOne == true`. The table
 above doubles as the source of truth for real levels; the same pattern (documented table +
 `LevelPlan.L(n)` call sites) applies to every future archetype.
+
+## Barbarian
+
+### Faithful port — Breaker (APG) — IMPLEMENTED (v1)
+
+| Feature | Real level | Details |
+|---|---|---|
+| Destructive | 3 | +½ barbarian level (min +1) bonus damage on weapon attacks vs constructs. Replaces fast movement |
+| Battle Scavenger | 3 | +1 damage with scavenged arms (club, greatclub, quarterstaff, spear, dagger, sickle, maces, flails) per 3 levels beyond 3rd |
+
+Wrath adaptations (engine gaps, documented in-game):
+- No sunder maneuver, no unattended-object combat targets, no improvised/broken weapon
+  states exist. Destructive keys on constructs (detected via the ConstructType feature).
+- Trap sense does not exist on the Wrath barbarian, so Battle Scavenger's half of the
+  tabletop trade is void - the feature is additive.
+
+### Homebrew — Bloodstorm (user-approved pitch) — IMPLEMENTED (v1)
+
+| Feature | Real level | Details |
+|---|---|---|
+| Bloodstorm (Crimson Edge + Feed the Storm) | 2 | While raging: weapon hits apply a stacking Bleeding Wound (1d4/round per rank, max 5 ranks); fast healing 1/2/3 while 1/3+/5+ enemies within 30 ft are bleeding (any bleed source counts). Replaces uncanny dodge |
+| Bloodspout | 5 | While raging: crits vs bleeding targets spray - enemies within 10 ft of the target gain a Bleeding Wound rank and are shaken 1 round. Replaces improved uncanny dodge |
+| Open the Floodgate | 7 | Standard action while raging: consumes all Bleeding Wound stacks on enemies within 30 ft, heals 1d6 per rank consumed. Replaces the damage reduction chain (7/10/13/16/19) |
+
+Implementation notes: bleed ticks and riders use direct damage rules (the ConstructSonicBoom /
+PeriodicSelfDamage patterns); rank stacking is manual (first application creates the buff,
+then AddRank, cap 5); class-feature components rely on feature contexts (same mechanism as
+ContextRankConfig on class features).

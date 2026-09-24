@@ -1024,5 +1024,85 @@
   {
     "Key": "CrafterMarker.Description",
     "enGB": "Your constructs are bound to you and follow their maker."
+  },
+  {
+    "Key": "Breaker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Breaker"
+  },
+  {
+    "Key": "Breaker.Description",
+    "ProcessTemplates": false,
+    "enGB": "A barbarian devoted to destruction itself - walls, armor, constructs, whatever stands. Destructive adds half your barbarian level as bonus damage on weapon attacks against constructs. Battle Scavenger lets you fight just as well with junk pulled off a battlefield - clubs, staves, spears and the like - gaining bonus damage with them as you level.\\n(Wrath adaptation: the tabletop version keys on sunder maneuvers, unattended objects, and improvised or broken weapons, none of which exist in Wrath.)"
+  },
+  {
+    "Key": "BreakerDestructive.Name",
+    "ProcessTemplates": false,
+    "enGB": "Destructive"
+  },
+  {
+    "Key": "BreakerDestructive.Description",
+    "ProcessTemplates": false,
+    "enGB": "Whenever you hit a construct with a weapon attack, you deal bonus damage equal to half your barbarian level (minimum +1). This replaces fast movement."
+  },
+  {
+    "Key": "BreakerScavenger.Name",
+    "ProcessTemplates": false,
+    "enGB": "Battle Scavenger"
+  },
+  {
+    "Key": "BreakerScavenger.Description",
+    "ProcessTemplates": false,
+    "enGB": "You know how to make junk kill. You gain +1 bonus damage with scavenged arms (clubs, greatclubs, quarterstaves, spears, daggers, sickles, maces, flails) for every three barbarian levels beyond 3rd. (The tabletop version works with improvised and broken weapons, which do not exist in Wrath.)"
+  },
+  {
+    "Key": "Bloodstorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodstorm"
+  },
+  {
+    "Key": "Bloodstorm.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your rage turns wounds into weather. While raging, your weapon attacks open Bleeding Wounds that stack up to five times; you gain fast healing while enemies within 30 feet are bleeding (the more of them, the stronger); critical hits against bleeding targets spray blood and fear onto nearby foes; and Open the Floodgate consumes every bleed stack nearby for a surge of self-healing.\\nYou trade away uncanny dodge, improved uncanny dodge, and your damage reduction - all offense, no safety net."
+  },
+  {
+    "Key": "BloodstormFeature.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodstorm"
+  },
+  {
+    "Key": "BloodstormFeature.Description",
+    "ProcessTemplates": false,
+    "enGB": "While raging: your weapon attacks apply a Bleeding Wound (1d4 bleed per round, stacking up to five times per target); and you gain fast healing 1 while at least one enemy within 30 feet is bleeding (2 at three or more, 3 at five or more). Any source of bleed counts. This replaces uncanny dodge."
+  },
+  {
+    "Key": "BloodstormBleed.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bleeding Wound"
+  },
+  {
+    "Key": "BloodstormBleed.Description",
+    "ProcessTemplates": false,
+    "enGB": "A wound opened by a Bloodstorm's rage. Deals 1d4 damage per round for each stack, until the Bloodstorm opens the floodgate or the victim dies."
+  },
+  {
+    "Key": "Bloodspout.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodspout"
+  },
+  {
+    "Key": "Bloodspout.Description",
+    "ProcessTemplates": false,
+    "enGB": "While raging, when you score a critical hit against a bleeding target, blood sprays: every enemy within 10 feet of the target gains a Bleeding Wound and is shaken for 1 round. This replaces improved uncanny dodge."
+  },
+  {
+    "Key": "BloodstormFloodgate.Name",
+    "ProcessTemplates": false,
+    "enGB": "Open the Floodgate"
+  },
+  {
+    "Key": "BloodstormFloodgate.Description",
+    "ProcessTemplates": false,
+    "enGB": "While raging, you can open your wounds and drink the storm: every Bleeding Wound on enemies within 30 feet is consumed, and you heal 1d6 damage per stack consumed. This replaces your damage reduction."
   }
 ]
