@@ -467,7 +467,7 @@ namespace MissionWOTR.Archetypes
   /// +2 dodge AC and +2 morale on attack rolls for 1 round.
   /// </summary>
   [TypeId(Guids.SisterStrategyComponent)]
-  internal class SisterStrategyAction : Kingmaker.ElementsSystem.ContextAction
+  internal class SisterStrategyAction : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
   {
     public BlueprintBuff Buff;
 
@@ -505,7 +505,7 @@ namespace MissionWOTR.Archetypes
   /// other units on command).
   /// </summary>
   [TypeId(Guids.SisterActAsOneComponent)]
-  internal class SisterActAsOneAction : Kingmaker.ElementsSystem.ContextAction
+  internal class SisterActAsOneAction : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
   {
     public BlueprintBuff Buff;
 
