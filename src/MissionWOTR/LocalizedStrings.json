@@ -1724,5 +1724,235 @@
     "Key": "SpellbladeThrowAthameEmpowered.Description",
     "ProcessTemplates": false,
     "enGB": "As Throw Athame, but the spellblade spends 2 arcane pool points to add +2d6 force damage on a hit."
+  },
+  {
+    "Key": "SanguineFont.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sanguine Font"
+  },
+  {
+    "Key": "SanguineFont.Description",
+    "ProcessTemplates": false,
+    "enGB": "A bloodrager whose rage does not tear wounds open - it pours them shut. The Sanguine Font bleeds so her allies do not: while bloodraging she radiates healing, can release pulses of restorative energy at the cost of her rage, and shapes raw kinetic force into blade and blast in place of her mightiest spells.\nVital Blood: while bloodraging, a 10-foot aura heals wounded allies at the start of each of her turns.\nBloodletting Pulse: swift action, expend 1 bloodrage round to heal all allies within 20 feet.\nShared Vitality: the pulse can instead grant fast healing - at the cost of her own bleeding.\nGreater Bloodletting Pulse: 30 feet, stronger healing.\nKinetic Blade and Kinetic Blast: kineticist powers (as a kineticist two levels lower), replacing her 4th-level spells.\nSanguine Apotheosis: the aura grows to 40 feet, the pulse becomes free, and once per bloodrage she can spend all her remaining rage to save a dying ally.\nShe trades away her proficiencies (simple weapons and light armor only), damage reduction, and uncanny dodge."
+  },
+  {
+    "Key": "SanguineVitalBlood.Name",
+    "ProcessTemplates": false,
+    "enGB": "Vital Blood"
+  },
+  {
+    "Key": "SanguineVitalBlood.Description",
+    "ProcessTemplates": false,
+    "enGB": "While bloodraging, the Sanguine Font radiates a 10-foot aura of living vitality. At the start of each of her turns, every ally in the aura below maximum hit points regains 1d4 + 1/3 bloodrager level hit points. At 20th level (Sanguine Apotheosis) the aura grows to 40 feet and heals 2d8 + Constitution + Charisma + 1/8 of her current hit points + bloodrager level."
+  },
+  {
+    "Key": "SanguinePulse.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodletting Pulse"
+  },
+  {
+    "Key": "SanguinePulse.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a swift action while bloodraging, the Sanguine Font can expend 1 additional round of bloodrage to release a wave of restorative energy. All allies within 20 feet (including herself) regain 1d8 + 1/3 bloodrager level hit points. From 8th level, the pulse reaches 30 feet and heals 2d8 + bloodrager level + Constitution modifier, and allies healed from below 0 hit points are treated as stabilized. Once per round."
+  },
+  {
+    "Key": "SanguinePulseShared.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodletting Pulse (Shared)"
+  },
+  {
+    "Key": "SanguinePulseShared.Description",
+    "ProcessTemplates": false,
+    "enGB": "As Bloodletting Pulse, but the Font opens her own veins to sustain the wave: each ally (other than herself) also gains fast healing (2 at 5th, 3 at 11th, 5 at 16th level) for 3 rounds, while the Font suffers an unremovable bleed of the same amount for 3 rounds."
+  },
+  {
+    "Key": "SanguinePulseFree.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodletting Pulse (Apotheosis)"
+  },
+  {
+    "Key": "SanguinePulseFree.Description",
+    "ProcessTemplates": false,
+    "enGB": "The perfected pulse: a free action, usable any number of times per round (each use still expends a round of bloodrage). Healing and range as per Greater Bloodletting Pulse."
+  },
+  {
+    "Key": "SanguinePulseUsedBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Pulse Released"
+  },
+  {
+    "Key": "SanguinePulseUsedBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font has already released a pulse this round."
+  },
+  {
+    "Key": "SanguineSharedVitality.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shared Vitality"
+  },
+  {
+    "Key": "SanguineSharedVitality.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font learns to share her vitality at the cost of her own blood. Her Bloodletting Pulse (Shared) grants allies fast healing (2 at 5th, 3 at 11th, 5 at 16th level) for 3 rounds, while she bleeds for the same amount for 3 rounds - a bleed that cannot be removed."
+  },
+  {
+    "Key": "SanguineGreaterPulse.Name",
+    "ProcessTemplates": false,
+    "enGB": "Greater Bloodletting Pulse"
+  },
+  {
+    "Key": "SanguineGreaterPulse.Description",
+    "ProcessTemplates": false,
+    "enGB": "The pulse reaches 30 feet, and its healing becomes 2d8 + bloodrager level + Constitution modifier. Creatures healed from below 0 hit points by the pulse are treated as though they had stabilized."
+  },
+  {
+    "Key": "SanguineFastHealing.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shared Vitality"
+  },
+  {
+    "Key": "SanguineFastHealing.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font's blood knits the ally's wounds: fast healing each round while this lasts."
+  },
+  {
+    "Key": "SanguineBleed.Name",
+    "ProcessTemplates": false,
+    "enGB": "Font's Sacrifice"
+  },
+  {
+    "Key": "SanguineBleed.Description",
+    "ProcessTemplates": false,
+    "enGB": "The price of shared vitality: the Font bleeds each round while this lasts. This bleed cannot be removed."
+  },
+  {
+    "Key": "SanguineProficiencies.Name",
+    "ProcessTemplates": false,
+    "enGB": "Font's Simplicity"
+  },
+  {
+    "Key": "SanguineProficiencies.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Sanguine Font trains with simple weapons and light armor only."
+  },
+  {
+    "Key": "SanguineElement.Name",
+    "ProcessTemplates": false,
+    "enGB": "Elemental Vein"
+  },
+  {
+    "Key": "SanguineElement.Description",
+    "ProcessTemplates": false,
+    "enGB": "Choose the element that runs in the Font's blood: it powers her Kinetic Blade and Kinetic Blast."
+  },
+  {
+    "Key": "SanguineElementFire.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fire Vein"
+  },
+  {
+    "Key": "SanguineElementFire.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font's blood burns. Her kinetic powers deal fire damage."
+  },
+  {
+    "Key": "SanguineElementCold.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cold Vein"
+  },
+  {
+    "Key": "SanguineElementCold.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font's blood runs ice-cold. Her kinetic powers deal cold damage."
+  },
+  {
+    "Key": "SanguineElementElectricity.Name",
+    "ProcessTemplates": false,
+    "enGB": "Storm Vein"
+  },
+  {
+    "Key": "SanguineElementElectricity.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font's blood crackles. Her kinetic powers deal electricity damage."
+  },
+  {
+    "Key": "SanguineElementAcid.Name",
+    "ProcessTemplates": false,
+    "enGB": "Caustic Vein"
+  },
+  {
+    "Key": "SanguineElementAcid.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font's blood corrodes. Her kinetic powers deal acid damage."
+  },
+  {
+    "Key": "SanguineElementForce.Name",
+    "ProcessTemplates": false,
+    "enGB": "Force Vein"
+  },
+  {
+    "Key": "SanguineElementForce.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font's blood resonates with raw force. Her kinetic powers deal force damage."
+  },
+  {
+    "Key": "SanguineKineticBladeFire.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Blade (Fire)"
+  },
+  {
+    "Key": "SanguineKineticBladeCold.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Blade (Cold)"
+  },
+  {
+    "Key": "SanguineKineticBladeElectricity.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Blade (Electricity)"
+  },
+  {
+    "Key": "SanguineKineticBladeAcid.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Blade (Acid)"
+  },
+  {
+    "Key": "SanguineKineticBladeForce.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Blade (Force)"
+  },
+  {
+    "Key": "SanguineKineticBlade.Description",
+    "ProcessTemplates": false,
+    "enGB": "Toggle: a blade of elemental force fights at the Font's side, functioning as the kinetic knight's blade. Its damage (1d6 + Con, growing by 1d6 per two effective kineticist levels) is of her chosen element. Effective kineticist level = bloodrager level - 2."
+  },
+  {
+    "Key": "SanguineKineticBladeBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Blade"
+  },
+  {
+    "Key": "SanguineKineticBladeBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "A blade of elemental force strikes alongside the Font, dealing her element's damage plus Constitution."
+  },
+  {
+    "Key": "SanguineKineticBlast.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Blast"
+  },
+  {
+    "Key": "SanguineKineticBlast.Description",
+    "ProcessTemplates": false,
+    "enGB": "A ranged touch attack of elemental force (Dexterity to hit, Constitution to damage), dealing 1d6 per odd effective kineticist level (bloodrager level - 2) of the Font's chosen element. It has none of a kineticist's infusions or extra effects - that is the price of the power."
+  },
+  {
+    "Key": "SanguineApotheosis.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sanguine Apotheosis"
+  },
+  {
+    "Key": "SanguineApotheosis.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Font becomes a living wellspring. While bloodraging her aura grows to 40 feet and heals 2d8 + Constitution + Charisma + 1/8 of her current hit points + bloodrager level at the start of each turn. Her Bloodletting Pulse becomes a free action usable any number of times per round (each use still costs a round of bloodrage). And once per bloodrage, when an ally in the aura would die, she may expend ALL her remaining bloodrage rounds: that ally instead remains at 1 hit point and is healed for 10d8 + bloodrager level."
   }
 ]

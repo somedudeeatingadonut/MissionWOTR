@@ -96,6 +96,7 @@ namespace MissionWOTR.Feats
           ("Cook", Guids.CookArchetype, bard),
           ("Spellfist", Guids.SpellfistArchetype, magus),
           ("Spellblade", Guids.SpellbladeArchetype, magus),
+          ("SanguineFont", Guids.SanguineFontArchetype, bloodrager),
         };
         foreach (var entry in entries)
         {

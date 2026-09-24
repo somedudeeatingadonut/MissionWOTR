@@ -405,3 +405,53 @@ feature, so only spellblades see them. Playtest log prefix: [spellblade].
 spellbook (convert-a-prepared-spell flow); secondary off-hand force attacks
 appearing; slot consumption on conversion; throw hit/miss handling; parry
 trigger + deflection value; pool costs.
+
+## Bloodrager
+
+### Homebrew — Sanguine Font (user-commissioned; working title "Crimson Heart") — IMPLEMENTED (v1)
+
+An AoE-healing bloodrager whose rage economy powers her support: every ability
+spends bloodrage rounds, and the mythic ability that would make rage endless
+(LimitlessRage) is prerequisite-blocked for Sanguine Fonts — the resource
+tension IS the class.
+
+| Feature | Real level | Details |
+|---|---|---|
+| Vital Blood | 1 | While bloodraging, 10-ft aura; start of each of her turns, allies below max HP in the aura regain 1d4 + 1/3 level |
+| Bloodletting Pulse | 2 | Swift, while bloodraging, expend 1 bloodrage round → all allies within 20 ft (incl. self) regain 1d8 + 1/3 level; once per round (hidden marker buff) |
+| Shared Vitality | 5 | The Shared pulse: allies also gain fast healing 2 for 3 rounds (3 at 11th, 5 at 16th) while the Font takes an equal UNREMOVABLE bleed for 3 rounds |
+| Kinetic Blade | 6 | Obligatory element pick (Fire/Cold/Electricity/Acid/Force); a toggle granting an off-hand blade on the vanilla KineticBlastEnergyBlade weapon type: 1d6 + Con element damage, +1d6 per two (level−2) kineticist levels beyond 1st |
+| Greater Bloodletting Pulse | 8 | Pulse → 30 ft, 2d8 + level + Con; allies healed from below 0 HP are treated as stabilized (the heal itself restores them) |
+| Kinetic Blast | 11 | Standard-action ranged touch (vanilla KineticBlastEnergy weapon type; Dex to hit, Con to damage): 1d6 per odd (level−2) kineticist level, chosen element, no infusions — the downside |
+| Sanguine Apotheosis | 20 | Aura 40 ft healing 2d8 + Con + Cha + 1/8 CURRENT HP + level; the pulse becomes a FREE action, unlimited uses per round (each still costs a round); once per bloodrage, an ally in the aura about to die is instead left at 1 HP + 10d8 + level heal, costing ALL remaining bloodrage rounds |
+
+**Trades:** all proficiencies (simple weapons + light armor only — vanilla
+SimpleWeaponProficiency/LightArmorProficiency granted), Damage Reduction,
+Uncanny Dodge + Improved Uncanny Dodge, and the spellbook's top tier (the
+archetype's ReplaceSpellbook is a clone of the bloodrager book whose list caps
+at 3rd-level spells — the blast replaces "some of the spells you could learn").
+
+**Engine mappings:** per-round effects (aura, fast healing, bleed) use
+ITickEachRound (the pplus RagingDrunkStuff pattern — proven on bloodrager
+features); all healing via Rulebook.Trigger(new RuleHealDamage(...)); ally
+enumeration via Game.Instance.State.Units + IsAlly + DistanceTo (pplus
+Nocticula pattern; self included); dice via UnityEngine.Random.Range (the
+game's own roller); the pulse's once-per-round guard is a hidden 1-round
+marker buff, lifted by the apotheosis free-action variant; the death save
+watches RuleDealDamage on allies (DidTrigger, HP ≤ 0, not yet dead) and spends
+the whole rage pool — dying allies in WOTR are rescued post-hit, which is the
+playable reading of "would die". Kinetic powers use the kineticist's own
+vanilla weapon types (KineticBlastEnergyBlade / KineticBlastEnergy) with
+runtime-scaled riders. Log prefix: [sanguine].
+
+**Playtest targets:** aura ticks on each round while raging (and only then);
+pulse resource spend + once-per-round block; shared pulse FH on allies and
+unremovable bleed on self (values 2/3/5 by level); blade toggle granting the
+off-hand elemental attack and the rider dice; blast touch attack + Con damage;
+spellbook clone capping at 3rd-level spells; apotheosis free pulse, 40-ft aura
+formula, and the death save (spends ALL rounds, once per rage); LimitlessRage
+hidden from Sanguine Fonts in mythic level-up.
+
+**Tuning candidates:** all heal amounts and dice; aura/pulse radii; FH/bleed
+tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
+(−2); blast range (Close); death-save heal (10d8 + level).

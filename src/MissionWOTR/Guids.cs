@@ -457,5 +457,58 @@ namespace MissionWOTR
     internal const string SpellbladeThrowEmpowered = "D34E2701-2AA9-49D9-863D-354F5FEEFBFB";
     internal const string SpellbladeThrowAction = "AB34F314-9CB6-4B00-9FA6-8C7391CDA6AC";
 
+
+    // ----- Sanguine Font (bloodrager healing archetype, 0.5.2) -----
+    internal const string SanguineFontArchetype = "CB3D80EB-4C1D-44DC-A228-B27D5360A4F8";
+    internal const string SanguineFontSpellbook = "22037643-9B6E-4512-8E27-E5B370AD3DE9";
+    internal const string SanguineFontSpellList = "839A743F-3880-488B-A3D6-00D923DFA228";
+    internal const string SanguineProficiencies = "6FEC96DE-1735-4751-9746-E484CC9BB5A1";
+    internal const string SanguineVitalBlood = "805C56C3-D956-4D84-96CB-6A638E1F6C37";
+    internal const string SanguineAuraComponent = "3BCA4455-ABEB-4E09-AFB5-17489AC12283";
+    internal const string SanguinePulseFeature = "00DAD242-7491-44B2-B0BC-20AA8BFA09B0";
+    internal const string SanguinePulseAbility = "DEAA4428-3FF0-4E15-90C2-615D35559EFF";
+    internal const string SanguinePulseSharedAbility = "AFCFB51F-98A8-4D1D-BC69-3DDE20A17C76";
+    internal const string SanguinePulseFreeAbility = "6D296DC3-4223-4261-91A1-7765E12797D4";
+    internal const string SanguinePulseComponent = "5691368D-8BF6-4426-B1C2-626D87F167FE";
+    internal const string SanguinePulseUsedBuff = "E1232F3E-9B40-4563-989F-5D36140EC309";
+    internal const string SanguineSharedVitality = "84A6E46E-CE4C-4F4F-97F7-9CB17D268C12";
+    internal const string SanguineGreaterPulse = "28E01F62-69D6-4627-988A-90EA3D5E3049";
+    internal const string SanguineFastHealingBuff2 = "025786F8-B545-44EE-AD58-53C471DA47B9";
+    internal const string SanguineFastHealingBuff3 = "B909F923-5E2A-49E7-B2DA-A6C349A5AED2";
+    internal const string SanguineFastHealingBuff5 = "C7036AA6-8F12-4D69-9327-73CA56D462A0";
+    internal const string SanguineFastHealComponent = "F7585A1D-CCE1-4A1C-83CD-D3367A61C4A1";
+    internal const string SanguineBleedBuff2 = "DA68E567-106D-4197-824E-9F1ACBEC81D1";
+    internal const string SanguineBleedBuff3 = "C49EDC06-E072-48C9-9F28-3168584833AB";
+    internal const string SanguineBleedBuff5 = "C0FAE5C6-1CED-45C9-BECE-BE5E24676ECE";
+    internal const string SanguineBleedComponent = "169B02F1-24FB-4CFC-A762-34F6FF911573";
+    internal const string SanguineElementSelection = "2729110C-3346-4D56-AC53-0DD520917512";
+    internal const string SanguineElementFire = "6884AFDC-1C1E-49C3-9B15-12150BA7268A";
+    internal const string SanguineElementCold = "33AB71A9-7BF6-4201-90F4-98F09F6E6A1D";
+    internal const string SanguineElementElectricity = "CE345F83-853B-4144-B2D4-DD824EC6A084";
+    internal const string SanguineElementAcid = "C4A4A398-6D64-4F46-A172-1CF46788DD23";
+    internal const string SanguineElementForce = "EE7E2AB5-F048-4601-B2F0-5C8CC129AC7B";
+    internal const string SanguineBladeToggleFire = "99759930-1A08-478A-9118-887EA17D371F";
+    internal const string SanguineBladeToggleCold = "1C95FB85-D640-4629-95D1-FCAC48927AD7";
+    internal const string SanguineBladeToggleElectricity = "C665C02B-F59F-42B2-9AC9-364861E63348";
+    internal const string SanguineBladeToggleAcid = "904513A0-85BF-41F5-8231-75EAFFEA40D8";
+    internal const string SanguineBladeToggleForce = "5AA539A5-31E6-4B10-BE77-6ABE15A49F68";
+    internal const string SanguineBladeBuffFire = "81D61FE7-DEC7-44D6-BC80-E597570C814E";
+    internal const string SanguineBladeBuffCold = "AFC78A71-20F9-4166-BF3F-F35508F45830";
+    internal const string SanguineBladeBuffElectricity = "C6F8D481-7BAD-4410-AE21-F42B6249CE9F";
+    internal const string SanguineBladeBuffAcid = "53BBFF3F-442F-41A1-8D14-AE1FD1082BDB";
+    internal const string SanguineBladeBuffForce = "C5667741-E5E1-4591-A2CB-85C97C07B491";
+    internal const string SanguineBladeWeaponFire = "4F6C8717-86C8-42A4-9A04-F1AC8F706D0C";
+    internal const string SanguineBladeWeaponCold = "D4065241-978D-4BC0-88C1-A51B236692D9";
+    internal const string SanguineBladeWeaponElectricity = "57EC189C-C6E9-4EDC-85DC-F6784B25132E";
+    internal const string SanguineBladeWeaponAcid = "DEA31157-0D53-4236-935B-E8780FF7CE51";
+    internal const string SanguineBladeWeaponForce = "56E9AA20-546B-41FE-A796-AB65CCDDA7DF";
+    internal const string SanguineBladeComponent = "97A6CB32-B34D-4CC0-9E1E-27496C8D1DB0";
+    internal const string SanguineKineticBlastFeature = "32648E8A-CF86-4EA0-AA79-D63E9D0281D5";
+    internal const string SanguineKineticBlastAbility = "6840F061-D84A-463F-B3F8-B68801B9704D";
+    internal const string SanguineKineticBlastWeapon = "3D12ECB7-658F-49E8-96AF-383B548D2921";
+    internal const string SanguineBlastComponent = "0B7F9CD2-BE3B-412B-AF72-780FA57E2658";
+    internal const string SanguineApotheosis = "BB4ECBF9-6617-456D-BBF9-6B818DB92ADC";
+    internal const string SanguineDeathSaveComponent = "19C0D261-1B41-48C8-943B-55BDF37C4648";
+
   }
 }
