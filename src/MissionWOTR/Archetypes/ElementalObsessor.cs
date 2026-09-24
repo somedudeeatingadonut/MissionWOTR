@@ -64,7 +64,8 @@ namespace MissionWOTR.Archetypes
   /// Element perks (deliberate equalizers): fire/cold +1d4 on Cathartic Release;
   /// acid Corrosive Adaptation (late-game spell access); electricity's Unstoppable
   /// Obsession floor begins at 40% instead of 20%; sonic Shattering Pitch splash.
-  /// Unstoppable Obsession: base floor 20% (40% electricity), +5% at 19th level.
+  /// Unstoppable Obsession: floor 20% rising to 105% at 20th (40% base for
+  /// electricity) - at the cap, immunity deals back extra damage, like weakness.
   ///
   /// Implementation notes: riders are separate DirectDamage instances triggered
   /// from outgoing spell damage (Elemental Barrage detection pattern); per-cast
@@ -794,10 +795,13 @@ namespace MissionWOTR.Archetypes
           return;
         }
         int level = Owner.Descriptor.Progression.GetClassLevel(CharacterClass);
-        // Base floor 20% (electricity begins at 40% - its perk, countering the
-        // many immune enemies it faces); +5% arrives at 19th level, no further.
+        // The floor climbs +5% per level after 3rd and ends at 105% at 20th -
+        // full damage through immunity plus 5%, as if the enemy were WEAK to the
+        // element. Electricity starts at 40% (the same milestones arrive early);
+        // every element shares the 105% cap.
         int baseFloor = Energies[chosen] == DamageEnergyType.Electricity ? 40 : 20;
-        int floorPct = baseFloor + (level >= 19 ? 5 : 0);
+        int grown = 20 + 5 * Math.Max(0, level - 3);
+        int floorPct = Math.Min(105, Math.Max(baseFloor, grown));
         int minimum = raw * floorPct / 100;
         if (applied >= minimum)
         {

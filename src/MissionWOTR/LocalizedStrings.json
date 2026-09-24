@@ -1233,7 +1233,7 @@
   {
     "Key": "ElementFixationElectricity.Description",
     "ProcessTemplates": false,
-    "enGB": "Your fixation is ELECTRICITY. You can only learn, prepare and cast spells of the electricity descriptor - but every electricity spell from every non-mythic spellbook in the game is on your list. Electricity perk: Unstoppable Obsession floors damage at 40% instead of 20%."
+    "enGB": "Your fixation is ELECTRICITY. You can only learn, prepare and cast spells of the electricity descriptor - but every electricity spell from every non-mythic spellbook in the game is on your list. Electricity perk: Unstoppable Obsession floors damage at 40% instead of 20%, rising to the same 105% at 20th level."
   },
   {
     "Key": "ElementFixationSonic.Name",
@@ -1263,7 +1263,7 @@
   {
     "Key": "UnstoppableObsession.Description",
     "ProcessTemplates": false,
-    "enGB": "Your element cannot be denied. When your chosen element's damage is reduced by immunity or resistance, the target still takes at least 20% of the raw damage - and from 19th level, 25%. Electricity obsessors begin at 40% instead (45% from 19th level)."
+    "enGB": "Your element cannot be denied. When your chosen element's damage is reduced by immunity or resistance, the target still takes at least 20% of the raw damage - and the floor rises by 5% for every arcanist level beyond 3rd. At 20th level the target takes 105% of the raw damage, as if it were weak to your element. Electricity obsessors begin at 40% instead of 20% (the cap is the same)."
   },
   {
     "Key": "CatharticRelease.Name",
