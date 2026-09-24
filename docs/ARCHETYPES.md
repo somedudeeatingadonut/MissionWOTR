@@ -232,6 +232,7 @@ Wrath adaptations (engine gaps, documented in-game):
 | Open the Floodgate | 7 | Standard action while raging: consumes all Bleeding Wound stacks on enemies within 30 ft, heals 1d6 per rank consumed. Replaces the damage reduction chain (7/10/13/16/19) |
 
 Implementation notes: bleed ticks and riders use direct damage rules (the ConstructSonicBoom /
-PeriodicSelfDamage patterns); rank stacking is manual (first application creates the buff,
-then AddRank, cap 5); class-feature components rely on feature contexts (same mechanism as
-ContextRankConfig on class features).
+PeriodicSelfDamage patterns); rank stacking is manual (first hit creates the buff, later hits
+add stacks, cap 5 - stacks are runtime state, so after a save/reload an existing bleed ticks
+as one rank until re-applied); class-feature components rely on feature contexts (same
+mechanism as ContextRankConfig on class features).
