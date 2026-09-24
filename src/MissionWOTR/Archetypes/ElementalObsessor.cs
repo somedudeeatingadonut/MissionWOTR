@@ -218,6 +218,85 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// Enumerates every loaded blueprint of a type, across cache field naming
+    /// differences between game builds (the MakeDragonGreatAgain probe pattern:
+    /// static fields on BlueprintsCache plus instance fields of
+    /// ResourcesLibrary.BlueprintsCache, dictionary or enumerable shapes).
+    /// </summary>
+    private static IEnumerable<T> AllBlueprints<T>() where T : BlueprintScriptableObject
+    {
+      var flags = System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public
+        | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
+      var seen = new HashSet<BlueprintScriptableObject>();
+      IEnumerable<T> Probe(object container)
+      {
+        if (container is System.Collections.IDictionary dict)
+        {
+          foreach (System.Collections.DictionaryEntry kv in dict)
+          {
+            if (kv.Value is T t && seen.Add(t))
+            {
+              yield return t;
+            }
+          }
+        }
+        else if (container is System.Collections.IEnumerable en)
+        {
+          foreach (var v in en)
+          {
+            if (v is T t && seen.Add(t))
+            {
+              yield return t;
+            }
+            else if (v is KeyValuePair<BlueprintGuid, SimpleBlueprint> kvp
+              && kvp.Value is T t2 && seen.Add(t2))
+            {
+              yield return t2;
+            }
+          }
+        }
+      }
+      foreach (var name in new[]
+      {
+        "m_LoadedBlueprints", "s_LoadedBlueprints", "m_Blueprints",
+        "m_Cache", "m_LoadedBlueprintsByAssetId",
+      })
+      {
+        var field = typeof(BlueprintsCache).GetField(name, flags);
+        if (field is null || !field.IsStatic)
+        {
+          continue;
+        }
+        foreach (var bp in Probe(field.GetValue(null)))
+        {
+          yield return bp;
+        }
+      }
+      try
+      {
+        var cache = ResourcesLibrary.BlueprintsCache;
+        if (cache != null)
+        {
+          foreach (var field in typeof(BlueprintsCache).GetFields(flags))
+          {
+            if (field.IsStatic)
+            {
+              continue;
+            }
+            foreach (var bp in Probe(field.GetValue(cache)))
+            {
+              yield return bp;
+            }
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: cache enumeration failed.", e);
+      }
+    }
+
+    /// <summary>
     /// Every spell of the element's descriptor from every non-mythic spellbook in
     /// the game, each at its lowest level anywhere (cantrips stay cantrips).
     /// </summary>
@@ -225,33 +304,31 @@ namespace MissionWOTR.Archetypes
       string name, string guid, SpellDescriptor element)
     {
       var minLevel = new Dictionary<BlueprintAbility, int>();
-      foreach (var book in ResourcesLibrary.GetBlueprints<BlueprintSpellbook>())
+      foreach (var book in AllBlueprints<BlueprintSpellbook>())
       {
         if (book is null || book.IsMythic)
         {
           continue;
         }
-        var list = book.m_SpellList?.Get();
+        var list = book.SpellList;
         if (list?.SpellsByLevel is null)
         {
           continue;
         }
         foreach (var levelEntry in list.SpellsByLevel)
         {
-          if (levelEntry?.m_Spells is null)
+          if (levelEntry is null)
           {
             continue;
           }
-          foreach (var spellRef in levelEntry.m_Spells)
+          int level = Math.Max(0, Math.Min(9, levelEntry.SpellLevel));
+          // The Spells member converts implicitly to BlueprintAbility (TTT idiom).
+          foreach (BlueprintAbility spell in levelEntry.Spells)
           {
-            if (spellRef?.Get() is BlueprintAbility spell
-              && spell.SpellDescriptor.HasFlag(element))
+            if (spell != null && spell.SpellDescriptor.HasFlag(element)
+              && (!minLevel.TryGetValue(spell, out var current) || level < current))
             {
-              int level = Math.Max(0, Math.Min(9, levelEntry.SpellLevel));
-              if (!minLevel.TryGetValue(spell, out var current) || level < current)
-              {
-                minLevel[spell] = level;
-              }
+              minLevel[spell] = level;
             }
           }
         }
@@ -259,31 +336,82 @@ namespace MissionWOTR.Archetypes
       var byLevel = new SpellLevelList[10];
       for (int i = 0; i < 10; i++)
       {
-        byLevel[i] = new SpellLevelList(i)
-        {
-          SpellLevel = i,
-          m_Spells = new List<BlueprintAbilityReference>(),
-        };
+        byLevel[i] = new SpellLevelList(i) { SpellLevel = i };
       }
       foreach (var pair in minLevel)
       {
-        byLevel[Math.Max(0, Math.Min(9, pair.Value))].m_Spells.Add(
-          pair.Key.ToReference<BlueprintAbilityReference>());
+        AddSpellToEntry(byLevel[Math.Max(0, Math.Min(9, pair.Value))], pair.Key);
       }
-      var result = SpellListConfigurator.New(name, guid)
-        .SetSpellsByLevel(byLevel)
-        .Configure();
+      BlueprintTool.Create<BlueprintSpellList>(name, guid);
+      var result = BlueprintTool.Get<BlueprintSpellList>(guid);
+      result.SpellsByLevel = byLevel;
       MissionFeats.Logger.Info(
-        $"[obsessor] {element} list: {minLevel.Count} spells " +
-        $"(L0: {byLevel[0].m_Spells.Count}, L1: {byLevel[1].m_Spells.Count}, " +
-        $"L2: {byLevel[2].m_Spells.Count}, L3: {byLevel[3].m_Spells.Count}, " +
-        $"L4+: {byLevel[4].m_Spells.Count + byLevel[5].m_Spells.Count + byLevel[6].m_Spells.Count + byLevel[7].m_Spells.Count + byLevel[8].m_Spells.Count + byLevel[9].m_Spells.Count}).");
+        $"[obsessor] {element} list built: {minLevel.Count} spells.");
       return result;
     }
 
     /// <summary>
+    /// Adds a spell to a SpellLevelList without binding to this build's member
+    /// naming (Spells may be List&lt;BlueprintAbilityReference&gt; or
+    /// List&lt;BlueprintAbility&gt;, field or property, possibly null-initialized).
+    /// </summary>
+    private static void AddSpellToEntry(SpellLevelList entry, BlueprintAbility spell)
+    {
+      const System.Reflection.BindingFlags flags =
+        System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
+        System.Reflection.BindingFlags.NonPublic;
+      try
+      {
+        var field = typeof(SpellLevelList).GetField("Spells", flags);
+        object listObj = null;
+        if (field != null)
+        {
+          listObj = field.GetValue(entry);
+          if (listObj is null)
+          {
+            listObj = Activator.CreateInstance(field.FieldType);
+            field.SetValue(entry, listObj);
+          }
+        }
+        else
+        {
+          var prop = typeof(SpellLevelList).GetProperty("Spells", flags);
+          if (prop is null)
+          {
+            MissionFeats.Logger.Warn("[obsessor] SpellLevelList.Spells not found - list incomplete.");
+            return;
+          }
+          listObj = prop.GetValue(entry, null);
+          if (listObj is null)
+          {
+            listObj = Activator.CreateInstance(prop.PropertyType);
+            prop.SetValue(entry, listObj, null);
+          }
+        }
+        if (listObj is List<BlueprintAbilityReference> refs)
+        {
+          refs.Add(spell.ToReference<BlueprintAbilityReference>());
+        }
+        else if (listObj is List<BlueprintAbility> blueprints)
+        {
+          blueprints.Add(spell);
+        }
+        else
+        {
+          MissionFeats.Logger.Warn(
+            $"[obsessor] unexpected SpellLevelList.Spells type: {listObj.GetType()}");
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: spell list entry failed.", e);
+      }
+    }
+
+    /// <summary>
     /// Clones the arcanist spellbook (components, tables, casting stat, class
-    /// binding) and swaps in the element's spell list - the CloneUnit pattern.
+    /// binding) and swaps in the element's spell list - the CloneUnit pattern. The
+    /// list field is located by type, not name (naming varies between builds).
     /// </summary>
     private static BlueprintSpellbook BuildSpellbook(
       string name, string guid, BlueprintSpellbook source, BlueprintSpellList list)
@@ -319,7 +447,18 @@ namespace MissionWOTR.Archetypes
           // Skipped.
         }
       }
-      book.m_SpellList = list.ToReference<BlueprintSpellListReference>();
+      var listField = typeof(BlueprintSpellbook).GetFields(
+          System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public |
+          System.Reflection.BindingFlags.NonPublic)
+        .FirstOrDefault(f => f.FieldType == typeof(BlueprintSpellListReference));
+      if (listField != null)
+      {
+        listField.SetValue(book, list.ToReference<BlueprintSpellListReference>());
+      }
+      else
+      {
+        MissionFeats.Logger.Warn("[obsessor] spellbook list field not found - book uses source list!");
+      }
       return book;
     }
 
@@ -469,7 +608,7 @@ namespace MissionWOTR.Archetypes
           if ((value.Source as EnergyDamage)?.EnergyType == energy)
           {
             raw += value.ValueWithoutReduction;
-            applied += value.Value;
+            applied += value.FinalValue;
           }
         }
         if (raw <= 0)
