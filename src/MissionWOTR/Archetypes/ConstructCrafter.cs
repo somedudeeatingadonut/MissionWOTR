@@ -335,7 +335,14 @@ namespace MissionWOTR.Archetypes
           c.LevelsStat = StatType.Unknown;
           c.Skills = new StatType[0];
           c.DoNotApplyAutomatically = false;
-          c.m_CharacterClass = classRef;
+          // m_CharacterClass is private in current game builds (mods that assign it
+          // directly compile against publicized assemblies) - same reflection
+          // treatment as BlueprintUnit.m_Brain and ContextActionSpawnMonster.m_Blueprint.
+          typeof(AddClassLevels).GetField(
+            "m_CharacterClass",
+            System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance)
+            ?.SetValue(c, classRef);
         })
         .Configure();
       Logger.Info($"[units] {unitName}: class levels set to {levels}.");
