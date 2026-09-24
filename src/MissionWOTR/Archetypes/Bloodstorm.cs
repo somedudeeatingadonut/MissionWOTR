@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -137,7 +138,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("BloodstormFloodgate.Description")
         .SetIcon(FeatureRefs.Toughness.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddFacts(new[] { ability })
+        .AddFacts(new() { ability })
         .Configure();
     }
 
@@ -190,8 +191,46 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// Bleeding Wound stack counts, keyed by victim UniqueId. Kept as runtime state
+    /// instead of buff ranks (this build's facts do not expose Ranks to us). Bleeds
+    /// are combat-scoped, so not surviving a save/reload is acceptable: after a
+    /// reload the buff ticks as one rank until re-applied.
+    /// </summary>
+    private static readonly Dictionary<string, int> BleedRanks = new();
+
+    internal static int GetBleedRanks(string uniqueId)
+    {
+      return BleedRanks.TryGetValue(uniqueId, out var ranks) ? ranks : 1;
+    }
+
+    /// <summary>Reads and clears one victim's stack count (Floodgate).</summary>
+    internal static int ConsumeBleedRanks(string uniqueId)
+    {
+      var ranks = GetBleedRanks(uniqueId);
+      BleedRanks.Remove(uniqueId);
+      return ranks;
+    }
+
+    /// <summary>
+    /// Any buff whose blueprint name contains "Bleed" counts - ours or another
+    /// source's. BuffCollection exposes a public GetEnumerator but not the
+    /// IEnumerable interface, so LINQ does not bind; foreach does.
+    /// </summary>
+    internal static bool IsBleedingUnit(UnitEntityData unit)
+    {
+      foreach (var buff in unit.Buffs)
+      {
+        if (buff?.Blueprint?.name?.Contains("Bleed") == true)
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    /// <summary>
     /// Adds one Bleeding Wound rank to the target (first application creates the
-    /// buff, later ones add ranks, capped at MaxRanks). The context comes from the
+    /// buff, later ones add stacks, capped at maxRanks). The context comes from the
     /// calling component - class features carry a working context (the same
     /// mechanism ContextRankConfig on class features relies on).
     /// </summary>
@@ -201,13 +240,14 @@ namespace MissionWOTR.Archetypes
       var existing = target.Buffs.GetBuff(bleed);
       if (existing != null)
       {
-        if (existing.Ranks >= maxRanks)
+        if (GetBleedRanks(target.UniqueId) >= maxRanks)
         {
           return;
         }
-        existing.AddRank();
+        BleedRanks[target.UniqueId] = GetBleedRanks(target.UniqueId) + 1;
         return;
       }
+      BleedRanks[target.UniqueId] = 1;
       target.AddBuff(bleed, context);
     }
   }
@@ -229,8 +269,8 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        var ranks = Math.Max(1, Fact.Ranks);
-        var source = Fact.Context?.MaybeCaster ?? Owner;
+        var ranks = Math.Max(1, Bloodstorm.GetBleedRanks(Owner.UniqueId));
+        var source = Owner; // unattributed: the victim bleeds on its own turn
         var bundle = new DamageBundle();
         bundle.Add(new DirectDamage(new DiceFormula(ranks, DiceType.D4), 0));
         Rulebook.Trigger(new RuleDealDamage(source, Owner, bundle) { Reason = Fact });
@@ -303,11 +343,17 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        var bleeding = Game.Instance.State.LoadedAreaState.MainState.AllEntityData
-          .OfType<UnitEntityData>()
-          .Count(u => u.HPLeft > 0 && u.IsEnemy(Owner)
+        var bleeding = 0;
+        foreach (var u in Game.Instance.State.LoadedAreaState.MainState.AllEntityData
+          .OfType<UnitEntityData>())
+        {
+          if (u.HPLeft > 0 && u.IsEnemy(Owner)
             && Vector3.Distance(u.Position, Owner.Position) <= 9.2f
-            && u.Buffs.Any(b => b?.Blueprint?.name?.Contains("Bleed") == true));
+            && Bloodstorm.IsBleedingUnit(u))
+          {
+            bleeding++;
+          }
+        }
         var heal = bleeding >= 5 ? 3 : bleeding >= 3 ? 2 : bleeding >= 1 ? 1 : 0;
         if (heal > 0)
         {
@@ -340,7 +386,8 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        if (evt.AttackRoll is null || !evt.AttackRoll.IsHit || !evt.AttackRoll.IsCritical)
+        if (evt.AttackRoll is null || !evt.AttackRoll.IsHit
+          || !evt.AttackRoll.IsCriticalConfirmed)
         {
           return;
         }
@@ -427,7 +474,7 @@ namespace MissionWOTR.Archetypes
           {
             continue;
           }
-          ranks += Math.Max(1, buff.Ranks);
+          ranks += Math.Max(1, Bloodstorm.ConsumeBleedRanks(victim.UniqueId));
           victim.Buffs.RemoveFact(Bleed);
         }
         if (ranks <= 0)
