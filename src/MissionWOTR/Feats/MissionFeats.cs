@@ -57,6 +57,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Breaker), Breaker.Configure);
       Configure(nameof(Bloodstorm), Bloodstorm.Configure);
       Configure(nameof(CovertMage), CovertMage.Configure);
+      Configure(nameof(ArcaneArtillerist), ArcaneArtillerist.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);

@@ -250,9 +250,9 @@ mechanism as ContextRankConfig on class features).
 
 Wrath adaptations (engine gaps, documented in-game):
 - WOTR has no Bluff, Disguise, Perform or Sleight of Hand skills: class skills map to
-  Persuasion, Perception, Stealth and Thievery; the feint check uses Persuasion vs a
-  flat DC 15 (WOTR exposes neither Bluff, BAB, nor readable skill totals - numeric
-  tuning candidate for the playtest pass).
+  Persuasion, Perception, Stealth and Thievery; the feint check uses Persuasion vs the
+  Dazzling Display formula (10 + target Hit Dice + Wisdom modifier; WOTR exposes
+  neither Bluff nor BAB).
 - Save-twice-take-lesser uses the engine's d20 reroll hook (the same mechanism as the
   vanilla Azata Favorable Magic ability); the no-provoke clause uses the
   ConstructCrafter NoAoO pattern (1-round -50 AoO-count debuff on the target).
@@ -264,3 +264,23 @@ Wrath adaptations (engine gaps, documented in-game):
   ArcanistExploitSelection (b8bf3d5023f2d8c428fdf6438cecaea7), which appears at every
   odd level; the reservoir resource is the vanilla ArcanistArcaneReservoir
   (cac948cbbe79b55459459dd6a8fe44ce).
+
+### Homebrew — Arcane Artillerist (user-commissioned: DPS arcanist) — IMPLEMENTED (v1)
+
+Trades the exploits gained at 1st, 3rd, 7th and 11th level for a raw spell-damage
+engine (deliberately contrasts the arcanist's usual support/debuff role):
+
+| Feature | Real level | Details |
+|---|---|---|
+| Weaponized Magic | 1 | Damaging spells deal bonus damage equal to half arcanist level (min 1), as a separate rider instance |
+| Overcharge | 3 | Swift action, spend 1 reservoir point: next damaging spell within 1 minute deals +1d6 per two arcanist levels; buff consumed on the next damaging spell |
+| Detonation | 7 | Enemies brought to 0 HP by your spells detonate: other enemies within 10 ft take 1d6 per two arcanist levels (once per dying enemy) |
+| Annihilating Surge | 11 | While at least 1 reservoir point remains, Weaponized Magic bonus damage is doubled |
+
+Implementation notes: damage detection is the TabletopTweaks Elemental Barrage
+pattern (RuleDealDamage initiator events; spell check via
+Reason.Ability ?? Reason.Context.SourceAbility; persistent-area ticks skipped via
+SourceArea; riders excluded via Reason.Fact). Riders are separate DirectDamage
+instances (DiceFormula.Zero for flat values); per-ray spells trigger the rider per
+ray - a numeric tuning candidate. Flat/rider numbers are expected to be tuned in
+the playtest pass.

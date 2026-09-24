@@ -317,5 +317,18 @@ namespace MissionWOTR
     internal const string CovertMageIllusionSpotterFeature = "ED37E5BD-4A06-48EE-B995-89A0073A03CD";
     internal const string CovertMageIllusionSpotter = "EE5FB21E-B932-4AC7-B6D4-32B67D506747";
     internal const string CovertMageFeintedBuff = "2C7B4ADF-E136-47CA-9939-79C9B43A15EA";
+
+    // ----- Arcanist: Arcane Artillerist (homebrew DPS) -----
+    internal const string ArtilleristArchetype = "A383597B-8D60-4FDA-B745-D094E3FD3EB6";
+    internal const string ArtilleristWeaponizedFeature = "D1DB988C-2974-4C62-BA76-C3F107F6A9A1";
+    internal const string ArtilleristOverchargeFeature = "AF4C503E-CEBB-45FA-ACF8-5D12077750C7";
+    internal const string ArtilleristOverchargeAbility = "054F4764-C977-4CD5-8B46-2E8A772455F9";
+    internal const string ArtilleristOverchargeBuff = "34D7FD9B-93B6-488B-835F-7BEDCE6D5228";
+    internal const string ArtilleristOverchargeRider = "3432CF05-7D1F-414E-B59D-8D35555C6F6A";
+    internal const string ArtilleristDetonationFeature = "B5A9A52F-C799-4B97-9A8D-DF7E14883899";
+    internal const string ArtilleristDetonation = "6D19A62F-2353-425C-A00E-2F1FF5BA805A";
+    internal const string ArtilleristSurgeFeature = "6ED919A7-84C3-45CC-8A75-7158C8F117EA";
+    internal const string ArtilleristSpellRider = "85A797BC-10A8-4A6B-8152-3C9503FDD013";
+
   }
 }
