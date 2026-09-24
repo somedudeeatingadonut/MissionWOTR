@@ -7,6 +7,7 @@ using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -577,7 +578,7 @@ namespace MissionWOTR.Archetypes
     internal static List<UnitEntityData> AlliesWithin(UnitEntityData owner, int feet)
     {
       var result = new List<UnitEntityData>();
-      float meters = feet.Feet().Meters();
+      float meters = feet.Feet().Meters;
       using var enumerator = Game.Instance.State.Units.GetEnumerator();
       while (enumerator.MoveNext())
       {
@@ -854,7 +855,7 @@ namespace MissionWOTR.Archetypes
         var weapon = BlastWeapon.CreateEntity<ItemEntityWeapon>();
         var rule = new RuleAttackRoll(caster, target, weapon, 0);
         Context.TriggerRule(rule);
-        if (rule.AttackRoll is null || !rule.AttackRoll.IsHit)
+        if (!rule.IsHit)
         {
           MissionFeats.Logger.Info("[sanguine] kinetic blast missed.");
           return;
@@ -930,7 +931,7 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        if (ally.DistanceTo(Owner) > 40.Feet().Meters())
+        if (ally.DistanceTo(Owner) > 40.Feet().Meters)
         {
           return;
         }

@@ -83,6 +83,7 @@ namespace MissionWOTR.Feats
         var barbarian = CharacterClassRefs.BarbarianClass.Reference.Get();
         var arcanist = CharacterClassRefs.ArcanistClass.Reference.Get();
         var bard = CharacterClassRefs.BardClass.Reference.Get();
+        var bloodrager = CharacterClassRefs.BloodragerClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
