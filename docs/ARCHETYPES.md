@@ -250,8 +250,9 @@ mechanism as ContextRankConfig on class features).
 
 Wrath adaptations (engine gaps, documented in-game):
 - WOTR has no Bluff, Disguise, Perform or Sleight of Hand skills: class skills map to
-  Persuasion, Perception, Stealth and Thievery; the feint check uses Persuasion vs
-  15 + Perception (WOTR exposes neither Bluff nor BAB).
+  Persuasion, Perception, Stealth and Thievery; the feint check uses Persuasion vs a
+  flat DC 15 (WOTR exposes neither Bluff, BAB, nor readable skill totals - numeric
+  tuning candidate for the playtest pass).
 - Save-twice-take-lesser uses the engine's d20 reroll hook (the same mechanism as the
   vanilla Azata Favorable Magic ability); the no-provoke clause uses the
   ConstructCrafter NoAoO pattern (1-round -50 AoO-count debuff on the target).

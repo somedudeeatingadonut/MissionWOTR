@@ -57,8 +57,8 @@ namespace MissionWOTR.Archetypes
   /// - Spell-failure immunity uses the engine's own ArcaneSpellFailureIncrease
   ///   component at -20 (the maximum ASF of any light armor), so heavier armor
   ///   (which arcanists are not proficient in anyway) still fails.
-  /// - Feint check: Persuasion (Bluff stand-in) vs 15 + target Perception
-  ///   (Sense Motive stand-in; WOTR exposes neither Bluff nor BAB).
+  /// - Feint check: Persuasion (Bluff stand-in) vs flat DC 15 (WOTR exposes
+  ///   neither Bluff, BAB, nor readable skill totals).
   /// - No-provoke is delivered as a 1-round "Feinted" debuff that zeroes the
   ///   target's attacks of opportunity (the ConstructCrafter NoAoO pattern).
   /// - Save-twice-take-lesser uses the engine's d20 reroll hook (the same mechanism
@@ -322,9 +322,10 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        // Feint: Persuasion vs 15 + target Perception (Bluff vs 10 + BAB + Sense
-        // Motive on the tabletop; WOTR exposes neither Bluff nor BAB).
-        int dc = 15 + target.Stats.SkillPerception.Bonus;
+        // Feint: Persuasion vs flat DC 15 (Bluff vs 10 + BAB + Sense Motive on the
+        // tabletop; WOTR exposes neither Bluff, BAB, nor readable skill totals -
+        // numeric tuning candidate for the playtest pass).
+        const int dc = 15;
         var check = new RuleSkillCheck(Owner, StatType.SkillPersuasion, dc);
         Rulebook.Trigger(check);
         if (!check.Success)
