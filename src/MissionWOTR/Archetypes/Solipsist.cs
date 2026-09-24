@@ -341,10 +341,9 @@ namespace MissionWOTR.Archetypes
         // it stacks with the original's typed bonus and with everything else
         // (the user's "different buff type, probably untyped" requirement).
         UntypeDescriptors(clone);
-        // Visual identity: the echo reads exactly like its original.
-        clone.m_DisplayName = original.m_DisplayName;
-        clone.m_Description = original.m_Description;
-        clone.m_Icon = original.m_Icon;
+        // Visual identity rides CopyFrom: the base fact configurator copies
+        // the original's localized name, description and icon wholesale, so
+        // the echo reads exactly like its original in the buff bar.
         created++;
         MissionFeats.Logger.Info(
           $"[solipsist] echo buff: {original.name} -> {clone.name} ({derived}).");
@@ -505,7 +504,7 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        var caster = Context?.Caster;
+        var caster = Context?.MaybeCaster;
         if (caster is null || Fact is null || Echoes?.Actions is null ||
           Echoes.Actions.Length == 0)
         {

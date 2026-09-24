@@ -67,7 +67,7 @@ namespace MissionWOTR.Archetypes
         .SetIcon(FeatureRefs.SkillFocusDiplomacy.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddClassSkill(StatType.SkillPersuasion)
-        .AddClassSkill(StatType.SkillLoreWorld)
+        .AddClassSkill(StatType.SkillKnowledgeWorld)
         .AddClassSkill(StatType.SkillThievery)
         .Configure();
 
@@ -79,11 +79,11 @@ namespace MissionWOTR.Archetypes
           // Political Skill: 6 + Int skill ranks per level (cleric: 2 + Int).
           .SetAddSkillPoints(4)
           // Political Skill: half base attack bonus (the wizard table).
-          .SetBaseAttackBonus(StatProgressionRefs.BABLow)
+          .SetBaseAttackBonus(StatProgressionRefs.BABLow.Reference.Get())
           .AddToAddFeatures(LevelPlan.L(1), politicalSkill)
           // Armor Proficiency: light armor only, no shields; simple weapons stay.
-          .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.LightArmorProficiency)
-          .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.SimpleWeaponProficiency);
+          .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.LightArmorProficiency.Reference.Get())
+          .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.SimpleWeaponProficiency.Reference.Get());
 
       // Armor package (medium + shields + weapons), the second domain, and
       // spontaneous casting - all removed at the levels the live progression
