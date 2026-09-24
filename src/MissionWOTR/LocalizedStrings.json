@@ -1104,5 +1104,75 @@
     "Key": "BloodstormFloodgate.Description",
     "ProcessTemplates": false,
     "enGB": "While raging, you can open your wounds and drink the storm: every Bleeding Wound on enemies within 30 feet is consumed, and you heal 1d6 damage per stack consumed. This replaces your damage reduction."
+  },
+  {
+    "Key": "CovertMage.Name",
+    "ProcessTemplates": false,
+    "enGB": "Covert Mage"
+  },
+  {
+    "Key": "CovertMage.Description",
+    "ProcessTemplates": false,
+    "enGB": "Some see the world as a maze of deceit, lies, and trickery, and the only way to get along in such a world is to become a master of guile yourself. A covert mage is an expert at using her magic to manipulate others without their knowledge, as well as learning some non-magical tricks to help her deceive and confound her foes.\nClass skills: Persuasion, Perception, Stealth, Thievery. Gains light armor proficiency and casts arcanist spells in light armor without arcane spell failure."
+  },
+  {
+    "Key": "CovertMageTraining.Name",
+    "ProcessTemplates": false,
+    "enGB": "Covert Training"
+  },
+  {
+    "Key": "CovertMageTraining.Description",
+    "ProcessTemplates": false,
+    "enGB": "A covert mage adds Persuasion, Perception, Stealth and Thievery to her class skills, and gains proficiency with light armor. She can cast arcanist spells while wearing light armor without incurring arcane spell failure (heavier armor still applies its full spell failure chance)."
+  },
+  {
+    "Key": "CovertMageMesmerizingTouch.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mesmerizing Touch"
+  },
+  {
+    "Key": "CovertMageMesmerizingTouch.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a standard action, the covert mage can spend 1 point from her arcane reservoir to make a melee touch attack. If it hits, the target takes a penalty on Will saves equal to the covert mage's arcanist level for a number of rounds equal to her Charisma modifier (minimum 1)."
+  },
+  {
+    "Key": "CovertMageMesmerizingDebuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mesmerized"
+  },
+  {
+    "Key": "CovertMageMesmerizingDebuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The target takes a penalty on Will saves equal to the covert mage's arcanist level."
+  },
+  {
+    "Key": "CovertMageSpellTrick.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spell Trick"
+  },
+  {
+    "Key": "CovertMageSpellTrick.Description",
+    "ProcessTemplates": false,
+    "enGB": "When the covert mage casts a spell with a casting time of 1 standard action that targets a creature she is adjacent to, she may feint as part of the casting. She rolls a Persuasion check against 15 + the target's Perception. If she succeeds, the spell does not provoke an attack of opportunity from the target, and the target must roll its saving throw against the spell twice and take the lesser result."
+  },
+  {
+    "Key": "CovertMageIllusionSpotter.Name",
+    "ProcessTemplates": false,
+    "enGB": "Illusion Spotter"
+  },
+  {
+    "Key": "CovertMageIllusionSpotter.Description",
+    "ProcessTemplates": false,
+    "enGB": "The covert mage has become an expert at seeing through others' illusions because of her own mastery at weaving them. Her saving throws against illusion effects are rolled twice and she takes the better result."
+  },
+  {
+    "Key": "CovertMageFeinted.Name",
+    "ProcessTemplates": false,
+    "enGB": "Feinted"
+  },
+  {
+    "Key": "CovertMageFeinted.Description",
+    "ProcessTemplates": false,
+    "enGB": "Feinted by a covert mage: the target cannot make attacks of opportunity for 1 round."
   }
 ]

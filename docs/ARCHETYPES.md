@@ -236,3 +236,30 @@ PeriodicSelfDamage patterns); rank stacking is manual (first hit creates the buf
 add stacks, cap 5 - stacks are runtime state, so after a save/reload an existing bleed ticks
 as one rank until re-applied); class-feature components rely on feature contexts (same
 mechanism as ContextRankConfig on class features).
+
+## Arcanist
+
+### Faithful port — Covert Mage (Flaming Crab Games, Advanced Archetypes) — IMPLEMENTED (v1)
+
+| Feature | Real level | Details |
+|---|---|---|
+| Covert Training | 1 | Class skills: Persuasion, Perception, Stealth, Thievery; light armor proficiency; no arcane spell failure in light armor (-20 ASF via the engine's ArcaneSpellFailureIncrease, matching the heaviest light armor) |
+| Mesmerizing Touch | 3 | Standard action, costs 1 arcane reservoir point: melee touch attack applies a Will-save penalty equal to arcanist level for max(1, Cha mod) rounds. Replaces the exploit gained at 3rd level |
+| Spell Trick | 7 | Casting a 1-standard-action spell at an adjacent target allows a feint (Persuasion vs 15 + target Perception): on success the spell does not provoke an AoO from the target (1-round "Feinted" debuff zeroing its AoOs) and the target saves twice, taking the lesser result. Replaces the exploit gained at 7th level |
+| Illusion Spotter | 11 | Her saves against illusion-school effects are rolled twice, taking the better result. Replaces the exploit gained at 11th level |
+
+Wrath adaptations (engine gaps, documented in-game):
+- WOTR has no Bluff, Disguise, Perform or Sleight of Hand skills: class skills map to
+  Persuasion, Perception, Stealth and Thievery; the feint check uses Persuasion vs
+  15 + Perception (WOTR exposes neither Bluff nor BAB).
+- Save-twice-take-lesser uses the engine's d20 reroll hook (the same mechanism as the
+  vanilla Azata Favorable Magic ability); the no-provoke clause uses the
+  ConstructCrafter NoAoO pattern (1-round -50 AoO-count debuff on the target).
+- WOTR has no generic illusion-disbelief system: Illusion Spotter's free disbelieve
+  becomes take-the-better on saves vs illusion-school effects.
+- The tabletop spellbook clause (two free spells per level) is a no-op - WOTR
+  arcanists prepare from the full spell list.
+- Exploit removals are level-specific (3/7/11) against the vanilla
+  ArcanistExploitSelection (b8bf3d5023f2d8c428fdf6438cecaea7), which appears at every
+  odd level; the reservoir resource is the vanilla ArcanistArcaneReservoir
+  (cac948cbbe79b55459459dd6a8fe44ce).

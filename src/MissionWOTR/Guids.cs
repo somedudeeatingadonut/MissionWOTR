@@ -302,5 +302,20 @@ namespace MissionWOTR
     internal const string BloodstormFloodgateFeature = "FE811E7B-A607-4BA6-B71F-2F3B68978E7A";
     internal const string BloodstormFloodgateAbility = "BDF617C2-C4EF-4F25-AB95-348A7F973C3B";
     internal const string BloodstormFloodgateAction = "45EEEE13-CEC1-4F0E-B873-EEDA15ADB2DA";
+
+    // ----- Arcanist: Covert Mage (faithful port) -----
+    internal const string CovertMageArchetype = "2F91C393-2344-413D-84F7-FA69DEC9D988";
+    internal const string CovertMageTraining = "D3AF2773-2742-4AC6-9CE6-5546ADCA1666";
+    internal const string CovertMageMesmerizingFeature = "5ABEC7DE-F105-49E1-9134-54A59F6F8BF4";
+    internal const string CovertMageMesmerizingAbility = "1CC80DC9-5633-48DA-B109-72BED9857BFC";
+    internal const string CovertMageMesmerizingDelivery = "9D9E8A09-4D9F-4220-9BD1-1B6843CC21EF";
+    internal const string CovertMageMesmerizingDebuff = "4A39BF0F-F8D1-4891-96BC-F91884DB6B23";
+    internal const string CovertMageMesmerizingAction = "FC603DC7-7581-496C-87E3-DDBA40A8D535";
+    internal const string CovertMageMesmerizingPenalty = "B8B0C7C2-12F6-436E-957E-115B557A4F87";
+    internal const string CovertMageSpellTrickFeature = "ABA64046-2D59-4A83-BED6-8CE45D1BC0C4";
+    internal const string CovertMageSpellTrick = "A1B9DC38-0B15-4847-9E21-D2A4A63FF0D9";
+    internal const string CovertMageIllusionSpotterFeature = "ED37E5BD-4A06-48EE-B995-89A0073A03CD";
+    internal const string CovertMageIllusionSpotter = "EE5FB21E-B932-4AC7-B6D4-32B67D506747";
+    internal const string CovertMageFeintedBuff = "2C7B4ADF-E136-47CA-9939-79C9B43A15EA";
   }
 }
