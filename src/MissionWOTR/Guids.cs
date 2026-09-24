@@ -317,18 +317,31 @@ namespace MissionWOTR
     internal const string CovertMageIllusionSpotterFeature = "ED37E5BD-4A06-48EE-B995-89A0073A03CD";
     internal const string CovertMageIllusionSpotter = "EE5FB21E-B932-4AC7-B6D4-32B67D506747";
     internal const string CovertMageFeintedBuff = "2C7B4ADF-E136-47CA-9939-79C9B43A15EA";
+    // ----- Arcanist: Elemental Obsessor (homebrew DPS) -----
+    internal const string ElementObsessorArchetype = "7A89B11C-12B9-4F7C-B111-9E5DEFF87C28";
+    internal const string ElementObsessorFixationSelection = "7D4D096A-F4DD-4EEA-AE8B-F3A3077C9461";
+    internal const string ElementObsessorFixationFire = "198EEFD9-609D-4D95-B2EA-BB51CAC49A22";
+    internal const string ElementObsessorFixationCold = "AB442CC6-8414-44FB-8AD7-1A00356F604C";
+    internal const string ElementObsessorFixationAcid = "E18577D9-6A78-4AAF-A424-ACEFD72E38FB";
+    internal const string ElementObsessorFixationElectricity = "E85A323D-CAE4-44FC-A0BC-375F2D170610";
+    internal const string ElementObsessorFixationSonic = "DD0938B0-E2CA-41EE-91BD-984EBB4E41AA";
+    internal const string ElementObsessorSpellbookFire = "250B8ECB-0B3A-4E42-83EA-7D273ADC4622";
+    internal const string ElementObsessorSpellbookCold = "D2924DA4-ACBF-45F0-997A-8052040FDD60";
+    internal const string ElementObsessorSpellbookAcid = "2C0F7C77-4089-4B23-815A-322877263C67";
+    internal const string ElementObsessorSpellbookElectricity = "DB0B1DCC-E5A6-4B3B-B334-BE2B19CF3AAA";
+    internal const string ElementObsessorSpellbookSonic = "1193B6D0-D903-4928-A6EE-24B5F5304BC9";
+    internal const string ElementObsessorSpellListFire = "C9185379-D10A-4E5B-B912-D4FA4C476A32";
+    internal const string ElementObsessorSpellListCold = "ABB89270-21FD-4576-971E-07C010BEDD31";
+    internal const string ElementObsessorSpellListAcid = "7ED04FFF-1BE4-42FD-A8C8-668BBD1079C8";
+    internal const string ElementObsessorSpellListElectricity = "FE891FA6-786E-47AE-BECB-74C46F9EB6DC";
+    internal const string ElementObsessorSpellListSonic = "37F7EB6B-94CC-42CF-89C4-DEA9A82653BC";
+    internal const string ElementObsessorFocusFeature = "6BAE6C38-0A8D-4CAE-94F2-12DAFFCC119D";
+    internal const string ElementObsessorFocusRider = "9A137CDB-A380-4B98-A716-1D164850759E";
+    internal const string ElementObsessorPermeationFeature = "0345AD37-7978-4C03-9952-5743F63BB0E7";
+    internal const string ElementObsessorPermeation = "8A100EC8-817D-427D-8957-05896B5017D6";
+    internal const string ElementObsessorCatharticFeature = "C353B1D5-8144-4FBE-AE9A-CE69D162A8D9";
+    internal const string ElementObsessorCathartic = "94359AF8-7D26-44C8-A35C-A232CCD015FB";
 
-    // ----- Arcanist: Arcane Artillerist (homebrew DPS) -----
-    internal const string ArtilleristArchetype = "A383597B-8D60-4FDA-B745-D094E3FD3EB6";
-    internal const string ArtilleristWeaponizedFeature = "D1DB988C-2974-4C62-BA76-C3F107F6A9A1";
-    internal const string ArtilleristOverchargeFeature = "AF4C503E-CEBB-45FA-ACF8-5D12077750C7";
-    internal const string ArtilleristOverchargeAbility = "054F4764-C977-4CD5-8B46-2E8A772455F9";
-    internal const string ArtilleristOverchargeBuff = "34D7FD9B-93B6-488B-835F-7BEDCE6D5228";
-    internal const string ArtilleristOverchargeRider = "3432CF05-7D1F-414E-B59D-8D35555C6F6A";
-    internal const string ArtilleristDetonationFeature = "B5A9A52F-C799-4B97-9A8D-DF7E14883899";
-    internal const string ArtilleristDetonation = "6D19A62F-2353-425C-A00E-2F1FF5BA805A";
-    internal const string ArtilleristSurgeFeature = "6ED919A7-84C3-45CC-8A75-7158C8F117EA";
-    internal const string ArtilleristSpellRider = "85A797BC-10A8-4A6B-8152-3C9503FDD013";
 
   }
 }

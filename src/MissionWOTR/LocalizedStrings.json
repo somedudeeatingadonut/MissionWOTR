@@ -1176,58 +1176,103 @@
     "enGB": "Feinted by a covert mage: the target cannot make attacks of opportunity for 1 round."
   },
   {
-    "Key": "ArcaneArtillerist.Name",
+    "Key": "ElementalObsessor.Name",
     "ProcessTemplates": false,
-    "enGB": "Arcane Artillerist"
+    "enGB": "Elemental Obsessor"
   },
   {
-    "Key": "ArcaneArtillerist.Description",
+    "Key": "ElementalObsessor.Description",
     "ProcessTemplates": false,
-    "enGB": "Why bend the battlefield when you can simply delete it? The arcane artillerist treats her reservoir as ammunition and her spell slots as a loaded cannon, trading the arcanist's famous flexibility for raw, devastating spell damage.\nWeaponized Magic: damaging spells deal bonus damage equal to half your arcanist level.\nOvercharge: spend reservoir to load your next spell with extra dice.\nDetonation: enemies killed by your spells explode.\nAnnihilating Surge: while reservoir remains, your Weaponized Magic damage is doubled."
+    "enGB": "Total, single-minded devotion to one element. The obsessor can only cast spells of her chosen element - but her fixation reaches across every non-mythic spellbook in the game, so her element's whole arsenal is hers.\nElemental Fixation: her spellbook is replaced with every spell of her element from every non-mythic spellbook.\nObsessive Focus: her spells strike with added force.\nUnstoppable Obsession: immunity and resistance cannot fully deny her element.\nCathartic Release: her kills erupt in elemental fury."
   },
   {
-    "Key": "ArcaneArtilleristWeaponized.Name",
+    "Key": "ElementFixation.Name",
     "ProcessTemplates": false,
-    "enGB": "Weaponized Magic"
+    "enGB": "Elemental Fixation"
   },
   {
-    "Key": "ArcaneArtilleristWeaponized.Description",
+    "Key": "ElementFixation.Description",
     "ProcessTemplates": false,
-    "enGB": "Your damaging spells are honed for destruction. Whenever you cast a spell that deals damage to an enemy, that enemy takes additional damage equal to half your arcanist level (minimum 1). This bonus damage is doubled while you have at least 1 point remaining in your arcane reservoir (Annihilating Surge)."
+    "enGB": "Choose one element: Fire, Cold, Acid, Electricity or Sonic. The arcanist spellbook is replaced - the obsessor can only prepare and cast spells that carry her element's descriptor, but the list is drawn from every non-mythic spellbook in the game, each spell at its lowest level anywhere."
   },
   {
-    "Key": "ArcaneArtilleristOvercharge.Name",
+    "Key": "ElementFixationFire.Name",
     "ProcessTemplates": false,
-    "enGB": "Overcharge"
+    "enGB": "Fire"
   },
   {
-    "Key": "ArcaneArtilleristOvercharge.Description",
+    "Key": "ElementFixationFire.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, you can spend 1 point from your arcane reservoir to overcharge your magic. Your next damaging spell cast within 1 minute deals an additional 1d6 points of damage per two arcanist levels to each enemy it damages."
+    "enGB": "Your fixation is FIRE. You can only learn, prepare and cast spells of the fire descriptor - but every fire spell from every non-mythic spellbook in the game is on your list."
   },
   {
-    "Key": "ArcaneArtilleristOverchargeBuff.Description",
+    "Key": "ElementFixationCold.Name",
     "ProcessTemplates": false,
-    "enGB": "The artillerist's next damaging spell deals an additional 1d6 damage per two arcanist levels to each enemy it damages. Consumed on the next damaging spell."
+    "enGB": "Cold"
   },
   {
-    "Key": "ArcaneArtilleristDetonation.Name",
+    "Key": "ElementFixationCold.Description",
     "ProcessTemplates": false,
-    "enGB": "Detonation"
+    "enGB": "Your fixation is COLD. You can only learn, prepare and cast spells of the cold descriptor - but every cold spell from every non-mythic spellbook in the game is on your list."
   },
   {
-    "Key": "ArcaneArtilleristDetonation.Description",
+    "Key": "ElementFixationAcid.Name",
     "ProcessTemplates": false,
-    "enGB": "Enemies killed by your spells detonate violently. When an enemy is brought to 0 hit points by one of your spells, every other enemy within 10 feet of it takes 1d6 points of damage per two arcanist levels."
+    "enGB": "Acid"
   },
   {
-    "Key": "ArcaneArtilleristSurge.Name",
+    "Key": "ElementFixationAcid.Description",
     "ProcessTemplates": false,
-    "enGB": "Annihilating Surge"
+    "enGB": "Your fixation is ACID. You can only learn, prepare and cast spells of the acid descriptor - but every acid spell from every non-mythic spellbook in the game is on your list."
   },
   {
-    "Key": "ArcaneArtilleristSurge.Description",
+    "Key": "ElementFixationElectricity.Name",
     "ProcessTemplates": false,
-    "enGB": "While you have at least 1 point remaining in your arcane reservoir, the bonus damage from Weaponized Magic is doubled. The hunger of the battery sharpens the blast - spend it and the edge dulls, until you refill."
+    "enGB": "Electricity"
+  },
+  {
+    "Key": "ElementFixationElectricity.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your fixation is ELECTRICITY. You can only learn, prepare and cast spells of the electricity descriptor - but every electricity spell from every non-mythic spellbook in the game is on your list."
+  },
+  {
+    "Key": "ElementFixationSonic.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sonic"
+  },
+  {
+    "Key": "ElementFixationSonic.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your fixation is SONIC. You can only learn, prepare and cast spells of the sonic descriptor - but every sonic spell from every non-mythic spellbook in the game is on your list."
+  },
+  {
+    "Key": "ObsessiveFocus.Name",
+    "ProcessTemplates": false,
+    "enGB": "Obsessive Focus"
+  },
+  {
+    "Key": "ObsessiveFocus.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your magic is honed to a razor's edge. Whenever you cast a damaging spell, one hit of that cast - the first ray, or the first tick of a persistent effect - deals additional damage equal to half your arcanist level (minimum 1). Cantrips receive half this bonus (minimum 1)."
+  },
+  {
+    "Key": "UnstoppableObsession.Name",
+    "ProcessTemplates": false,
+    "enGB": "Unstoppable Obsession"
+  },
+  {
+    "Key": "UnstoppableObsession.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your element cannot be denied. When your chosen element's damage is reduced by immunity or resistance, the target still takes at least 20% of the raw damage. This minimum increases by 5% every two arcanist levels after 3rd, reaching 60% at 19th level."
+  },
+  {
+    "Key": "CatharticRelease.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cathartic Release"
+  },
+  {
+    "Key": "CatharticRelease.Description",
+    "ProcessTemplates": false,
+    "enGB": "When a single-target spell of yours kills an enemy, the pent-up element erupts: every other enemy within 10 feet of the victim takes 1d4 points of damage per two arcanist levels beyond 7th (1d4 at 7th, up to 7d4 at 19th)."
   }
 ]

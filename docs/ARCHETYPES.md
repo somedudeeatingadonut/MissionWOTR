@@ -265,22 +265,21 @@ Wrath adaptations (engine gaps, documented in-game):
   odd level; the reservoir resource is the vanilla ArcanistArcaneReservoir
   (cac948cbbe79b55459459dd6a8fe44ce).
 
-### Homebrew — Arcane Artillerist (user-commissioned: DPS arcanist) — IMPLEMENTED (v1)
+### Homebrew — Elemental Obsessor (user-commissioned: DPS arcanist) — IMPLEMENTED (v1, replaces the retired Arcane Artillerist)
 
-Trades the exploits gained at 1st, 3rd, 7th and 11th level for a raw spell-damage
-engine (deliberately contrasts the arcanist's usual support/debuff role):
+The fantasy: total, single-minded devotion to one element - the obsessor can ONLY
+cast her element's spells, but her list draws from every non-mythic spellbook in
+the game. Trades the exploits gained at 1st, 3rd and 7th level:
 
 | Feature | Real level | Details |
 |---|---|---|
-| Weaponized Magic | 1 | Damaging spells deal bonus damage equal to half arcanist level (min 1), as a separate rider instance |
-| Overcharge | 3 | Swift action, spend 1 reservoir point: next damaging spell within 1 minute deals +1d6 per two arcanist levels; buff consumed on the next damaging spell |
-| Detonation | 7 | Enemies brought to 0 HP by your spells detonate: other enemies within 10 ft take 1d6 per two arcanist levels (once per dying enemy) |
-| Annihilating Surge | 11 | While at least 1 reservoir point remains, Weaponized Magic bonus damage is doubled |
+| Elemental Fixation | 1 (free spellbook swap) | Choose Fire/Cold/Acid/Electricity/Sonic. Spellbook replaced by a per-element book containing every spell of that descriptor from every non-mythic spellbook (each at its lowest level anywhere; built at configure time from ResourcesLibrary) |
+| Obsessive Focus | 1 (trades exploit) | One hit per cast of a damaging spell (first ray or first persistent tick - dedupe keyed on the cast's AbilityData) deals bonus damage equal to half arcanist level (min 1); cantrips at half bonus (min 1) |
+| Unstoppable Obsession | 3 (trades exploit) | Immunity/resistance cannot fully deny the element: the target always takes at least 20% of the chosen element's raw damage, rising 5% every two levels after 3rd (60% at 19th). Shortfall paid as untyped direct damage |
+| Cathartic Release | 7 (trades exploit) | Single-target spell kills erupt: other enemies within 10 ft take 1d4 per two levels beyond 7th (1d4 at 7th, 7d4 at 19th). AoE spells and persistent areas never detonate |
 
-Implementation notes: damage detection is the TabletopTweaks Elemental Barrage
-pattern (RuleDealDamage initiator events; spell check via
-Reason.Ability ?? Reason.Context.SourceAbility; persistent-area ticks skipped via
-SourceArea; riders excluded via Reason.Fact). Riders are separate DirectDamage
-instances (DiceFormula.Zero for flat values); per-ray spells trigger the rider per
-ray - a numeric tuning candidate. Flat/rider numbers are expected to be tuned in
-the playtest pass.
+The original Arcane Artillerist (Weaponized Magic / Overcharge / Detonation /
+Annihilating Surge) was removed before playtest per user feedback: Overcharge and
+Annihilating Surge deleted outright, the rider retuned (cantrip halving, once per
+cast), Detonation retuned to 1d4-per-two-levels-past-7 single-target-only, and the
+elemental-fixation spellbook + immunity bypass added.
