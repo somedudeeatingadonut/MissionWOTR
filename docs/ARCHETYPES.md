@@ -418,7 +418,7 @@ tension IS the class.
 | Feature | Real level | Details |
 |---|---|---|
 | Vital Blood | 1 | While bloodraging, 10-ft aura; start of each of her turns, allies below max HP in the aura regain 1d4 + 1/3 level |
-| Bloodletting Pulse | 2 | Swift, while bloodraging, expend 1 bloodrage round → all allies within 20 ft (incl. self) regain 1d8 + 1/3 level; once per round (hidden marker buff) |
+| Bloodletting Pulse | 2 | Swift, while bloodraging, expend 1 bloodrage round → all allies within 20 ft (incl. self) regain 1d8 + 1/3 level; once per round (1-round marker buff) |
 | Shared Vitality | 5 | The Shared pulse: allies also gain fast healing 2 for 3 rounds (3 at 11th, 5 at 16th) while the Font takes an equal UNREMOVABLE bleed for 3 rounds |
 | Kinetic Blade | 6 | Obligatory element pick (Fire/Cold/Electricity/Acid/Force); a toggle granting an off-hand blade on the vanilla KineticBlastEnergyBlade weapon type: 1d6 + Con element damage, +1d6 per two (level−2) kineticist levels beyond 1st |
 | Greater Bloodletting Pulse | 8 | Pulse → 30 ft, 2d8 + level + Con; allies healed from below 0 HP are treated as stabilized (the heal itself restores them) |
@@ -436,7 +436,7 @@ ITickEachRound (the pplus RagingDrunkStuff pattern — proven on bloodrager
 features); all healing via Rulebook.Trigger(new RuleHealDamage(...)); ally
 enumeration via Game.Instance.State.Units + IsAlly + DistanceTo (pplus
 Nocticula pattern; self included); dice via UnityEngine.Random.Range (the
-game's own roller); the pulse's once-per-round guard is a hidden 1-round
+game's own roller); the pulse's once-per-round guard is a visible 1-round
 marker buff, lifted by the apotheosis free-action variant; the death save
 watches RuleDealDamage on allies (DidTrigger, HP ≤ 0, not yet dead) and spends
 the whole rage pool — dying allies in WOTR are rescued post-hit, which is the

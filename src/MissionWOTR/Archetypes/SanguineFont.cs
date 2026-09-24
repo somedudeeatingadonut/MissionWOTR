@@ -90,7 +90,7 @@ namespace MissionWOTR.Archetypes
   /// Rulebook.Trigger(new RuleHealDamage(...)); ally enumeration via
   /// Game.Instance.State.Units + IsAlly + DistanceTo (the pplus Nocticula
   /// pattern); dice via UnityEngine.Random.Range (the game's own roller); the
-  /// once-per-round pulse guard is a hidden 1-round marker buff; the blade and
+  /// once-per-round pulse guard is a visible 1-round marker buff ("Pulse Released"); the blade and
   /// blast use the vanilla KineticBlastEnergyBlade / KineticBlastEnergy weapon
   /// types. Log prefix: [sanguine]. All numbers are tuning candidates.
   /// </summary>
@@ -237,7 +237,7 @@ namespace MissionWOTR.Archetypes
         .AddFacts(new() { simple, lightArmor })
         .Configure();
 
-      // ----- Hidden once-per-round marker for the pulse -----
+      // ----- Once-per-round marker for the pulse (visible: shows the lockout) -----
       var pulseUsed = BuffConfigurator.New(PulseUsedBuffName, Guids.SanguinePulseUsedBuff)
         .SetDisplayName("SanguinePulseUsedBuff.Name")
         .SetDescription("SanguinePulseUsedBuff.Description")
