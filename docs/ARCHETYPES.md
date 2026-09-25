@@ -81,6 +81,50 @@ Gendarme, Order of the Paw and friends; nothing in the loadout covers these:
    ignores magical mud, allies that never block the line, and an unlimited
    wheel at the capstone.
 
+## 0.7.0 — the cleric pair
+
+Verified against the loaded mod list - vanilla WOTR already ships Crusader,
+Divine Commander, Ecclesitheurge, Herald Caller, Angelfire Apostle and Priest
+of Balance; HomebrewArchetypes adds Crusader, Divine Agent, Elder Mythos
+Cultist, Evangelist and Undead Lord. Both picks below are free:
+
+1. **Cardinal** (faithful port, Ultimate Intrigue - the church politician):
+   light armor and no shields, ONE domain, no spontaneous casting, half base
+   attack bonus - in exchange for 6 + Int skill ranks per level and the
+   political class-skill package. Full adaptation notes in the section below.
+2. **The Solipsist** (homebrew, user-commissioned: the selfish cleric): every
+   ally-affecting cleric spell can only be cast on himself, the communal
+   versions are denied to him outright, and every blessing he puts on himself
+   settles twice - the second copy is an untyped echo buff that stacks with
+   the original and cannot be overridden by same-type effects. Channel energy
+   is traded away entirely.
+
+## 0.7.1 — Solipsist redesign (user feedback)
+
+The first cut left two holes the user called out: ground-aimed communal buffs
+still served the whole party (no real downside late-game, where party buffing
+rides almost entirely on communals), and the class had no martial presence.
+Both closed:
+
+- **Communals denied**: every point-targeted spell that is helpful on allies
+  (Bless Communal, Resist Energy Communal, mass cures, Prayer and the whole
+  family) is now UNCASTABLE for the solipsist - a caster restriction
+  component, inert for everyone else. The selfishness trade now has teeth at
+  every level of play.
+- **Martial Devotion**: full (fighter) base attack bonus - the engine offers
+  only the three tables, and the step up from the cleric's 3/4 is the full
+  progression - plus martial weapon proficiency and one bonus combat feat
+  from the fighter's list (the vanilla Crusader bonus-feat pattern).
+- **Personal blessings echo too**: divine power, righteous might, frightful
+  aspect and other personal-range battle blessings now settle twice as well
+  (they were previously untouched - they never targeted allies).
+- **Conditional-gated tiers now double correctly**: spells that scale inside
+  a Conditional branch are deep-copied gate-and-all, so the echo re-evaluates
+  the same conditions at cast time and doubles the correct tier.
+- Engine hardening: the echo is appended to the spell's OWN run-action list
+  instead of a second AbilityEffectRunAction component, so ordering after
+  the originals is guaranteed and no multi-component semantics are assumed.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -125,24 +169,6 @@ tabletop) **and** granted at level 1 in test mode.
 3. **Mythic ability — Expedited Synthesis** (original, per user design): brew becomes a
    **swift action** at the cost of **25% max HP, reduced to 15% on a successful DC 15
    Fortitude save** (never below 1 HP). Standard mythic ability pick.
-
-### 0.6.0 — the cavalier pair
-
-First new class since the playtest patch: the game's (DLC-era) cavalier now has
-its two archetypes. Verified against the loaded mod list - vanilla WOTR ships
-Gendarme, Order of the Paw and friends; nothing in the loadout covers these:
-
-1. **Sister-in-Arms** (faithful port, Adventurer's Guide - the Gray Maiden
-   commander): half-strength challenge, BOTH orders (the Lion from vanilla +
-   the Dragon ported whole - WOTR never had it), Bodyguard, scaling loyalty
-   saves, and lion's call at move/swift action. Full adaptation notes in the
-   section below.
-2. **The Carousel** (homebrew, user-commissioned): the charge archetype. A
-   custom charge engine adapted from pplus's StagCharge (real navmesh movement
-   at double speed, the vanilla charge buff, a true charge attack), AoO-free
-   charging, a free-action "Wheel About" chain charge, a surefooted mount that
-   ignores magical mud, allies that never block the line, and an unlimited
-   wheel at the capstone.
 
 ## Alchemist homebrew archetype — Construct Crafter (user design) — IMPLEMENTED (v1)
 
@@ -361,38 +387,55 @@ into Knowledge (World) - both already cleric class skills - so the tabletop's
 four extra class skills collapse into existing ones; Trickery (the game's
 deception skill) is granted as the intrigue-flavored stand-in.
 
-### Homebrew — The Solipsist (user design: the selfish cleric) — IMPLEMENTED (0.7.0)
+### Homebrew — The Solipsist (user design: the selfish cleric) — IMPLEMENTED (0.7.0, redesigned 0.7.1)
 
 | Level | Solipsist grants | Cleric normally grants |
 |---|---|---|
+| 1 | Martial Devotion (full BAB, martial weapons, bonus combat feat) | — |
 | 1 (channel's level) | Solipsism | Channel Energy |
 
-Solipsism, as commissioned:
+Solipsism, as commissioned (v2 after user feedback):
 - Every cleric spell that can target an ally can now only target the
-  solipsist himself (enemy targets pass - cure spells still sear undead;
-  ground-point spells are untouched).
+  solipsist himself (enemy targets pass - cure spells still sear undead).
+- **Communal / ground-aimed ally blessings are uncastable for him** - the
+  caster restriction is inert for everyone else, but for him the whole
+  communal family (and mass cures, Prayer, and any point-targeted
+  ally-helpful spell) is closed. This is the trade's real teeth late-game.
 - Every blessing such a spell applies to him is laid down a SECOND time as an
   untyped echo: a clone of the buff whose bonus descriptors are all rewritten
   to None, so it stacks with the original's typed bonus and cannot be
   overridden by same-type effects. Two Blesses' worth of attack, two Shields
-  of Faith' worth of deflection, a doubled communal resistance pool.
+  of Faith' worth of deflection.
 - Healing spells he casts on himself roll their healing twice (a second,
   independent heal roll in the same context).
+- Personal-range battle blessings (divine power, righteous might, frightful
+  aspect) echo too - no lock needed, they are already self-only.
 - Channel energy is removed entirely - a congregation of one has no flock.
 
-Engine notes: the lock is a custom `IAbilityTargetRestriction` added to the
+Martial Devotion: full (fighter) base attack bonus via the archetype's BAB
+table, martial weapon proficiency, and one bonus combat feat (the vanilla
+FighterFeatSelection, granted the way the vanilla Crusader grants its bonus
+feats). Note: the engine only offers low/medium/full BAB tables - "slightly
+higher than the cleric's 3/4" necessarily lands on the fighter's full
+progression; if that proves too strong in play, the fallback is medium BAB
+plus a scaling untyped attack rider.
+
+Engine notes: the lock is a custom `IAbilityTargetRestriction` and the
+communal denial a custom `IAbilityCasterRestriction`, both added to the
 shared vanilla spell abilities (inert for every caster without the Solipsism
 fact, so other classes are untouched); the scan walks the cleric spellbook's
-spell list plus ability variants and picks CanTargetFriends spells that are
-Helpful on allies or carry heals; the echo is an extra AbilityEffectRunAction
-appended to each qualifying spell, holding element-copies of the spell's own
-apply-buff actions (buff reference swapped to the untyped clone) and heal
-actions. Echo-buff guids derive deterministically from the original buff's
-guid (XOR a fixed mask), so they are save-stable. Actions nested under a
-Conditional gate are never doubled (no guessed variants); utility ally-spells
-with no buffs or heals (remove curse and friends) get the lock but no echo;
-domain spells are not part of the scanned list. The log lists every converted
-spell at load (`[solipsist]` prefix).
+spell list plus ability variants and classifies each spell as communal
+(point-targeted + helpful → denied), personal (buffs → echo only) or
+unit-targeted (helpful or heals → lock + echo). The echo is appended to the
+spell's EXISTING AbilityEffectRunAction list as an element copy of the
+spell's own apply-buff actions (buff reference swapped to the untyped clone)
+and heal actions; Conditional-gated tiers are deep-copied whole so the same
+conditions re-evaluate at echo time (the correct tier doubles, never both).
+Echo-buff guids derive deterministically from the original buff's guid (XOR a
+fixed mask), so they are save-stable. Domain spells are not part of the
+scanned list; harmful point-target spells (selective fireballs etc.) are
+untouched. The log lists every converted spell at load (`[solipsist]`
+prefix), including each denied communal and each created echo buff.
 
 ## Level plan per class (test-mode rule)
 

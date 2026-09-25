@@ -562,6 +562,8 @@ namespace MissionWOTR
     internal const string SolipsistFeature = "1356E90D-D4D8-4E60-A85F-6F1F55892A56";
     internal const string SolipsistTargetLock = "F61B2B27-5213-4046-957C-7F185C151AE1";
     internal const string SolipsistEchoAction = "29D5E92A-C6F6-43E4-88DA-4CCD79CFD0BA";
+    internal const string SolipsistMartialDevotion = "2DEA1291-701D-4767-A809-58B75CE5D8F6";
+    internal const string SolipsistCommunalBlock = "69B5E5B9-F358-44F4-9DFD-767BB172DA1E";
 
   }
 }

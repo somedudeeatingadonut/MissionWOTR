@@ -2343,7 +2343,7 @@
   {
     "Key": "Solipsist.Description",
     "ProcessTemplates": false,
-    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul - only at himself - and the channel of holy energy is denied him entirely, for there is no flock to heal. What he keeps is intensity. Each spell he casts upon himself settles twice: the blessing itself, and beneath it an echo of the same blessing that carries no type at all, so it stacks with the original, with potions, with another cleric's work, and with everything else. A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
+    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul, the communal versions of such spells are closed to him entirely, and the channel of holy energy is denied him - there is no flock to heal. What he keeps is intensity. Each spell he casts upon himself settles twice: the blessing itself, and beneath it an untyped echo of the same blessing that stacks with the original, with potions, with another cleric's work, and with everything else. Even his personal battle-blessings - divine power, righteous might - echo. And a church of one must be its own church militant: he fights with a fighter's attack progression, martial weapons, and a bonus combat feat. A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
   },
   {
     "Key": "SolipsistSolipsism.Name",
@@ -2353,6 +2353,16 @@
   {
     "Key": "SolipsistSolipsism.Description",
     "ProcessTemplates": false,
-    "enGB": "Every cleric spell that could target an ally can now only target the solipsist himself; hostile targets are unaffected, so cure spells still burn the undead. When he casts such a spell on himself, every blessing it bestows is laid down a second time as an untyped echo that stacks with the original and cannot be overridden by same-type effects, and healing spells roll their healing twice. In exchange, he never gains channel energy."
+    "enGB": "Every cleric spell that could target an ally can now only target the solipsist himself; hostile targets are unaffected, so cure spells still burn the undead. The communal versions of ally-affecting spells are denied to him altogether - a congregation of one has no one to bless but himself. When he casts a qualifying spell on himself, every blessing it bestows is laid down a second time as an untyped echo that stacks with the original and cannot be overridden by same-type effects, healing spells roll their healing twice, and his personal-range blessings echo as well. In exchange, he never gains channel energy."
+  },
+  {
+    "Key": "SolipsistMartialDevotion.Name",
+    "ProcessTemplates": false,
+    "enGB": "Martial Devotion"
+  },
+  {
+    "Key": "SolipsistMartialDevotion.Description",
+    "ProcessTemplates": false,
+    "enGB": "A congregation of one must be its own church militant. The solipsist trains with a fighter's discipline: his base attack bonus from cleric levels follows the fighter's progression, he is proficient with all martial weapons, and he gains one bonus combat feat chosen from the fighter's list. What he cannot receive from others, he must be able to do himself."
   }
 ]

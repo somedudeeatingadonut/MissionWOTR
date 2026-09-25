@@ -1,4 +1,3 @@
-using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
@@ -28,53 +27,68 @@ using System.Reflection;
 namespace MissionWOTR.Archetypes
 {
   /// <summary>
-  /// Solipsist (homebrew cleric archetype, user design: "a cleric focused on
-  /// himself, with all spells that affect allies instead being only cast on
-  /// himself at 2x effectiveness; for effects like haste, spawn a second
-  /// version of the same buff with a different buff type, probably untyped,
-  /// so it doesn't get overridden by anything").
+  /// Solipsist (homebrew cleric archetype, user design - v2 after feedback:
+  /// "if AoE buffs still work for the whole party the class has no real
+  /// downside late-game, and it should be more martially usable").
   ///
   /// Design:
   /// - Solipsism: every cleric spell that could target an ally can now only
   ///   target the solipsist himself (enemy targets are unaffected - cure
-  ///   spells still sear the undead). Every blessing such a spell applies to
-  ///   him is laid down a SECOND time as an untyped echo copy that stacks
-  ///   with the original and with everything else; healing spells roll their
-  ///   healing twice. Channel energy is traded away entirely - a congregation
-  ///   of one has no flock to heal.
+  ///   spells still sear the undead). The COMMUNAL / ground-aimed versions
+  ///   of such spells are denied to him outright: a congregation of one has
+  ///   no one to bless but himself, and late-game party buffing rides almost
+  ///   entirely on communals - leaving them open would leave the archetype
+  ///   with no real downside. Every blessing such a spell applies to him is
+  ///   laid down a SECOND time as an untyped echo copy that stacks with the
+  ///   original and with everything else; healing spells roll their healing
+  ///   twice; and his personal-range battle blessings (divine power,
+  ///   righteous might, frightful aspect) echo as well. Channel energy is
+  ///   traded away entirely.
+  /// - Martial Devotion: a church of one must be its own church militant.
+  ///   Full (fighter) base attack bonus - the engine only offers the three
+  ///   tables, and the step up from the cleric's 3/4 is the fighter's - plus
+  ///   martial weapon proficiency and one bonus combat feat from the
+  ///   fighter's list (the vanilla Crusader bonus-feat pattern).
   ///
   /// Engine notes:
-  /// - The lock is a custom IAbilityTargetRestriction component ADDED to the
-  ///   shared vanilla spell abilities (the pplus AbilityAnkouShadow recipe).
-  ///   The component is inert for every caster without the Solipsism fact,
-  ///   so the shared blueprints stay safe for all other classes.
+  /// - The lock is a custom IAbilityTargetRestriction component and the
+  ///   communal denial a custom IAbilityCasterRestriction component, both
+  ///   ADDED to the shared vanilla spell abilities; both are inert for every
+  ///   caster without the Solipsism fact, so the shared blueprints stay safe
+  ///   for all other classes.
   /// - Selection: the scan walks the cleric spellbook's spell list
   ///   (book.SpellList.SpellsByLevel, the pplus MadScientistPrep idiom) plus
-  ///   ability variants, and picks spells that CanTargetFriends and are
-  ///   Helpful on allies (or carry a heal action).
+  ///   ability variants. Point-targeted spells with a Helpful effect on
+  ///   allies are denied (communal); personal-range spells with buffs echo
+  ///   (no lock needed - they are already self-only); unit-targeted spells
+  ///   that are Helpful on allies or carry heals get the lock, and the echo
+  ///   when they carry buffs or heals.
   /// - The 2x is realized exactly as requested: for every
   ///   ContextActionApplyBuff in the spell's action tree a CLONE of the buff
   ///   blueprint is created (CopyFrom), every bonus descriptor inside the
   ///   clone is rewritten to None (untyped - so it stacks with the original's
   ///   typed bonus and cannot be overridden by same-type effects), and a copy
   ///   of the apply-buff element with the buff reference swapped to the clone
-  ///   is appended to the spell via an extra AbilityEffectRunAction that runs
-  ///   after the spell's own actions. ContextActionHealTarget elements are
-  ///   copied verbatim: the second run re-rolls the heal in the same context.
+  ///   is appended to the spell's EXISTING action list (no second
+  ///   run-action component - ordering after the originals is guaranteed).
+  ///   ContextActionHealTarget elements are copied verbatim: the second run
+  ///   re-rolls the heal in the same context.
+  /// - Conditional-gated tiers (spells that scale by caster level inside a
+  ///   Conditional branch) are deep-copied gate and all: the echo re-evaluates
+  ///   the same conditions at cast time, so the correct tier's echo applies -
+  ///   never both tiers, never the wrong one.
   /// - Clone blueprints derive their guids deterministically from the
   ///   original buff's guid (XOR a fixed mask) so they are save-stable.
-  /// - Actions nested under a Conditional gate are NOT doubled (never guess
-  ///   a variant); actions nested in plain wrappers are.
-  /// - Ground-point-targeted spells (the targeting lock and the echo both key
-  ///   on the spell's main target being the caster) are untouched; utility
-  ///   ally-spells with no buffs or heals (e.g. remove curse) get the lock
-  ///   but no echo. Domain spells are not part of the scanned list.
+  /// - Domain spells are not part of the scanned list; harmful point-target
+  ///   spells (selective fireballs and the like) are untouched - the
+  ///   solipsist is selfish, not harmless.
   /// Log prefix: [solipsist].
   /// </summary>
   internal static class Solipsist
   {
     internal const string ArchetypeName = "SolipsistArchetype";
     internal const string SolipsismName = "SolipsistSolipsism";
+    internal const string MartialDevotionName = "SolipsistMartialDevotion";
 
     private static readonly HashSet<string> ProcessedAbilities = new();
     private static readonly Dictionary<string, BlueprintBuff> EchoClones = new();
@@ -90,7 +104,7 @@ namespace MissionWOTR.Archetypes
     {
       var cleric = CharacterClassRefs.ClericClass.Reference.Get();
 
-      // ----- Solipsism (the whole kit rides one feature) -----
+      // ----- Solipsism (the casting half of the kit) -----
       var solipsism = FeatureConfigurator.New(SolipsismName, Guids.SolipsistFeature)
         .SetDisplayName("SolipsistSolipsism.Name")
         .SetDescription("SolipsistSolipsism.Description")
@@ -98,10 +112,27 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .Configure();
 
+      // ----- Martial Devotion (the steel half) -----
+      var martialDevotion = FeatureConfigurator.New(MartialDevotionName, Guids.SolipsistMartialDevotion)
+        .SetDisplayName("SolipsistMartialDevotion.Name")
+        .SetDescription("SolipsistMartialDevotion.Description")
+        .SetIcon(FeatureRefs.MartialWeaponProficiency.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddFacts(new() { FeatureRefs.MartialWeaponProficiency.Reference.Get() })
+        .Configure();
+
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.SolipsistArchetype, CharacterClassRefs.ClericClass)
           .SetLocalizedName("Solipsist.Name")
-          .SetLocalizedDescription("Solipsist.Description");
+          .SetLocalizedDescription("Solipsist.Description")
+          // Martial Devotion: the fighter's base attack bonus (the engine
+          // offers only low/medium/full tables - the step up from the
+          // cleric's 3/4 is the full progression).
+          .SetBaseAttackBonus(StatProgressionRefs.BABFull.Reference.Get())
+          .AddToAddFeatures(LevelPlan.L(1), martialDevotion)
+          // Martial Devotion: one bonus combat feat from the fighter's list
+          // (the vanilla Crusader bonus-feat pattern).
+          .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.Reference.Get());
 
       // The selfish priest has no flock: channel energy is traded away.
       archetype = ArchetypeRemovals.AddRemovals(
@@ -119,7 +150,7 @@ namespace MissionWOTR.Archetypes
     }
 
     // ------------------------------------------------------------------
-    // Spell scan: lock + echo every ally-affecting cleric spell.
+    // Spell scan: lock, deny, and echo every ally-affecting cleric spell.
     // ------------------------------------------------------------------
 
     private static void ApplyToClericSpells(BlueprintFeature fact)
@@ -141,8 +172,9 @@ namespace MissionWOTR.Archetypes
         }
         abilities.AddRange(levelList.Spells.Where(spell => spell != null));
       }
-      // Variant sub-abilities (alignment circles and the like) are the real
-      // castable spells - they must carry the lock and the echo too.
+      // Variant sub-abilities (alignment circles, communal versions and the
+      // like) are the real castable spells - they must carry the lock, the
+      // denial, and the echo too.
       for (int i = 0; i < abilities.Count; i++)
       {
         var variants = abilities[i].GetComponent<AbilityVariants>();
@@ -152,18 +184,24 @@ namespace MissionWOTR.Archetypes
         }
       }
 
-      int locked = 0, doubled = 0, clones = 0;
+      int locked = 0, doubled = 0, denied = 0, clones = 0;
       foreach (var ability in abilities)
       {
-        ProcessAbility(ability, fact, ref locked, ref doubled, ref clones);
+        ProcessAbility(ability, fact, ref locked, ref doubled, ref denied, ref clones);
       }
       MissionFeats.Logger.Info(
         $"[solipsist] spell scan: {abilities.Count} abilities seen, {locked} locked to self, " +
-        $"{doubled} with the doubled echo, {clones} echo buffs created.");
+        $"{doubled} with the doubled echo, {denied} communal versions denied, " +
+        $"{clones} echo buffs created.");
     }
 
     private static void ProcessAbility(
-      BlueprintAbility ability, BlueprintFeature fact, ref int locked, ref int doubled, ref int clones)
+      BlueprintAbility ability,
+      BlueprintFeature fact,
+      ref int locked,
+      ref int doubled,
+      ref int denied,
+      ref int clones)
     {
       var key = ability.AssetGuid.ToString();
       if (ProcessedAbilities.Contains(key))
@@ -171,99 +209,113 @@ namespace MissionWOTR.Archetypes
         return;
       }
       ProcessedAbilities.Add(key);
-      if (ability.GetComponent<SolipsistTargetLock>() != null)
+      if (HasConversion(ability))
       {
         return; // already converted (idempotency guard)
       }
 
-      if (!ability.CanTargetFriends)
+      bool pointTargeted = ability.CanTargetPoint;
+      bool personal = ability.Range == AbilityRange.Personal;
+      if (!ability.CanTargetFriends && !pointTargeted && !personal)
       {
         return;
       }
-      var (buffs, heals) = CollectEchoTargets(ability);
-      if (ability.EffectOnAlly != AbilityEffectOnUnit.Helpful && heals.Count == 0)
+
+      var (hasBuffs, hasHeals) = ScanTargets(ability);
+      bool helpful = ability.EffectOnAlly == AbilityEffectOnUnit.Helpful;
+
+      // Communal / ground-aimed blessings: denied outright. Late-game party
+      // buffing rides on these - leaving them open would leave the archetype
+      // without a real downside.
+      if (pointTargeted && helpful)
       {
+        AbilityConfigurator.For(ability.ToReference<BlueprintAbilityReference>())
+          .AddComponent(new SolipsistCommunalBlock { Fact = fact })
+          .Configure();
+        denied++;
+        MissionFeats.Logger.Info(
+          $"[solipsist] {ability.name}: communal version DENIED (a congregation of one).");
         return;
       }
 
-      var echoes = new List<GameAction>();
-      foreach (var applyBuff in buffs)
+      // Personal-range blessings: already self-only, so no lock - but the
+      // echo applies (divine power, righteous might and friends are where a
+      // martial cleric's late-game money is).
+      if (personal)
       {
-        var original = BuffOf(applyBuff);
-        if (original is null)
+        if (!hasBuffs)
         {
-          continue;
+          return;
         }
-        var clone = GetOrCreateEchoClone(original, ref clones);
-        if (clone is null)
-        {
-          continue;
-        }
-        echoes.Add(CopyWithBuff(applyBuff, clone));
-      }
-      foreach (var heal in heals)
-      {
-        echoes.Add(CopyHeal(heal));
+        AttachEcho(ability, fact, ref clones);
+        doubled++;
+        MissionFeats.Logger.Info($"[solipsist] {ability.name}: personal blessing echoes (doubled).");
+        return;
       }
 
-      var builder = AbilityConfigurator.For(ability.ToReference<BlueprintAbilityReference>())
-        .AddComponent(new SolipsistTargetLock { Fact = fact });
-      if (echoes.Count > 0)
+      // Unit-targeted ally spells: locked to self, echoed when they carry
+      // buffs or heals.
+      if (!helpful && !hasHeals)
       {
-        builder = builder.AddAbilityEffectRunAction(ActionsBuilder.New().Add(
-          new SolipsistEchoAction
-          {
-            Fact = fact,
-            Echoes = new ActionList { Actions = echoes.ToArray() },
-          }));
+        return;
       }
-      builder.Configure();
-
+      AbilityConfigurator.For(ability.ToReference<BlueprintAbilityReference>())
+        .AddComponent(new SolipsistTargetLock { Fact = fact })
+        .Configure();
       locked++;
-      if (echoes.Count > 0)
+      if (hasBuffs || hasHeals)
       {
+        AttachEcho(ability, fact, ref clones);
         doubled++;
       }
       MissionFeats.Logger.Info(
         $"[solipsist] {ability.name}: locked to self" +
-        (echoes.Count > 0 ? $" (+{echoes.Count} echo effect(s))." : "."));
+        (hasBuffs || hasHeals ? " (+echo)." : "."));
     }
 
-    /// <summary>
-    /// Every buff-apply and heal action reachable from the spell's run-action
-    /// components, WITHOUT descending into Conditional gates (never guess a
-    /// variant - a doubled mis-variant is worse than an undoubled one).
-    /// </summary>
-    private static (List<ContextActionApplyBuff> Buffs, List<ContextActionHealTarget> Heals)
-      CollectEchoTargets(BlueprintAbility ability)
+    /// <summary>True when this ability already carries any solipsist conversion.</summary>
+    private static bool HasConversion(BlueprintAbility ability)
     {
-      var buffs = new List<ContextActionApplyBuff>();
-      var heals = new List<ContextActionHealTarget>();
+      if (ability.GetComponent<SolipsistTargetLock>() != null ||
+        ability.GetComponent<SolipsistCommunalBlock>() != null)
+      {
+        return true;
+      }
       foreach (var runAction in ability.GetComponents<AbilityEffectRunAction>())
       {
         if (runAction?.Actions?.Actions is null)
         {
           continue;
         }
-        Collect(runAction.Actions.Actions, buffs, heals);
+        foreach (var action in runAction.Actions.Actions)
+        {
+          if (action is SolipsistEchoAction)
+          {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    // ------------------------------------------------------------------
+    // Detection: does the spell carry buffs or heals anywhere in its tree?
+    // ------------------------------------------------------------------
+
+    private static (bool HasBuffs, bool HasHeals) ScanTargets(BlueprintAbility ability)
+    {
+      bool buffs = false, heals = false;
+      foreach (var runAction in ability.GetComponents<AbilityEffectRunAction>())
+      {
+        if (runAction?.Actions?.Actions != null)
+        {
+          Scan(runAction.Actions.Actions, ref buffs, ref heals);
+        }
       }
       return (buffs, heals);
     }
 
-    /// <summary>
-    /// Reads the buff reference of an apply-buff element without depending
-    /// on a deref property name (the serialized field is m_Buff).
-    /// </summary>
-    private static BlueprintBuff BuffOf(ContextActionApplyBuff applyBuff)
-    {
-      var field = typeof(ContextActionApplyBuff).GetField(
-        "m_Buff", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-      var reference = field?.GetValue(applyBuff) as BlueprintBuffReference;
-      return reference?.Get();
-    }
-
-    private static void Collect(
-      GameAction[] actions, List<ContextActionApplyBuff> buffs, List<ContextActionHealTarget> heals)
+    private static void Scan(GameAction[] actions, ref bool buffs, ref bool heals)
     {
       foreach (var action in actions)
       {
@@ -271,43 +323,242 @@ namespace MissionWOTR.Archetypes
         {
           continue;
         }
-        if (action is ContextActionApplyBuff applyBuff)
+        if (action is ContextActionApplyBuff)
         {
-          buffs.Add(applyBuff);
+          buffs = true;
           continue;
         }
-        if (action is ContextActionHealTarget heal)
+        if (action is ContextActionHealTarget)
         {
-          heals.Add(heal);
+          heals = true;
+          continue;
+        }
+        foreach (var nested in NestedActionLists(action))
+        {
+          Scan(nested, ref buffs, ref heals);
+        }
+      }
+    }
+
+    private static bool HasTargets(GameAction action)
+    {
+      if (action is ContextActionApplyBuff || action is ContextActionHealTarget)
+      {
+        return true;
+      }
+      foreach (var nested in NestedActionLists(action))
+      {
+        foreach (var nestedAction in nested)
+        {
+          if (nestedAction != null && HasTargets(nestedAction))
+          {
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    /// <summary>
+    /// Action lists nested inside an action (fields and GameAction arrays) -
+    /// includes the branches of Conditional gates.
+    /// </summary>
+    private static IEnumerable<GameAction[]> NestedActionLists(GameAction action)
+    {
+      var type = action.GetType();
+      foreach (var field in type.GetFields(
+        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+      {
+        if (field.FieldType == typeof(ActionList))
+        {
+          var list = (ActionList)field.GetValue(action);
+          if (list?.Actions != null && list.Actions.Length > 0)
+          {
+            yield return list.Actions;
+          }
+        }
+        else if (field.FieldType.IsArray &&
+          typeof(GameAction).IsAssignableFrom(field.FieldType.GetElementType()))
+        {
+          var nested = (GameAction[])field.GetValue(action);
+          if (nested != null && nested.Length > 0)
+          {
+            yield return nested;
+          }
+        }
+      }
+    }
+
+    // ------------------------------------------------------------------
+    // Echo construction.
+    // ------------------------------------------------------------------
+
+    /// <summary>
+    /// Appends one echo action to each of the spell's run-action lists that
+    /// carry echoable content. Appending to the EXISTING list (instead of a
+    /// second run-action component) guarantees the echo runs right after the
+    /// spell's own actions.
+    /// </summary>
+    private static void AttachEcho(BlueprintAbility ability, BlueprintFeature fact, ref int clones)
+    {
+      foreach (var runAction in ability.GetComponents<AbilityEffectRunAction>())
+      {
+        if (runAction?.Actions?.Actions is null || runAction.Actions.Actions.Length == 0)
+        {
+          continue;
+        }
+        var echoes = new List<GameAction>();
+        BuildEchoes(runAction.Actions.Actions, echoes, ref clones);
+        if (echoes.Count == 0)
+        {
+          continue;
+        }
+        var echo = new SolipsistEchoAction
+        {
+          Fact = fact,
+          Echoes = new ActionList { Actions = echoes.ToArray() },
+        };
+        var merged = new List<GameAction>(runAction.Actions.Actions) { echo };
+        runAction.Actions = new ActionList { Actions = merged.ToArray() };
+      }
+    }
+
+    /// <summary>
+    /// Builds the echo units for one action list: apply-buff and heal leaves
+    /// are substituted copies; a Conditional gate containing targets is
+    /// deep-copied whole (its conditions re-evaluate at echo time, so the
+    /// correct tier echoes); plain wrappers are flattened into their
+    /// payloads.
+    /// </summary>
+    private static void BuildEchoes(
+      GameAction[] actions, List<GameAction> echoes, ref int clones)
+    {
+      foreach (var action in actions)
+      {
+        if (action is null)
+        {
+          continue;
+        }
+        if (TryEchoLeaf(action, echoes, ref clones))
+        {
           continue;
         }
         if (action.GetType().Name == "Conditional")
         {
-          continue; // gated variants are never doubled blindly
+          if (HasTargets(action))
+          {
+            var copy = CopyDeep(action, ref clones);
+            if (copy != null)
+            {
+              echoes.Add(copy);
+            }
+          }
+          continue;
         }
-        var type = action.GetType();
-        foreach (var field in type.GetFields(
-          BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+        foreach (var nested in NestedActionLists(action))
         {
-          if (field.FieldType == typeof(ActionList))
-          {
-            var nested = (ActionList)field.GetValue(action);
-            if (nested?.Actions != null)
-            {
-              Collect(nested.Actions, buffs, heals);
-            }
-          }
-          else if (field.FieldType.IsArray &&
-            typeof(GameAction).IsAssignableFrom(field.FieldType.GetElementType()))
-          {
-            var nested = (GameAction[])field.GetValue(action);
-            if (nested != null)
-            {
-              Collect(nested, buffs, heals);
-            }
-          }
+          BuildEchoes(nested, echoes, ref clones);
         }
       }
+    }
+
+    private static bool TryEchoLeaf(GameAction action, List<GameAction> echoes, ref int clones)
+    {
+      if (action is ContextActionApplyBuff applyBuff)
+      {
+        var original = BuffOf(applyBuff);
+        if (original != null)
+        {
+          var clone = GetOrCreateEchoClone(original, ref clones);
+          if (clone != null)
+          {
+            echoes.Add(CopyWithBuff(applyBuff, clone));
+          }
+        }
+        return true;
+      }
+      if (action is ContextActionHealTarget heal)
+      {
+        echoes.Add(CopyHeal(heal));
+        return true;
+      }
+      return false;
+    }
+
+    /// <summary>
+    /// Deep copy of an action with buff substitution: apply-buff and heal
+    /// leaves become echo copies; every other action is copied structurally,
+    /// recursing into nested action lists. Shared sub-objects (conditions,
+    /// context values) are referenced, not cloned - they are read-only
+    /// evaluators.
+    /// </summary>
+    private static GameAction CopyDeep(GameAction action, ref int clones)
+    {
+      if (action is ContextActionApplyBuff applyBuff)
+      {
+        var original = BuffOf(applyBuff);
+        if (original is null)
+        {
+          return null;
+        }
+        var clone = GetOrCreateEchoClone(original, ref clones);
+        return clone != null ? CopyWithBuff(applyBuff, clone) : null;
+      }
+      if (action is ContextActionHealTarget heal)
+      {
+        return CopyHeal(heal);
+      }
+
+      var copy = (GameAction)Activator.CreateInstance(action.GetType());
+      var type = action.GetType();
+      foreach (var field in type.GetFields(
+        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance))
+      {
+        if (field.IsInitOnly)
+        {
+          continue;
+        }
+        var value = field.GetValue(action);
+        if (field.FieldType == typeof(ActionList))
+        {
+          var list = (ActionList)value;
+          field.SetValue(
+            copy,
+            list?.Actions == null
+              ? new ActionList()
+              : new ActionList { Actions = CopyDeepAll(list.Actions, ref clones) });
+        }
+        else if (field.FieldType.IsArray &&
+          typeof(GameAction).IsAssignableFrom(field.FieldType.GetElementType()))
+        {
+          var nested = (GameAction[])value;
+          field.SetValue(
+            copy, nested == null ? null : CopyDeepAll(nested, ref clones));
+        }
+        else
+        {
+          field.SetValue(copy, value);
+        }
+      }
+      return copy;
+    }
+
+    private static GameAction[] CopyDeepAll(GameAction[] actions, ref int clones)
+    {
+      var result = new List<GameAction>();
+      foreach (var action in actions)
+      {
+        if (action is null)
+        {
+          continue;
+        }
+        var copy = CopyDeep(action, ref clones);
+        if (copy != null)
+        {
+          result.Add(copy);
+        }
+      }
+      return result.ToArray();
     }
 
     // ------------------------------------------------------------------
@@ -379,6 +630,18 @@ namespace MissionWOTR.Archetypes
           }
         }
       }
+    }
+
+    /// <summary>
+    /// Reads the buff reference of an apply-buff element without depending
+    /// on a deref property name (the serialized field is m_Buff).
+    /// </summary>
+    private static BlueprintBuff BuffOf(ContextActionApplyBuff applyBuff)
+    {
+      var field = typeof(ContextActionApplyBuff).GetField(
+        "m_Buff", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+      var reference = field?.GetValue(applyBuff) as BlueprintBuffReference;
+      return reference?.Get();
     }
 
     private static ContextActionApplyBuff CopyWithBuff(
@@ -478,6 +741,38 @@ namespace MissionWOTR.Archetypes
     public string GetAbilityTargetRestrictionUIText(UnitEntityData caster, TargetWrapper target)
     {
       return "Solipsist: can only target himself with this spell";
+    }
+  }
+
+  /// <summary>
+  /// The communal denial: ground-aimed ally blessings (Bless Communal, Resist
+  /// Energy Communal and their whole family) are simply uncastable for the
+  /// solipsist - his gifts bend inward, and a congregation of one has no use
+  /// for the wide versions. Inert for every caster without the Solipsism
+  /// fact, so other classes are untouched.
+  /// </summary>
+  [TypeId(Guids.SolipsistCommunalBlock)]
+  internal class SolipsistCommunalBlock : BlueprintComponent, IAbilityCasterRestriction
+  {
+    public BlueprintFeature Fact;
+
+    public bool IsCasterRestrictionPassed(UnitEntityData caster)
+    {
+      try
+      {
+        // Everyone except the solipsist casts communal spells normally.
+        return Fact is null || caster is null || !caster.HasFact(Fact);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[solipsist] caster check failed.", e);
+        return true;
+      }
+    }
+
+    public string GetAbilityCasterRestrictionUIText()
+    {
+      return "Solipsist: a congregation of one has no communal blessings";
     }
   }
 
