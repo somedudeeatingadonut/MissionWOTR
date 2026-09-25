@@ -302,7 +302,7 @@ namespace MissionWOTR.Archetypes
         {
           return; // no form, nothing to hold
         }
-        foreach (var buff in Owner.Buffs.ToArray())
+        foreach (var buff in Owner.Buffs.Cast<Buff>().ToArray())
         {
           if (buff?.Blueprint == null || !IsPolymorphBuff(buff))
           {
