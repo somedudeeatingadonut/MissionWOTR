@@ -237,7 +237,7 @@ namespace MissionWOTR.Archetypes
     public BlueprintBuff First;
     public BlueprintBuff Second;
 
-    public override void OnActivate()
+    protected override void OnActivate()
     {
       try
       {
