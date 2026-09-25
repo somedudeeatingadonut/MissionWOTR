@@ -884,7 +884,7 @@ namespace MissionWOTR.Archetypes
     {
     }
 
-    public override void OnTurnOn()
+    protected override void OnTurnOn()
     {
       if (HitPoints != 0)
       {
@@ -893,7 +893,7 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    public override void OnTurnOff()
+    protected override void OnTurnOff()
     {
       Owner.Stats.HitPoints.RemoveModifiersFrom(Runtime);
     }
