@@ -302,7 +302,14 @@ namespace MissionWOTR.Archetypes
         {
           return; // no form, nothing to hold
         }
-        foreach (var buff in Owner.Buffs.Cast<Buff>().ToArray())
+        // BuffCollection exposes a typed GetEnumerator but no IEnumerable,
+        // so the snapshot is taken by hand (the loop removes and adds buffs).
+        var forms = new List<Buff>();
+        foreach (var current in Owner.Buffs)
+        {
+          forms.Add(current);
+        }
+        foreach (var buff in forms)
         {
           if (buff?.Blueprint == null || !IsPolymorphBuff(buff))
           {
