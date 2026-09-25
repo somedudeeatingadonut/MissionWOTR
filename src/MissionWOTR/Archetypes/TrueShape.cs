@@ -219,9 +219,9 @@ namespace MissionWOTR.Archetypes
     /// </summary>
     private static readonly (
       string Family,
-      Blueprint<BlueprintAbilityReference> Base,
-      Blueprint<BlueprintAbilityReference> Tier8,
-      Blueprint<BlueprintAbilityReference> Tier15)[] MenagerieTable =
+      Blueprint<BlueprintReference<BlueprintAbility>> Base,
+      Blueprint<BlueprintReference<BlueprintAbility>> Tier8,
+      Blueprint<BlueprintReference<BlueprintAbility>> Tier15)[] MenagerieTable =
     {
       ("Bear", AbilityRefs.ShifterWildShapeBearAbillity,
         AbilityRefs.ShifterWildShapeBearAbillity8, AbilityRefs.ShifterWildShapeBearAbillity15),
