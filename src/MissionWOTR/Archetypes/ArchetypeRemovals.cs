@@ -96,6 +96,35 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// Removes a feature at ONE specific level only - for selections the
+    /// progression grants at many levels (e.g. the fighter's bonus feat at
+    /// 1st and every even level), where AddRemovals would remove them all.
+    /// The feature must actually appear at that level in the live
+    /// progression, otherwise the removal is skipped with a warning.
+    /// </summary>
+    internal static ArchetypeConfigurator RemoveAtLevel(
+      ArchetypeConfigurator archetype,
+      BlueprintProgression progression,
+      int level,
+      params string[] featureNames)
+    {
+      foreach (var featureName in featureNames)
+      {
+        var match = FindFeature(progression, featureName);
+        if (match is null || match.Value.Level != level)
+        {
+          MissionWOTR.Main.Logger.Warn(
+            $"[removals] {featureName} not found at level {level} - removal skipped.");
+          continue;
+        }
+        archetype = archetype.AddToRemoveFeatures(level, match.Value.Feature);
+        MissionWOTR.Main.Logger.Info(
+          $"[removals] {featureName} removed at level {level} only.");
+      }
+      return archetype;
+    }
+
+    /// <summary>
     /// First level at which any of the named features appears in the
     /// progression (asset name or guid, dashed or not); 1 if none match -
     /// callers use it to place replacement features at the traded level.

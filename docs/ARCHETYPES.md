@@ -186,6 +186,35 @@ runs out of road), so the user commissioned scaling riders:
   AddBonusCasterLevel (the darkcodex AddCasterLevelParametrized pattern),
   gated on the spell coming from his own druid spellbook.
 
+## 0.9.0 — the fighter trio
+
+Three archetypes this round (user request: two tabletop ports - one of them
+his first-ever TTRPG archetype - plus one deliberately simple homebrew).
+Coverage: vanilla WOTR ships Aldori Defender, Armor Master, Mutation
+Warrior, Trench Fighter, Two-Handed Fighter, Tower Shield Specialist and
+Weapon Master; HomebrewArchetypes adds Berserker, Blackguard, Bruiser,
+CavernSniper, Deathbringer and Viking. All three picks are free:
+
+1. **Polearm Master** (faithful port, APG - the user's first TTRPG
+   archetype): trades bravery, ALL armor training, ALL weapon training and
+   armor mastery for pure polearm craft - close-quarters pole fighting,
+   scaling AoO bonuses (the vanilla AttackOfOpportunityAttackBonus
+   component), scaling polearm attack/damage, flanking wherever an ally
+   threatens the target, Improved Trip + Improved Bull Rush, footwork AC,
+   and a 19th-level parry guard that shields and blunts damage for nearby
+   allies.
+2. **Strategic Soldier** (faithful port, Orphaned Bookworm Productions'
+   "Breath of Life: The Marshal"): the teamwork fighter - flanks from any
+   position, sidesteps, takes hits meant for allies (the vanilla Bodyguard
+   + In Harm's Way engine), guards adjacent allies, a reckless strike
+   toggle (+5 attack/damage for -5 AC), a full-round knock-off-kilter that
+   turns the target into a piñata for threatening allies, and a
+   once-per-round punishing AoO when an enemy wounds an ally. Trades the
+   1st-level bonus feat, all bravery, all armor training and armor mastery.
+3. **Exoticist** (homebrew, user design - "really simple"): proficient with
+   every exotic weapon in the game, and his weapon training is replaced by
+   scaling attack/damage with exotic weapons only (+1 at 5th, +4 at 17th).
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -580,6 +609,80 @@ As commissioned:
   from the cloned list by name. Vanilla WOTR has no detect magic cantrip, so
   on an unmodded game the filter is dormant - it exists so the trade holds
   under any spell-adding mod.
+
+## Fighter
+
+### Faithful port — Polearm Master (Advanced Player's Guide) — IMPLEMENTED (0.9.0)
+
+| Level | Polearm Master grants | Fighter normally grants |
+|---|---|---|
+| 2 | Pole Fighting (close-quarters polearm bonus, +1→+5) | Bravery (all instances) |
+| 3 | Steadfast Pike (AoO bonus, +1→+5) | Armor Training 1-4 (all four) |
+| 5 | Polearm Training (+1→+4 at/dmg with polearms) | Weapon Training 1-4 (all four) |
+| 9 | Flexible Flanker (+2 when an ally threatens the target) | — |
+| 13 | Sweeping Fend (Improved Trip + Improved Bull Rush) | — |
+| 17 | Step Aside (+2 dodge AC with polearm) | — |
+| 19 | Polearm Parry (+2 shield AC and DR 5 for allies within 10 ft) | Armor Mastery |
+
+Adaptations (tabletop → WOTR): no grip-shortening exists, so Pole Fighting
+becomes a growing bonus on polearm attacks against adjacent enemies (the
+inverse of the shrinking penalty); Steadfast Pike's readied-attack half has
+no WOTR analogue and the AoO half is carried whole by the vanilla
+AttackOfOpportunityAttackBonus component (applies to all AoOs, not just
+polearm ones - documented broadening); Flexible Flanker's chosen-square
+flanking becomes +2 whenever any ally threatens the target (the shared
+AllyFlankerBonus component); Sweeping Fend's weapon-feature trip and -4 bull
+rush become Improved Trip + Improved Bull Rush (WOTR maneuvers need no
+weapon features); Step Aside's reactive 5-foot step (no 5-foot-step
+reactions in the engine - established in the Carousel/True Shape work)
+becomes constant footwork (+2 dodge AC); Polearm Parry's immediate action
+becomes an always-on guard for allies within 10 feet (+2 shield AC vs
+attackers in his reach, DR 5 from them - global rulebook handlers, the
+GoldenLegionnaire pattern). The 20th-level weapon mastery's polearm-only
+restriction is not enforced (the vanilla selection already allows polearms).
+
+### Faithful port — Strategic Soldier (Orphaned Bookworm Productions) — IMPLEMENTED (0.9.0)
+
+| Level | Strategic Soldier grants | Fighter normally grants |
+|---|---|---|
+| 1 | Flanker (+2 when an ally threatens the target) | the 1st-level bonus combat feat |
+| 2 | Sidestep → Mobility | Bravery (all instances) |
+| 3 | Interpose → Bodyguard + In Harm's Way | Armor Training 1 |
+| 7 | Defending Allies (+2 dodge AC to allies within 5 ft) | Armor Training 2 |
+| 11 | Reckless Strike (swift toggle: +5 at/dmg, -5 AC, 1 round) | Armor Training 3 |
+| 15 | Knock Off-kilter (full-round strike; threatening allies pile on) | Armor Training 4 |
+| 19 | Punishing Strike (AoO vs ally-wounders, once/round, spends an AoO) | Armor Mastery |
+
+Adaptations: Sidestep does not exist in WOTR (and the engine has no
+5-foot-step reactions) - the vanilla Mobility feat carries the
+evade-through-threatened-squares role; Interpose's X/day damage-taking is
+carried by the vanilla Bodyguard + In Harm's Way package (unlimited, but it
+occupies his reaction - the Sister-in-Arms Devoted Defender recipe);
+Defending Allies' fighting-defensively condition has no engine hook, so the
++2 dodge AC for allies within 5 feet is constant; Reckless Strike's "every
+hit on him is a critical threat" is averaged into a -5 AC penalty for the
+round; Knock Off-kilter is realized as a standard-action strike where the
+soldier and every threatening ally immediately attack (the Act as One
+ForceAttackOfOpportunity recipe), size-restricted via a custom target
+restriction; Vital Strike interplay is not implemented; Punishing Strike
+consumes an attack of opportunity (the ttt AoO-budget pattern) and is
+once-per-round.
+
+### Homebrew — Exoticist (user design: the exotic-weapon specialist) — IMPLEMENTED (0.9.0)
+
+| Level | Exoticist grants | Fighter normally grants |
+|---|---|---|
+| 1 | Exotic Arsenal (proficiency with every exotic weapon) | — |
+| 5 | Exotic Training (+1→+4 at/dmg with exotic weapons) | Weapon Training 1-4 |
+
+Deliberately simple, per the commission: one broad door (all exotic
+proficiencies open at 1st via the vanilla AddProficiencies component) and
+one narrow specialization (scaling attack/damage with exotic weapons only -
+the shared WeaponSpecialistBonus component, the same engine as the Polearm
+Master's training). Bravery and armor training stay. The exotic category
+list covers every exotic weapon category in the game's enum; mod-added
+weapons that reuse vanilla categories are covered, exotic categories
+invented by other mods are not.
 
 ## Level plan per class (test-mode rule)
 
