@@ -12,6 +12,7 @@ using Kingmaker.Controllers.Units;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs;
@@ -61,6 +62,20 @@ namespace MissionWOTR.Archetypes
   /// inside the beast, which the magic-less shifter cannot do at all.
   /// Permanence + fluidity + bestial casting + worn armor: a shape worn as a
   /// garment, not a shape borrowed for a fight.
+  ///
+  /// Bestial casting, scaled to stay useful (user design: "still get
+  /// additional spell casts every other level, as well as increased caster
+  /// level specifically when wildshaped, up to a significantly higher amount,
+  /// more than any other class would normally get"):
+  /// - Growing castings: the cloned spellbook carries a CLONED slot table
+  ///   (the pplus ConstructRider diminished-slots pattern, inverted) - the
+  ///   1st-4th level slot counts gain +1 at every odd class level from 5th
+  ///   (cumulative +8 per spell level by 19th-20th).
+  /// - Primal caster level: while polymorphed, his druid spells cast at
+  ///   caster level +1 per 2 druid levels (+10 at 20th - effective CL 30,
+  ///   beyond any mortal caster) via RuleCalculateAbilityParams
+  ///   AddBonusCasterLevel (the darkcodex AddCasterLevelParametrized
+  ///   pattern), gated on the spell coming from his own druid spellbook.
   ///
   /// Engine notes:
   /// - The reduced spellbook is a clone of the druid book (the Sanguine Font
@@ -129,6 +144,46 @@ namespace MissionWOTR.Archetypes
       }
       trimmedList.SpellsByLevel = trimmed;
       var book = CloneSpellbook(druidBook, trimmedList, "TrueShapeSpellbook", Guids.TrueShapeSpellbook);
+      // Growing castings: clone the druid's slot table and let the 1st-4th
+      // level counts keep swelling - +1 more at every odd class level from
+      // 5th (cumulative +8 per spell level by 19th-20th). The weak spells,
+      // endlessly repeated, are the archetype's late-game engine.
+      var sourceTable = ReadSpellsTable(druidBook);
+      if (sourceTable?.Levels != null)
+      {
+        var entries = sourceTable.Levels.Select((entry, index) =>
+        {
+          var count = entry.Count.Select(c => c).ToArray();
+          if (index >= 1 && index <= 4)
+          {
+            for (int cl = 5; cl <= count.Length; cl++)
+            {
+              count[cl - 1] += (cl - 3) / 2; // +1 at 5,7,...,19
+            }
+          }
+          return new SpellsLevelEntry { Count = count };
+        }).ToArray();
+        var table = BlueprintCore.Blueprints.Configurators.Classes.Spells.SpellsTableConfigurator
+          .New("TrueShapeSpellsPerDay", Guids.TrueShapeSpellsPerDay)
+          .SetLevels(entries)
+          .Configure();
+        var tableField = typeof(BlueprintSpellbook).GetField(
+          "m_SpellsPerDay",
+          System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+          System.Reflection.BindingFlags.Instance);
+        if (tableField != null)
+        {
+          tableField.SetValue(book, table.ToReference<BlueprintSpellsTableReference>());
+        }
+        else
+        {
+          MissionFeats.Logger.Warn("[trueshape] spells-per-day field not found - slot growth NOT applied!");
+        }
+      }
+      else
+      {
+        MissionFeats.Logger.Warn("[trueshape] druid slot table unavailable - slot growth NOT applied!");
+      }
 
       // ----- Beast Soul (the permanence toggle) -----
       var soulBuff = BuffConfigurator.New(SoulName + "Buff", Guids.TrueShapeBeastSoulBuff)
@@ -188,6 +243,7 @@ namespace MissionWOTR.Archetypes
         .AddFacts(new() { soulToggle, FeatureRefs.NaturalSpell.Reference.Get() })
         .AddComponent(new TrueShapeMaintenance { SoulBuff = soulBuff })
         .AddComponent(new TrueShapeAttunement())
+        .AddComponent(new TrueShapeBeastCaster { Book = book, DruidClass = druid })
         .Configure();
 
       // ----- Archetype -----
@@ -299,6 +355,17 @@ namespace MissionWOTR.Archetypes
         bytes[i] ^= FormMask[i];
       }
       return new Guid(bytes).ToString("D").ToUpperInvariant();
+    }
+
+    /// <summary>The slot table a spellbook actually uses (m_SpellsPerDay
+    /// dereferenced - never assume a ref name matches the book).</summary>
+    private static BlueprintSpellsTable ReadSpellsTable(BlueprintSpellbook book)
+    {
+      var field = typeof(BlueprintSpellbook).GetField(
+        "m_SpellsPerDay",
+        System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+        System.Reflection.BindingFlags.Instance);
+      return (field?.GetValue(book) as BlueprintSpellsTableReference)?.Get();
     }
 
     /// <summary>Clone of a spellbook with a swapped-in spell list (the
@@ -547,6 +614,51 @@ namespace MissionWOTR.Archetypes
       var field = type.GetField(
         name, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
       return field?.GetValue(target);
+    }
+  }
+
+  /// <summary>
+  /// Primal caster level: while polymorphed, the druid's spells from his own
+  /// (reduced) spellbook cast at caster level +1 per 2 druid levels - +10 at
+  /// 20th, an effective caster level of 30, beyond any mortal caster. The
+  /// bonus is untyped and applies only to spells drawn from his own druid
+  /// spellbook (the darkcodex AddCasterLevelParametrized pattern).
+  /// </summary>
+  [TypeId(Guids.TrueShapeBeastCaster)]
+  internal class TrueShapeBeastCaster : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleCalculateAbilityParams>,
+    IRulebookHandler<RuleCalculateAbilityParams>, ISubscriber, IInitiatorRulebookSubscriber
+  {
+    public BlueprintSpellbook Book;
+    public BlueprintCharacterClass DruidClass;
+
+    public void OnEventAboutToTrigger(RuleCalculateAbilityParams evt)
+    {
+      try
+      {
+        if (Book is null || evt.Spellbook?.Blueprint != Book)
+        {
+          return; // only his own druid spells
+        }
+        if (!Owner.Body.IsPolymorphed)
+        {
+          return; // only while shaped
+        }
+        int level = Owner.Progression.GetClassLevel(DruidClass);
+        int bonus = level / 2;
+        if (bonus > 0)
+        {
+          evt.AddBonusCasterLevel(bonus, ModifierDescriptor.UntypedStackable);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[trueshape] beast caster failed.", e);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleCalculateAbilityParams evt)
+    {
     }
   }
 }

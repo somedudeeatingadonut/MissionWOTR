@@ -2473,7 +2473,7 @@
   {
     "Key": "TrueShape.Description",
     "ProcessTemplates": false,
-    "enGB": "Other druids borrow their shapes. The true shape druid moves in. His form does not lapse while his beast soul burns - replenished moment to moment until he wills it away - and changing it costs him nothing at all: tiger to spider to bear between one heartbeat and the next, a garment donned and shed at will. And he is no mere beast wearing a man's tricks: he casts his spells from inside the shape, armor and shield still on his back. The price is paid in magic: his spellcasting stops at 4th-level spells, and detect magic is lost to him altogether. The wild does not lend its power to those who only visit."
+    "enGB": "Other druids borrow their shapes. The true shape druid moves in. His form does not lapse while his beast soul burns - replenished moment to moment until he wills it away - and changing it costs him nothing at all: tiger to spider to bear between one heartbeat and the next, a garment donned and shed at will. He casts his spells from inside the shape, armor and shield still on his back - and the beast lends its might to his magic: while shaped, his spells leave him at a caster level no mortal caster could match. His castings, too, keep growing long after the spells themselves stop. The price is paid in magic: his spellcasting stops at 4th-level spells, and detect magic is lost to him altogether. The wild does not lend its power to those who only visit."
   },
   {
     "Key": "TrueShapeFeature.Name",
@@ -2483,7 +2483,7 @@
   {
     "Key": "TrueShapeFeature.Description",
     "ProcessTemplates": false,
-    "enGB": "While his Beast Soul is lit, the true shape druid's form does not lapse: every few moments his current shape is replenished before it can fade, and it holds until he sheds it willingly. Changing shape costs him no action at all. He also casts his druid spells while in any form (as Natural Spell), and his worn armor and shield keep protecting him in beast shape (their full armor class, live from his equipment)."
+    "enGB": "While his Beast Soul is lit, the true shape druid's form does not lapse: every few moments his current shape is replenished before it can fade, and it holds until he sheds it willingly. Changing shape costs him no action at all, he casts his druid spells while in any form (as Natural Spell), and his worn armor and shield keep protecting him in beast shape (their full armor class, live from his equipment). His castings of 1st-4th level spells grow by one at every odd level from 5th (+8 each by 19th), and while shaped his spells cast at caster level +1 per 2 druid levels - up to +10, an effective caster level of 30 at 20th, beyond any mortal spellcaster."
   },
   {
     "Key": "TrueShapeBeastSoul.Name",

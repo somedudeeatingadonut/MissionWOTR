@@ -171,6 +171,21 @@ simply a name-match safety net):
 - Identity summary: permanence + free-form fluidity + bestial casting + worn
   armor - a shape worn as a garment, not a shape borrowed for a fight.
 
+## 0.8.2 — Bestial Casting scaled (user design)
+
+Bestial casting alone would fade past the mid-levels (a 4th-level-capped list
+runs out of road), so the user commissioned scaling riders:
+
+- **Growing castings**: the cloned spellbook carries a cloned slot table (the
+  pplus ConstructRider diminished-slots pattern, inverted) - 1st-4th level
+  slot counts gain +1 at every odd class level from 5th, cumulative +8 per
+  spell level by 19th-20th.
+- **Primal caster level**: while polymorphed, his druid spells cast at
+  caster level +1 per 2 druid levels - +10 at 20th, an effective CL of 30,
+  beyond any mortal caster - via RuleCalculateAbilityParams
+  AddBonusCasterLevel (the darkcodex AddCasterLevelParametrized pattern),
+  gated on the spell coming from his own druid spellbook.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -547,7 +562,11 @@ As commissioned:
   source ability's guid (XOR a fixed mask), so they are save-stable.
 - **Bestial casting**: Natural Spell is built in - the druid casts his
   reduced spell list from inside any form (0.8.1, the anti-shifter identity:
-  the shifter has no magic at all).
+  the shifter has no magic at all). Scaled in 0.8.2 so it carries to 20th:
+  1st-4th level castings grow +1 at every odd level from 5th (a cloned slot
+  table, +8 per spell level by 19th), and while shaped his spells cast at
+  caster level +1 per 2 druid levels (effective CL 30 at 20th - more than any
+  other class would normally get, because the spells themselves are so weak).
 - Stats from equipment: while polymorphed, the worn armor and shield keep
   their full AC (read live from the equipment by reflection, applied as an
   Armor-descriptor modifier on RuleCalculateAC - recomputed every attack, so

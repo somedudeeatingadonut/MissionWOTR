@@ -594,6 +594,8 @@ namespace MissionWOTR
     internal const string TrueShapeMenagerie15 = "18715568-163A-41D6-BCBF-54BFACF62C22";
     internal const string TrueShapeMaintenance = "EC39C071-FCDF-46F2-A466-B47F0D7E23FE";
     internal const string TrueShapeAttunement = "EE6EE4B8-01C0-4EA1-9B8C-6DCA012845D5";
+    internal const string TrueShapeSpellsPerDay = "6F20240D-F215-4A7B-867F-A8AFB8F3BE02";
+    internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
   }
 }
