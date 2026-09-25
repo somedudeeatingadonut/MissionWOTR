@@ -43,7 +43,6 @@ namespace MissionWOTR.Archetypes
       WeaponCategory.Fauchard,
       WeaponCategory.TwoBladedSword,
       WeaponCategory.DwarvenUrgrosh,
-      WeaponCategory.GnomeHookedHammer,
       WeaponCategory.HeavyRepeatingCrossbow,
       WeaponCategory.LightRepeatingCrossbow,
       WeaponCategory.Shuriken,

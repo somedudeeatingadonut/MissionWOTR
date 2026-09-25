@@ -2,6 +2,7 @@ using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
+using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
@@ -13,6 +14,7 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
@@ -21,6 +23,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;
+using System.Linq;
 
 namespace MissionWOTR.Archetypes
 {
@@ -393,7 +396,7 @@ namespace MissionWOTR.Archetypes
   /// strike consumes).
   /// </summary>
   [TypeId(Guids.StrategicPunishingComponent)]
-  internal class StrategicPunishingStrike : UnitFactComponentDelegate<StrategicPunishingStrike.Data>,
+  internal class StrategicPunishingStrike : UnitFactComponentDelegate<StrategicPunishingStrike.ComponentData>,
     IGlobalRulebookHandler<RulePrepareDamage>, IRulebookHandler<RulePrepareDamage>,
     ISubscriber, IGlobalRulebookSubscriber
   {
@@ -433,7 +436,7 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    public class Data
+    public class ComponentData
     {
       public TimeSpan LastUse;
     }
