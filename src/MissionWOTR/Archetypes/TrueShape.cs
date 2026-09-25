@@ -1,8 +1,10 @@
 using BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
@@ -13,6 +15,8 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Commands;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;
@@ -46,6 +50,16 @@ namespace MissionWOTR.Archetypes
   /// - The cost: spellcasting is cut significantly - the spellbook stops at
   ///   4th-level spells - and detect magic is lost outright (any spell whose
   ///   name matches is filtered from the cloned list).
+  ///
+  /// Differentiation from the shifter class (user feedback: "it functions
+  /// quite similarly"): the menagerie does NOT grant the shifter's own
+  /// abilities - every form is a CLONE recast as a FREE action (the shifter
+  /// pays action economy to change shape; the true shape druid flows between
+  /// forms mid-fight at no cost, and the shifter class itself is untouched),
+  /// and Natural Spell is built in: he casts his reduced spell list from
+  /// inside the beast, which the magic-less shifter cannot do at all.
+  /// Permanence + fluidity + bestial casting + worn armor: a shape worn as a
+  /// garment, not a shape borrowed for a fight.
   ///
   /// Engine notes:
   /// - The reduced spellbook is a clone of the druid book (the Sanguine Font
@@ -102,7 +116,7 @@ namespace MissionWOTR.Archetypes
             continue;
           }
           // Losing detect magic is part of the trade - filtered by name so
-          // mod-added versions (e.g. Call of the Wild) are caught too.
+          // any mod-added version of the spell is caught too.
           if (spell.name != null &&
             spell.name.IndexOf("DetectMagic", StringComparison.OrdinalIgnoreCase) >= 0)
           {
@@ -131,66 +145,37 @@ namespace MissionWOTR.Archetypes
         .SetIsOnByDefault(true)
         .Configure();
 
-      // ----- The Menagerie -----
+      // ----- The Menagerie (free-action clones, not the shifter's own) -----
+      var baseForms = new List<Blueprint<BlueprintUnitFactReference>>();
+      var tier8Forms = new List<Blueprint<BlueprintUnitFactReference>>();
+      var tier15Forms = new List<Blueprint<BlueprintUnitFactReference>>();
+      foreach (var row in MenagerieTable)
+      {
+        baseForms.Add(CloneFormAbility(row.Base.Reference.Get()));
+        tier8Forms.Add(CloneFormAbility(row.Tier8.Reference.Get()));
+        tier15Forms.Add(CloneFormAbility(row.Tier15.Reference.Get()));
+      }
+
       var menagerie = FeatureConfigurator.New(MenagerieName, Guids.TrueShapeMenagerie)
         .SetDisplayName(MenagerieName + ".Name")
         .SetDescription(MenagerieName + ".Description")
         .SetIcon(AbilityRefs.ShifterWildShapeBearAbillity.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddFacts(new()
-        {
-          AbilityRefs.ShifterWildShapeBearAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeBoarAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeDinosaurAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeElephantAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeFeyAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeGriffonAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeManticoreAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeSpiderAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeTigerAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeWolfAbillity.Reference.Get(),
-          AbilityRefs.ShifterWildShapeWolverineAbillity.Reference.Get(),
-        })
+        .AddFacts(baseForms)
         .Configure();
       var menagerie8 = FeatureConfigurator.New(MenagerieName + "8", Guids.TrueShapeMenagerie8)
         .SetDisplayName(MenagerieName + "8.Name")
         .SetDescription(MenagerieName + "8.Description")
         .SetIcon(AbilityRefs.ShifterWildShapeElephantAbillity.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddFacts(new()
-        {
-          AbilityRefs.ShifterWildShapeBearAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeBoarAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeDinosaurAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeElephantAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeFeyAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeGriffonAbillity9.Reference.Get(),
-          AbilityRefs.ShifterWildShapeManticoreAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeSpiderAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeTigerAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeWolfAbillity8.Reference.Get(),
-          AbilityRefs.ShifterWildShapeWolverineAbillity8.Reference.Get(),
-        })
+        .AddFacts(tier8Forms)
         .Configure();
       var menagerie15 = FeatureConfigurator.New(MenagerieName + "15", Guids.TrueShapeMenagerie15)
         .SetDisplayName(MenagerieName + "15.Name")
         .SetDescription(MenagerieName + "15.Description")
         .SetIcon(AbilityRefs.ShifterWildShapeDinosaurAbillity.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddFacts(new()
-        {
-          AbilityRefs.ShifterWildShapeBearAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeBoarAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeDinosaurAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeElephantAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeFeyAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeGriffonAbillity14.Reference.Get(),
-          AbilityRefs.ShifterWildShapeManticoreAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeSpiderAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeTigerAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeWolfAbillity15.Reference.Get(),
-          AbilityRefs.ShifterWildShapeWolverineAbillity15.Reference.Get(),
-        })
+        .AddFacts(tier15Forms)
         .Configure();
 
       // ----- True Shape (permanence + attunement) -----
@@ -199,7 +184,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription(FeatureName + ".Description")
         .SetIcon(tigerIcon)
         .SetIsClassFeature()
-        .AddFacts(new() { soulToggle })
+        .AddFacts(new() { soulToggle, FeatureRefs.NaturalSpell.Reference.Get() })
         .AddComponent(new TrueShapeMaintenance { SoulBuff = soulBuff })
         .AddComponent(new TrueShapeAttunement())
         .Configure();
@@ -224,6 +209,95 @@ namespace MissionWOTR.Archetypes
       archetype.Configure();
 
       MissionFeats.Logger.Info("TrueShape: configured.");
+    }
+
+    /// <summary>
+    /// The menagerie: each family's base form and its stronger tiers, drawn
+    /// from the shifter's arsenal but granted as FREE-action clones (the
+    /// shifter class itself is never touched).
+    /// </summary>
+    private static readonly (
+      string Family,
+      Blueprint<BlueprintAbilityReference> Base,
+      Blueprint<BlueprintAbilityReference> Tier8,
+      Blueprint<BlueprintAbilityReference> Tier15)[] MenagerieTable =
+    {
+      ("Bear", AbilityRefs.ShifterWildShapeBearAbillity,
+        AbilityRefs.ShifterWildShapeBearAbillity8, AbilityRefs.ShifterWildShapeBearAbillity15),
+      ("Boar", AbilityRefs.ShifterWildShapeBoarAbillity,
+        AbilityRefs.ShifterWildShapeBoarAbillity8, AbilityRefs.ShifterWildShapeBoarAbillity15),
+      ("Dinosaur", AbilityRefs.ShifterWildShapeDinosaurAbillity,
+        AbilityRefs.ShifterWildShapeDinosaurAbillity8, AbilityRefs.ShifterWildShapeDinosaurAbillity15),
+      ("Elephant", AbilityRefs.ShifterWildShapeElephantAbillity,
+        AbilityRefs.ShifterWildShapeElephantAbillity8, AbilityRefs.ShifterWildShapeElephantAbillity15),
+      ("Fey", AbilityRefs.ShifterWildShapeFeyAbillity,
+        AbilityRefs.ShifterWildShapeFeyAbillity8, AbilityRefs.ShifterWildShapeFeyAbillity15),
+      ("Griffon", AbilityRefs.ShifterWildShapeGriffonAbillity,
+        AbilityRefs.ShifterWildShapeGriffonAbillity9, AbilityRefs.ShifterWildShapeGriffonAbillity14),
+      ("Manticore", AbilityRefs.ShifterWildShapeManticoreAbillity,
+        AbilityRefs.ShifterWildShapeManticoreAbillity8, AbilityRefs.ShifterWildShapeManticoreAbillity15),
+      ("Spider", AbilityRefs.ShifterWildShapeSpiderAbillity,
+        AbilityRefs.ShifterWildShapeSpiderAbillity8, AbilityRefs.ShifterWildShapeSpiderAbillity15),
+      ("Tiger", AbilityRefs.ShifterWildShapeTigerAbillity,
+        AbilityRefs.ShifterWildShapeTigerAbillity8, AbilityRefs.ShifterWildShapeTigerAbillity15),
+      ("Wolf", AbilityRefs.ShifterWildShapeWolfAbillity,
+        AbilityRefs.ShifterWildShapeWolfAbillity8, AbilityRefs.ShifterWildShapeWolfAbillity15),
+      ("Wolverine", AbilityRefs.ShifterWildShapeWolverineAbillity,
+        AbilityRefs.ShifterWildShapeWolverineAbillity8, AbilityRefs.ShifterWildShapeWolverineAbillity15),
+    };
+
+    /// <summary>Stable XOR mask: source form guid ^ mask = clone guid.</summary>
+    private static readonly byte[] FormMask =
+    {
+      0x1F, 0x6A, 0xC4, 0x0B, 0x93, 0x2E, 0x58, 0xD7,
+      0x41, 0xBC, 0xE6, 0x09, 0x7D, 0xA2, 0x35, 0x8F,
+    };
+
+    /// <summary>
+    /// A form ability cloned from its shifter source with the action cost
+    /// rewritten to FREE: shifting becomes a garment the druid dons and
+    /// sheds at will, mid-fight, at no action cost. Guids derive
+    /// deterministically from the source ability's guid (XOR a fixed mask),
+    /// so the clones are save-stable.
+    /// </summary>
+    private static BlueprintAbility CloneFormAbility(BlueprintAbility source)
+    {
+      var derived = DeriveFormGuid(source.AssetGuid.ToString());
+      BlueprintAbility existing = null;
+      try
+      {
+        existing = BlueprintTool.Get<BlueprintAbility>(derived);
+      }
+      catch (Exception)
+      {
+        // Not created yet - fall through and create it.
+      }
+      if (existing != null)
+      {
+        return existing;
+      }
+      var clone = AbilityConfigurator.New("TrueShape" + source.name, derived)
+        .CopyFrom(source)
+        .SetActionType(UnitCommand.CommandType.Free)
+        .Configure();
+      MissionFeats.Logger.Info(
+        $"[trueshape] form cloned as a free action: {source.name} -> {clone.name}.");
+      return clone;
+    }
+
+    private static string DeriveFormGuid(string guid)
+    {
+      var hex = (guid ?? string.Empty).Replace("-", "").Replace("{", "").Replace("}", "").Trim();
+      var dashed = hex.Length == 32
+        ? $"{hex.Substring(0, 8)}-{hex.Substring(8, 4)}-{hex.Substring(12, 4)}-" +
+          $"{hex.Substring(16, 4)}-{hex.Substring(20, 12)}"
+        : guid;
+      var bytes = Guid.Parse(dashed).ToByteArray();
+      for (int i = 0; i < bytes.Length && i < FormMask.Length; i++)
+      {
+        bytes[i] ^= FormMask[i];
+      }
+      return new Guid(bytes).ToString("D").ToUpperInvariant();
     }
 
     /// <summary>Clone of a spellbook with a swapped-in spell list (the

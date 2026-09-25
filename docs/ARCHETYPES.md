@@ -151,6 +151,26 @@ Halcyon Druid. Both picks below are free:
    flat untyped bonuses — +1 attack at 5th / +2 at 15th, +5 HP at 10th /
    +10 at 20th.
 
+## 0.8.1 — True Shape differentiation (user feedback)
+
+The user called out that True Shape functioned too much like the DLC shifter
+class - rightly: it granted the shifter's own form abilities wholesale.
+Reworked along two axes (plus a correction: an earlier note referenced Call
+of the Wild, which is a Kingmaker mod, not WOTR - the detect-magic filter is
+simply a name-match safety net):
+
+- **Fluid shifting**: every menagerie form is now a CLONE of its shifter
+  source with the action cost rewritten to FREE. The shifter pays action
+  economy to change shape; the true shape druid flows between forms mid-fight
+  at no cost - and the shifter class itself is completely untouched (its
+  blueprints are never modified).
+- **Bestial casting**: Natural Spell is built into the archetype - he casts
+  his (reduced, 4th-level-capped) spell list from inside the beast. The
+  shifter has no magic at all; a spellcasting smilodon is the identity no
+  shifter can copy.
+- Identity summary: permanence + free-form fluidity + bestial casting + worn
+  armor - a shape worn as a garment, not a shape borrowed for a fight.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -518,11 +538,16 @@ As commissioned:
   remaining time runs low - remove-then-add, so exactly one copy ever
   exists. Dropping the form (or toggling off) lets it lapse naturally.
 - More forms for various roles: the vanilla animal wild shape is REPLACED by
-  the shifter's form arsenal - tank (bear, elephant, dinosaur), predator
-  (smilodon, wolf, wolverine, boar), control/utility (spider, fey,
-  manticore, griffon) - each granted whole (model, attacks, specials), with
-  the stronger family tier at 8th and the final tier at 15th. Elemental wild
-  shape is a separate feature family and is kept.
+  an 11-family menagerie - tank (bear, elephant, dinosaur), predator
+  (smilodon, wolf, wolverine, boar), control/utility (spider, fey, manticore,
+  griffon) - each form a complete CLONE of its shifter source (model,
+  attacks, specials) recast as a FREE action, with the stronger family tier
+  at 8th and the final tier at 15th. Elemental wild shape is a separate
+  feature family and is kept. Clone guids derive deterministically from the
+  source ability's guid (XOR a fixed mask), so they are save-stable.
+- **Bestial casting**: Natural Spell is built in - the druid casts his
+  reduced spell list from inside any form (0.8.1, the anti-shifter identity:
+  the shifter has no magic at all).
 - Stats from equipment: while polymorphed, the worn armor and shield keep
   their full AC (read live from the equipment by reflection, applied as an
   Armor-descriptor modifier on RuleCalculateAC - recomputed every attack, so
@@ -533,9 +558,9 @@ As commissioned:
   ReplaceSpellbook, carrying a cloned spell list capped at 4th-level spells.
   Higher-level slots atrophy with the list.
 - Losing detect magic: any spell whose name matches DetectMagic is filtered
-  from the cloned list by name (catches mod-added versions too). Vanilla
-  WOTR has no detect magic cantrip; users running spell-adding mods like
-  Call of the Wild will see it removed.
+  from the cloned list by name. Vanilla WOTR has no detect magic cantrip, so
+  on an unmodded game the filter is dormant - it exists so the trade holds
+  under any spell-adding mod.
 
 ## Level plan per class (test-mode rule)
 
