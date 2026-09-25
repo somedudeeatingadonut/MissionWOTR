@@ -63,6 +63,39 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// Delays features: removes each at the level the live progression
+    /// actually grants it and re-adds the same feature the given number of
+    /// levels later (the "wild shape functions at druid level - 2" style of
+    /// trade). Features not present in the progression are skipped and
+    /// logged.
+    /// </summary>
+    internal static ArchetypeConfigurator DelayFeatures(
+      ArchetypeConfigurator archetype,
+      BlueprintCharacterClass clazz,
+      int byLevels,
+      params string[] featureNames)
+    {
+      var progression = clazz.Progression;
+      foreach (var featureName in featureNames)
+      {
+        var match = FindFeature(progression, featureName);
+        if (match is null)
+        {
+          MissionWOTR.Main.Logger.Warn(
+            $"[removals] {featureName} not found in {clazz.name} progression - delay skipped.");
+          continue;
+        }
+        archetype = archetype
+          .AddToRemoveFeatures(match.Value.Level, match.Value.Feature)
+          .AddToAddFeatures(match.Value.Level + byLevels, match.Value.Feature);
+        MissionWOTR.Main.Logger.Info(
+          $"[removals] {clazz.name}: {featureName} delayed from level " +
+          $"{match.Value.Level} to {match.Value.Level + byLevels}.");
+      }
+      return archetype;
+    }
+
+    /// <summary>
     /// First level at which any of the named features appears in the
     /// progression (asset name or guid, dashed or not); 1 if none match -
     /// callers use it to place replacement features at the traded level.

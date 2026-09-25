@@ -564,6 +564,36 @@ namespace MissionWOTR
     internal const string SolipsistEchoAction = "29D5E92A-C6F6-43E4-88DA-4CCD79CFD0BA";
     internal const string SolipsistMartialDevotion = "2DEA1291-701D-4767-A809-58B75CE5D8F6";
     internal const string SolipsistCommunalBlock = "69B5E5B9-F358-44F4-9DFD-767BB172DA1E";
+    internal const string SolipsistFocusedFaith1 = "55140EEC-5589-43B6-8D4E-32EB131F3300";
+    internal const string SolipsistFocusedFaith2 = "2F4C767F-1122-4956-9D93-1A478E7ABDE1";
+    internal const string SolipsistToughenedFaith1 = "DAA32890-9A5B-4D2A-AF19-B2CE7FB54AA6";
+    internal const string SolipsistToughenedFaith2 = "F54816F8-A3E6-48F8-A79F-97F1B8D500B6";
+    internal const string SolipsistFlatBonus = "5E01102D-396F-4438-8DA9-B9A5E6AF16B7";
+    internal const string LionShamanArchetype = "114A39D3-0477-4356-A712-A2BFE22DB89A";
+    internal const string LionAspectFeature = "F482CB9F-192E-4924-BA13-6F542DD30A94";
+    internal const string LionAspectMovementBuff = "016477E7-1C86-437A-A14F-62E3A1E34287";
+    internal const string LionAspectSensesBuff = "7553C7DA-1D5B-49E0-A5D2-C69574894372";
+    internal const string LionAspectWeaponsBuff = "F4CB12F6-05FE-4889-838D-D00162E56819";
+    internal const string LionAspectMovementActivatable = "2BA21822-3964-4BBD-A6F7-91544652613E";
+    internal const string LionAspectSensesActivatable = "FB743EC2-7993-4942-B770-0ECE5F1685E8";
+    internal const string LionAspectWeaponsActivatable = "AA721911-4C28-406C-9FE4-6A42CA2193FD";
+    internal const string LionFelineForm = "C0B2D281-E3B6-4091-B759-724C5BAEA754";
+    internal const string LionFelineForm8 = "CF55CA78-E1D7-456B-93CA-72F4BEC28BB8";
+    internal const string LionFelineForm15 = "701F9A30-EE03-4D8C-8F4A-3CBA67FF2AF1";
+    internal const string LionTotemicSummons = "AE9ECDC6-7D4D-4A7A-A96A-21E5E5E88AB5";
+    internal const string LionBonusFeatSelection = "98644C98-5173-440A-AB77-6ABD3F859E7F";
+    internal const string LionAspectExclusivity = "4D6F1608-6A8B-442E-8ABD-8D8AE584B358";
+    internal const string TrueShapeArchetype = "35A0BECE-7E8F-4858-BC16-CCC9BE78D8A4";
+    internal const string TrueShapeSpellList = "4DFDCB93-DAEC-49D1-89E1-6EA67E7A3229";
+    internal const string TrueShapeSpellbook = "1BE1107C-E24A-4DFA-911D-38BE8FDCD5C1";
+    internal const string TrueShapeBeastSoulBuff = "3E617512-DDA6-4028-90C0-1B2AEE71AD2C";
+    internal const string TrueShapeBeastSoulActivatable = "DA4CE586-5A5B-427F-83CC-B9C478371F7A";
+    internal const string TrueShapeFeature = "E06F93BB-7A01-46C1-BE03-C5B24EAAAB28";
+    internal const string TrueShapeMenagerie = "C12B5CB7-FB96-438F-8E22-87D09816012A";
+    internal const string TrueShapeMenagerie8 = "E231F64B-8B35-45A5-80A1-7585966AD09E";
+    internal const string TrueShapeMenagerie15 = "18715568-163A-41D6-BCBF-54BFACF62C22";
+    internal const string TrueShapeMaintenance = "EC39C071-FCDF-46F2-A466-B47F0D7E23FE";
+    internal const string TrueShapeAttunement = "EE6EE4B8-01C0-4EA1-9B8C-6DCA012845D5";
 
   }
 }

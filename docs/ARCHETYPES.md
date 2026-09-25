@@ -125,6 +125,32 @@ Both closed:
   instead of a second AbilityEffectRunAction component, so ordering after
   the originals is guaranteed and no multi-component semantics are assumed.
 
+## 0.8.0 — the druid pair (and a Solipsist tune-up)
+
+Coverage note: the user caught that Blight Druid is already a base-game WOTR
+archetype (vanilla also ships Defender of the True World, Drovier, Elemental
+Rampager, Feyspeaker and Herald of the Horn); HomebrewArchetypes adds only
+Halcyon Druid. Both picks below are free:
+
+1. **Lion Shaman** (faithful port, the totemic shaman): feline wild shape
+   EARLY (tiger/smilodon at 4th, greater tiers at 8th/14th) while every other
+   wild shape feature arrives two levels LATER; three toggleable lion aspects
+   (movement / scent / bite); Augment Summoning as Totemic Summons; Dodge /
+   Iron Will / Improved Iron Will / Skill Focus (Acrobatics) bonus feats at
+   9th/13th/17th. Trades: woodland stride, resist nature's lure, venom
+   immunity (stand-ins for the nonexistent trackless step / a thousand
+   faces), delayed wild shape.
+2. **True Shape** (homebrew, user-commissioned: the permanent wild shape): a
+   Beast Soul toggle that replenishes his active form before it can lapse;
+   the vanilla wild shape is REPLACED by an 11-form menagerie (bear, boar,
+   dinosaur, elephant, fey, griffon, manticore, spider, tiger/smilodon, wolf,
+   wolverine) with 8th/15th-tier upgrades; worn armor and shield keep their
+   full AC in beast form. Cost: the spellbook stops at 4th-level spells and
+   detect magic is filtered out by name.
+3. **Solipsist tune-up**: the full BAB table (too coarse) is replaced by
+   flat untyped bonuses — +1 attack at 5th / +2 at 15th, +5 HP at 10th /
+   +10 at 20th.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -391,8 +417,10 @@ deception skill) is granted as the intrigue-flavored stand-in.
 
 | Level | Solipsist grants | Cleric normally grants |
 |---|---|---|
-| 1 | Martial Devotion (full BAB, martial weapons, bonus combat feat) | — |
+| 1 | Martial Devotion (martial weapons, bonus combat feat) | — |
 | 1 (channel's level) | Solipsism | Channel Energy |
+| 5 / 15 | Focused Faith (+1 / +2 flat untyped attack) | — |
+| 10 / 20 | Toughened Faith (+5 / +10 flat untyped hit points) | — |
 
 Solipsism, as commissioned (v2 after user feedback):
 - Every cleric spell that can target an ally can now only target the
@@ -412,13 +440,13 @@ Solipsism, as commissioned (v2 after user feedback):
   aspect) echo too - no lock needed, they are already self-only.
 - Channel energy is removed entirely - a congregation of one has no flock.
 
-Martial Devotion: full (fighter) base attack bonus via the archetype's BAB
-table, martial weapon proficiency, and one bonus combat feat (the vanilla
-FighterFeatSelection, granted the way the vanilla Crusader grants its bonus
-feats). Note: the engine only offers low/medium/full BAB tables - "slightly
-higher than the cleric's 3/4" necessarily lands on the fighter's full
-progression; if that proves too strong in play, the fallback is medium BAB
-plus a scaling untyped attack rider.
+Martial Devotion: martial weapon proficiency and one bonus combat feat (the
+vanilla FighterFeatSelection, granted the way the vanilla Crusader grants
+its bonus feats). The 0.7.1 full-BAB table was replaced in 0.8.0 (per user
+feedback) with flat untyped bonuses: Focused Faith (+1 attack at 5th, +2 at
+15th, via a RuleCalculateAttackBonus handler - the darkcodex AddAttackBonus
+pattern) and Toughened Faith (+5 HP at 10th, +10 at 20th, HitPoints stat
+modifiers - the pplus ShadowDancerSpawn pattern).
 
 Engine notes: the lock is a custom `IAbilityTargetRestriction` and the
 communal denial a custom `IAbilityCasterRestriction`, both added to the
@@ -436,6 +464,78 @@ fixed mask), so they are save-stable. Domain spells are not part of the
 scanned list; harmful point-target spells (selective fireballs etc.) are
 untouched. The log lists every converted spell at load (`[solipsist]`
 prefix), including each denied communal and each created echo buff.
+
+## Druid
+
+### Faithful port — Lion Shaman (totemic shaman) — IMPLEMENTED (0.8.0)
+
+| Level | Lion Shaman grants | Druid normally grants |
+|---|---|---|
+| 2 | Totem Transformation (three aspects) | Woodland Stride |
+| 4 | Feline Wild Shape (tiger/smilodon) | — (wild shape begins) |
+| 5 | Totemic Summons (Augment Summoning) | Resist Nature's Lure |
+| 6 | (wild shape re-added, 2 levels late) | Wild Shape |
+| 8 / 14 | Greater/fiercest feline tiers | — |
+| 9 / 13 / 17 | Shaman's Feats (Dodge, Iron Will, Improved Iron Will, Skill Focus (Acrobatics)) | Venom Immunity (9th) |
+
+Trades (all real removals/delays against the live progression, matched by
+guid): DruidWoodlandStride, ResistNaturesLure, VenomImmunity removed;
+DruidWildShape and the elemental wild shape features delayed two levels each
+(ArchetypeRemovals.DelayFeatures - remove at the live level, re-add at +2).
+
+Adaptations (tabletop → WOTR):
+- Trackless step and a thousand faces do not exist in WOTR; the 2nd and 5th
+  level trades map onto woodland stride and resist nature's lure.
+- Totem Transformation's minutes-per-day pool simplifies to three toggleable
+  aspects (the Untouchable Rager control-toggle pattern), mutually exclusive
+  via a buff component that sheds the other aspects on activation. Senses =
+  the vanilla scent feature; natural weapons = the vanilla Animal Fury bite.
+- Wild shape "-2 levels, +2 for felines": the vanilla animal + elemental
+  shape features are delayed two levels, while the feline (smilodon) family
+  arrives two levels EARLY via the shifter's tiger form abilities, granted
+  whole with their 8th/14th tier variants (cross-class form granting, the
+  Feral Champion pattern).
+- Totemic Summons: WOTR summons are already standard action and the engine
+  exposes no summon hook for the feline temp-HP rider - the feature grants
+  vanilla Augment Summoning instead (a real, always-on summon upgrade).
+- Bonus feats: Lunge was not found among the game's blueprints; the list is
+  Dodge, Iron Will, Improved Iron Will, Skill Focus (Acrobatics).
+- Nature bond's domain restriction and the feline wild-empathy bonus are not
+  ported (the vanilla features stay).
+
+### Homebrew — True Shape (user design: the permanent wild shape) — IMPLEMENTED (0.8.0)
+
+| Level | True Shape grants | Druid normally grants |
+|---|---|---|
+| 1 | True Shape (permanence + attunement), The Menagerie (11 forms) | Wild Shape (4th) |
+| 8 | Greater Menagerie (tier-8 forms) | — |
+| 15 | Master Menagerie (tier-15 forms) | — |
+| — | Spellbook capped at 4th-level spells, detect magic filtered | full druid spellcasting |
+
+As commissioned:
+- Permanence: while the Beast Soul toggle is on (default on), every
+  polymorph buff on the druid is replenished with a long duration when its
+  remaining time runs low - remove-then-add, so exactly one copy ever
+  exists. Dropping the form (or toggling off) lets it lapse naturally.
+- More forms for various roles: the vanilla animal wild shape is REPLACED by
+  the shifter's form arsenal - tank (bear, elephant, dinosaur), predator
+  (smilodon, wolf, wolverine, boar), control/utility (spider, fey,
+  manticore, griffon) - each granted whole (model, attacks, specials), with
+  the stronger family tier at 8th and the final tier at 15th. Elemental wild
+  shape is a separate feature family and is kept.
+- Stats from equipment: while polymorphed, the worn armor and shield keep
+  their full AC (read live from the equipment by reflection, applied as an
+  Armor-descriptor modifier on RuleCalculateAC - recomputed every attack, so
+  gear swaps apply immediately). Rings, cloaks and belts already keep
+  working under WOTR polymorph, so armor is the gap this closes.
+- Significantly less spellcasting: a cloned druid spellbook (the Sanguine
+  Font reflection-copy pattern) attached via the archetype's
+  ReplaceSpellbook, carrying a cloned spell list capped at 4th-level spells.
+  Higher-level slots atrophy with the list.
+- Losing detect magic: any spell whose name matches DetectMagic is filtered
+  from the cloned list by name (catches mod-added versions too). Vanilla
+  WOTR has no detect magic cantrip; users running spell-adding mods like
+  Call of the Wild will see it removed.
 
 ## Level plan per class (test-mode rule)
 

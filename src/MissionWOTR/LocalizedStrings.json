@@ -2343,7 +2343,7 @@
   {
     "Key": "Solipsist.Description",
     "ProcessTemplates": false,
-    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul, the communal versions of such spells are closed to him entirely, and the channel of holy energy is denied him - there is no flock to heal. What he keeps is intensity. Each spell he casts upon himself settles twice: the blessing itself, and beneath it an untyped echo of the same blessing that stacks with the original, with potions, with another cleric's work, and with everything else. Even his personal battle-blessings - divine power, righteous might - echo. And a church of one must be its own church militant: he fights with a fighter's attack progression, martial weapons, and a bonus combat feat. A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
+    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul, the communal versions of such spells are closed to him entirely, and the channel of holy energy is denied him - there is no flock to heal. What he keeps is intensity. Each spell he casts upon himself settles twice: the blessing itself, and beneath it an untyped echo of the same blessing that stacks with the original, with potions, with another cleric's work, and with everything else. Even his personal battle-blessings - divine power, righteous might - echo. A church of one must be its own church militant: he trains with martial weapons, takes a bonus combat feat, and his self-reliance hardens over time into a keener eye (+1 to attack at 5th, +2 at 15th) and a tougher body (+5 hit points at 10th, +10 at 20th). A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
   },
   {
     "Key": "SolipsistSolipsism.Name",
@@ -2363,6 +2363,166 @@
   {
     "Key": "SolipsistMartialDevotion.Description",
     "ProcessTemplates": false,
-    "enGB": "A congregation of one must be its own church militant. The solipsist trains with a fighter's discipline: his base attack bonus from cleric levels follows the fighter's progression, he is proficient with all martial weapons, and he gains one bonus combat feat chosen from the fighter's list. What he cannot receive from others, he must be able to do himself."
+    "enGB": "A congregation of one must be its own church militant. The solipsist trains with martial weapons and gains one bonus combat feat chosen from the fighter's list. What he cannot receive from others, he must be able to do himself."
+  },
+  {
+    "Key": "SolipsistFocusedFaith.Name",
+    "ProcessTemplates": false,
+    "enGB": "Focused Faith"
+  },
+  {
+    "Key": "SolipsistFocusedFaith.Description",
+    "ProcessTemplates": false,
+    "enGB": "Self-reliance sharpens the hand that guides it. The solipsist gains a +1 untyped bonus on his attack rolls, rising to +2 at 15th level. It stacks with everything, for it comes from no school of magic - only from never once having been able to count on anyone else."
+  },
+  {
+    "Key": "SolipsistToughenedFaith.Name",
+    "ProcessTemplates": false,
+    "enGB": "Toughened Faith"
+  },
+  {
+    "Key": "SolipsistToughenedFaith.Description",
+    "ProcessTemplates": false,
+    "enGB": "A body that heals only itself learns to hold together. The solipsist gains +5 hit points, rising to +10 at 20th level - untyped and stackable, like everything he keeps for himself."
+  },
+  {
+    "Key": "LionShaman.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lion Shaman"
+  },
+  {
+    "Key": "LionShaman.Description",
+    "ProcessTemplates": false,
+    "enGB": "A shaman with this totem calls upon the proud lion, imposing and majestic, the mighty leader of deadly hunters. Her wild shape bends toward the great cats: she takes the feline form early and in its fiercest incarnation, while her other forms come more slowly than a common druid's. She can adopt an aspect of the lion while keeping her own shape, her summons fight with the pride's strength behind them, and her steady discipline earns her feats a lesser druid would never spare the time for."
+  },
+  {
+    "Key": "LionShamanTotemTransformation.Name",
+    "ProcessTemplates": false,
+    "enGB": "Totem Transformation"
+  },
+  {
+    "Key": "LionShamanTotemTransformation.Description",
+    "ProcessTemplates": false,
+    "enGB": "The lion's power can pour into her own frame. The lion shaman may adopt one aspect of her totem while retaining her normal form: the pride's tireless movement (+20 speed), its senses (scent), or its weapons (a bite attack). Only one aspect can be worn at a time; donning one sheds the others. This replaces woodland stride."
+  },
+  {
+    "Key": "LionShamanAspectMovement.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Lion: Movement"
+  },
+  {
+    "Key": "LionShamanAspectMovement.Description",
+    "ProcessTemplates": false,
+    "enGB": "The pride runs down its prey across the whole of the plain. While this aspect is worn, the lion shaman gains a +20 enhancement bonus to her movement speed."
+  },
+  {
+    "Key": "LionShamanAspectSenses.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Lion: Senses"
+  },
+  {
+    "Key": "LionShamanAspectSenses.Description",
+    "ProcessTemplates": false,
+    "enGB": "Nothing moves on the savanna without the pride knowing. While this aspect is worn, the lion shaman gains the scent ability."
+  },
+  {
+    "Key": "LionShamanAspectWeapons.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Lion: Weapons"
+  },
+  {
+    "Key": "LionShamanAspectWeapons.Description",
+    "ProcessTemplates": false,
+    "enGB": "The lion's jaws answer for her. While this aspect is worn, the lion shaman gains a bite natural attack."
+  },
+  {
+    "Key": "LionShamanFelineWildShape.Name",
+    "ProcessTemplates": false,
+    "enGB": "Feline Wild Shape"
+  },
+  {
+    "Key": "LionShamanFelineWildShape.Description",
+    "ProcessTemplates": false,
+    "enGB": "Her totem comes to her before any other form. The lion shaman gains the tiger - the smilodon, great cat of the Worldwound - as a wild shape form, two levels before a common druid's shapes begin, and its greater incarnations arrive as she levels (the mightier tier at 8th, the fiercest at 14th). Her other wild shapes, animal and elemental alike, come two levels later than a common druid's."
+  },
+  {
+    "Key": "LionShamanTotemicSummons.Name",
+    "ProcessTemplates": false,
+    "enGB": "Totemic Summons"
+  },
+  {
+    "Key": "LionShamanTotemicSummons.Description",
+    "ProcessTemplates": false,
+    "enGB": "The pride answers when she calls. The lion shaman gains Augment Summoning - every creature she summons with summon nature's ally fights with the pride's strength: +4 Strength and +4 Constitution. This replaces resist nature's lure."
+  },
+  {
+    "Key": "LionShamanBonusFeats.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shaman's Feats"
+  },
+  {
+    "Key": "LionShamanBonusFeats.Description",
+    "ProcessTemplates": false,
+    "enGB": "The lion's patience is a discipline. At 9th level and every four levels thereafter, the lion shaman gains a bonus feat: Dodge, Iron Will, Improved Iron Will, or Skill Focus (Acrobatics). This replaces venom immunity."
+  },
+  {
+    "Key": "TrueShape.Name",
+    "ProcessTemplates": false,
+    "enGB": "True Shape"
+  },
+  {
+    "Key": "TrueShape.Description",
+    "ProcessTemplates": false,
+    "enGB": "Other druids borrow their shapes. The true shape druid moves in. His wild shape does not lapse while his beast soul burns: whatever form he wears, it holds - replenished moment to moment - until he wills it away. And it is not the common druid's short list of forms, but a menagerie: bear, boar, dinosaur, elephant, fey, griffon, manticore, spider, smilodon, wolf and wolverine, each a complete beast for a different task, with greater incarnations unlocking as he grows. His worn armor and shield keep protecting him even in beast form. The price is paid in magic: his spellcasting stops at 4th-level spells, and detect magic is lost to him altogether. The wild does not lend its power to those who only visit."
+  },
+  {
+    "Key": "TrueShapeFeature.Name",
+    "ProcessTemplates": false,
+    "enGB": "True Shape"
+  },
+  {
+    "Key": "TrueShapeFeature.Description",
+    "ProcessTemplates": false,
+    "enGB": "While his Beast Soul is lit, the true shape druid's form does not lapse: every few moments his current shape is replenished before it can fade, and it holds until he sheds it willingly. His worn armor and shield also keep protecting him in any form (their full armor class, live from his equipment)."
+  },
+  {
+    "Key": "TrueShapeBeastSoul.Name",
+    "ProcessTemplates": false,
+    "enGB": "Beast Soul"
+  },
+  {
+    "Key": "TrueShapeBeastSoul.Description",
+    "ProcessTemplates": false,
+    "enGB": "Toggle the permanence of the wild shape. While on, the druid's current form is replenished before it can expire; while off, forms lapse on their natural duration."
+  },
+  {
+    "Key": "TrueShapeMenagerie.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Menagerie"
+  },
+  {
+    "Key": "TrueShapeMenagerie.Description",
+    "ProcessTemplates": false,
+    "enGB": "His wild shape is not a short list but a whole menagerie, drawn from the wildest bloodlines: bear and elephant to hold a line, smilodon and wolf and wolverine to hunt, spider to bind, manticore to strike from afar, fey to weave, griffon to fly, boar and dinosaur for the uglier work. Each form is a complete beast. This replaces the common druid's wild shape."
+  },
+  {
+    "Key": "TrueShapeMenagerie8.Name",
+    "ProcessTemplates": false,
+    "enGB": "Greater Menagerie"
+  },
+  {
+    "Key": "TrueShapeMenagerie8.Description",
+    "ProcessTemplates": false,
+    "enGB": "The menagerie's fiercer tier unlocks: the greater incarnations of every form in his stable."
+  },
+  {
+    "Key": "TrueShapeMenagerie15.Name",
+    "ProcessTemplates": false,
+    "enGB": "Master Menagerie"
+  },
+  {
+    "Key": "TrueShapeMenagerie15.Description",
+    "ProcessTemplates": false,
+    "enGB": "The menagerie's final tier unlocks: the mightiest incarnations of every form in his stable."
   }
 ]

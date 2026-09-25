@@ -10,6 +10,8 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
+using Kingmaker.PubSubSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -121,18 +123,34 @@ namespace MissionWOTR.Archetypes
         .AddFacts(new() { FeatureRefs.MartialWeaponProficiency.Reference.Get() })
         .Configure();
 
+      // ----- Focused Faith / Toughened Faith (flat martial bonuses) -----
+      // The engine offers only low/medium/full BAB tables - "slightly higher
+      // than the cleric's 3/4" cannot be expressed as a table, so the BAB
+      // bump is replaced (per user feedback) with flat untyped bonuses:
+      // +1 attack at 5th and +2 at 15th; +5 hit points at 10th and +10 at 20th.
+      var focusedFaith1 = FaithBonusFeature(
+        "SolipsistFocusedFaith1", Guids.SolipsistFocusedFaith1, "SolipsistFocusedFaith", attack: 1);
+      var focusedFaith2 = FaithBonusFeature(
+        "SolipsistFocusedFaith2", Guids.SolipsistFocusedFaith2, "SolipsistFocusedFaith", attack: 2);
+      var toughenedFaith1 = FaithBonusFeature(
+        "SolipsistToughenedFaith1", Guids.SolipsistToughenedFaith1, "SolipsistToughenedFaith", hitPoints: 5);
+      var toughenedFaith2 = FaithBonusFeature(
+        "SolipsistToughenedFaith2", Guids.SolipsistToughenedFaith2, "SolipsistToughenedFaith", hitPoints: 10);
+
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.SolipsistArchetype, CharacterClassRefs.ClericClass)
           .SetLocalizedName("Solipsist.Name")
           .SetLocalizedDescription("Solipsist.Description")
-          // Martial Devotion: the fighter's base attack bonus (the engine
-          // offers only low/medium/full tables - the step up from the
-          // cleric's 3/4 is the full progression).
-          .SetBaseAttackBonus(StatProgressionRefs.BABFull.Reference.Get())
+          // Martial Devotion: martial weapons and one bonus combat feat from
+          // the fighter's list (the vanilla Crusader bonus-feat pattern).
           .AddToAddFeatures(LevelPlan.L(1), martialDevotion)
-          // Martial Devotion: one bonus combat feat from the fighter's list
-          // (the vanilla Crusader bonus-feat pattern).
-          .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.Reference.Get());
+          .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.Reference.Get())
+          // Focused Faith: flat untyped attack, +1 at 5th and +2 at 15th.
+          .AddToAddFeatures(LevelPlan.L(5), focusedFaith1)
+          .AddToAddFeatures(LevelPlan.L(15), focusedFaith2)
+          // Toughened Faith: flat untyped hit points, +5 at 10th and +10 at 20th.
+          .AddToAddFeatures(LevelPlan.L(10), toughenedFaith1)
+          .AddToAddFeatures(LevelPlan.L(20), toughenedFaith2);
 
       // The selfish priest has no flock: channel energy is traded away.
       archetype = ArchetypeRemovals.AddRemovals(
@@ -147,6 +165,20 @@ namespace MissionWOTR.Archetypes
       ApplyToClericSpells(solipsism);
 
       MissionFeats.Logger.Info("Solipsist: configured.");
+    }
+
+    private static BlueprintFeature FaithBonusFeature(
+      string name, string guid, string displayBase, int attack = 0, int hitPoints = 0)
+    {
+      return FeatureConfigurator.New(name, guid)
+        .SetDisplayName(displayBase + ".Name")
+        .SetDescription(displayBase + ".Description")
+        .SetIcon(attack > 0
+          ? FeatureRefs.Dodge.Reference.Get().Icon
+          : FeatureRefs.IronWill.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddComponent(new SolipsistFlatBonus { AttackBonus = attack, HitPoints = hitPoints })
+        .Configure();
     }
 
     // ------------------------------------------------------------------
@@ -824,6 +856,46 @@ namespace MissionWOTR.Archetypes
       {
         MissionFeats.Logger.Error("[solipsist] echo action failed.", e);
       }
+    }
+  }
+
+  /// <summary>
+  /// The Solipsist's flat martial bonuses: an untyped attack bonus on every
+  /// attack roll (the darkcodex AddAttackBonus pattern) and flat untyped hit
+  /// points (the pplus ShadowDancerSpawn HitPoints-modifier pattern).
+  /// </summary>
+  [TypeId(Guids.SolipsistFlatBonus)]
+  internal class SolipsistFlatBonus : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleCalculateAttackBonus>,
+    IRulebookHandler<RuleCalculateAttackBonus>, ISubscriber, IInitiatorRulebookSubscriber
+  {
+    public int AttackBonus;
+    public int HitPoints;
+
+    public void OnEventAboutToTrigger(RuleCalculateAttackBonus evt)
+    {
+      if (AttackBonus != 0)
+      {
+        evt.AddModifier(AttackBonus, Fact, ModifierDescriptor.UntypedStackable);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleCalculateAttackBonus evt)
+    {
+    }
+
+    public override void OnTurnOn()
+    {
+      if (HitPoints != 0)
+      {
+        Owner.Stats.HitPoints.RemoveModifiersFrom(Runtime);
+        Owner.Stats.HitPoints.AddModifier(HitPoints, Runtime, ModifierDescriptor.UntypedStackable);
+      }
+    }
+
+    public override void OnTurnOff()
+    {
+      Owner.Stats.HitPoints.RemoveModifiersFrom(Runtime);
     }
   }
 }

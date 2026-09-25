@@ -90,6 +90,7 @@ namespace MissionWOTR.Feats
         var bloodrager = CharacterClassRefs.BloodragerClass.Reference.Get();
         var cavalier = CharacterClassRefs.CavalierClass.Reference.Get();
         var cleric = CharacterClassRefs.ClericClass.Reference.Get();
+        var druid = CharacterClassRefs.DruidClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -109,6 +110,8 @@ namespace MissionWOTR.Feats
       ("Carousel", Guids.CarouselArchetype, cavalier),
       ("Cardinal", Guids.CardinalArchetype, cleric),
       ("Solipsist", Guids.SolipsistArchetype, cleric),
+      ("LionShaman", Guids.LionShamanArchetype, druid),
+      ("TrueShape", Guids.TrueShapeArchetype, druid),
     };
         foreach (var entry in entries)
         {
