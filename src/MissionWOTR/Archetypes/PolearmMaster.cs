@@ -12,6 +12,7 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.Utility;
 using Kingmaker.UnitLogic.Mechanics;
 using MissionWOTR.Feats;
 using System;
@@ -63,9 +64,9 @@ namespace MissionWOTR.Archetypes
   ///   selection already allows that choice; the restriction is not
   ///   enforced (documented).
   ///
-  /// Polearm weapon categories (the game's polearm family): shortspear,
-  /// spear, longspear, trident, glaive, guisarme, halberd, ranseur,
-  /// bardiche, fauchard, scythe.
+  /// Polearm weapon categories (the game's polearm family - WOTR has no
+  /// guisarme, halberd or ranseur weapons): shortspear, spear, longspear,
+  /// trident, glaive, bardiche, fauchard, scythe.
   /// Log prefix: [polearm].
   /// </summary>
   internal static class PolearmMaster
@@ -87,9 +88,6 @@ namespace MissionWOTR.Archetypes
       WeaponCategory.Longspear,
       WeaponCategory.Trident,
       WeaponCategory.Glaive,
-      WeaponCategory.Guisarme,
-      WeaponCategory.Halberd,
-      WeaponCategory.Ranseur,
       WeaponCategory.Bardiche,
       WeaponCategory.Fauchard,
       WeaponCategory.Scythe,

@@ -42,7 +42,6 @@ namespace MissionWOTR.Archetypes
       WeaponCategory.Whip,
       WeaponCategory.Fauchard,
       WeaponCategory.TwoBladedSword,
-      WeaponCategory.DwarvenUrgrosh,
       WeaponCategory.HeavyRepeatingCrossbow,
       WeaponCategory.LightRepeatingCrossbow,
       WeaponCategory.Shuriken,

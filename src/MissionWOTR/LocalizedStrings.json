@@ -2563,7 +2563,7 @@
   {
     "Key": "PolearmMasterPolearmTraining.Description",
     "ProcessTemplates": false,
-    "enGB": "The polearm is the only weapon the polearm master needs. He gains a +1 bonus on attack and damage rolls with spears and polearms (including glaives, guisarmes, halberds, ranseurs, bardiches, fauchards and scythes) while wielding one, increasing by 1 at 9th, 13th and 17th level. This replaces weapon training."
+    "enGB": "The polearm is the only weapon the polearm master needs. He gains a +1 bonus on attack and damage rolls with spears and polearms (including glaives, bardiches, fauchards and scythes) while wielding one, increasing by 1 at 9th, 13th and 17th level. This replaces weapon training."
   },
   {
     "Key": "PolearmMasterFlexibleFlanker.Name",
@@ -2703,7 +2703,7 @@
   {
     "Key": "ExoticistExoticArsenal.Description",
     "ProcessTemplates": false,
-    "enGB": "The exoticist is proficient with every exotic weapon in the game: bastard swords, dwarven waraxes, katanas, dueling swords, sawtooth sabres, estocs, falcata, whips, fauchards, two-bladed swords, dwarven urgroshes, gnome hooked hammers, repeating crossbows, shuriken, sling staffs, and the monk's exotic arsenal of sai, kama, nunchaku and siangham."
+    "enGB": "The exoticist is proficient with every exotic weapon in the game: bastard swords, dwarven waraxes, katanas, dueling swords, sawtooth sabres, estocs, falcata, whips, fauchards, two-bladed swords, repeating crossbows, shuriken, sling staffs, and the monk's exotic arsenal of sai, kama, nunchaku and siangham."
   },
   {
     "Key": "ExoticistExoticTraining.Name",
