@@ -2703,7 +2703,7 @@
   {
     "Key": "ExoticistExoticArsenal.Description",
     "ProcessTemplates": false,
-    "enGB": "The exoticist is proficient with every exotic weapon in the game: bastard swords, dwarven waraxes, katanas, dueling swords, sawtooth sabres, estocs, falcata, whips, fauchards, two-bladed swords, repeating crossbows, shuriken, sling staffs, and the monk's exotic arsenal of sai, kama, nunchaku and siangham."
+    "enGB": "The exoticist is proficient with every exotic weapon in the game: bastard swords, dwarven waraxes, dueling swords, sawtooth sabres, estocs, falcata, fauchards, bardiches, repeating crossbows, shuriken, sling staffs, and the monk's exotic arsenal of sai, kama, nunchaku and siangham."
   },
   {
     "Key": "ExoticistExoticTraining.Name",
