@@ -15,6 +15,7 @@ using Kingmaker.Items;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
@@ -237,17 +238,11 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        var source = evt.Reason.Rule;
-        bool isAoo = false;
-        if (source is Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon withWeapon)
-        {
-          isAoo = withWeapon.IsAttackOfOpportunity;
-        }
-        else if (source is RuleAttackRoll attackRoll)
-        {
-          isAoo = attackRoll.IsAttackOfOpportunity;
-        }
-        if (!isAoo || !PolearmCloseQuarters.WieldsCategory(Owner, PolearmMaster.Polearms))
+        // The Reason chain carries the root attack rule; only
+        // RuleAttackWithWeapon exposes AoO-ness (the COP idiom).
+        if (evt.Reason.Rule is not RuleAttackWithWeapon withWeapon ||
+          !withWeapon.IsAttackOfOpportunity ||
+          !PolearmCloseQuarters.WieldsCategory(Owner, PolearmMaster.Polearms))
         {
           return;
         }
