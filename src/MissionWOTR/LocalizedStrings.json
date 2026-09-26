@@ -2723,7 +2723,7 @@
   {
     "Key": "Qinggong.Description",
     "ProcessTemplates": false,
-    "enGB": "The qinggong monk trades every fixed gift of her order for choice. Where other monks receive still mind, fast movement, and purity of body as their masters decreed, she channels that training into her ki instead - three extra ki powers of her choosing by 5th level, drawn from the full library: true strikes and restorations, barkskin and abundant steps, invisibility, freedom of movement, even holy aura. Her order calls it undisciplined. She calls it knowing exactly what she needs and when."
+    "enGB": "The qinggong monk trades every fixed gift of her order for choice. Where other monks receive still mind, fast movement, and purity of body as their masters decreed, she channels that training into her ki instead - three extra ki powers of her choosing by 5th level, drawn from the full library: true strikes and restorations, barkskin and abundant steps, invisibility and dragon's breath, true sight, even holy aura. Her order calls it undisciplined. She calls it knowing exactly what she needs and when."
   },
   {
     "Key": "QinggongInvisibility.Name",
@@ -2764,5 +2764,36 @@
     "Key": "QinggongHolyAura.Description",
     "ProcessTemplates": false,
     "enGB": "The monk's perfected ki pours out as a mantle of sacred light, as the holy aura spell. Cost: 4 ki. Requires monk level 16."
+  }
+,
+  {
+    "Key": "QinggongDragonsBreath.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Dragon Breath"
+  },
+  {
+    "Key": "QinggongDragonsBreath.Description",
+    "ProcessTemplates": false,
+    "enGB": "The monk draws a deep breath from the well of her ki and exhales a roaring torrent of dragonfire, as the dragon's breath spell. Cost: 2 ki. Requires monk level 8."
+  },
+  {
+    "Key": "QinggongGlimpseOfTruth.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Glimpse of Truth"
+  },
+  {
+    "Key": "QinggongGlimpseOfTruth.Description",
+    "ProcessTemplates": false,
+    "enGB": "The monk's ki stills her mind until her eyes cut through every veil - illusions, disguises, concealment - as the true seeing spell. Cost: 2 ki. Requires monk level 10."
+  },
+  {
+    "Key": "QinggongFrightfulAspect.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Frightful Aspect"
+  },
+  {
+    "Key": "QinggongFrightfulAspect.Description",
+    "ProcessTemplates": false,
+    "enGB": "The monk's ki swells until she towers over the battlefield, a presence out of nightmare that turns her enemies' courage to water, as the frightful aspect spell. Cost: 3 ki. Requires monk level 16."
   }
 ]

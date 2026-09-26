@@ -766,10 +766,12 @@ selection already swallowed most of the qinggong list.
 
 **New ki powers (added to the shared MonkKiPowerSelection - every monk
 gains them):** ki invisibility (2 ki, 8th), ki neutralize poison (2 ki,
-8th), ki freedom of movement (2 ki, 10th), ki holy aura (4 ki, 16th). Each
-is built the way Owlcat builds its own ki powers - a clone of the vanilla
-spell (minus its spell-list component) that spends the Ki resource via
-AbilityResourceLogic.
+8th), ki freedom of movement (2 ki, 10th), ki holy aura (4 ki, 16th), plus
+the 0.10.1 additions with more teeth: ki glimpse of truth (true seeing,
+2 ki, 10th), ki dragon breath (fire, 2 ki, 8th) and ki frightful aspect
+(3 ki, 16th). Each is built the way Owlcat builds its own ki powers - a
+clone of the vanilla spell (minus its spell-list component) that spends
+the Ki resource via AbilityResourceLogic.
 
 ## Level plan per class (test-mode rule)
 
@@ -1035,6 +1037,30 @@ archetype's ReplaceSpellbook is a clone of the bloodrager book whose list caps
 at 3rd-level spells — the blast replaces "some of the spells you could learn").
 
 **Engine mappings:** per-round effects (aura, fast healing, bleed) use
+ITickEachRound (the pplus RagingDrunkStuff pattern — proven on bloodrager
+features); all healing via Rulebook.Trigger(new RuleHealDamage(...)); ally
+enumeration via Game.Instance.State.Units + IsAlly + DistanceTo (pplus
+Nocticula pattern; self included); dice via UnityEngine.Random.Range (the
+game's own roller); the pulse's once-per-round guard is a visible 1-round
+marker buff, lifted by the apotheosis free-action variant; the death save
+watches RuleDealDamage on allies (DidTrigger, HP ≤ 0, not yet dead) and spends
+the whole rage pool — dying allies in WOTR are rescued post-hit, which is the
+playable reading of "would die". Kinetic powers use the kineticist's own
+vanilla weapon types (KineticBlastEnergyBlade / KineticBlastEnergy) with
+runtime-scaled riders. Log prefix: [sanguine].
+
+**Playtest targets:** aura ticks on each round while raging (and only then);
+pulse resource spend + once-per-round block; shared pulse FH on allies and
+unremovable bleed on self (values 2/3/5 by level); blade toggle granting the
+off-hand elemental attack and the rider dice; blast touch attack + Con damage;
+spellbook clone capping at 3rd-level spells; apotheosis free pulse, 40-ft aura
+formula, and the death save (spends ALL rounds, once per rage); LimitlessRage
+hidden from Sanguine Fonts in mythic level-up.
+
+**Tuning candidates:** all heal amounts and dice; aura/pulse radii; FH/bleed
+tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
+(−2); blast range (Close); death-save heal (10d8 + level).
+ings:** per-round effects (aura, fast healing, bleed) use
 ITickEachRound (the pplus RagingDrunkStuff pattern — proven on bloodrager
 features); all healing via Rulebook.Trigger(new RuleHealDamage(...)); ally
 enumeration via Game.Instance.State.Units + IsAlly + DistanceTo (pplus

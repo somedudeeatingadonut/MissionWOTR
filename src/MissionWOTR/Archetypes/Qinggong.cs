@@ -58,6 +58,19 @@ namespace MissionWOTR.Archetypes
         "828EB2E1-61F3-48C4-BDFA-B642DBF57853", AbilityRefs.FreedomOfMovement, 2, 10),
       ("HolyAura", "CF8F656D-97E4-49DE-9C4C-73D5BFBD3CA6",
         "D9C85A4C-5C48-4490-BE48-01347709A83B", AbilityRefs.HolyAura, 4, 16),
+      // 0.10.1 - tabletop qinggong picks with more teeth, chosen because
+      // their spells actually exist in WOTR (most of the remaining tabletop
+      // list - gaseous form, deadly juggernaut, ki leech, discordant blast,
+      // shadow walk, dust form, stone shield, earthquake - has no blueprint
+      // to clone from). Dragon's breath is cloned from the fire variant:
+      // CopyFrom does not carry the spell's variant list, so the ki version
+      // breathes fire - the classic element.
+      ("DragonsBreath", "9966308C-7850-4599-AC67-0D717762DE23",
+        "A475B931-4D1B-4E5B-B479-4939E4F7175C", AbilityRefs.DragonsBreathFire, 2, 8),
+      ("GlimpseOfTruth", "ACC454F5-CDB4-435C-9FB6-35B61AED82F2",
+        "91BB2C01-EDE9-44DE-8C89-5B85D22817E1", AbilityRefs.TrueSeeing, 2, 10),
+      ("FrightfulAspect", "8E2BB314-38EB-4878-966A-5AE2121B6FF7",
+        "18AF6193-26CB-45C5-8C9F-471A780ACFFB", AbilityRefs.FrightfulAspect, 3, 16),
     };
 
     public static void Configure()
