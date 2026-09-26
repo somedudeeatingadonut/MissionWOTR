@@ -424,7 +424,7 @@ namespace MissionWOTR.Archetypes
     /// (the mod's lib set does not ship that assembly): the ForcedPath object
     /// and the ForcePath call are built by reflection.
     /// </summary>
-    private static void ForceChargePath(UnitEntityData caster, Vector3 from, Vector3 to)
+    internal static void ForceChargePath(UnitEntityData caster, Vector3 from, Vector3 to)
     {
       try
       {

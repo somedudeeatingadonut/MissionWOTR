@@ -2593,7 +2593,7 @@
   {
     "Key": "PolearmMasterStepAside.Description",
     "ProcessTemplates": false,
-    "enGB": "Constant, unhurried footwork keeps the polearm master at his preferred distance. While wielding a polearm he gains a +2 dodge bonus to his armor class. This replaces weapon training 4."
+    "enGB": "Constant, unhurried footwork keeps the polearm master at his preferred distance. While wielding a polearm he gains a +2 dodge bonus to his armor class. In turn-based combat only, when an adjacent enemy's melee attack against him resolves, he takes a 5-foot step away once per round (five-foot steps do not exist in real-time-with-pause mode; there the constant footwork alone stands). This replaces weapon training 4."
   },
   {
     "Key": "PolearmMasterPolearmParry.Name",
@@ -2714,5 +2714,55 @@
     "Key": "ExoticistExoticTraining.Description",
     "ProcessTemplates": false,
     "enGB": "The exoticist's craft admits only the strange. He gains a +1 bonus on attack and damage rolls with exotic weapons while wielding one, increasing by 1 at 9th, 13th and 17th level. This replaces weapon training."
+  },
+  {
+    "Key": "Qinggong.Name",
+    "ProcessTemplates": false,
+    "enGB": "Qinggong Monk"
+  },
+  {
+    "Key": "Qinggong.Description",
+    "ProcessTemplates": false,
+    "enGB": "The qinggong monk trades every fixed gift of her order for choice. Where other monks receive still mind, fast movement, and purity of body as their masters decreed, she channels that training into her ki instead - three extra ki powers of her choosing by 5th level, drawn from the full library: true strikes and restorations, barkskin and abundant steps, invisibility, freedom of movement, even holy aura. Her order calls it undisciplined. She calls it knowing exactly what she needs and when."
+  },
+  {
+    "Key": "QinggongInvisibility.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Invisibility"
+  },
+  {
+    "Key": "QinggongInvisibility.Description",
+    "ProcessTemplates": false,
+    "enGB": "By sheer discipline the monk bends light around herself, as the invisibility spell. Cost: 2 ki. Requires monk level 8."
+  },
+  {
+    "Key": "QinggongNeutralizePoison.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Neutralize Poison"
+  },
+  {
+    "Key": "QinggongNeutralizePoison.Description",
+    "ProcessTemplates": false,
+    "enGB": "The monk's ki burns poison from a creature's body, as the neutralize poison spell. Cost: 2 ki. Requires monk level 8."
+  },
+  {
+    "Key": "QinggongFreedomOfMovement.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Freedom of Movement"
+  },
+  {
+    "Key": "QinggongFreedomOfMovement.Description",
+    "ProcessTemplates": false,
+    "enGB": "The monk's ki frees a creature from all restraints, as the freedom of movement spell. Cost: 2 ki. Requires monk level 10."
+  },
+  {
+    "Key": "QinggongHolyAura.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ki Holy Aura"
+  },
+  {
+    "Key": "QinggongHolyAura.Description",
+    "ProcessTemplates": false,
+    "enGB": "The monk's perfected ki pours out as a mantle of sacred light, as the holy aura spell. Cost: 4 ki. Requires monk level 16."
   }
 ]

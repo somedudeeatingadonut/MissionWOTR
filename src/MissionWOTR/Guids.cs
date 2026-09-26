@@ -632,6 +632,8 @@ namespace MissionWOTR
     internal const string PoleSweepFendComponent = "5485756C-1AF9-4275-B8AB-FD45BC53A062";
     internal const string PoleParryAbility = "AD2D9E48-354C-413C-8441-E343E199EF59";
     internal const string PoleParryBuff = "F93C0428-A27A-4012-B589-18F794E0C78C";
+    internal const string PoleStepAsideComponent = "2AF3A396-0EAA-4499-8AAC-8801EE7A8D9F";
+    internal const string QinggongArchetype = "77EBC959-9A84-4BC9-BE1E-2A8F99276B34";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
   }

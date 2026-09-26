@@ -239,9 +239,33 @@ errors suggested:
     the weapon for 1 round (the closest the engine has to the tabletop's
     immediate action), during which the +2 shield AC / DR 5 guard holds.
   - Remaining engine limits, documented: pole fighting cannot shorten a
-    reach weapon's grip (no engine hook exists, so it stays the growing
-    adjacent-target bonus), and no 5-foot-step reactions exist (Step Aside
-    stays the +2 dodge AC).
+    reach weapon's grip (see the 0.10.0 note below).
+
+## 0.10.0 — Step Aside goes turn-based, and the Qinggong Monk
+
+- **Step Aside is now a real 5-foot step - in turn-based mode.** The user
+  corrected the record: five-foot steps DO exist in WOTR, in turn-based
+  combat only. When an adjacent enemy's melee attack against the polearm
+  master resolves, he steps 5 feet away (once per round, via the shared
+  forced-path mover and TurnController.MetersOfFiveFootStep). In
+  real-time-with-pause the feature remains the constant +2 dodge AC - the
+  step does not work in that mode.
+- **Pole Fighting's "temporarily remove reach" was investigated and ruled
+  out** (for now): reach is baked into weapon-type blueprints; the only
+  per-unit reach modifier in the engine, ReachMultiplicator (the vanilla
+  Mighty Charge threat buff), has unverifiable int-multiplier semantics and
+  no mod in the reference set dares touch it. Without the game's internals
+  to test against, flipping it blind is crash risk - so the adjacent-target
+  bonus that mirrors the tabletop penalty's math stands.
+- **Qinggong Monk** (faithful port, APG - THE ki-power archetype): WOTR's
+  base monk already carries Owlcat's selectable ki powers
+  - MonkKiPowerSelection). The qinggong trades her fixed gifts - still mind,
+  fast movement, purity of body - for three EXTRA ki power picks at
+  3rd/4th/5th, and the shared selection is extended with four NEW ki powers
+  built Owlcat's way (spell clones that spend ki): ki invisibility (2 ki,
+  8th), ki neutralize poison (2 ki, 8th), ki freedom of movement (2 ki,
+  10th), and ki holy aura (4 ki, 16th). Every monk in the game gains the
+  new powers; the qinggong reaches them first.
 
 ## Alchemist
 
@@ -649,7 +673,7 @@ As commissioned:
 | 5 | Polearm Training (+1→+4 at/dmg with polearms) | Weapon Training 1-4 (all four) |
 | 9 | Flexible Flanker (+2 when an ally threatens the target) | — |
 | 13 | Sweeping Fend (+2 trip / bull rush with polearm) | — |
-| 17 | Step Aside (+2 dodge AC with polearm) | — |
+| 17 | Step Aside (+2 dodge AC; TB-mode reactive 5-foot step) | — |
 | 19 | Polearm Parry (swift action; 1-round +2 shield AC and DR 5 for allies within 10 ft) | Armor Mastery |
 
 Adaptations (tabletop → WOTR, tightened in 0.9.1): no grip-shortening hook
@@ -660,9 +684,12 @@ the COP PairedOpportunists idiom; the readied-attack half has no WOTR
 analogue); Flexible Flanker's chosen-square flanking becomes +2 whenever any
 ally threatens the target (the shared AllyFlankerBonus component); Sweeping
 Fend adds +2 to trip and bull rush maneuvers made with a polearm (0.9.1:
-the trip-feature benefit, no longer free Improved feats); Step Aside's
-reactive 5-foot step is impossible (no 5-foot-step reactions in the engine)
-and stays constant footwork (+2 dodge AC); Polearm Parry is a swift action
+the trip-feature benefit, no longer free Improved feats); Step Aside (0.10.0)
+takes a real reactive 5-foot step in turn-based mode when an adjacent
+enemy's melee attack resolves (the tabletop triggers on the enemy's step,
+which has no engine event) plus the constant +2 dodge AC in both modes -
+five-foot steps do not exist in real-time-with-pause; Polearm Parry is a
+swift action
 bracing the weapon for 1 round (0.9.1: the closest the engine has to the
 tabletop's immediate action; +2 shield AC vs attackers in his reach, DR 5
 from them - global rulebook handlers, the GoldenLegionnaire pattern). The
@@ -716,6 +743,33 @@ dwarven urgrosh, gnome hooked hammer, heavy/light repeating crossbow,
 shuriken. (WOTR has no katana or whip categories - those weapons stayed in
 Kingmaker.) Mod-added weapons that reuse vanilla categories are covered;
 exotic categories invented by other mods are not.
+
+## Monk
+
+### Faithful port — Qinggong Monk (Advanced Player's Guide) — IMPLEMENTED (0.10.0)
+
+| Level | Qinggong grants | Monk normally grants |
+|---|---|---|
+| 3 | extra Ki Power selection | Still Mind, Fast Movement |
+| 4 | extra Ki Power selection | — |
+| 5 | extra Ki Power selection | Purity of Body |
+
+WOTR's base monk already carries Owlcat's selectable ki powers
+(MonkKiPowerSelection: true strike, restoration, barkskin, abundant step,
+diamond body, diamond soul, cold ice strike, wholeness of body and more),
+so the tabletop's qinggong - "trade fixed abilities for selectable ki
+powers" - ports as: the three fixed gifts (still mind, fast movement,
+purity of body) become three extra selections at 3rd/4th/5th. The
+tabletop's other trade targets (slow fall, high jump, timeless body,
+tongue of sun and moon, empty body) never existed in WOTR - its ki
+selection already swallowed most of the qinggong list.
+
+**New ki powers (added to the shared MonkKiPowerSelection - every monk
+gains them):** ki invisibility (2 ki, 8th), ki neutralize poison (2 ki,
+8th), ki freedom of movement (2 ki, 10th), ki holy aura (4 ki, 16th). Each
+is built the way Owlcat builds its own ki powers - a clone of the vanilla
+spell (minus its spell-list component) that spends the Ki resource via
+AbilityResourceLogic.
 
 ## Level plan per class (test-mode rule)
 

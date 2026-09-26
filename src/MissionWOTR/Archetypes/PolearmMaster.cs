@@ -17,6 +17,7 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using TurnBased.Controllers;
 using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using Kingmaker.UnitLogic.Mechanics;
@@ -55,10 +56,21 @@ namespace MissionWOTR.Archetypes
   ///   if the weapon had the trip feature). WOTR maneuvers do not require
   ///   weapon features - adapted by granting the vanilla Improved Trip and
   ///   Improved Bull Rush feats (real +2 maneuver bonuses, no penalties).
-  /// - Step Aside (17th): a reactive 5-foot step when a threatened creature
-  ///   steps adjacent. WOTR has no 5-foot-step reactions (established in the
-  ///   Carousel and True Shape work) - adapted to +2 dodge AC while wielding
-  ///   a polearm (the constant footwork reading).
+  /// - Step Aside (17th): a reactive 5-foot step away when an adjacent enemy
+  ///   attacks him. Five-foot steps exist in WOTR's TURN-BASED mode only, so
+  ///   the step is turn-based-only (Game.Instance.Player
+  ///   .IsTurnBasedModeOn()); in real-time-with-pause it reads as the
+  ///   constant-footwork +2 dodge AC, which applies in both modes. (The
+  ///   tabletop's trigger - a threatened creature STEPPING adjacent - has no
+  ///   engine event; the step fires when an adjacent enemy's melee attack
+  ///   resolves instead.)
+  /// - Pole Fighting's grip-shortening (temporarily removing the weapon's
+  ///   reach) was investigated and is NOT implementable safely: reach is
+  ///   baked into the weapon-type blueprints, the only per-unit reach
+  ///   modifier (ReachMultiplicator, used by the vanilla Mighty Charge
+  ///   threat buff) has unverifiable int semantics, and no mod in the
+  ///   reference set touches it. The adjacent-target bonus that mirrors the
+  ///   shrinking penalty's math stands.
   /// - Polearm Parry (19th, replaces armor mastery): an immediate action
   ///   granting an attacked ally +2 shield AC and DR 5/- against that attack.
   ///   Adapted into an always-on guard (no immediate-action economy in the
@@ -159,7 +171,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription(StepAsideName + ".Description")
         .SetIcon(polearmIcon)
         .SetIsClassFeature()
-        .AddComponent(new PolearmFootwork { Categories = Polearms })
+        .AddComponent(new PolearmStepAside { Categories = Polearms })
         .Configure();
 
       // ----- Polearm Parry (19th): a swift action, like the tabletop's
@@ -463,14 +475,18 @@ namespace MissionWOTR.Archetypes
   }
 
   /// <summary>
-  /// Step Aside, adapted: +2 dodge AC while wielding a weapon of the
-  /// configured categories (the constant-footwork reading of the tabletop's
-  /// reactive 5-foot step).
+  /// Step Aside: while he wields a polearm, +2 dodge AC (both modes) - and
+  /// in TURN-BASED combat only, when an adjacent enemy's melee attack
+  /// against him resolves, he takes a 5-foot step away (once per round,
+  /// TurnController.MetersOfFiveFootStep via the shared forced-path mover).
+  /// Five-foot steps do not exist in real-time-with-pause mode; there the
+  /// feature is the constant +2 dodge AC alone.
   /// </summary>
-  [TypeId(Guids.PoleFootworkComponent)]
-  internal class PolearmFootwork : UnitFactComponentDelegate,
+  [TypeId(Guids.PoleStepAsideComponent)]
+  internal class PolearmStepAside : UnitFactComponentDelegate<PolearmStepAside.ComponentData>,
     ITargetRulebookHandler<RuleCalculateAC>, IRulebookHandler<RuleCalculateAC>,
-    ISubscriber, ITargetRulebookSubscriber
+    IGlobalRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
+    ISubscriber, ITargetRulebookSubscriber, IGlobalRulebookSubscriber
   {
     public WeaponCategory[] Categories;
 
@@ -491,6 +507,65 @@ namespace MissionWOTR.Archetypes
 
     public void OnEventDidTrigger(RuleCalculateAC evt)
     {
+    }
+
+    public void OnEventAboutToTrigger(RuleAttackRoll evt)
+    {
+    }
+
+    public void OnEventDidTrigger(RuleAttackRoll evt)
+    {
+      try
+      {
+        // Five-foot steps are a turn-based-mode mechanic only.
+        if (!Kingmaker.Game.Instance.Player.IsTurnBasedModeOn())
+        {
+          return;
+        }
+        if (evt.Target != Owner || evt.Initiator is null)
+        {
+          return;
+        }
+        if (evt.AttackType != Kingmaker.RuleSystem.AttackType.Melee)
+        {
+          return;
+        }
+        var attacker = evt.Initiator;
+        if (!attacker.IsEnemy(Owner) || attacker.DistanceTo(Owner) > 7.Feet().Meters)
+        {
+          return; // only adjacent attackers provoke the step
+        }
+        if (!PolearmCloseQuarters.WieldsCategory(Owner, Categories))
+        {
+          return;
+        }
+        if (Data.LastUse + 1.Rounds().Seconds >
+          Kingmaker.Game.Instance.TimeController.GameTime)
+        {
+          return; // once per round
+        }
+        var away = Owner.Position - attacker.Position;
+        away.y = 0;
+        if (away.magnitude < 0.01f)
+        {
+          return;
+        }
+        var destination = Owner.Position +
+          away.normalized * TurnController.MetersOfFiveFootStep;
+        CarouselChargeLogic.ForceChargePath(Owner, Owner.Position, destination);
+        Data.LastUse = Kingmaker.Game.Instance.TimeController.GameTime;
+        MissionFeats.Logger.Info(
+          $"[polearm] step aside: {Owner.CharacterName} steps away from {attacker.CharacterName}.");
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[polearm] step aside failed.", e);
+      }
+    }
+
+    public class ComponentData
+    {
+      public TimeSpan LastUse;
     }
   }
 

@@ -92,6 +92,7 @@ namespace MissionWOTR.Feats
         var cleric = CharacterClassRefs.ClericClass.Reference.Get();
         var druid = CharacterClassRefs.DruidClass.Reference.Get();
         var fighter = CharacterClassRefs.FighterClass.Reference.Get();
+        var monk = CharacterClassRefs.MonkClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -116,6 +117,7 @@ namespace MissionWOTR.Feats
       ("PolearmMaster", Guids.PolearmMasterArchetype, fighter),
       ("StrategicSoldier", Guids.StrategicSoldierArchetype, fighter),
       ("Exoticist", Guids.ExoticistArchetype, fighter),
+      ("Qinggong", Guids.QinggongArchetype, monk),
     };
         foreach (var entry in entries)
         {
