@@ -72,7 +72,7 @@ namespace MissionWOTR.Archetypes
         var ability = AbilityConfigurator.New("Qinggong" + power.Name, power.AbilityGuid)
           .CopyFrom(spell, component => !(component is SpellListComponent))
           .AddAbilityResourceLogic(
-            requiredResource: AbilityResourceRefs.KiPowerResource,
+            requiredResource: AbilityResourceRefs.KiPowerResource.Reference.Get(),
             amount: power.Cost,
             costIsCustom: true,
             isSpendResource: true)
@@ -83,7 +83,7 @@ namespace MissionWOTR.Archetypes
           .SetIcon(spell.Icon)
           .SetIsClassFeature()
           .AddFacts(new() { ability })
-          .AddPrerequisiteClassLevel(CharacterClassRefs.MonkClass, power.MinLevel)
+          .AddPrerequisiteClassLevel(CharacterClassRefs.MonkClass.Reference.Get(), power.MinLevel)
           .Configure();
         powerFeatures.Add(feature);
         MissionFeats.Logger.Info(
@@ -92,9 +92,12 @@ namespace MissionWOTR.Archetypes
 
       // Extend the SHARED vanilla selection - every monk gains the powers;
       // the qinggong simply reaches them first with her extra picks.
-      FeatureSelectionConfigurator.For(FeatureSelectionRefs.MonkKiPowerSelection)
-        .AddToAllFeatures(powerFeatures.ToArray())
-        .Configure();
+      var selection = FeatureSelectionConfigurator.For(FeatureSelectionRefs.MonkKiPowerSelection);
+      foreach (var feature in powerFeatures)
+      {
+        selection = selection.AddToAllFeatures(feature);
+      }
+      selection.Configure();
 
       // ----- Archetype: the fixed gifts become chosen ones -----
       var kiSelection = FeatureSelectionRefs.MonkKiPowerSelection.Reference.Get();
