@@ -29,24 +29,39 @@ namespace MissionWOTR.Archetypes
     internal const string ArsenalName = "ExoticistExoticArsenal";
     internal const string TrainingName = "ExoticistExoticTraining";
 
-    /// <summary>The game's exotic weapon family.</summary>
+    /// <summary>
+    /// The game's exotic weapon family - every exotic WeaponCategory in the
+    /// game, verified against a compiling WOTR mod's list (IsekaiMod) plus
+    /// this repo's own CI: bastard sword, dueling sword, dwarven waraxe,
+    /// elven curved blade, estoc, falcata, fauchard, sawtooth sabre, kama,
+    /// sai, tongi, siangham, nunchaku, sling staff, double axe, two-bladed
+    /// sword (DoubleSword), dwarven urgrosh (Urgrosh), gnome hooked hammer
+    /// (HookedHammer), heavy and light repeating crossbows, shuriken.
+    /// (WOTR has no katanas or whips - those stayed in Kingmaker.)
+    /// </summary>
     internal static readonly WeaponCategory[] Exotics =
     {
       WeaponCategory.BastardSword,
-      WeaponCategory.DwarvenWaraxe,
       WeaponCategory.DuelingSword,
-      WeaponCategory.SawtoothSabre,
+      WeaponCategory.DwarvenWaraxe,
+      WeaponCategory.ElvenCurvedBlade,
       WeaponCategory.Estoc,
       WeaponCategory.Falcata,
       WeaponCategory.Fauchard,
+      WeaponCategory.SawtoothSabre,
+      WeaponCategory.Kama,
+      WeaponCategory.Sai,
+      WeaponCategory.Tongi,
+      WeaponCategory.Siangham,
+      WeaponCategory.Nunchaku,
+      WeaponCategory.SlingStaff,
+      WeaponCategory.DoubleAxe,
+      WeaponCategory.DoubleSword,
+      WeaponCategory.Urgrosh,
+      WeaponCategory.HookedHammer,
       WeaponCategory.HeavyRepeatingCrossbow,
       WeaponCategory.LightRepeatingCrossbow,
       WeaponCategory.Shuriken,
-      WeaponCategory.SlingStaff,
-      WeaponCategory.Sai,
-      WeaponCategory.Kama,
-      WeaponCategory.Nunchaku,
-      WeaponCategory.Siangham,
     };
 
     public static void Configure()

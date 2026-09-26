@@ -628,6 +628,10 @@ namespace MissionWOTR
     internal const string ExoticistArchetype = "9B76B826-A55F-4720-879A-ECFB914BD468";
     internal const string ExoticArsenal = "8BBD3DC2-C68A-4105-A1E1-0F70F19196B2";
     internal const string ExoticTraining = "18CB01B3-4F49-4F8A-AA2D-124AD039E912";
+    internal const string PoleSteadfastPikeComponent = "88DDD4BD-F0DC-46CA-9DFF-1AEFADA87061";
+    internal const string PoleSweepFendComponent = "5485756C-1AF9-4275-B8AB-FD45BC53A062";
+    internal const string PoleParryAbility = "AD2D9E48-354C-413C-8441-E343E199EF59";
+    internal const string PoleParryBuff = "F93C0428-A27A-4012-B589-18F794E0C78C";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
   }

@@ -215,6 +215,34 @@ CavernSniper, Deathbringer and Viking. All three picks are free:
    every exotic weapon in the game, and his weapon training is replaced by
    scaling attack/damage with exotic weapons only (+1 at 5th, +4 at 17th).
 
+## 0.9.1 — exotic list corrected + Polearm Master fidelity pass (user feedback)
+
+Two corrections from the user, who knows the game better than the compiler
+errors suggested:
+
+- **The two-bladed sword and gnome hooked hammer DO exist** - their
+  WeaponCategory enum names are just DoubleSword / HookedHammer (and the
+  urgrosh is Urgrosh, the double axe DoubleAxe). Verified against a
+  compiling WOTR mod's exotic list, the Exotic Arsenal now covers all 21
+  exotic categories in the game - including the previously missed elven
+  curved blade and tongi. (Katanas and whips genuinely do not exist in
+  WOTR; they stayed in Kingmaker.)
+- **Polearm Master is closer to the tabletop**:
+  - Steadfast Pike now applies only to attacks of opportunity MADE WITH A
+    SPEAR OR POLEARM (AoO detection via the rule's Reason chain - the COP
+    PairedOpportunists idiom), not to every AoO with any weapon.
+  - Sweeping Fend no longer grants Improved Trip / Improved Bull Rush as
+    free feats: it adds +2 to trip and bull rush maneuvers made while
+    wielding a polearm (the tabletop's trip-feature benefit without the
+    free feats).
+  - Polearm Parry is no longer always-on: it is a SWIFT ACTION that braces
+    the weapon for 1 round (the closest the engine has to the tabletop's
+    immediate action), during which the +2 shield AC / DR 5 guard holds.
+  - Remaining engine limits, documented: pole fighting cannot shorten a
+    reach weapon's grip (no engine hook exists, so it stays the growing
+    adjacent-target bonus), and no 5-foot-step reactions exist (Step Aside
+    stays the +2 dodge AC).
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -617,29 +645,29 @@ As commissioned:
 | Level | Polearm Master grants | Fighter normally grants |
 |---|---|---|
 | 2 | Pole Fighting (close-quarters polearm bonus, +1→+5) | Bravery (all instances) |
-| 3 | Steadfast Pike (AoO bonus, +1→+5) | Armor Training 1-4 (all four) |
+| 3 | Steadfast Pike (AoO bonus with polearms, +1→+5) | Armor Training 1-4 (all four) |
 | 5 | Polearm Training (+1→+4 at/dmg with polearms) | Weapon Training 1-4 (all four) |
 | 9 | Flexible Flanker (+2 when an ally threatens the target) | — |
-| 13 | Sweeping Fend (Improved Trip + Improved Bull Rush) | — |
+| 13 | Sweeping Fend (+2 trip / bull rush with polearm) | — |
 | 17 | Step Aside (+2 dodge AC with polearm) | — |
-| 19 | Polearm Parry (+2 shield AC and DR 5 for allies within 10 ft) | Armor Mastery |
+| 19 | Polearm Parry (swift action; 1-round +2 shield AC and DR 5 for allies within 10 ft) | Armor Mastery |
 
-Adaptations (tabletop → WOTR): no grip-shortening exists, so Pole Fighting
-becomes a growing bonus on polearm attacks against adjacent enemies (the
-inverse of the shrinking penalty); Steadfast Pike's readied-attack half has
-no WOTR analogue and the AoO half is carried whole by the vanilla
-AttackOfOpportunityAttackBonus component (applies to all AoOs, not just
-polearm ones - documented broadening); Flexible Flanker's chosen-square
-flanking becomes +2 whenever any ally threatens the target (the shared
-AllyFlankerBonus component); Sweeping Fend's weapon-feature trip and -4 bull
-rush become Improved Trip + Improved Bull Rush (WOTR maneuvers need no
-weapon features); Step Aside's reactive 5-foot step (no 5-foot-step
-reactions in the engine - established in the Carousel/True Shape work)
-becomes constant footwork (+2 dodge AC); Polearm Parry's immediate action
-becomes an always-on guard for allies within 10 feet (+2 shield AC vs
-attackers in his reach, DR 5 from them - global rulebook handlers, the
-GoldenLegionnaire pattern). The 20th-level weapon mastery's polearm-only
-restriction is not enforced (the vanilla selection already allows polearms).
+Adaptations (tabletop → WOTR, tightened in 0.9.1): no grip-shortening hook
+exists, so Pole Fighting stays a growing bonus on polearm attacks against
+adjacent enemies (the inverse of the shrinking penalty); Steadfast Pike is
+now polearm-gated exactly as written (AoO detection via the Reason chain,
+the COP PairedOpportunists idiom; the readied-attack half has no WOTR
+analogue); Flexible Flanker's chosen-square flanking becomes +2 whenever any
+ally threatens the target (the shared AllyFlankerBonus component); Sweeping
+Fend adds +2 to trip and bull rush maneuvers made with a polearm (0.9.1:
+the trip-feature benefit, no longer free Improved feats); Step Aside's
+reactive 5-foot step is impossible (no 5-foot-step reactions in the engine)
+and stays constant footwork (+2 dodge AC); Polearm Parry is a swift action
+bracing the weapon for 1 round (0.9.1: the closest the engine has to the
+tabletop's immediate action; +2 shield AC vs attackers in his reach, DR 5
+from them - global rulebook handlers, the GoldenLegionnaire pattern). The
+20th-level weapon mastery's polearm-only restriction is not enforced (the
+vanilla selection already allows polearms).
 
 ### Faithful port — Strategic Soldier (Orphaned Bookworm Productions) — IMPLEMENTED (0.9.0)
 
@@ -680,9 +708,14 @@ proficiencies open at 1st via the vanilla AddProficiencies component) and
 one narrow specialization (scaling attack/damage with exotic weapons only -
 the shared WeaponSpecialistBonus component, the same engine as the Polearm
 Master's training). Bravery and armor training stay. The exotic category
-list covers every exotic weapon category in the game's enum; mod-added
-weapons that reuse vanilla categories are covered, exotic categories
-invented by other mods are not.
+list (0.9.1, verified against a compiling WOTR mod) covers all 21 exotic
+WeaponCategories in the game: bastard sword, dueling sword, dwarven waraxe,
+elven curved blade, estoc, falcata, fauchard, sawtooth sabre, kama, sai,
+tongi, siangham, nunchaku, sling staff, double axe, two-bladed sword,
+dwarven urgrosh, gnome hooked hammer, heavy/light repeating crossbow,
+shuriken. (WOTR has no katana or whip categories - those weapons stayed in
+Kingmaker.) Mod-added weapons that reuse vanilla categories are covered;
+exotic categories invented by other mods are not.
 
 ## Level plan per class (test-mode rule)
 

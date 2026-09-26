@@ -1,4 +1,8 @@
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
@@ -11,6 +15,7 @@ using Kingmaker.Items;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using Kingmaker.UnitLogic.Mechanics;
@@ -107,17 +112,13 @@ namespace MissionWOTR.Archetypes
         .AddComponent(new PolearmCloseQuarters { Class = fighter })
         .Configure();
 
-      // ----- Steadfast Pike (3rd) -----
+      // ----- Steadfast Pike (3rd): AoOs with polearms only -----
       var steadfastPike = FeatureConfigurator.New(SteadfastPikeName, Guids.SteadfastPike)
         .SetDisplayName(SteadfastPikeName + ".Name")
         .SetDescription(SteadfastPikeName + ".Description")
         .SetIcon(polearmIcon)
         .SetIsClassFeature()
-        .AddAttackOfOpportunityAttackBonus(
-          bonus: ContextValues.Rank(), descriptor: ModifierDescriptor.UntypedStackable)
-        .AddContextRankConfig(
-          ContextRankConfigs.ClassLevel(new[] { CharacterClassRefs.FighterClass.ToString() })
-            .WithCustomProgression((3, 1), (7, 2), (11, 3), (15, 4), (19, 5)))
+        .AddComponent(new PolearmSteadfastPike { Class = fighter })
         .Configure();
 
       // ----- Polearm Training (5th) -----
@@ -142,17 +143,13 @@ namespace MissionWOTR.Archetypes
         .AddComponent(new AllyFlankerBonus())
         .Configure();
 
-      // ----- Sweeping Fend (13th) -----
+      // ----- Sweeping Fend (13th): maneuvers WITH the polearm -----
       var sweepingFend = FeatureConfigurator.New(SweepingFendName, Guids.SweepingFend)
         .SetDisplayName(SweepingFendName + ".Name")
         .SetDescription(SweepingFendName + ".Description")
         .SetIcon(polearmIcon)
         .SetIsClassFeature()
-        .AddFacts(new()
-        {
-          FeatureRefs.ImprovedTrip.Reference.Get(),
-          FeatureRefs.ImprovedBullRush.Reference.Get(),
-        })
+        .AddComponent(new PolearmSweepFend { Categories = Polearms })
         .Configure();
 
       // ----- Step Aside (17th) -----
@@ -164,13 +161,31 @@ namespace MissionWOTR.Archetypes
         .AddComponent(new PolearmFootwork { Categories = Polearms })
         .Configure();
 
-      // ----- Polearm Parry (19th) -----
-      var polearmParry = FeatureConfigurator.New(PolearmParryName, Guids.PolearmParry)
+      // ----- Polearm Parry (19th): a swift action, like the tabletop's
+      // immediate action - the guard lasts one round. -----
+      var parryBuff = BuffConfigurator.New(PolearmParryName + "Buff", Guids.PoleParryBuff)
         .SetDisplayName(PolearmParryName + ".Name")
         .SetDescription(PolearmParryName + ".Description")
         .SetIcon(polearmIcon)
         .SetIsClassFeature()
         .AddComponent(new PolearmParryGuard { Categories = Polearms })
+        .Configure();
+      var parryAbility = AbilityConfigurator.New(PolearmParryName + "Ability", Guids.PoleParryAbility)
+        .SetDisplayName(PolearmParryName + ".Name")
+        .SetDescription(PolearmParryName + ".Description")
+        .SetIcon(polearmIcon)
+        .SetRange(AbilityRange.Personal)
+        .SetCanTargetSelf(true)
+        .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Swift)
+        .AddAbilityEffectRunAction(ActionsBuilder.New()
+          .ApplyBuff(parryBuff, ContextDuration.Fixed(1), toCaster: true))
+        .Configure();
+      var polearmParry = FeatureConfigurator.New(PolearmParryName, Guids.PolearmParry)
+        .SetDisplayName(PolearmParryName + ".Name")
+        .SetDescription(PolearmParryName + ".Description")
+        .SetIcon(polearmIcon)
+        .SetIsClassFeature()
+        .AddFacts(new() { parryAbility })
         .Configure();
 
       // ----- Archetype -----
@@ -201,6 +216,91 @@ namespace MissionWOTR.Archetypes
       archetype.Configure();
 
       MissionFeats.Logger.Info("PolearmMaster: configured.");
+    }
+  }
+
+  /// <summary>
+  /// Steadfast Pike: +1 on ATTACKS OF OPPORTUNITY made with a spear or
+  /// polearm, +1 per four levels beyond 3rd (+5 at 19th) - exactly the
+  /// tabletop feature, minus its readied-attack half (WOTR has no readied
+  /// attacks). AoO detection via the rule's Reason chain (the COP
+  /// PairedOpportunists idiom).
+  /// </summary>
+  [TypeId(Guids.PoleSteadfastPikeComponent)]
+  internal class PolearmSteadfastPike : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleCalculateAttackBonus>,
+    IRulebookHandler<RuleCalculateAttackBonus>, ISubscriber, IInitiatorRulebookSubscriber
+  {
+    public BlueprintCharacterClass Class;
+
+    public void OnEventAboutToTrigger(RuleCalculateAttackBonus evt)
+    {
+      try
+      {
+        var source = evt.Reason.Rule;
+        bool isAoo = false;
+        if (source is Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon withWeapon)
+        {
+          isAoo = withWeapon.IsAttackOfOpportunity;
+        }
+        else if (source is RuleAttackRoll attackRoll)
+        {
+          isAoo = attackRoll.IsAttackOfOpportunity;
+        }
+        if (!isAoo || !PolearmCloseQuarters.WieldsCategory(Owner, PolearmMaster.Polearms))
+        {
+          return;
+        }
+        int level = Owner.Progression.GetClassLevel(Class);
+        int bonus = Math.Min(5, 1 + Math.Max(0, (level - 3) / 4));
+        if (bonus > 0)
+        {
+          evt.AddModifier(bonus, Fact, ModifierDescriptor.UntypedStackable);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[polearm] steadfast pike failed.", e);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleCalculateAttackBonus evt)
+    {
+    }
+  }
+
+  /// <summary>
+  /// Sweeping Fend: +2 on trip and bull rush maneuvers made while wielding
+  /// a spear or polearm (the tabletop's trip-feature benefit, without the
+  /// free Improved feats).
+  /// </summary>
+  [TypeId(Guids.PoleSweepFendComponent)]
+  internal class PolearmSweepFend : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleCombatManeuver>, IRulebookHandler<RuleCombatManeuver>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public WeaponCategory[] Categories;
+
+    public void OnEventAboutToTrigger(RuleCombatManeuver evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner ||
+          (evt.Type != CombatManeuver.Trip && evt.Type != CombatManeuver.BullRush) ||
+          !PolearmCloseQuarters.WieldsCategory(Owner, Categories))
+        {
+          return;
+        }
+        evt.AddModifier(2, Fact, ModifierDescriptor.UntypedStackable);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[polearm] sweeping fend failed.", e);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleCombatManeuver evt)
+    {
     }
   }
 
