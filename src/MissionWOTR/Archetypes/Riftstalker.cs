@@ -18,7 +18,6 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
@@ -35,10 +34,14 @@ namespace MissionWOTR.Archetypes
   /// command toolbox; tuned 0.15.0 - base damage now scales 1d4/1d5/1d6
   /// by level 3/4, Mauling locked to 12th, Rending and Cataclysm replaced
   /// by Paralyzing and Scattering, and the commands now live in a VARIANT
-  /// MENU: clicking Guided Command opens the game's own submenu of every
-  /// directive the beast has learned - learned commands register
-  /// themselves as variants of the hub ability at runtime, the same
-  /// AbilityVariants component vanilla's MasterHunterAbility uses).
+  /// MENU: clicking Guided Command opens the game's own click-to-choose
+  /// submenu (the AbilityVariants component - the mechanism vanilla's
+  /// MasterHunterAbility uses). Engine honesty: the variant list is
+  /// blueprint-static in this build of the game (the member that mutates
+  /// it at runtime is not exposed - probed in CI), so the menu lists ALL
+  /// TEN directives and the gating lives in each command's action: a
+  /// directive only fires if she owns its learned feature; unlearned
+  /// entries are empty whispers.)
   ///
   /// The concept, v3: a hunter of the Worldwound whose beast never came
   /// back through the rift with her - but it never left either. It hangs
@@ -89,7 +92,6 @@ namespace MissionWOTR.Archetypes
     internal static BlueprintBuff ActedBuff;
     internal static BlueprintBuff GuardBuff;
     internal static BlueprintBuff CrippledBuff;
-    internal static BlueprintAbility HubAbility;
 
     /// <summary>The ten directives the beast can learn.</summary>
     internal enum RiftCommand
@@ -173,34 +175,6 @@ namespace MissionWOTR.Archetypes
       // ----- Guided Command (1st): the base directive -----
       var strikeAction = ElementTool.Create<RiftstalkerGuidedStrike>();
       strikeAction.Class = hunter;
-      var guidedCommand = AbilityConfigurator.New("RiftstalkerGuidedCommand", Guids.RiftstalkerGuidedCommand)
-        .SetDisplayName("RiftstalkerGuidedCommand.Name")
-        .SetDescription("RiftstalkerGuidedCommand.Description")
-        .SetIcon(markIcon)
-        .SetType(AbilityType.Special)
-        .SetRange(AbilityRange.Long)
-        .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Swift)
-        .AllowTargeting(enemies: true)
-        .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
-        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(strikeAction).Build())
-        // The command hub: learned commands register themselves as variants
-        // of this ability at runtime (the AbilityVariants component - the
-        // same mechanism vanilla's MasterHunterAbility uses). The empty
-        // component is seeded here, then the base strike is registered as
-        // the first entry so the menu always offers Guided Command itself.
-        .AddAbilityVariants(new())
-        .Configure();
-      HubAbility = guidedCommand;
-      // --- PROBE: ability-variant member discovery (remove after diagnosis) ---
-      var probeA = guidedCommand
-        .GetComponent<Kingmaker.UnitLogic.Abilities.Components.AbilityVariants>();
-      probeA.m_Variants = null;
-      var probeB = guidedCommand
-        .GetComponent<Kingmaker.UnitLogic.Abilities.Components.AbilityVariants>();
-      probeB.Variants = null;
-      var probeC = probeB.Variants;
-      MissionFeats.Logger.Info(
-        $"[riftstalker] probe: {probeA != null} {probeB != null} {probeC != null}.");
 
       // ----- Rift Mark (1st): brand the prey (the tether, nothing more) -----
       var riftMark = FeatureConfigurator.New("RiftstalkerRiftMark", Guids.RiftstalkerRiftMark)
@@ -233,11 +207,14 @@ namespace MissionWOTR.Archetypes
       // ----- Rift Commands (4/8/12/16/20): the directive toolbox -----
       var commandFeatures =
         new System.Collections.Generic.List<Blueprint<BlueprintFeatureReference>>();
+      var commandAbilities =
+        new System.Collections.Generic.List<Blueprint<BlueprintAbilityReference>>();
       foreach (var entry in Commands)
       {
         var action = ElementTool.Create<RiftstalkerCommandAction>();
         action.Class = hunter;
         action.Command = entry.Command;
+        action.FeatureGuid = entry.FeatureGuid;
         var ability = AbilityConfigurator.New("Riftstalker" + entry.Name + "Command", entry.AbilityGuid)
           .SetDisplayName("Riftstalker" + entry.Name + "Command.Name")
           .SetDescription("Riftstalker" + entry.Name + "Command.Description")
@@ -254,11 +231,12 @@ namespace MissionWOTR.Archetypes
           .SetDescription("Riftstalker" + entry.Name + "Command.Description")
           .SetIcon(markIcon)
           .SetIsClassFeature()
-          // Not granted as a separate action-bar ability: the command lives
-          // in the hub's variant menu once learned.
-          .AddComponent(new RiftstalkerCommandVariant { Ability = ability })
+          // The learned flag the command's action checks; the command
+          // itself is cast through the Guided Command variant menu, so it
+          // is NOT granted as a separate action-bar ability.
           .AddPrerequisiteClassLevel(CharacterClassRefs.HunterClass.Reference.Get(), entry.Gate)
           .Configure();
+        commandAbilities.Add(ability);
         commandFeatures.Add(feature);
         MissionFeats.Logger.Info(
           $"[riftstalker] rift command: {entry.Name} (gate: hunter {entry.Gate}+).");
@@ -271,6 +249,26 @@ namespace MissionWOTR.Archetypes
           .SetIcon(markIcon)
           .SetAllFeatures(commandFeatures.ToArray())
           .Configure();
+
+      // ----- Guided Command (1st): the base directive AND the command menu -----
+      // Clicking it opens the game's variant submenu (AbilityVariants - the
+      // MasterHunterAbility mechanism). The menu lists all ten directives;
+      // each one's action checks whether she owns its learned feature, so
+      // unlearned entries are empty whispers (the variant list itself is
+      // blueprint-static in this build of the game - the runtime-mutation
+      // member is not exposed; probed in CI and documented).
+      var guidedCommand = AbilityConfigurator.New("RiftstalkerGuidedCommand", Guids.RiftstalkerGuidedCommand)
+        .SetDisplayName("RiftstalkerGuidedCommand.Name")
+        .SetDescription("RiftstalkerGuidedCommand.Description")
+        .SetIcon(markIcon)
+        .SetType(AbilityType.Special)
+        .SetRange(AbilityRange.Long)
+        .SetActionType(Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Swift)
+        .AllowTargeting(enemies: true)
+        .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
+        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(strikeAction).Build())
+        .AddAbilityVariants(commandAbilities)
+        .Configure();
 
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.RiftstalkerArchetype, CharacterClassRefs.HunterClass)
@@ -484,6 +482,7 @@ namespace MissionWOTR.Archetypes
   {
     public BlueprintCharacterClass Class;
     public Riftstalker.RiftCommand Command;
+    public string FeatureGuid;
 
     public override string GetCaption() => Command + " Command";
 
@@ -494,7 +493,26 @@ namespace MissionWOTR.Archetypes
         var caster = Context.MaybeCaster;
         var target = Target.Unit;
         if (caster is null || target is null || target.HPLeft <= 0 ||
-          !RiftCommands.IsMarked(target) || !RiftCommands.Begin(Context))
+          !RiftCommands.IsMarked(target))
+        {
+          return;
+        }
+
+        // The menu lists every directive; only learned ones can be given.
+        // Checked BEFORE the once-per-round budget so an empty whisper
+        // costs nothing.
+        if (FeatureGuid is not null)
+        {
+          var learned = BlueprintTool.Get<BlueprintFeature>(FeatureGuid);
+          if (learned is null || !caster.HasFact(learned))
+          {
+            MissionFeats.Logger.Info(
+              $"[riftstalker] {Command} command: the beast has not learned this.");
+            return;
+          }
+        }
+
+        if (!RiftCommands.Begin(Context))
         {
           return;
         }
@@ -676,64 +694,5 @@ namespace MissionWOTR.Archetypes
     }
 
     public void OnEventDidTrigger(RuleCalculateAttackBonus evt) { }
-  }
-
-  /// <summary>
-  /// Registers a learned command as a variant of the Guided Command hub:
-  /// when the feature activates on the hunter, the command's ability joins
-  /// the hub's AbilityVariants list (the game's own click-to-open submenu,
-  /// the mechanism vanilla's MasterHunterAbility uses); when the feature is
-  /// removed, the variant leaves the menu. The hub blueprint is ours, so
-  /// the mutation is save-safe. Documented edge: with two riftstalkers in
-  /// one party the menu shows the union of their learned commands.
-  /// </summary>
-  [TypeId(Guids.RiftstalkerCommandVariantComponent)]
-  internal class RiftstalkerCommandVariant : UnitFactComponentDelegate
-  {
-    public BlueprintAbility Ability;
-
-    protected override void OnActivate()
-    {
-      try
-      {
-        var hub = Riftstalker.HubAbility;
-        if (hub is null || Ability is null)
-        {
-          return;
-        }
-        var variants = hub.GetComponent<AbilityVariants>();
-        if (variants is null)
-        {
-          return;
-        }
-        // PROBE PENDING: variant member discovery (see Configure).
-      }
-      catch (Exception e)
-      {
-        MissionFeats.Logger.Error("[riftstalker] variant registration failed.", e);
-      }
-    }
-
-    protected override void OnDeactivate()
-    {
-      try
-      {
-        var hub = Riftstalker.HubAbility;
-        if (hub is null || Ability is null)
-        {
-          return;
-        }
-        var variants = hub.GetComponent<AbilityVariants>();
-        if (variants?.m_Variants is null)
-        {
-          return;
-        }
-        // PROBE PENDING: variant member discovery (see Configure).
-      }
-      catch (Exception e)
-      {
-        MissionFeats.Logger.Error("[riftstalker] variant removal failed.", e);
-      }
-    }
   }
 }

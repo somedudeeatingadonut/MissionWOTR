@@ -2883,7 +2883,7 @@
   {
     "Key": "Riftstalker.Description",
     "ProcessTemplates": false,
-    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting, learning. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and each round she may give the beast one directive through her guided command - clicking it opens the full menu of every directive the beast has learned."
+    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting, learning. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and each round she may give the beast one directive - clicking Guided Command opens the menu of commands the beast might learn."
   },
   {
     "Key": "RiftstalkerRiftMark.Name",
@@ -2923,7 +2923,7 @@
   {
     "Key": "RiftstalkerGuidedCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The riftstalker calls, and the unseen beast answers. Clicking Guided Command opens the menu of every directive the beast has learned - this base strike is always available. As a swift action, she directs the beast to strike a creature bearing her rift mark: it attacks with an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d4 plus half her hunter level in damage that no armor of this world blunts (the die grows to 1d5 at 3rd level and 1d6 at 4th), and the horror of unseen jaws shakes the target for one round. The beast can be given only one directive per round, whichever command she chooses. This replaces hunter tactics."
+    "enGB": "The riftstalker calls, and the unseen beast answers. Clicking Guided Command opens the command menu - every directive the beast might learn is listed there, but only those it has actually learned can be given (the rest are empty whispers). The base strike is always available: as a swift action, she directs the beast to strike a creature bearing her rift mark - an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d4 plus half her hunter level in damage that no armor of this world blunts (the die grows to 1d5 at 3rd level and 1d6 at 4th), and the horror of unseen jaws shakes the target for one round. The beast can be given only one directive per round, whichever command she chooses. This replaces hunter tactics."
   },
   {
     "Key": "RiftstalkerUnseenGuardian.Name",
@@ -2943,7 +2943,7 @@
   {
     "Key": "RiftstalkerCommands.Description",
     "ProcessTemplates": false,
-    "enGB": "At 4th level and every four levels thereafter (8th, 12th, 16th and 20th), the riftstalker teaches the beast in the rift a new directive of her choice from the list below. Learned commands appear in the Guided Command menu. Each command is a swift action aimed at a creature bearing her rift mark, resolved with the beast's attack roll (d20 + hunter level + Wisdom) against the target's Armor Class unless noted. The beast can be given only one directive per round, whichever command she chooses. This replaces raise companion and one with the wild."
+    "enGB": "At 4th level and every four levels thereafter (8th, 12th, 16th and 20th), the riftstalker teaches the beast in the rift a new directive of her choice from the list below. Learned commands are cast through the Guided Command menu; unlearned entries are listed but do nothing. Each command is a swift action aimed at a creature bearing her rift mark, resolved with the beast's attack roll (d20 + hunter level + Wisdom) against the target's Armor Class unless noted. The beast can be given only one directive per round, whichever command she chooses. This replaces raise companion and one with the wild."
   },
   {
     "Key": "RiftstalkerMaulingCommand.Name",

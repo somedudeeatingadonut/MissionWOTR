@@ -654,7 +654,6 @@ namespace MissionWOTR
     internal const string RiftstalkerUnseenGuardian = "038BE903-4EB4-49BF-8B2F-F306E1E8E7F6";
     internal const string RiftstalkerUnseenGuardComponent = "F8B5A52D-E113-4DB0-9299-3AB31231E646";
     internal const string RiftstalkerCommandSelection = "D99D8DB2-1232-4D82-9DBF-F1EE9DD36AAD";
-    internal const string RiftstalkerCommandVariantComponent = "5961B499-8440-40D7-928C-9AE02889F5F3";
     internal const string VerminousArchetype = "D78F2E91-8084-4A7D-8A95-C0EC0EBB6CBE";
     internal const string VerminousCompanionSelection = "664BF380-63B7-4609-A710-59E5E8E12BFE";
     internal const string VerminousFocusSelection = "5E68FD39-5F62-4297-8E2C-C1BE4B9A362F";

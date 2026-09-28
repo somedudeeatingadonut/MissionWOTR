@@ -438,11 +438,15 @@ errors suggested:
 - **The command menu (user ask #1).** Clicking Guided Command now opens
   the game's own click-to-choose submenu (the AbilityVariants component -
   the mechanism vanilla's MasterHunterAbility uses, confirmed compiling
-  in CharacterOptionsPlus). Learned commands register themselves as hub
-  variants when their feature activates, and unregister when removed;
-  the base strike stays permanently in the menu. Command abilities are no
-  longer granted as separate action-bar icons. Documented edge: with two
-  riftstalkers in one party the menu shows the union of learned commands.
+  in CharacterOptionsPlus and TabletopTweaks-Core). Engine honesty: the
+  variant list is blueprint-static in this build of the game - a CI probe
+  proved the runtime-mutation member (m_Variants) is not exposed and the
+  Variants property is a read-only proxy - so the menu lists ALL TEN
+  directives and the gating lives in each command's action: a directive
+  only fires if she owns its learned feature, checked before the
+  once-per-round budget so an empty whisper costs nothing. Command
+  abilities are no longer granted as separate action-bar icons; the base
+  strike is cast directly through the same ability.
 - **Damage tuning (user ask #2).** The base strike now deals 1d4 +
   half level, growing to 1d5 at 3rd and 1d6 at 4th (the die helper is
   level-read at strike time). Mauling is locked behind 12th level. Rending
@@ -1060,8 +1064,8 @@ never left. The mark is the tether; the commands are the leash.
   Pinning, Terrifying, Guarding (4th tier); Blinding, Fatiguing (8th);
   Mauling (12th, locked there by tuning), Staggering, Crippling (12th);
   Paralyzing, Scattering (16th). One directive per round, shared with
-  Guided Command (hidden budget buff). Learned commands appear in the
-  Guided Command menu rather than as separate bar icons.
+  Guided Command (hidden budget buff). All ten are listed in the Guided
+  Command menu; only learned ones fire.
 - Design note: the base command is the damage floor; every learned
   command trades raw damage for control, defense, or escalation. The
   once-per-round budget keeps real-time and turn-based honest.
