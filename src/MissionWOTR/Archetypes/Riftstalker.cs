@@ -688,7 +688,7 @@ namespace MissionWOTR.Archetypes
   {
     public BlueprintAbility Ability;
 
-    public override void OnActivate()
+    protected override void OnActivate()
     {
       try
       {
@@ -717,7 +717,7 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    public override void OnDeactivate()
+    protected override void OnDeactivate()
     {
       try
       {
