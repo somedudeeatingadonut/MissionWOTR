@@ -73,12 +73,13 @@ namespace MissionWOTR.Archetypes
       var verminIcon = AbilityRefs.Poison.Reference.Get().Icon;
 
       // ----- Vermin Companion (1st): the centipede, and only the centipede -----
+      var centipede = FeatureRefs.AnimalCompanionFeatureCentipede.Reference.Get();
       var verminCompanion = FeatureSelectionConfigurator.New(
         "VerminousCompanionSelection", Guids.VerminousCompanionSelection)
         .SetDisplayName("VerminousCompanion.Name")
         .SetDescription("VerminousCompanion.Description")
         .SetIcon(verminIcon)
-        .SetAllFeatures(FeatureRefs.AnimalCompanionFeatureCentipede)
+        .SetAllFeatures(centipede)
         .Configure();
 
       // ----- Vermin Focus (1st/8th/15th): the permanent aspects -----

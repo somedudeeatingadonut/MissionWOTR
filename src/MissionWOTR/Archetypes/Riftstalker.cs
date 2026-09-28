@@ -191,12 +191,16 @@ namespace MissionWOTR.Archetypes
         .AddAbilityVariants(new())
         .Configure();
       HubAbility = guidedCommand;
-      var seedVariants = guidedCommand.GetComponent<AbilityVariants>();
-      if (seedVariants is not null)
-      {
-        seedVariants.m_Variants =
-          new[] { guidedCommand.ToReference<BlueprintAbilityReference>() };
-      }
+      // --- PROBE: ability-variant member discovery (remove after diagnosis) ---
+      var probeA = guidedCommand
+        .GetComponent<Kingmaker.UnitLogic.Abilities.Components.AbilityVariants>();
+      probeA.m_Variants = null;
+      var probeB = guidedCommand
+        .GetComponent<Kingmaker.UnitLogic.Abilities.Components.AbilityVariants>();
+      probeB.Variants = null;
+      var probeC = probeB.Variants;
+      MissionFeats.Logger.Info(
+        $"[riftstalker] probe: {probeA != null} {probeB != null} {probeC != null}.");
 
       // ----- Rift Mark (1st): brand the prey (the tether, nothing more) -----
       var riftMark = FeatureConfigurator.New("RiftstalkerRiftMark", Guids.RiftstalkerRiftMark)
@@ -702,14 +706,7 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        var list = (variants.m_Variants ?? new BlueprintAbilityReference[0]).ToList();
-        if (list.All(reference => reference.Get() != Ability))
-        {
-          list.Add(Ability.ToReference<BlueprintAbilityReference>());
-          variants.m_Variants = list.ToArray();
-          MissionFeats.Logger.Info(
-            $"[riftstalker] command menu: {Ability.name} learned.");
-        }
+        // PROBE PENDING: variant member discovery (see Configure).
       }
       catch (Exception e)
       {
@@ -731,9 +728,7 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        variants.m_Variants = variants.m_Variants
-          .Where(reference => reference.Get() != Ability)
-          .ToArray();
+        // PROBE PENDING: variant member discovery (see Configure).
       }
       catch (Exception e)
       {
