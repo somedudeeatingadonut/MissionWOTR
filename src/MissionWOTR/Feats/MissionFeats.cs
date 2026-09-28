@@ -67,6 +67,20 @@ namespace MissionWOTR.Feats
       Configure(nameof(SisterInArms), SisterInArms.Configure);
       Configure(nameof(Carousel), Carousel.Configure);
 
+      // BUGFIX (0.11.0): the archetypes below shipped in 0.7.0-0.10.1 listed
+      // in the diagnostics table but were never wired into ConfigureAll - they
+      // compiled and passed CI, yet their blueprints were never created
+      // in-game. Registered for real now, alongside the new Hammerfist.
+      Configure(nameof(Cardinal), Cardinal.Configure);
+      Configure(nameof(Solipsist), Solipsist.Configure);
+      Configure(nameof(LionShaman), LionShaman.Configure);
+      Configure(nameof(TrueShape), TrueShape.Configure);
+      Configure(nameof(PolearmMaster), PolearmMaster.Configure);
+      Configure(nameof(StrategicSoldier), StrategicSoldier.Configure);
+      Configure(nameof(Exoticist), Exoticist.Configure);
+      Configure(nameof(Qinggong), Qinggong.Configure);
+      Configure(nameof(Hammerfist), Hammerfist.Configure);
+
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
 
@@ -118,6 +132,7 @@ namespace MissionWOTR.Feats
       ("StrategicSoldier", Guids.StrategicSoldierArchetype, fighter),
       ("Exoticist", Guids.ExoticistArchetype, fighter),
       ("Qinggong", Guids.QinggongArchetype, monk),
+      ("Hammerfist", Guids.HammerfistArchetype, monk),
     };
         foreach (var entry in entries)
         {

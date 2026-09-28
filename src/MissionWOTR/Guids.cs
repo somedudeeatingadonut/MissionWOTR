@@ -634,6 +634,10 @@ namespace MissionWOTR
     internal const string PoleParryBuff = "F93C0428-A27A-4012-B589-18F794E0C78C";
     internal const string PoleStepAsideComponent = "2AF3A396-0EAA-4499-8AAC-8801EE7A8D9F";
     internal const string QinggongArchetype = "77EBC959-9A84-4BC9-BE1E-2A8F99276B34";
+    internal const string HammerfistArchetype = "63AE6BD7-19D3-4986-B529-1A48507E33B4";
+    internal const string HammerfistCrushingFist = "659EFBA8-A0F2-43DE-B966-61328245241B";
+    internal const string HammerfistRollingThunder = "F3C94435-D7D7-458E-8A40-5E5C8F0FEC8A";
+    internal const string HammerfistCrushingFistComponent = "68E9247B-E638-4D51-96BD-EA848ACC9A9C";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
   }

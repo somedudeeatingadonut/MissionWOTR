@@ -2795,5 +2795,35 @@
     "Key": "QinggongFrightfulAspect.Description",
     "ProcessTemplates": false,
     "enGB": "The monk's ki swells until she towers over the battlefield, a presence out of nightmare that turns her enemies' courage to water, as the frightful aspect spell. Cost: 3 ki. Requires monk level 16."
+  },
+  {
+    "Key": "Hammerfist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hammerfist Monk"
+  },
+  {
+    "Key": "Hammerfist.Description",
+    "ProcessTemplates": false,
+    "enGB": "Some monks are a storm of blows. The hammerfist is the single strike that ends the argument. She trades away nearly everything her order holds sacred - the flurry of blows, the stunning fist, even the evasion every monk leans on - to perfect one devastating punch. Where others must stand and deliver a dozen strikes, she steps in, plants her feet, and puts her whole discipline through one fist. What she keeps, she keeps completely: her ki, her armor bonus, her maneuver training. And the first enemy to eat her opening blow will remember it."
+  },
+  {
+    "Key": "HammerfistCrushingFist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Crushing Fist"
+  },
+  {
+    "Key": "HammerfistCrushingFist.Description",
+    "ProcessTemplates": false,
+    "enGB": "The hammerfist monk gives up the flurry for one perfect blow. Once per round, her first unarmed strike to connect carries the full weight of her training, dealing 2 extra damage plus 1 1/2 times her monk level. This replaces flurry of blows and stunning fist."
+  },
+  {
+    "Key": "HammerfistRollingThunder.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rolling Thunder"
+  },
+  {
+    "Key": "HammerfistRollingThunder.Description",
+    "ProcessTemplates": false,
+    "enGB": "From 9th level, the hammerfist's first unarmed strike to connect in each attack sequence rolls through the target like thunder after lightning: it slams them with a free trip attempt that costs no action and provokes no attack of opportunity. This replaces improved evasion."
   }
 ]

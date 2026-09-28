@@ -267,6 +267,66 @@ errors suggested:
   10th), and ki holy aura (4 ki, 16th). Every monk in the game gains the
   new powers; the qinggong reaches them first.
 
+
+## 0.10.1 — three more ki powers with real teeth (user feedback)
+
+- The user's verdict on the first four: neutralize poison and freedom of
+  movement are not the best ki powers - pick others from tabletop that can
+  be more useful (the first four stay). Added to the shared
+  MonkKiPowerSelection, all tabletop qinggong picks:
+  - **Ki Glimpse of Truth** (2 ki, 10th): true seeing - WOTR is thick with
+    mirror images, displacement and invisibility, and this puts true sight
+    on a non-caster. Cloned from the true seeing spell.
+  - **Ki Dragon Breath** (2 ki, 8th): cloned from the game's own dragon's
+    breath spell (fire variant - blueprint copies do not carry the cast-time
+    element selection, so the ki version breathes the classic flame).
+  - **Ki Frightful Aspect** (3 ki, 16th): cloned from the frightful aspect
+    spell. The tabletop gates it at 20th; WOTR's own ki cadence tops out at
+    the 16th tier (quivering palm), so it is gated at 16th to stay
+    selectable.
+- **Why not the rest of the tabletop list:** most remaining qinggong
+  spells have no WOTR blueprint to build from (checked against the game's
+  ability reference set): gaseous form, deadly juggernaut, ki leech,
+  discordant blast, shadow walk, dust form, stone shield, sonic thrust,
+  strangling hair, earthquake and the occult psychic picks are all absent
+  from the game. Ki powers here are clones of real spells, per Owlcat's own
+  pattern - no spell, no ki power.
+- Tooltips: the ki-power abilities now also carry their own display name,
+  description and icon (previously only the selection feature did), so the
+  action bar reads "Ki Invisibility" and friends instead of the raw
+  blueprint name.
+
+## 0.11.0 — Hammerfist Monk (homebrew: the one big hit) + a load-fix
+
+- The user's brief: a homebrew monk focused on ONE big damage hit with the
+  fists instead of the flurry machine - slightly lower overall output (it
+  is easier to land one full attack than a whole flurry), quite a bit of
+  the monk gimmickry stripped out, plus a differentiator of our own
+  devising.
+- **Crushing Fist** (1st, replaces Flurry of Blows + Stunning Fist and its
+  upgrade line): once per round, the first unarmed strike that CONNECTS
+  deals +2 +1½×monk level bonus damage (+32 at 20th). Tuning: a
+  full-attack round stays slightly below the flurry monk's total (only the
+  first connecting blow is boosted), while a move-and-punch round carries
+  most of a flurry's weight - consistency instead of volume.
+- **Rolling Thunder** (9th, replaces Improved Evasion - the
+  differentiator): the first unarmed hit of each attack sequence slams the
+  target with a free trip maneuver (CMB vs CMD, no action, no AoO). Built
+  from the vanilla AddInitiatorAttackWithWeaponTrigger - the same wiring
+  as the Two-Handed Fighter's Piledriver - with a knockdown chained on
+  success. Scales with the maneuver training the monk keeps.
+- **Also removed:** Evasion (2nd). **Kept:** AC bonus, maneuver training,
+  fast movement, still mind, purity of body, the ki pool and every ki power
+  (our 0.10.x additions included). Deliberately stackable with the Qinggong
+  - the two remove disjoint features.
+- **CRITICAL BUGFIX - eight archetypes were never loaded.** Cardinal,
+  Solipsist, LionShaman, TrueShape (0.7.x), PolearmMaster, StrategicSoldier,
+  Exoticist (0.9.x) and Qinggong (0.10.x) compiled and passed CI but were
+  never wired into the mod's configuration pass - their blueprints were
+  never created in-game. The diagnostics table that should have caught this
+  only reports in the game log. All eight are registered for real now; the
+  ConfigureAll list and the diagnostics table must stay in lockstep.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -772,6 +832,36 @@ the 0.10.1 additions with more teeth: ki glimpse of truth (true seeing,
 (3 ki, 16th). Each is built the way Owlcat builds its own ki powers - a
 clone of the vanilla spell (minus its spell-list component) that spends
 the Ki resource via AbilityResourceLogic.
+
+### Homebrew — Hammerfist Monk — IMPLEMENTED (0.11.0)
+
+The user's brief: a monk focused on one big damage hit with her fists
+instead of many hits - slightly lower overall output (it is easier to land
+one full attack than a whole flurry), a fair bit of the monk gimmickry
+stripped out, and a little something extra to differentiate.
+
+| Level | Hammerfist grants | Monk normally grants |
+|---|---|---|
+| 1 | Crushing Fist | Flurry of Blows, Stunning Fist |
+| 2 | — | Evasion (removed) |
+| 9 | Rolling Thunder | Improved Evasion (removed) |
+
+- **Crushing Fist (1st):** once per round, the first unarmed strike that
+  HITS deals +2 +1½×level extra damage. The flurry line (base feature +
+  both unlock tiers) and the Stunning Fist line (base + fatigue + sickened
+  upgrades) are removed outright. Tuning intent: a move-and-punch round
+  lands roughly 85-95% of a flurry round's damage, but every point of the
+  boost rides the first hit that connects - no full-attack dependency,
+  nothing wasted on a miss.
+- **Rolling Thunder (9th, the differentiator):** the first unarmed hit of
+  each attack sequence triggers a free trip maneuver (CMB vs CMD, no
+  action, no AoO) - the game's own on-hit trigger component (the Piledriver
+  wiring), unarmed-gated via its weapon-category check, with the knockdown
+  action chained on maneuver success. Feeds on the maneuver training the
+  monk keeps.
+- Engine notes: the once-per-round bookkeeping is the same component-data
+  cooldown Step Aside uses; Rolling Thunder is pure vanilla components, so
+  both features work in real-time and turn-based modes alike.
 
 ## Level plan per class (test-mode rule)
 
