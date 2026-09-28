@@ -176,16 +176,6 @@ namespace MissionWOTR.Archetypes
       var strikeAction = ElementTool.Create<RiftstalkerGuidedStrike>();
       strikeAction.Class = hunter;
 
-      // ----- Rift Mark (1st): brand the prey (the tether, nothing more) -----
-      var riftMark = FeatureConfigurator.New("RiftstalkerRiftMark", Guids.RiftstalkerRiftMark)
-        .SetDisplayName("RiftstalkerRiftMark.Name")
-        .SetDescription("RiftstalkerRiftMark.Description")
-        .SetIcon(markIcon)
-        .SetIsClassFeature()
-        .AddComponent(new RiftstalkerMarkDelivery { Class = hunter })
-        .AddFacts(new() { guidedCommand })
-        .Configure();
-
       // ----- Rift Stride (2nd): +10 feet -----
       var riftStride = FeatureConfigurator.New("RiftstalkerRiftStride", Guids.RiftstalkerRiftStride)
         .SetDisplayName("RiftstalkerRiftStride.Name")
@@ -268,6 +258,16 @@ namespace MissionWOTR.Archetypes
         .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
         .AddAbilityEffectRunAction(ActionsBuilder.New().Add(strikeAction).Build())
         .AddAbilityVariants(commandAbilities)
+        .Configure();
+
+      // ----- Rift Mark (1st): brand the prey (the tether, nothing more) -----
+      var riftMark = FeatureConfigurator.New("RiftstalkerRiftMark", Guids.RiftstalkerRiftMark)
+        .SetDisplayName("RiftstalkerRiftMark.Name")
+        .SetDescription("RiftstalkerRiftMark.Description")
+        .SetIcon(markIcon)
+        .SetIsClassFeature()
+        .AddComponent(new RiftstalkerMarkDelivery { Class = hunter })
+        .AddFacts(new() { guidedCommand })
         .Configure();
 
       var archetype =
