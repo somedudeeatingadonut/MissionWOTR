@@ -80,6 +80,8 @@ namespace MissionWOTR.Feats
       Configure(nameof(Exoticist), Exoticist.Configure);
       Configure(nameof(Qinggong), Qinggong.Configure);
       Configure(nameof(Hammerfist), Hammerfist.Configure);
+      Configure(nameof(Venomblood), Venomblood.Configure);
+      Configure(nameof(Riftstalker), Riftstalker.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -107,6 +109,7 @@ namespace MissionWOTR.Feats
         var druid = CharacterClassRefs.DruidClass.Reference.Get();
         var fighter = CharacterClassRefs.FighterClass.Reference.Get();
         var monk = CharacterClassRefs.MonkClass.Reference.Get();
+        var hunter = CharacterClassRefs.HunterClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -133,6 +136,8 @@ namespace MissionWOTR.Feats
       ("Exoticist", Guids.ExoticistArchetype, fighter),
       ("Qinggong", Guids.QinggongArchetype, monk),
       ("Hammerfist", Guids.HammerfistArchetype, monk),
+      ("Venomblood", Guids.VenombloodArchetype, hunter),
+      ("Riftstalker", Guids.RiftstalkerArchetype, hunter),
     };
         foreach (var entry in entries)
         {

@@ -638,6 +638,22 @@ namespace MissionWOTR
     internal const string HammerfistCrushingFist = "659EFBA8-A0F2-43DE-B966-61328245241B";
     internal const string HammerfistRollingThunder = "F3C94435-D7D7-458E-8A40-5E5C8F0FEC8A";
     internal const string HammerfistCrushingFistComponent = "68E9247B-E638-4D51-96BD-EA848ACC9A9C";
+    internal const string VenombloodArchetype = "65210C92-913E-4493-88C4-6449E925810C";
+    internal const string VenombloodSerpentsGift = "3BA4FB19-6DAA-47AE-B290-47BEFDB27CBC";
+    internal const string VenombloodSerpentsSkin = "D773AEFD-6E62-4F71-BE2C-BF053D0D717E";
+    internal const string VenombloodNeurotoxin = "02772F08-1B73-41B0-8CF1-40E31497FCEC";
+    internal const string VenombloodToxinStrain = "481E888B-B10F-4A6D-8BA4-67190089C824";
+    internal const string VenombloodDeliveryComponent = "F8881350-4A67-467E-A7EC-66970AC40ED6";
+    internal const string RiftstalkerArchetype = "60FBDC2E-C9E7-4532-B439-A3C10085E021";
+    internal const string RiftstalkerRiftMark = "6747D944-92CC-476F-B34D-9F66757BB5FB";
+    internal const string RiftstalkerRiftStride = "BE705094-1A30-45CC-83DF-63D06CC8F637";
+    internal const string RiftstalkerRiftstudy = "FF7163E8-5AC0-4055-9189-E303DAC39FF4";
+    internal const string RiftstalkerHuntersFeast = "D5E02F66-F3ED-40AA-B86D-FBA206ABBA98";
+    internal const string RiftstalkerMarkBuff = "2F6ECC74-1E6F-4679-9698-CCA0916073EC";
+    internal const string RiftstalkerFeastBuff = "B7C351EC-1A13-4B24-B148-8FB091E0C390";
+    internal const string RiftstalkerMarkDeliveryComponent = "D85AAF20-A647-4525-9B85-CC16AA42E3CF";
+    internal const string RiftstalkerMarkBonusComponent = "8BBC6236-88B2-4F7A-83C9-0264E16AE381";
+    internal const string RiftstalkerFeastBonusComponent = "A00BA20B-9278-4DC4-BD92-54AE990DE593";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
   }

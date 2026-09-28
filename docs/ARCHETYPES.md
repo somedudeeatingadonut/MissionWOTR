@@ -327,6 +327,45 @@ errors suggested:
   only reports in the game log. All eight are registered for real now; the
   ConfigureAll list and the diagnostics table must stay in lockstep.
 
+## 0.12.0 — two homebrew hunters (the user's open brief)
+
+- The user's brief: "make 2 hunter archetypes, both completely of your
+  own volition." No tabletop anchors - both are original designs, built to
+  cover opposite halves of the hunter fantasy.
+- **Venomblood Hunter (homebrew):** the serpent-touched attrition hunter.
+  KEEPS the animal companion and the beast-aspects (the hound harries
+  while the venom works); trades away the entire tactical half - hunter
+  tactics, the teamwork-feat progression, woodland stride, one with the
+  wild (both halves). Kit: Serpent's Gift (1st, once per round the first
+  hit that connects injects venom: Fort save DC 10 + 1/2 level + Wis or
+  1d2 Con damage; supernatural - works on poison-immune demons at +4 to
+  their save, the same Worldwound lever the Eldritch Poisoner uses),
+  Serpent's Skin (6th, poison immunity), Neurotoxin (9th, failed saves
+  also sicken).
+- **Riftstalker Hunter (homebrew):** the Worldwound loner. Trades the
+  ENTIRE companion side (animal companion, raise companion, one with the
+  wild) plus the teamwork-tactics side; keeps aspects, spells, woodland
+  stride. Kit: Rift Mark (1st, first hit per round brands the target for
+  a minute; +2 attack and damage vs the marked), Rift Stride (2nd,
+  +10 ft speed), Riftstudy (5th, +2 further vs the marked, total +4),
+  Hunter's Feast (12th, killing marked prey grants a minute of +2 attack
+  and damage against everything).
+- The two are mutually exclusive by construction (both remove Hunter
+  Tactics, the teamwork feats and One with the Wild) - as same-class
+  archetypes should be.
+- **Coverage:** vanilla WOTR hunter archetypes are Forester (terrain
+  focus, no companion), Divine Hunter (domain) and Urban Hunter (city
+  cunning); neither of ours collides - venomblood is the poison-attrition
+  concept, riftstalker the mark-focused solo hunter. HomebrewArchetypes
+  adds no hunter content that clashes either.
+- Engine notes: both deliveries ride the proven RuleAttackWithWeapon
+  handler with the once-per-round component-data cooldown (Step Aside /
+  Crushing Fist bookkeeping); the toxin strain deals its Con damage on
+  buff activation (the Eldritch Poisoner strain wiring); mark and feast
+  bonuses use global rulebook handlers (the Polearm Parry guard wiring);
+  Rift Stride is the vanilla movement-speed component. Nothing here is
+  mode-gated - real-time and turn-based behave identically.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -862,6 +901,49 @@ stripped out, and a little something extra to differentiate.
 - Engine notes: the once-per-round bookkeeping is the same component-data
   cooldown Step Aside uses; Rolling Thunder is pure vanilla components, so
   both features work in real-time and turn-based modes alike.
+
+## Hunter
+
+### Homebrew — Venomblood Hunter — IMPLEMENTED (0.12.0)
+
+The serpent-touched attrition hunter: keeps the hound and the aspects,
+trades the tactical half of the class for poison.
+
+| Level | Venomblood grants | Hunter normally grants |
+|---|---|---|
+| 1 | Serpent's Gift | Hunter Tactics (removed) |
+| 2 | — | teamwork-feat progression begins (removed) |
+| 6 | Serpent's Skin | Woodland Stride (removed) |
+| 9 | Neurotoxin | One with the Wild (removed, both halves) |
+
+- **Serpent's Gift (1st):** once per round, the first weapon hit that
+  connects injects venom - Fortitude (DC 10 + 1/2 hunter level + Wis) or
+  1d2 Constitution damage; the strain burns out after a round, so every
+  round brings a fresh dose and a fresh save. Supernatural: functions
+  against poison-immune creatures (most of the Worldwound) at +4 to their
+  save - the documented Eldritch Poisoner lever.
+- **Serpent's Skin (6th):** immunity to poison.
+- **Neurotoxin (9th):** failed saves also sicken for 1 round.
+
+### Homebrew — Riftstalker Hunter — IMPLEMENTED (0.12.0)
+
+The Worldwound loner: no beast, no pack tactics - just the mark, the
+stride and the feast.
+
+| Level | Riftstalker grants | Hunter normally grants |
+|---|---|---|
+| 1 | Rift Mark | Animal Companion (removed) |
+| 2 | Rift Stride | Hunter Tactics (removed) |
+| 5 | Riftstudy | teamwork-feat progression (removed) |
+| 12 | Hunter's Feast | One with the Wild (removed, both halves) |
+
+- **Rift Mark (1st):** first hit per round brands the target for one
+  minute; +2 attack and damage against the branded.
+- **Rift Stride (2nd):** +10 ft land speed (nothing to wait for).
+- **Riftstudy (5th):** +2 further against the marked (total +4).
+- **Hunter's Feast (12th):** a marked kill grants one minute of +2 attack
+  and damage against everything.
+- Also removed: Raise Companion (there is nothing to raise).
 
 ## Level plan per class (test-mode rule)
 

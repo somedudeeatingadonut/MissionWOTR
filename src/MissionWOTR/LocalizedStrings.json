@@ -2764,8 +2764,7 @@
     "Key": "QinggongHolyAura.Description",
     "ProcessTemplates": false,
     "enGB": "The monk's perfected ki pours out as a mantle of sacred light, as the holy aura spell. Cost: 4 ki. Requires monk level 16."
-  }
-,
+  },
   {
     "Key": "QinggongDragonsBreath.Name",
     "ProcessTemplates": false,
@@ -2825,5 +2824,125 @@
     "Key": "HammerfistRollingThunder.Description",
     "ProcessTemplates": false,
     "enGB": "From 9th level, the hammerfist's first unarmed strike to connect in each attack sequence rolls through the target like thunder after lightning: it slams them with a free trip attempt that costs no action and provokes no attack of opportunity. This replaces improved evasion."
+  },
+  {
+    "Key": "Venomblood.Name",
+    "ProcessTemplates": false,
+    "enGB": "Venomblood Hunter"
+  },
+  {
+    "Key": "Venomblood.Description",
+    "ProcessTemplates": false,
+    "enGB": "Some hunters are raised on mother's milk. The venomblood was raised on serpent venom, and it never left her blood. She keeps her hound and her beast-aspects, but where other hunters win through coordination - shared tactics, teamwork, one-ness with the wild - she wins through attrition: every bite of her blade leaves poison behind, and the fight is over when the enemy's body gives out. She trades hunter tactics, her teamwork feats, woodland stride and one with the wild for the serpent's gifts."
+  },
+  {
+    "Key": "VenombloodSerpentsGift.Name",
+    "ProcessTemplates": false,
+    "enGB": "Serpent's Gift"
+  },
+  {
+    "Key": "VenombloodSerpentsGift.Description",
+    "ProcessTemplates": false,
+    "enGB": "Once per round, the venomblood's first weapon attack that hits injects venom: the target must pass a Fortitude save (DC 10 + half her hunter level + Wisdom) or take 1d2 Constitution damage as the toxin courses through it. The strain burns out after a round, and every round's first hit brings a fresh dose and a fresh save. The venom is supernatural and works even on creatures immune to poison, though they resist it (+4 on the save). This replaces hunter tactics and the teamwork-feat progression."
+  },
+  {
+    "Key": "VenombloodSerpentsSkin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Serpent's Skin"
+  },
+  {
+    "Key": "VenombloodSerpentsSkin.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 6th level, the venomblood's blood runs so thick with venom that she is simply immune to poison. This replaces woodland stride."
+  },
+  {
+    "Key": "VenombloodNeurotoxin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Neurotoxin"
+  },
+  {
+    "Key": "VenombloodNeurotoxin.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 9th level, the venomblood's venom reaches the nerves: a target that fails its save against Serpent's Gift is also sickened for 1 round. This replaces one with the wild."
+  },
+  {
+    "Key": "VenombloodToxinStrain.Name",
+    "ProcessTemplates": false,
+    "enGB": "Venomblood Toxin"
+  },
+  {
+    "Key": "VenombloodToxinStrain.Description",
+    "ProcessTemplates": false,
+    "enGB": "Serpent venom burning through the veins: 1d2 Constitution damage as it enters the blood. The strain burns out after a round."
+  },
+  {
+    "Key": "Riftstalker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Riftstalker Hunter"
+  },
+  {
+    "Key": "Riftstalker.Description",
+    "ProcessTemplates": false,
+    "enGB": "A hunter of the Worldwound who walks alone. The rift took her beast - or she gave it up so it would never see what she became - and left something else in its place: a hunter's focus so absolute it brands reality itself. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild, and keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey; her last blow feeds her."
+  },
+  {
+    "Key": "RiftstalkerRiftMark.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rift Mark"
+  },
+  {
+    "Key": "RiftstalkerRiftMark.Description",
+    "ProcessTemplates": false,
+    "enGB": "Once per round, the riftstalker's first attack that hits brands the target with a rift mark for one minute. Against her mark she strikes with terrible certainty: +2 on attack rolls and +2 damage. This replaces the animal companion."
+  },
+  {
+    "Key": "RiftstalkerRiftStride.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rift Stride"
+  },
+  {
+    "Key": "RiftstalkerRiftStride.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 2nd level, the riftstalker has nothing to wait for and no one to slow her down: her land speed increases by 10 feet. This replaces hunter tactics."
+  },
+  {
+    "Key": "RiftstalkerRiftstudy.Name",
+    "ProcessTemplates": false,
+    "enGB": "Riftstudy"
+  },
+  {
+    "Key": "RiftstalkerRiftstudy.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 5th level, the riftstalker's mark deepens: she gains a further +2 on attack rolls and +2 damage against marked targets (total +4). This replaces the teamwork-feat progression."
+  },
+  {
+    "Key": "RiftstalkerHuntersFeast.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hunter's Feast"
+  },
+  {
+    "Key": "RiftstalkerHuntersFeast.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 12th level, when a creature bearing the riftstalker's mark dies by her hand, she feasts on the kill: for one minute she gains +2 on attack rolls and +2 damage against everything. This replaces one with the wild."
+  },
+  {
+    "Key": "RiftstalkerMark.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rift Mark"
+  },
+  {
+    "Key": "RiftstalkerMark.Description",
+    "ProcessTemplates": false,
+    "enGB": "Branded by the riftstalker: she strikes the marked with terrible certainty."
+  },
+  {
+    "Key": "RiftstalkerFeast.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hunter's Feast"
+  },
+  {
+    "Key": "RiftstalkerFeast.Description",
+    "ProcessTemplates": false,
+    "enGB": "The hunter has feasted: +2 on attack rolls and +2 damage against everything, for one minute."
   }
 ]
