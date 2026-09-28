@@ -2883,7 +2883,7 @@
   {
     "Key": "Riftstalker.Description",
     "ProcessTemplates": false,
-    "enGB": "A hunter of the Worldwound who walks alone. The rift took her beast - or she gave it up so it would never see what she became - and left something else in its place: a hunter's focus so absolute it brands reality itself. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild, and keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey; her last blow feeds her."
+    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and when she calls, the beast strikes through the rift at the marked - and nothing else."
   },
   {
     "Key": "RiftstalkerRiftMark.Name",
@@ -2893,7 +2893,7 @@
   {
     "Key": "RiftstalkerRiftMark.Description",
     "ProcessTemplates": false,
-    "enGB": "Once per round, the riftstalker's first attack that hits brands the target with a rift mark for one minute. Against her mark she strikes with terrible certainty: +2 on attack rolls and +2 damage. This replaces the animal companion."
+    "enGB": "Once per round, the riftstalker's first attack that hits brands the target with a rift mark for one minute. Only one creature can bear the mark at a time - marking new prey strips it from the old. The mark grants nothing by itself: it is the tether through which the beast still lurking in the rift can reach. This replaces the animal companion."
   },
   {
     "Key": "RiftstalkerRiftStride.Name",
@@ -2903,27 +2903,7 @@
   {
     "Key": "RiftstalkerRiftStride.Description",
     "ProcessTemplates": false,
-    "enGB": "At 2nd level, the riftstalker has nothing to wait for and no one to slow her down: her land speed increases by 10 feet. This replaces hunter tactics."
-  },
-  {
-    "Key": "RiftstalkerRiftstudy.Name",
-    "ProcessTemplates": false,
-    "enGB": "Riftstudy"
-  },
-  {
-    "Key": "RiftstalkerRiftstudy.Description",
-    "ProcessTemplates": false,
-    "enGB": "At 5th level, the riftstalker's mark deepens: she gains a further +2 on attack rolls and +2 damage against marked targets (total +4). This replaces the teamwork-feat progression."
-  },
-  {
-    "Key": "RiftstalkerHuntersFeast.Name",
-    "ProcessTemplates": false,
-    "enGB": "Hunter's Feast"
-  },
-  {
-    "Key": "RiftstalkerHuntersFeast.Description",
-    "ProcessTemplates": false,
-    "enGB": "At 12th level, when a creature bearing the riftstalker's mark dies by her hand, she feasts on the kill: for one minute she gains +2 on attack rolls and +2 damage against everything. This replaces one with the wild."
+    "enGB": "At 2nd level, the riftstalker has nothing to wait for and no one to slow her down: her land speed increases by 10 feet. This replaces the teamwork-feat progression."
   },
   {
     "Key": "RiftstalkerMark.Name",
@@ -2933,16 +2913,46 @@
   {
     "Key": "RiftstalkerMark.Description",
     "ProcessTemplates": false,
-    "enGB": "Branded by the riftstalker: she strikes the marked with terrible certainty."
+    "enGB": "Branded by the riftstalker's mark: the beast in the rift can be guided to strike the branded creature."
   },
   {
-    "Key": "RiftstalkerFeast.Name",
+    "Key": "RiftstalkerGuidedCommand.Name",
     "ProcessTemplates": false,
-    "enGB": "Hunter's Feast"
+    "enGB": "Guided Command"
   },
   {
-    "Key": "RiftstalkerFeast.Description",
+    "Key": "RiftstalkerGuidedCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The hunter has feasted: +2 on attack rolls and +2 damage against everything, for one minute."
+    "enGB": "The riftstalker calls, and the unseen beast answers. As a swift action, she directs the beast to strike a creature bearing her rift mark: it attacks with an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d6 plus half her hunter level in damage that no armor of this world blunts, and the horror of unseen jaws shakes the target for one round. This replaces hunter tactics."
+  },
+  {
+    "Key": "RiftstalkerUnseenGuardian.Name",
+    "ProcessTemplates": false,
+    "enGB": "Unseen Guardian"
+  },
+  {
+    "Key": "RiftstalkerUnseenGuardian.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 5th level, the beast circles her through the rift: the riftstalker gains a +2 dodge bonus to AC against attacks made by the creature bearing her rift mark. This replaces one with the wild."
+  },
+  {
+    "Key": "RiftstalkerBloodInTheRift.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blood in the Rift"
+  },
+  {
+    "Key": "RiftstalkerBloodInTheRift.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 12th level, when a creature bearing the riftstalker's mark dies by her hand, the beast feeds on the kill through the rift: for one minute, her guided commands need no attack roll - the beast strikes true, for it already knows the taste of the blood. This replaces raise companion."
+  },
+  {
+    "Key": "RiftstalkerBloodfed.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodfed"
+  },
+  {
+    "Key": "RiftstalkerBloodfed.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has fed and knows the taste: guided commands strike true without an attack roll, for one minute."
   }
 ]

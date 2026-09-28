@@ -366,6 +366,38 @@ errors suggested:
   Rift Stride is the vanilla movement-speed component. Nothing here is
   mode-gated - real-time and turn-based behave identically.
 
+## 0.13.0 — Riftstalker rework: the beast strikes by guided command (user feedback)
+
+- The user liked the riftstalker concept but not the execution: "it just
+  ends up being a lot of extra damage with a slayer-like ability." The
+  mark no longer boosts the stalker's own numbers AT ALL.
+- The new shape, per the user's two-part direction: the beast is NOT kept
+  (it never came back through the rift), but it can help INVISIBLY, at
+  ONE enemy, through a SPECIFIC GUIDED COMMAND - the mark is the tether.
+- **Rift Mark (1st):** first hit per round brands the target for one
+  minute; ONE creature bears the mark at a time (a new mark strips the
+  old - enforced by scanning the unit list). Grants nothing by itself.
+- **Guided Command (1st, new ability):** swift action, long range, usable
+  ONLY against the marked. The unseen beast strikes: d20 + hunter level
+  + Wisdom vs the target's REAL AC (a live RuleCalculateAC query, so
+  every AC modifier applies - the "save" is AC, exactly as asked). On a
+  hit: 1d6 + half level raw damage (no DR - the mauling is not of this
+  world) + shaken 1 round. Natural 20 always hits, natural 1 always
+  misses. The damage is the BEAST's - her weapon and gear are irrelevant.
+- **Rift Stride (2nd):** unchanged (+10 ft).
+- **Unseen Guardian (5th, replaces Riftstudy):** +2 dodge AC against
+  attacks from the marked creature (the beast whispers warnings) - the
+  exact AC-when-attacked handler shape Step Aside uses.
+- **Blood in the Rift (12th, replaces Hunter's Feast):** when a marked
+  creature dies by her hand, the beast feeds - for one minute, guided
+  commands need no roll (it already knows the taste of the blood).
+- Engine notes: the strike's d20/d6 use a plain System.Random (WOTR
+  exposes no constructible raw-d20 rule in the reference set; RuleRollD20
+  has no proven constructor). The AC query itself IS the game's own rule.
+  Damage is applied as raw HP loss (Descriptor.Damage - the proven
+  Expedited Synthesis mechanism), which honestly bypasses DR - the rift
+  beast's mauling is not physical. All documented in the class header.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -925,25 +957,31 @@ trades the tactical half of the class for poison.
 - **Serpent's Skin (6th):** immunity to poison.
 - **Neurotoxin (9th):** failed saves also sicken for 1 round.
 
-### Homebrew — Riftstalker Hunter — IMPLEMENTED (0.12.0)
+### Homebrew — Riftstalker Hunter — IMPLEMENTED (0.12.0, REWORKED 0.13.0)
 
-The Worldwound loner: no beast, no pack tactics - just the mark, the
-stride and the feast.
+The Worldwound loner whose beast never came back through the rift - and
+never left. Reworked after user feedback: the mark no longer adds any
+damage; it is the tether by which she directs the unseen beast.
 
 | Level | Riftstalker grants | Hunter normally grants |
 |---|---|---|
-| 1 | Rift Mark | Animal Companion (removed) |
+| 1 | Rift Mark + Guided Command | Animal Companion (removed) |
 | 2 | Rift Stride | Hunter Tactics (removed) |
-| 5 | Riftstudy | teamwork-feat progression (removed) |
-| 12 | Hunter's Feast | One with the Wild (removed, both halves) |
+| 5 | Unseen Guardian | teamwork-feat progression (removed) |
+| 12 | Blood in the Rift | One with the Wild + Raise Companion (removed) |
 
 - **Rift Mark (1st):** first hit per round brands the target for one
-  minute; +2 attack and damage against the branded.
-- **Rift Stride (2nd):** +10 ft land speed (nothing to wait for).
-- **Riftstudy (5th):** +2 further against the marked (total +4).
-- **Hunter's Feast (12th):** a marked kill grants one minute of +2 attack
-  and damage against everything.
-- Also removed: Raise Companion (there is nothing to raise).
+  minute; single active mark (new marks strip old ones). Grants nothing
+  by itself - the tether through which the beast can reach.
+- **Guided Command (1st):** swift action, long range, marked targets
+  only. The unseen beast strikes: attack roll (d20 + hunter level +
+  Wisdom) vs the target's AC. Hit = 1d6 + half level raw damage (no DR)
+  and shaken 1 round. Nat 20 hits, nat 1 misses.
+- **Rift Stride (2nd):** +10 ft land speed.
+- **Unseen Guardian (5th):** +2 dodge AC against the marked creature's
+  attacks.
+- **Blood in the Rift (12th):** a marked kill by her hand feeds the
+  beast - one minute of no-roll (always-hitting) guided commands.
 
 ## Level plan per class (test-mode rule)
 

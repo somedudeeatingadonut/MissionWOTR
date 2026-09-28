@@ -647,13 +647,14 @@ namespace MissionWOTR
     internal const string RiftstalkerArchetype = "60FBDC2E-C9E7-4532-B439-A3C10085E021";
     internal const string RiftstalkerRiftMark = "6747D944-92CC-476F-B34D-9F66757BB5FB";
     internal const string RiftstalkerRiftStride = "BE705094-1A30-45CC-83DF-63D06CC8F637";
-    internal const string RiftstalkerRiftstudy = "FF7163E8-5AC0-4055-9189-E303DAC39FF4";
-    internal const string RiftstalkerHuntersFeast = "D5E02F66-F3ED-40AA-B86D-FBA206ABBA98";
     internal const string RiftstalkerMarkBuff = "2F6ECC74-1E6F-4679-9698-CCA0916073EC";
-    internal const string RiftstalkerFeastBuff = "B7C351EC-1A13-4B24-B148-8FB091E0C390";
     internal const string RiftstalkerMarkDeliveryComponent = "D85AAF20-A647-4525-9B85-CC16AA42E3CF";
-    internal const string RiftstalkerMarkBonusComponent = "8BBC6236-88B2-4F7A-83C9-0264E16AE381";
-    internal const string RiftstalkerFeastBonusComponent = "A00BA20B-9278-4DC4-BD92-54AE990DE593";
+    internal const string RiftstalkerGuidedCommand = "E8497951-BB66-4970-B6B3-651F4FA3EDFA";
+    internal const string RiftstalkerGuidedStrikeComponent = "1F79E44D-8571-4F85-B5F7-DE3BF2A3B24F";
+    internal const string RiftstalkerUnseenGuardian = "038BE903-4EB4-49BF-8B2F-F306E1E8E7F6";
+    internal const string RiftstalkerUnseenGuardComponent = "F8B5A52D-E113-4DB0-9299-3AB31231E646";
+    internal const string RiftstalkerBloodfedBuff = "BE9BBE25-3377-44CE-9AAC-07BD6A07B2A0";
+    internal const string RiftstalkerBloodInTheRift = "4C816D20-9E78-46D0-9013-898188EC1FE1";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
   }
