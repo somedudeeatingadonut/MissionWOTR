@@ -82,6 +82,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Hammerfist), Hammerfist.Configure);
       Configure(nameof(Venomblood), Venomblood.Configure);
       Configure(nameof(Riftstalker), Riftstalker.Configure);
+      Configure(nameof(Verminous), Verminous.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -138,6 +139,7 @@ namespace MissionWOTR.Feats
       ("Hammerfist", Guids.HammerfistArchetype, monk),
       ("Venomblood", Guids.VenombloodArchetype, hunter),
       ("Riftstalker", Guids.RiftstalkerArchetype, hunter),
+      ("Verminous", Guids.VerminousArchetype, hunter),
     };
         foreach (var entry in entries)
         {

@@ -18,19 +18,27 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;
+using System.Linq;
 
 namespace MissionWOTR.Archetypes
 {
   /// <summary>
   /// Riftstalker Hunter (HOMEBREW - 0.12.0; reworked 0.13.0 after user
   /// feedback - the mark no longer boosts her damage, the unseen beast
-  /// strikes by guided command with AC as the save; reworked again 0.14.0:
-  /// Blood in the Rift replaced by a command toolbox).
+  /// strikes by guided command with AC as the save; reworked 0.14.0 -
+  /// command toolbox; tuned 0.15.0 - base damage now scales 1d4/1d5/1d6
+  /// by level 3/4, Mauling locked to 12th, Rending and Cataclysm replaced
+  /// by Paralyzing and Scattering, and the commands now live in a VARIANT
+  /// MENU: clicking Guided Command opens the game's own submenu of every
+  /// directive the beast has learned - learned commands register
+  /// themselves as variants of the hub ability at runtime, the same
+  /// AbilityVariants component vanilla's MasterHunterAbility uses).
   ///
   /// The concept, v3: a hunter of the Worldwound whose beast never came
   /// back through the rift with her - but it never left either. It hangs
@@ -44,8 +52,9 @@ namespace MissionWOTR.Archetypes
   ///   Grants nothing by itself - it is the tether.
   /// - Guided Command (1st): the base directive - a swift action against
   ///   the marked: d20 + hunter level + Wisdom vs the target's REAL AC
-  ///   (live RuleCalculateAC - the "save" is AC). Hit: 1d6 + half level
-  ///   raw damage (no DR) and shaken 1 round.
+  ///   (live RuleCalculateAC - the "save" is AC). Hit: 1d4 + half level
+  ///   raw damage (no DR; the die grows to 1d5 at 3rd and 1d6 at 4th) and
+  ///   shaken 1 round. Clicking it opens the command menu.
   /// - Rift Stride (2nd): +10 feet of movement speed.
   /// - Unseen Guardian (5th): +2 dodge AC against the marked's attacks.
   /// - RIFT COMMANDS (4/8/12/16/20): a selection of ten directives, one
@@ -54,16 +63,20 @@ namespace MissionWOTR.Archetypes
   ///   same attack-roll-vs-AC check unless noted; the beast can be given
   ///   only ONE directive per round (shared budget with Guided Command,
   ///   tracked by a one-round hidden buff).
-  ///     Mauling (4): 2d6 + half level raw damage.
   ///     Pinning (4): entangled 1 round.
   ///     Terrifying (4): Will save or frightened 1 round.
   ///     Guarding (4): no roll - +4 dodge AC vs the marked for 1 round.
   ///     Blinding (8): Fort save or blind 1 round.
   ///     Fatiguing (8): Fort save or fatigued 1 minute.
+  ///     Mauling (12): 2d6 + half level raw damage (locked to 12th per
+  ///       user tuning - the big hit comes late now).
   ///     Staggering (12): Fort save or staggered 1 round.
   ///     Crippling (12): -2 attack rolls for 1 minute (custom debuff).
-  ///     Rending (16): the beast strikes twice (two attack rolls).
-  ///     Cataclysm (16): 1d6 per 2 levels raw damage, Fort for half.
+  ///     Paralyzing (16): Will save or paralyzed 1 round (the beast
+  ///       seizes the target bodily through the rift).
+  ///     Scattering (16): the beast erupts through at the marked - the
+  ///       marked is frightened 1 round on a failed Will save, and every
+  ///       other enemy within 10 feet is shaken 1 round on a failed save.
   /// Save DCs where a save applies: 10 + half hunter level + Wisdom.
   /// Log prefix: [removals] carries the trade diagnostics; [riftstalker] the rest.
   /// </summary>
@@ -76,6 +89,7 @@ namespace MissionWOTR.Archetypes
     internal static BlueprintBuff ActedBuff;
     internal static BlueprintBuff GuardBuff;
     internal static BlueprintBuff CrippledBuff;
+    internal static BlueprintAbility HubAbility;
 
     /// <summary>The ten directives the beast can learn.</summary>
     internal enum RiftCommand
@@ -88,15 +102,15 @@ namespace MissionWOTR.Archetypes
       Fatiguing,
       Staggering,
       Crippling,
-      Rending,
-      Cataclysm,
+      Paralyzing,
+      Scattering,
     }
 
     private static readonly (RiftCommand Command, string Name, string FeatureGuid,
       string AbilityGuid, int Gate)[] Commands =
     {
       (RiftCommand.Mauling, "Mauling", "2D7043BC-76CB-4DF3-A0FA-113E7C2A3110",
-        "F8322D3E-656B-4042-9B5B-C174D55DAC34", 4),
+        "F8322D3E-656B-4042-9B5B-C174D55DAC34", 12),
       (RiftCommand.Pinning, "Pinning", "2261463B-252E-46EB-BA7B-903E255A6590",
         "BDF4D01C-F780-4D51-95CA-4D17848AA0E3", 4),
       (RiftCommand.Terrifying, "Terrifying", "323288E5-1B07-4517-94E6-1E2513D88D00",
@@ -111,9 +125,9 @@ namespace MissionWOTR.Archetypes
         "899A75ED-223B-4D19-8604-7E14D5072162", 12),
       (RiftCommand.Crippling, "Crippling", "206AE47E-6E9C-44FC-ADE9-7DB3CC80DE1C",
         "C87364FB-D02C-4BB1-9A69-B1E7AAB8B5B0", 12),
-      (RiftCommand.Rending, "Rending", "98A5BE43-E722-4E63-A69B-583628A9CACF",
+      (RiftCommand.Paralyzing, "Paralyzing", "98A5BE43-E722-4E63-A69B-583628A9CACF",
         "683B55CA-1B4B-4D01-998C-DED8A7EF1247", 16),
-      (RiftCommand.Cataclysm, "Cataclysm", "C99343A8-F066-4F71-A6CA-AAB126D53A02",
+      (RiftCommand.Scattering, "Scattering", "C99343A8-F066-4F71-A6CA-AAB126D53A02",
         "F46EB338-068D-4D82-B0B3-1CC557E26784", 16),
     };
 
@@ -169,7 +183,20 @@ namespace MissionWOTR.Archetypes
         .AllowTargeting(enemies: true)
         .SetEffectOnEnemy(AbilityEffectOnUnit.Harmful)
         .AddAbilityEffectRunAction(ActionsBuilder.New().Add(strikeAction).Build())
+        // The command hub: learned commands register themselves as variants
+        // of this ability at runtime (the AbilityVariants component - the
+        // same mechanism vanilla's MasterHunterAbility uses). The empty
+        // component is seeded here, then the base strike is registered as
+        // the first entry so the menu always offers Guided Command itself.
+        .AddAbilityVariants(new())
         .Configure();
+      HubAbility = guidedCommand;
+      var seedVariants = guidedCommand.GetComponent<AbilityVariants>();
+      if (seedVariants is not null)
+      {
+        seedVariants.m_Variants =
+          new[] { guidedCommand.ToReference<BlueprintAbilityReference>() };
+      }
 
       // ----- Rift Mark (1st): brand the prey (the tether, nothing more) -----
       var riftMark = FeatureConfigurator.New("RiftstalkerRiftMark", Guids.RiftstalkerRiftMark)
@@ -223,7 +250,9 @@ namespace MissionWOTR.Archetypes
           .SetDescription("Riftstalker" + entry.Name + "Command.Description")
           .SetIcon(markIcon)
           .SetIsClassFeature()
-          .AddFacts(new() { ability })
+          // Not granted as a separate action-bar ability: the command lives
+          // in the hub's variant menu once learned.
+          .AddComponent(new RiftstalkerCommandVariant { Ability = ability })
           .AddPrerequisiteClassLevel(CharacterClassRefs.HunterClass.Reference.Get(), entry.Gate)
           .Configure();
         commandFeatures.Add(feature);
@@ -315,6 +344,10 @@ namespace MissionWOTR.Archetypes
 
     internal static int Roll(int dice, int sides) =>
       dice <= 0 ? 0 : Dice.Next(dice, dice * sides + 1);
+
+    /// <summary>The base strike's die, per the user's tuning: 1d4 at the
+    /// start, 1d5 at 3rd, 1d6 from 4th on.</summary>
+    internal static int DieSides(int level) => level < 3 ? 4 : level < 4 ? 5 : 6;
 
     internal static int SaveDC(UnitEntityData caster, int level) =>
       10 + level / 2 + caster.Stats.Wisdom.Bonus;
@@ -423,7 +456,7 @@ namespace MissionWOTR.Archetypes
           return;
         }
 
-        var damage = RiftCommands.Roll(1, 6) + level / 2;
+        var damage = RiftCommands.Roll(1, RiftCommands.DieSides(level)) + level / 2;
         target.Descriptor.Damage += damage;
 
         var seconds = ContextDuration.Fixed(1).Calculate(Context).Seconds;
@@ -535,31 +568,41 @@ namespace MissionWOTR.Archetypes
             }
             break;
 
-          case Riftstalker.RiftCommand.Rending:
-            // The beast strikes twice - two lunges through the rift.
-            for (int i = 0; i < 2; i++)
+          case Riftstalker.RiftCommand.Paralyzing:
+            // The beast seizes the target bodily through the rift.
+            if (RiftCommands.BeastHits(caster, target, level) &&
+              RiftCommands.FailsSave(target, SavingThrowType.Will, dc))
             {
-              if (RiftCommands.BeastHits(caster, target, level))
-              {
-                target.Descriptor.Damage += RiftCommands.Roll(1, 6) + level / 2;
-              }
+              target.AddBuff(BuffRefs.Paralyzed.Reference.Get(), Context, duration: round);
             }
             break;
 
-          case Riftstalker.RiftCommand.Cataclysm:
+          case Riftstalker.RiftCommand.Scattering:
+            // The beast erupts through at the marked: the marked flees and
+            // everything cowering near it wavers.
             if (RiftCommands.BeastHits(caster, target, level))
             {
-              var dice = level / 2;
-              var damage = RiftCommands.Roll(dice, 6);
-              if (RiftCommands.FailsSave(target, SavingThrowType.Fortitude, dc))
+              if (RiftCommands.FailsSave(target, SavingThrowType.Will, dc))
               {
-                damage = damage / 2 + (damage % 2 == 0 ? 0 : 1); // half on a save, rounded up
+                target.AddBuff(BuffRefs.Frightened.Reference.Get(), Context, duration: round);
               }
-              if (damage > 0)
+              using (var enumerator = Kingmaker.Game.Instance.State.Units.GetEnumerator())
               {
-                target.Descriptor.Damage += damage;
+                while (enumerator.MoveNext())
+                {
+                  var unit = enumerator.Current;
+                  if (unit is null || unit.Descriptor.State.IsDead || unit == target ||
+                    !unit.IsEnemy(caster))
+                  {
+                    continue;
+                  }
+                  if (unit.DistanceTo(target) <= 10.Feet().Meters &&
+                    RiftCommands.FailsSave(unit, SavingThrowType.Will, dc))
+                  {
+                    unit.AddBuff(BuffRefs.Shaken.Reference.Get(), Context, duration: round);
+                  }
+                }
               }
-              MissionFeats.Logger.Info($"[riftstalker] cataclysm: {damage} damage.");
             }
             break;
         }
@@ -629,5 +672,73 @@ namespace MissionWOTR.Archetypes
     }
 
     public void OnEventDidTrigger(RuleCalculateAttackBonus evt) { }
+  }
+
+  /// <summary>
+  /// Registers a learned command as a variant of the Guided Command hub:
+  /// when the feature activates on the hunter, the command's ability joins
+  /// the hub's AbilityVariants list (the game's own click-to-open submenu,
+  /// the mechanism vanilla's MasterHunterAbility uses); when the feature is
+  /// removed, the variant leaves the menu. The hub blueprint is ours, so
+  /// the mutation is save-safe. Documented edge: with two riftstalkers in
+  /// one party the menu shows the union of their learned commands.
+  /// </summary>
+  [TypeId(Guids.RiftstalkerCommandVariantComponent)]
+  internal class RiftstalkerCommandVariant : UnitFactComponentDelegate
+  {
+    public BlueprintAbility Ability;
+
+    public override void OnActivate()
+    {
+      try
+      {
+        var hub = Riftstalker.HubAbility;
+        if (hub is null || Ability is null)
+        {
+          return;
+        }
+        var variants = hub.GetComponent<AbilityVariants>();
+        if (variants is null)
+        {
+          return;
+        }
+        var list = (variants.m_Variants ?? new BlueprintAbilityReference[0]).ToList();
+        if (list.All(reference => reference.Get() != Ability))
+        {
+          list.Add(Ability.ToReference<BlueprintAbilityReference>());
+          variants.m_Variants = list.ToArray();
+          MissionFeats.Logger.Info(
+            $"[riftstalker] command menu: {Ability.name} learned.");
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[riftstalker] variant registration failed.", e);
+      }
+    }
+
+    public override void OnDeactivate()
+    {
+      try
+      {
+        var hub = Riftstalker.HubAbility;
+        if (hub is null || Ability is null)
+        {
+          return;
+        }
+        var variants = hub.GetComponent<AbilityVariants>();
+        if (variants?.m_Variants is null)
+        {
+          return;
+        }
+        variants.m_Variants = variants.m_Variants
+          .Where(reference => reference.Get() != Ability)
+          .ToArray();
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[riftstalker] variant removal failed.", e);
+      }
+    }
   }
 }

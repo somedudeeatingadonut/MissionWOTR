@@ -2883,7 +2883,7 @@
   {
     "Key": "Riftstalker.Description",
     "ProcessTemplates": false,
-    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting, learning. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and each round she may give the beast one directive - a guided command - and it strikes through the rift at the marked, and nothing else."
+    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting, learning. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and each round she may give the beast one directive through her guided command - clicking it opens the full menu of every directive the beast has learned."
   },
   {
     "Key": "RiftstalkerRiftMark.Name",
@@ -2923,7 +2923,7 @@
   {
     "Key": "RiftstalkerGuidedCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The riftstalker calls, and the unseen beast answers. As a swift action, she directs the beast to strike a creature bearing her rift mark: it attacks with an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d6 plus half her hunter level in damage that no armor of this world blunts, and the horror of unseen jaws shakes the target for one round. The beast can be given only one directive per round, whichever command she chooses. This replaces hunter tactics."
+    "enGB": "The riftstalker calls, and the unseen beast answers. Clicking Guided Command opens the menu of every directive the beast has learned - this base strike is always available. As a swift action, she directs the beast to strike a creature bearing her rift mark: it attacks with an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d4 plus half her hunter level in damage that no armor of this world blunts (the die grows to 1d5 at 3rd level and 1d6 at 4th), and the horror of unseen jaws shakes the target for one round. The beast can be given only one directive per round, whichever command she chooses. This replaces hunter tactics."
   },
   {
     "Key": "RiftstalkerUnseenGuardian.Name",
@@ -2943,7 +2943,7 @@
   {
     "Key": "RiftstalkerCommands.Description",
     "ProcessTemplates": false,
-    "enGB": "At 4th level and every four levels thereafter (8th, 12th, 16th and 20th), the riftstalker teaches the beast in the rift a new directive of her choice from the list below. Each command is a swift action aimed at a creature bearing her rift mark, resolved with the beast's attack roll (d20 + hunter level + Wisdom) against the target's Armor Class unless noted. The beast can be given only one directive per round, whichever command she chooses. This replaces raise companion and one with the wild."
+    "enGB": "At 4th level and every four levels thereafter (8th, 12th, 16th and 20th), the riftstalker teaches the beast in the rift a new directive of her choice from the list below. Learned commands appear in the Guided Command menu. Each command is a swift action aimed at a creature bearing her rift mark, resolved with the beast's attack roll (d20 + hunter level + Wisdom) against the target's Armor Class unless noted. The beast can be given only one directive per round, whichever command she chooses. This replaces raise companion and one with the wild."
   },
   {
     "Key": "RiftstalkerMaulingCommand.Name",
@@ -2953,7 +2953,7 @@
   {
     "Key": "RiftstalkerMaulingCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The beast tears in with its full weight: on a hit, the mauling deals 2d6 plus half the riftstalker's hunter level in raw damage that no damage reduction blunts."
+    "enGB": "The beast tears in with its full weight: on a hit, the mauling deals 2d6 plus half the riftstalker's hunter level in raw damage that no damage reduction blunts. The beast only grows strong enough for this at 12th level."
   },
   {
     "Key": "RiftstalkerPinningCommand.Name",
@@ -3026,26 +3026,6 @@
     "enGB": "The beast's claws leave the target's movements ragged: on a hit, the target takes a -2 penalty on its attack rolls for one minute."
   },
   {
-    "Key": "RiftstalkerRendingCommand.Name",
-    "ProcessTemplates": false,
-    "enGB": "Rending Command"
-  },
-  {
-    "Key": "RiftstalkerRendingCommand.Description",
-    "ProcessTemplates": false,
-    "enGB": "The rift tears wider for a moment and the beast lunges through twice: this command makes two attack rolls, each dealing 1d6 plus half the riftstalker's hunter level in raw damage on a hit."
-  },
-  {
-    "Key": "RiftstalkerCataclysmCommand.Name",
-    "ProcessTemplates": false,
-    "enGB": "Cataclysm Command"
-  },
-  {
-    "Key": "RiftstalkerCataclysmCommand.Description",
-    "ProcessTemplates": false,
-    "enGB": "The riftstalker opens the tear as far as it will go, and what comes through is not entirely a beast anymore. On a hit, the target takes 1d6 raw damage per two hunter levels; a successful Fortitude save halves the damage."
-  },
-  {
     "Key": "RiftstalkerActed.Name",
     "ProcessTemplates": false,
     "enGB": "Beast Has Acted"
@@ -3074,5 +3054,115 @@
     "Key": "RiftstalkerCrippled.Description",
     "ProcessTemplates": false,
     "enGB": "Claws out of nowhere have left the target's movements ragged: -2 on attack rolls for one minute."
+  },
+  {
+    "Key": "RiftstalkerParalyzingCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Paralyzing Command"
+  },
+  {
+    "Key": "RiftstalkerParalyzingCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast seizes the target bodily through the rift: on a hit, the target must pass a Will save or be paralyzed for one round."
+  },
+  {
+    "Key": "RiftstalkerScatteringCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Scattering Command"
+  },
+  {
+    "Key": "RiftstalkerScatteringCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast erupts through the rift at the marked prey in a spray of nothing and teeth: on a hit, the marked target must pass a Will save or be frightened for one round, and every other enemy within 10 feet of it must pass a Will save or be shaken for one round."
+  },
+  {
+    "Key": "Verminous.Name",
+    "ProcessTemplates": false,
+    "enGB": "Verminous Hunter"
+  },
+  {
+    "Key": "Verminous.Description",
+    "ProcessTemplates": false,
+    "enGB": "A verminous hunter calls on the ceaseless, single-minded dedication of vermin to hunt and overwhelm her prey. Where other hunters invoke the cunning of alpha predators, she reaches out to the spider instead of the monkey, the mantis instead of the snake, the moth instead of the owl. She takes a vermin companion, takes on vermin aspects in place of animal focus, and walks through the swarm untouched. Perfect for those who have become something less - and something more - than human."
+  },
+  {
+    "Key": "VerminousCompanion.Name",
+    "ProcessTemplates": false,
+    "enGB": "Vermin Companion"
+  },
+  {
+    "Key": "VerminousCompanion.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 1st level, a verminous hunter must choose a vermin companion. In these lands, that means the giant centipede - the only creeping thing the wild offers to walk beside her. This alters the animal companion."
+  },
+  {
+    "Key": "VerminousFocus.Name",
+    "ProcessTemplates": false,
+    "enGB": "Vermin Focus"
+  },
+  {
+    "Key": "VerminousFocus.Description",
+    "ProcessTemplates": false,
+    "enGB": "The verminous hunter takes on the aspect of a vermin - a permanent gift of the hive, chosen at 1st level, with a second aspect at 8th and a third at 15th. Each aspect's bonus improves at 8th and again at 15th level. This replaces animal focus."
+  },
+  {
+    "Key": "VerminousAspectAnt.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Ant"
+  },
+  {
+    "Key": "VerminousAspectAnt.Description",
+    "ProcessTemplates": false,
+    "enGB": "The worker's ceaseless strength: +1 on attack and damage rolls, improving to +2 at 8th level and +3 at 15th."
+  },
+  {
+    "Key": "VerminousAspectBeetle.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Beetle"
+  },
+  {
+    "Key": "VerminousAspectBeetle.Description",
+    "ProcessTemplates": false,
+    "enGB": "The carapace: +2 natural armor, improving to +4 at 8th level and +6 at 15th."
+  },
+  {
+    "Key": "VerminousAspectMantis.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Mantis"
+  },
+  {
+    "Key": "VerminousAspectMantis.Description",
+    "ProcessTemplates": false,
+    "enGB": "The striking forelimbs: +2 on attacks of opportunity, improving to +4 at 8th level and +6 at 15th."
+  },
+  {
+    "Key": "VerminousAspectScorpion.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Scorpion"
+  },
+  {
+    "Key": "VerminousAspectScorpion.Description",
+    "ProcessTemplates": false,
+    "enGB": "The seizing claws: +2 on combat maneuver rolls, improving to +4 at 8th level and +6 at 15th."
+  },
+  {
+    "Key": "VerminousAspectWorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect of the Worm"
+  },
+  {
+    "Key": "VerminousAspectWorm.Description",
+    "ProcessTemplates": false,
+    "enGB": "The flesh that waits: 50% chance to treat any critical hit or sneak attack as a normal hit, as the fortification armor special ability. (The tabletop's 25/50/75 scaling is flattened - the engine's fortification takes a single fixed value.)"
+  },
+  {
+    "Key": "VerminousSwarmStride.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swarm Stride"
+  },
+  {
+    "Key": "VerminousSwarmStride.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 5th level, the verminous hunter has walked with the swarm so long that their weapons no longer touch her: she is immune to poison and disease, the swarm's venom and filth. This replaces woodland stride."
   }
 ]

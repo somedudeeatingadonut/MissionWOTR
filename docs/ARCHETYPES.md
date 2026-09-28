@@ -433,6 +433,48 @@ errors suggested:
   The one-per-round budget is a hidden buff on HER, which also cleanly
   prevents real-time-with-pause command spam.
 
+## 0.15.0 — command menu + damage tuning + the Verminous Hunter (user feedback)
+
+- **The command menu (user ask #1).** Clicking Guided Command now opens
+  the game's own click-to-choose submenu (the AbilityVariants component -
+  the mechanism vanilla's MasterHunterAbility uses, confirmed compiling
+  in CharacterOptionsPlus). Learned commands register themselves as hub
+  variants when their feature activates, and unregister when removed;
+  the base strike stays permanently in the menu. Command abilities are no
+  longer granted as separate action-bar icons. Documented edge: with two
+  riftstalkers in one party the menu shows the union of learned commands.
+- **Damage tuning (user ask #2).** The base strike now deals 1d4 +
+  half level, growing to 1d5 at 3rd and 1d6 at 4th (the die helper is
+  level-read at strike time). Mauling is locked behind 12th level. Rending
+  and Cataclysm are gone, replaced by two new 16th-tier commands that are
+  about control, not damage: Paralyzing (strike + Will save or paralyzed
+  1 round - the beast seizes the target bodily through the rift) and
+  Scattering (strike; the marked is frightened 1 round on a failed Will
+  save and every other enemy within 10 ft of it is shaken 1 round on a
+  failed save).
+- **Verminous Hunter (user ask #3) - the mod's first TABLETOP hunter
+  archetype** (ACG, chosen by the user for a Swarm-that-Walks run):
+  - Vermin Companion (1st, alters animal companion): must take a vermin -
+    the centipede, the only creepy-crawly companion WOTR ships (companion
+    selection swapped for a vermin-only one).
+  - Vermin Empathy: WOTR's hunter has no wild empathy at all - nothing to
+    alter; documented and skipped.
+  - Vermin Focus (1st, REPLACES animal focus): permanent aspects per the
+    game's own Forester precedent - one pick at 1st, a second at 8th, a
+    third at 15th; each aspect scales at 8th and 15th. Five aspects
+    adapted to what the engine can express: Ant (+1/2/3 attack and
+    damage), Beetle (+2/4/6 natural armor), Mantis (+2/4/6 on AoOs),
+    Scorpion (+2/4/6 on maneuvers), Worm (50% fortification, fixed -
+    flattened from the tabletop's 25/50/75 because the engine's component
+    takes one flat value). The other ten tabletop aspects ride on
+    Climb/Swim/jump/web/skill mechanics the engine barely exercises -
+    documented cuts.
+  - Swarm Stride (5th, REPLACES woodland stride): adapted to poison and
+    disease immunity. WOTR exposes no swarm-detection hook (no IsSwarm
+    flag in any reference source), so the damage-immunity half of the
+    tabletop ability cannot be gated honestly - the adaptation targets
+    the swarm's actual weapons instead, with the impossibility documented.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1007,18 +1049,51 @@ never left. The mark is the tether; the commands are the leash.
 
 - **Rift Mark (1st):** first hit per round brands the target for one
   minute; single active mark (new marks strip old ones). The tether.
-- **Guided Command (1st):** swift action, marked-only. The unseen beast
-  strikes: d20 + hunter level + Wisdom vs the target's real AC. Hit =
-  1d6 + half level raw damage (no DR) and shaken 1 round.
+- **Guided Command (1st):** swift action, marked-only - and the MENU:
+  clicking it opens the game's variant submenu of every directive the
+  beast has learned. The base strike: d20 + hunter level + Wisdom vs the
+  target's real AC. Hit = 1d4 + half level raw damage (no DR; the die
+  grows to 1d5 at 3rd, 1d6 at 4th) and shaken 1 round.
 - **Rift Stride (2nd):** +10 ft land speed.
 - **Unseen Guardian (5th):** +2 dodge AC against the marked's attacks.
-- **Rift Commands (4/8/12/16/20):** five picks from ten directives - Mauling,
+- **Rift Commands (4/8/12/16/20):** five picks from ten directives -
   Pinning, Terrifying, Guarding (4th tier); Blinding, Fatiguing (8th);
-  Staggering, Crippling (12th); Rending, Cataclysm (16th). One directive
-  per round, shared with Guided Command (hidden budget buff).
+  Mauling (12th, locked there by tuning), Staggering, Crippling (12th);
+  Paralyzing, Scattering (16th). One directive per round, shared with
+  Guided Command (hidden budget buff). Learned commands appear in the
+  Guided Command menu rather than as separate bar icons.
 - Design note: the base command is the damage floor; every learned
   command trades raw damage for control, defense, or escalation. The
   once-per-round budget keeps real-time and turn-based honest.
+
+### Faithful port — Verminous Hunter (ACG) — IMPLEMENTED (0.15.0)
+
+The swarm-walker's hunter (the user's pick for a Swarm-that-Walks run):
+vermin instead of beasts, the hive instead of the pack.
+
+| Level | Verminous grants | Hunter normally grants |
+|---|---|---|
+| 1 | Vermin Companion (centipede selection) | Animal Companion (altered) |
+| 1 | Vermin Focus (aspect pick) | Animal Focus (removed) |
+| 5 | Swarm Stride | Woodland Stride (removed) |
+| 8, 15 | additional Vermin Focus picks | — |
+
+- **Vermin Companion:** the hunter's companion selection is swapped for a
+  vermin-only one - the giant centipede, the only crawling companion WOTR
+  ships. (No spider/scorpion/wasp companions exist in the game to offer.)
+- **Vermin Focus:** permanent aspects (the Forester precedent), 1st/8th/
+  15th picks, each scaling at 8th and 15th: Ant (+1/2/3 attack and
+  damage), Beetle (+2/4/6 natural armor), Mantis (+2/4/6 on attacks of
+  opportunity), Scorpion (+2/4/6 on maneuver rolls), Worm (50%
+  fortification, fixed value). Ten tabletop aspects cut for engine
+  reasons (Climb/Swim/jump/web checks and skill-stat bonuses the engine
+  barely exercises) - documented above in the class header.
+- **Swarm Stride:** poison and disease immunity - the honest adaptation:
+  no swarm-detection hook exists in the engine, so the "no damage from
+  swarms" half cannot be gated; the immunity targets the swarm's actual
+  weapons instead.
+- **Vermin Empathy:** skipped - WOTR's hunter never had wild empathy, so
+  there is nothing to alter.
 
 ## Level plan per class (test-mode rule)
 
