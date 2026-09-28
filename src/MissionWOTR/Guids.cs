@@ -653,8 +653,12 @@ namespace MissionWOTR
     internal const string RiftstalkerGuidedStrikeComponent = "1F79E44D-8571-4F85-B5F7-DE3BF2A3B24F";
     internal const string RiftstalkerUnseenGuardian = "038BE903-4EB4-49BF-8B2F-F306E1E8E7F6";
     internal const string RiftstalkerUnseenGuardComponent = "F8B5A52D-E113-4DB0-9299-3AB31231E646";
-    internal const string RiftstalkerBloodfedBuff = "BE9BBE25-3377-44CE-9AAC-07BD6A07B2A0";
-    internal const string RiftstalkerBloodInTheRift = "4C816D20-9E78-46D0-9013-898188EC1FE1";
+    internal const string RiftstalkerCommandSelection = "D99D8DB2-1232-4D82-9DBF-F1EE9DD36AAD";
+    internal const string RiftstalkerActedBuff = "A725EFE9-54F7-46DB-B502-F560FED7D950";
+    internal const string RiftstalkerGuardBuff = "B8E68B8C-4857-491A-9F59-79585338271C";
+    internal const string RiftstalkerCrippledBuff = "59CEFF4E-1052-4010-A98F-85D61497351A";
+    internal const string RiftstalkerCommandActionComponent = "E9CF92A0-C0B1-4B83-AC4E-67EE5E154CAA";
+    internal const string RiftstalkerCrippleComponent = "530ED959-0AEA-453D-AC7F-6467E687F80E";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
   }

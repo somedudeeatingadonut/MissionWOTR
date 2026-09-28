@@ -2883,7 +2883,7 @@
   {
     "Key": "Riftstalker.Description",
     "ProcessTemplates": false,
-    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and when she calls, the beast strikes through the rift at the marked - and nothing else."
+    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting, learning. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and each round she may give the beast one directive - a guided command - and it strikes through the rift at the marked, and nothing else."
   },
   {
     "Key": "RiftstalkerRiftMark.Name",
@@ -2923,7 +2923,7 @@
   {
     "Key": "RiftstalkerGuidedCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The riftstalker calls, and the unseen beast answers. As a swift action, she directs the beast to strike a creature bearing her rift mark: it attacks with an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d6 plus half her hunter level in damage that no armor of this world blunts, and the horror of unseen jaws shakes the target for one round. This replaces hunter tactics."
+    "enGB": "The riftstalker calls, and the unseen beast answers. As a swift action, she directs the beast to strike a creature bearing her rift mark: it attacks with an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d6 plus half her hunter level in damage that no armor of this world blunts, and the horror of unseen jaws shakes the target for one round. The beast can be given only one directive per round, whichever command she chooses. This replaces hunter tactics."
   },
   {
     "Key": "RiftstalkerUnseenGuardian.Name",
@@ -2936,23 +2936,143 @@
     "enGB": "At 5th level, the beast circles her through the rift: the riftstalker gains a +2 dodge bonus to AC against attacks made by the creature bearing her rift mark. This replaces one with the wild."
   },
   {
-    "Key": "RiftstalkerBloodInTheRift.Name",
+    "Key": "RiftstalkerCommands.Name",
     "ProcessTemplates": false,
-    "enGB": "Blood in the Rift"
+    "enGB": "Rift Commands"
   },
   {
-    "Key": "RiftstalkerBloodInTheRift.Description",
+    "Key": "RiftstalkerCommands.Description",
     "ProcessTemplates": false,
-    "enGB": "At 12th level, when a creature bearing the riftstalker's mark dies by her hand, the beast feeds on the kill through the rift: for one minute, her guided commands need no attack roll - the beast strikes true, for it already knows the taste of the blood. This replaces raise companion."
+    "enGB": "At 4th level and every four levels thereafter (8th, 12th, 16th and 20th), the riftstalker teaches the beast in the rift a new directive of her choice from the list below. Each command is a swift action aimed at a creature bearing her rift mark, resolved with the beast's attack roll (d20 + hunter level + Wisdom) against the target's Armor Class unless noted. The beast can be given only one directive per round, whichever command she chooses. This replaces raise companion and one with the wild."
   },
   {
-    "Key": "RiftstalkerBloodfed.Name",
+    "Key": "RiftstalkerMaulingCommand.Name",
     "ProcessTemplates": false,
-    "enGB": "Bloodfed"
+    "enGB": "Mauling Command"
   },
   {
-    "Key": "RiftstalkerBloodfed.Description",
+    "Key": "RiftstalkerMaulingCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The beast has fed and knows the taste: guided commands strike true without an attack roll, for one minute."
+    "enGB": "The beast tears in with its full weight: on a hit, the mauling deals 2d6 plus half the riftstalker's hunter level in raw damage that no damage reduction blunts."
+  },
+  {
+    "Key": "RiftstalkerPinningCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Pinning Command"
+  },
+  {
+    "Key": "RiftstalkerPinningCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast's claws catch and hold: on a hit, the target is entangled for one round."
+  },
+  {
+    "Key": "RiftstalkerTerrifyingCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Terrifying Command"
+  },
+  {
+    "Key": "RiftstalkerTerrifyingCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast shows itself for a single heartbeat: on a hit, the target must pass a Will save or be frightened for one round."
+  },
+  {
+    "Key": "RiftstalkerGuardingCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Guarding Command"
+  },
+  {
+    "Key": "RiftstalkerGuardingCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "No strike - the beast interposes itself between the riftstalker and the marked creature: until the start of her next turn she gains a +4 dodge bonus to AC against the marked creature's attacks."
+  },
+  {
+    "Key": "RiftstalkerBlindingCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blinding Command"
+  },
+  {
+    "Key": "RiftstalkerBlindingCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "Claws across the eyes that are not there: on a hit, the target must pass a Fortitude save or be blinded for one round."
+  },
+  {
+    "Key": "RiftstalkerFatiguingCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fatiguing Command"
+  },
+  {
+    "Key": "RiftstalkerFatiguingCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The unseen mauling drains more than blood: on a hit, the target must pass a Fortitude save or be fatigued for one minute."
+  },
+  {
+    "Key": "RiftstalkerStaggeringCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Staggering Command"
+  },
+  {
+    "Key": "RiftstalkerStaggeringCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast strikes the legs out from under the target's rhythm: on a hit, the target must pass a Fortitude save or be staggered for one round."
+  },
+  {
+    "Key": "RiftstalkerCripplingCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Crippling Command"
+  },
+  {
+    "Key": "RiftstalkerCripplingCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast's claws leave the target's movements ragged: on a hit, the target takes a -2 penalty on its attack rolls for one minute."
+  },
+  {
+    "Key": "RiftstalkerRendingCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rending Command"
+  },
+  {
+    "Key": "RiftstalkerRendingCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The rift tears wider for a moment and the beast lunges through twice: this command makes two attack rolls, each dealing 1d6 plus half the riftstalker's hunter level in raw damage on a hit."
+  },
+  {
+    "Key": "RiftstalkerCataclysmCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cataclysm Command"
+  },
+  {
+    "Key": "RiftstalkerCataclysmCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The riftstalker opens the tear as far as it will go, and what comes through is not entirely a beast anymore. On a hit, the target takes 1d6 raw damage per two hunter levels; a successful Fortitude save halves the damage."
+  },
+  {
+    "Key": "RiftstalkerActed.Name",
+    "ProcessTemplates": false,
+    "enGB": "Beast Has Acted"
+  },
+  {
+    "Key": "RiftstalkerActed.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast in the rift has already been given its directive this round."
+  },
+  {
+    "Key": "RiftstalkerGuard.Name",
+    "ProcessTemplates": false,
+    "enGB": "Guarded by the Beast"
+  },
+  {
+    "Key": "RiftstalkerGuard.Description",
+    "ProcessTemplates": false,
+    "enGB": "The unseen beast interposes itself: +4 dodge AC against the marked creature's attacks, until the start of her next turn."
+  },
+  {
+    "Key": "RiftstalkerCrippled.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rift-Crippled"
+  },
+  {
+    "Key": "RiftstalkerCrippled.Description",
+    "ProcessTemplates": false,
+    "enGB": "Claws out of nowhere have left the target's movements ragged: -2 on attack rolls for one minute."
   }
 ]

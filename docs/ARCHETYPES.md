@@ -398,6 +398,41 @@ errors suggested:
   Expedited Synthesis mechanism), which honestly bypasses DR - the rift
   beast's mauling is not physical. All documented in the class header.
 
+## 0.14.0 — Rift Commands: the beast learns (user feedback)
+
+- The user's verdict on Blood in the Rift: replace it with "a new guided
+  command she can give on level 4, 8, 12, 16, 20. With 10 choices for
+  commands."
+- **Rift Commands:** a selection of TEN directives; from 4th level and
+  every four levels after (8/12/16/20) the riftstalker teaches the beast
+  one command of her choice - five learned over a full career, from a
+  list of ten. Every command is a swift action against the MARKED target
+  (the tether), resolved with the beast's attack roll (d20 + hunter
+  level + Wisdom vs the target's real AC) unless noted, and ALL commands
+  (plus the base Guided Command) share one budget: the beast can be
+  given only ONE directive per round, tracked by a hidden one-round
+  buff. She picks the right tool each round; the toolbox is the build.
+- The ten (selection gates in brackets):
+  1. Mauling (4) - 2d6 + half level raw damage.
+  2. Pinning (4) - entangled 1 round.
+  3. Terrifying (4) - Will save or frightened 1 round.
+  4. Guarding (4) - no roll: +4 dodge AC vs the marked for 1 round.
+  5. Blinding (8) - Fort save or blind 1 round.
+  6. Fatiguing (8) - Fort save or fatigued 1 minute.
+  7. Staggering (12) - Fort save or staggered 1 round.
+  8. Crippling (12) - -2 attack rolls for 1 minute (custom debuff buff).
+  9. Rending (16) - two attack rolls, 1d6 + half level each.
+  10. Cataclysm (16) - 1d6 per 2 levels raw damage, Fort for half.
+- **Removed:** Blood in the Rift and its Bloodfed buff (12th-level
+  no-roll window) - replaced by the command picks. Where saves apply,
+  DC = 10 + half level + Wisdom.
+- Engine notes: one ContextAction class drives all ten (an enum field
+  picks the directive - enum fields on game actions are the
+  ContextActionCombatManeuver pattern); Guarding reuses the Unseen
+  Guardian handler at +4; Crippling adds a small -2-attack handler buff.
+  The one-per-round budget is a hidden buff on HER, which also cleanly
+  prevents real-time-with-pause command spam.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -957,31 +992,33 @@ trades the tactical half of the class for poison.
 - **Serpent's Skin (6th):** immunity to poison.
 - **Neurotoxin (9th):** failed saves also sicken for 1 round.
 
-### Homebrew — Riftstalker Hunter — IMPLEMENTED (0.12.0, REWORKED 0.13.0)
+### Homebrew — Riftstalker Hunter — IMPLEMENTED (0.12.0, REWORKED 0.13.0/0.14.0)
 
 The Worldwound loner whose beast never came back through the rift - and
-never left. Reworked after user feedback: the mark no longer adds any
-damage; it is the tether by which she directs the unseen beast.
+never left. The mark is the tether; the commands are the leash.
 
 | Level | Riftstalker grants | Hunter normally grants |
 |---|---|---|
 | 1 | Rift Mark + Guided Command | Animal Companion (removed) |
 | 2 | Rift Stride | Hunter Tactics (removed) |
-| 5 | Unseen Guardian | teamwork-feat progression (removed) |
-| 12 | Blood in the Rift | One with the Wild + Raise Companion (removed) |
+| 4, 8, 12, 16, 20 | Rift Command (one of ten, each pick) | teamwork feats (removed) |
+| 5 | Unseen Guardian | — |
+| 12 | (command pick) | One with the Wild + Raise Companion (removed) |
 
 - **Rift Mark (1st):** first hit per round brands the target for one
-  minute; single active mark (new marks strip old ones). Grants nothing
-  by itself - the tether through which the beast can reach.
-- **Guided Command (1st):** swift action, long range, marked targets
-  only. The unseen beast strikes: attack roll (d20 + hunter level +
-  Wisdom) vs the target's AC. Hit = 1d6 + half level raw damage (no DR)
-  and shaken 1 round. Nat 20 hits, nat 1 misses.
+  minute; single active mark (new marks strip old ones). The tether.
+- **Guided Command (1st):** swift action, marked-only. The unseen beast
+  strikes: d20 + hunter level + Wisdom vs the target's real AC. Hit =
+  1d6 + half level raw damage (no DR) and shaken 1 round.
 - **Rift Stride (2nd):** +10 ft land speed.
-- **Unseen Guardian (5th):** +2 dodge AC against the marked creature's
-  attacks.
-- **Blood in the Rift (12th):** a marked kill by her hand feeds the
-  beast - one minute of no-roll (always-hitting) guided commands.
+- **Unseen Guardian (5th):** +2 dodge AC against the marked's attacks.
+- **Rift Commands (4/8/12/16/20):** five picks from ten directives - Mauling,
+  Pinning, Terrifying, Guarding (4th tier); Blinding, Fatiguing (8th);
+  Staggering, Crippling (12th); Rending, Cataclysm (16th). One directive
+  per round, shared with Guided Command (hidden budget buff).
+- Design note: the base command is the damage floor; every learned
+  command trades raw damage for control, defense, or escalation. The
+  once-per-round budget keeps real-time and turn-based honest.
 
 ## Level plan per class (test-mode rule)
 
