@@ -3263,7 +3263,7 @@
   {
     "Key": "DoomsayerDreadMien.Description",
     "ProcessTemplates": false,
-    "enGB": "Verdicts yet unspoken hang about her like weather. Enemies within 15 feet bear a -2 penalty on attack rolls and saving throws while they remain there. This is the weight of doom, not fear - no save is allowed, and even creatures immune to fear feel it. This replaces second judgment."
+    "enGB": "Verdicts yet unspoken hang about her like weather. Enemies within 15 feet take a -2 penalty on attack rolls and saving throws made against the doomsayer while they remain there - against anyone else, their strength is their own. This is the weight of doom, not fear - no save is allowed, and even creatures immune to fear feel it. This replaces second judgment."
   },
   {
     "Key": "DoomsayerDeathsEcho.Name",
@@ -3333,6 +3333,6 @@
   {
     "Key": "DoomsayerDreadDebuff.Description",
     "ProcessTemplates": false,
-    "enGB": "Verdicts unspoken hang about the doomsayer; within her mien, enemies bear a -2 penalty on attack rolls and saving throws."
+    "enGB": "Verdicts unspoken hang about the doomsayer; within her mien, enemies take a -2 penalty on attack rolls and saving throws made against her."
   }
 ]

@@ -696,6 +696,7 @@ namespace MissionWOTR
     internal const string DoomsayerDreadMienBuff15 = "94D10770-4ED0-4A1E-B618-03D3BA15ED87";
     internal const string DoomsayerDreadMienBuff30 = "F8737760-BD6E-49BA-9D69-20BB8B13EEBF";
     internal const string DoomsayerAuraBearerComponent = "3ED38613-655D-440A-A3CF-6A2064788E60";
+    internal const string DoomsayerDreadWeightComponent = "AC3B1827-0956-4EED-BA12-7C8872FDCD9A";
     internal const string RiftstalkerActedBuff = "A725EFE9-54F7-46DB-B502-F560FED7D950";
     internal const string RiftstalkerGuardBuff = "B8E68B8C-4857-491A-9F59-79585338271C";
     internal const string RiftstalkerCrippledBuff = "59CEFF4E-1052-4010-A98F-85D61497351A";

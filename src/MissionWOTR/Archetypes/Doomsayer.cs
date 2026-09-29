@@ -67,9 +67,9 @@ namespace MissionWOTR.Archetypes
   ///   free Intimidate check against the victim; success shakes it for a
   ///   round (two from 10th).
   /// - Dread Mien (8th): a 15-ft pressure aura (the game's own area-effect
-  ///   system): enemies inside bear -2 on attack rolls and saving throws.
-  ///   No save, and NOT fear - the weight of doom, which the fearless
-  ///   still feel.
+  ///   system): enemies inside bear -2 on attack rolls and saving throws
+  ///   AGAINST HER ONLY (0.17.1 nerf - the user's call). No save, and NOT
+  ///   fear - the weight of doom, which the fearless still feel.
   /// - Death's Echo (11th): when the condemned dies, every enemy within
   ///   30 ft hears the sentence close: Will save (10 + half level + Wis)
   ///   or Shaken for a minute.
@@ -94,6 +94,8 @@ namespace MissionWOTR.Archetypes
 
     // Wired during Configure; read by the components.
     internal static BlueprintBuff CondemnedMarker;
+    internal static BlueprintBuff DreadMienBuff15;
+    internal static BlueprintBuff DreadMienBuff30;
     internal static BlueprintBuff CondemnedDoomed;
     internal static BlueprintFeature SentenceOfRuinFeature;
     internal static BlueprintFeature FinalVerdictFeature;
@@ -134,14 +136,10 @@ namespace MissionWOTR.Archetypes
         .SetDescription("DoomsayerDreadDebuff.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddStatBonus(stat: StatType.AdditionalAttackBonus, value: -2,
-          descriptor: ModifierDescriptor.UntypedStackable)
-        .AddStatBonus(stat: StatType.SaveWill, value: -2,
-          descriptor: ModifierDescriptor.UntypedStackable)
-        .AddStatBonus(stat: StatType.SaveReflex, value: -2,
-          descriptor: ModifierDescriptor.UntypedStackable)
-        .AddStatBonus(stat: StatType.SaveFortitude, value: -2,
-          descriptor: ModifierDescriptor.UntypedStackable)
+        // 0.17.1 nerf (user ask): the weight of doom applies only AGAINST
+        // the doomsayer - the enemy strikes and saves at full strength
+        // against everyone else while inside her mien.
+        .AddComponent(new DoomsayerDreadWeight())
         .Configure();
 
       // ----- The auras: the game's own area-effect system (the same
@@ -166,7 +164,7 @@ namespace MissionWOTR.Archetypes
       // The areas ride BUFFS (features cannot carry areas in this bpcore
       // build - CI CS1061); the features apply/remove their aura buff on
       // gain/loss via DoomsayerAuraBearer below.
-      var dreadMienBuff15 = BuffConfigurator.New("DoomsayerDreadMienBuff15", Guids.DoomsayerDreadMienBuff15)
+      DreadMienBuff15 = BuffConfigurator.New("DoomsayerDreadMienBuff15", Guids.DoomsayerDreadMienBuff15)
         .SetDisplayName("DoomsayerDreadMien.Name")
         .SetDescription("DoomsayerDreadMien.Description")
         .SetIcon(icon)
@@ -174,7 +172,7 @@ namespace MissionWOTR.Archetypes
         .AddAreaEffect(areaEffect: dreadArea15)
         .Configure();
 
-      var dreadMienBuff30 = BuffConfigurator.New("DoomsayerDreadMienBuff30", Guids.DoomsayerDreadMienBuff30)
+      DreadMienBuff30 = BuffConfigurator.New("DoomsayerDreadMienBuff30", Guids.DoomsayerDreadMienBuff30)
         .SetDisplayName("DoomsayerDreadMienGreater.Name")
         .SetDescription("DoomsayerDreadMienGreater.Description")
         .SetIcon(icon)
@@ -294,6 +292,67 @@ namespace MissionWOTR.Archetypes
 
       MissionFeats.Logger.Info("Doomsayer: configured.");
     }
+  }
+
+  /// <summary>
+  /// The weight of doom, 0.17.1 form (user nerf ask): -2 on attack rolls
+  /// and saving throws AGAINST THE DOOMSAYER only. Sits on the debuff the
+  /// mien applies; the penalty fires when the holder attacks a doomsayer
+  /// (attack-bonus modifier) or saves against her effects (the save is
+  /// rolled against her DC, so the penalty rides the DC side - the
+  /// engine's own pattern, TitanStrike-style AddBonusDC).
+  /// </summary>
+  [TypeId(Guids.DoomsayerDreadWeightComponent)]
+  internal class DoomsayerDreadWeight : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleCalculateAttackBonus>, IRulebookHandler<RuleCalculateAttackBonus>,
+    IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    private static bool AgainstDoomsayer(UnitEntityData unit)
+    {
+      return unit is not null &&
+        ((Doomsayer.DreadMienBuff15 is not null &&
+          unit.Buffs.GetBuff(Doomsayer.DreadMienBuff15) != null) ||
+         (Doomsayer.DreadMienBuff30 is not null &&
+          unit.Buffs.GetBuff(Doomsayer.DreadMienBuff30) != null));
+    }
+
+    public void OnEventAboutToTrigger(RuleCalculateAttackBonus evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner || !AgainstDoomsayer(evt.Target))
+        {
+          return;
+        }
+        evt.AddModifier(-2, Fact, ModifierDescriptor.UntypedStackable);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[doomsayer] dread weight (attack) failed.", e);
+      }
+    }
+
+    public void OnEventAboutToTrigger(RuleSavingThrow evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner || !AgainstDoomsayer(evt.Reason?.Caster))
+        {
+          return;
+        }
+        // The roller saves against her: the penalty rides her DC.
+        evt.AddBonusDC(2);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[doomsayer] dread weight (saves) failed.", e);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleCalculateAttackBonus evt) { }
+
+    public void OnEventDidTrigger(RuleSavingThrow evt) { }
   }
 
   /// <summary>

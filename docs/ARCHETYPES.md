@@ -537,8 +537,8 @@ errors suggested:
   staggered by terror); Dreadful Certainty (3rd, every weapon hit makes a
   free Intimidate check to shake the victim for a round); Dread Mien
   (8th, 15-ft pressure aura via the game's own area-effect system:
-  -2 attacks and saves for enemies inside, NO save and NOT a fear effect
-  - the fearless still feel doom's weight); Death's Echo (11th, when the
+  -2 attacks and saves AGAINST HER for enemies inside (0.17.1), NO save
+  and NOT a fear effect - the fearless still feel doom's weight); Death's Echo (11th, when the
   condemned dies enemies within 30 ft save or are shaken a minute);
   Sentence of Ruin (14th, the condemned marker becomes visible and
   universal: -2 attacks, saves and AC vs everyone); Greater Dread Mien
@@ -555,6 +555,18 @@ errors suggested:
   documented as doom, not fear. Documented edge: with two doomsayers in
   one party, a pronouncement clears the other's condemned marker (same
   policy as the other shared-blueprint designs).
+
+## 0.17.1 — Dread Mien nerf (user ask)
+
+- **Dread Mien/Greater Dread Mien now only debuff rolls made AGAINST the
+  doomsayer** (user ask: "make dread mien only debuff attack and saves
+  against the owner"). The -2 penalty applies when the enemy inside the
+  mien attacks her, and to saves against her effects; against anyone
+  else the enemy rolls at full strength. Implementation honesty: the
+  attack penalty is a modifier on the attack-bonus calculation scoped to
+  her; the save penalty rides HER DC (+2 DC against mien-bound enemies -
+  the engine's own situational-save pattern), which is mechanically
+  identical to -2 on the save.
 
 ## Alchemist
 
@@ -1209,7 +1221,7 @@ presence), and the escalating doom ladder.
 |---|---|---|
 | 1 | Pronounce Doom (Wis to Intimidate; condemn + shake; escalation later) | Judgments (removed, entire line) |
 | 3 | Dreadful Certainty (on-hit Intimidate) | Solo tactics + teamwork feats (all removed) |
-| 8 | Dread Mien (15-ft aura: -2 atk/saves, no save, not fear) | Second judgment (removed) |
+| 8 | Dread Mien (15-ft aura: -2 atk/saves against her, no save, not fear) | Second judgment (removed) |
 | 11 | Death's Echo (condemned's death shakes 30 ft) | Stalwart (removed) |
 | 14 | Sentence of Ruin (condemned: -2 atk/saves/AC vs everyone) | Exploit Weakness (removed) |
 | 16 | Greater Dread Mien (aura 30 ft) | Third judgment (removed) |
