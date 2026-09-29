@@ -6,6 +6,8 @@ using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
+using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
@@ -144,22 +146,40 @@ namespace MissionWOTR.Archetypes
 
       // ----- The auras: the game's own area-effect system (the same
       // mechanism the PackRager-family features use). -----
+      // Engine note: bpcore's SetTargetType takes an enum this game build
+      // does not expose (CI CS0122) - the enemy filter rides the buff
+      // condition instead (ContextConditionIsEnemy).
       var dreadArea15 = AbilityAreaEffectConfigurator.New("DoomsayerDreadMienArea15", Guids.DoomsayerDreadMienArea15)
-        .SetTargetType(BlueprintAbilityAreaEffect.TargetType.Enemy)
-        .AddAbilityAreaEffectRunAction(
-          unitEnter: ActionsBuilder.New().ApplyBuffPermanent(dreadDebuff),
-          unitExit: ActionsBuilder.New().RemoveBuff(dreadDebuff))
+        .AddAbilityAreaEffectBuff(buff: dreadDebuff,
+          condition: ConditionsBuilder.New().IsEnemy())
         .SetSize(new(15))
         .SetShape(AreaEffectShape.Cylinder)
         .Configure();
 
       var dreadArea30 = AbilityAreaEffectConfigurator.New("DoomsayerDreadMienArea30", Guids.DoomsayerDreadMienArea30)
-        .SetTargetType(BlueprintAbilityAreaEffect.TargetType.Enemy)
-        .AddAbilityAreaEffectRunAction(
-          unitEnter: ActionsBuilder.New().ApplyBuffPermanent(dreadDebuff),
-          unitExit: ActionsBuilder.New().RemoveBuff(dreadDebuff))
+        .AddAbilityAreaEffectBuff(buff: dreadDebuff,
+          condition: ConditionsBuilder.New().IsEnemy())
         .SetSize(new(30))
         .SetShape(AreaEffectShape.Cylinder)
+        .Configure();
+
+      // The areas ride BUFFS (features cannot carry areas in this bpcore
+      // build - CI CS1061); the features apply/remove their aura buff on
+      // gain/loss via DoomsayerAuraBearer below.
+      var dreadMienBuff15 = BuffConfigurator.New("DoomsayerDreadMienBuff15", Guids.DoomsayerDreadMienBuff15)
+        .SetDisplayName("DoomsayerDreadMien.Name")
+        .SetDescription("DoomsayerDreadMien.Description")
+        .SetIcon(icon)
+        .SetIsClassFeature()
+        .AddAreaEffect(areaEffect: dreadArea15)
+        .Configure();
+
+      var dreadMienBuff30 = BuffConfigurator.New("DoomsayerDreadMienBuff30", Guids.DoomsayerDreadMienBuff30)
+        .SetDisplayName("DoomsayerDreadMienGreater.Name")
+        .SetDescription("DoomsayerDreadMienGreater.Description")
+        .SetIcon(icon)
+        .SetIsClassFeature()
+        .AddAreaEffect(areaEffect: dreadArea30)
         .Configure();
 
       // ----- Pronounce Doom (1st): the ability -----
@@ -185,7 +205,7 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .AddFacts(new() { pronounceAbility })
         // She adds her Wisdom modifier on Intimidate checks.
-        .AddContextStatBonus(StatType.SkillIntimidate, ContextValues.Rank(),
+        .AddContextStatBonus(StatType.SkillPersuasion, ContextValues.Rank(),
           ModifierDescriptor.UntypedStackable)
         .AddContextRankConfig(ContextRankConfigs.StatBonus(StatType.Wisdom))
         // +1/+2/+3 on attack rolls against the condemned (9th/17th).
@@ -207,7 +227,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("DoomsayerDreadMien.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddAreaEffect(areaEffect: dreadArea15)
+        .AddComponent(new DoomsayerAuraBearer { AuraBuff = dreadMienBuff15 })
         .Configure();
 
       // ----- Death's Echo (11th) -----
@@ -233,7 +253,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("DoomsayerDreadMienGreater.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddAreaEffect(areaEffect: dreadArea30)
+        .AddComponent(new DoomsayerAuraBearer { AuraBuff = dreadMienBuff30 })
         .Configure();
 
       // ----- Final Verdict (17th) -----
@@ -273,6 +293,49 @@ namespace MissionWOTR.Archetypes
       archetype.Configure();
 
       MissionFeats.Logger.Info("Doomsayer: configured.");
+    }
+  }
+
+  /// <summary>
+  /// Carries a permanent aura buff for as long as the feature is held:
+  /// features cannot carry area effects directly in this bpcore build,
+  /// but buffs can - so the feature applies its aura buff on gain and
+  /// removes it on loss. (Context from a passive feature's fact - the
+  /// same pattern the Riftstalker mark delivery uses.)
+  /// </summary>
+  [TypeId(Guids.DoomsayerAuraBearerComponent)]
+  internal class DoomsayerAuraBearer : UnitFactComponentDelegate
+  {
+    public BlueprintBuff AuraBuff;
+
+    protected override void OnActivate()
+    {
+      try
+      {
+        if (AuraBuff is not null)
+        {
+          Owner.AddBuff(AuraBuff, Context);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[doomsayer] aura bearer failed.", e);
+      }
+    }
+
+    protected override void OnDeactivate()
+    {
+      try
+      {
+        if (AuraBuff is not null)
+        {
+          Owner.Buffs.RemoveFact(AuraBuff);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[doomsayer] aura removal failed.", e);
+      }
     }
   }
 
@@ -332,9 +395,9 @@ namespace MissionWOTR.Archetypes
             caster.HasFact(Doomsayer.FinalVerdictFeature));
         if (!succeeded)
         {
-          var dc = 10 + target.Descriptor.Progression.TotalLevel +
+          var dc = 10 + target.Descriptor.Progression.CharacterLevel +
             target.Stats.Wisdom.Bonus;
-          var check = new RuleSkillCheck(caster, StatType.SkillIntimidate, dc);
+          var check = new RuleSkillCheck(caster, StatType.SkillPersuasion, dc);
           Rulebook.Trigger<RuleSkillCheck>(check);
           succeeded = check.Success;
         }
@@ -449,9 +512,9 @@ namespace MissionWOTR.Archetypes
           return;
         }
         var victim = evt.Target;
-        var dc = 10 + victim.Descriptor.Progression.TotalLevel +
+        var dc = 10 + victim.Descriptor.Progression.CharacterLevel +
           victim.Stats.Wisdom.Bonus;
-        var check = new RuleSkillCheck(Owner, StatType.SkillIntimidate, dc);
+        var check = new RuleSkillCheck(Owner, StatType.SkillPersuasion, dc);
         Rulebook.Trigger<RuleSkillCheck>(check);
         if (!check.Success)
         {

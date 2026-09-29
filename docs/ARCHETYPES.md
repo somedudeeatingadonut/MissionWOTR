@@ -545,7 +545,9 @@ errors suggested:
   (16th, aura reaches 30 ft); Final Verdict (17th, the pronouncement
   needs no check - the sentence is simply read - and Death's Echo
   reaches 50 ft).
-- Engine honesty: WOTR's fear ladder tops out at Frightened (no Panicked
+- Engine honesty: WOTR folds Intimidate into PERSUASION - every check
+  the archetype makes is a Persuasion check (intimidation), with Wisdom
+  added on top. WOTR's fear ladder tops out at Frightened (no Panicked
   buff), so the 12th-tier terror seizes the victim STAGGERED instead of
   panicked. The shaken/frightened tiers go through the game's own buffs
   and respect its immunity handling; the aura and the Sentence of Ruin
@@ -1217,6 +1219,8 @@ presence), and the escalating doom ladder.
   (3 rounds); 12th - frightened targets are also staggered by terror
   (1 round). Condemned attack bonus +1/+2/+3 at 1st/9th/17th.
 - **Dreadful Certainty:** on-hit shaken 1 round (2 rounds at 10th).
+- **Skill adaptation:** WOTR's Persuasion is the tabletop's Intimidate +
+  Diplomacy - all the archetype's checks use Persuasion, Wisdom added.
 - **Design notes:** the aura and Sentence of Ruin are not fear effects
   (they work on the fear-immune - the weight of doom, not fear); the
   pronouncement and certainty tiers ARE fear effects and respect the

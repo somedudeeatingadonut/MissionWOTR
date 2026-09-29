@@ -3243,7 +3243,7 @@
   {
     "Key": "DoomsayerPronounceDoom.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, she reads a creature its sentence. The pronouncement is an Intimidate check (she adds her Wisdom modifier on Intimidate checks) against 10 + the target's level + its Wisdom modifier. On a success the target is shaken for 1 minute and becomes her condemned - she gains a +1 bonus on attack rolls against the condemned (+2 at 9th level, +3 at 17th), and only one creature may stand condemned at a time. At 5th level, pronouncing doom on a target that is already shaken makes it frightened for 3 rounds instead. At 12th level, pronouncing doom on a frightened target also seizes it with terror, staggering it for 1 round. At 17th level, the pronouncement no longer requires a check - the sentence is simply read. This replaces judgments (the entire line: second judgment, third judgment and true judgment included)."
+    "enGB": "As a swift action, she reads a creature its sentence. The pronouncement is a Persuasion check made to intimidate (she adds her Wisdom modifier on Persuasion checks) against 10 + the target's level + its Wisdom modifier. On a success the target is shaken for 1 minute and becomes her condemned - she gains a +1 bonus on attack rolls against the condemned (+2 at 9th level, +3 at 17th), and only one creature may stand condemned at a time. At 5th level, pronouncing doom on a target that is already shaken makes it frightened for 3 rounds instead. At 12th level, pronouncing doom on a frightened target also seizes it with terror, staggering it for 1 round. At 17th level, the pronouncement no longer requires a check - the sentence is simply read. This replaces judgments (the entire line: second judgment, third judgment and true judgment included)."
   },
   {
     "Key": "DoomsayerDreadfulCertainty.Name",
@@ -3253,7 +3253,7 @@
   {
     "Key": "DoomsayerDreadfulCertainty.Description",
     "ProcessTemplates": false,
-    "enGB": "Every blow lands like a gavel. When her weapon attack hits, the victim must weather a free Intimidate check against 10 + its level + its Wisdom modifier; on a success it is shaken for 1 round (2 rounds from 10th level). This replaces solo tactics and all bonus teamwork feats."
+    "enGB": "Every blow lands like a gavel. When her weapon attack hits, the victim must weather a free Persuasion check made to intimidate against 10 + its level + its Wisdom modifier; on a success it is shaken for 1 round (2 rounds from 10th level). This replaces solo tactics and all bonus teamwork feats."
   },
   {
     "Key": "DoomsayerDreadMien.Name",
