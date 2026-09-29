@@ -233,7 +233,7 @@ namespace MissionWOTR.Archetypes
         (7, BuffRefs.Blind.Reference.Get()),
         (7, BuffRefs.Frightened.Reference.Get()),
         (5, BuffRefs.Staggered.Reference.Get()),
-        (5, BuffRefs.Entangled.Reference.Get()),
+        (5, BuffRefs.EntangledBuff.Reference.Get()),
         (3, BuffRefs.Fatigued.Reference.Get()),
         (3, BuffRefs.Shaken.Reference.Get()),
       };
