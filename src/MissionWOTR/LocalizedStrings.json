@@ -3224,5 +3224,115 @@
     "Key": "SinEaterEmpowered.Description",
     "ProcessTemplates": false,
     "enGB": "The devoured sins burn briefly in her veins: +1 circumstance bonus on attack rolls and saving throws for one minute."
+  },
+  {
+    "Key": "Doomsayer.Name",
+    "ProcessTemplates": false,
+    "enGB": "Doomsayer"
+  },
+  {
+    "Key": "Doomsayer.Description",
+    "ProcessTemplates": false,
+    "enGB": "She does not argue, she does not threaten, she does not raise her voice. She reads the sentence, and the world agrees with her. The doomsayer trades nearly everything else the church gives her - judgments, solo tactics, every teamwork feat, stalwart, exploit weakness, even true judgment - for one discipline perfected: when she pronounces doom, doom listens. Enemies of the faith hear their own end in her voice; those who stand near her feel the weight of verdicts yet unspoken; and the one she condemns carries that sentence until it is executed."
+  },
+  {
+    "Key": "DoomsayerPronounceDoom.Name",
+    "ProcessTemplates": false,
+    "enGB": "Pronounce Doom"
+  },
+  {
+    "Key": "DoomsayerPronounceDoom.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a swift action, she reads a creature its sentence. The pronouncement is an Intimidate check (she adds her Wisdom modifier on Intimidate checks) against 10 + the target's level + its Wisdom modifier. On a success the target is shaken for 1 minute and becomes her condemned - she gains a +1 bonus on attack rolls against the condemned (+2 at 9th level, +3 at 17th), and only one creature may stand condemned at a time. At 5th level, pronouncing doom on a target that is already shaken makes it frightened for 3 rounds instead. At 12th level, pronouncing doom on a frightened target also seizes it with terror, staggering it for 1 round. At 17th level, the pronouncement no longer requires a check - the sentence is simply read. This replaces judgments (the entire line: second judgment, third judgment and true judgment included)."
+  },
+  {
+    "Key": "DoomsayerDreadfulCertainty.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dreadful Certainty"
+  },
+  {
+    "Key": "DoomsayerDreadfulCertainty.Description",
+    "ProcessTemplates": false,
+    "enGB": "Every blow lands like a gavel. When her weapon attack hits, the victim must weather a free Intimidate check against 10 + its level + its Wisdom modifier; on a success it is shaken for 1 round (2 rounds from 10th level). This replaces solo tactics and all bonus teamwork feats."
+  },
+  {
+    "Key": "DoomsayerDreadMien.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dread Mien"
+  },
+  {
+    "Key": "DoomsayerDreadMien.Description",
+    "ProcessTemplates": false,
+    "enGB": "Verdicts yet unspoken hang about her like weather. Enemies within 15 feet bear a -2 penalty on attack rolls and saving throws while they remain there. This is the weight of doom, not fear - no save is allowed, and even creatures immune to fear feel it. This replaces second judgment."
+  },
+  {
+    "Key": "DoomsayerDeathsEcho.Name",
+    "ProcessTemplates": false,
+    "enGB": "Death's Echo"
+  },
+  {
+    "Key": "DoomsayerDeathsEcho.Description",
+    "ProcessTemplates": false,
+    "enGB": "When her condemned dies, every enemy within 30 feet hears the sentence close: each must succeed at a Will save (10 + half her inquisitor level + her Wisdom modifier) or be shaken for 1 minute. With the Final Verdict (17th level), the echo carries 50 feet. This replaces stalwart."
+  },
+  {
+    "Key": "DoomsayerSentenceOfRuin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sentence of Ruin"
+  },
+  {
+    "Key": "DoomsayerSentenceOfRuin.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 14th level, the condemned wears the sentence where all can see it: while marked, the creature takes a -2 penalty on attack rolls, saving throws and Armor Class - against her and against everyone else. This replaces exploit weakness."
+  },
+  {
+    "Key": "DoomsayerDreadMienGreater.Name",
+    "ProcessTemplates": false,
+    "enGB": "Greater Dread Mien"
+  },
+  {
+    "Key": "DoomsayerDreadMienGreater.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 16th level, her presence deepens: the reach of Dread Mien extends to 30 feet. This replaces third judgment."
+  },
+  {
+    "Key": "DoomsayerFinalVerdict.Name",
+    "ProcessTemplates": false,
+    "enGB": "Final Verdict"
+  },
+  {
+    "Key": "DoomsayerFinalVerdict.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 17th level, her pronouncements no longer require a check - when she reads a creature its sentence, the sentence is simply read, and only the fear that follows can be resisted. Her Death's Echo also carries further, reaching 50 feet. This replaces true judgment."
+  },
+  {
+    "Key": "DoomsayerCondemnedMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Condemned"
+  },
+  {
+    "Key": "DoomsayerCondemnedMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The doomsayer has read this creature its sentence. It stands condemned."
+  },
+  {
+    "Key": "DoomsayerCondemnedDoomed.Name",
+    "ProcessTemplates": false,
+    "enGB": "Condemned"
+  },
+  {
+    "Key": "DoomsayerCondemnedDoomed.Description",
+    "ProcessTemplates": false,
+    "enGB": "The doomsayer has read this creature its sentence, and the sentence is ruin: -2 on attack rolls, saving throws and Armor Class until the sentence is executed or she condemns another."
+  },
+  {
+    "Key": "DoomsayerDreadDebuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Doom's Weight"
+  },
+  {
+    "Key": "DoomsayerDreadDebuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Verdicts unspoken hang about the doomsayer; within her mien, enemies bear a -2 penalty on attack rolls and saving throws."
   }
 ]

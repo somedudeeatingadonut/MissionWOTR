@@ -519,6 +519,41 @@ errors suggested:
   Sacred Huntsmaster and Sanctified Slayer (the user caught our first
   pick colliding with it); Sin Eater is ours alone.
 
+## 0.17.0 — Doomsayer (homebrew inquisitor)
+
+- **Doomsayer - the mod's first homebrew inquisitor archetype** (user
+  concept: an inquisitor focused ENTIRELY on intimidation, flavored
+  "mostly the doomsayer," combining the three proposed kit shapes across
+  the levels, with HEFTY drawbacks per the user - "definitely no teamwork
+  feats at all, for one"; mechanical lean: blend, the user's pick).
+- The trades (hefty): the ENTIRE judgment line (1st/8th/16th/17th),
+  solo tactics, EVERY bonus teamwork feat, stalwart (11th), exploit
+  weakness (14th). She keeps domain, bane, slayer, monster lore, spells
+  and the capstone.
+- The kit: Pronounce Doom (1st, swift; Wisdom added to Intimidate;
+  Intimidate check shakes the target for a minute and marks it CONDEMNED;
+  +1 attack vs the condemned, +2 at 9th, +3 at 17th; escalation at 5th -
+  shaken targets become frightened, at 12th frightened targets are also
+  staggered by terror); Dreadful Certainty (3rd, every weapon hit makes a
+  free Intimidate check to shake the victim for a round); Dread Mien
+  (8th, 15-ft pressure aura via the game's own area-effect system:
+  -2 attacks and saves for enemies inside, NO save and NOT a fear effect
+  - the fearless still feel doom's weight); Death's Echo (11th, when the
+  condemned dies enemies within 30 ft save or are shaken a minute);
+  Sentence of Ruin (14th, the condemned marker becomes visible and
+  universal: -2 attacks, saves and AC vs everyone); Greater Dread Mien
+  (16th, aura reaches 30 ft); Final Verdict (17th, the pronouncement
+  needs no check - the sentence is simply read - and Death's Echo
+  reaches 50 ft).
+- Engine honesty: WOTR's fear ladder tops out at Frightened (no Panicked
+  buff), so the 12th-tier terror seizes the victim STAGGERED instead of
+  panicked. The shaken/frightened tiers go through the game's own buffs
+  and respect its immunity handling; the aura and the Sentence of Ruin
+  are deliberately NOT fear effects (no save, no immunity interaction) -
+  documented as doom, not fear. Documented edge: with two doomsayers in
+  one party, a pronouncement clears the other's condemned marker (same
+  policy as the other shared-blueprint designs).
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1160,6 +1195,36 @@ fallen, and grows briefly stronger on what she swallows.
 - **Not portable, documented:** the 8th-level negative-level rider
   (undead-rise foreknowledge) and Burden of Sin (14th, buff transfer) -
   no engine hooks; exploit weakness stays with her.
+
+### Original homebrew — Doomsayer — IMPLEMENTED (0.17.0)
+
+The inquisitor who does not argue. She reads the sentence, and the world
+agrees with her. Three kit shapes in one class, per the user's direction:
+the pronouncement (per-target ritual hunt), the pressure aura (dread
+presence), and the escalating doom ladder.
+
+| Level | Doomsayer grants | Inquisitor normally grants |
+|---|---|---|
+| 1 | Pronounce Doom (Wis to Intimidate; condemn + shake; escalation later) | Judgments (removed, entire line) |
+| 3 | Dreadful Certainty (on-hit Intimidate) | Solo tactics + teamwork feats (all removed) |
+| 8 | Dread Mien (15-ft aura: -2 atk/saves, no save, not fear) | Second judgment (removed) |
+| 11 | Death's Echo (condemned's death shakes 30 ft) | Stalwart (removed) |
+| 14 | Sentence of Ruin (condemned: -2 atk/saves/AC vs everyone) | Exploit Weakness (removed) |
+| 16 | Greater Dread Mien (aura 30 ft) | Third judgment (removed) |
+| 17 | Final Verdict (no-check pronouncement; echo 50 ft) | True judgment (removed) |
+
+- **Pronounce Doom** escalation: 5th - shaken targets become frightened
+  (3 rounds); 12th - frightened targets are also staggered by terror
+  (1 round). Condemned attack bonus +1/+2/+3 at 1st/9th/17th.
+- **Dreadful Certainty:** on-hit shaken 1 round (2 rounds at 10th).
+- **Design notes:** the aura and Sentence of Ruin are not fear effects
+  (they work on the fear-immune - the weight of doom, not fear); the
+  pronouncement and certainty tiers ARE fear effects and respect the
+  game's immunity handling. WOTR has no Panicked buff - the terror tier
+  staggers instead. Hefty-trades philosophy per the user: the archetype
+  gives up the class's signature resource (judgments), its teamwork
+  identity, its defensive payoff and its crit capstone for one
+  discipline perfected.
 
 ## Level plan per class (test-mode rule)
 

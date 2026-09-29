@@ -84,6 +84,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Riftstalker), Riftstalker.Configure);
       Configure(nameof(Verminous), Verminous.Configure);
       Configure(nameof(SinEater), SinEater.Configure);
+      Configure(nameof(Doomsayer), Doomsayer.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -143,6 +144,7 @@ namespace MissionWOTR.Feats
       ("Riftstalker", Guids.RiftstalkerArchetype, hunter),
       ("Verminous", Guids.VerminousArchetype, hunter),
       ("SinEater", Guids.SinEaterArchetype, inquisitor),
+      ("Doomsayer", Guids.DoomsayerArchetype, inquisitor),
     };
         foreach (var entry in entries)
         {
