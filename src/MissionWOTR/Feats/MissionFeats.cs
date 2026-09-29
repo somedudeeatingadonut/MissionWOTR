@@ -85,6 +85,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Verminous), Verminous.Configure);
       Configure(nameof(SinEater), SinEater.Configure);
       Configure(nameof(Doomsayer), Doomsayer.Configure);
+      Configure(nameof(KineticistExplosion), KineticistExplosion.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);

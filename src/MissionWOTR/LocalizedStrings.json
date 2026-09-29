@@ -3334,5 +3334,100 @@
     "Key": "DoomsayerDreadDebuff.Description",
     "ProcessTemplates": false,
     "enGB": "Verdicts unspoken hang about the doomsayer; within her mien, enemies take a -2 penalty on attack rolls and saving throws made against her."
+  },
+  {
+    "Key": "ExplosionInfusion.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion"
+  },
+  {
+    "Key": "ExplosionInfusion.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your kinetic blast detonates violently in a 20-foot radius, hitting every enemy in the area. The explosion accepts 3 points of burn. This is a form infusion usable with every kinetic blast you possess; it is learned through the infusion selection at 9th level or above. (The tabletop's 5th-level form infusion, previously missing from the game.)"
+  },
+  {
+    "Key": "ExplosionAir.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Air)"
+  },
+  {
+    "Key": "ExplosionBlizzard.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Blizzard)"
+  },
+  {
+    "Key": "ExplosionBlueFlame.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Blue Flame)"
+  },
+  {
+    "Key": "ExplosionChargedWater.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Charged Water)"
+  },
+  {
+    "Key": "ExplosionCold.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Cold)"
+  },
+  {
+    "Key": "ExplosionEarth.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Earth)"
+  },
+  {
+    "Key": "ExplosionElectric.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Electric)"
+  },
+  {
+    "Key": "ExplosionFire.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Fire)"
+  },
+  {
+    "Key": "ExplosionIce.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Ice)"
+  },
+  {
+    "Key": "ExplosionMagma.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Magma)"
+  },
+  {
+    "Key": "ExplosionMetal.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Metal)"
+  },
+  {
+    "Key": "ExplosionMud.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Mud)"
+  },
+  {
+    "Key": "ExplosionPlasma.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Plasma)"
+  },
+  {
+    "Key": "ExplosionSandstorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Sandstorm)"
+  },
+  {
+    "Key": "ExplosionSteam.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Steam)"
+  },
+  {
+    "Key": "ExplosionThunderstorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Thunderstorm)"
+  },
+  {
+    "Key": "ExplosionWater.Name",
+    "ProcessTemplates": false,
+    "enGB": "Explosion (Water)"
   }
 ]

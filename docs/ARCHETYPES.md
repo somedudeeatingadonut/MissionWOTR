@@ -568,6 +568,31 @@ errors suggested:
   the engine's own situational-save pattern), which is mechanically
   identical to -2 on the save.
 
+## 0.18.0 — Explosion infusion (kineticist class content)
+
+- **Explosion - the tabletop's 5th-level form infusion, previously
+  missing** (user scope: expand the existing elements' choices; Extreme
+  Range and Kinetic Whip skipped by request). Your kinetic blast
+  detonates in a 20-foot radius, 3 burn, usable with every blast you
+  possess - 17 new abilities (one per blast), each a full clone of that
+  blast's Extended Range sibling so the entire damage wiring (Con
+  scaling, overflow, gather power) is inherited, with the range returned
+  to the base blast's and a 20-ft radius AoE added on top.
+- Gating: the infusion feature (registered into the vanilla
+  InfusionSelection, prerequisite kineticist 9) grants only the explosion
+  abilities whose base blast the kineticist actually owns. Documented
+  edge: a blast learned after the infusion (Expanded Element) appears
+  after the next area transition, when facts re-activate and re-sync.
+- Research corrections from the user (both verified): metakinesis
+  Empower/Maximize/Quicken all ship with the game (the earlier worry was
+  wrong), and Burning infusion is also already in (the earlier
+  missing-list erred on it).
+- **Impale deferred, honestly:** bpcore exposes no line-shape builder
+  (radius only), so the only inheritable 30-ft line family is Torrent -
+  whose physical-blast damage halving lives in internals we cannot
+  audit. Cloning Torrent would ship a redundant ability, not Impale.
+  Deferred until a verifiable line surface exists.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1241,6 +1266,26 @@ presence), and the escalating doom ladder.
   gives up the class's signature resource (judgments), its teamwork
   identity, its defensive payoff and its crit capstone for one
   discipline perfected.
+
+## Kineticist
+
+### Class content — Explosion infusion — IMPLEMENTED (0.18.0)
+
+Vanilla coverage notes: the game ships all eleven tabletop composite
+blasts for the four base elements, and all three metakinesis tiers
+(Empower, Maximize, Quicken) plus their mythic Master upgrades. The
+tabletop infusions still missing after this release: Extreme Range and
+Kinetic Whip (skipped by user request), Impale (deferred - no verifiable
+line-shape surface), Draining and Disintegrating (not yet attempted).
+
+- **Explosion (5th-level form infusion, learned via infusion selection
+  at kineticist 9):** 20-ft radius, 3 burn, every blast you own. One
+  ability per blast (17 total), cloned from each blast's Extended Range
+  sibling (full damage wiring inherited) with the AoE added and the
+  range restored to the base blast's. Burn is set by a reflection hunt
+  for the infusion-cost member (logged at load; if the member is not
+  found the sibling's cost remains and the log says so - report if the
+  in-game cost reads 1 instead of 3).
 
 ## Level plan per class (test-mode rule)
 
