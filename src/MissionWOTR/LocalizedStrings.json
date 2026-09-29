@@ -3469,5 +3469,55 @@
     "Key": "UnstableCriticalMass.Description",
     "ProcessTemplates": false,
     "enGB": "At 16th level the gate's instability peaks: the chance of a surge on each of her kinetic blasts rises to 50%."
+  },
+  {
+    "Key": "KineticChirurgeon.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Chirurgeon"
+  },
+  {
+    "Key": "KineticChirurgeon.Description",
+    "ProcessTemplates": false,
+    "enGB": "While any kineticist can learn the rudiments of healing, some are virtuosos of the curative arts. The kinetic chirurgeon trades her entire shaping discipline - infusions, metakinesis, infusion specialization - for the healer's craft: her touch knits flesh with raw elemental force, and as she grows, her healing learns to mend what flesh alone cannot."
+  },
+  {
+    "Key": "ChirurgeonKineticHealer.Name",
+    "ProcessTemplates": false,
+    "enGB": "Kinetic Healer"
+  },
+  {
+    "Key": "ChirurgeonKineticHealer.Description",
+    "ProcessTemplates": false,
+    "enGB": "With a touch, she heals a willing living creature, restoring 1d6 hit points plus her Constitution modifier for every 2 kineticist levels she possesses. Each use also cures one condition afflicting the target - the worst her training covers, from fatigued and shaken at 3rd level up through blinded, frightened and finally stunned at 9th. From 5th level her Metahealer training adds one extra healing die (two at 11th, three at 17th), and at 17th level the same use mends both the target and herself. This replaces infusions and infusion specialization."
+  },
+  {
+    "Key": "ChirurgeonSwiftMending.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Mending"
+  },
+  {
+    "Key": "ChirurgeonSwiftMending.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 13th level she learns to mend herself in an instant: as a swift action, she may use kinetic healer on herself. This replaces metakinesis (empower, maximize and quicken)."
+  },
+  {
+    "Key": "ChirurgeonMetahealer.Name",
+    "ProcessTemplates": false,
+    "enGB": "Metahealer"
+  },
+  {
+    "Key": "ChirurgeonMetahealer.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 5th level, her healing deepens: kinetic healer rolls one additional healing die. This becomes two additional dice at 11th level and three at 17th."
+  },
+  {
+    "Key": "ChirurgeonSharedMending.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shared Mending"
+  },
+  {
+    "Key": "ChirurgeonSharedMending.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 17th level, the same use of kinetic healer mends both her target and herself."
   }
 ]

@@ -623,6 +623,42 @@ errors suggested:
   collisions (Sanctified Slayer, and the kineticist trio: Kinetic
   Knight, Dark Elementalist and Overwhelming Soul are all vanilla).
 
+## 0.20.0 — Kinetic Chirurgeon (tabletop port) + coverage table filled
+
+- **Kinetic Chirurgeon - faithful port of the Occult Adventures
+  kineticist archetype** (user pick of the two remaining unused tabletop
+  kineticist archetypes, chosen via the coverage check: vanilla ships
+  Blood Kineticist, Dark Elementalist, Elemental Engine, Kinetic Knight,
+  Kinetic Sharpshooter, Overwhelming Soul, Psychokineticist; Elemental
+  Annihilator remains unimplemented anywhere). The healer kineticist:
+  - Kinetic Healer (1st): touch, standard action - 1d6 + Con per 2
+    kineticist levels; each use also cures one condition via the mercy
+    ladder (3rd: fatigued/shaken; 5th: staggered/entangled; 7th:
+    blinded/frightened; 9th: stunned - auto-triaged, the CRPG adaptation
+    of "one paladin mercy per use").
+  - Metahealer (5th): +1 healing die (2 at 11th, 3 at 17th).
+  - Swift Mending (13th): swift-action self-only kinetic healer.
+  - Shared Mending (17th): the same use heals target AND chirurgeon.
+  - Trades: the InfusionSelection at every level, Infusion
+    Specialization, and all three metakinesis features (Empower,
+    Maximize, Quicken) - she can never use infusions.
+  - Adaptations (documented, not faked): element restriction skipped
+    (no aether/wood in WOTR; the healer draws on her, not her element);
+    the 9th-level breath-of-life revive and the doubled internal buffer
+    skipped (no verifiable APIs - she keeps internal buffer); the burn
+    cost waived (burn cannot be granted from a verified API - the healer
+    is unlimited-use); poisons/diseases/curses are not buffs and are not
+    in the mercy ladder.
+- **docs/COVERAGE.md filled** (user ask): the full vanilla archetype
+  inventory from the game's own 202-entry blueprint list, classified per
+  class with an explicit unclassified bucket. **Call of the Wild removed
+  from the mod list - it is KINGMAKER-ONLY** (user correction). **New
+  file docs/NOTES.md** (user ask): the durable engineering-notes file -
+  ecosystem facts (incl. Call of the Wild being Kingmaker-only), the
+  command-menu recipe, the CI-verified engine-fact list (member drift,
+  Persuasion, fear ladder, raw damage, area buffs...), and the clone/CI/
+  push recipes.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1330,6 +1366,22 @@ line-shape surface), Draining and Disintegrating (not yet attempted).
   lvls), 5 Overcharge (both), 6 Null Surge (nothing).
 - Coverage: vanilla ships Kinetic Knight, Dark Elementalist, Overwhelming
   Soul - none collide. Checked per docs/COVERAGE.md before designing.
+
+### Faithful port — Kinetic Chirurgeon (Occult Adventures) — IMPLEMENTED (0.20.0)
+
+| Level | Kinetic Chirurgeon grants | Kineticist normally grants |
+|---|---|---|
+| 1 | Kinetic Healer (1d6+Con per 2 lvls; mercy cure) | Infusion selection (removed, all levels) |
+| 5 | Metahealer (+1 die) | Infusion Specialization (removed) |
+| 13 | Swift Mending (swift self-heal) | — |
+| 17 | Shared Mending (heal target + self) | — |
+
+- Trades also remove metakinesis Empower/Maximize/Quicken.
+- Mercy ladder: 3rd fatigued/shaken; 5th staggered/entangled; 7th
+  blinded/frightened; 9th stunned - one cure per heal, auto-triaged
+  worst-first.
+- Coverage: the only other unused tabletop kineticist archetype is
+  Elemental Annihilator. Checked per docs/COVERAGE.md + docs/NOTES.md.
 
 ## Level plan per class (test-mode rule)
 

@@ -721,6 +721,14 @@ namespace MissionWOTR
     internal const string UnstableReboundControlFeature = "BE381D33-CCFF-4F71-A7CB-38F751A4A478";
     internal const string UnstableCriticalMassFeature = "14D55E32-1723-4C3A-8944-021C81A1CFC1";
     internal const string UnstableBlastComponent = "2474F7FA-A854-417E-9586-9C1B4B419746";
+    internal const string KineticChirurgeonArchetype = "44F071C3-46FE-4B7A-B234-15980051B1D6";
+    internal const string ChirurgeonHealerFeature = "007E960C-13DC-43D3-99ED-EBB1A7091FE5";
+    internal const string ChirurgeonHealerAbility = "B01CB0D8-613E-4A9E-93D5-64036495FD7C";
+    internal const string ChirurgeonSwiftMendingAbility = "FAF6185C-F4A4-4787-A0F1-D2A8177C6251";
+    internal const string ChirurgeonMetahealerFeature = "2A731306-FF05-482C-B8D7-23AAFB0FE53C";
+    internal const string ChirurgeonSwiftMendingFeature = "A0C68542-E53A-4958-AF58-5A9C14469663";
+    internal const string ChirurgeonSharedMendingFeature = "44F8EAFA-3F18-4C5F-99E9-8CC18B96A529";
+    internal const string ChirurgeonHealComponent = "5A0D84A7-946D-4205-B184-233857752ED4";
     internal const string RiftstalkerActedBuff = "A725EFE9-54F7-46DB-B502-F560FED7D950";
     internal const string RiftstalkerGuardBuff = "B8E68B8C-4857-491A-9F59-79585338271C";
     internal const string RiftstalkerCrippledBuff = "59CEFF4E-1052-4010-A98F-85D61497351A";
