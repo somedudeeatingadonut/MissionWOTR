@@ -225,7 +225,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("DoomsayerDreadMien.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddComponent(new DoomsayerAuraBearer { AuraBuff = dreadMienBuff15 })
+        .AddComponent(new DoomsayerAuraBearer { AuraBuff = DreadMienBuff15 })
         .Configure();
 
       // ----- Death's Echo (11th) -----
@@ -251,7 +251,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("DoomsayerDreadMienGreater.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddComponent(new DoomsayerAuraBearer { AuraBuff = dreadMienBuff30 })
+        .AddComponent(new DoomsayerAuraBearer { AuraBuff = DreadMienBuff30 })
         .Configure();
 
       // ----- Final Verdict (17th) -----
