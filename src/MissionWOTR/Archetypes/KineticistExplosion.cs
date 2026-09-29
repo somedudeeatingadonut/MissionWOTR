@@ -186,7 +186,7 @@ namespace MissionWOTR.Archetypes
     /// </summary>
     private static void SetBurn(BlueprintAbility ability, int burn)
     {
-      foreach (var component in ability.Components)
+      foreach (var component in ability.ComponentsArray)
       {
         var type = component.GetType();
         foreach (var field in type.GetFields())
