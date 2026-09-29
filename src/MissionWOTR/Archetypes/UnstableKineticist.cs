@@ -130,8 +130,9 @@ namespace MissionWOTR.Archetypes
     public BlueprintCharacterClass Class;
 
     /// <summary>The 17 vanilla blast ability guids (from the Explosion work).</summary>
-    private static readonly HashSet<string> BlastGuids =
-      new HashSet<string>(KineticistExplosion.Blasts.Select(b => b.BlastGuid));
+    private static readonly HashSet<BlueprintGuid> BlastGuids =
+      new HashSet<BlueprintGuid>(
+        KineticistExplosion.Blasts.Select(b => BlueprintGuid.Parse(b.BlastGuid)));
 
     public void OnEventAboutToTrigger(RuleCastSpell evt) { }
 
