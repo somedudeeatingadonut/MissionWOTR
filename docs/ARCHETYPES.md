@@ -479,6 +479,46 @@ errors suggested:
     tabletop ability cannot be gated honestly - the adaptation targets
     the swarm's actual weapons instead, with the impossibility documented.
 
+## 0.16.0 — Construct Crafter command menus + the Sin Eater (user asks)
+
+- **The Construct Crafter's cores and programs now live in command menus**
+  (user ask #1, after two rounds of clarification: "I want the cores and
+  programs to be in a command menu"). Two bar icons replace the pile of
+  per-pick toggles: Core Command and Program Command. Clicking either
+  opens the game's variant submenu (the same AbilityVariants mechanism as
+  the Riftstalker's Guided Command). Base entry = Basic (markers
+  cleared); each menu entry arms/sets the chosen core or program. The
+  toggle blueprints are no longer granted by the pick features, so
+  nothing accumulates on the bar. Same documented limitation as the
+  Riftstalker menu: the list is blueprint-static, so it shows all
+  entries and the gating lives in the action (an unlearned entry is an
+  empty whisper). Arming is exclusive per axis - the old independent
+  toggles allowed several markers at once (GetActiveCore returned the
+  first match); the menus clear the axis before setting, which is both
+  cleaner and self-documenting.
+- **Sin Eater (user ask #2) - the mod's first inquisitor archetype**
+  (Ultimate Magic port; the user noted the inquisitor should get a
+  tabletop archetype while they think of a homebrew one. Sanctified
+  Slayer - the first candidate - already ships with WOTR, so the port is
+  Sin Eater instead):
+  - Eat Sin (1st, REPLACES domain): her killing blow devours the fallen
+    enemy's sins - automatic and free (the CRPG adaptation of the
+    tabletop's minute-long ritual): heals 1d8 + level (cap +5), 2d8 at
+    5th, 3d8 at 9th, 4d8 at 13th (caps +10/+15/+20). Once per enemy
+    (unit-id list in component data). No effect on Int 2 or less.
+  - Sin Speaker (6th, REPLACES the 6th-level teamwork feat): speak with
+    dead has no WOTR blueprint - adapted from the archetype's own flavor
+    ("consuming sins empowers the sin eater, at least for a time"):
+    each eaten sin also grants +1 on attack rolls and saves for one
+    minute.
+  - Skipped, documented, not faked: the 8th-level rider (prevent a corpse
+    rising as undead - foreknowledge the engine does not expose) and
+    Burden of Sin at 14th (arbitrary harmful-effect transfer - no
+    verifiable API). She keeps exploit weakness.
+- Coverage: vanilla WOTR inquisitor archetypes include Monster Tactician,
+  Sacred Huntsmaster and Sanctified Slayer (the user caught our first
+  pick colliding with it); Sin Eater is ours alone.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1098,6 +1138,28 @@ vermin instead of beasts, the hive instead of the pack.
   weapons instead.
 - **Vermin Empathy:** skipped - WOTR's hunter never had wild empathy, so
   there is nothing to alter.
+
+## Inquisitor
+
+### Faithful port — Sin Eater (Ultimate Magic) — IMPLEMENTED (0.16.0)
+
+The inquisitor who does not stop at the kill: she devours the sins of the
+fallen, and grows briefly stronger on what she swallows.
+
+| Level | Sin Eater grants | Inquisitor normally grants |
+|---|---|---|
+| 1 | Eat Sin | Domain (removed) |
+| 6 | Sin Speaker | bonus teamwork feat (removed, 6th slot only) |
+| 14 | — (Burden of Sin not portable) | Exploit Weakness (kept) |
+
+- **Eat Sin (1st):** on her killing blow, automatic and free: heals
+  1d8 + level (cap +5; 2d8/+10 at 5th, 3d8/+15 at 9th, 4d8/+20 at
+  13th). Once per enemy; Int 3+ victims only.
+- **Sin Speaker (6th):** each eaten sin also empowers her - +1
+  circumstance on attack rolls and saves for one minute.
+- **Not portable, documented:** the 8th-level negative-level rider
+  (undead-rise foreknowledge) and Burden of Sin (14th, buff transfer) -
+  no engine hooks; exploit weakness stays with her.
 
 ## Level plan per class (test-mode rule)
 

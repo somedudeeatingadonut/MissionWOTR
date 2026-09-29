@@ -83,6 +83,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Venomblood), Venomblood.Configure);
       Configure(nameof(Riftstalker), Riftstalker.Configure);
       Configure(nameof(Verminous), Verminous.Configure);
+      Configure(nameof(SinEater), SinEater.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -111,6 +112,7 @@ namespace MissionWOTR.Feats
         var fighter = CharacterClassRefs.FighterClass.Reference.Get();
         var monk = CharacterClassRefs.MonkClass.Reference.Get();
         var hunter = CharacterClassRefs.HunterClass.Reference.Get();
+        var inquisitor = CharacterClassRefs.InquisitorClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -140,6 +142,7 @@ namespace MissionWOTR.Feats
       ("Venomblood", Guids.VenombloodArchetype, hunter),
       ("Riftstalker", Guids.RiftstalkerArchetype, hunter),
       ("Verminous", Guids.VerminousArchetype, hunter),
+      ("SinEater", Guids.SinEaterArchetype, inquisitor),
     };
         foreach (var entry in entries)
         {

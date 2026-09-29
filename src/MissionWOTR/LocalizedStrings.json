@@ -3164,5 +3164,65 @@
     "Key": "VerminousSwarmStride.Description",
     "ProcessTemplates": false,
     "enGB": "At 5th level, the verminous hunter has walked with the swarm so long that their weapons no longer touch her: she is immune to poison and disease, the swarm's venom and filth. This replaces woodland stride."
+  },
+  {
+    "Key": "CoreCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Core Command"
+  },
+  {
+    "Key": "CoreCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "Opens the construct's core command menu. Each core the crafter has learned can be armed from here - arming one core clears the others; casting this directly returns the construct to the Basic core. A core listed in the menu but not yet learned is an empty entry and does nothing. Cores are armed before deployment; the deployed construct receives the armed core's package."
+  },
+  {
+    "Key": "ProgramCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Program Command"
+  },
+  {
+    "Key": "ProgramCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "Opens the construct's program command menu. Each program the crafter has learned can be set from here - setting one clears the others; casting this directly returns to the Basic program. A program listed in the menu but not yet learned is an empty entry and does nothing. The program governs how the deployed construct behaves."
+  },
+  {
+    "Key": "SinEater.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sin Eater"
+  },
+  {
+    "Key": "SinEater.Description",
+    "ProcessTemplates": false,
+    "enGB": "There is a sect of inquisitors who believe it is not enough to hunt the enemies of the church - one must also devour those enemies' sins. More benign versions believe sin is taken out of the world when it is devoured, denying the enemy's soul to its god. Consuming sins empowers the sin eater, at least for a time. In the Worldwound, that is not theology - that is lunch. She trades her domain for the feast."
+  },
+  {
+    "Key": "SinEaterEatSin.Name",
+    "ProcessTemplates": false,
+    "enGB": "Eat Sin"
+  },
+  {
+    "Key": "SinEaterEatSin.Description",
+    "ProcessTemplates": false,
+    "enGB": "When the sin eater's own attack kills an enemy, she devours its sins as it falls, healing herself of 1d8 points of damage plus her inquisitor level (the bonus capped at +5). The healing improves to 2d8 at 5th level, 3d8 at 9th and 4d8 at 13th (caps +10, +15, +20). She can eat the sins of a given enemy only once, and only creatures of Intelligence 3 or greater have sins worth eating. This replaces domain."
+  },
+  {
+    "Key": "SinEaterSinSpeaker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sin Speaker"
+  },
+  {
+    "Key": "SinEaterSinSpeaker.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 6th level, the devoured sins do more than close her wounds: each sin she eats also empowers her for one minute, granting a +1 circumstance bonus on attack rolls and saving throws. (The tabletop's speak-with-dead clause has no counterpart in this world - adapted from the archetype's own creed: consuming sins empowers the sin eater, for a time.) This replaces the 6th-level bonus teamwork feat."
+  },
+  {
+    "Key": "SinEaterEmpowered.Name",
+    "ProcessTemplates": false,
+    "enGB": "Empowered by Sin"
+  },
+  {
+    "Key": "SinEaterEmpowered.Description",
+    "ProcessTemplates": false,
+    "enGB": "The devoured sins burn briefly in her veins: +1 circumstance bonus on attack rolls and saving throws for one minute."
   }
 ]

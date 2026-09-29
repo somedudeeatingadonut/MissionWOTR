@@ -1,3 +1,9 @@
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
+using BlueprintCore.Utils;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Commands.Base;
 using BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
@@ -45,6 +51,7 @@ namespace MissionWOTR.Archetypes
     internal class ProgramDef
     {
       public string Name;
+      public string DisplayKey;
       public BlueprintFeature Feature;
       public BlueprintBuff Marker;
       public BlueprintBuff ConstructBuff;
@@ -150,6 +157,63 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(StatType.SaveReflex, ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddContextStatBonus(StatType.SaveFortitude, ContextValues.Rank(), ModifierDescriptor.UntypedStackable),
         isPassive: true));
+      ConfigureProgramCommand();
+    }
+
+    /// <summary>Hub ability name for the archetype grant.</summary>
+    internal const string ProgramCommandName = "ConstructCrafterProgramCommand";
+
+    private static readonly Dictionary<string, string> ProgramCommandGuidMap = new()
+    {
+      { "ConstructCrafterChaos", "A527D521-4F83-4DEA-806D-EC00FEA6B04F" },
+      { "ConstructCrafterDistance", "403FA4F6-AA31-473A-9EFC-0755D9E343D2" },
+      { "ConstructCrafterGuard", "4A35EEE8-217F-4E38-AAD2-B9AF9B3BF48C" },
+      { "ConstructCrafterFlank", "8E7697F9-A8B4-4A1C-AE26-2DF37907D3AD" },
+      { "ConstructCrafterAggressive", "227B6765-E852-493C-AF09-4C5F5E6DA0E0" },
+      { "ConstructCrafterPassive", "42E6C2A6-9D6F-4764-96EB-FB6A6BA05F2A" },
+    };
+
+    /// <summary>
+    /// Builds the Program Command hub (0.16.0): one bar icon, the variant
+    /// submenu of every program, base entry = Basic program. Gating lives in
+    /// the action (a program only sets if the crafter owns its feature);
+    /// setting one program clears the others.
+    /// </summary>
+    private static void ConfigureProgramCommand()
+    {
+      var icon = FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon;
+      var variants = new List<Blueprint<BlueprintAbilityReference>>();
+      foreach (var program in Programs)
+      {
+        var set = ElementTool.Create<ContextActionSetConstructDirective>();
+        set.DirectiveName = program.Name;
+        set.IsProgram = true;
+        variants.Add(AbilityConfigurator.New(program.Name + "Command", ProgramCommandGuidMap[program.Name])
+          .SetDisplayName(program.DisplayKey)
+          .SetDescription(program.DisplayKey)
+          .SetIcon(icon)
+          .SetType(AbilityType.Special)
+          .SetRange(AbilityRange.Personal)
+          .SetActionType(UnitCommand.CommandType.Free)
+          .SetCanTargetSelf()
+          .AddAbilityEffectRunAction(ActionsBuilder.New().Add(set).Build())
+          .Configure());
+      }
+
+      var basic = ElementTool.Create<ContextActionSetConstructDirective>();
+      basic.DirectiveName = null; // null = Basic program
+      basic.IsProgram = true;
+      AbilityConfigurator.New(ProgramCommandName, Guids.CrafterProgramCommand)
+        .SetDisplayName("ProgramCommand.Name")
+        .SetDescription("ProgramCommand.Description")
+        .SetIcon(icon)
+        .SetType(AbilityType.Special)
+        .SetRange(AbilityRange.Personal)
+        .SetActionType(UnitCommand.CommandType.Free)
+        .SetCanTargetSelf()
+        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(basic).Build())
+        .AddAbilityVariants(variants)
+        .Configure();
     }
 
     private static ProgramDef CreateProgram(
@@ -195,17 +259,19 @@ namespace MissionWOTR.Archetypes
         .SetBuff(marker)
         .Configure();
 
+      // 0.16.0: the toggle is no longer granted as a separate bar icon - the
+      // program is set through the Program Command menu (see Configure).
       var feature = FeatureConfigurator.New(featName, featGuid)
         .SetDisplayName(displayKey)
         .SetDescription(descriptionKey)
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddFacts(new() { activatable })
         .Configure();
 
       return new ProgramDef
       {
         Name = featName,
+        DisplayKey = displayKey,
         Feature = feature,
         Marker = marker,
         ConstructBuff = constructBuff,

@@ -1,3 +1,9 @@
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
+using BlueprintCore.Utils;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Commands.Base;
 using BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
@@ -41,6 +47,7 @@ namespace MissionWOTR.Archetypes
     internal class CoreDef
     {
       public string Name;
+      public string DisplayKey;
       public BlueprintFeature Feature;
       public BlueprintBuff Marker;
       public BlueprintBuff HoundBuff;
@@ -279,6 +286,74 @@ namespace MissionWOTR.Archetypes
           .AddContextStatBonus(Kingmaker.EntitySystem.Stats.StatType.AdditionalCMD,
             ContextValues.Rank(), ModifierDescriptor.UntypedStackable)
           .AddComponent(new ConstructOnHitBuff { Buff = BuffRefs.Slowed.Reference.Get(), Rounds = 4 })));
+      ConfigureCoreCommand();
+    }
+
+    /// <summary>Hub ability name for the archetype grant.</summary>
+    internal const string CoreCommandName = "ConstructCrafterCoreCommand";
+
+    private static readonly Dictionary<string, string> CoreCommandGuidMap = new()
+    {
+      { "ConstructCrafterOverdrive", "141C4B1D-E717-4DAB-A392-776C280D681A" },
+      { "ConstructCrafterHardened", "400374AB-0184-472A-AA55-C61F1DD58847" },
+      { "ConstructCrafterFlaming", "CAB61670-4B01-459A-894A-9835A2818973" },
+      { "ConstructCrafterCold", "D78FB201-6650-4A87-A610-97185E8C2DFC" },
+      { "ConstructCrafterBloody", "1EB173B5-6587-42FE-8721-D2704752276E" },
+      { "ConstructCrafterSoft", "0D64860A-3DA8-44C0-B66C-4D779B823A4A" },
+      { "ConstructCrafterInfernal", "DA81C8B9-1201-4281-ACE2-CF4B0D1005D7" },
+      { "ConstructCrafterLightless", "1BCE5310-8C45-4B6E-A4CD-7273626CA553" },
+      { "ConstructCrafterBooming", "0DCC6C77-7F73-4146-B687-B82E628DFA32" },
+      { "ConstructCrafterQuick", "892EEA41-3CE1-4466-90D2-B3C4306C2837" },
+      { "ConstructCrafterGalvanized", "C016286B-43CD-48C4-B3DE-2022FC809DE1" },
+      { "ConstructCrafterMagnetized", "F0751F53-D51C-408B-A485-DF4961B7A8EF" },
+      { "ConstructCrafterArbalest", "48625D62-024E-4E54-842F-CC5BB37746BD" },
+    };
+
+    /// <summary>
+    /// Builds the Core Command hub (0.16.0): ONE bar icon; clicking it opens
+    /// the game's variant submenu listing every core, plus the base entry
+    /// (casting the hub directly returns to the Basic core). The menu lists
+    /// all cores - the same blueprint-static variant-list limitation the
+    /// Riftstalker menu documents - so the gating lives in the action: a
+    /// core only arms if the crafter owns its feature. Arming one core
+    /// clears the others (the old toggles allowed junk states; the menu is
+    /// exclusive by construction).
+    /// </summary>
+    private static void ConfigureCoreCommand()
+    {
+      var icon = FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon;
+      var variants = new List<Blueprint<BlueprintAbilityReference>>();
+      foreach (var core in Cores)
+      {
+        var set = ElementTool.Create<ContextActionSetConstructDirective>();
+        set.DirectiveName = core.Name;
+        set.IsProgram = false;
+        variants.Add(AbilityConfigurator.New(core.Name + "Command", CoreCommandGuidMap[core.Name])
+          .SetDisplayName(core.DisplayKey)
+          .SetDescription(core.DisplayKey)
+          .SetIcon(icon)
+          .SetType(AbilityType.Special)
+          .SetRange(AbilityRange.Personal)
+          .SetActionType(UnitCommand.CommandType.Free)
+          .SetCanTargetSelf()
+          .AddAbilityEffectRunAction(ActionsBuilder.New().Add(set).Build())
+          .Configure());
+      }
+
+      var basic = ElementTool.Create<ContextActionSetConstructDirective>();
+      basic.DirectiveName = null; // null = Basic core: markers cleared
+      basic.IsProgram = false;
+      AbilityConfigurator.New(CoreCommandName, Guids.CrafterCoreCommand)
+        .SetDisplayName("CoreCommand.Name")
+        .SetDescription("CoreCommand.Description")
+        .SetIcon(icon)
+        .SetType(AbilityType.Special)
+        .SetRange(AbilityRange.Personal)
+        .SetActionType(UnitCommand.CommandType.Free)
+        .SetCanTargetSelf()
+        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(basic).Build())
+        .AddAbilityVariants(variants)
+        .Configure();
     }
 
     private static CoreDef CreateCore(
@@ -335,17 +410,19 @@ namespace MissionWOTR.Archetypes
         .SetBuff(marker)
         .Configure();
 
+      // 0.16.0: the toggle is no longer granted as a separate bar icon - the
+      // core is armed through the Core Command menu (see Configure below).
       var feature = FeatureConfigurator.New(featName, featGuid)
         .SetDisplayName(displayKey)
         .SetDescription(descriptionKey)
         .SetIcon(FeatureRefs.AlchemistBombsFeature.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddFacts(new() { activatable })
         .Configure();
 
       return new CoreDef
       {
         Name = featName,
+        DisplayKey = displayKey,
         Feature = feature,
         Marker = marker,
         HoundBuff = makeBuff(houndBuff ?? buff, "HoundBuff"),
@@ -489,4 +566,102 @@ namespace MissionWOTR.Archetypes
       }
     }
   }
+
+  /// <summary>
+  /// Sets the crafter's active core or program (0.16.0 command menus).
+  /// Null DirectiveName = the Basic entry for that axis (markers cleared).
+  /// Clearing is exclusive per axis: arming a core never touches programs
+  /// and vice versa. The learned gate lives here: the directive only takes
+  /// effect if the crafter owns the corresponding feature (the menu lists
+  /// every entry - the blueprint-static variant-list limitation documented
+  /// on the Riftstalker menu).
+  /// </summary>
+  [TypeId(Guids.SetConstructDirectiveComponent)]
+  internal class ContextActionSetConstructDirective : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  {
+    public string DirectiveName;
+    public bool IsProgram;
+
+    public override string GetCaption() => "Set Construct Directive";
+
+    public override void RunAction()
+    {
+      try
+      {
+        var caster = Context.MaybeCaster;
+        if (caster is null)
+        {
+          return;
+        }
+
+        if (IsProgram)
+        {
+          foreach (var program in ConstructCrafterPrograms.Programs)
+          {
+            var marker = caster.Buffs.GetBuff(program.Marker);
+            if (marker is not null)
+            {
+              caster.RemoveFact(marker);
+            }
+          }
+          if (DirectiveName is null)
+          {
+            return; // Basic program
+          }
+          foreach (var program in ConstructCrafterPrograms.Programs)
+          {
+            if (program.Name != DirectiveName)
+            {
+              continue;
+            }
+            if (!caster.HasFact(program.Feature))
+            {
+              MissionFeats.Logger.Info(
+                $"[CC] program command: {DirectiveName} not learned - ignored.");
+              return;
+            }
+            caster.AddBuff(program.Marker, Context);
+            MissionFeats.Logger.Info($"[CC] program command: {DirectiveName} set.");
+            return;
+          }
+        }
+        else
+        {
+          foreach (var core in Cores)
+          {
+            var marker = caster.Buffs.GetBuff(core.Marker);
+            if (marker is not null)
+            {
+              caster.RemoveFact(marker);
+            }
+          }
+          if (DirectiveName is null)
+          {
+            return; // Basic core
+          }
+          foreach (var core in Cores)
+          {
+            if (core.Name != DirectiveName)
+            {
+              continue;
+            }
+            if (!caster.HasFact(core.Feature))
+            {
+              MissionFeats.Logger.Info(
+                $"[CC] core command: {DirectiveName} not learned - ignored.");
+              return;
+            }
+            caster.AddBuff(core.Marker, Context);
+            MissionFeats.Logger.Info($"[CC] core command: {DirectiveName} armed.");
+            return;
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[CC] construct directive failed.", e);
+      }
+    }
+  }
+
 }

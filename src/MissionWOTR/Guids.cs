@@ -667,6 +667,14 @@ namespace MissionWOTR
     internal const string VerminAspectNaturalArmorComponent = "A471B9F4-F26E-4339-BA1D-6A1BF93BA7CD";
     internal const string VerminAspectOpportunityComponent = "5A8FB292-083C-44B2-B702-32FBD30648F0";
     internal const string VerminAspectManeuverComponent = "10FAB9A0-F5D9-42E0-A49E-E46C24A4A5D6";
+    internal const string CrafterCoreCommand = "907C0803-6945-46D8-A7D5-91E42FA2EBCA";
+    internal const string CrafterProgramCommand = "0061A556-8BFC-4B49-BD72-BE137E1059AE";
+    internal const string SetConstructDirectiveComponent = "3BA0355E-B056-4378-99C0-0158409687DC";
+    internal const string SinEaterArchetype = "E1AD0165-B2A3-478A-8329-F8CDFFDF4BBB";
+    internal const string SinEaterEatSin = "C2D3C6E9-246F-43B1-ABA5-E5C9CF6EC7E5";
+    internal const string SinEaterSinSpeaker = "EB5BB7B4-51FF-4EDB-94A7-B66084BC7FD1";
+    internal const string SinEaterEmpoweredBuff = "9A59A011-6C38-46BE-B7FB-96A7E4385833";
+    internal const string SinEaterEatSinComponent = "A81444B6-6DE3-4D0A-865A-42B60AD969CF";
     internal const string RiftstalkerActedBuff = "A725EFE9-54F7-46DB-B502-F560FED7D950";
     internal const string RiftstalkerGuardBuff = "B8E68B8C-4857-491A-9F59-79585338271C";
     internal const string RiftstalkerCrippledBuff = "59CEFF4E-1052-4010-A98F-85D61497351A";
