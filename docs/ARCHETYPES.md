@@ -593,6 +593,36 @@ errors suggested:
   audit. Cloning Torrent would ship a redundant ability, not Impale.
   Deferred until a verifiable line surface exists.
 
+## 0.19.0 — Unstable Kineticist (homebrew) + the coverage file
+
+- **Unstable Kineticist - homebrew kineticist archetype** (user concept:
+  the random-surge idea without the Worldwound theming; user named it -
+  spelling correct as written). Her gate never settled: every kinetic
+  blast risks a SURGE (25%; 50% from 16th). d6 surge table: Eruption
+  (extra damage to the target, 1d6/3 levels), Chain Arc (enemies within
+  10 ft of the target take 1d6/4 levels), Violent Discharge (shaken 1
+  round), Rebound (she takes 1d6/4 levels herself), Overcharge (Eruption
+  + Discharge), Null Surge (nothing). Rebound Control (8th) turns
+  Rebound results into Null Surges. Trades (hefty): GATHER POWER and
+  ELEMENTAL OVERFLOW - the stabilizer and the burn-payoff, both vanilla
+  features verified by guid before trading.
+- Engine honesty: post-cast TYPED energy damage has no verifiable API
+  here - surge riders deal RAW damage and the randomness lives in the
+  effects table, not an energy-type roll (the game text says "uncontrolled
+  force", never "random element"). Surges trigger only on unit-targeted
+  blasts (self/ground-targeted forms skip them). Documented in the file
+  header and the component.
+- **docs/COVERAGE.md created** (user ask: "make a note somewhere you'll
+  always check that lists what's in the base game and in mods that add
+  archetypes"). It records the vanilla-archetype inventory per class
+  (verified rows for hunter/inquisitor/kineticist, to-verify rows
+  elsewhere), the mods that add archetypes (HomebrewArchetypes,
+  TabletopTweaks main mod, Call of the Wild, ExpandedContent, Kineticist
+  Elements Expanded), and the five-step check policy that now runs
+  BEFORE any new archetype is designed - this after the user caught two
+  collisions (Sanctified Slayer, and the kineticist trio: Kinetic
+  Knight, Dark Elementalist and Overwhelming Soul are all vanilla).
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1286,6 +1316,20 @@ line-shape surface), Draining and Disintegrating (not yet attempted).
   for the infusion-cost member (logged at load; if the member is not
   found the sibling's cost remains and the log says so - report if the
   in-game cost reads 1 instead of 3).
+
+### Original homebrew — Unstable Kineticist — IMPLEMENTED (0.19.0)
+
+| Level | Unstable Kineticist grants | Kineticist normally grants |
+|---|---|---|
+| 1 | Unstable Blast (25% surge, d6 table) | Gather Power (removed) |
+| 8 | Rebound Control (Rebound → Null Surge) | — |
+| 16 | Critical Mass (surge 50%) | Elemental Overflow (removed) |
+
+- Surge table: 1 Eruption (1d6/3 lvls extra), 2 Chain Arc (10 ft, 1d6/4
+  lvls), 3 Violent Discharge (shaken 1 rd), 4 Rebound (self, 1d6/4
+  lvls), 5 Overcharge (both), 6 Null Surge (nothing).
+- Coverage: vanilla ships Kinetic Knight, Dark Elementalist, Overwhelming
+  Soul - none collide. Checked per docs/COVERAGE.md before designing.
 
 ## Level plan per class (test-mode rule)
 

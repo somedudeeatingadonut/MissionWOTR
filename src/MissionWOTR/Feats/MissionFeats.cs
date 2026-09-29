@@ -86,6 +86,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(SinEater), SinEater.Configure);
       Configure(nameof(Doomsayer), Doomsayer.Configure);
       Configure(nameof(KineticistExplosion), KineticistExplosion.Configure);
+      Configure(nameof(UnstableKineticist), UnstableKineticist.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -115,6 +116,7 @@ namespace MissionWOTR.Feats
         var monk = CharacterClassRefs.MonkClass.Reference.Get();
         var hunter = CharacterClassRefs.HunterClass.Reference.Get();
         var inquisitor = CharacterClassRefs.InquisitorClass.Reference.Get();
+        var kineticist = CharacterClassRefs.KineticistClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -146,6 +148,7 @@ namespace MissionWOTR.Feats
       ("Verminous", Guids.VerminousArchetype, hunter),
       ("SinEater", Guids.SinEaterArchetype, inquisitor),
       ("Doomsayer", Guids.DoomsayerArchetype, inquisitor),
+      ("UnstableKineticist", Guids.UnstableKineticistArchetype, kineticist),
     };
         foreach (var entry in entries)
         {

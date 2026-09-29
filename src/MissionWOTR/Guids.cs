@@ -716,6 +716,11 @@ namespace MissionWOTR
     internal const string ExplosionWaterBlastAbility = "31C42C36-CC63-48A2-A24A-0AF182BE85E7";
     internal const string ExplosionInfusionFeature = "F1AB5C07-BCD7-4826-B8D9-FAD2380F4D2F";
     internal const string ExplosionGrantComponent = "0B689E98-8E3B-4719-8130-57E6F2517B73";
+    internal const string UnstableKineticistArchetype = "873E0910-F361-4A82-8F97-8E4475B0D049";
+    internal const string UnstableBlastFeature = "905CA31E-0925-42FA-A1D8-F791DD1425CB";
+    internal const string UnstableReboundControlFeature = "BE381D33-CCFF-4F71-A7CB-38F751A4A478";
+    internal const string UnstableCriticalMassFeature = "14D55E32-1723-4C3A-8944-021C81A1CFC1";
+    internal const string UnstableBlastComponent = "2474F7FA-A854-417E-9586-9C1B4B419746";
     internal const string RiftstalkerActedBuff = "A725EFE9-54F7-46DB-B502-F560FED7D950";
     internal const string RiftstalkerGuardBuff = "B8E68B8C-4857-491A-9F59-79585338271C";
     internal const string RiftstalkerCrippledBuff = "59CEFF4E-1052-4010-A98F-85D61497351A";

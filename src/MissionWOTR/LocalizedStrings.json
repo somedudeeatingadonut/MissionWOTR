@@ -3429,5 +3429,45 @@
     "Key": "ExplosionWater.Name",
     "ProcessTemplates": false,
     "enGB": "Explosion (Water)"
+  },
+  {
+    "Key": "UnstableKineticist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Unstable Kineticist"
+  },
+  {
+    "Key": "UnstableKineticist.Description",
+    "ProcessTemplates": false,
+    "enGB": "Her kinetic gate never settled. The element never decides what it is - it simply erupts, wild and uncontrolled, and she has stopped trying to tame it. She trades gather power and elemental overflow for a gate that answers every call with chaos: each kinetic blast she throws risks a surge, and no one - least of all her - chooses what the surge does."
+  },
+  {
+    "Key": "UnstableBlast.Name",
+    "ProcessTemplates": false,
+    "enGB": "Unstable Blast"
+  },
+  {
+    "Key": "UnstableBlast.Description",
+    "ProcessTemplates": false,
+    "enGB": "Every kinetic blast she throws carries a 25% chance of a surge - uncontrolled force erupting from her unsettled gate. Roll d6: 1 Eruption - the target takes extra damage (1d6 per 3 kineticist levels); 2 Chain Arc - every enemy within 10 feet of the target takes 1d6 per 4 levels; 3 Violent Discharge - the target is shaken for 1 round; 4 Rebound - the instability bites her for 1d6 per 4 levels; 5 Overcharge - Eruption damage and the discharge both; 6 Null Surge - the gate hiccups and nothing happens. This replaces gather power."
+  },
+  {
+    "Key": "UnstableReboundControl.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rebound Control"
+  },
+  {
+    "Key": "UnstableReboundControl.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 8th level she has learned to shrug off the bite: Rebound results on her surge table become Null Surges instead."
+  },
+  {
+    "Key": "UnstableCriticalMass.Name",
+    "ProcessTemplates": false,
+    "enGB": "Critical Mass"
+  },
+  {
+    "Key": "UnstableCriticalMass.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 16th level the gate's instability peaks: the chance of a surge on each of her kinetic blasts rises to 50%."
   }
 ]
