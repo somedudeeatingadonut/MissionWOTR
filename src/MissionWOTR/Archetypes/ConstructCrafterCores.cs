@@ -627,7 +627,7 @@ namespace MissionWOTR.Archetypes
         }
         else
         {
-          foreach (var core in Cores)
+          foreach (var core in ConstructCrafterCores.Cores)
           {
             var marker = caster.Buffs.GetBuff(core.Marker);
             if (marker is not null)
@@ -639,7 +639,7 @@ namespace MissionWOTR.Archetypes
           {
             return; // Basic core
           }
-          foreach (var core in Cores)
+          foreach (var core in ConstructCrafterCores.Cores)
           {
             if (core.Name != DirectiveName)
             {
