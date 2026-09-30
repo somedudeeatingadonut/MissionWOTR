@@ -228,9 +228,10 @@ toybox = xADDBx/ToyBox-Wrath.
   HitDiceRestrictionLogThread property (DarkCodex's route). (2)
   LogThreadBase.AddMessage is PROTECTED in our build - invoke it via
   reflection (GetMethod with NonPublic flags). Also from DarkCodex:
-  MechanicsContext.Ability is the AbilityData of the running cast
-  (Context.SourceAbility is only the BlueprintAbility), and
-  new AbilityData(blueprint, unit) constructs one from scratch;
+  new AbilityData(blueprint, unit) constructs an AbilityData from
+  scratch - OUR build has no MechanicsContext.Ability (DarkCodex's
+  does - drift); the working route for AcceptBurn from a ContextAction
+  is new AbilityData(Context.SourceAbility, caster);
   EventBus.RaiseEvent<IWarningNotificationUIHandler>(h =>
   h.HandleWarning(text, false)) shows an on-screen notification toast.
 
