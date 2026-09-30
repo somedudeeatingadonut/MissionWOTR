@@ -71,9 +71,9 @@ namespace MissionWOTR.Archetypes
         .SetDescription("SpeakerPast.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddClassSkill(StatType.KnowledgeWorld)
-        .AddClassSkill(StatType.Perception)
-        .AddClassSkill(StatType.UseMagicDevice)
+        .AddClassSkill(StatType.SkillKnowledgeWorld)
+        .AddClassSkill(StatType.SkillPerception)
+        .AddClassSkill(StatType.SkillUseMagicDevice)
         // The ancestors' spells, as bonus known (the witch patron's
         // mechanism). Only heroism and greater heroism exist in the
         // game; the other seven ancestor spells are a documented cut.

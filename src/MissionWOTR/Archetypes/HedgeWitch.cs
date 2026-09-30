@@ -13,6 +13,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
+using Kingmaker.UnitLogic.Mechanics;
 using MissionWOTR.Feats;
 
 namespace MissionWOTR.Archetypes
@@ -115,7 +116,7 @@ namespace MissionWOTR.Archetypes
         .SetRange(AbilityRange.Touch)
         .SetActionType(UnitCommand.CommandType.Standard)
         .SetCanTargetSelf()
-        .SetCanTargetAllies()
+        .SetCanTargetFriends()
         .SetCanTargetEnemies(false)
         .AddAbilityEffectRunAction(ActionsBuilder.New()
           .CastSpell(AbilityRefs.NeutralizePoison.Cast<BlueprintAbilityReference>(), castByTarget: true)
