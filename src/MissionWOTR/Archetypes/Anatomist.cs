@@ -18,6 +18,7 @@ using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;

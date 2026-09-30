@@ -79,8 +79,11 @@ namespace MissionWOTR.Archetypes
 
     internal static bool IsThrown(ItemEntityWeapon weapon)
     {
-      return weapon is not null && weapon.Type is not null &&
-        ThrownTypes.Contains(weapon.Type);
+      // The weapon's type lives on its blueprint (ItemEntityWeapon
+      // has no Type member - compile lesson 0.31.0: the WinterWitch
+      // chain is Weapon?.Type?.AttackType on the BLUEPRINT).
+      var type = weapon?.Blueprint?.Type;
+      return type is not null && ThrownTypes.Contains(type);
     }
 
     public static void Configure()
