@@ -295,6 +295,11 @@ umm UnityModManager.dll: True
 umm 0Harmony.dll: True
 === PROBE fingerprint ===
 Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
+=== TYPE Kingmaker.Enums.Damage.PhysicalDamageMaterial vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: ColdIron [protorint]
+  FIELD: Silver [protorint]
+  FIELD: Adamantite [protorint]
 SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
 === TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
   FIELD: m_Type [private]
@@ -387,6 +392,126 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: PreloadResources
   METHOD: .ctor
   METHOD: <PreloadResources>b__89_0
+=== TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: MaxPossibleSpellLevel [protorint]
+  FIELD: Name [protorint]
+  FIELD: IsMythic [protorint]
+  FIELD: m_SpellsPerDay [private]
+  FIELD: m_SpellsKnown [private]
+  FIELD: m_SpellSlots [private]
+  FIELD: m_SpellList [private]
+  FIELD: m_MythicSpellList [private]
+  FIELD: m_CharacterClass [private]
+  FIELD: CastingAttribute [protorint]
+  FIELD: Spontaneous [protorint]
+  FIELD: SpellsPerLevel [protorint]
+  FIELD: AllSpellsKnown [protorint]
+  FIELD: CantripsType [protorint]
+  FIELD: CasterLevelModifier [protorint]
+  FIELD: CanCopyScrolls [protorint]
+  FIELD: IsArcane [protorint]
+  FIELD: IsArcanist [protorint]
+  FIELD: IsIgnoreAddSpellKnownTemporary [protorint]
+  FIELD: HasSpecialSpellList [protorint]
+  FIELD: SpecialSpellListName [protorint]
+  PROP: DisplayName
+  PROP: SpellsPerDay
+  PROP: SpellsKnown
+  PROP: SpellSlots
+  PROP: SpellList
+  PROP: MythicSpellList
+  PROP: CharacterClass
+  PROP: MemorizeSpells
+  PROP: IsAlchemist
+  PROP: IsSinMagicSpecialist
+  PROP: MaxSpellLevel
+  PROP: Kingmaker.UI.IUIDataProvider.Name
+  PROP: Kingmaker.UI.IUIDataProvider.Description
+  PROP: Kingmaker.UI.IUIDataProvider.Icon
+  PROP: Kingmaker.UI.IUIDataProvider.NameForAcronym
+  METHOD: get_DisplayName
+  METHOD: get_SpellsPerDay
+  METHOD: get_SpellsKnown
+  METHOD: get_SpellSlots
+  METHOD: get_SpellList
+  METHOD: get_MythicSpellList
+  METHOD: get_CharacterClass
+  METHOD: get_MemorizeSpells
+  METHOD: get_IsAlchemist
+  METHOD: get_IsSinMagicSpecialist
+  METHOD: get_MaxSpellLevel
+  METHOD: Kingmaker.UI.IUIDataProvider.get_Name
+  METHOD: Kingmaker.UI.IUIDataProvider.get_Description
+  METHOD: Kingmaker.UI.IUIDataProvider.get_Icon
+  METHOD: Kingmaker.UI.IUIDataProvider.get_NameForAcronym
+  METHOD: ApplyValidation
+  METHOD: .ctor
+=== TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: Levels [protorint]
+  METHOD: GetCount
+  METHOD: .ctor
+=== TYPE Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry vis=public base=System.Object ===
+  FIELD: Count [protorint]
+  METHOD: .ctor
+=== TYPE Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection vis=public base=Kingmaker.Blueprints.Classes.BlueprintFeature ===
+  FIELD: IgnorePrerequisites [protorint]
+  FIELD: ExceptWhiteListed [protorint]
+  FIELD: Obligatory [protorint]
+  FIELD: Mode [protorint]
+  FIELD: Group [protorint]
+  FIELD: Group2 [protorint]
+  FIELD: m_Features [private]
+  FIELD: m_AllFeatures [private]
+  FIELD: ShowThisSelection [protorint]
+  PROP: Features
+  PROP: AllFeatures
+  PROP: Items
+  PROP: IsGroupNone
+  METHOD: get_Features
+  METHOD: get_AllFeatures
+  METHOD: ExtractSelectionItems
+  METHOD: get_Items
+  METHOD: get_IsGroupNone
+  METHOD: CanSelect
+  METHOD: GetGroup
+  METHOD: IsIgnorePrerequisites
+  METHOD: IsObligatory
+  METHOD: IsSelectionProhibited
+  METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddPet vis=public base=TypeSpecification ===
+  FIELD: Type [protorint]
+  FIELD: ProgressionType [protorint]
+  FIELD: m_Pet [private]
+  FIELD: m_UseContextValueLevel [private]
+  FIELD: m_LevelRank [private]
+  FIELD: m_LevelContextValue [private]
+  FIELD: m_ForceAutoLevelup [private]
+  FIELD: m_UpgradeFeature [private]
+  FIELD: m_DestroyPetOnDeactivate [private]
+  FIELD: UpgradeLevel [protorint]
+  FIELD: RankToLevelAnimalCompanion [private]
+  FIELD: RankToLevelMythicSkeletalChampion [private]
+  FIELD: RankToLevelAzataHavocDragon [private]
+  FIELD: RankToLevelNightHag [private]
+  PROP: Pet
+  PROP: LevelRank
+  PROP: UpgradeFeature
+  METHOD: get_Pet
+  METHOD: get_LevelRank
+  METHOD: get_UpgradeFeature
+  METHOD: OnActivate
+  METHOD: OnDeactivate
+  METHOD: OnAreaBeginUnloading
+  METHOD: OnAreaDidLoad
+  METHOD: Kingmaker.UnitLogic.FactLogic.IUpdatePet.TryUpdatePet
+  METHOD: TryUpdatePet
+  METHOD: GetPetLevel
+  METHOD: TryLevelUpPet
+  METHOD: OnPostLoad
+  METHOD: OnApplyPostLoadFixes
+  METHOD: ApplyValidation
+  METHOD: .ctor
+  METHOD: .cctor
 SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
 AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
