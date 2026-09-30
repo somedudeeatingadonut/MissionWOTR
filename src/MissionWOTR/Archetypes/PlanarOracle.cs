@@ -212,7 +212,8 @@ namespace MissionWOTR.Archetypes
           continue;
         }
         FeatureConfigurator.New("PlanarOracleBonusSpell" + entry.Level, entry.Guid)
-          .SetDisplayName(spell.m_DisplayName)
+          .SetDisplayName("PlanarBonusSpell" + entry.Level + ".Name")
+          .SetDescription("PlanarBonusSpell.Description")
           .SetIcon(spell.Icon)
           .SetIsClassFeature()
           .AddKnownSpell(characterClass: oracle, spell: spell, spellLevel: entry.Level / 2)

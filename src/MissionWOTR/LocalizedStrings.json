@@ -3759,5 +3759,60 @@
     "Key": "BloodScribedGrimoire.Description",
     "ProcessTemplates": false,
     "enGB": "Copy one wizard spell of a level you can cast into your oracle spells known. The theft is written in your blood: each stolen spell permanently reduces your maximum hit points by 2."
+  },
+  {
+    "Key": "PlanarBonusSpell.Description",
+    "ProcessTemplates": false,
+    "enGB": "A pilgrim's spell of the planes beyond, gained through the planar oracle's attunement."
+  },
+  {
+    "Key": "PlanarBonusSpell2.Name",
+    "ProcessTemplates": false,
+    "enGB": "Protection from Evil"
+  },
+  {
+    "Key": "PlanarBonusSpell4.Name",
+    "ProcessTemplates": false,
+    "enGB": "See Invisibility"
+  },
+  {
+    "Key": "PlanarBonusSpell6.Name",
+    "ProcessTemplates": false,
+    "enGB": "Protection from Energy"
+  },
+  {
+    "Key": "PlanarBonusSpell8.Name",
+    "ProcessTemplates": false,
+    "enGB": "Freedom of Movement"
+  },
+  {
+    "Key": "PlanarBonusSpell10.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dismissal"
+  },
+  {
+    "Key": "PlanarBonusSpell12.Name",
+    "ProcessTemplates": false,
+    "enGB": "Chain Lightning"
+  },
+  {
+    "Key": "PlanarBonusSpell14.Name",
+    "ProcessTemplates": false,
+    "enGB": "Banishment"
+  },
+  {
+    "Key": "PlanarBonusSpell16.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mind Blank"
+  },
+  {
+    "Key": "PlanarBonusSpell18.Name",
+    "ProcessTemplates": false,
+    "enGB": "Elemental Swarm"
+  },
+  {
+    "Key": "BloodScribedSpell.Description",
+    "ProcessTemplates": false,
+    "enGB": "A spell copied from the wizard's book into her own - written in her blood. The theft permanently costs 2 maximum hit points; the page never closes."
   }
 ]

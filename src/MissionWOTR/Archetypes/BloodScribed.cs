@@ -86,25 +86,19 @@ namespace MissionWOTR.Archetypes
       foreach (var levelList in wizardList.SpellsByLevel)
       {
         int level = levelList.SpellLevel;
-        foreach (var spellRef in levelList.Spells)
+        // The list holds resolved blueprints, not references.
+        foreach (var spell in levelList.Spells)
         {
-          BlueprintAbility spell;
-          try
-          {
-            spell = spellRef.Get();
-          }
-          catch
-          {
-            continue; // a dangling reference in the wizard list
-          }
           if (spell is null)
           {
             continue;
           }
           var option = FeatureConfigurator.New(
             "BloodScribedSpell" + spell.name, StableGuid("bloodscribed:" + spell.AssetGuid))
-            .SetDisplayName(spell.m_DisplayName)
-            .SetDescription(spell.m_Description)
+            // The display key is the humanized spell name - an unregistered
+            // key shows as itself, which is exactly the wanted label.
+            .SetDisplayName(HumanName(spell.name))
+            .SetDescription("BloodScribedSpell.Description")
             .SetIcon(spell.Icon)
             .SetIsClassFeature()
             // The theft: the spell joins her oracle spells known.
@@ -154,6 +148,29 @@ namespace MissionWOTR.Archetypes
       archetype.Configure();
 
       MissionFeats.Logger.Info("BloodScribed: configured.");
+    }
+
+    /// <summary>
+    /// Humanizes an asset name for display ("MagicMissileAbility" ->
+    /// "Magic Missile"; the common Ability suffix is dropped). Used as a
+    /// loc KEY: an unregistered key displays as itself, which is the
+    /// wanted label without 200 hand-written loc entries.
+    /// </summary>
+    internal static string HumanName(string assetName)
+    {
+      var trimmed = assetName.EndsWith("Ability", StringComparison.Ordinal)
+        ? assetName.Substring(0, assetName.Length - "Ability".Length)
+        : assetName;
+      var sb = new StringBuilder();
+      foreach (var c in trimmed)
+      {
+        if (char.IsUpper(c) && sb.Length > 0)
+        {
+          sb.Append(' ');
+        }
+        sb.Append(c);
+      }
+      return sb.ToString();
     }
 
     /// <summary>
