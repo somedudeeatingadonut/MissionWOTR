@@ -794,6 +794,49 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.35.0 — the Jiuweihu replaces the Speaker (user feedback: too many cuts)
+
+- **The user's call:** "with so many cuts, lets try to figure out a
+  different shaman archetype" - and their pick: the Jiuweihu
+  (Kitsune Compendium pg. 8, Everyman Gaming), with "the jewel
+  bound hex made, if possible to do, or find a suitable
+  alternative, otherwise its viable." The Speaker for the Past is
+  REMOVED (file, guids, loc); the Jiuweihu takes the shaman
+  faithful-port slot. Where the Speaker had to cut half its
+  tabletop content (no time mystery, seven of nine spells, no
+  Linguistics, no Ancestral Weapon), the Jiuweihu cuts almost
+  nothing - both of its trades ride real, in-game content.
+- **Kitsune-only gate:** the archetype carries a prerequisite on
+  ChangeShapeKitsune - the one racial feature every kitsune has.
+  (The Magical Tail feats themselves ship with the game, which is
+  how we know the race is fully supported.)
+- **Spirit Tails (fully faithful):** Magical Tail as a bonus feat
+  at 1st and every two levels - the VANILLA feats MagicalTail1-8,
+  granted in order at 1/3/5/7/9/11/13/15. Each grants a
+  spell-like ability (vanish, hideous laughter, blur, invisibility,
+  heroism, displacement, confusion, dominate person - 2/day,
+  Charisma-based, caster level = Hit Dice). The after-eight rider
+  ("choose one of your Magical Tail spell-like abilities, +1 use
+  per day, never the same one twice") ports on the game's own
+  MagicalTail{n}IncreaseResource features as a pick-one selection
+  at 17th and 19th - OnlyNew mode IS the never-twice rule.
+  TabletopTweaks' Magical Tail fixes apply at runtime for users
+  who run it.
+- **Star Jewel (the jewel bound hex, the suitable alternative the
+  user asked for):** the tabletop hex binds the familiar into a
+  grape-sized gem (item form, ioun-stone orbit, hardness) - none of
+  which the engine exposes. The port: the spirit animal selection
+  is REMOVED (found in the live progression by name) and the
+  spirit rests in the star jewel - it cannot be slain, and as a
+  bringer of fortune the jiuweihu gains a +1 luck bonus on all
+  saving throws. The adaptation is written into the ability text.
+- **The one honest deviation:** the tabletop's spirit-magic trade
+  could not be made - spirit magic has no blueprint of its own
+  (it is embedded in each spirit's components), so there is
+  nothing to remove from the progression. The jiuweihu keeps her
+  spirit magic; the port is up that one trade, and says so in the
+  archetype description.
+
 ## 0.34.0 — two tabletop ports: the Hedge Witch and the Speaker for the Past
 
 - **The picks (wiki-verified first):** the game already ships
@@ -2430,22 +2473,25 @@ a recommendation, not a rule).
 
 ## Shaman
 
-### Faithful port — Speaker for the Past (Advanced Class Guide pg. 111) — IMPLEMENTED (v1)
+### Faithful port — Jiuweihu (Kitsune Compendium pg. 8, Everyman Gaming) — IMPLEMENTED (v1)
 
-A shaman who serves as the voice for spirits from her people's history — the
-voice of experience, a resource that lets the past aid the present.
+A kitsune shaman blessed with multiple tails by the spirits of unseen kami — a bringer of
+fortune and prosperity. Only kitsune may take it (gated on ChangeShapeKitsune).
 
 | Level | Feature | Effect |
 | --- | --- | --- |
-| 1 | Mysteries of the Past | (replaces the spirit familiar) Knowledge (World), Perception and Use Magic Device as class skills; heroism (3rd) and greater heroism (6th) as bonus known spells (the other seven ancestor spells are not in the game — documented cut; Linguistics has no Wrath equivalent). |
-| 4, 6, 12, 14, 20 | Revelations of the Past | (replaces wandering spirit and wandering hex, the whole chain) A revelation of the ancestors mystery: Blood of Heroes, Phantom Touch, Sacred Council, Spirit Shield, Storm of Souls, Spirit of the Warrior (11th), Spirit Walk (11th) — clones with vanilla prerequisites stripped, the 11th-level pair re-gated on shaman level 11. |
+| 1 | Star Jewel | (replaces the spirit animal) The spirit rests in a grape-sized star gem that cannot be slain; +1 luck bonus on all saving throws. The tabletop's jewel bound hex (familiar as an item — ioun orbit, hardness) has no engine support; this is the documented suitable alternative. |
+| 1, 3, 5, 7, 9, 11, 13, 15 | Spirit Tails | (replaces spirit magic — see the deviation note) Magical Tail I–VIII as bonus feats, in order: vanish, hideous laughter, blur, invisibility, heroism, displacement, confusion, dominate person — each 2/day, Charisma-based, CL = HD. The vanilla feats, granted directly. |
+| 17, 19 | Gift of the Ninth Tail | (the after-eight rider) Choose one Magical Tail spell-like ability: +1 use per day. OnlyNew mode enforces the tabletop's "cannot select the same tail twice." |
 
-Her main spirit and her ordinary hexes are untouched. The time mystery half of
-the tabletop archetype is a documented cut (the game has no time mystery). The
-revelation clones reference the vanilla oracle abilities, so anything that
-scales strictly on oracle levels may under-scale for a shaman — playtest will
-tell, and the probe script now dumps the rank-config field maps for exactly
-that tuning pass.
+Port deviation (documented in the archetype description too): spirit magic has no
+blueprint of its own — it is embedded in each spirit's components — so the tabletop's
+spirit-magic trade could not be excised. The jiuweihu keeps her spirit magic; the port
+is up that one trade. The Magical Tail feats are vanilla (TabletopTweaks' fixes to them
+apply at runtime for users who run it).
+
+*(Replaces the Speaker for the Past, removed this version per user feedback — its
+time-mystery half could not be ported.)*
 
 *The shaman homebrew archetype is still owed (coverage: 1 of 2).*
 

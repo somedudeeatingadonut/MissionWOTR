@@ -5109,33 +5109,33 @@
     "enGB": "The hedge witch has drawn an affliction out of someone else; its last echo hurts her still."
   },
   {
-    "Key": "Speaker.Name",
+    "Key": "Jiuweihu.Name",
     "ProcessTemplates": false,
-    "enGB": "Speaker for the Past"
+    "enGB": "Jiuweihu"
   },
   {
-    "Key": "Speaker.Description",
+    "Key": "Jiuweihu.Description",
     "ProcessTemplates": false,
-    "enGB": "A speaker for the past is a shaman who specifically serves as the voice for spirits from her people's history - an advocate of the ancestors, the voice of experience, and a powerful resource that allows the past to aid the present.\nShe trades her spirit familiar and her wandering spirits and wandering hexes for the counsel of the dead: the skills of the ancestors, their spells, and - at 4th, 6th, 12th, 14th and 20th level - a revelation of the ancestors. Her main spirit and her ordinary hexes are untouched.\n(Tabletop port: the time mystery half of the archetype is a documented cut - the game has no time mystery.)"
+    "enGB": "Considered bringers of fortune and prosperity, a jiuweihu is a kitsune shaman who has been blessed with multiple tails by the spirits of unseen kami. In rare cases, evil jiuweihu who are instead championed by wicked oni are created.\nThe jiuweihu trades her spirit animal for a star jewel - the spirit rests in a grape-sized gem that cannot be slain - and grows a new magical tail at 1st level and every two levels thereafter, each granting a spell-like ability. Only kitsune may take this archetype.\n(Tabletop port note: the game embeds shaman spirit magic inside each spirit, so the tabletop's spirit-magic trade could not be excised - the jiuweihu keeps her spirit magic, and the port is up one trade as a result.)"
   },
   {
-    "Key": "SpeakerPast.Name",
+    "Key": "JiuweihuStarJewel.Name",
     "ProcessTemplates": false,
-    "enGB": "Mysteries of the Past"
+    "enGB": "Star Jewel"
   },
   {
-    "Key": "SpeakerPast.Description",
+    "Key": "JiuweihuStarJewel.Description",
     "ProcessTemplates": false,
-    "enGB": "The dead have much to teach. The speaker gains Knowledge (World), Perception, and Use Magic Device as class skills, and the ancestors' magic is hers to call: heroism and greater heroism are added to her spells.\n(Of the nine ancestor mystery spells, the other seven are not in the game; Linguistics has no Wrath equivalent.)"
+    "enGB": "The jiuweihu's spirit does not prowl at her side - it rests in a star-cut gem the size of a grape, warm to the touch and quietly alive. The jewel cannot be slain, charmed, or frightened, and needs no feeding.\nAs a bringer of fortune, the jiuweihu gains a +1 luck bonus on all saving throws.\n(Tabletop port: the original jewel bound hex lets the familiar transform into an item - orbit like an ioun stone, gain hardness, and so on. The game has no item-form familiars, so the spirit simply stays in the jewel and grants its fortune.)"
   },
   {
-    "Key": "SpeakerRevelationSelection.Name",
+    "Key": "JiuweihuTailBlessing.Name",
     "ProcessTemplates": false,
-    "enGB": "Revelations of the Past"
+    "enGB": "Gift of the Ninth Tail"
   },
   {
-    "Key": "SpeakerRevelationSelection.Description",
+    "Key": "JiuweihuTailBlessing.Description",
     "ProcessTemplates": false,
-    "enGB": "The speaker can select a revelation from the ancestors mystery: Blood of Heroes, Phantom Touch, Sacred Council, Spirit Shield, Storm of Souls, Spirit of the Warrior (11th), or Spirit Walk (11th). She receives this choice at 4th, 6th, 12th, 14th and 20th level.\n(Port note: revelations keep the game's built-in scaling; any that advance strictly with oracle levels may grow more slowly for a shaman.)"
+    "enGB": "The ninth tail is the one the myths agree on: it belongs to the spirit, not the fox. Choose one of your Magical Tail spell-like abilities; you can use it one additional time per day. You cannot choose the same tail twice."
   }
 ]

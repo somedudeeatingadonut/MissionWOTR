@@ -984,16 +984,11 @@ namespace MissionWOTR
     internal const string HedgeWitchEmpathicHealing = "3592B50F-3BD2-41A1-B394-2E7D992C0652";
     internal const string HedgeWitchEmpathicHealingAbility = "34E76DAC-A8D8-4CF2-AD18-F602697A787F";
     internal const string HedgeWitchEmpathicPainBuff = "79692390-7DF0-4C41-AAE6-34DE8D7DEF19";
-    internal const string SpeakerArchetype = "F1DED844-F4B4-4026-A9E5-BF4DAAA42E06";
-    internal const string SpeakerPast = "FEB6376B-0155-4D98-960F-A188A04C244F";
-    internal const string SpeakerRevelationSelection = "9D5319C8-C2E7-40EC-A087-1F1570F9D34E";
-    internal const string SpeakerBloodOfHeroesRevelation = "6B472913-85B2-4384-877E-24DD998CC471";
-    internal const string SpeakerPhantomTouchRevelation = "A9180D7D-DD1E-4DBB-8704-BB89DD07C49E";
-    internal const string SpeakerSacredCouncilRevelation = "A6FE382D-543B-4F28-8345-19F96153047E";
-    internal const string SpeakerSpiritOfTheWarriorRevelation = "35B98972-0CE3-4A9E-BE3A-EE78F69EDE80";
-    internal const string SpeakerSpiritShieldRevelation = "46037B60-A0B8-4448-B08C-9334B231CEAB";
-    internal const string SpeakerSpiritWalkRevelation = "7994B878-CC19-44A4-9E0B-54811D551860";
-    internal const string SpeakerStormOfSoulsRevelation = "666385CA-98CA-4FF7-BF5E-2ADA2EE8D52B";
+
+    // ----- 0.35.0: Jiuweihu (shaman tabletop port, replaces the Speaker) -----
+    internal const string JiuweihuArchetype = "560FE869-9610-44A6-98AA-CAAE60B9B28B";
+    internal const string JiuweihuStarJewel = "B7B9090C-76D4-4DC8-A57D-253D51EB50F3";
+    internal const string JiuweihuTailBlessing = "9E213948-2194-47E3-942C-771FF48EA09A";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

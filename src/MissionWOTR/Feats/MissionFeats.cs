@@ -100,7 +100,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Anatomist), Anatomist.Configure);
       Configure(nameof(Chimera), Chimera.Configure);
       Configure(nameof(HedgeWitch), HedgeWitch.Configure);
-      Configure(nameof(SpeakerForThePast), SpeakerForThePast.Configure);
+      Configure(nameof(Jiuweihu), Jiuweihu.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -183,7 +183,7 @@ namespace MissionWOTR.Feats
       ("Anatomist", Guids.AnatomistArchetype, rogue),
       ("Chimera", Guids.ChimeraArchetype, witch),
       ("HedgeWitch", Guids.HedgeWitchArchetype, witch),
-      ("Speaker", Guids.SpeakerArchetype, shaman),
+      ("Jiuweihu", Guids.JiuweihuArchetype, shaman),
     };
         foreach (var entry in entries)
         {
