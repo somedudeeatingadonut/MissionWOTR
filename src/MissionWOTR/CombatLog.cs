@@ -2,18 +2,18 @@ using Kingmaker.Blueprints.Root.Strings.GameLog;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.Models.Log;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
-using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.Common;
 using MissionWOTR.Feats;
 using System;
-using System.Linq;
 
 namespace MissionWOTR
 {
   /// <summary>
   /// Player-visible combat-log feedback for custom mechanics - the
-  /// NineSwords recipe (see docs/NOTES.md, "Techniques from other mods"):
-  /// open a GameLogContext scope, tag the source unit, and push a
-  /// CombatLogMessage into the common MessageLogThread. Best-effort by
+  /// DarkCodex recipe (see docs/NOTES.md, "Techniques from other mods"):
+  /// a CombatLogMessage pushed through LogThreadService's public
+  /// HitDiceRestrictionLogThread (the m_Logs route NineSwords/ToyBox use
+  /// does not exist in this game build - member drift; DarkCodex left
+  /// that route commented out for the same reason). Best-effort by
   /// design: a failure is logged to the mod log and NEVER breaks the
   /// mechanic that called it.
   /// </summary>
@@ -29,11 +29,9 @@ namespace MissionWOTR
           {
             GameLogContext.SourceUnit = source;
           }
-          var log = LogThreadService.Instance.m_Logs[LogChannelType.Common]
-            .Last(x => x is MessageLogThread);
-          log.AddMessage(new CombatLogMessage(message,
-            GameLogStrings.Instance.DefaultColor, GameLogContext.GetIcon(),
-            null, true));
+          LogThreadService.Instance.HitDiceRestrictionLogThread.AddMessage(
+            new CombatLogMessage(message, GameLogStrings.Instance.DefaultColor,
+              PrefixIcon.None, null, true));
         }
       }
       catch (Exception e)

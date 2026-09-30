@@ -199,7 +199,7 @@ namespace MissionWOTR.Archetypes
           CombatLog.Write("Her gate is spent - the healer falters.", caster);
           return;
         }
-        part.AcceptBurn(1, Context.AssociatedAbility);
+        part.AcceptBurn(1, Context.SourceAbility);
 
         // 1d6 + Con per 2 levels (min 1 die), plus Metahealer's dice.
         var rolls = Math.Max(1, level / 2);
