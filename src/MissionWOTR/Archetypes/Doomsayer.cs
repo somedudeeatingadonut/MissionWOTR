@@ -464,8 +464,10 @@ namespace MissionWOTR.Archetypes
         {
           MissionFeats.Logger.Info(
             $"[doomsayer] pronouncement failed against {target.CharacterName}.");
+          CombatLog.Write("The sentence fails to take.", caster);
           return;
         }
+        CombatLog.Write($"Doom is pronounced upon {target.CharacterName}.", caster);
 
         var shaken = BuffRefs.Shaken.Reference.Get();
         var frightened = BuffRefs.Frightened.Reference.Get();

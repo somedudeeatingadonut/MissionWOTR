@@ -183,11 +183,54 @@ the Harmony-patch techniques below are adoptable if ever justified.
   via Harmony patches — needs a patcher (we have 0Harmony referenced,
   so the route is open; we have never shipped a patch).
 
+### Second survey wave (2026-09-30): TTT main, CharacterOptions+, ToyBox
+
+Sources additionally cloned: ttt = Vek17/TabletopTweaks (the MAIN mod;
+content under TabletopTweaks-Base/NewContent/), cop =
+WittleWolfie/CharacterOptionsPlus (bpcore-native, closest to our style),
+toybox = xADDBx/ToyBox-Wrath.
+
+- **TTT-Base ContentAdder.cs:** injects content at the earliest possible
+  moment - a Harmony postfix on `BlueprintsCache.Init` with
+  `[HarmonyPriority(Priority.First)]` and a static Initialized guard.
+  The pattern for content that must exist before anything else reads
+  blueprints. Also: `bp.TemporaryContext(bp => ...)` for safe mutation
+  of EXISTING blueprints, and a NewContent taxonomy worth copying
+  (AlternateCapstones, advanced weapon/armor trainings, per-class
+  folders).
+- **CharacterOptions+ variant menus:** the same AddAbilityVariants hub
+  we use, applied to dual-output abilities - KeenEdge as one ability
+  with main-hand/off-hand variants, EnergyChannel with class variants
+  (Feats/EnergyChannel.cs:363, Spells/KeenEdge.cs:80). A clean fit for
+  any future "same spell, two shapes" design.
+- **ToyBox:** the encyclopedia of engine manipulation via Harmony -
+  level-up controller patches (Classes/MonkeyPatchin/BagOfPatches/
+  LevelUpPatchesWrath.cs) and an entire multiclass system built from
+  patches (Classes/MonkeyPatchin/Multiclass/Archetypes.cs). Reference
+  material if we ever need to touch the level-up flow.
+- **kinarch typed construction (completes the burn entry):**
+  `new AbilityKineticist { InfusionBurnCost = n }` - the typed cost
+  member our Explosion infusion now uses (was a reflection hunt);
+  `unit.Parts.Get<UnitPartKineticist>()` (the canonical access);
+  `new AbilityCasterMainWeaponCheck { Category =
+  WeaponCategory.KineticBlast }` (requires-a-kinetic-weapon restriction);
+  `AddPrerequisiteNoArchetype` (blocks an archetype pick - mutual
+  exclusivity between archetypes).
+- **NineSwords combat log, full namespaces:** GameLogContext +
+  LogThreadService + LogChannelType in Kingmaker.UI.Models.Log;
+  CombatLogMessage in ...CombatLog_ThreadSystem; MessageLogThread in
+  ...LogThreads.Common; GameLogStrings in
+  Kingmaker.Blueprints.Root.Strings.GameLog. Implemented as our
+  MissionWOTR.CombatLog helper (src/MissionWOTR/CombatLog.cs, 0.21.0).
+
+
 ### Technique corrections to our own past claims
 
 - "Burn cannot be granted from a verified API" — WRONG, see the burn API
-  above. The Kinetic Chirurgeon's unlimited-use healer stays as shipped
-  (a design choice now), but future burn-costed designs are on the table.
+  above. FIXED IN 0.21.0: the Kinetic Chirurgeon now pays 1 burn per use
+  (AcceptBurn, gather power applies engine-side), and the Explosion
+  infusion's reflection-hunt cost setter was replaced with the typed
+  AbilityKineticist.InfusionBurnCost.
 
 ## Recipes
 

@@ -56,10 +56,13 @@ namespace MissionWOTR.Archetypes
   /// - The 9th-level breath-of-life revive and the 6th-level doubled
   ///   internal buffer are skipped: mid-combat revival and the burn
   ///   buffer have no verifiable API surfaces. She keeps internal buffer.
-  /// - The tabletop's burn cost is waived by design (burn CAN be
-  ///   accepted - UnitPartKineticist.AcceptBurn, verified via the
-  ///   KineticArchetypes mod, see docs/NOTES.md - but the healer ships
-  ///   unlimited-use for reliability). The mercy list
+  /// - The burn cost is the tabletop's (0.21.0): 1 point per use,
+  ///   accepted by the chirurgeon through the real burn API
+  ///   (UnitPartKineticist.AcceptBurn, verified via the KineticArchetypes
+  ///   mod - see docs/NOTES.md); gather power and other burn reducers
+  ///   apply engine-side. If she cannot accept the burn, nothing happens.
+  ///   The tabletop's "the target may accept the burn instead" clause is
+  ///   simplified: only she pays. The mercy list
   ///   is adapted to the engine's condition buffs - poisons, diseases and
   ///   curses are not buffs and are not curable by it.
   /// Log prefix: [removals] carries trade diagnostics; [chirurgeon] the rest.
@@ -185,6 +188,19 @@ namespace MissionWOTR.Archetypes
         }
         var level = caster.Progression.GetClassLevel(Class);
 
+        // The burn cost (0.21.0): 1 point per use, the real burn API -
+        // no burn left, no healing (the tabletop's cost, finally payable
+        // now that the API is verified).
+        var part = caster.Parts
+          .Get<Kingmaker.UnitLogic.Class.Kineticist.UnitPartKineticist>();
+        if (part is null || part.LeftBurn < 1 || part.LeftBurnThisRound < 1)
+        {
+          MissionFeats.Logger.Info("[chirurgeon] no burn left to power the healer.");
+          CombatLog.Write("Her gate is spent - the healer falters.", caster);
+          return;
+        }
+        part.AcceptBurn(1, Context.AssociatedAbility);
+
         // 1d6 + Con per 2 levels (min 1 die), plus Metahealer's dice.
         var rolls = Math.Max(1, level / 2);
         rolls += level >= 17 ? 3 : level >= 11 ? 2 : level >= 5 ? 1 : 0;
@@ -199,6 +215,8 @@ namespace MissionWOTR.Archetypes
         Heal(target, heal);
         MissionFeats.Logger.Info(
           $"[chirurgeon] healed {target.CharacterName} for {heal}.");
+        CombatLog.Write(
+          $"The kinetic healer mends {target.CharacterName} for {heal}.", caster);
 
         // Shared Mending (17th): the same use mends the chirurgeon.
         if (!SelfOnly && level >= 17 && caster != target)
@@ -251,6 +269,8 @@ namespace MissionWOTR.Archetypes
           target.Buffs.RemoveFact(fact);
           MissionFeats.Logger.Info(
             $"[chirurgeon] mercy: cured {buff.name} on {target.CharacterName}.");
+          CombatLog.Write(
+            $"The mending washes {buff.name} away.", target);
           return;
         }
       }

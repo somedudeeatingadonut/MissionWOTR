@@ -197,6 +197,8 @@ namespace MissionWOTR.Archetypes
 
         MissionFeats.Logger.Info(
           $"[sineater] ate the sins of {target.CharacterName}: {heal} healed.");
+        CombatLog.Write(
+          $"She devours the fallen's sins ({heal} healed).", Owner);
       }
       catch (Exception e)
       {

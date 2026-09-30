@@ -660,6 +660,31 @@ errors suggested:
   Persuasion, fear ladder, raw damage, area buffs...), and the clone/CI/
   push recipes.
 
+## 0.21.0 — the burn API applied + combat-log feedback (technique survey)
+
+- **Kinetic Chirurgeon now pays burn** (user ask, enabled by the mod
+  survey): each use of kinetic healer - and of swift mending - costs 1
+  point of burn, accepted through the real engine API
+  (UnitPartKineticist.AcceptBurn; gather power and other burn reducers
+  apply engine-side). No burn left, no healing. The tabletop's "the
+  target may accept the burn instead" clause is simplified: only she
+  pays. The earlier "unlimited-use" adaptation is retired.
+- **Explosion infusion: typed burn cost.** The reflection-hunt cost
+  setter is replaced with the real member
+  (AbilityKineticist.InfusionBurnCost, identified via the
+  KineticArchetypes mod's source) - the cost is now set the same way
+  the engine itself reads it.
+- **Combat-log feedback** (the NineSwords recipe, now our
+  MissionWOTR.CombatLog helper): the mod's signature custom moments are
+  player-visible in the combat log - kinetic healer mends and mercy
+  cures, sin eating, doom pronouncements, unstable surges (all six
+  results), and construct core/program directives (set or ignored).
+  Best-effort by design: a log failure never breaks the mechanic.
+- **Second technique survey** documented in docs/NOTES.md: TTT main
+  (BlueprintsCache.Init Priority.First injection, TemporaryContext),
+  CharacterOptions+ (variant menus for dual-output abilities), ToyBox
+  (level-up/multiclass patching encyclopedia).
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1378,6 +1403,8 @@ line-shape surface), Draining and Disintegrating (not yet attempted).
 | 17 | Shared Mending (heal target + self) | — |
 
 - Trades also remove metakinesis Empower/Maximize/Quicken.
+- **0.21.0:** every use of kinetic healer / swift mending costs 1 burn
+  (AcceptBurn; gather power applies; no burn left = no healing).
 - Mercy ladder: 3rd fatigued/shaken; 5th staggered/entangled; 7th
   blinded/frightened; 9th stunned - one cure per heal, auto-triaged
   worst-first.

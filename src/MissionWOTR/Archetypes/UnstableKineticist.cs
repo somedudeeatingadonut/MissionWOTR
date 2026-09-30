@@ -205,6 +205,7 @@ namespace MissionWOTR.Archetypes
           case 1: // Eruption
             target.Descriptor.Damage += EruptionDice();
             MissionFeats.Logger.Info("[unstable] surge: eruption.");
+            CombatLog.Write("The gate erupts!", Owner);
             break;
 
           case 2: // Chain Arc
@@ -226,27 +227,32 @@ namespace MissionWOTR.Archetypes
               }
             }
             MissionFeats.Logger.Info("[unstable] surge: chain arc.");
+            CombatLog.Write("The surge leaps outward!", Owner);
             break;
 
           case 3: // Violent Discharge
             Discharge(target);
             MissionFeats.Logger.Info("[unstable] surge: violent discharge.");
+            CombatLog.Write("The discharge terrifies!", Owner);
             break;
 
           case 4: // Rebound
             var bite = ArcDice();
             Owner.Descriptor.Damage += bite;
             MissionFeats.Logger.Info($"[unstable] surge: rebound ({bite}).");
+            CombatLog.Write($"The instability bites her ({bite}).", Owner);
             break;
 
           case 5: // Overcharge
             target.Descriptor.Damage += EruptionDice();
             Discharge(target);
             MissionFeats.Logger.Info("[unstable] surge: overcharge.");
+            CombatLog.Write("Overcharged - the gate roars!", Owner);
             break;
 
           default: // Null Surge
             MissionFeats.Logger.Info("[unstable] surge: null - the gate hiccups.");
+            CombatLog.Write("The gate hiccups - nothing happens.", Owner);
             break;
         }
       }

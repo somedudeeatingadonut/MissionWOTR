@@ -33,7 +33,9 @@ namespace MissionWOTR.Archetypes
   ///   blast's (Extended Range's 480-ft reach is this sibling's whole
   ///   point), a 20-ft radius AoE component is added (the same builder
   ///   ConstructCrafter's Fire Blast uses), and the burn cost is set to 3
-  ///   via a reflection hunt for the infusion-cost member (logged).
+  ///   via the typed member (AbilityKineticist.InfusionBurnCost - was a
+  ///   reflection hunt until the member was identified via the
+  ///   KineticArchetypes mod, 0.21.0).
   /// - ONE feature, registered into the vanilla InfusionSelection via
   ///   AddToAllFeatures, prerequisite kineticist level 9 (a 5th-level
   ///   infusion under the tabletop's level = (class level + 1) / 2 slots).
@@ -177,43 +179,32 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
-    /// Sets the infusion's burn cost on a cloned ability. The cost lives
-    /// inside one of the infusion's components, whose exact type this
-    /// build's references do not name - so the setter hunts for an int
-    /// member with "Burn" in its name and assigns it, logging the hit (a
-    /// miss is logged loudly and leaves the sibling's cost in place -
-    /// documented, not faked).
+    /// Sets the infusion's burn cost on a cloned ability - typed since
+    /// 0.21.0: the cost member is AbilityKineticist.InfusionBurnCost
+    /// (the KineticArchetypes mod constructs fresh components with it;
+    /// see docs/NOTES.md). Every blast ability carries the component, so
+    /// the clone should too; if it somehow does not, a fresh one is
+    /// added the same way that mod does it.
     /// </summary>
     private static void SetBurn(BlueprintAbility ability, int burn)
     {
-      foreach (var component in ability.ComponentsArray)
+      var component = ability
+        .GetComponent<Kingmaker.UnitLogic.Class.Kineticist.AbilityKineticist>();
+      if (component is not null)
       {
-        var type = component.GetType();
-        foreach (var field in type.GetFields())
-        {
-          if (field.FieldType == typeof(int) && field.Name.Contains("Burn"))
-          {
-            field.SetValue(component, burn);
-            MissionFeats.Logger.Info(
-              $"[explosion] {ability.name}: burn set to {burn} via {type.Name}.{field.Name}.");
-            return;
-          }
-        }
-        foreach (var property in type.GetProperties())
-        {
-          if (property.PropertyType == typeof(int) && property.Name.Contains("Burn") &&
-            property.CanWrite)
-          {
-            property.SetValue(component, burn);
-            MissionFeats.Logger.Info(
-              $"[explosion] {ability.name}: burn set to {burn} via {type.Name}.{property.Name}.");
-            return;
-          }
-        }
+        component.InfusionBurnCost = burn;
+        MissionFeats.Logger.Info(
+          $"[explosion] {ability.name}: InfusionBurnCost set to {burn}.");
+        return;
       }
-      MissionFeats.Logger.Warn(
-        $"[explosion] {ability.name}: no burn member found - the Extended " +
-        "Range sibling's cost remains. Report if the in-game cost reads 1.");
+      AbilityConfigurator.For(ability.name)
+        .AddComponent(new Kingmaker.UnitLogic.Class.Kineticist.AbilityKineticist
+        {
+          InfusionBurnCost = burn,
+        })
+        .Configure();
+      MissionFeats.Logger.Info(
+        $"[explosion] {ability.name}: fresh AbilityKineticist added (cost {burn}).");
     }
   }
 

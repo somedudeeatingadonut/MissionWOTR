@@ -3488,7 +3488,7 @@
   {
     "Key": "ChirurgeonKineticHealer.Description",
     "ProcessTemplates": false,
-    "enGB": "With a touch, she heals a willing living creature, restoring 1d6 hit points plus her Constitution modifier for every 2 kineticist levels she possesses. Each use also cures one condition afflicting the target - the worst her training covers, from fatigued and shaken at 3rd level up through blinded, frightened and finally stunned at 9th. From 5th level her Metahealer training adds one extra healing die (two at 11th, three at 17th), and at 17th level the same use mends both the target and herself. This replaces infusions and infusion specialization."
+    "enGB": "With a touch, she heals a willing living creature, restoring 1d6 hit points plus her Constitution modifier for every 2 kineticist levels she possesses. Each use requires her to accept 1 point of burn - gather power and any other effect that reduces burn applies as usual - and if she cannot accept the burn, the healing does not happen. Each use also cures one condition afflicting the target - the worst her training covers, from fatigued and shaken at 3rd level up through blinded, frightened and finally stunned at 9th. From 5th level her Metahealer training adds one extra healing die (two at 11th, three at 17th), and at 17th level the same use mends both the target and herself. This replaces infusions and infusion specialization."
   },
   {
     "Key": "ChirurgeonSwiftMending.Name",
@@ -3498,7 +3498,7 @@
   {
     "Key": "ChirurgeonSwiftMending.Description",
     "ProcessTemplates": false,
-    "enGB": "At 13th level she learns to mend herself in an instant: as a swift action, she may use kinetic healer on herself. This replaces metakinesis (empower, maximize and quicken)."
+    "enGB": "At 13th level she learns to mend herself in an instant: as a swift action, she may use kinetic healer on herself, at the normal cost of 1 point of burn. This replaces metakinesis (empower, maximize and quicken)."
   },
   {
     "Key": "ChirurgeonMetahealer.Name",

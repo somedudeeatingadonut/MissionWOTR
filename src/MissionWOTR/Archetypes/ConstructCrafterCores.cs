@@ -618,10 +618,12 @@ namespace MissionWOTR.Archetypes
             {
               MissionFeats.Logger.Info(
                 $"[CC] program command: {DirectiveName} not learned - ignored.");
+              CombatLog.Write("That program was never learned.", caster);
               return;
             }
             caster.AddBuff(program.Marker, Context);
             MissionFeats.Logger.Info($"[CC] program command: {DirectiveName} set.");
+            CombatLog.Write($"Program set: {DirectiveName}.", caster);
             return;
           }
         }
@@ -649,10 +651,12 @@ namespace MissionWOTR.Archetypes
             {
               MissionFeats.Logger.Info(
                 $"[CC] core command: {DirectiveName} not learned - ignored.");
+              CombatLog.Write("That core was never learned.", caster);
               return;
             }
             caster.AddBuff(core.Marker, Context);
             MissionFeats.Logger.Info($"[CC] core command: {DirectiveName} armed.");
+            CombatLog.Write($"Core armed: {DirectiveName}.", caster);
             return;
           }
         }
