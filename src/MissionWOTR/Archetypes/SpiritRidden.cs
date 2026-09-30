@@ -185,7 +185,8 @@ namespace MissionWOTR.Archetypes
         a => a.SetCanTargetEnemies()
           .AddAbilityEffectRunAction(ActionsBuilder.New().SavingThrow(
             SavingThrowType.Will,
-            onResult: ActionsBuilder.New().ApplyBuff(BuffRefs.Frightened, ContextDuration.Fixed(2)))));
+            onResult: ActionsBuilder.New().ApplyBuff(
+              BuffRefs.Frightened.Cast<BlueprintBuffReference>(), ContextDuration.Fixed(2)))));
       var mien = SpiritSpell("SpiritRiddenArchivistMien", Guids.SpiritRiddenArchivistMienAbility,
         AbilityRefs.Fear, pretendLevel: 4, AbilityRange.Long,
         a => a.SetCanTargetEnemies()
@@ -194,7 +195,8 @@ namespace MissionWOTR.Archetypes
             targetType: Kingmaker.UnitLogic.Abilities.Components.TargetType.Enemy)
           .AddAbilityEffectRunAction(ActionsBuilder.New().SavingThrow(
             SavingThrowType.Will,
-            onResult: ActionsBuilder.New().ApplyBuff(BuffRefs.Shaken, ContextDuration.Fixed(2)))));
+            onResult: ActionsBuilder.New().ApplyBuff(
+              BuffRefs.Shaken.Cast<BlueprintBuffReference>(), ContextDuration.Fixed(2)))));
       var archivist = Spirit(
         "Archivist", Guids.SpiritRiddenArchivistFeature, Guids.SpiritRiddenArchivistAbility, Guids.SpiritRiddenArchivistBuff,
         FeatureRefs.RogueProficiencies, minLevel: 12,
@@ -259,7 +261,7 @@ namespace MissionWOTR.Archetypes
     private static Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility SpiritSpell(
       string name,
       string guid,
-      Blueprint<BlueprintAbilityReference> iconSource,
+      Blueprint<BlueprintReference<BlueprintAbility>> iconSource,
       int pretendLevel,
       AbilityRange range,
       Action<AbilityConfigurator> configure)
@@ -280,19 +282,19 @@ namespace MissionWOTR.Archetypes
       return builder.Configure();
     }
 
-    /// <summary>Dice that grow with half the shaman class level.</summary>
+    /// <summary>
+    /// Dice that grow with half the shaman class level: 1 die at 1st,
+    /// +1 every 2 levels, capped at 10 (odd levels round up). Built
+    /// through bpcore's factory (the Anatomist-proven idiom) - the
+    /// raw component's m_Class field is private in the raw DLLs.
+    /// </summary>
     private static ContextRankConfig HalfLevelDice()
     {
-      return new ContextRankConfig
-      {
-        m_BaseValueType = ContextRankBaseValueType.ClassLevel,
-        m_Progression = ContextRankProgression.Div2,
-        m_UseMin = true,
-        m_Min = 1,
-        m_UseMax = true,
-        m_Max = 10,
-        m_Class = new[] { CharacterClassRefs.ShamanClass.Reference },
-      };
+      return ContextRankConfigs.ClassLevel(
+          new[] { CharacterClassRefs.ShamanClass.ToString() }, min: 1, max: 10)
+        .WithCustomProgression(
+          (1, 1), (3, 2), (5, 3), (7, 4), (9, 5),
+          (11, 6), (13, 7), (15, 8), (17, 9), (19, 10));
     }
 
     private static ContextDiceValue DiceByRank()
@@ -678,7 +680,7 @@ namespace MissionWOTR.Archetypes
           summonAction, ContextValues.Constant(0));
         summonAction.AfterSpawn = ActionsBuilder.New()
           .ApplyBuff(
-            BlueprintTool.Get<Kingmaker.Blueprints.BlueprintBuff>(StockSummonBuffGuid),
+            BlueprintTool.Get<BlueprintBuff>(StockSummonBuffGuid),
             ContextDuration.Fixed(100000))
           .Build();
         summonAction.RunAction();
