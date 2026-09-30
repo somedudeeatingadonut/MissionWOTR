@@ -754,24 +754,51 @@ namespace MissionWOTR
     internal const string RiftstalkerCrippleComponent = "530ED959-0AEA-453D-AC7F-6467E687F80E";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
-    // ----- The Intercessor (0.23.0, homebrew oracle archetype) -----
-    internal const string IntercessorArchetype = "801BE584-BFD7-4759-A97D-476B4A15F52D";
-    internal const string IntercessorVowFeature = "DCC496B9-1335-4098-B7C1-C69456D0A0D2";
-    internal const string IntercessorIntercedeAbility = "2E36345C-2FDA-4D6C-A357-C4430B0FFA5C";
-    internal const string IntercessorMarkBuff = "A44D5053-BCE0-420A-8961-5793403CC09B";
-    internal const string IntercessorWellOfWoundsFeature = "1C2B2A6E-234B-424B-A72E-A34BD98C48D7";
-    internal const string IntercessorDeathRefusedFeature = "5AC22EE0-747B-4A30-B230-DE89EA704268";
-    internal const string IntercessorSurgeBuff = "8C083064-AE58-4F0F-AC3A-9F2167980B96";
-    internal const string IntercessorChargeResource = "D4E741C7-CAFE-41C7-914E-DFE53571942A";
-    internal const string IntercessorRedressFeature = "291A6E39-8E6A-4D61-A4BE-F8562380B048";
-    internal const string IntercessorBrokenBodyFeature = "AB0606CE-170D-419E-A56B-E59ADE3E9F32";
-    internal const string IntercessorOpenEmbraceFeature = "DC025F8D-A5AD-4A56-966E-FF7C9279D201";
-    internal const string IntercessorMarkComponent = "75F1265C-D1BB-4426-B83F-9E91546AA09B";
-    internal const string IntercessorVowGrantComponent = "C61759F7-CF6C-4CEB-AE0F-B8C145605797";
-    internal const string IntercessorDeathRefusalComponent = "D7A31002-B3C0-4AC0-970A-602A8AF97E76";
-    internal const string IntercessorWellOfWoundsComponent = "D7F2C0A9-5C51-45F8-AED9-6D6FF24AEAFA";
-    internal const string IntercessorOpenEmbraceComponent = "28093FB9-5A8F-411E-B651-29C4705C8081";
-    internal const string IntercessorIntercedeAction = "D5E76B79-8BA0-4F02-9493-B4D769A6B22B";
+    // ----- The Intercessor (0.23.0) — WITHDRAWN in 0.24.0 per user
+    // correction (a tabletop archetype was meant); The Vow survives as
+    // the Sacred Vow mythic ability (see the SacredVow* block). -----
+    // ----- Planar Oracle (0.24.0, tabletop port) -----
+    internal const string PlanarOracleArchetype = "7F1CAD99-1BF0-4431-B0BB-87C88B4951FE";
+    internal const string PlanarPlaneSelection = "B5D30655-4BFB-4FA3-AE86-3EAAD21739F0";
+    internal const string PlanarHeavenFeature = "FF3D82C8-D2CA-4121-8871-44CB1A609964";
+    internal const string PlanarHellFeature = "27FA7AFD-B6A2-4B1B-AA70-0CF789B44585";
+    internal const string PlanarAbyssFeature = "E8304F39-44FC-4923-B680-3A80A0D95685";
+    internal const string PlanarMaelstromFeature = "C6F229FB-23F3-46CA-9D41-79E9E4EEC33E";
+    internal const string PlanarResistanceFeature = "57309188-5474-4080-9D1D-ABD814EB25BC";
+    internal const string PlanarResistanceSurgeFeature = "DE4A0A4E-8559-4581-9363-1AC95BB8FFD0";
+    internal const string PlanarApotheosisFeature = "80D7B8AB-7729-4156-876C-CCD3229555AF";
+    internal const string PlanarHeavenRes10 = "3282C479-A3BA-46C2-8577-DC451EBC2D63";
+    internal const string PlanarHellRes10 = "98B811D9-7F63-4E7F-8916-8ED8B430894D";
+    internal const string PlanarAbyssRes10 = "933803DE-714C-46D7-BD89-58467826BD8C";
+    internal const string PlanarMaelstromRes10 = "F9BC61FE-9197-4667-BD38-6A2B1FE0969C";
+    internal const string PlanarHeavenRes20 = "50A62153-596F-4C5A-9046-E4F19E119251";
+    internal const string PlanarHellRes20 = "B6C5928D-D327-4516-8C61-C447287E8B5C";
+    internal const string PlanarAbyssRes20 = "A5F7475F-C0F7-4F6F-A952-B79324EE4A91";
+    internal const string PlanarMaelstromRes20 = "12AB564C-4FF6-4767-9874-75E478533A14";
+    internal const string PlanarHeavenImmunity = "457A8D75-4A73-451A-A261-7F41EFE6150D";
+    internal const string PlanarHellImmunity = "851540DA-86FE-4268-BEC0-C402DF834187";
+    internal const string PlanarAbyssImmunity = "B676723A-0442-4741-82E8-2D6105BA38C1";
+    internal const string PlanarMaelstromImmunity = "15A957D0-A0F7-4991-A50C-0AEFEB18B688";
+    internal const string PlanarAttunementComponent = "87A6BB8A-C69F-432B-8ECA-BD46DC798693";
+    internal const string PlanarBonusSpell2 = "977A6E1B-77B0-4042-AB78-036CDF525E22";
+    internal const string PlanarBonusSpell4 = "679D0CD8-8831-454C-AACA-F4CFED21073D";
+    internal const string PlanarBonusSpell6 = "D19E3D12-9A79-42A5-8133-0A29020A76AE";
+    internal const string PlanarBonusSpell8 = "8C7D08D1-620D-4D0F-91D1-341B71BB815F";
+    internal const string PlanarBonusSpell10 = "D52209BD-A889-429E-9EE8-670EBC6BF854";
+    internal const string PlanarBonusSpell12 = "602EB2ED-11FE-472A-BB9C-7ACBBEF98D87";
+    internal const string PlanarBonusSpell14 = "497E6539-1025-4D59-A7F6-F20787DAC1F1";
+    internal const string PlanarBonusSpell16 = "2B7CCB44-0C50-40C5-9640-396B7857BC1C";
+    internal const string PlanarBonusSpell18 = "E0739329-6B91-4183-9508-95064E38156F";
+    // ----- The Blood-Scribed (0.24.0, homebrew oracle) -----
+    internal const string BloodScribedArchetype = "62B33995-77FD-456C-A6CB-68E798E79D01";
+    internal const string BloodScribedGrimoireSelection = "E4E9195C-0C49-4516-B04D-931F2183ECA2";
+    // ----- Sacred Vow (0.24.0, mythic ability — the Intercessor's Vow) -----
+    internal const string SacredVowFeature = "ADE0478D-9F3A-4536-95BF-F52B7A9C84B5";
+    internal const string SacredVowIntercedeAbility = "0260ED99-F9A3-4E6D-928E-0FDEE7A99428";
+    internal const string SacredVowMarkBuff = "11009A0A-3B54-41EF-B74E-755E469E0314";
+    internal const string SacredVowMarkComponent = "9436F1C2-00A7-49AE-AB68-F98825176915";
+    internal const string SacredVowIntercedeAction = "1638771C-5E33-4A49-AED3-A48DFC128661";
+    internal const string SacredVowCleanupComponent = "843E4903-11EB-4B52-902F-878A2F3ADB4B";
 
   }
 }

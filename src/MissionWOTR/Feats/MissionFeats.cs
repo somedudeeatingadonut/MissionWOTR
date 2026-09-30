@@ -89,6 +89,9 @@ namespace MissionWOTR.Feats
       Configure(nameof(UnstableKineticist), UnstableKineticist.Configure);
       Configure(nameof(KineticChirurgeon), KineticChirurgeon.Configure);
       Configure(nameof(Stormcaller), Stormcaller.Configure);
+      Configure(nameof(PlanarOracle), PlanarOracle.Configure);
+      Configure(nameof(BloodScribed), BloodScribed.Configure);
+      Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -154,7 +157,8 @@ namespace MissionWOTR.Feats
       ("UnstableKineticist", Guids.UnstableKineticistArchetype, kineticist),
       ("KineticChirurgeon", Guids.KineticChirurgeonArchetype, kineticist),
       ("Stormcaller", Guids.StormcallerArchetype, kineticist),
-      ("Intercessor", Guids.IntercessorArchetype, oracle),
+      ("PlanarOracle", Guids.PlanarOracleArchetype, oracle),
+      ("BloodScribed", Guids.BloodScribedArchetype, oracle),
     };
         foreach (var entry in entries)
         {

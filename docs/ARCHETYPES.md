@@ -785,6 +785,58 @@ errors suggested:
 - Docs fix: the 0.22.1 changelog section was lost to a same-file
   edit collision in the 0.22.1 push (the detailed-section bullet
   landed; the section did not). Restored here.
+- **WITHDRAWN in 0.24.0** (user correction: "I meant a tabletop
+  archetype, not a homebrew one"). The Vow survives as the Sacred Vow
+  mythic ability; the rest of the kit is removed. (Postmortem note:
+  the same parallel-edit collision that ate the 0.22.1 docs section
+  also silently dropped the Intercessor's Configure registration in
+  0.23.0 - the file compiled, but the archetype was never actually
+  built. A fitting end; and a standing lesson: never parallel-edit
+  one file.)
+
+## 0.24.0 — the oracle correction: Planar Oracle (tabletop port), the Blood-Scribed (homebrew), Sacred Vow (mythic)
+
+- **The Intercessor is withdrawn** (see the note above); The Vow
+  survives as **Sacred Vow**, a mythic ability only oracles can take
+  (prerequisite: one oracle level; TTT's Abundant*-style
+  prerequisite-gated mythic abilities prove the selection respects
+  it). Intercession marks one ally: half their damage transfers to
+  her (DirectDamage, exact conservation, the TTT DamageRetribution
+  rule pair); mythic rank 4 widens it to two marks (the
+  in-repo Progression.MythicLevel read).
+- **Planar Oracle (tabletop port, Ultimate Magic pg. 59)** - the
+  user's actual ask. 1st: choose a plane (Heaven/electricity,
+  Hell/fire, the Abyss/cold, the Maelstrom/acid - our documented
+  mapping of the tabletop's GM-discretionary plane-energy
+  association). 3rd: ER 10 (replaces the 3rd revelation); 11th: ER
+  20; 20th: apotheosis - immunity + DR 10/magic (replaces the final
+  revelation, attempted via the no-op trick against the generic and
+  all nine per-mystery finals). Bonus spells at 2nd-18th: the
+  tabletop's nine (endure elements ... gate) exist NONE in WOTR -
+  every one substituted with a native-level-matched pilgrim's spell
+  (protection from evil, see invisibility, protection from energy,
+  freedom of movement, dismissal, chain lightning, banishment, mind
+  blank, elemental swarm), granted as oracle spells known. The
+  tabletop's mystery-bonus-spell TRADE is structurally
+  uninterceptable in our build (the mystery's own grant chain; the
+  vanilla Enlightened Philosopher swaps the whole mystery selection
+  to do it) - so the planar spells are additive and the 7th-level
+  revelation is ALSO removed as compensation. Every deviation
+  documented in the code header.
+- **The Blood-Scribed (homebrew)** - the user's design: "an oracle
+  focused on more offensive casting (gaining a spell from the wizard
+  spell book every level) in exchange for doing damage to
+  themselves." At EVERY oracle level (1-20) she copies one wizard
+  spell of a level she can cast (options read live from the vanilla
+  WizardSpellList; each gated by AddPrerequisiteClassSpellLevel on
+  the oracle's own casting) into her spells known - and each stolen
+  page is a permanent scar: −2 maximum hit points, untyped and
+  stacking, riding the spell feature itself (the Solipsist
+  Stats.HitPoints precedent as an AddStatBonus). Twenty spells by
+  20th is forty hit points of book. Trades ALL FIVE revelations.
+  The "strengthening their curses" alternative price was declined,
+  documented: the theft is hers, not her god's. Generated option
+  blueprints carry deterministic MD5-guids (stable across saves).
 
 ## Alchemist
 
@@ -1532,28 +1584,71 @@ line-shape surface), Draining and Disintegrating (not yet attempted).
 
 ## Oracle
 
-### Original homebrew — The Intercessor — IMPLEMENTED (0.23.0)
+### Faithful port — Planar Oracle (Ultimate Magic) — IMPLEMENTED (0.24.0)
 
-| Level | The Intercessor grants | Oracle normally grants |
+| Level | Planar Oracle grants | Oracle normally grants |
 |---|---|---|
-| 1 | The Vow (Intercession: mark one ally, 25% damage transfer; free - the curse is already her price) | — |
-| 3 | Well of Wounds (heals on others +25%/+50%/+75% below 75%/50%/25% HP) | 3rd-level revelation (removed) |
-| 7 | Death Refused (once per rest, a killing blow leaves her at 1 HP; fast healing 5 surge) | 7th-level revelation (removed) |
-| 11 | The Redress (transfer 50%; two marks) | 11th-level revelation (removed) |
-| 15 | Saint of the Broken Body (shared refusal charge: marked ally stands at 1 HP, the rest of the blow is hers) | 15th-level revelation (removed) |
-| 19 | The Open Embrace (every ally within 30 ft marked, refreshed each round) | 19th-level revelation (removed) |
+| 1 | Planar Attunement (choose: Heaven/electricity, Hell/fire, the Abyss/cold, the Maelstrom/acid) | — |
+| 2 | Bonus spell: protection from evil (for endure elements) | — |
+| 3 | Planar Resistance (ER 10 vs the plane's energy) | 3rd-level revelation (removed) |
+| 4–18 | Bonus spells (see below), one per even level | — |
+| 7 | — | 7th-level revelation (removed; our compensation, see below) |
+| 11 | Planar Resistance surge (ER 20) | — |
+| 20 | Apotheosis (immunity to the plane's energy; DR 10/magic) | Final revelation (removed) |
 
-- The transfer is exact conservation: the ally is healed her share and
-  the intercessor takes it as DirectDamage (no resistance or immunity
-  applies - it is not damage crossing the bond but duty; the TTT
-  DamageRetribution rule pair with a Reason-fact loop guard).
-- The 15th's shared-charge semantics fall out by construction: the
-  charge is spent saving the ally, so the redirected remainder cannot
-  be refused - "if it is her time, it is her time."
-- Documented edges: the transfer resolves after the ally's damage
-  lands; a fallen intercessor's marks go quiet; the refusal answers
-  hit-point death only; the mark registry is session-static (after a
-  save/reload, capacity counts fresh).
+Bonus-spell substitutions (the tabletop's nine exist none in WOTR; each
+substitute is native-level-matched to its planar slot): protection from
+evil (2nd, for endure elements), see invisibility (4th, elemental
+speech), protection from energy (6th, tongues), freedom of movement
+(8th, planar adaptation), dismissal (10th, plane shift), chain
+lightning (12th, mass planar adaptation), banishment (14th, shadow
+walk), mind blank (16th, etherealness), elemental swarm (18th, gate).
+
+Wrath adaptations (engine gaps, documented in the code header):
+- The plane-energy association is GM-discretionary in the tabletop; ours
+  follows each plane's native outsiders (archons/electricity,
+  devils/fire, demons/cold, proteans/acid).
+- The tabletop trades the MYSTERY's bonus spells; in WOTR those arrive
+  through the mystery's own grant chain, which class-level archetype
+  removal cannot intercept (the vanilla Enlightened Philosopher swaps
+  the entire mystery selection to do it). The planar spells are granted
+  additively instead, and the 7th-level revelation is also removed as
+  compensation.
+- The final-revelation trade is attempted against the generic
+  OracleFinalRevelation plus all nine per-mystery finals (the no-op
+  trick: entries absent from the class progression warn and skip at
+  load - the [removals] log is the runtime truth).
+
+### Homebrew — The Blood-Scribed (user design: the offensive caster) — IMPLEMENTED (0.24.0)
+
+| Level | The Blood-Scribed grants | Oracle normally grants |
+|---|---|---|
+| 1–20 | The Stolen Grimoire: one wizard spell of a castable level per level, as oracle spells known; each page a permanent −2 max HP scar | — |
+| 3, 7, 11, 15, 19 | — | All five revelations (removed) |
+
+- The price is the user's first reading ("doing damage to themselves"),
+  declined alternative ("strengthening their curses") documented: the
+  curse is her god's wound; the theft is hers.
+- The scar rides the stolen-spell feature itself (AddStatBonus,
+  HitPoints, untyped stacking - the Solipsist Stats.HitPoints
+  precedent), so it can never be dispelled or healed away: only paid.
+- Options are read live from the vanilla WizardSpellList (cantrips
+  included), each gated by the ORACLE's own spell level
+  (AddPrerequisiteClassSpellLevel); generated blueprints carry
+  deterministic MD5-guids, stable across runs and saves.
+- Honest edges: a stolen pick duplicating an already-knowable spell is
+  a wasted pick (the lists barely overlap; player's discretion is the
+  guard).
+
+### Mythic ability — Sacred Vow (the Intercessor's Vow, salvaged) — IMPLEMENTED (0.24.0)
+
+- Only oracles can take it (prerequisite: one oracle level; TTT's
+  prerequisite-gated mythic abilities prove the selection respects
+  it). Intercession (swift, close range, one ally, never herself)
+  marks a companion: half of the damage they take transfers to her as
+  DirectDamage (exact conservation; no resistance or immunity; the TTT
+  DamageRetribution rule pair). Mythic rank 4 widens the vow to two
+  companions. A fallen carrier carries nothing.
 
 ## Level plan per class (test-mode rule)
 

@@ -3621,103 +3621,143 @@
     "enGB": "Swift Thunderstorm Blast"
   },
   {
-    "Key": "Intercessor.Name",
+    "Key": "SacredVow.Name",
     "ProcessTemplates": false,
-    "enGB": "The Intercessor"
+    "enGB": "Sacred Vow"
   },
   {
-    "Key": "Intercessor.Description",
+    "Key": "SacredVow.Description",
     "ProcessTemplates": false,
-    "enGB": "Some oracles speak for the gods. The intercessor speaks for the wounded. Her power is the oldest bargain in scripture: let the blow fall on me. She speaks her vow over a companion, and a portion of every wound that finds them finds her instead - no armor, no resistance, no immunity can touch what crosses the bond, for it is not damage that travels but duty. The more broken her body, the stronger her mercy: her healing on others deepens as her own blood is spent. And once per rest, death itself is refused - hers, and in time, her charge's. She trades every revelation of her mystery for this. The mystery still answers her prayers - its bonus spells, her curse, and its final revelation remain - but its wonders are no longer hers to invoke."
+    "enGB": "Some oracles speak for the gods. She speaks for the wounded. Her power is the oldest bargain in scripture: let the blow fall on me. She may speak her vow over companions (Intercession, a swift action): while marked, half of the damage a companion takes is transferred to her, beyond armor and beyond resistance. At mythic rank 4 the vow widens to two companions at once. A fallen vow-carrier carries nothing. Only oracles can take this mythic ability."
   },
   {
-    "Key": "IntercessorVow.Name",
-    "ProcessTemplates": false,
-    "enGB": "The Vow"
-  },
-  {
-    "Key": "IntercessorVow.Description",
-    "ProcessTemplates": false,
-    "enGB": "She may speak the vow over one companion (Intercession, a swift action, close range, never herself): the companion gains the Mark of the Vow. While marked, a quarter of the damage the companion takes is transferred to her. The transfer is absolute - her armor, resistances and immunities do not apply to what crosses the bond. If she falls, the vow carries nothing until she stands again. From 11th level (The Redress) the share is half and she may carry the vow for two companions; from 19th (The Open Embrace) the vow becomes a standing aura and every ally within 30 feet is marked."
-  },
-  {
-    "Key": "Intercession.Name",
+    "Key": "SacredVowIntercession.Name",
     "ProcessTemplates": false,
     "enGB": "Intercession"
   },
   {
-    "Key": "Intercession.Description",
+    "Key": "SacredVowIntercession.Description",
     "ProcessTemplates": false,
     "enGB": "Speak the vow over one ally within close range (never herself): the ally gains the Mark of the Vow. A swift action, usable at will. When the vow is spoken at its capacity, the oldest mark passes on."
   },
   {
-    "Key": "IntercessorMark.Name",
+    "Key": "SacredVowMark.Name",
     "ProcessTemplates": false,
     "enGB": "Mark of the Vow"
   },
   {
-    "Key": "IntercessorMark.Description",
+    "Key": "SacredVowMark.Description",
     "ProcessTemplates": false,
-    "enGB": "Her body answers for yours: a quarter of the damage you take (half, with The Redress) is transferred to her, beyond armor and beyond resistance. If she falls, the vow carries nothing."
+    "enGB": "Her body answers for yours: half of the damage you take is transferred to her, beyond armor and beyond resistance. If she falls, the vow carries nothing."
   },
   {
-    "Key": "IntercessorWellOfWounds.Name",
+    "Key": "PlanarOracle.Name",
     "ProcessTemplates": false,
-    "enGB": "Well of Wounds"
+    "enGB": "Planar Oracle"
   },
   {
-    "Key": "IntercessorWellOfWounds.Description",
+    "Key": "PlanarOracle.Description",
     "ProcessTemplates": false,
-    "enGB": "Her mercy deepens as her body fails. While she is below three quarters of her maximum hit points, her healing cast on others is empowered by a quarter; below half, by half; below a quarter, by three quarters. Her own wounds are not eased by this gift - it is for others, as the vow is. This replaces the 3rd-level revelation."
+    "enGB": "A planar oracle has an affinity with one of the Outer Planes. She is at home on the multiple planes of the Great Beyond, and can eventually become an outsider herself. At 1st level she chooses a plane (Heaven, Hell, the Abyss, or the Maelstrom), each bound to one energy: at 3rd level she gains resistance 10 to that energy (20 at 11th), and at 20th she becomes an extraplanar creature - immune to her plane's energy, with damage reduction 10/magic. Her pilgrim's road is written in bonus spells (protection from evil, see invisibility, protection from energy, freedom of movement, dismissal, chain lightning, banishment, mind blank, elemental swarm), gained at the planar slots. This replaces her 3rd- and 7th-level revelations and her final revelation."
   },
   {
-    "Key": "IntercessorDeathRefused.Name",
+    "Key": "PlanarPlaneSelection.Name",
     "ProcessTemplates": false,
-    "enGB": "Death Refused"
+    "enGB": "Planar Attunement"
   },
   {
-    "Key": "IntercessorDeathRefused.Description",
+    "Key": "PlanarPlaneSelection.Description",
     "ProcessTemplates": false,
-    "enGB": "Once per rest, when a blow would take her below 1 hit point, she refuses: she stands at 1 hit point instead, and a surge of fast healing 5 carries her for 3 rounds. The refusal answers hit-point death only - a death that arrives by other roads is not refused. This replaces the 7th-level revelation."
+    "enGB": "Choose the Outer Plane of your affinity. This choice cannot be changed."
   },
   {
-    "Key": "IntercessorSurge.Name",
+    "Key": "PlanarHeaven.Name",
     "ProcessTemplates": false,
-    "enGB": "Unbowed"
+    "enGB": "Heaven"
   },
   {
-    "Key": "IntercessorSurge.Description",
+    "Key": "PlanarHeaven.Description",
     "ProcessTemplates": false,
-    "enGB": "She refused. Fast healing 5 for 3 rounds."
+    "enGB": "The archons' plane of law and good. Your attuned energy is electricity, the light of the Silver City."
   },
   {
-    "Key": "IntercessorRedress.Name",
+    "Key": "PlanarHell.Name",
     "ProcessTemplates": false,
-    "enGB": "The Redress"
+    "enGB": "Hell"
   },
   {
-    "Key": "IntercessorRedress.Description",
+    "Key": "PlanarHell.Description",
     "ProcessTemplates": false,
-    "enGB": "The vow deepens: half of each marked companion's damage crosses the bond, and she may carry the vow for two companions at once. This replaces the 11th-level revelation."
+    "enGB": "The devils' plane of law and evil. Your attuned energy is fire, the endless pits of Asmodeus."
   },
   {
-    "Key": "IntercessorBrokenBody.Name",
+    "Key": "PlanarAbyss.Name",
     "ProcessTemplates": false,
-    "enGB": "Saint of the Broken Body"
+    "enGB": "The Abyss"
   },
   {
-    "Key": "IntercessorBrokenBody.Description",
+    "Key": "PlanarAbyss.Description",
     "ProcessTemplates": false,
-    "enGB": "The charge of Death Refused is shared with those she carries. When a marked companion would be slain and the charge is unspent, the companion instead stands at 1 hit point - and the rest of the blow, all of it, is hers. The wound she chooses cannot afterward be refused: the charge that would save her is already spent. If it is her time, it is her time. This replaces the 15th-level revelation."
+    "enGB": "The demons' plane of chaos and evil. Your attuned energy is cold, the lightless depths of the Worldwound's masters."
   },
   {
-    "Key": "IntercessorOpenEmbrace.Name",
+    "Key": "PlanarMaelstrom.Name",
     "ProcessTemplates": false,
-    "enGB": "The Open Embrace"
+    "enGB": "The Maelstrom"
   },
   {
-    "Key": "IntercessorOpenEmbrace.Description",
+    "Key": "PlanarMaelstrom.Description",
     "ProcessTemplates": false,
-    "enGB": "The vow is no longer spoken; it simply stands. Every ally within 30 feet carries the Mark of the Vow, refreshed each round while she lives, and the vow has no limit worth counting. This replaces the 19th-level revelation."
+    "enGB": "The proteans' plane of pure chaos. Your attuned energy is acid, the dissolving storm at the center of the Great Beyond."
+  },
+  {
+    "Key": "PlanarResistance.Name",
+    "ProcessTemplates": false,
+    "enGB": "Planar Resistance"
+  },
+  {
+    "Key": "PlanarResistance.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 3rd level, you gain energy resistance 10 against your chosen plane's associated energy type. This replaces the 3rd-level revelation."
+  },
+  {
+    "Key": "PlanarResistanceSurge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Planar Resistance (Surge)"
+  },
+  {
+    "Key": "PlanarResistanceSurge.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 11th level, your energy resistance against your chosen plane's energy type increases to 20."
+  },
+  {
+    "Key": "PlanarApotheosis.Name",
+    "ProcessTemplates": false,
+    "enGB": "Apotheosis"
+  },
+  {
+    "Key": "PlanarApotheosis.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 20th level, you become an extraplanar creature. You gain superficial physical characteristics appropriate to natives of your chosen plane, gain immunity to your associated energy type, and gain damage reduction 10/magic. Unlike other outsiders, you can still be brought back from the dead. This replaces your final revelation."
+  },
+  {
+    "Key": "BloodScribed.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Blood-Scribed"
+  },
+  {
+    "Key": "BloodScribed.Description",
+    "ProcessTemplates": false,
+    "enGB": "She stole from the wizard's book, and her god let her keep it - for a price written in her own blood. At every oracle level she copies one wizard spell of a level she can cast into her spells known, cast as oracle spells with her own magic. Each stolen page is a scar: the theft permanently costs her 2 maximum hit points, and the page never closes. Twenty spells by 20th level is forty hit points of book. This replaces every revelation of her mystery (3rd, 7th, 11th, 15th, and 19th level)."
+  },
+  {
+    "Key": "BloodScribedGrimoire.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Stolen Grimoire"
+  },
+  {
+    "Key": "BloodScribedGrimoire.Description",
+    "ProcessTemplates": false,
+    "enGB": "Copy one wizard spell of a level you can cast into your oracle spells known. The theft is written in your blood: each stolen spell permanently reduces your maximum hit points by 2."
   }
 ]
