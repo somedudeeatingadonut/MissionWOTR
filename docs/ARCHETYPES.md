@@ -794,6 +794,62 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.36.0 — the Spirit-Ridden (shaman homebrew: the possessed vessel)
+
+- **The user's brief:** "someone actually being taken over by
+  spirits, granting them different ability sets, almost none of the
+  normal shaman stuff remains, no spells nor hexes, no familiar, and
+  spirit is replaced with a different version which lets her select
+  a spirit that completely inhabits her body, gaining more choices
+  over time. The spirits function as a form she can change at will,
+  which makes her take the role of a basic class with -2 levels (no
+  downside for the first 2 levels), alongside level appropriate
+  spirit equipment (the shaman must not be wearing anything for the
+  equipment to apply)."
+- **The trades:** the whole SPELLBOOK goes via the archetype's
+  official `RemoveSpellbook` flag (bpcore exposes it; no Owlcat
+  archetype ever shipped without casting, so the field sat unused —
+  DarkCodex's helper surfaces it too) — which also kills spirit
+  magic for free, since it has nowhere left to live. Every hex
+  grant, the spirit animal, and the vanilla spirit selection are
+  removed by live-progression scan. Almost none of the shaman
+  remains, exactly as ordered.
+- **Inhabiting Spirits:** a selection re-granted at 1st, 6th, 12th
+  and 18th (OnlyNew — each spirit once). Two answer at 1st — the
+  WEAPON SAINT (fighter) and the RED WARLORD (barbarian) — the
+  BAREFOOT MASTER (monk) and the CUTTHROAT (rogue) unlock at 6th,
+  the GREY HUNTER (ranger) at 12th, the FIRST KNIGHT (paladin) at
+  18th.
+- **The forms:** each spirit is a hero of a dead age who takes the
+  reins AT WILL — a swift action that removes every other spirit's
+  form and applies this one (exclusivity by construction). While
+  channeled she fights as that spirit's class at shaman level minus
+  two — the user's exact rule, effective = level at 1st and 2nd,
+  level − 2 from 3rd on — with the class's REAL proficiencies
+  (FighterProficiencies, BarbarianProficiencies, etc.), a full-BAB
+  top-up where the class has one, and a signature package:
+  the Saint's edge (+1 attack and damage per 4 effective), the
+  Warlord's unquiet fury (Str/Con +2 → +4 → +6, Will +2, AC −2),
+  the Master's dodge and stride (+1 AC per 4, +20 speed), the
+  Cutthroat's deep first wound (+1d6 per 3 effective on the first
+  hit each round, +2 initiative), the Hunter's eye and pace
+  (+1 attack per 4, +10 speed), the Knight's aegis (+1 AC per 4,
+  +1 saves per 3, immune to shaken and frightened).
+- **Spirit equipment (the user's exact rule):** while a form is
+  channeled AND her body is BARE — every equipment slot empty — the
+  spirit's regalia manifests: a level-appropriate enhancement
+  (1 + (eff−1)/4: +1 at effective 1st–4th, up to +5 at 17th+) to
+  attack, damage and AC. Wear anything of your own and the spirit's
+  regalia refuses to appear; the check re-runs every tick, so
+  unequipping mid-fight lets it surface.
+- **Documented scope cuts (v1):** the spirits are
+  stat-and-proficiency packages, not full class progressions — feat
+  selections, rage-round resources, ki pools, and favored-enemy
+  picks are not portable as buff payloads; the signatures are
+  hand-rolled equivalents. The Cutthroat's rider uses the
+  repo-proven direct-damage idiom rather than the game's
+  flat-footed detection (which is not exposed where we can read it).
+
 ## 0.35.0 — the Jiuweihu replaces the Speaker (user feedback: too many cuts)
 
 - **The user's call:** "with so many cuts, lets try to figure out a
@@ -2493,7 +2549,31 @@ apply at runtime for users who run it).
 *(Replaces the Speaker for the Past, removed this version per user feedback — its
 time-mystery half could not be ported.)*
 
-*The shaman homebrew archetype is still owed (coverage: 1 of 2).*
+### Homebrew archetype — The Spirit-Ridden (the user's design) — IMPLEMENTED (v1)
+
+Something else wears her face now. No spells, no hexes, no familiar, no spirit — the
+heroes of dead ages inhabit her body instead, and she can let one of them take the
+reins at will.
+
+| Level | Feature | Effect |
+| --- | --- | --- |
+| 1 | Inhabiting Spirits | (replaces the spirit; the spellbook, all hexes and the spirit animal are all removed too) Choose a spirit to inhabit her: two answer at 1st — the Weapon Saint (fighter) and the Red Warlord (barbarian). Each is a form she can channel at will as a swift action, fighting as that class at shaman level − 2 (no reduction at 1st–2nd). |
+| 6 | Inhabiting Spirits | The Barefoot Master (monk) and the Cutthroat (rogue) unlock. |
+| 12 | Inhabiting Spirits | The Grey Hunter (ranger) unlocks. |
+| 18 | Inhabiting Spirits | The First Knight (paladin) unlocks. |
+| any | Spirit Equipment | While channeled and wearing NOTHING (every slot empty), the spirit's regalia manifests: enhancement to attack, damage and AC of 1 + (eff−1)/4 — +1 at effective 1st–4th, up to +5 at 17th+. Re-checked every tick. |
+
+The six signatures: the Saint's edge (+1 attack/damage per 4 effective), the Warlord's
+fury (Str/Con +2→+4→+6, Will +2, AC −2), the Master's dodge and stride (+1 AC per 4,
++20 speed), the Cutthroat's deep first wound (+1d6 per 3 effective, first hit each
+round, +2 initiative), the Hunter's eye and pace (+1 attack per 4, +10 speed), the
+Knight's aegis (+1 AC per 4, +1 saves per 3, fear immunity).
+
+The forms are stat-and-proficiency packages rather than full class progressions (the
+v1 scope cut — see the 0.36.0 changelog).
+
+*Shaman coverage: 2 of 2 (faithful port: the Jiuweihu, 0.35.0; homebrew: the
+Spirit-Ridden, 0.36.0).*
 
 ## Level plan per class (test-mode rule)
 

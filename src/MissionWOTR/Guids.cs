@@ -989,6 +989,29 @@ namespace MissionWOTR
     internal const string JiuweihuArchetype = "560FE869-9610-44A6-98AA-CAAE60B9B28B";
     internal const string JiuweihuStarJewel = "B7B9090C-76D4-4DC8-A57D-253D51EB50F3";
     internal const string JiuweihuTailBlessing = "9E213948-2194-47E3-942C-771FF48EA09A";
+
+    // ----- 0.36.0: The Spirit-Ridden (shaman homebrew: the possessed vessel) -----
+    internal const string SpiritRiddenArchetype = "0D6225D9-668C-49E0-A3C2-2EB01E051CED";
+    internal const string SpiritRiddenSpiritSelection = "B428F666-4F64-437D-B506-81B8284AC142";
+    internal const string SpiritRiddenFormComponent = "ED225F6D-7927-4AF2-BBD1-64CDA14036F9";
+    internal const string SpiritRiddenSaintFeature = "B7855AB5-153B-43F5-B68C-5D1C0CB9810E";
+    internal const string SpiritRiddenSaintAbility = "C3B96B6D-1E46-4DBA-A0BC-AE724FDE06BB";
+    internal const string SpiritRiddenSaintBuff = "4836662E-24CA-4E0D-B380-2706042127A9";
+    internal const string SpiritRiddenWarlordFeature = "7BC63472-B0F3-42F6-A35D-35E8136BCEC9";
+    internal const string SpiritRiddenWarlordAbility = "1A8C0B77-A284-4729-ADBE-E7212372A5E0";
+    internal const string SpiritRiddenWarlordBuff = "837D664C-FDD0-4F6C-803D-4FA333136D82";
+    internal const string SpiritRiddenMasterFeature = "3F0EBD8D-0CEF-4925-BF3C-4BC5C7B70350";
+    internal const string SpiritRiddenMasterAbility = "4D58BA97-097B-4F00-9B29-DC91895DA18F";
+    internal const string SpiritRiddenMasterBuff = "CB135AC5-AB52-42B7-93F4-D95C1DF6060F";
+    internal const string SpiritRiddenCutthroatFeature = "D80F382A-6842-4005-B4C1-BB52AAB7A8F5";
+    internal const string SpiritRiddenCutthroatAbility = "D026EE28-453F-4A89-BD87-9FECAA915FDB";
+    internal const string SpiritRiddenCutthroatBuff = "4A571644-9944-41FC-B8A6-D6D0041CEC07";
+    internal const string SpiritRiddenHunterFeature = "6996052E-65D9-4090-8102-202D42ED75C3";
+    internal const string SpiritRiddenHunterAbility = "472905A5-09B4-4600-A03A-0425158C6680";
+    internal const string SpiritRiddenHunterBuff = "B5E0F18E-1C45-456B-B1AE-CCBDBFEE2AEA";
+    internal const string SpiritRiddenKnightFeature = "9BDDD6E2-0FBB-481D-980F-49120A981F0C";
+    internal const string SpiritRiddenKnightAbility = "AC505ADC-12A1-4861-85B4-D937C7FACE8F";
+    internal const string SpiritRiddenKnightBuff = "07C1A284-A040-4703-8462-7668CF6A1986";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

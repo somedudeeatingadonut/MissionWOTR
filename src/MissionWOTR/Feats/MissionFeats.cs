@@ -101,6 +101,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Chimera), Chimera.Configure);
       Configure(nameof(HedgeWitch), HedgeWitch.Configure);
       Configure(nameof(Jiuweihu), Jiuweihu.Configure);
+      Configure(nameof(SpiritRidden), SpiritRidden.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -184,6 +185,7 @@ namespace MissionWOTR.Feats
       ("Chimera", Guids.ChimeraArchetype, witch),
       ("HedgeWitch", Guids.HedgeWitchArchetype, witch),
       ("Jiuweihu", Guids.JiuweihuArchetype, shaman),
+      ("SpiritRidden", Guids.SpiritRiddenArchetype, shaman),
     };
         foreach (var entry in entries)
         {

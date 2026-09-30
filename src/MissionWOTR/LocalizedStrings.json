@@ -5137,5 +5137,85 @@
     "Key": "JiuweihuTailBlessing.Description",
     "ProcessTemplates": false,
     "enGB": "The ninth tail is the one the myths agree on: it belongs to the spirit, not the fox. Choose one of your Magical Tail spell-like abilities; you can use it one additional time per day. You cannot choose the same tail twice."
+  },
+  {
+    "Key": "SpiritRidden.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Spirit-Ridden"
+  },
+  {
+    "Key": "SpiritRidden.Description",
+    "ProcessTemplates": false,
+    "enGB": "Something else wears her face now. The Spirit-Ridden did not bargain with the spirits - she lost the argument, and they moved in.\nAlmost nothing of the shaman remains: no spells, no hexes, no spirit animal, not even her spirit. In exchange, the heroes of dead ages inhabit her body - and she can let one of them take the reins at will.\nAt 1st, 6th, 12th and 18th level she invites another spirit in (two answer the first call, two more come at 6th, one at 12th, one at 18th). Channeling a spirit is a swift action and lasts until she switches or expels it. While a spirit holds the reins she takes on its role - fighting as a fighter, barbarian, monk, rogue, ranger or paladin of her shaman level minus two (the first two levels suffer no reduction).\nThe spirit also dresses its vessel: while she is wearing NOTHING, the spirit's arms and armor manifest - a level-appropriate enhancement to attack, damage and armor class. Wear anything of your own and the spirit's regalia refuses to appear."
+  },
+  {
+    "Key": "SpiritRiddenSpirits.Name",
+    "ProcessTemplates": false,
+    "enGB": "Inhabiting Spirits"
+  },
+  {
+    "Key": "SpiritRiddenSpirits.Description",
+    "ProcessTemplates": false,
+    "enGB": "Choose a spirit of a dead hero to inhabit the shaman's body. Each spirit is a form she can channel at will as a swift action: while channeled, she fights as that spirit's class at her shaman level minus two (no reduction for the first two levels), and - if her body is bare - the spirit's equipment manifests on her. Only one spirit can hold the reins at a time.\nThe Weapon Saint and the Red Warlord answer a first call; the Barefoot Master and the Cutthroat come at 6th level, the Grey Hunter at 12th, and the First Knight at 18th."
+  },
+  {
+    "Key": "SpiritRiddenSaint.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Weapon Saint"
+  },
+  {
+    "Key": "SpiritRiddenSaint.Description",
+    "ProcessTemplates": false,
+    "enGB": "A swordsman who died mid-perfect-cut and never accepted it. While the Saint holds the reins she fights as a FIGHTER: all armor and shield proficiencies, a fighter's full attack progression, and a growing edge on attack and damage rolls (+1 per four effective levels)."
+  },
+  {
+    "Key": "SpiritRiddenWarlord.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Red Warlord"
+  },
+  {
+    "Key": "SpiritRiddenWarlord.Description",
+    "ProcessTemplates": false,
+    "enGB": "A warlord whose last battle never ended. While the Warlord holds the reins she fights as a BARBARIAN: martial weapons, a barbarian's full attack progression, and the warlord's unquiet fury - Strength and Constitution surge by +2, rising to +4 and +6 as she grows, Will saves rise by +2, and her recklessness costs her 2 points of armor class."
+  },
+  {
+    "Key": "SpiritRiddenMaster.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Barefoot Master"
+  },
+  {
+    "Key": "SpiritRiddenMaster.Description",
+    "ProcessTemplates": false,
+    "enGB": "An ascetic who forgot to stop walking. While the Master holds the reins she fights as a MONK: the monk's weapon arts, a slowly climbing dodge bonus to armor class (+1 per four effective levels), and the Master's impossible stride (+20 feet of speed)."
+  },
+  {
+    "Key": "SpiritRiddenCutthroat.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Cutthroat"
+  },
+  {
+    "Key": "SpiritRiddenCutthroat.Description",
+    "ProcessTemplates": false,
+    "enGB": "A killer whose blade still wants work. While the Cutthroat holds the reins she fights as a ROGUE: the first wound she lands each round runs deeper, dealing an extra 1d6 damage per three effective levels, and her eye for the opening sharpens (+2 initiative)."
+  },
+  {
+    "Key": "SpiritRiddenHunter.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Grey Hunter"
+  },
+  {
+    "Key": "SpiritRiddenHunter.Description",
+    "ProcessTemplates": false,
+    "enGB": "A tracker who follows prey into death itself. While the Hunter holds the reins she fights as a RANGER: martial weapons, a ranger's full attack progression, a growing eye for the kill (+1 attack per four effective levels), and the Hunter's tireless pace (+10 feet of speed)."
+  },
+  {
+    "Key": "SpiritRiddenKnight.Name",
+    "ProcessTemplates": false,
+    "enGB": "The First Knight"
+  },
+  {
+    "Key": "SpiritRiddenKnight.Description",
+    "ProcessTemplates": false,
+    "enGB": "A paladin who fell at the Worldwound's first opening - and simply refused to stop guarding it. While the Knight holds the reins she fights as a PALADIN: heavy armor and shields, a paladin's full attack progression, climbing dodge and resistance bonuses to defense (+1 per four and per three effective levels), and the Knight's fearlessness: immunity to shaken and frightened."
   }
 ]
