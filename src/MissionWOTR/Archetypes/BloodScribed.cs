@@ -1,4 +1,5 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -6,6 +7,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using MissionWOTR.Feats;
 using System;
 using System.Collections.Generic;
@@ -114,7 +116,7 @@ namespace MissionWOTR.Archetypes
           if (level > 0)
           {
             // No stealing fireballs before she could cast one herself.
-            option = option.AddPrerequisiteClassSpellLevel(oracle, level);
+            option = option.AddPrerequisiteClassSpellLevel(oracle, requiredSpellLevel: level);
           }
           optionRefs.Add(option.Configure());
           created++;
