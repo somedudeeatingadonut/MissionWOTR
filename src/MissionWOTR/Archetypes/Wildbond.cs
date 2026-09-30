@@ -435,7 +435,7 @@ namespace MissionWOTR.Archetypes
     {
       foreach (var petRef in master.Pets)
       {
-        var pet = petRef?.Entity;
+        var pet = petRef.Entity;
         if (pet is not null)
         {
           return pet;
@@ -478,7 +478,8 @@ namespace MissionWOTR.Archetypes
       return Wildbond.PetOf(master) is not null ? Species.Other : Species.None;
     }
 
-    private static bool Has(UnitEntityData master, Blueprint<BlueprintFeatureReference> feature)
+    private static bool Has(UnitEntityData master,
+      Blueprint<BlueprintReference<BlueprintFeature>> feature)
     {
       var bp = feature.Reference.Get();
       return bp is not null && master.HasFact(bp);
