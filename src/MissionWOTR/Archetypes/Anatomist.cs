@@ -1,4 +1,7 @@
+using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
@@ -16,7 +19,9 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
@@ -31,48 +36,64 @@ namespace MissionWOTR.Archetypes
   /// third rogue archetype "focused on finding the weak point of an
   /// enemy").
   ///
-  /// The user's three mechanics, verbatim-first:
+  /// The user's three mechanics, verbatim-first (0.32.0 rebalance:
+  /// threshold scaling, lower SR, Risky Maneuver, no Vital Reading):
   /// - WEAK POINT (1st, replaces trapfinding): "if an attack misses
   ///   while needing to get d16 or above to hit, the rogue gets 1+
   ///   to attack, stackable." Implementation: the needed natural
   ///   roll is read straight off the attack event
   ///   (TargetAC - AttackBonus, the dcx PanacheDodge formula
   ///   attack.Roll + attack.AttackBonus >= attack.TargetAC); a miss
-  ///   that needed a 16+ finds a SEAM - a stacking +1 attack bonus
-  ///   against that enemy (a ranked per-enemy mark, the Wildbond
-  ///   mark idiom). The stacks are SELF-LIMITING, elegantly: each
-  ///   seam lowers the roll she needs, and once the needed roll
-  ///   drops below 16, misses stop qualifying. A hard target
-  ///   teaches her until it is no longer hard.
+  ///   that needed the threshold or higher finds a SEAM - a
+  ///   stacking +1 attack bonus against that enemy (a ranked
+  ///   per-enemy mark, the Wildbond mark idiom).
+  ///   THE THRESHOLD SCALES (0.32.0, the user's fix): 16 at 1st
+  ///   level, falling by 1 every three levels, to 10 from 18th
+  ///   (Math.Max(10, 16 - level/3)). The user's insight: a fixed
+  ///   16 makes raising her attack a CON - the better she hits, the
+  ///   rarer 16+ misses become, and Perfect Strike's five seams go
+  ///   unreachable against anything she can hit without a natural
+  ///   20. The falling threshold keeps study in pace with her
+  ///   attack bonus.
+  /// - RISKY MANEUVER (4th, the user's design, 0.32.0): a swift
+  ///   action - she gives herself -6 AC for a round to find an
+  ///   opening: her next attack this round applies a seam to its
+  ///   target REGARDLESS of the roll - hit or miss, no threshold.
+  ///   The guaranteed answer to the attack-investment con: the
+  ///   dice can no longer starve the study (and if she never
+  ///   attacks, the -6 AC was simply the price of hesitation).
   /// - STUDENT OF DEFENSES (8th), both halves of the user's brief:
-  ///   attacking a SPELLCASTER grants her SPELL RESISTANCE (11 +
-  ///   rogue level, the vanilla AddSpellResistance component with a
-  ///   class-level rank config - WithLinearProgression(1, 11)) for
-  ///   one round, renewed by every attack she makes on a caster
-  ///   (Spellbooks detect them - the TTT OppositionResearch
-  ///   enumeration); and attacking an enemy with DAMAGE REDUCTION
-  ///   grants additional damage, +1 per five rogue levels, NOT
-  ///   stackable (a flat rider - the DR read via the vanilla
-  ///   UnitPartDamageReduction, whose existence IS the has-DR
-  ///   check: created on the first reduction, removed when the
-  ///   last goes; the chunk list is not public - documented edge:
-  ///   DR overhauled by other mods may go unread).
+  ///   attacking a SPELLCASTER grants her SPELL RESISTANCE (4 +
+  ///   rogue level, 0.32.0 - the user lowered it from 11 + level;
+  ///   the vanilla AddSpellResistance component with a class-level
+  ///   rank config - WithLinearProgression(1, 4)) for one round,
+  ///   renewed by every attack she makes on a caster (Spellbooks
+  ///   detect them - the TTT OppositionResearch enumeration); and
+  ///   attacking an enemy with DAMAGE REDUCTION grants additional
+  ///   damage, +1 per five rogue levels, NOT stackable (a flat
+  ///   rider - the DR read via the vanilla UnitPartDamageReduction,
+  ///   whose existence IS the has-DR check: created on the first
+  ///   reduction, removed when the last goes; the chunk list is
+  ///   not public - documented edge: DR overhauled by other mods
+  ///   may go unread).
   ///
   /// My additions ("as well as some other effects you can think
   /// of"), the study deepening:
-  /// - LEARN THE SEAMS (12th): every Weak Point stack also adds +1
-  ///   damage against that enemy - the seams show where to press.
+  /// - READ THE TELL (12th, 0.32.0 - replaces Learn the Seams,
+  ///   removed per the user): against enemies carrying her seams
+  ///   she reads the telegraphs - a +2 dodge bonus to AC against
+  ///   every one of them. A defensive study rather than another
+  ///   damage rider.
   /// - PERFECT STRIKE (16th): once per round, a hit against an
   ///   enemy carrying five or more seams is an automatic critical
   ///   (AutoCriticalThreat + AutoCriticalConfirmation, both set
   ///   pre-resolution and only when the roll already shows a hit -
   ///   the PanacheDodge roll-read idiom; a spent strike on a miss
-  ///   is impossible).
-  /// - VITAL READING (20th): the seams are shared - ALLIES gain her
-  ///   Weak Point attack bonus against marked enemies (a rider on
-  ///   the mark itself, target-side, granting +rank to any attacker
-  ///   on her side - the COP SignatureStealthSurprise buff-rider
-  ///   shape).
+  ///   is impossible). The five seams are REACHABLE now: the
+  ///   falling threshold and Risky Maneuver both feed the stack.
+  /// - 20th carries no anatomist feature (Vital Reading removed per
+  ///   the user) - the rogue's own Master Strike remains the
+  ///   capstone.
   ///
   /// The trades: trapfinding (1st) and danger sense (every rank,
   /// 3rd-18th) - the same skill-side price as the Steel Rain, so
@@ -96,10 +117,7 @@ namespace MissionWOTR.Archetypes
         .SetDisplayName("AnatomistSeamsMarkBuff.Name")
         .SetDescription("AnatomistSeamsMarkBuff.Description")
         .SetIcon(AbilityRefs.SeeInvisibility.Reference.Get().Icon)
-        .AddComponent(new AnatomistSeamsShare())
         .Configure();
-      seams.GetComponent<AnatomistSeamsShare>().ShareFeature =
-        BlueprintTool.Get<BlueprintFeature>(Guids.AnatomistVitalReadingFeature);
 
       // ----- The spell-resistance ward (8th, on the caster-strike) -----
       var ward = BuffConfigurator.New("AnatomistWardBuff", Guids.AnatomistWardBuff)
@@ -110,7 +128,7 @@ namespace MissionWOTR.Archetypes
         .AddContextRankConfig(
           ContextRankConfigs.ClassLevel(
             new[] { CharacterClassRefs.RogueClass.ToString() })
-            .WithLinearProgression(1, 11))
+            .WithLinearProgression(1, 4))
         .Configure();
 
       // ----- Weak Point (1st, replaces trapfinding) -----
@@ -120,7 +138,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("AnatomistWeakPoint.Description")
         .SetIcon(AbilityRefs.SeeInvisibility.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddComponent(new AnatomistWeakPoint { Seams = seams })
+        .AddComponent(new AnatomistWeakPoint { Seams = seams, RogueClass = rogue })
         .Configure();
 
       // ----- Student of Defenses (8th) -----
@@ -137,14 +155,49 @@ namespace MissionWOTR.Archetypes
         })
         .Configure();
 
-      // ----- Learn the Seams (12th) -----
-      var learnSeams = FeatureConfigurator.New(
-        "AnatomistLearnSeamsFeature", Guids.AnatomistLearnSeamsFeature)
-        .SetDisplayName("AnatomistLearnSeams.Name")
-        .SetDescription("AnatomistLearnSeams.Description")
+      // ----- Risky Maneuver (4th, the user's design) -----
+      var maneuverBuff = BuffConfigurator.New(
+        "AnatomistRiskyManeuverBuff", Guids.AnatomistRiskyManeuverBuff)
+        .SetDisplayName("AnatomistRiskyManeuverBuff.Name")
+        .SetDescription("AnatomistRiskyManeuverBuff.Description")
+        .SetIcon(AbilityRefs.LeadBlades.Reference.Get().Icon)
+        .AddStatBonus(stat: StatType.AC, value: -6,
+          descriptor: ModifierDescriptor.UntypedStackable)
+        .AddComponent(new AnatomistRiskyManeuver())
+        .Configure();
+      maneuverBuff.GetComponent<AnatomistRiskyManeuver>().Seams = seams;
+      maneuverBuff.GetComponent<AnatomistRiskyManeuver>().SelfBuff = maneuverBuff;
+
+      var maneuver = AbilityConfigurator.New(
+        "AnatomistRiskyManeuverAbility", Guids.AnatomistRiskyManeuverAbility)
+        .SetDisplayName("AnatomistRiskyManeuver.Name")
+        .SetDescription("AnatomistRiskyManeuver.Description")
+        .SetIcon(AbilityRefs.LeadBlades.Reference.Get().Icon)
+        .SetType(AbilityType.Special)
+        .SetRange(AbilityRange.Personal)
+        .SetActionType(UnitCommand.CommandType.Swift)
+        .SetCanTargetSelf()
+        .AddAbilityEffectRunAction(
+          ActionsBuilder.New().ApplyBuff(maneuverBuff, ContextDuration.Fixed(1), toCaster: true))
+        .Configure();
+
+      var riskyManeuver = FeatureConfigurator.New(
+        "AnatomistRiskyManeuverFeature", Guids.AnatomistRiskyManeuverFeature)
+        .SetDisplayName("AnatomistRiskyManeuver.Name")
+        .SetDescription("AnatomistRiskyManeuver.Description")
         .SetIcon(AbilityRefs.LeadBlades.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddComponent(new AnatomistLearnSeams { Seams = seams })
+        .AddFacts(new() { "AnatomistRiskyManeuverAbility" })
+        .Configure();
+
+      // ----- Read the Tell (12th, replaces Learn the Seams) -----
+      var readTheTell = FeatureConfigurator.New(
+        "AnatomistReadTheTellFeature", Guids.AnatomistReadTheTellFeature)
+        .SetDisplayName("AnatomistReadTheTell.Name")
+        .SetDescription("AnatomistReadTheTell.Description")
+        .SetIcon(AbilityRefs.Bless.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddComponent(new AnatomistReadTheTell { Seams = seams })
         .Configure();
 
       // ----- Perfect Strike (16th) -----
@@ -157,25 +210,16 @@ namespace MissionWOTR.Archetypes
         .AddComponent(new AnatomistPerfectStrike { Seams = seams })
         .Configure();
 
-      // ----- Vital Reading (20th) -----
-      var vitalReading = FeatureConfigurator.New(
-        "AnatomistVitalReadingFeature", Guids.AnatomistVitalReadingFeature)
-        .SetDisplayName("AnatomistVitalReading.Name")
-        .SetDescription("AnatomistVitalReading.Description")
-        .SetIcon(AbilityRefs.Foresight.Reference.Get().Icon)
-        .SetIsClassFeature()
-        .Configure();
-
       // ----- The archetype -----
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.AnatomistArchetype, CharacterClassRefs.RogueClass)
           .SetLocalizedName("Anatomist.Name")
           .SetLocalizedDescription("Anatomist.Description")
           .AddToAddFeatures(LevelPlan.L(1), weakPoint)
+          .AddToAddFeatures(LevelPlan.L(4), riskyManeuver)
           .AddToAddFeatures(LevelPlan.L(8), defenses)
-          .AddToAddFeatures(LevelPlan.L(12), learnSeams)
-          .AddToAddFeatures(LevelPlan.L(16), perfectStrike)
-          .AddToAddFeatures(LevelPlan.L(20), vitalReading);
+          .AddToAddFeatures(LevelPlan.L(12), readTheTell)
+          .AddToAddFeatures(LevelPlan.L(16), perfectStrike);
 
       archetype = ArchetypeRemovals.AddRemovals(
         archetype, rogue, FeatureRefs.Trapfinding.ToString());
@@ -201,6 +245,7 @@ namespace MissionWOTR.Archetypes
     IInitiatorRulebookSubscriber, ISubscriber
   {
     public BlueprintBuff Seams;
+    public BlueprintCharacterClass RogueClass;
 
     private int StacksAgainst(UnitEntityData target)
     {
@@ -239,10 +284,14 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        // What natural roll did she need? 16 or above qualifies -
-        // the hard target teaches.
+        // What natural roll did she need? The threshold falls as
+        // she levels (16 at 1st, -1 every three levels, 10 from
+        // 18th - the user's 0.32.0 fix: a fixed 16 makes attack
+        // investment a con, and five seams unreachable).
         int needed = evt.TargetAC - evt.AttackBonus;
-        if (needed < 16)
+        int level = Owner.Progression.GetClassLevel(RogueClass);
+        int threshold = Math.Max(10, 16 - level / 3);
+        if (needed < threshold)
         {
           return;
         }
@@ -339,48 +388,6 @@ namespace MissionWOTR.Archetypes
   }
 
   /// <summary>
-  /// Learn the Seams (12th): every seam also adds +1 damage against
-  /// that enemy - the seams show where to press.
-  /// </summary>
-  [TypeId(Guids.AnatomistLearnSeamsComponent)]
-  internal class AnatomistLearnSeams : UnitFactComponentDelegate,
-    IInitiatorRulebookHandler<RulePrepareDamage>, IRulebookHandler<RulePrepareDamage>,
-    IInitiatorRulebookSubscriber, ISubscriber
-  {
-    public BlueprintBuff Seams;
-
-    public void OnEventAboutToTrigger(RulePrepareDamage evt)
-    {
-      try
-      {
-        if (evt.Initiator != Owner)
-        {
-          return;
-        }
-        var roll = evt.ParentRule?.AttackRoll;
-        if (roll is null)
-        {
-          return;
-        }
-        var mark = roll.Target.Buffs.GetBuff(Seams);
-        int stacks = mark is not null && mark.MaybeContext?.MaybeCaster == Owner
-          ? mark.GetRank()
-          : 0;
-        if (stacks > 0)
-        {
-          evt.Add(new DirectDamage(DiceFormula.Zero, stacks) { SourceFact = Fact });
-        }
-      }
-      catch (Exception e)
-      {
-        MissionFeats.Logger.Error("[anatomist] learn the seams failed.", e);
-      }
-    }
-
-    public void OnEventDidTrigger(RulePrepareDamage evt) { }
-  }
-
-  /// <summary>
   /// Perfect Strike (16th): once per round, a hit against an enemy
   /// carrying five or more seams is an automatic critical. The
   /// flags are set pre-resolution and ONLY when the roll already
@@ -443,18 +450,60 @@ namespace MissionWOTR.Archetypes
   }
 
   /// <summary>
-  /// Vital Reading (20th): the seams are shared. A rider on the
-  /// mark itself - any attacker on the anatomist's side gains her
-  /// stacks as an attack bonus against the marked enemy (the
-  /// target-side buff-rider shape, the COP SignatureStealthSurprise
-  /// precedent). Only while she carries Vital Reading.
+  /// Risky Maneuver's rider, on the -6 AC buff: her next attack
+  /// this round applies a seam to its target REGARDLESS of the
+  /// roll - hit or miss, no threshold (the user's 0.32.0 design:
+  /// "Give yourself -6 ac to find an opening in your opponents
+  /// defenses, giving them a seam"). The buff spends itself when
+  /// the opening is found.
   /// </summary>
-  [TypeId(Guids.AnatomistSeamsShareComponent)]
-  internal class AnatomistSeamsShare : UnitBuffComponentDelegate,
+  [TypeId(Guids.AnatomistRiskyManeuverComponent)]
+  internal class AnatomistRiskyManeuver : UnitBuffComponentDelegate,
+    IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public BlueprintBuff Seams;
+    public BlueprintBuff SelfBuff;
+
+    public void OnEventAboutToTrigger(RuleAttackRoll evt) { }
+
+    public void OnEventDidTrigger(RuleAttackRoll evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner || evt.IsFake)
+        {
+          return;
+        }
+        var mark = evt.Target.Buffs.GetBuff(Seams);
+        int current = mark is not null && mark.MaybeContext?.MaybeCaster == Owner
+          ? mark.GetRank()
+          : 0;
+        Wildbond.ApplyMark(evt.Target, Seams, Fact.MaybeContext, 600, current + 1);
+        if (SelfBuff is not null)
+        {
+          Owner.Buffs.RemoveFact(SelfBuff);
+        }
+        CombatLog.Write("She spends her guard - and finds the opening.", Owner);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[anatomist] risky maneuver failed.", e);
+      }
+    }
+  }
+
+  /// <summary>
+  /// Read the Tell (12th, replaces Learn the Seams - removed per
+  /// the user): against enemies carrying her seams she reads the
+  /// telegraphs - a +2 dodge bonus to AC against every one of them.
+  /// </summary>
+  [TypeId(Guids.AnatomistReadTheTellComponent)]
+  internal class AnatomistReadTheTell : UnitFactComponentDelegate,
     ITargetRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
     ITargetRulebookSubscriber, ISubscriber
   {
-    public BlueprintFeature ShareFeature;
+    public BlueprintBuff Seams;
 
     public void OnEventAboutToTrigger(RuleAttackRoll evt)
     {
@@ -464,30 +513,20 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        var caster = Context?.MaybeCaster;
-        if (caster is null || ShareFeature is null || !caster.HasFact(ShareFeature))
+        var mark = evt.Initiator?.Buffs.GetBuff(Seams);
+        if (mark is null || mark.MaybeContext?.MaybeCaster != Owner)
         {
           return;
         }
-        if (evt.Initiator is null || evt.Initiator == caster ||
-          !evt.Initiator.IsAlly(caster))
-        {
-          return;
-        }
-        evt.AddTemporaryModifier(evt.Initiator.Stats.AdditionalAttackBonus
-          .AddModifier(GetStacks(), Runtime, ModifierDescriptor.Insight));
+        evt.AddTemporaryModifier(Owner.Stats.AC
+          .AddModifier(2, Runtime, ModifierDescriptor.Dodge));
       }
       catch (Exception e)
       {
-        MissionFeats.Logger.Error("[anatomist] vital reading share failed.", e);
+        MissionFeats.Logger.Error("[anatomist] read the tell failed.", e);
       }
     }
 
     public void OnEventDidTrigger(RuleAttackRoll evt) { }
-
-    private int GetStacks()
-    {
-      return Fact.GetRank();
-    }
   }
 }

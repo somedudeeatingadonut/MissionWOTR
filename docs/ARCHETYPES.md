@@ -794,6 +794,32 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.32.0 — the Anatomist rebalance (user feedback)
+
+- **Weak Point now scales** (user: "making weak point scale,
+  reducing from 16 down to 10 at level 18. (as currently getting 5
+  seams is impossible if you can hit the enemy without a natural
+  d20 at all)"): the qualifying natural roll is 16 at 1st level,
+  falling by 1 every three levels, to 10 from 18th (Math.Max(10,
+  16 - level/3)). The user's design insight, honored in the docs: a
+  FIXED 16 makes raising her attack a con - the better she hits,
+  the rarer qualifying misses become. The falling threshold keeps
+  study in pace with aim.
+- **Risky Maneuver added (4th, the user's design):** "Give yourself
+  -6 ac to find an opening in your opponents defenses, giving them
+  a seam." A swift action: -6 AC for 1 round, and her next attack
+  that round applies a seam to its target REGARDLESS of the roll -
+  hit or miss, no threshold. The guaranteed answer to the
+  attack-investment con: the dice can no longer starve the study.
+- **Spell resistance lowered** (user: "4 + rogue level seems
+  fine"): 11 + level → 4 + level (WithLinearProgression(1, 4)).
+- **Learn the Seams removed** (user: "just be removed and replaced
+  with something else entirely") → **Read the Tell (12th)**: a
+  defensive study - against enemies carrying her seams she reads
+  the telegraphs, a +2 dodge bonus to AC against each of them.
+- **Vital Reading removed** (user): 20th carries no anatomist
+  feature; the rogue's Master Strike remains the capstone.
+
 ## 0.31.0 — the Steel Rain rebalance, and the Anatomist (rogue homebrews)
 
 - **Steel Rain rebalance (user):** Ricochet REMOVED (the glance was
@@ -2168,21 +2194,33 @@ covered ten.
 
 | Level | The Anatomist grants | Rogue normally grants |
 |---|---|---|
-| 1 | Weak Point (a miss that needed a natural 16+ teaches a seam: permanent stacking +1 attack vs that enemy, self-limiting) | Trapfinding (removed) |
-| 8 | Student of Defenses (attacking a spellcaster: SR 11 + level for 1 round; damaging a DR enemy: +1 per 5 levels, not stackable) | Danger Sense (removed) |
-| 12 | Learn the Seams (every seam also adds +1 damage vs that enemy) | Danger Sense (removed) |
+| 1 | Weak Point (a miss that needed a high natural roll teaches a seam: permanent stacking +1 attack vs that enemy; the qualifying roll falls 16 → 10 by 18th) | Trapfinding (removed) |
+| 4 | Risky Maneuver (swift: -6 AC for a round; her next attack that round applies a seam - hit or miss, no threshold) | Danger Sense (removed) |
+| 8 | Student of Defenses (attacking a spellcaster: SR 4 + level for 1 round; damaging a DR enemy: +1 per 5 levels, not stackable) | Danger Sense (removed) |
+| 12 | Read the Tell (+2 dodge AC against every enemy carrying her seams) | Danger Sense (removed) |
 | 16 | Perfect Strike (once/round, a hit vs 5+ seams is an automatic critical) | Danger Sense (removed) |
-| 20 | Vital Reading (allies gain her Weak Point attack bonus vs marked enemies) | — |
 | 3–18 | — | Danger Sense (removed at every rank) |
+
+- 0.32.0 rebalance (user): the Weak Point threshold scales (16 at
+  1st, -1 every three levels, 10 from 18th) - a fixed 16 made
+  attack investment a CON (better hit rate = rarer qualifying
+  misses = unreachable five seams); Risky Maneuver (the user's
+  design) guarantees seams at the price of -6 AC for a round; SR
+  lowered to 4 + level; Learn the Seams replaced by Read the Tell
+  (a defensive tell-reading, +2 dodge AC vs seamed enemies); Vital
+  Reading removed (20th is the rogue's own Master Strike).
 
 - The needed-natural-roll is read straight off the attack event
   (TargetAC − AttackBonus — the dcx PanacheDodge formula attack.Roll
   + attack.AttackBonus >= attack.TargetAC); seams ride a ranked
   per-enemy mark (the Wildbond mark idiom), so stacks persist
   through saves.
-- The self-limiting loop is the design: a miss that needed 16+
-  teaches; each seam lowers the needed roll; below 16, misses stop
-  teaching. A hard target educates her until it is no longer hard.
+- The self-limiting loop remains but the floor falls: a miss that
+  needed the threshold teaches; each seam lowers the needed roll;
+  when it drops below the (falling) threshold, misses stop
+  teaching - and Risky Maneuver still finds seams on demand. A hard
+  target educates her until it is no longer hard; a soft one can be
+  baited.
 - SR is the vanilla AddSpellResistance component with a class-level
   rank config (WithLinearProgression(1, 11) → 11 + rogue level);
   casters are detected via their Spellbooks; DR via the vanilla

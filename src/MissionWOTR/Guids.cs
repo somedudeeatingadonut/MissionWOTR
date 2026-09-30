@@ -921,15 +921,17 @@ namespace MissionWOTR
     internal const string AnatomistWeakPointFeature = "0268F9BA-EEDB-44E8-A9FD-AEAF0502B2AF";
     internal const string AnatomistWeakPointComponent = "EAD2C24D-5F7C-480E-A485-306D68462129";
     internal const string AnatomistSeamsMarkBuff = "56B86B43-9217-4ADF-9068-FECDA4745129";
-    internal const string AnatomistSeamsShareComponent = "E92BB195-2723-4E65-88DB-3EB3AE8DB582";
     internal const string AnatomistDefensesFeature = "04279D2C-36FB-4E7C-8500-06162795406E";
     internal const string AnatomistWardBuff = "0F1A9EC0-A655-440B-AF6F-0DD2394B7209";
     internal const string AnatomistDefensesComponent = "EE0B059F-FC07-4DB6-AD08-DC341661B3C4";
-    internal const string AnatomistLearnSeamsFeature = "70864F74-777B-4EE4-88F5-729CB7254A08";
-    internal const string AnatomistLearnSeamsComponent = "AA76473F-CD90-49FE-B934-C430AF1C0332";
     internal const string AnatomistPerfectStrikeFeature = "AD21874A-A163-485B-B982-C3EB96BA188A";
     internal const string AnatomistPerfectStrikeComponent = "85A25174-68A8-47BA-B472-35B530FA5822";
-    internal const string AnatomistVitalReadingFeature = "46166EF8-404A-4CD6-BF45-0BE1C3E17AD2";
+    internal const string AnatomistReadTheTellFeature = "B2A79494-1D24-4FF1-8949-00E8399EF0C9";
+    internal const string AnatomistReadTheTellComponent = "DCF24EB6-7BC0-4279-8C36-8DC1D8736FF1";
+    internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
+    internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
+    internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";
+    internal const string AnatomistRiskyManeuverFeature = "09B56835-A5EC-4543-8B58-71CB8C167910";
 
   }
 }

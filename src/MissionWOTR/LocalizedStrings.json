@@ -4681,7 +4681,7 @@
   },
   {
     "Key": "Anatomist.Description",
-    "enGB": "She does not fight enemies; she studies them - and every failure is a lesson. A miss against an impossibly hard target teaches her a seam in its armor, and she never forgets a seam. Strike a spellcaster and her study wards her from magic; strike an armored thing and she finds the joint. Given time she knows exactly where the knife goes, and at the end, she can show everyone else. This replaces trapfinding and danger sense; sneak attack, evasion, uncanny dodge, rogue talents, debilitating injuries, and master strike are untouched.",
+    "enGB": "She does not fight enemies; she studies them - and every failure is a lesson. A miss against a target she could barely reach teaches her a seam in its armor, and she never forgets a seam; the harder the target, the faster she learns, and what she cannot learn she takes by force - trading her own guard for the opening. Strike a spellcaster and her study wards her from magic; strike an armored thing and she finds the joint. Given time she knows exactly where the knife goes. This replaces trapfinding and danger sense; sneak attack, evasion, uncanny dodge, rogue talents, debilitating injuries, and master strike are untouched.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4695,7 +4695,7 @@
   },
   {
     "Key": "AnatomistWeakPoint.Description",
-    "enGB": "At 1st level, whenever she misses with an attack that needed a natural roll of 16 or higher to hit, she finds a seam: a permanent, stacking +1 bonus on attack rolls against that enemy. The learning is self-limiting - each seam lowers the roll she needs, and once it drops below 16, misses stop teaching. This replaces trapfinding.",
+    "enGB": "At 1st level, whenever she misses with an attack that needed a high natural roll to hit, she finds a seam: a permanent, stacking +1 bonus on attack rolls against that enemy. The qualifying roll falls as she levels - 16 at 1st, dropping by 1 every three levels to 10 at 18th - so her study keeps pace with her sharpening aim. This replaces trapfinding.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4723,7 +4723,7 @@
   },
   {
     "Key": "AnatomistStudentOfDefenses.Description",
-    "enGB": "At 8th level, her study turns to how enemies defend themselves. Whenever she attacks a spellcaster, she gains spell resistance (11 + her rogue level) for 1 round. Whenever she damages an enemy that has damage reduction, she deals +1 additional damage per five rogue levels - the same reading, not stackable.",
+    "enGB": "At 8th level, her study turns to how enemies defend themselves. Whenever she attacks a spellcaster, she gains spell resistance (4 + her rogue level) for 1 round. Whenever she damages an enemy that has damage reduction, she deals +1 additional damage per five rogue levels - the same reading, not stackable.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4737,21 +4737,7 @@
   },
   {
     "Key": "AnatomistWardBuff.Description",
-    "enGB": "Her study of the caster's craft guards her: spell resistance 11 + her rogue level, for as long as she keeps attacking spellcasters.",
-    "deDE": "",
-    "ruRU": "",
-    "frFR": ""
-  },
-  {
-    "Key": "AnatomistLearnSeams.Name",
-    "enGB": "Learn the Seams",
-    "deDE": "",
-    "ruRU": "",
-    "frFR": ""
-  },
-  {
-    "Key": "AnatomistLearnSeams.Description",
-    "enGB": "At 12th level, every seam she has found also adds +1 to her damage rolls against that enemy. The seams show where to press.",
+    "enGB": "Her study of the caster's craft guards her: spell resistance 4 + her rogue level, for as long as she keeps attacking spellcasters.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4771,15 +4757,43 @@
     "frFR": ""
   },
   {
-    "Key": "AnatomistVitalReading.Name",
-    "enGB": "Vital Reading",
+    "Key": "AnatomistRiskyManeuver.Name",
+    "enGB": "Risky Maneuver",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
   },
   {
-    "Key": "AnatomistVitalReading.Description",
-    "enGB": "At 20th level, the seams are shared: all allies gain her Weak Point attack bonus against enemies she has studied. She shows everyone else where the knife goes.",
+    "Key": "AnatomistRiskyManeuver.Description",
+    "enGB": "Swift action: she drops her guard (-6 AC for 1 round) to find an opening - her next attack this round applies a seam to its target whether it hits or misses. No roll needed; the opening is taken, not given. If she does not attack, the guard was simply spent.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "AnatomistRiskyManeuverBuff.Name",
+    "enGB": "Risky Maneuver",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "AnatomistRiskyManeuverBuff.Description",
+    "enGB": "Her guard is spent: -6 AC, and her next attack this round will find a seam whether it lands or not.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "AnatomistReadTheTell.Name",
+    "enGB": "Read the Tell",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "AnatomistReadTheTell.Description",
+    "enGB": "At 12th level, against enemies carrying her seams, she reads the telegraphs before they move: a +2 dodge bonus to AC against every one of them. The longer she has studied a thing, the less it can surprise her.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
