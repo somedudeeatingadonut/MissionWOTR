@@ -3519,5 +3519,105 @@
     "Key": "ChirurgeonSharedMending.Description",
     "ProcessTemplates": false,
     "enGB": "At 17th level, the same use of kinetic healer mends both her target and herself."
+  },
+  {
+    "Key": "Stormcaller.Name",
+    "ProcessTemplates": false,
+    "enGB": "Stormcaller"
+  },
+  {
+    "Key": "Stormcaller.Description",
+    "ProcessTemplates": false,
+    "enGB": "The storm never stops moving, and neither does she. The stormcaller is the wind given a rider: faster than any kineticist, throwing more bolts than any kineticist, each one carrying less of the storm than a full blast - until the storm fully accepts her. Her lightning is true lightning, the kind that does not care what demons are immune to. She trades her elemental defense and every chance at a second element for the sky's single-mindedness."
+  },
+  {
+    "Key": "StormcallerSwiftness.Name",
+    "ProcessTemplates": false,
+    "enGB": "Storm's Swiftness"
+  },
+  {
+    "Key": "StormcallerSwiftness.Description",
+    "ProcessTemplates": false,
+    "enGB": "The wind is always at her back: her land speed increases by 10 feet. She also gains a swift version of every air-family kinetic blast she possesses (air, electric, blizzard, charged water, plasma, sandstorm, thunderstorm) - a free action usable once per round, with each blast's damage dice halved. And her electricity is the storm's own: it ignores electricity immunity and resistance (the ascendant element of the mythic spheres, hers from the first day). This replaces enveloping winds and the expanded element line."
+  },
+  {
+    "Key": "StormcallerTailwind.Name",
+    "ProcessTemplates": false,
+    "enGB": "Tailwind"
+  },
+  {
+    "Key": "StormcallerTailwind.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 5th level, the wind pushes harder: her land speed increases by another 10 feet (20 feet total)."
+  },
+  {
+    "Key": "StormcallerLightningStep.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lightning Step"
+  },
+  {
+    "Key": "StormcallerLightningStep.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 8th level, as a swift action she may blink to the side of any creature within close range - friend or foe - riding the current between one heartbeat and the next. The step carries no attack; it is pure motion."
+  },
+  {
+    "Key": "StormcallerRidingTheCurrent.Name",
+    "ProcessTemplates": false,
+    "enGB": "Riding the Current"
+  },
+  {
+    "Key": "StormcallerRidingTheCurrent.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 12th level, she slips between the wind's moments: she may use her swift blasts twice per round."
+  },
+  {
+    "Key": "StormcallerEyeOfTheStorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Eye of the Storm"
+  },
+  {
+    "Key": "StormcallerEyeOfTheStorm.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 16th level, the storm accepts her completely. Her swift blasts no longer halve their damage dice, and she becomes immune to electricity - the storm does not strike its own."
+  },
+  {
+    "Key": "StormcallerSwiftBlast.Description",
+    "ProcessTemplates": false,
+    "enGB": "A swift version of the kinetic blast: a free action that keeps the blast's full attack roll and typing, with every damage entry's dice halved - more casts, less storm in each. Usable once per round (twice with Riding the Current); the round's charge is spent only when the bolt lands."
+  },
+  {
+    "Key": "StormcallerSwiftAir.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Air Blast"
+  },
+  {
+    "Key": "StormcallerSwiftElectric.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Electric Blast"
+  },
+  {
+    "Key": "StormcallerSwiftBlizzard.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Blizzard Blast"
+  },
+  {
+    "Key": "StormcallerSwiftChargedWater.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Charged Water Blast"
+  },
+  {
+    "Key": "StormcallerSwiftPlasma.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Plasma Blast"
+  },
+  {
+    "Key": "StormcallerSwiftSandstorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Sandstorm Blast"
+  },
+  {
+    "Key": "StormcallerSwiftThunderstorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swift Thunderstorm Blast"
   }
 ]

@@ -88,6 +88,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(KineticistExplosion), KineticistExplosion.Configure);
       Configure(nameof(UnstableKineticist), UnstableKineticist.Configure);
       Configure(nameof(KineticChirurgeon), KineticChirurgeon.Configure);
+      Configure(nameof(Stormcaller), Stormcaller.Configure);
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -151,6 +152,7 @@ namespace MissionWOTR.Feats
       ("Doomsayer", Guids.DoomsayerArchetype, inquisitor),
       ("UnstableKineticist", Guids.UnstableKineticistArchetype, kineticist),
       ("KineticChirurgeon", Guids.KineticChirurgeonArchetype, kineticist),
+      ("Stormcaller", Guids.StormcallerArchetype, kineticist),
     };
         foreach (var entry in entries)
         {

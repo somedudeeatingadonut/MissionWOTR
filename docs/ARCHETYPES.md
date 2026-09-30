@@ -685,6 +685,41 @@ errors suggested:
   CharacterOptions+ (variant menus for dual-output abilities), ToyBox
   (level-up/multiclass patching encyclopedia).
 
+## 0.22.0 — Stormcaller (homebrew air/electric kineticist)
+
+- **Stormcaller** (user concept: an air-damage specialist - "there is
+  already a fire and water specialist" - with immunity override "as per
+  other electric damage sources" and a speed identity: "more casts in
+  exchange for less power"). Coverage-checked first: no air/electric
+  specialist exists in vanilla (Blood Kineticist, Dark Elementalist,
+  Elemental Engine, Kinetic Knight, Kinetic Sharpshooter, Overwhelming
+  Soul, Psychokineticist) or mods (Kinetic Archetypes' Cinder Adept owns
+  fire; DarkCodex's Elemental Scion is any-element generic).
+- **Storm's Swiftness (1st):** +10 ft movement; a SWIFT BLAST for every
+  air-family blast she owns (Air, Electric, Blizzard, Charged Water,
+  Plasma, Sandstorm, Thunderstorm - 7 free-action clones with the full
+  vanilla damage wiring), once per round, all damage dice HALVED; and
+  **Ascendant Element (Electricity)** - the vanilla mythic feature's own
+  component (the one ThunderingRageBuff also carries): her electricity
+  ignores immunity AND resistance, the game's own answer to demon
+  electricity immunity.
+- **Tailwind (5th):** +10 ft more (20 total). **Lightning Step (8th):**
+  swift blink to any creature's side within close range. **Riding the
+  Current (12th):** two swift blasts per round. **Eye of the Storm
+  (16th):** swift blasts no longer halve their dice; vanilla electricity
+  immunity granted.
+- **The trades:** Enveloping Winds (the air defense) and the entire
+  element-expansion line (Secondary AND Greater Elemental Focus - air is
+  all she is).
+- Engine honesty: the swift budget is spent only when a bolt LANDS
+  (RulePrepareDamage fires on the hit - a missed free bolt costs
+  nothing); dice-halving uses the TTT MythicSneakAttack dice-modify
+  pattern; infusions do NOT apply to the swift clones (their wiring
+  lives in the vanilla blast variant system); the budget is a static
+  per-unit registry (CovertMage static-dictionary precedent) read by an
+  IAbilityCasterRestriction (the kinarch pattern) and cleared on feature
+  loss.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1410,6 +1445,22 @@ line-shape surface), Draining and Disintegrating (not yet attempted).
   worst-first.
 - Coverage: the only other unused tabletop kineticist archetype is
   Elemental Annihilator. Checked per docs/COVERAGE.md + docs/NOTES.md.
+
+### Original homebrew — Stormcaller — IMPLEMENTED (0.22.0)
+
+| Level | Stormcaller grants | Kineticist normally grants |
+|---|---|---|
+| 1 | Storm's Swiftness (+10 ft; swift blasts 1/round at half dice; Ascendant Electricity) | Enveloping Winds (removed) |
+| 5 | Tailwind (+10 ft more) | — |
+| 8 | Lightning Step (swift blink, close range) | — |
+| 12 | Riding the Current (2 swift blasts/round) | Secondary Elemental Focus (removed) |
+| 16 | Eye of the Storm (full-dice swift blasts; electricity immunity) | Greater Elemental Focus (removed) |
+
+- Swift blasts: free-action clones of the 7 air-family blasts, gated on
+  owning the base blast; the round's charge is spent only on a hit.
+- Electricity ignores immunity/resistance via the Ascendant Element
+  component itself (the vanilla mythic feature's mechanism, per the
+  user's "as per other electric damage sources").
 
 ## Level plan per class (test-mode rule)
 
