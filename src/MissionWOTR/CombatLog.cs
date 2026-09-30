@@ -29,7 +29,7 @@ namespace MissionWOTR
           {
             GameLogContext.SourceUnit = source;
           }
-          var message = new CombatLogMessage(message,
+          var entry = new CombatLogMessage(message,
             GameLogStrings.Instance.DefaultColor, PrefixIcon.None, null, true);
           // AddMessage is protected on LogThreadBase in this game build
           // (member drift - NineSwords and DarkCodex target builds where
@@ -41,7 +41,7 @@ namespace MissionWOTR
             System.Reflection.BindingFlags.NonPublic |
             System.Reflection.BindingFlags.Instance,
             null, new[] { typeof(CombatLogMessage) }, null);
-          addMessage?.Invoke(thread, new object[] { message });
+          addMessage?.Invoke(thread, new object[] { entry });
         }
       }
       catch (Exception e)
