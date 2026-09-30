@@ -56,8 +56,10 @@ namespace MissionWOTR.Archetypes
   /// - The 9th-level breath-of-life revive and the 6th-level doubled
   ///   internal buffer are skipped: mid-combat revival and the burn
   ///   buffer have no verifiable API surfaces. She keeps internal buffer.
-  /// - The tabletop's burn cost is waived (burn cannot be granted from a
-  ///   verified API); the healer is unlimited-use instead. The mercy list
+  /// - The tabletop's burn cost is waived by design (burn CAN be
+  ///   accepted - UnitPartKineticist.AcceptBurn, verified via the
+  ///   KineticArchetypes mod, see docs/NOTES.md - but the healer ships
+  ///   unlimited-use for reliability). The mercy list
   ///   is adapted to the engine's condition buffs - poisons, diseases and
   ///   curses are not buffs and are not curable by it.
   /// Log prefix: [removals] carries trade diagnostics; [chirurgeon] the rest.

@@ -646,8 +646,9 @@ errors suggested:
     (no aether/wood in WOTR; the healer draws on her, not her element);
     the 9th-level breath-of-life revive and the doubled internal buffer
     skipped (no verifiable APIs - she keeps internal buffer); the burn
-    cost waived (burn cannot be granted from a verified API - the healer
-    is unlimited-use); poisons/diseases/curses are not buffs and are not
+    cost waived by design (burn is grantable - see the burn API in
+    docs/NOTES.md, verified via the KineticArchetypes mod - but the
+    healer ships unlimited-use for reliability); poisons/diseases/curses are not buffs and are not
     in the mercy ladder.
 - **docs/COVERAGE.md filled** (user ask): the full vanilla archetype
   inventory from the game's own 202-entry blueprint list, classified per

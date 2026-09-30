@@ -106,6 +106,89 @@ Construct Crafter Core/Program Command):
   in refs — set via reflection hunt for an int member containing "Burn"
   (logged; fallback = the source's cost, log says so).
 
+
+## Techniques from other mods (surveyed 2026-09-30 — clone, read, steal patterns)
+
+Sources cloned at /tmp (wiped between turns — re-clone on demand):
+kinarch = NosVladimir/KineticArchetypes, nineswords = V0idhead/WOTRNineSwords,
+bb = factubsio/BubbleBuffs, darkcodex = Truinto/DarkCodex, tttc =
+Vek17/TabletopTweaks-Core. Our csproj already references 0Harmony, so even
+the Harmony-patch techniques below are adoptable if ever justified.
+
+### Kinetic Archetypes — the burn API (CORRECTS an old note of ours)
+
+- `unit.Parts.Get<UnitPartKineticist>()` exposes: `.AcceptBurn(cost,
+  AbilityData)`, `.HealBurn(n)`, `.AcceptedBurn`, `.LeftBurn`,
+  `.LeftBurnThisRound`; the burn resource is `kineticistPart.m_Settings.
+  MaxBurn` (EsotericBlade.cs:435, :607; KineticDuelist.cs:565;
+  KineticLancer.cs:788, :1105–1152; OnslaughtBlaster.cs:395).
+- A blast's burn cost: `ability.GetComponent<AbilityKineticist>()
+  .CalculateCost(abilityData)` — no reflection hunt needed.
+- **This DISPROVES our earlier "burn cannot be granted from a verified
+  API" note** (KineticChirurgeon's waiver is now a design choice, not an
+  impossibility — recorded below). Burn-costed custom abilities are
+  possible.
+- Mount-granting recipe (Cinder Adept's horse): PetPart +
+  `PetType.AnimalCompanion` + `FeatureRefs.AnimalCompanionFeatureHorse`
+  + AnimalCompanionRank (CinderAdept.cs:153–212).
+- Blast targeting helpers: `part.Blast.CanTarget(unit)`,
+  `part.Blast.GetApproachDistance(unit)` (OnslaughtBlaster.cs:614).
+- The vanilla kinetic-blade burn abilities exist as refs
+  (`KineticBlade<Blast>BurnAbility` family) — the base for any blade work.
+
+### Nine Swords — defensive hooks, forced misses, resources, combat log
+
+- Target-side hooks (react to attacks AGAINST the owner — ours so far
+  were initiator/global only): `ITargetRulebookHandler<RuleAttackRoll> +
+  ITargetRulebookSubscriber` (Counters/ACIncreaseCounter.cs).
+- Attack-roll surgery: `evt.AutoMiss = true` forces a miss; `evt.Roll`,
+  `evt.TotalBonusValue`, `evt.TargetAC` are all readable — perfect for
+  parry/counter design.
+- Resources as a per-use budget: `Owner.Resources.HasEnoughResource(ref,
+  n)` / `Owner.Resources.Spend(ref, n)` — cleaner than hidden buffs for
+  N-per-rest or N-per-round budgets (their maneuver system runs on it).
+- Player-visible feedback from custom components:
+  `Helpers.WriteCombatLogMessage(msg, GameLogStrings.Instance.DefaultColor,
+  Owner)` — we only log to the mod log today.
+
+### BubbleBuffs — programmatic casting
+
+- `UnitUseAbility.CreateCastCommand(abilityData, target)` drives a unit
+  to cast any ability outside the action bar (AnimatedExecutionEngine.cs:20).
+- Pipeline hooks: `IAbilityExecutionProcessHandler`,
+  `IRulebookEventAboutToTriggerHook` (Handlers/EngineCastingHandler.cs).
+
+### DarkCodex — lookups, spawning, a kineticist GUID index
+
+- `ResourcesLibrary.TryGetBlueprint<T>(guid)` — direct blueprint lookup
+  (alternative to BlueprintTool.Get); BpCache.cs is their caching layer.
+- The pet-grafting recipe: `Game.Instance.EntityCreator.SpawnUnit(bp,
+  pos, rot, owner.HoldingState, null)` (CodexLib/Components/
+  AddUndeadCompanion.cs:145) — the same spawn surface our Construct
+  Crafter uses.
+- CodexLib/Classes/KineticistTree.cs — a hand-built GUID index of the
+  entire vanilla kineticist tree (elements, blasts, talents). Reference
+  material for any kineticist work.
+
+### TabletopTweaks-Core — OwlcatReplacements and custom events
+
+- OwlcatReplacements = reimplemented vanilla components, usable as
+  patterns (or via TTT as a dependency): AddAbilityUseTriggerTTT (run
+  actions on any ability use — the primitive we hand-roll via
+  RuleCastSpell handlers), AddOutgoingDamageTriggerTTT,
+  AddStatBonusIfHasFactTTT, AttackStatReplacementTTT (stat-to-damage
+  swaps), ClassLevelsForPrerequisitesTTT (count class A's levels as
+  class B for prerequisites — the multiclass-gateway trick).
+- NewEvents (IDemoralizeHandler & co.): custom rulebook events raised
+  via Harmony patches — needs a patcher (we have 0Harmony referenced,
+  so the route is open; we have never shipped a patch).
+
+### Technique corrections to our own past claims
+
+- "Burn cannot be granted from a verified API" — WRONG, see the burn API
+  above. The Kinetic Chirurgeon's unlimited-use healer stays as shipped
+  (a design choice now), but future burn-costed designs are on the table.
+
 ## Recipes
 
 - **Clone recipe** (units AND abilities — proven on Construct Crafter units
