@@ -1012,6 +1012,28 @@ namespace MissionWOTR
     internal const string SpiritRiddenKnightFeature = "9BDDD6E2-0FBB-481D-980F-49120A981F0C";
     internal const string SpiritRiddenKnightAbility = "AC505ADC-12A1-4861-85B4-D937C7FACE8F";
     internal const string SpiritRiddenKnightBuff = "07C1A284-A040-4703-8462-7668CF6A1986";
+
+    // ----- 0.37.0: The Spirit-Ridden expansion (four caster spirits) -----
+    internal const string SpiritRiddenAntleredFeature = "C2072500-2E54-4DB1-90B6-4C0DB480BFCC";
+    internal const string SpiritRiddenAntleredAbility = "11438189-21A6-40B2-A55D-DEDC323D9F2C";
+    internal const string SpiritRiddenAntleredBuff = "81FC1D3A-080C-4E23-B3F9-C96B57A126BF";
+    internal const string SpiritRiddenPyreFeature = "DA59539F-FBBB-46C0-A2D2-2F9910B7ECBE";
+    internal const string SpiritRiddenPyreAbility = "17CE5A02-A392-4A94-95E6-95F90FDC1690";
+    internal const string SpiritRiddenPyreBuff = "E165AA50-22D5-4F8C-B5E9-C061CF24C0B4";
+    internal const string SpiritRiddenArchivistFeature = "BB684926-700C-4EE7-8BDC-82EBADC00C96";
+    internal const string SpiritRiddenArchivistAbility = "177F1075-BA20-406B-BE2F-BD72391ABB47";
+    internal const string SpiritRiddenArchivistBuff = "D7CAD656-021F-4F7B-B608-1A8F51A4DA5F";
+    internal const string SpiritRiddenSpellbladeFeature = "F3E6BAA8-19FC-410C-B5EE-37AA87AEB907";
+    internal const string SpiritRiddenSpellbladeAbility = "EC31618C-69FF-4D50-92D2-291F32846A0C";
+    internal const string SpiritRiddenSpellbladeBuff = "20646EA2-5AB8-4372-B48A-657C8211C310";
+    internal const string SpiritRiddenAntleredThornAbility = "B927000A-EA33-4BD0-9C09-1A64EFB4FB60";
+    internal const string SpiritRiddenAntleredMendAbility = "508243B6-6CB4-47C5-A365-BC0006D59923";
+    internal const string SpiritRiddenPyreBoltAbility = "7E7AC2A4-6CC3-4A6D-AE44-C475CB79B236";
+    internal const string SpiritRiddenPyreBurstAbility = "56A05D79-9E68-4EE0-88AB-D568AE8351C7";
+    internal const string SpiritRiddenArchivistDreadAbility = "0E2530F5-216D-4A13-A26A-83170A3FEA48";
+    internal const string SpiritRiddenArchivistMienAbility = "F7A7CF08-683B-4271-BD58-438D2D6554AD";
+    internal const string SpiritRiddenSummonCompanionAction = "535E8193-A289-4CE1-AB74-FE50F9DFDA55";
+    internal const string SpiritRiddenDespawnCompanionAction = "4FA19501-7D8D-44BF-B204-E2AFEC019C8E";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

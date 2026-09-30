@@ -7,12 +7,15 @@ using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -20,6 +23,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
@@ -133,6 +137,74 @@ namespace MissionWOTR.Archetypes
           .AddConditionImmunity(condition: UnitCondition.Shaken)
           .AddConditionImmunity(condition: UnitCondition.Frightened));
 
+      // ----- 0.37.0: the four caster spirits (the user's expansion - -----
+      // non-ranged role choices; NO buffing spirit by the user's design
+      // rule: "an easy free before combat team buffing machine, would be
+      // way too strong").
+      var thorn = SpiritSpell("SpiritRiddenAntleredThorn", Guids.SpiritRiddenAntleredThornAbility,
+        AbilityRefs.Grease, pretendLevel: 1, AbilityRange.Long,
+        a => a.SetCanTargetEnemies()
+          .AddAbilityEffectRunAction(ActionsBuilder.New().DealDamage(
+            DamageTypes.Physical(), DiceByRank(), halfIfSaved: true)));
+      var mend = SpiritSpell("SpiritRiddenAntleredMend", Guids.SpiritRiddenAntleredMendAbility,
+        AbilityRefs.CureLightWounds, pretendLevel: 1, AbilityRange.Close,
+        a => a.SetCanTargetFriends()
+          .AddAbilityEffectRunAction(ActionsBuilder.New().HealTarget(DiceByRank())));
+      var antlered = Spirit(
+        "Antlered", Guids.SpiritRiddenAntleredFeature, Guids.SpiritRiddenAntleredAbility, Guids.SpiritRiddenAntleredBuff,
+        FeatureRefs.MonkWeaponProficiency, minLevel: 6,
+        c => { },
+        b => b
+          .AddFacts(new() { thorn, mend })
+          .AddFactContextActions(deactivated: ActionsBuilder.New().Add(
+            new SpiritRiddenDespawnCompanionAction())),
+        channel => channel.Add(new SpiritRiddenSummonCompanionAction()));
+
+      var bolt = SpiritSpell("SpiritRiddenPyreBolt", Guids.SpiritRiddenPyreBoltAbility,
+        AbilityRefs.ScorchingRay, pretendLevel: 2, AbilityRange.Long,
+        a => a.SetCanTargetEnemies()
+          .AddAbilityEffectRunAction(ActionsBuilder.New().DealDamage(
+            DamageTypes.Energy(DamageEnergyType.Fire), DiceByRank(), halfIfSaved: true)));
+      var burst = SpiritSpell("SpiritRiddenPyreBurst", Guids.SpiritRiddenPyreBurstAbility,
+        AbilityRefs.Fireball, pretendLevel: 3, AbilityRange.Long,
+        a => a.SetCanTargetEnemies()
+          .AddAbilityAoERadius(
+            diameterInCells: 4,
+            targetType: Kingmaker.UnitLogic.Abilities.Components.TargetType.Enemy)
+          .AddAbilityEffectRunAction(ActionsBuilder.New().DealDamage(
+            DamageTypes.Energy(DamageEnergyType.Fire), DiceByRank(), halfIfSaved: true)));
+      var pyre = Spirit(
+        "Pyre", Guids.SpiritRiddenPyreFeature, Guids.SpiritRiddenPyreAbility, Guids.SpiritRiddenPyreBuff,
+        FeatureRefs.RogueProficiencies, minLevel: 6,
+        c => { },
+        b => b.AddFacts(new() { bolt, burst }));
+
+      var dread = SpiritSpell("SpiritRiddenArchivistDread", Guids.SpiritRiddenArchivistDreadAbility,
+        AbilityRefs.CauseFear, pretendLevel: 3, AbilityRange.Long,
+        a => a.SetCanTargetEnemies()
+          .AddAbilityEffectRunAction(ActionsBuilder.New().SavingThrow(
+            SavingThrowType.Will,
+            onResult: ActionsBuilder.New().ApplyBuff(BuffRefs.Frightened, ContextDuration.Fixed(2)))));
+      var mien = SpiritSpell("SpiritRiddenArchivistMien", Guids.SpiritRiddenArchivistMienAbility,
+        AbilityRefs.Fear, pretendLevel: 4, AbilityRange.Long,
+        a => a.SetCanTargetEnemies()
+          .AddAbilityAoERadius(
+            diameterInCells: 6,
+            targetType: Kingmaker.UnitLogic.Abilities.Components.TargetType.Enemy)
+          .AddAbilityEffectRunAction(ActionsBuilder.New().SavingThrow(
+            SavingThrowType.Will,
+            onResult: ActionsBuilder.New().ApplyBuff(BuffRefs.Shaken, ContextDuration.Fixed(2)))));
+      var archivist = Spirit(
+        "Archivist", Guids.SpiritRiddenArchivistFeature, Guids.SpiritRiddenArchivistAbility, Guids.SpiritRiddenArchivistBuff,
+        FeatureRefs.RogueProficiencies, minLevel: 12,
+        c => { },
+        b => b.AddFacts(new() { dread, mien }));
+
+      var spellblade = Spirit(
+        "Spellblade", Guids.SpiritRiddenSpellbladeFeature, Guids.SpiritRiddenSpellbladeAbility, Guids.SpiritRiddenSpellbladeBuff,
+        FeatureRefs.MagusProficiencies, minLevel: 18,
+        c => { c.EnergyRiderPer5 = 1; });
+
       // ----- The selection -----
       var selection = FeatureSelectionConfigurator.New(
         "SpiritRiddenSpiritSelection", Guids.SpiritRiddenSpiritSelection)
@@ -146,7 +218,9 @@ namespace MissionWOTR.Archetypes
         .AddToAllFeatures(
           Guids.SpiritRiddenSaintFeature, Guids.SpiritRiddenWarlordFeature,
           Guids.SpiritRiddenMasterFeature, Guids.SpiritRiddenCutthroatFeature,
-          Guids.SpiritRiddenHunterFeature, Guids.SpiritRiddenKnightFeature)
+          Guids.SpiritRiddenHunterFeature, Guids.SpiritRiddenKnightFeature,
+          Guids.SpiritRiddenAntleredFeature, Guids.SpiritRiddenPyreFeature,
+          Guids.SpiritRiddenArchivistFeature, Guids.SpiritRiddenSpellbladeFeature)
         .Configure();
 
       // ----- The archetype -----
@@ -174,6 +248,63 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// One spirit-taught spell: an at-will spell-like ability with DC
+    /// and caster level from the shaman class + Wisdom (the class
+    /// params component), dice scaling at half the class level
+    /// (rank config, min 1 max 10), and a pretend spell level for
+    /// the DC math. The monster-caster pattern: real spells as
+    /// facts, no spellbook needed - the vessel HAS no spellbook.
+    /// </summary>
+    private static Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility SpiritSpell(
+      string name,
+      string guid,
+      Blueprint<BlueprintAbilityReference> iconSource,
+      int pretendLevel,
+      AbilityRange range,
+      Action<AbilityConfigurator> configure)
+    {
+      var builder = AbilityConfigurator.New(name, guid)
+        .SetDisplayName(name + ".Name")
+        .SetDescription(name + ".Description")
+        .SetIcon(iconSource.Reference.Get().Icon)
+        .SetType(AbilityType.Special)
+        .SetRange(range)
+        .SetActionType(UnitCommand.CommandType.Standard)
+        .AddContextCalculateAbilityParamsBasedOnClass(
+          characterClass: CharacterClassRefs.ShamanClass.Cast<BlueprintCharacterClassReference>(),
+          statType: StatType.Wisdom)
+        .AddPretendSpellLevel(spellLevel: pretendLevel)
+        .AddContextRankConfig(HalfLevelDice());
+      configure(builder);
+      return builder.Configure();
+    }
+
+    /// <summary>Dice that grow with half the shaman class level.</summary>
+    private static ContextRankConfig HalfLevelDice()
+    {
+      return new ContextRankConfig
+      {
+        m_BaseValueType = ContextRankBaseValueType.ClassLevel,
+        m_Progression = ContextRankProgression.Div2,
+        m_UseMin = true,
+        m_Min = 1,
+        m_UseMax = true,
+        m_Max = 10,
+        m_Class = new[] { CharacterClassRefs.ShamanClass.Reference },
+      };
+    }
+
+    private static ContextDiceValue DiceByRank()
+    {
+      return new ContextDiceValue
+      {
+        DiceType = DiceType.D6,
+        DiceCountValue = ContextValues.Rank(),
+        BonusValue = ContextValues.Constant(0),
+      };
+    }
+
+    /// <summary>
     /// One inhabiting spirit: form buff + channel ability + gated
     /// spirit feature. The channel is a swift, at-will, personal
     /// action that removes every OTHER spirit's form buff and applies
@@ -187,7 +318,8 @@ namespace MissionWOTR.Archetypes
       Blueprint<BlueprintReference<BlueprintFeature>> proficiencies,
       int minLevel,
       Action<SpiritRiddenForm> configureForm,
-      Action<BuffConfigurator> buffExtras = null)
+      Action<BuffConfigurator> buffExtras = null,
+      Func<ActionsBuilder, ActionsBuilder> channelExtras = null)
     {
       var prof = proficiencies.Reference.Get();
       var icon = prof.Icon;
@@ -199,6 +331,10 @@ namespace MissionWOTR.Archetypes
         ("Cutthroat", Guids.SpiritRiddenCutthroatBuff),
         ("Hunter", Guids.SpiritRiddenHunterBuff),
         ("Knight", Guids.SpiritRiddenKnightBuff),
+        ("Antlered", Guids.SpiritRiddenAntleredBuff),
+        ("Pyre", Guids.SpiritRiddenPyreBuff),
+        ("Archivist", Guids.SpiritRiddenArchivistBuff),
+        ("Spellblade", Guids.SpiritRiddenSpellbladeBuff),
       };
 
       // The form buff: the class's real proficiencies plus the core
@@ -230,6 +366,10 @@ namespace MissionWOTR.Archetypes
         channel = channel.RemoveBuff(other.BuffGuid, toCaster: true);
       }
       channel = channel.ApplyBuff(buff, ContextDuration.Fixed(100000, DurationRate.Hours), toCaster: true);
+      if (channelExtras != null)
+      {
+        channel = channelExtras(channel);
+      }
       var ability = AbilityConfigurator.New("SpiritRidden" + key + "Ability", abilityGuid)
         .SetDisplayName("SpiritRidden" + key + ".Name")
         .SetDescription("SpiritRidden" + key + ".Description")
@@ -277,6 +417,7 @@ namespace MissionWOTR.Archetypes
   internal class SpiritRiddenForm : UnitFactComponentDelegate,
     Kingmaker.Controllers.Units.ITickEachRound,
     IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
+    IInitiatorRulebookHandler<RulePrepareDamage>, IRulebookHandler<RulePrepareDamage>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
     public BlueprintCharacterClass ShamanClass;
@@ -288,6 +429,8 @@ namespace MissionWOTR.Archetypes
     public bool WarlordSurge;
     public int SpeedFlat;
     public bool SneakRider;
+    public int AttackPer6;
+    public int EnergyRiderPer5;
 
     private readonly List<ModifiableValue.Modifier> m_Added = new();
     private bool m_RiderUsed;
@@ -339,6 +482,7 @@ namespace MissionWOTR.Archetypes
 
         // The signature package.
         Add(Owner.Stats.AdditionalAttackBonus, AttackPer4 * eff / 4, ModifierDescriptor.Competence);
+        Add(Owner.Stats.AdditionalAttackBonus, AttackPer6 * eff / 6, ModifierDescriptor.Competence);
         Add(Owner.Stats.AdditionalDamage, DamagePer4 * eff / 4, ModifierDescriptor.Competence);
         Add(Owner.Stats.AC, AcPer4 * eff / 4, ModifierDescriptor.Dodge);
         int save = SavePer3 * eff / 3;
@@ -413,6 +557,36 @@ namespace MissionWOTR.Archetypes
 
     public void OnEventAboutToTrigger(RuleAttackRoll evt) { }
 
+    public void OnEventAboutToTrigger(RulePrepareDamage evt) { }
+
+    /// <summary>
+    /// The Spellblade's parting fire: every weapon hit carries +1d6
+    /// fire per five effective levels (the SanguineFont kinetic-blade
+    /// rider idiom).
+    /// </summary>
+    public void OnEventDidTrigger(RulePrepareDamage evt)
+    {
+      try
+      {
+        if (EnergyRiderPer5 <= 0 || evt.Initiator != Owner ||
+          evt.DamageBundle?.Weapon is null)
+        {
+          return;
+        }
+        int eff = EffectiveLevel();
+        int dice = Math.Max(1, EnergyRiderPer5 * eff / 5);
+        evt.Add(new EnergyDamage(
+          new DiceFormula(dice, DiceType.D6), 0, DamageEnergyType.Fire)
+        {
+          SourceFact = Fact,
+        });
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[spiritridden] spellblade rider failed.", e);
+      }
+    }
+
     /// <summary>
     /// The Cutthroat's rider: the first wound she lands each round
     /// runs deeper - +1d6 per three effective levels (the
@@ -445,4 +619,164 @@ namespace MissionWOTR.Archetypes
       }
     }
   }
+  /// <summary>
+  /// The Antlered One's wolf: summoned while the spirit holds the
+  /// reins (the user's design: "have it be a summon while the spirit
+  /// is being channeled"). Spawn uses the ConstructCrafter deploy
+  /// recipe - the engine's own ContextActionSpawnMonster, built by
+  /// reflection (raw DLLs: m_Blueprint/m_SummonPool/LevelValue are
+  /// private), with the 0.4.11 lesson applied (CountValue must be
+  /// non-null: zero dice, bonus one). The wolf is linked to the
+  /// caster and AI-controlled, like every engine summon.
+  /// </summary>
+  [TypeId(Guids.SpiritRiddenSummonCompanionAction)]
+  internal class SpiritRiddenSummonCompanionAction : Kingmaker.ElementsSystem.ContextAction
+  {
+    internal const string WolfGuid = "03dd28e92faf2e44eb9564a6ba01fdd0";
+    internal const string StockSummonBuffGuid = "8728e884eeaa8b047be04197ecf1a0e4";
+    internal const string SummonPoolGuid = "d94c93e7240f10e41ae41db4c83d1cbe";
+
+    public override void RunAction()
+    {
+      try
+      {
+        var caster = Context?.MaybeCaster;
+        if (caster is null)
+        {
+          MissionFeats.Logger.Warn("[spiritridden] wolf summon: no caster in context.");
+          return;
+        }
+        // Never two wolves: re-channeling sweeps the old one first.
+        SpiritRiddenCompanionSweep.DespawnAll(caster);
+        var wolf = BlueprintTool.Get<Kingmaker.Blueprints.BlueprintUnit>(WolfGuid);
+        if (wolf is null)
+        {
+          MissionFeats.Logger.Error("[spiritridden] wolf summon: DireWolfSummon blueprint not found.");
+          return;
+        }
+
+        var spawnType = typeof(ContextActionSpawnMonster);
+        const System.Reflection.BindingFlags fieldFlags =
+          System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+          System.Reflection.BindingFlags.Instance;
+        var summonAction = ElementTool.Create<ContextActionSpawnMonster>();
+        spawnType.GetField("m_Blueprint", fieldFlags)?.SetValue(
+          summonAction, wolf.ToReference<Kingmaker.Blueprints.BlueprintUnitReference>());
+        summonAction.CountValue = new ContextDiceValue
+        {
+          DiceType = DiceType.Zero,
+          DiceCountValue = ContextValues.Constant(0),
+          BonusValue = ContextValues.Constant(1),
+        };
+        summonAction.DurationValue = ContextDuration.Fixed(100000);
+        summonAction.DoNotLinkToCaster = false;
+        summonAction.IsDirectlyControllable = false;
+        spawnType.GetField("m_SummonPool", fieldFlags)?.SetValue(
+          summonAction, BlueprintTool.GetRef<Kingmaker.Blueprints.BlueprintSummonPoolReference>(SummonPoolGuid));
+        spawnType.GetField("LevelValue", fieldFlags)?.SetValue(
+          summonAction, ContextValues.Constant(0));
+        summonAction.AfterSpawn = ActionsBuilder.New()
+          .ApplyBuff(
+            BlueprintTool.Get<Kingmaker.Blueprints.BlueprintBuff>(StockSummonBuffGuid),
+            ContextDuration.Fixed(100000))
+          .Build();
+        summonAction.RunAction();
+        MissionFeats.Logger.Info("[spiritridden] the Antlered One's wolf answers.");
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[spiritridden] wolf summon failed.", e);
+      }
+    }
+
+    public override string GetCaption() => "Spirit-Ridden: the Antlered One's wolf";
+  }
+
+  /// <summary>
+  /// The wolf fades: hooked to the Antlered One's form buff DEACTIVE
+  /// date, so the wolf despawns on ANY path away from the form -
+  /// switching spirits, dispelling, whatever removes the buff.
+  /// </summary>
+  [TypeId(Guids.SpiritRiddenDespawnCompanionAction)]
+  internal class SpiritRiddenDespawnCompanionAction : Kingmaker.ElementsSystem.ContextAction
+  {
+    public override void RunAction()
+    {
+      var caster = Context?.MaybeCaster;
+      if (caster is null)
+      {
+        return;
+      }
+      SpiritRiddenCompanionSweep.DespawnAll(caster);
+    }
+
+    public override string GetCaption() => "Spirit-Ridden: the wolf fades";
+  }
+
+  /// <summary>
+  /// The despawn sweep (the ConstructCrafter recipe): find this
+  /// caster's wolves in the game's SummonMonsterPool - the engine's
+  /// registry of live summons, which covers saved and fresh units
+  /// alike - then remove the stock summon buff (how the game itself
+  /// ends summons), hide, and destroy.
+  /// </summary>
+  internal static class SpiritRiddenCompanionSweep
+  {
+    internal static void DespawnAll(UnitEntityData caster)
+    {
+      try
+      {
+        var pool = Game.Instance.SummonPools.GetPool(
+          BlueprintTool.Get<Kingmaker.Blueprints.BlueprintSummonPool>(
+            SpiritRiddenSummonCompanionAction.SummonPoolGuid));
+        if (pool is null)
+        {
+          return;
+        }
+        var wolfName = BlueprintTool.Get<Kingmaker.Blueprints.BlueprintUnit>(
+          SpiritRiddenSummonCompanionAction.WolfGuid)?.name;
+        foreach (var old in pool.Units.ToList())
+        {
+          if (old is null || old.Blueprint is null ||
+            !string.Equals(old.Blueprint.name, wolfName, StringComparison.OrdinalIgnoreCase))
+          {
+            continue;
+          }
+          var summoner = old
+            .Get<Kingmaker.UnitLogic.Parts.UnitPartSummonedMonster>()?.Summoner;
+          if (summoner is null || summoner.UniqueId != caster.UniqueId)
+          {
+            continue;
+          }
+          MissionFeats.Logger.Info(
+            $"[spiritridden] the wolf (uid={old.UniqueId}) fades with the spirit.");
+          try
+          {
+            old.Buffs.RemoveFact(
+              Game.Instance.BlueprintRoot.SystemMechanics.SummonedUnitBuff);
+          }
+          catch (Exception buffEx)
+          {
+            MissionFeats.Logger.Warn(
+              $"[spiritridden] wolf summon-buff removal failed: {buffEx.Message}");
+          }
+          old.IsInGame = false;
+          try
+          {
+            old.MarkForDestroy();
+          }
+          catch (Exception destroyEx)
+          {
+            MissionFeats.Logger.Warn(
+              $"[spiritridden] wolf destroy failed: {destroyEx.Message}");
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[spiritridden] wolf sweep failed.", e);
+      }
+    }
+  }
+
 }

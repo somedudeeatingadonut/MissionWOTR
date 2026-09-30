@@ -5217,5 +5217,105 @@
     "Key": "SpiritRiddenKnight.Description",
     "ProcessTemplates": false,
     "enGB": "A paladin who fell at the Worldwound's first opening - and simply refused to stop guarding it. While the Knight holds the reins she fights as a PALADIN: heavy armor and shields, a paladin's full attack progression, climbing dodge and resistance bonuses to defense (+1 per four and per three effective levels), and the Knight's fearlessness: immunity to shaken and frightened."
+  },
+  {
+    "Key": "SpiritRiddenAntlered.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Antlered One"
+  },
+  {
+    "Key": "SpiritRiddenAntlered.Description",
+    "ProcessTemplates": false,
+    "enGB": "A druid of the old forests who poured herself into the roots rather than let her grove burn - and never fully died. While the Antlered One holds the reins, a dire wolf of the old forest answers her call: it appears beside the vessel and fights for as long as the spirit stays, fading the moment she withdraws. The vessel keeps the druid's lesser arts: the Thorn Lash and the Mend."
+  },
+  {
+    "Key": "SpiritRiddenAntleredThorn.Name",
+    "ProcessTemplates": false,
+    "enGB": "Thorn Lash"
+  },
+  {
+    "Key": "SpiritRiddenAntleredThorn.Description",
+    "ProcessTemplates": false,
+    "enGB": "A whip of living thorns rakes a single target: 1d6 piercing damage per two shaman levels (maximum 10d6). Reflex halves."
+  },
+  {
+    "Key": "SpiritRiddenAntleredMend.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mend"
+  },
+  {
+    "Key": "SpiritRiddenAntleredMend.Description",
+    "ProcessTemplates": false,
+    "enGB": "Roots and sap knit torn flesh: heals the target 1d6 damage per two shaman levels (maximum 10d6)."
+  },
+  {
+    "Key": "SpiritRiddenPyre.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Pyre Empress"
+  },
+  {
+    "Key": "SpiritRiddenPyre.Description",
+    "ProcessTemplates": false,
+    "enGB": "A sorceress who chose to burn rather than surrender her city, and whose fire never went out. While the Pyre Empress holds the reins, the vessel wields her fire - the Cinder Bolt and the Pyre Burst - as often as she can bear to raise her hand."
+  },
+  {
+    "Key": "SpiritRiddenPyreBolt.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cinder Bolt"
+  },
+  {
+    "Key": "SpiritRiddenPyreBolt.Description",
+    "ProcessTemplates": false,
+    "enGB": "A lance of the Empress's fire strikes a single target: 1d6 fire damage per two shaman levels (maximum 10d6). Reflex halves."
+  },
+  {
+    "Key": "SpiritRiddenPyreBurst.Name",
+    "ProcessTemplates": false,
+    "enGB": "Pyre Burst"
+  },
+  {
+    "Key": "SpiritRiddenPyreBurst.Description",
+    "ProcessTemplates": false,
+    "enGB": "The fire that took her city, briefly relit: a 20-foot burst of flame dealing 1d6 fire damage per two shaman levels (maximum 10d6) to enemies in the area. Reflex halves."
+  },
+  {
+    "Key": "SpiritRiddenArchivist.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Pale Archivist"
+  },
+  {
+    "Key": "SpiritRiddenArchivist.Description",
+    "ProcessTemplates": false,
+    "enGB": "A wizard who catalogued every death in the Worldwound, and read the ledger so often that the fears learned to read back. While the Pale Archivist holds the reins, the vessel speaks her indices of dread. (She teaches no wards and no blessings - a spirit that lent its strength before a battle would be worth more than the vessel herself, so the ledger holds only fears.)"
+  },
+  {
+    "Key": "SpiritRiddenArchivistDread.Name",
+    "ProcessTemplates": false,
+    "enGB": "Withering Dread"
+  },
+  {
+    "Key": "SpiritRiddenArchivistDread.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Archivist reads a single target its own entry: Will save or become frightened for 2 rounds."
+  },
+  {
+    "Key": "SpiritRiddenArchivistMien.Name",
+    "ProcessTemplates": false,
+    "enGB": "Terror Mien"
+  },
+  {
+    "Key": "SpiritRiddenArchivistMien.Description",
+    "ProcessTemplates": false,
+    "enGB": "The ledger falls open and the page stares back: enemies within 30 feet must pass a Will save or be shaken for 2 rounds."
+  },
+  {
+    "Key": "SpiritRiddenSpellblade.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Spellblade"
+  },
+  {
+    "Key": "SpiritRiddenSpellblade.Description",
+    "ProcessTemplates": false,
+    "enGB": "A duelist who fused sword and spell so thoroughly that neither survived her apart. While the Spellblade holds the reins, the vessel fights with the magus's weapon arts, and every weapon strike carries her parting fire: +1d6 fire damage per five effective levels."
   }
 ]

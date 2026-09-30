@@ -794,6 +794,57 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.37.0 — the Spirit-Ridden expansion: four caster spirits (user design)
+
+- **The user's brief:** "The point of this class would be flexibility
+  at the cost of power, so it needs a few more non-ranged choices, a
+  druid-like that focuses on an animal companion (have it be a summon
+  while the spirit is being channeled) with okay casting, and a
+  sorcerer with good casting for damage, a wizard-like (cant prepare
+  spells so mostly just flavor) for debuffing and status (like fear)
+  (no buffing spirit as its an easy free before combat team buffing
+  machine, would be way too strong), as well as a gish of some kind."
+- **Four new spirits** (unlock spread 6/6/12/18, joining the six
+  martials — ten forms total):
+  - **The Antlered One (druid-like, 6th):** while channeled, a dire
+    wolf of the old forest is SUMMONED beside the vessel — the
+    user's exact rule: it is a summon while the spirit is channeled.
+    Spawn uses the ConstructCrafter deploy recipe (the engine's own
+    ContextActionSpawnMonster via reflection, SummonMonsterPool
+    registration, AI-controlled like every engine summon); the
+    wolf's despawn is hooked to the form buff's DEACTIVATE, so it
+    fades on any path away from the form — switching spirits,
+    dispel, anything. "Okay casting": Thorn Lash (1d6/2 levels
+    piercing, Reflex half) and Mend (heal 1d6/2 levels).
+  - **The Pyre Empress (sorcerer, 6th):** "good casting for damage"
+    — Cinder Bolt (single target, 1d6 fire per 2 levels, max 10d6,
+    Reflex half) and Pyre Burst (20-foot burst, same dice). At-will
+    spell-like abilities, standard actions.
+  - **The Pale Archivist (wizard-like, 12th):** debuff and status —
+    Withering Dread (Will save or FRIGHTENED 2 rounds) and Terror
+    Mien (30 feet, Will save or SHAKEN 2 rounds), using the vanilla
+    fear buffs (the Doomsayer-proven refs). **No buffing spirit, by
+    the user's design rule** — a free pre-combat team-buffing
+    machine would be "way too strong"; the Archivist's own text
+    says so in-world.
+  - **The Spellblade (gish, 18th):** the magus's weapon arts
+    (MagusProficiencies) plus her parting fire: every weapon hit
+    carries +1d6 fire per five effective levels (the SanguineFont
+    kinetic-blade rider idiom, RulePrepareDamage).
+- **The casting engine (shared):** the vessel has no spellbook, so
+  spirit spells are the monster-caster pattern — real abilities
+  granted as facts on the form buff (they appear when channeled,
+  vanish on switch). DC and caster level come from
+  ContextCalculateAbilityParamsBasedOnClass (shaman level +
+  Wisdom) with a pretend spell level for the DC math; dice scale at
+  half the class level (rank config, min 1 max 10). Documented
+  simplification: casting scales with the FULL shaman level (the
+  −2 tax applies to the martial role); at-will-but-subpar is the
+  flexibility-not-power bargain.
+- **Channel exclusivity extended to all ten forms**; the Antlered
+  One's channel also despawns any existing wolf before summoning
+  (never two).
+
 ## 0.36.0 — the Spirit-Ridden (shaman homebrew: the possessed vessel)
 
 - **The user's brief:** "someone actually being taken over by
@@ -2558,9 +2609,10 @@ reins at will.
 | Level | Feature | Effect |
 | --- | --- | --- |
 | 1 | Inhabiting Spirits | (replaces the spirit; the spellbook, all hexes and the spirit animal are all removed too) Choose a spirit to inhabit her: two answer at 1st — the Weapon Saint (fighter) and the Red Warlord (barbarian). Each is a form she can channel at will as a swift action, fighting as that class at shaman level − 2 (no reduction at 1st–2nd). |
-| 6 | Inhabiting Spirits | The Barefoot Master (monk) and the Cutthroat (rogue) unlock. |
-| 12 | Inhabiting Spirits | The Grey Hunter (ranger) unlocks. |
-| 18 | Inhabiting Spirits | The First Knight (paladin) unlocks. |
+| 6 | Inhabiting Spirits | The Barefoot Master (monk), the Cutthroat (rogue), the Antlered One (druid-like) and the Pyre Empress (sorcerer) unlock. |
+| 12 | Inhabiting Spirits | The Grey Hunter (ranger) and the Pale Archivist (wizard-like) unlock. |
+| 18 | Inhabiting Spirits | The First Knight (paladin) and the Spellblade (gish) unlock. |
+| any | The caster spirits | The Antlered One summons a dire wolf while channeled (it fades when the form leaves) and teaches Thorn Lash + Mend; the Pyre Empress teaches Cinder Bolt + Pyre Burst (1d6 fire per 2 levels, max 10d6, Reflex half); the Pale Archivist teaches Withering Dread (Will or frightened) + Terror Mien (30 ft, Will or shaken); the Spellblade adds +1d6 fire per 5 effective levels to every weapon hit. No buffing spirit, by design. |
 | any | Spirit Equipment | While channeled and wearing NOTHING (every slot empty), the spirit's regalia manifests: enhancement to attack, damage and AC of 1 + (eff−1)/4 — +1 at effective 1st–4th, up to +5 at 17th+. Re-checked every tick. |
 
 The six signatures: the Saint's edge (+1 attack/damage per 4 effective), the Warlord's
