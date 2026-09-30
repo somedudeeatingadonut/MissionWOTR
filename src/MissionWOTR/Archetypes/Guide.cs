@@ -130,7 +130,12 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetEnemies()
         .AddAbilityResourceLogic(requiredResource: focusResource, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().ApplyBuffPermanentFixed(markBuff, isNotDispelable: true))
+          // A 60-minute mark rather than a permanent one: our bpcore
+          // build has no ApplyBuffPermanentFixed, and an hour covers
+          // any fight - a fresh focus re-marks anyway (the old mark
+          // is cleared by the swap logic on application).
+          ActionsBuilder.New().ApplyBuff(
+            markBuff, ContextDuration.Fixed(60, DurationRate.Minutes)))
         .Configure();
 
       var focusFeature = FeatureConfigurator.New(
@@ -297,7 +302,7 @@ namespace MissionWOTR.Archetypes
         FeatureRefs.ImprovedQuarry.ToString());
 
       archetype.Configure();
-      MissionFeats.Logger.Log($"[guide] configured: {ArchetypeName}.");
+      MissionFeats.Logger.Info("[guide] configured: " + ArchetypeName + ".");
     }
   }
 
@@ -315,7 +320,7 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        var caster = Fact.MaybeContext?.Caster;
+        var caster = Fact.MaybeContext?.MaybeCaster;
         if (caster is null || MarkBuff is null)
         {
           return;
@@ -327,7 +332,7 @@ namespace MissionWOTR.Archetypes
             continue;
           }
           var existing = unit.Buffs.GetBuff(MarkBuff);
-          if (existing is not null && existing.MaybeContext?.Caster == caster)
+          if (existing is not null && existing.MaybeContext?.MaybeCaster == caster)
           {
             unit.Buffs.RemoveFact(MarkBuff);
           }
@@ -360,7 +365,7 @@ namespace MissionWOTR.Archetypes
     private bool IsFocus(UnitEntityData target)
     {
       var mark = target.Buffs.GetBuff(MarkBuff);
-      return mark is not null && mark.MaybeContext?.Caster == Owner;
+      return mark is not null && mark.MaybeContext?.MaybeCaster == Owner;
     }
 
     private int Bonus =>
@@ -504,7 +509,7 @@ namespace MissionWOTR.Archetypes
           evt.AddTemporaryModifier(evt.Initiator.Stats.AdditionalAttackBonus
             .AddModifier(4, Runtime, ModifierDescriptor.Luck));
         }
-        evt.Reroll(Fact, true);
+        evt.D20.Reroll(Fact, true);
         CombatLog.Write("The guide refuses the miss - the die rolls again.", Owner);
       }
       catch (Exception e)

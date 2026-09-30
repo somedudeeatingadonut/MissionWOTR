@@ -312,7 +312,7 @@ namespace MissionWOTR.Archetypes
         {
           archetype = archetype.AddToRemoveFeatures(match.Level, match.Feature);
         }
-        MissionWOTR.Main.Logger.Log(
+        MissionWOTR.Main.Logger.Info(
           $"[removals] {featureName} removed at {matches.Count} level(s) of {clazz.name}.");
       }
       return archetype;
