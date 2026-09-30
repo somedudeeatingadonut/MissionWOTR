@@ -828,5 +828,34 @@ namespace MissionWOTR
     internal const string SacredVowIntercedeAction = "1638771C-5E33-4A49-AED3-A48DFC128661";
     internal const string SacredVowCleanupComponent = "843E4903-11EB-4B52-902F-878A2F3ADB4B";
 
+    // ----- The Guide (ranger, 0.27.0) -----
+    internal const string GuideArchetype = "344CAA6D-A047-4B45-8036-D925EA6B22C3";
+    internal const string GuideFocusMarkBuff = "C2B1384C-E080-41AA-A002-FA54E8F46EA3";
+    internal const string GuideFocusAbility = "461346D4-7CE7-4D03-8C2D-29D872C8A897";
+    internal const string GuideFocusResource = "757A9B2F-BF60-406B-AC87-993A057C9995";
+    internal const string GuideFocusFeature = "34D0DE02-61E8-4D18-AE7F-2E9AF6E26477";
+    internal const string GuideTerrainBondBuff = "B58A778F-1893-4828-8D26-D7241C25E614";
+    internal const string GuideTerrainBondFeature = "EB1786F8-8C53-43A9-A141-C58589F90149";
+    internal const string GuideLuckResource = "7DACF61E-7EF4-47FD-8256-29B36C6A094B";
+    internal const string GuideLuckBuff = "A4CFB556-7F16-4EB2-BD3B-2415BCB59352";
+    internal const string GuideLuckAbility = "7B688EC7-DBFC-4C56-94DD-49D4C3B387BC";
+    internal const string GuideLuckFeature = "42C55AE0-DCC6-4B34-AAF2-B61767267BDB";
+    internal const string GuideInspiredResource = "A189557A-64D3-402F-8819-38B559C27BC6";
+    internal const string GuideInspiredBuff = "5ED51B3B-F082-48BF-AF1C-06A974335C3B";
+    internal const string GuideInspiredAbility = "01DC2E85-004F-49F3-9A09-3F87DE8CC45B";
+    internal const string GuideInspiredFeature = "43602B36-06F6-4530-8EF1-7297AA084AA4";
+    internal const string GuideImprovedLuckFeature = "77466540-C771-4CA0-94D2-8956AB4564D1";
+    internal const string GuideFocusMarkComponent = "83A3E2EA-57EC-4E69-B42C-5C24AC3BD0AB";
+    internal const string GuideFocusBonusComponent = "585D2F22-E603-4308-95A3-2A25F102D12E";
+    internal const string GuideTerrainAuraComponent = "184F9554-6E86-455A-BDD3-75911B811F2E";
+    internal const string GuideLuckRerollComponent = "28130D62-5C41-4C98-9599-C8E990985084";
+    internal const string GuideInspiredCritComponent = "092B1979-82AA-4C9D-B0A1-DB167FEC82CE";
+
+    // ----- Fortune's Fool whimsy DR tiers (0.27.0) -----
+    internal const string FortunesFoolWhimsyBuff2 = "902FDFFC-7FC5-437A-AD38-3D6DAF1B9D13";
+    internal const string FortunesFoolWhimsyBuff3 = "26046121-07BE-4E5B-A302-18F1AA24B776";
+    internal const string FortunesFoolWhimsyBuff4 = "B4A27D6E-A4D5-46FC-8699-35369DB82944";
+    internal const string FortunesFoolWhimsyAuraComponent = "77879F20-AB92-4C8F-A72B-4D8862FDB481";
+
   }
 }

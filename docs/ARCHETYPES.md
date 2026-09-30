@@ -794,6 +794,42 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.27.0 — the ranger: the Guide, and the whimsy tier (user feedback)
+
+- **Aura of Whimsy now scales** (user: "5 dr is too much for level 8,
+  have it start at 2 and go up every 3 levels until it reaches 5 and
+  stops"): allies' DR is 2 at 8th level, 3 at 11th, 4 at 14th, and 5
+  at 17th, where it stops. Four tier buffs; the aura applies the one
+  matching her level and swaps out a retired tier on the next tick
+  after she levels.
+- **The Guide (tabletop port — APG pg. 125)** — the ranger coverage
+  check, CORRECTED: vanilla WOTR ships SEVEN ranger archetypes
+  (Flamewarden, Freebooter, Stormwalker, Demonslayer, Espionage
+  Expert, Nomad, Sable Company Marine — the user caught an earlier
+  four-name count, a grep that only matched names containing
+  "ranger"). TTT/COP/DarkCodex add none. The Guide was unclaimed.
+  - Ranger's Focus (1st, replaces favored enemy AT ALL FIVE RANKS -
+    the new AddRemovalsAtAllLevels helper): swift-action mark, +2
+    attack/damage vs the focus, +2 more every five levels; 1/day,
+    +1 per three levels after 1st; a new mark clears the old one.
+  - Terrain Bond (4th, replaces hunter's bond): +2 initiative,
+    Perception, Stealth, Lore (Nature) for the party within 30 ft.
+    Documented cuts: the favored-terrain condition (no inspectable
+    current-terrain API) and leave-no-trail (no tracking system).
+  - Ranger's Luck (9th, replaces evasion): swift action - the next
+    miss is rerolled (RuleRollD20.Reroll, the Azata FavorableMagic
+    idiom); only misses are rerolled, so take-best and take-second
+    are indistinguishable - documented. Cut: the defensive
+    enemy-reroll mode (no interrupt-reaction API).
+  - Improved Ranger's Luck (16th, replaces improved evasion): the
+    reroll carries +4 luck.
+  - Inspired Moment (11th, replaces quarry + improved quarry): free
+    action, 1 round: +10 speed, +4 AC, +4 attacks, auto-confirm all
+    critical threats (AutoCriticalConfirmation, the TTT
+    CritAutoconfirmAgainstClass idiom). Cuts: the extra move/swift
+    action and the skill/ability-check bonus (no engine support).
+  - Master Hunter (20th) remains.
+
 ## 0.26.0 — Fortune's Fool rebalance (user feedback)
 
 - **Aura of Whimsy is tamed** (user: "whimsy is too strong, make it
@@ -1773,7 +1809,7 @@ Wrath adaptations (engine gaps, documented in the code header):
 |---|---|---|
 | 1 | Fate's Wager (natural 1-4: the attack scatters; natural 17+: extra 1d6/2 levels; +Cha luck vs fear, NOT immunity; weapon damage counts as chaotic); chaotic alignment required INSTEAD of lawful good | — |
 | 3 | Aura of the Open Road (allies within 10 ft: +1 luck on attacks) | Aura of Courage (removed) |
-| 8 | Aura of Whimsy (allies within 10 ft: DR 5/-) | Aura of Resolve (removed) |
+| 8 | Aura of Whimsy (allies within 10 ft: DR 2 at 8th, 3 at 11th, 4 at 14th, 5 at 17th - and it stops there) | Aura of Resolve (removed) |
 | 11 | Aura of the Wandering Star (allies: natural 17+ hits deal +2d6, once per ally until her next turn) | Aura of Justice (removed) |
 | 14 | Aura of Fortune's Favor (allies: +2 luck on all saves) | Aura of Faith (removed) |
 | 17 | Aura of the Laughing Fool (her companions carry Fate's Wager itself) | Aura of Righteousness (removed) |
@@ -1803,6 +1839,57 @@ Wrath adaptations (engine gaps, documented in the code header):
   convention).
 - Divine grace, spells and the divine bond are untouched - chance did
   not ask for them back.
+
+## Ranger
+
+### Faithful port — The Guide (Advanced Player's Guide) — IMPLEMENTED (0.27.0)
+
+| Level | The Guide grants | Ranger normally grants |
+|---|---|---|
+| 1 | Ranger's Focus (swift-action mark: +2 attack and damage vs the focus, +2 more every five levels; 1/day, +1 per three levels after 1st; a new mark clears the old) | Favored Enemy, ALL FIVE RANKS (removed at 1/5/10/15/20) |
+| 4 | Terrain Bond (party within 30 ft: +2 initiative, Perception, Stealth, Lore (Nature)) | Hunter's Bond (removed) |
+| 9 | Ranger's Luck (swift: the next missed attack is rerolled; 1/day, +1 at 14th and 19th) | Evasion (removed) |
+| 11 | Inspired Moment (free action, 1 round: +10 speed, +4 AC, +4 attacks, auto-confirm every critical threat; 1/day, twice at 19th) | Quarry (removed) |
+| 16 | Improved Ranger's Luck (the reroll carries +4 luck) | Improved Evasion (removed) |
+| 19 | (second use of Inspired Moment) | Improved Quarry (removed) |
+| 20 | Master Hunter — kept, not replaced | — |
+
+- Coverage (corrected by the user, 0.27.0): vanilla WOTR ships SEVEN
+  ranger archetypes — Flamewarden, Freebooter, Stormwalker,
+  Demonslayer, Espionage Expert, Nomad, Sable Company Marine. The
+  original check grepped archetype names for "ranger" and found only
+  four; the WOTR-originals (Espionage Expert, Nomad, Sable Company
+  Marine) carry no "ranger" in their names. TTT/COP/DarkCodex add
+  none. The Guide (APG pg. 125) was unclaimed.
+- Ranger's Focus removes favored enemy at every rank via the new
+  AddRemovalsAtAllLevels helper (ArchetypeRemovals) — a single-level
+  removal would have left the 5th/10th/15th/20th-rank grants alive.
+  The mark is a permanent buff cleared by the next mark of the same
+  ranger (a State.Units scan comparing buff casters); the bonus rides
+  a temporary AdditionalAttackBonus modifier (the FoolFearless
+  pattern) plus flat DirectDamage (DiceFormula.Zero, the TTT
+  DamageRetribution idiom).
+- Ranger's Luck rerolls only MISSES, so the Reroll(Fact, bool) flag's
+  take-best/take-second ambiguity is harmless — documented, not
+  faked. The buff is removed BEFORE the reroll so a synchronous
+  re-trigger cannot recurse.
+- Documented cuts (Terrain Bond): the favored-terrain condition (no
+  inspectable current-terrain API in any reference — the bond is
+  always on) and leave-no-trail (WOTR has no tracking). Survival →
+  Lore (Nature), the WOTR wilderness skill — an adaptation, not a
+  cut. "Line of sight and hearing" → 30 feet.
+- Documented cuts (Ranger's Luck): the defensive mode — forcing an
+  enemy's just-landed attack to reroll — needs an interrupt-reaction
+  the engine does not generically expose.
+- Documented cuts (Inspired Moment): the extra move/swift action (no
+  generic extra-action API) and the +4 on skill and ability checks
+  (no all-skills stat). Auto-confirm rides evt
+  .AutoCriticalConfirmation (the TTT CritAutoconfirmAgainstClass
+  idiom, minus the flanking condition).
+- Homebrew contrast, deliberate: vanilla already HAS the companion
+  archetypes (Nomad's horse, Sable Company's hippogriff), and the
+  Guide is the ranger who walks alone — the stage for a genuinely
+  strange companion homebrew is clear.
 
 ## Level plan per class (test-mode rule)
 

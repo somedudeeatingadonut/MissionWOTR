@@ -3893,7 +3893,7 @@
   {
     "Key": "FortunesFoolWhimsy.Description",
     "ProcessTemplates": false,
-    "enGB": "Allies within 10 feet (herself included) gain damage reduction 5 - no weapon, no magic, no material pierces it; only damage in excess of it. This replaces aura of resolve."
+    "enGB": "Allies within 10 feet (herself included) gain damage reduction that grows with her: 2 at 8th level, 3 at 11th, 4 at 14th, and 5 at 17th, where it stops. No weapon, no magic, no material pierces it; only damage in excess of it. This replaces aura of resolve."
   },
   {
     "Key": "FortunesFoolWhimsyBuff.Name",
@@ -3903,7 +3903,7 @@
   {
     "Key": "FortunesFoolWhimsyBuff.Description",
     "ProcessTemplates": false,
-    "enGB": "Damage reduction 5 that no weapon pierces - only damage in excess of it."
+    "enGB": "Damage reduction that grows with the Fool herself - no weapon pierces it, only damage in excess of it."
   },
   {
     "Key": "FortunesFoolWanderingStar.Name",
@@ -3964,5 +3964,166 @@
     "Key": "FortunesFoolLaughingBuff.Description",
     "ProcessTemplates": false,
     "enGB": "Fate's Wager rides your blows: on a natural 1-4 your attack scatters and misses; on a natural 17+ it deals an extra 1d6 per two paladin levels."
+  },
+  {
+    "Key": "Guide.Name",
+    "enGB": "Guide",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "Guide.Description",
+    "enGB": "Many rangers are loners, but the guide walks with others - and brings them home. He forgoes the favored enemy of his peers to focus on the task at hand: a swift mark upon one foe, luck spent on a single die, a moment of perfect clarity when it matters most. His camp is a moving school of woodcraft - quick to act, sharp of eye, soft of foot - and he gives it all away. This replaces favored enemy (all ranks), hunter's bond, evasion, improved evasion, quarry, and improved quarry; master hunter remains.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideFocus.Name",
+    "enGB": "Ranger's Focus",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideFocus.Description",
+    "enGB": "Once per day, plus one additional use per three levels after 1st, he can focus on a single enemy within line of sight as a swift action. The mark holds until the target dies or he names a new focus. He gains a +2 bonus on attack and damage rolls against his focus, increasing by +2 at 5th level and every five levels thereafter (+2, +4, +6, +8, +10). This replaces favored enemy.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideFocusAbility.Description",
+    "enGB": "Swift action: mark one enemy within line of sight as your focus. The mark holds until the target dies or you name a new focus. You gain a bonus on attack and damage rolls against your focus: +2, increasing by +2 at 5th level and every five levels thereafter.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideFocusMarkBuff.Name",
+    "enGB": "Ranger's Focus",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideFocusMarkBuff.Description",
+    "enGB": "The guide has named this creature his focus. He gains a bonus on attack and damage rolls against it - and he does not miss twice.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideTerrainBond.Name",
+    "enGB": "Terrain Bond",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideTerrainBond.Description",
+    "enGB": "At 4th level, the guide forms a bond with the land itself and directs others through it: he and all allies within 30 feet gain a +2 bonus on initiative checks and on Perception, Stealth, and Lore (Nature) checks - Survival in the tabletop, the wilderness skill here. This replaces hunter's bond.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideTerrainBondBuff.Name",
+    "enGB": "Terrain Bond",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideTerrainBondBuff.Description",
+    "enGB": "+2 on initiative, Perception, Stealth, and Lore (Nature). The guide's camp is a moving school of woodcraft.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideLuck.Name",
+    "enGB": "Ranger's Luck",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideLuck.Description",
+    "enGB": "At 9th level, once per day, as a swift action, the guide wraps his next attack of the round in luck: if that attack misses, the die rolls again. The second result stands. One additional use per day at 14th and 19th level. This replaces evasion.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideLuckAbility.Description",
+    "enGB": "Swift action: your next attack this round, if it misses, is rerolled. The second result stands - even if it is worse, though only a miss can summon the luck.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideLuckBuff.Name",
+    "enGB": "Ranger's Luck",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideLuckBuff.Description",
+    "enGB": "Your next attack roll this round that misses is rerolled. The luck spends itself when it fires.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideInspired.Name",
+    "enGB": "Inspired Moment",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideInspired.Description",
+    "enGB": "At 11th level, once per day, as a free action, the guide can have an inspired moment: until the end of his next turn his speed increases by 10 feet, he gains a +4 bonus to AC and on attack rolls, and every critical threat he scores is automatically confirmed. Twice per day at 19th level. This replaces quarry and improved quarry.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideInspiredAbility.Description",
+    "enGB": "Free action: for 1 round, +10 foot speed, +4 AC, +4 on attack rolls, and every critical threat is automatically confirmed.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideInspiredBuff.Name",
+    "enGB": "Inspired Moment",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideInspiredBuff.Description",
+    "enGB": "+10 foot speed, +4 AC, +4 on attack rolls, and every critical threat is automatically confirmed. One clear moment, spent well.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideImprovedLuck.Name",
+    "enGB": "Improved Ranger's Luck",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "GuideImprovedLuck.Description",
+    "enGB": "At 16th level, his luck hardens: every reroll made with ranger's luck carries a +4 luck bonus on the attack roll. This replaces improved evasion.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
   }
 ]

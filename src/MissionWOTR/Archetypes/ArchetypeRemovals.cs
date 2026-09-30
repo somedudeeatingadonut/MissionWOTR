@@ -243,6 +243,81 @@ namespace MissionWOTR.Archetypes
       return null;
     }
 
+    /// <summary>
+    /// Like FindFeature, but returns EVERY level that grants the feature -
+    /// for selections the base class grants repeatedly (the ranger's
+    /// favored enemy at 1/5/10/15/20, the Guide's reason to exist:
+    /// removing only the first grant would leave the later ranks alive).
+    /// </summary>
+    private static List<(int Level, BlueprintFeatureBase Feature)> FindAllFeatures(
+      BlueprintProgression progression,
+      string featureName)
+    {
+      var matches = new List<(int Level, BlueprintFeatureBase Feature)>();
+      if (progression?.LevelEntries is null)
+      {
+        return matches;
+      }
+      string wantedGuid = NormalizeGuid(featureName);
+      foreach (var entry in progression.LevelEntries)
+      {
+        if (entry is null)
+        {
+          continue;
+        }
+        foreach (var feature in EntryFeatures(entry))
+        {
+          if (feature is null)
+          {
+            continue;
+          }
+          var name = Read(feature, "name") as string;
+          if (name is not null &&
+            string.Equals(name, featureName, StringComparison.OrdinalIgnoreCase))
+          {
+            matches.Add((entry.Level, feature));
+            continue;
+          }
+          var guid = NormalizeGuid(Read(feature, "AssetGuid")?.ToString());
+          if (guid.Length > 0 && guid == wantedGuid)
+          {
+            matches.Add((entry.Level, feature));
+          }
+        }
+      }
+      return matches;
+    }
+
+    /// <summary>
+    /// Removes a feature at EVERY level the progression grants it (see
+    /// FindAllFeatures). Features never granted are skipped and logged -
+    /// same contract as AddRemovals.
+    /// </summary>
+    internal static ArchetypeConfigurator AddRemovalsAtAllLevels(
+      ArchetypeConfigurator archetype,
+      BlueprintCharacterClass clazz,
+      params string[] featureNames)
+    {
+      var progression = clazz.Progression;
+      foreach (var featureName in featureNames)
+      {
+        var matches = FindAllFeatures(progression, featureName);
+        if (matches.Count == 0)
+        {
+          MissionWOTR.Main.Logger.Warn(
+            $"[removals] {featureName} not found at any level of {clazz.name} progression - removal skipped.");
+          continue;
+        }
+        foreach (var match in matches)
+        {
+          archetype = archetype.AddToRemoveFeatures(match.Level, match.Feature);
+        }
+        MissionWOTR.Main.Logger.Log(
+          $"[removals] {featureName} removed at {matches.Count} level(s) of {clazz.name}.");
+      }
+      return archetype;
+    }
+
     /// <summary>Strips dash/brace formatting and lowercases: guids compare equal
     /// in dashed, undashed, and braced spellings.</summary>
     private static string NormalizeGuid(string s)

@@ -73,8 +73,12 @@ namespace MissionWOTR.Archetypes
   ///   - 3rd, Aura of the Open Road (for Aura of Courage): allies
   ///     within 10 ft gain +1 luck on attack rolls.
   ///   - 8th, Aura of Whimsy (for Aura of Resolve): allies within
-  ///     10 ft gain DR 5/- (0.26.0: the first draft's scatter band
-  ///     was TOO STRONG, per the user; traded for damage reduction).
+  ///     10 ft gain DR that grows with her - 2 at 8th, +1 every three
+  ///     levels after (3 at 11th, 4 at 14th), stopping at 5 at 17th
+  ///     (0.27.0, per the user: "5 dr is too much for level 8, have
+  ///     it start at 2 and go up every 3 levels until it reaches 5
+  ///     and stops"). Four tier buffs, one aura that applies the
+  ///     right one for her level.
   ///   - 11th, Aura of the Wandering Star (for Aura of Justice):
   ///     allies' weapon hits on a natural 17+ deal an extra 2d6 -
   ///     her lesser blessing, ONCE PER ALLY until her next turn
@@ -126,14 +130,35 @@ namespace MissionWOTR.Archetypes
         .SetIcon(AbilityRefs.Bless.Reference.Get().Icon)
         .AddComponent(new FoolLuckAttack())
         .Configure();
+      // 0.27.0: DR starts at 2 and climbs +1 every three levels
+      // (11th, 14th) to a maximum of 5 at 17th - four tier buffs,
+      // the aura below applies the one matching her level.
       var whimsyBuff = BuffConfigurator.New(
         "FortunesFoolWhimsyBuff", Guids.FortunesFoolWhimsyBuff)
         .SetDisplayName("FortunesFoolWhimsyBuff.Name")
         .SetDescription("FortunesFoolWhimsyBuff.Description")
         .SetIcon(AbilityRefs.ShieldOfFaith.Reference.Get().Icon)
-        // 0.26.0: the scatter band was too strong (user) - the whimsy
-        // ward is now DR 5/- (AddDamageResistancePhysical with no
-        // bypass: nothing pierces it but damage below it).
+        .AddDamageResistancePhysical(value: ContextValues.Constant(2))
+        .Configure();
+      var whimsyBuff2 = BuffConfigurator.New(
+        "FortunesFoolWhimsyBuff2", Guids.FortunesFoolWhimsyBuff2)
+        .SetDisplayName("FortunesFoolWhimsyBuff.Name")
+        .SetDescription("FortunesFoolWhimsyBuff.Description")
+        .SetIcon(AbilityRefs.ShieldOfFaith.Reference.Get().Icon)
+        .AddDamageResistancePhysical(value: ContextValues.Constant(3))
+        .Configure();
+      var whimsyBuff3 = BuffConfigurator.New(
+        "FortunesFoolWhimsyBuff3", Guids.FortunesFoolWhimsyBuff3)
+        .SetDisplayName("FortunesFoolWhimsyBuff.Name")
+        .SetDescription("FortunesFoolWhimsyBuff.Description")
+        .SetIcon(AbilityRefs.ShieldOfFaith.Reference.Get().Icon)
+        .AddDamageResistancePhysical(value: ContextValues.Constant(4))
+        .Configure();
+      var whimsyBuff4 = BuffConfigurator.New(
+        "FortunesFoolWhimsyBuff4", Guids.FortunesFoolWhimsyBuff4)
+        .SetDisplayName("FortunesFoolWhimsyBuff.Name")
+        .SetDescription("FortunesFoolWhimsyBuff.Description")
+        .SetIcon(AbilityRefs.ShieldOfFaith.Reference.Get().Icon)
         .AddDamageResistancePhysical(value: ContextValues.Constant(5))
         .Configure();
       var starBuff = BuffConfigurator.New(
@@ -165,7 +190,20 @@ namespace MissionWOTR.Archetypes
 
       // ----- The aura features -----
       var openRoad = AuraFeature("OpenRoad", Guids.FortunesFoolOpenRoadFeature, openRoadBuff);
-      var whimsy = AuraFeature("Whimsy", Guids.FortunesFoolWhimsyFeature, whimsyBuff);
+      // Whimsy is tiered (0.27.0): the aura picks the DR buff for her
+      // level instead of spreading a single fixed one.
+      var whimsy = FeatureConfigurator.New(
+        "FortunesFoolWhimsyFeature", Guids.FortunesFoolWhimsyFeature)
+        .SetDisplayName("FortunesFoolWhimsy.Name")
+        .SetDescription("FortunesFoolWhimsy.Description")
+        .SetIcon(whimsyBuff.Icon)
+        .SetIsClassFeature()
+        .AddComponent(new FoolWhimsyAura
+        {
+          Tiers = new[] { whimsyBuff, whimsyBuff2, whimsyBuff3, whimsyBuff4 },
+          Class = paladin,
+        })
+        .Configure();
       var wanderingStar = AuraFeature("WanderingStar", Guids.FortunesFoolWanderingStarFeature, starBuff);
       var favor = AuraFeature("Favor", Guids.FortunesFoolFavorFeature, favorBuff);
       // She already carries the wager itself - the laughing aura
@@ -496,6 +534,79 @@ namespace MissionWOTR.Archetypes
       catch (Exception e)
       {
         MissionFeats.Logger.Error("[fool] star spend failed.", e);
+      }
+    }
+  }
+
+  /// <summary>
+  /// The tiered whimsy aura (0.27.0): allies within 10 feet (self
+  /// included) carry the DR buff matching the paladin's level - DR 2
+  /// at 8th, 3 at 11th, 4 at 14th, 5 at 17th and beyond (the user's
+  /// schedule: "start at 2 and go up every 3 levels until it reaches
+  /// 5 and stops"). Tick-refreshed like every Fool aura; when she
+  /// levels past a tier boundary the old tier is swapped for the new
+  /// one on the next tick.
+  /// </summary>
+  [TypeId(Guids.FortunesFoolWhimsyAuraComponent)]
+  internal class FoolWhimsyAura : UnitFactComponentDelegate,
+    Kingmaker.Controllers.Units.ITickEachRound
+  {
+    /// <summary>The four DR tiers, lowest first (DR 2, 3, 4, 5).</summary>
+    public BlueprintBuff[] Tiers;
+
+    /// <summary>The paladin class, for her level.</summary>
+    public BlueprintCharacterClass Class;
+
+    public void OnNewRound()
+    {
+      try
+      {
+        Spread();
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[fool] whimsy aura tick failed.", e);
+      }
+    }
+
+    protected override void OnActivate()
+    {
+      Spread();
+    }
+
+    private void Spread()
+    {
+      if (Tiers is null || Tiers.Length == 0)
+      {
+        return;
+      }
+      int level = Owner.Progression.GetClassLevel(Class);
+      int tier = level >= 17 ? 3 : level >= 14 ? 2 : level >= 11 ? 1 : 0;
+      Apply(Owner, tier);
+      foreach (var ally in SanguineFont.AlliesWithin(Owner, 10))
+      {
+        Apply(ally, tier);
+      }
+    }
+
+    private void Apply(UnitEntityData unit, int tier)
+    {
+      if (unit is null || unit.Descriptor.State.IsDead)
+      {
+        return;
+      }
+      // Retire any other tier she has outgrown (or has not yet
+      // reached), then carry the current one if not already held.
+      for (int i = 0; i < Tiers.Length; i++)
+      {
+        if (i != tier && unit.Buffs.GetBuff(Tiers[i]) is not null)
+        {
+          unit.Buffs.RemoveFact(Tiers[i]);
+        }
+      }
+      if (unit.Buffs.GetBuff(Tiers[tier]) is null)
+      {
+        unit.Descriptor.AddBuff(Tiers[tier], Fact.MaybeContext, new Rounds(2).Seconds);
       }
     }
   }
