@@ -29,9 +29,19 @@ namespace MissionWOTR
           {
             GameLogContext.SourceUnit = source;
           }
-          LogThreadService.Instance.HitDiceRestrictionLogThread.AddMessage(
-            new CombatLogMessage(message, GameLogStrings.Instance.DefaultColor,
-              PrefixIcon.None, null, true));
+          var message = new CombatLogMessage(message,
+            GameLogStrings.Instance.DefaultColor, PrefixIcon.None, null, true);
+          // AddMessage is protected on LogThreadBase in this game build
+          // (member drift - NineSwords and DarkCodex target builds where
+          // it is reachable directly); reflection reaches it regardless.
+          var thread = LogThreadService.Instance.HitDiceRestrictionLogThread;
+          var addMessage = thread.GetType().GetMethod(
+            "AddMessage",
+            System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance,
+            null, new[] { typeof(CombatLogMessage) }, null);
+          addMessage?.Invoke(thread, new object[] { message });
         }
       }
       catch (Exception e)

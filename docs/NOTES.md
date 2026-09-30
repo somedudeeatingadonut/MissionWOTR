@@ -221,7 +221,18 @@ toybox = xADDBx/ToyBox-Wrath.
   CombatLogMessage in ...CombatLog_ThreadSystem; MessageLogThread in
   ...LogThreads.Common; GameLogStrings in
   Kingmaker.Blueprints.Root.Strings.GameLog. Implemented as our
-  MissionWOTR.CombatLog helper (src/MissionWOTR/CombatLog.cs, 0.21.0).
+  MissionWOTR.CombatLog helper (src/MissionWOTR/CombatLog.cs, 0.21.0) -
+  with TWO drift corrections found the hard way: (1)
+  LogThreadService.m_Logs does not exist in our game build (NineSwords
+  and ToyBox use it against theirs); use the public
+  HitDiceRestrictionLogThread property (DarkCodex's route). (2)
+  LogThreadBase.AddMessage is PROTECTED in our build - invoke it via
+  reflection (GetMethod with NonPublic flags). Also from DarkCodex:
+  MechanicsContext.Ability is the AbilityData of the running cast
+  (Context.SourceAbility is only the BlueprintAbility), and
+  new AbilityData(blueprint, unit) constructs one from scratch;
+  EventBus.RaiseEvent<IWarningNotificationUIHandler>(h =>
+  h.HandleWarning(text, false)) shows an on-screen notification toast.
 
 
 ### Technique corrections to our own past claims
