@@ -90,7 +90,9 @@ namespace MissionWOTR.Feats
       Configure(nameof(KineticChirurgeon), KineticChirurgeon.Configure);
       Configure(nameof(Stormcaller), Stormcaller.Configure);
       Configure(nameof(PlanarOracle), PlanarOracle.Configure);
-      Configure(nameof(BloodScribed), BloodScribed.Configure);
+      Configure(nameof(Apocryphal), Apocryphal.Configure);
+      Configure(nameof(ShiningKnight), ShiningKnight.Configure);
+      Configure(nameof(FortunesFool), FortunesFool.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -116,6 +118,7 @@ namespace MissionWOTR.Feats
         var bloodrager = CharacterClassRefs.BloodragerClass.Reference.Get();
         var cavalier = CharacterClassRefs.CavalierClass.Reference.Get();
         var cleric = CharacterClassRefs.ClericClass.Reference.Get();
+        var paladin = CharacterClassRefs.PaladinClass.Reference.Get();
         var druid = CharacterClassRefs.DruidClass.Reference.Get();
         var fighter = CharacterClassRefs.FighterClass.Reference.Get();
         var monk = CharacterClassRefs.MonkClass.Reference.Get();
@@ -158,7 +161,9 @@ namespace MissionWOTR.Feats
       ("KineticChirurgeon", Guids.KineticChirurgeonArchetype, kineticist),
       ("Stormcaller", Guids.StormcallerArchetype, kineticist),
       ("PlanarOracle", Guids.PlanarOracleArchetype, oracle),
-      ("BloodScribed", Guids.BloodScribedArchetype, oracle),
+      ("Apocryphal", Guids.ApocryphalArchetype, oracle),
+      ("ShiningKnight", Guids.ShiningKnightArchetype, paladin),
+      ("FortunesFool", Guids.FortunesFoolArchetype, paladin),
     };
         foreach (var entry in entries)
         {

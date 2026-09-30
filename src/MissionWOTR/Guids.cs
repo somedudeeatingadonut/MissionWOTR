@@ -789,9 +789,36 @@ namespace MissionWOTR
     internal const string PlanarBonusSpell14 = "497E6539-1025-4D59-A7F6-F20787DAC1F1";
     internal const string PlanarBonusSpell16 = "2B7CCB44-0C50-40C5-9640-396B7857BC1C";
     internal const string PlanarBonusSpell18 = "E0739329-6B91-4183-9508-95064E38156F";
-    // ----- The Blood-Scribed (0.24.0, homebrew oracle) -----
-    internal const string BloodScribedArchetype = "62B33995-77FD-456C-A6CB-68E798E79D01";
-    internal const string BloodScribedGrimoireSelection = "E4E9195C-0C49-4516-B04D-931F2183ECA2";
+    // ----- The Apocryphal (0.24.0 as the Blood-Scribed; renamed 0.25.0
+    // per the user's flavor note - guids and mechanics unchanged; the
+    // generated per-spell guids are seeded by the old prefix on
+    // purpose so existing characters keep their stolen pages) -----
+    internal const string ApocryphalArchetype = "62B33995-77FD-456C-A6CB-68E798E79D01";
+    internal const string ApocryphalGrimoireSelection = "E4E9195C-0C49-4516-B04D-931F2183ECA2";
+    // ----- Shining Knight (0.25.0, tabletop port) -----
+    internal const string ShiningKnightArchetype = "3971D417-67CF-4B26-8EB2-AF0C653B7287";
+    internal const string ShiningSkilledRiderFeature = "C219DBAD-EA05-4851-ABAF-6448C6FB06C1";
+    internal const string ShiningKnightsChargeFeature = "D8E65875-8FB1-4242-9087-72E8C3D895F6";
+    internal const string ShiningSkilledRiderComponent = "7CA09083-497A-402E-ADD1-F640A8200ACC";
+    internal const string ShiningKnightsChargeComponent = "1EB214C6-257C-4BAA-9231-1E5BBFA19481";
+    // ----- Fortune's Fool (0.25.0, homebrew chaos paladin) -----
+    internal const string FortunesFoolArchetype = "9D9D6671-2C45-406B-BC5E-19F36D3FEFE2";
+    internal const string FortunesFoolFatesWagerFeature = "EB5AE070-6440-46A2-9C35-43B73067A5B6";
+    internal const string FortunesFoolFatesWagerComponent = "3F44EBDE-6053-47AD-A2E2-BA7EEC3C2B32";
+    internal const string FortunesFoolOpenRoadFeature = "6E9E6CAB-E437-4100-A8EE-B8CD42AB74E0";
+    internal const string FortunesFoolOpenRoadBuff = "2D454108-1D9D-443D-B684-4F8AB7B22B19";
+    internal const string FortunesFoolWhimsyFeature = "C74BC1E5-4A8C-48AF-8693-05350A16039F";
+    internal const string FortunesFoolWhimsyBuff = "6971B6DC-1998-4FB2-BB8F-0E4843F689BD";
+    internal const string FortunesFoolWanderingStarFeature = "B7A89421-7A35-4AA1-952C-183731108F6B";
+    internal const string FortunesFoolWanderingStarBuff = "AC23D861-8208-47D2-968D-8BE4CD423B1E";
+    internal const string FortunesFoolFavorFeature = "CFDA0813-E87F-4A7A-BC60-3D8A02FF910A";
+    internal const string FortunesFoolFavorBuff = "BCA675AA-B3E9-427E-B540-9832B562519C";
+    internal const string FortunesFoolLaughingFeature = "7ADE80D5-5C2B-482A-8546-1F95408CF1CA";
+    internal const string FortunesFoolLaughingBuff = "75BBF700-F1B7-4C92-8989-0D2E1D18E8DB";
+    internal const string FortunesFoolChaosAuraComponent = "3CEB6794-74FD-4582-8178-E146C891075B";
+    internal const string FortunesFoolLuckAttackComponent = "06338CC2-B8D5-4032-96CE-39987AEB3E09";
+    internal const string FortunesFoolWhimsyComponent = "47CE59F8-E91A-4933-A0B9-BAC37A0B48E9";
+    internal const string FortunesFoolStarSurgeComponent = "17620BAB-9B62-4CE5-90FA-C6C1BC70F88F";
     // ----- Sacred Vow (0.24.0, mythic ability — the Intercessor's Vow) -----
     internal const string SacredVowFeature = "ADE0478D-9F3A-4536-95BF-F52B7A9C84B5";
     internal const string SacredVowIntercedeAbility = "0260ED99-F9A3-4E6D-928E-0FDEE7A99428";

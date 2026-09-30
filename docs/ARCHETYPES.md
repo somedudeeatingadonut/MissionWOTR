@@ -794,6 +794,65 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.25.0 — the paladins, and the Apocryphal rename
+
+- **The Blood-Scribed is renamed The Apocryphal** (user: "I dont
+  like the flavor of the blood-scribed (generally you make many
+  things blood-something, its a bit strange)"). Mechanics,
+  blueprint guids and the generated per-spell guids are all
+  unchanged - only names and prose moved (the MD5 seed keeps its
+  old prefix on purpose so existing characters keep their stolen
+  pages). Her scripture is not canon; every page is paid for in
+  years of her own life, not blood.
+- **Shining Knight (tabletop port, APG pg. 117)** - the user's
+  tabletop pick. Skilled Rider (3rd, replaces Divine Health): every
+  pet she owns carries her Divine Grace (tick-managed grant of the
+  vanilla feature; the Ride-skill clause is a documented cut - no
+  Ride skill exists). Divine Bond (5th): the weapon option is
+  removed, the vanilla mount selection granted as the fixed pick.
+  Knight's Charge (11th, replaces Aura of Justice): a mounted
+  weapon-charge hit on her smite target forces a Will save (DC 10 +
+  half level + Cha) or panics for half level rounds (evt.IsCharge
+  charge detection; the RuleSavingThrow trigger; the vanilla Eyebite
+  panic buff; the no-provoke clause is a documented engine cut).
+  Coverage: vanilla WOTR has Divine Guardian, Divine Hunter, Divine
+  Scion, Hospitaler, Martyr, Stonelord, Tortured Crusader, Warrior
+  of the Holy Light; the mods add none; Shining Knight was
+  unclaimed - and deliberately contrasts the chaos homebrew.
+- **Fortune's Fool (homebrew)** - the user's design: "a paladin
+  focused on chaos? (more chance effects, higher miss chance with
+  higher damage, etc) must be of chaotic alignment instead of the
+  usual paladin alignment requirements, and doesnt get lay on
+  hands, different support auras."
+  - The alignment gate: PrerequisiteAlignment of the three chaotic
+    alignments with ArchetypeAlignment = true - Owlcat's own rule
+    (PF-485644): "the alignment restriction for an archetype always
+    replaces the class's restriction." Only the chaotic may take
+    her road.
+  - Fate's Wager (1st): pure real dice, no hidden RNG - on a
+    natural d20 of 1-4 her weapon attack scatters (forced miss even
+    if modifiers would hit; the TricksterParry AutoMiss idiom); on
+    a natural 17+ the dice surge (a DirectDamage entry of 1d6 per
+    two paladin levels added via evt.Add, the
+    AddAdditionalWeaponDamageOnHit idiom). The surge stacks with
+    crits - chaos, documented.
+  - The auras (all five vanilla ones traded, "different support
+    auras", each a 10-ft tick-refreshed luck aura): Open Road (3rd,
+    +1 luck attacks), Whimsy (8th, attacks against allies scatter
+    on natural 14-17 - a true +20% miss band), the Wandering Star
+    (11th, allies surge 2d6 on natural 17+), Fortune's Favor (14th,
+    +2 luck saves), the Laughing Fool (17th - her companions carry
+    Fate's Wager itself; she already has it, and the wager never
+    stacks with itself).
+  - The trades: Lay on Hands (the user's requirement) with the
+    entire Mercy selection (mercies improve a pool she does not
+    have), plus all five auras. Smite, grace, channel, spells and
+    the bond remain.
+  - Honest edges: the 1-4 band overlaps the natural-1 auto-miss
+    (effective extra misses = the 2-4 band, 15%); the
+    fallen-paladin logic was written for lawful good - what happens
+    to a fool who abandons chaos is unverified, documented.
+
 ## 0.24.0 — the oracle correction: Planar Oracle (tabletop port), the Blood-Scribed (homebrew), Sacred Vow (mythic)
 
 - **The Intercessor is withdrawn** (see the note above); The Vow
@@ -1619,7 +1678,7 @@ Wrath adaptations (engine gaps, documented in the code header):
   trick: entries absent from the class progression warn and skip at
   load - the [removals] log is the runtime truth).
 
-### Homebrew — The Blood-Scribed (user design: the offensive caster) — IMPLEMENTED (0.24.0)
+### Homebrew — The Blood-Scribed (user design: the offensive caster) — IMPLEMENTED (0.24.0; RENAMED The Apocryphal in 0.25.0)
 
 | Level | The Blood-Scribed grants | Oracle normally grants |
 |---|---|---|
@@ -1930,6 +1989,55 @@ runtime-scaled riders. Log prefix: [sanguine].
 pulse resource spend + once-per-round block; shared pulse FH on allies and
 unremovable bleed on self (values 2/3/5 by level); blade toggle granting the
 off-hand elemental attack and the rider dice; blast touch attack + Con damage;
+spellbook clone capping at 3rd-level spells; apotheosis free pulse, 40-ft aura
+formula, and the death save (spends ALL rounds, once per rage); LimitlessRage
+hidden from Sanguine Fonts in mythic level-up.
+
+**Tuning candidates:** all heal amounts and dice; aura/pulse radii; FH/bleed
+tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
+(−2); blast range (Close); death-save heal (10d8 + level).
+ings:** per-round effects (aura, fast healing, bleed) use
+ITickEachRound (the pplus RagingDrunkStuff pattern — proven on bloodrager
+features); all healing via Rulebook.Trigger(new RuleHealDamage(...)); ally
+enumeration via Game.Instance.State.Units + IsAlly + DistanceTo (pplus
+Nocticula pattern; self included); dice via UnityEngine.Random.Range (the
+game's own roller); the pulse's once-per-round guard is a visible 1-round
+marker buff, lifted by the apotheosis free-action variant; the death save
+watches RuleDealDamage on allies (DidTrigger, HP ≤ 0, not yet dead) and spends
+the whole rage pool — dying allies in WOTR are rescued post-hit, which is the
+playable reading of "would die". Kinetic powers use the kineticist's own
+vanilla weapon types (KineticBlastEnergyBlade / KineticBlastEnergy) with
+runtime-scaled riders. Log prefix: [sanguine].
+
+**Playtest targets:** aura ticks on each round while raging (and only then);
+pulse resource spend + once-per-round block; shared pulse FH on allies and
+unremovable bleed on self (values 2/3/5 by level); blade toggle granting the
+off-hand elemental attack and the rider dice; blast touch attack + Con damage;
+spellbook clone capping at 3rd-level spells; apotheosis free pulse, 40-ft aura
+formula, and the death save (spends ALL rounds, once per rage); LimitlessRage
+hidden from Sanguine Fonts in mythic level-up.
+
+**Tuning candidates:** all heal amounts and dice; aura/pulse radii; FH/bleed
+tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
+(−2); blast range (Close); death-save heal (10d8 + level).
+uleDealDamage on allies (DidTrigger, HP ≤ 0, not yet dead) and spends
+the whole rage pool — dying allies in WOTR are rescued post-hit, which is the
+playable reading of "would die". Kinetic powers use the kineticist's own
+vanilla weapon types (KineticBlastEnergyBlade / KineticBlastEnergy) with
+runtime-scaled riders. Log prefix: [sanguine].
+
+**Playtest targets:** aura ticks on each round while raging (and only then);
+pulse resource spend + once-per-round block; shared pulse FH on allies and
+unremovable bleed on self (values 2/3/5 by level); blade toggle granting the
+off-hand elemental attack and the rider dice; blast touch attack + Con damage;
+spellbook clone capping at 3rd-level spells; apotheosis free pulse, 40-ft aura
+formula, and the death save (spends ALL rounds, once per rage); LimitlessRage
+hidden from Sanguine Fonts in mythic level-up.
+
+**Tuning candidates:** all heal amounts and dice; aura/pulse radii; FH/bleed
+tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
+(−2); blast range (Close); death-save heal (10d8 + level).
+n damage;
 spellbook clone capping at 3rd-level spells; apotheosis free pulse, 40-ft aura
 formula, and the death save (spends ALL rounds, once per rage); LimitlessRage
 hidden from Sanguine Fonts in mythic level-up.

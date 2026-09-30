@@ -17,20 +17,26 @@ using System.Text;
 namespace MissionWOTR.Archetypes
 {
   /// <summary>
-  /// The Blood-Scribed (original homebrew oracle archetype - 0.24.0).
+  /// The Apocryphal (original homebrew oracle archetype - 0.24.0 as the
+  /// Blood-Scribed; RENAMED 0.25.0 per the user: "I dont like the
+  /// flavor of the blood-scribed (generally you make many things
+  /// blood-something, its a bit strange)" - the mechanics and every
+  /// blueprint guid are unchanged; only names and prose moved).
   /// The user's brief: "an oracle focused on more offensive casting
   /// (gaining a spell from the wizard spell book every level) in
   /// exchange for doing damage to themselves, or strengthening their
   /// curses."
   ///
-  /// The chosen price is the first reading - damage to themselves -
-  /// because it is recurring, honest, and pays itself in flesh: every
-  /// stolen spell is copied into her mystery's book IN HER OWN BLOOD,
-  /// and the page never closes. Each theft permanently costs 2 maximum
-  /// hit points (the scar rides the stolen spell itself, so it can
-  /// never be dispelled, healed, or forgotten - only paid). The curse
-  /// reading was the offered alternative and is declined, documented
-  /// here: the oracle curse is her god's wound, and the theft is hers.
+  /// The chosen price is the first reading - damage to themselves.
+  /// Her scripture is not canon: every spell she copies from the
+  /// wizard's book is a page of apocrypha, and every page is paid for
+  /// in years of her own life. Each theft permanently costs 2 maximum
+  /// hit points (the price rides the stolen spell itself, so it can
+  /// never be dispelled, healed, or bargained away - only paid).
+  /// Twenty spells by 20th level is forty hit points of book. The
+  /// curse reading was the offered alternative and is declined,
+  /// documented here: the oracle curse is her god's wound, and the
+  /// theft is hers.
   ///
   /// Coverage check: no offensive-casting or wizard-spell-stealing
   /// oracle exists - vanilla (Seeker, Dual-Cursed, Enlightened
@@ -48,10 +54,9 @@ namespace MissionWOTR.Archetypes
   ///   configure time (cantrips included), so the grimoire offers
   ///   exactly what the wizard's book holds.
   /// - The price: each stolen spell feature carries its own permanent
-  ///   scar - 2 maximum hit points, untyped and stacking (the
+  ///   cost - 2 maximum hit points, untyped and stacking (the
   ///   Stats.HitPoints modifier stat, the Solipsist precedent, as an
-  ///   AddStatBonus on the feature). Twenty spells by 20th level is
-  ///   forty hit points of book.
+  ///   AddStatBonus on the feature).
   ///
   /// The trades (hefty): ALL FIVE revelations (3/7/11/15/19). Her
   /// mystery still answers her prayers - spells, curse, bonus spells,
@@ -67,13 +72,15 @@ namespace MissionWOTR.Archetypes
   ///   wizard's.
   /// - Option blueprints are generated in a loop with deterministic
   ///   guids (MD5 of the spell's asset guid), stable across runs and
-  ///   saves.
-  /// Log prefix: [bloodscribed].
+  ///   saves. The seed string predates the rename and is deliberately
+  ///   NOT renamed: the generated guids must stay stable so existing
+  ///   characters keep their stolen pages.
+  /// Log prefix: [apocryphal].
   /// </summary>
-  internal static class BloodScribed
+  internal static class Apocryphal
   {
-    internal const string ArchetypeName = "BloodScribedArchetype";
-    internal const string SelectionName = "BloodScribedGrimoireSelection";
+    internal const string ArchetypeName = "ApocryphalArchetype";
+    internal const string SelectionName = "ApocryphalGrimoireSelection";
 
     public static void Configure()
     {
@@ -94,11 +101,11 @@ namespace MissionWOTR.Archetypes
             continue;
           }
           var option = FeatureConfigurator.New(
-            "BloodScribedSpell" + spell.name, StableGuid("bloodscribed:" + spell.AssetGuid))
+            "ApocryphalSpell" + spell.name, StableGuid("bloodscribed:" + spell.AssetGuid))
             // The display key is the humanized spell name - an unregistered
             // key shows as itself, which is exactly the wanted label.
             .SetDisplayName(HumanName(spell.name))
-            .SetDescription("BloodScribedSpell.Description")
+            .SetDescription("ApocryphalSpell.Description")
             .SetIcon(spell.Icon)
             .SetIsClassFeature()
             // The theft: the spell joins her oracle spells known.
@@ -117,11 +124,11 @@ namespace MissionWOTR.Archetypes
         }
       }
       MissionFeats.Logger.Info(
-        $"[bloodscribed] {created} stolen pages generated from the wizard's book.");
+        $"[apocryphal] {created} stolen pages generated from the wizard's book.");
 
-      var grimoire = FeatureSelectionConfigurator.New(SelectionName, Guids.BloodScribedGrimoireSelection)
-        .SetDisplayName("BloodScribedGrimoire.Name")
-        .SetDescription("BloodScribedGrimoire.Description")
+      var grimoire = FeatureSelectionConfigurator.New(SelectionName, Guids.ApocryphalGrimoireSelection)
+        .SetDisplayName("ApocryphalGrimoire.Name")
+        .SetDescription("ApocryphalGrimoire.Description")
         .SetIcon(AbilityRefs.HorridWilting.Reference.Get().Icon)
         .SetObligatory(true)
         .SetAllFeatures(optionRefs.ToArray())
@@ -129,9 +136,9 @@ namespace MissionWOTR.Archetypes
 
       // ----- The archetype -----
       var archetype =
-        ArchetypeConfigurator.New(ArchetypeName, Guids.BloodScribedArchetype, CharacterClassRefs.OracleClass)
-          .SetLocalizedName("BloodScribed.Name")
-          .SetLocalizedDescription("BloodScribed.Description");
+        ArchetypeConfigurator.New(ArchetypeName, Guids.ApocryphalArchetype, CharacterClassRefs.OracleClass)
+          .SetLocalizedName("Apocryphal.Name")
+          .SetLocalizedDescription("Apocryphal.Description");
       // A spell from the wizard's book at EVERY oracle level.
       for (int level = 1; level <= 20; level++)
       {
@@ -147,7 +154,7 @@ namespace MissionWOTR.Archetypes
 
       archetype.Configure();
 
-      MissionFeats.Logger.Info("BloodScribed: configured.");
+      MissionFeats.Logger.Info("Apocryphal: configured.");
     }
 
     /// <summary>

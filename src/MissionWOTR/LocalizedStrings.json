@@ -3741,24 +3741,24 @@
     "enGB": "At 20th level, you become an extraplanar creature. You gain superficial physical characteristics appropriate to natives of your chosen plane, gain immunity to your associated energy type, and gain damage reduction 10/magic. Unlike other outsiders, you can still be brought back from the dead. This replaces your final revelation."
   },
   {
-    "Key": "BloodScribed.Name",
+    "Key": "Apocryphal.Name",
     "ProcessTemplates": false,
-    "enGB": "The Blood-Scribed"
+    "enGB": "The Apocryphal"
   },
   {
-    "Key": "BloodScribed.Description",
+    "Key": "Apocryphal.Description",
     "ProcessTemplates": false,
-    "enGB": "She stole from the wizard's book, and her god let her keep it - for a price written in her own blood. At every oracle level she copies one wizard spell of a level she can cast into her spells known, cast as oracle spells with her own magic. Each stolen page is a scar: the theft permanently costs her 2 maximum hit points, and the page never closes. Twenty spells by 20th level is forty hit points of book. This replaces every revelation of her mystery (3rd, 7th, 11th, 15th, and 19th level)."
+    "enGB": "Her scripture is not canon. She copied from the wizard's book, and her god let her keep it - for a price. At every oracle level she copies one wizard spell of a level she can cast into her spells known, cast as oracle spells with her own magic. Every stolen page is apocrypha, and every page is paid for in years of her own life: each theft permanently costs her 2 maximum hit points, and the price can never be healed or bargained away - only paid. Twenty spells by 20th level is forty hit points of book. This replaces every revelation of her mystery (3rd, 7th, 11th, 15th, and 19th level)."
   },
   {
-    "Key": "BloodScribedGrimoire.Name",
+    "Key": "ApocryphalGrimoire.Name",
     "ProcessTemplates": false,
     "enGB": "The Stolen Grimoire"
   },
   {
-    "Key": "BloodScribedGrimoire.Description",
+    "Key": "ApocryphalGrimoire.Description",
     "ProcessTemplates": false,
-    "enGB": "Copy one wizard spell of a level you can cast into your oracle spells known. The theft is written in your blood: each stolen spell permanently reduces your maximum hit points by 2."
+    "enGB": "Copy one wizard spell of a level you can cast into your oracle spells known. The theft is paid for in years of your own life: each stolen spell permanently reduces your maximum hit points by 2."
   },
   {
     "Key": "PlanarBonusSpell.Description",
@@ -3811,8 +3811,158 @@
     "enGB": "Elemental Swarm"
   },
   {
-    "Key": "BloodScribedSpell.Description",
+    "Key": "ApocryphalSpell.Description",
     "ProcessTemplates": false,
-    "enGB": "A spell copied from the wizard's book into her own - written in her blood. The theft permanently costs 2 maximum hit points; the page never closes."
+    "enGB": "A spell copied from the wizard's book into her own - a page of apocrypha. The theft permanently costs 2 maximum hit points; the price is never refunded."
+  },
+  {
+    "Key": "ShiningKnight.Name",
+    "ProcessTemplates": false,
+    "enGB": "Shining Knight"
+  },
+  {
+    "Key": "ShiningKnight.Description",
+    "ProcessTemplates": false,
+    "enGB": "While paladins often are seen mounted atop a loyal steed, the shining knight is the true symbol of mounted bravery. She is never far from her steed, and hers is the charge that shatters morale: at 3rd level her mount shares her divine grace, at 5th her divine bond must be the steed, and at 11th a mounted charge that strikes her smitten quarry forces a Will save or panics it. This replaces divine health, the weapon option of divine bond, and aura of justice."
+  },
+  {
+    "Key": "ShiningSkilledRider.Name",
+    "ProcessTemplates": false,
+    "enGB": "Skilled Rider"
+  },
+  {
+    "Key": "ShiningSkilledRider.Description",
+    "ProcessTemplates": false,
+    "enGB": "Any mount she rides shares her conviction: the mount gains the benefit of her divine grace, adding her Charisma bonus (if any) to its saving throws. (The tabletop's Ride-skill clause has no meaning in this world - there are no Ride checks - and is cut.) This replaces divine health."
+  },
+  {
+    "Key": "ShiningKnightsCharge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Knight's Charge"
+  },
+  {
+    "Key": "ShiningKnightsCharge.Description",
+    "ProcessTemplates": false,
+    "enGB": "Whenever her mounted charge hits the target of her smite evil, the target must make a Will save (DC 10 + half her paladin level + her Charisma modifier) or be panicked for a number of rounds equal to half her paladin level. (The tabletop's no-provoke clause has no engine here - the charge still draws attacks of opportunity - and is cut.) This replaces aura of justice."
+  },
+  {
+    "Key": "FortunesFool.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fortune's Fool"
+  },
+  {
+    "Key": "FortunesFool.Description",
+    "ProcessTemplates": false,
+    "enGB": "She swore her oath not to a god of order but to chance itself - the open road, the roll of the die, the freedom of the unrepeated moment. Only the chaotic may walk her road. Fate's Wager rides every blow she strikes: on a natural 1-4 the attack scatters and misses outright, on a natural 17+ the dice surge and the hit deals an extra 1d6 per two paladin levels. She has no lay on hands and no mercies - chance keeps what healing would return - and her auras are not orders but luck: the Open Road, Whimsy, the Wandering Star, Fortune's Favor, and at last the Laughing Fool, which shares her wager with all who fight beside her. This replaces lay on hands, all mercies, and every aura of the base paladin."
+  },
+  {
+    "Key": "FortunesFoolFatesWager.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fate's Wager"
+  },
+  {
+    "Key": "FortunesFoolFatesWager.Description",
+    "ProcessTemplates": false,
+    "enGB": "Every weapon attack she makes rides the die. On a natural d20 roll of 1-4, the blow scatters - a miss even if her modifiers would hit. On a natural 17+, the dice surge: the hit deals an extra 1d6 of damage per two paladin levels. The surge stacks with critical hits. Fortune is not fair, and neither is she."
+  },
+  {
+    "Key": "FortunesFoolOpenRoad.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aura of the Open Road"
+  },
+  {
+    "Key": "FortunesFoolOpenRoad.Description",
+    "ProcessTemplates": false,
+    "enGB": "Allies within 10 feet (herself included) gain a +1 luck bonus on attack rolls. This replaces aura of courage."
+  },
+  {
+    "Key": "FortunesFoolOpenRoadBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Open Road"
+  },
+  {
+    "Key": "FortunesFoolOpenRoadBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "+1 luck bonus on attack rolls, carried on the fool's road."
+  },
+  {
+    "Key": "FortunesFoolWhimsy.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aura of Whimsy"
+  },
+  {
+    "Key": "FortunesFoolWhimsy.Description",
+    "ProcessTemplates": false,
+    "enGB": "Attacks against allies within 10 feet (herself included) scatter on a natural d20 roll of 14-17 - a true extra 20% miss chance, stacked atop all normal results. This replaces aura of resolve."
+  },
+  {
+    "Key": "FortunesFoolWhimsyBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Whimsy"
+  },
+  {
+    "Key": "FortunesFoolWhimsyBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Attacks against you scatter on a natural d20 roll of 14-17."
+  },
+  {
+    "Key": "FortunesFoolWanderingStar.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aura of the Wandering Star"
+  },
+  {
+    "Key": "FortunesFoolWanderingStar.Description",
+    "ProcessTemplates": false,
+    "enGB": "Allies within 10 feet (herself included) carry her lesser blessing: their weapon hits on a natural d20 roll of 17+ deal an extra 2d6 damage. This replaces aura of justice."
+  },
+  {
+    "Key": "FortunesFoolWanderingStarBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wandering Star"
+  },
+  {
+    "Key": "FortunesFoolWanderingStarBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your weapon hits on a natural d20 roll of 17+ deal an extra 2d6 damage."
+  },
+  {
+    "Key": "FortunesFoolFavor.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aura of Fortune's Favor"
+  },
+  {
+    "Key": "FortunesFoolFavor.Description",
+    "ProcessTemplates": false,
+    "enGB": "Allies within 10 feet (herself included) gain a +2 luck bonus on all saving throws. This replaces aura of faith."
+  },
+  {
+    "Key": "FortunesFoolFavorBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fortune's Favor"
+  },
+  {
+    "Key": "FortunesFoolFavorBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "+2 luck bonus on all saving throws."
+  },
+  {
+    "Key": "FortunesFoolLaughing.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aura of the Laughing Fool"
+  },
+  {
+    "Key": "FortunesFoolLaughing.Description",
+    "ProcessTemplates": false,
+    "enGB": "Her companions within 10 feet carry Fate's Wager itself: their weapon attacks scatter on a natural 1-4 and surge on a natural 17+ with an extra 1d6 per two of her paladin levels. She already carries the wager - it does not stack with itself. This replaces aura of righteousness."
+  },
+  {
+    "Key": "FortunesFoolLaughingBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Laughing Fool"
+  },
+  {
+    "Key": "FortunesFoolLaughingBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "Fate's Wager rides your blows: on a natural 1-4 your attack scatters and misses; on a natural 17+ it deals an extra 1d6 per two paladin levels."
   }
 ]
