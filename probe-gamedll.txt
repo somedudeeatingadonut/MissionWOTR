@@ -478,6 +478,45 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: IsObligatory
   METHOD: IsSelectionProhibited
   METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddFacts vis=public base=TypeSpecification ===
+  FIELD: m_Facts [private]
+  FIELD: Dummy [protorint]
+  FIELD: CasterLevel [protorint]
+  FIELD: DoNotRestoreMissingFacts [protorint]
+  FIELD: HasDifficultyRequirements [protorint]
+  FIELD: InvertDifficultyRequirements [protorint]
+  FIELD: MinDifficulty [protorint]
+  PROP: Facts
+  METHOD: get_Facts
+  METHOD: IsRestrictedByDifficulty
+  METHOD: OnActivate
+  METHOD: OnDeactivate
+  METHOD: OnRecalculate
+  METHOD: OnApplyPostLoadFixes
+  METHOD: Clear
+  METHOD: UpdateFacts
+  METHOD: SetSourceItem
+  METHOD: ApplyValidation
+  METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddKnownSpell vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate ===
+  FIELD: m_CharacterClass [private]
+  FIELD: SpellLevel [protorint]
+  FIELD: m_Spell [private]
+  FIELD: m_Archetype [private]
+  FIELD: m_ExcludeArchetype [private]
+  PROP: CharacterClass
+  PROP: Spell
+  PROP: Archetype
+  PROP: ExcludeArchetype
+  METHOD: get_CharacterClass
+  METHOD: get_Spell
+  METHOD: get_Archetype
+  METHOD: get_ExcludeArchetype
+  METHOD: OnActivate
+  METHOD: AddSpell
+  METHOD: HandleLevelUpComplete
+  METHOD: .ctor
+  METHOD: <AddSpell>b__14_0
 === TYPE Kingmaker.UnitLogic.FactLogic.AddPet vis=public base=TypeSpecification ===
   FIELD: Type [protorint]
   FIELD: ProgressionType [protorint]
@@ -512,6 +551,128 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: ApplyValidation
   METHOD: .ctor
   METHOD: .cctor
+=== TYPE Kingmaker.UnitLogic.FactLogic.SpontaneousSpellConversion vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate ===
+  FIELD: m_CharacterClass [private]
+  FIELD: m_SpellsByLevel [private]
+  PROP: CharacterClass
+  PROP: SpellsByLevel
+  PROP: Id
+  METHOD: get_CharacterClass
+  METHOD: get_SpellsByLevel
+  METHOD: get_Id
+  METHOD: OnTurnOn
+  METHOD: OnTurnOff
+  METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParams vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
+  FIELD: UseKineticistMainStat [protorint]
+  FIELD: StatType [protorint]
+  FIELD: StatTypeFromCustomProperty [protorint]
+  FIELD: m_CustomProperty [private]
+  FIELD: ReplaceCasterLevel [protorint]
+  FIELD: CasterLevel [protorint]
+  FIELD: ReplaceSpellLevel [protorint]
+  FIELD: SpellLevel [protorint]
+  METHOD: Calculate
+  METHOD: Calculate
+  METHOD: Calculate
+  METHOD: ApplyValidation
+  METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParamsBasedOnClass vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
+  FIELD: UseKineticistMainStat [protorint]
+  FIELD: StatType [protorint]
+  FIELD: m_CharacterClass [private]
+  PROP: CharacterClass
+  METHOD: get_CharacterClass
+  METHOD: Calculate
+  METHOD: Calculate
+  METHOD: Calculate
+  METHOD: ApplyValidation
+  METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig vis=public base=Kingmaker.Blueprints.BlueprintComponent ===
+  FIELD: m_Type [private]
+  FIELD: m_BaseValueType [private]
+  FIELD: useArmorBaseAc [private]
+  FIELD: useArmorBonusAc [private]
+  FIELD: useArmorFocusAc [private]
+  FIELD: userShieldBaseAc [private]
+  FIELD: useShieldBonusAc [private]
+  FIELD: useShieldFocusAc [private]
+  FIELD: m_OnlyFromItems [private]
+  FIELD: m_OnlyForItemTypes [private]
+  FIELD: m_ItemsTypes [private]
+  FIELD: m_UseArmorTypeFilter [private]
+  FIELD: m_ArmorTypes [private]
+  FIELD: m_Feature [private]
+  FIELD: m_FeatureList [private]
+  FIELD: m_Stat [private]
+  FIELD: m_SpecificModifier [private]
+  FIELD: m_Buff [private]
+  FIELD: m_BuffRankMultiplier [private]
+  FIELD: m_Progression [private]
+  FIELD: m_CustomProgression [private]
+  FIELD: m_StartLevel [private]
+  FIELD: m_StepLevel [private]
+  FIELD: m_UseMin [private]
+  FIELD: m_Min [private]
+  FIELD: m_UseMax [private]
+  FIELD: m_AffectedByIntensifiedMetamagic [private]
+  FIELD: m_Max [private]
+  FIELD: m_ExceptClasses [private]
+  FIELD: Archetype [private]
+  FIELD: m_AdditionalArchetypes [private]
+  FIELD: m_Class [private]
+  FIELD: m_CustomProperty [private]
+  FIELD: m_CustomPropertyList [private]
+  FIELD: m_DisableRankBonus [private]
+  PROP: ShowFromItems
+  PROP: ShowOnlyForItemTypes
+  PROP: ShowItemsTypes
+  PROP: ShowArmorTypes
+  PROP: Archetypes
+  PROP: IsBaseOnArmor
+  PROP: IsBaseOnShied
+  PROP: IsBasedOnClassLevel
+  PROP: RequiresArchetype
+  PROP: IsBasedOnFeatureRank
+  PROP: IsBasedOnStatBonus
+  PROP: IsFeatureList
+  PROP: IsBasedOnCustomProperty
+  PROP: IsBasedOnCustomPropertyList
+  PROP: IsDivisionProgression
+  PROP: IsDivisionProgressionStart
+  PROP: IsCustomProgression
+  PROP: IsBasedOnBuffRank
+  PROP: Type
+  METHOD: get_ShowFromItems
+  METHOD: get_ShowOnlyForItemTypes
+  METHOD: get_ShowItemsTypes
+  METHOD: get_ShowArmorTypes
+  METHOD: get_Archetypes
+  METHOD: get_IsBaseOnArmor
+  METHOD: get_IsBaseOnShied
+  METHOD: get_IsBasedOnClassLevel
+  METHOD: get_RequiresArchetype
+  METHOD: get_IsBasedOnFeatureRank
+  METHOD: get_IsBasedOnStatBonus
+  METHOD: get_IsFeatureList
+  METHOD: get_IsBasedOnCustomProperty
+  METHOD: get_IsBasedOnCustomPropertyList
+  METHOD: get_IsDivisionProgression
+  METHOD: get_IsDivisionProgressionStart
+  METHOD: get_IsCustomProgression
+  METHOD: get_IsBasedOnBuffRank
+  METHOD: get_Type
+  METHOD: GetValue
+  METHOD: GetBaseValue
+  METHOD: ApplyProgression
+  METHOD: ApplyMinMax
+  METHOD: ApplyValidation
+  METHOD: .ctor
+  METHOD: <GetBaseValue>g__CheckItem|75_0
+  METHOD: <GetBaseValue>g__CheckAndAddToValue|75_1
+  METHOD: <GetBaseValue>g__CheckAndSetMaxValue|75_2
+  METHOD: <GetBaseValue>g__MExceptClasses|75_3
+  METHOD: <GetBaseValue>g__CheckClassForArchetype|75_4
 SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
 AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
