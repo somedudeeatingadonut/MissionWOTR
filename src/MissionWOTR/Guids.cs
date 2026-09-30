@@ -905,5 +905,16 @@ namespace MissionWOTR
     internal const string ScoutSkirmisherFeature = "C542CE8E-C3C1-4C7C-AAD6-E25FF157C92B";
     internal const string ScoutSkirmisherComponent = "94EABAC2-9467-4CAC-96AB-A402618F6AC6";
 
+    // ----- The Steel Rain (rogue homebrew, 0.30.0) -----
+    internal const string SteelRainArchetype = "D9B33ECB-1421-4066-966C-78D93C62CAB8";
+    internal const string SteelRainQuickHandsFeature = "44F87416-8C0F-40D8-ABD2-E54FE65B84E4";
+    internal const string SteelRainQuickHandsComponent = "43D7BD1A-1926-47AC-BF26-4C7057BC9109";
+    internal const string SteelRainRicochetFeature = "39175BE2-77E6-48D2-B2E1-2BDA36904949";
+    internal const string SteelRainRicochetComponent = "7C31C24F-9FC0-4BD8-9EF0-CD9C50AE92CE";
+    internal const string SteelRainFlickFeature = "188076DB-E07F-44B8-A26A-AF883E97CD1C";
+    internal const string SteelRainFlickComponent = "C228C36C-6AB1-4D62-B064-1D4C910C786F";
+    internal const string SteelRainCatchFeature = "97A210CF-A8FC-441D-AC61-B3365CC4F6EB";
+    internal const string SteelRainCatchComponent = "973C1277-D722-40FB-BCD0-896413DB0F6F";
+
   }
 }

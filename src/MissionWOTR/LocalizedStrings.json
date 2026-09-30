@@ -4601,5 +4601,75 @@
     "deDE": "",
     "ruRU": "",
     "frFR": ""
+  },
+  {
+    "Key": "SteelRain.Name",
+    "enGB": "Steel Rain",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRain.Description",
+    "enGB": "Some rogues knife from the shadows; this one rains steel from thirty feet away. Javelins, throwing axes, darts - her hands are always moving, and there is always another blade. Quick hands, a cruel ricochet, a wrist that lends Dexterity to every throw, and the knack of catching a blade that comes back clean and sending it out again. This replaces trapfinding and danger sense; sneak attack, evasion, uncanny dodge, rogue talents, debilitating injuries, and master strike are untouched - the knife was always the trade. This one simply flies.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainQuickHands.Name",
+    "enGB": "Quick Hands",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainQuickHands.Description",
+    "enGB": "At 1st level, she gains a +1 bonus on attack rolls with thrown weapons. The bonus increases to +2 at 8th level and +3 at 16th. This replaces trapfinding.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainRicochet.Name",
+    "enGB": "Ricochet",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainRicochet.Description",
+    "enGB": "At 4th level, once per round, when she hits with a thrown weapon, the blade glances to the nearest other enemy within 10 feet of the target, dealing 1d6 damage per four rogue levels to it. No attack roll - the blade is already going that way.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainFlick.Name",
+    "enGB": "Flick of the Wrist",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainFlick.Description",
+    "enGB": "At 8th level, she adds her Dexterity modifier to damage rolls with thrown weapons, on top of the Strength the throw already carries. Her arm was always the point.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainCatch.Name",
+    "enGB": "Catch!",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "SteelRainCatch.Description",
+    "enGB": "At 12th level, once per round, when she kills a creature with a thrown weapon, the blade comes back clean and goes out again: an immediate free attack at the nearest living enemy within 30 feet. On a hit, the returning throw deals 1d6 + her Dexterity modifier.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
   }
 ]

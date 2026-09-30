@@ -794,6 +794,37 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.30.0 — the Steel Rain (rogue homebrew: the throwing-weapon rogue)
+
+- **The Steel Rain** — the user's design: "a rogue that focuses on
+  throwing weapons. Keep it fairly simple." Deliberately lean: four
+  features, clean trades.
+  - Thrown-weapon detection: in WOTR, thrown weapons are RANGED
+    weapon types (javelins, throwing axes, darts). A whitelist of
+    vanilla thrown candidates, filtered AT CONFIGURE TIME to those
+    whose AttackType is actually Ranged in this game (a dagger
+    blueprint is melee here — stabs never count), the surviving set
+    logged. Documented edge: modded thrown types unrecognized.
+  - Quick Hands (1st, replaces trapfinding): +1 on attack rolls
+    with thrown weapons, +2 at 8th, +3 at 16th (the GuideFocusBonus
+    temporary-modifier pattern).
+  - Ricochet (4th): once per round, a thrown HIT glances to the
+    nearest other enemy within 10 feet for 1d6 per four rogue
+    levels — a triggered RuleDealDamage, no second roll (simple by
+    design).
+  - Flick of the Wrist (8th): adds her Dexterity modifier to thrown
+    damage, on top of the Strength the throw already carries (a
+    design choice, documented).
+  - Catch! (12th): once per round, a thrown KILL earns an immediate
+    free throw at the nearest living enemy within 30 feet — a
+    phantom RuleAttackRoll with the same weapon (the elk idiom),
+    1d6 + Dex on a hit (the weapon's own dice not re-read — simple
+    by design). The once-per-round gate is set BEFORE the free
+    throw, so free-throw kills cannot chain.
+  - The trades: trapfinding (1st) and danger sense (every rank,
+    3rd–18th). Sneak attack, evasion, uncanny dodge, talents,
+    debilitating injuries, master strike untouched.
+
 ## 0.29.0 — the Scout (rogue tabletop port), and the companion-control correction
 
 - **The correction (user):** "animal companions CAN be controlled by
@@ -2063,6 +2094,31 @@ covered ten.
   resets on the round tick.
 - Sneak attack, trapfinding, danger sense, debilitating injuries,
   rogue talents, and master strike are untouched.
+
+### Homebrew — The Steel Rain (user design: the throwing rogue) — IMPLEMENTED (0.30.0)
+
+| Level | The Steel Rain grants | Rogue normally grants |
+|---|---|---|
+| 1 | Quick Hands (+1 attack with thrown weapons; +2 at 8th, +3 at 16th) | Trapfinding (removed) |
+| 4 | Ricochet (once/round a thrown hit glances to the nearest other enemy within 10 ft: 1d6/4 levels, no roll) | Danger Sense (removed) |
+| 8 | Flick of the Wrist (adds her Dex modifier to thrown damage, atop the throw's Strength) | Danger Sense (removed) |
+| 12 | Catch! (once/round a thrown kill earns a free throw at the nearest enemy within 30 ft: 1d6 + Dex) | Danger Sense (removed) |
+| 3–18 | — | Danger Sense (removed at every rank, 3/6/9/12/15/18) |
+
+- Detection: thrown weapons in WOTR are RANGED weapon types — a
+  whitelist of vanilla thrown candidates filtered at configure time
+  by AttackType == Ranged (dagger stabs never count; the set is
+  logged). Documented edge: modded thrown types unrecognized.
+- Design choices, documented: Ricochet deals its damage without a
+  second attack roll (simple); Flick of the Wrist stacks Dex ON TOP
+  of the throw's Strength (throwing builds need the help); Catch!'s
+  free throw deals fixed 1d6 + Dex rather than re-reading the
+  weapon's dice (simple), and its once-per-round gate is set before
+  the free throw so free-throw kills cannot chain.
+- Sneak attack, evasion, uncanny dodge, improved uncanny dodge,
+  rogue talents, debilitating injuries, and master strike are
+  untouched — and the Scout's trades (uncanny dodge pair) do not
+  overlap these, so the two archetypes remain combinable.
 
 ## Level plan per class (test-mode rule)
 
