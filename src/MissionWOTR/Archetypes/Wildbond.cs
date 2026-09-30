@@ -485,7 +485,7 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>Is the mark ours - laid by this bond's ranger?</summary>
-    internal static bool IsOurMark(EntityBuff mark, UnitEntityData master)
+    internal static bool IsOurMark(Buff mark, UnitEntityData master)
     {
       return mark is not null && mark.MaybeContext?.MaybeCaster == master;
     }
