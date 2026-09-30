@@ -53,8 +53,10 @@ namespace MissionWOTR.Archetypes
   ///   enumeration); and attacking an enemy with DAMAGE REDUCTION
   ///   grants additional damage, +1 per five rogue levels, NOT
   ///   stackable (a flat rider - the DR read via the vanilla
-  ///   UnitPartDamageReduction's chunks, the dcx
-  ///   AddDamageResistancePhysicalImproved read).
+  ///   UnitPartDamageReduction, whose existence IS the has-DR
+  ///   check: created on the first reduction, removed when the
+  ///   last goes; the chunk list is not public - documented edge:
+  ///   DR overhauled by other mods may go unread).
   ///
   /// My additions ("as well as some other effects you can think
   /// of"), the study deepening:
@@ -312,9 +314,14 @@ namespace MissionWOTR.Archetypes
           return;
         }
         // Attacking an armored thing: read the reduction, press
-        // past it. +1 per five levels, not stackable.
-        var part = roll.Target.Get<UnitPartDamageReduction>();
-        if (part is null || part.m_Chunks is null || part.m_Chunks.Count == 0)
+        // past it. +1 per five levels, not stackable. The DR read:
+        // the vanilla part is created on the first reduction and
+        // removed when the last one goes - its EXISTENCE is the
+        // has-DR check (the chunk list dcx reads is not public).
+        // Documented edge: DR overhauled by other mods (TTT's
+        // replacement part) may go unread - the bonus simply does
+        // not fire.
+        if (roll.Target.Get<UnitPartDamageReduction>() is null)
         {
           return;
         }
