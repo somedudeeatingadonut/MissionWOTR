@@ -813,17 +813,23 @@ errors suggested:
   Scoundrel, Knife Master, Thug, Master of All, Rowdy, Sylvan
   Trickster, Underground Chemist, Dark Lurker); TTT/COP/DarkCodex
   add none; the Scout was unclaimed.
-  - Scout's Charge (4th, replaces uncanny dodge): a charge deals
-    sneak attack damage as if the target were flat-footed —
-    evt.IsSneakAttack on the attack roll (the engine's own flag,
-    the TTT RuleAttackWithWeaponPrecision idiom), sneak-ONLY per
-    the APG text. Foes with uncanny dodge are immune (the
-    tabletop's clause, checked against the vanilla feature).
+  - Scout's Charge (4th, replaces uncanny dodge): a charge forces
+    the target flat-footed (evt.ForceFlatFooted on the attack
+    roll - the engine's own flag). Foes with uncanny dodge are
+    immune (the tabletop's clause, checked against the vanilla
+    feature).
   - Skirmisher (8th, replaces improved uncanny dodge): after
-    moving more than 10 feet in a round, her first attack deals
-    sneak attack damage as if the target were flat-footed.
-    Position captured on the round tick (the Wildbond
-    mastodon-momentum idiom).
+    moving more than 10 feet in a round, her first attack forces
+    the target flat-footed. Position captured on the round tick
+    (the Wildbond mastodon-momentum idiom); the rider sits on the
+    engine's flat-footed CHECK (the COP SignatureStealthSurprise
+    idiom).
+  - DOCUMENTED STRENGTHENING: the APG text is sneak-only, but this
+    game build exposes no settable sneak-only flag
+    (RuleAttackRoll.IsSneakAttack is read-only here - CS0200; other
+    mods' reference builds differ). Both abilities force full
+    flat-footedness: sneak damage AND denied Dex to AC. Slightly
+    stronger than the tabletop; documented rather than faked.
   - Documented adaptations: movement is NET displacement from the
     round-tick position (no distance-traveled accumulator in the
     engine); "first attack of the turn" resets on the round tick.
@@ -2030,8 +2036,8 @@ covered ten.
 
 | Level | The Scout grants | Rogue normally grants |
 |---|---|---|
-| 4 | Scout's Charge (a charge deals sneak attack damage as if the target were flat-footed; uncanny-dodge foes immune) | Uncanny Dodge (removed) |
-| 8 | Skirmisher (after moving 10+ feet in a round, her first attack deals sneak attack damage as if the target were flat-footed; uncanny-dodge foes immune) | Improved Uncanny Dodge (removed) |
+| 4 | Scout's Charge (a charge forces the target flat-footed - sneak damage and denied Dex; uncanny-dodge foes immune) | Uncanny Dodge (removed) |
+| 8 | Skirmisher (after moving 10+ feet in a round, her first attack forces the target flat-footed; uncanny-dodge foes immune) | Improved Uncanny Dodge (removed) |
 
 - Coverage: vanilla WOTR ships EIGHT rogue archetypes — Eldritch
   Scoundrel, Knife Master, Thug, Master of All, Rowdy, Sylvan
@@ -2039,14 +2045,17 @@ covered ten.
   and DarkCodex add none. The Scout (APG pg. 134) was unclaimed —
   the rogue of the open road, companion piece to the Guide and the
   Wildbond.
-- Both abilities are SNEAK-ONLY per the APG text ("deals sneak
-  attack damage as if the target were flat-footed") — implemented
-  with the engine's own evt.IsSneakAttack flag on the attack roll
-  (the TTT RuleAttackWithWeaponPrecision idiom), NOT forced
-  flat-footedness. Charge detection rides the parent weapon-attack
-  rule's IsCharge (the ShiningKnight/Wildbond idiom); Skirmisher's
-  movement rides a round-tick position capture (the mastodon
-  momentum idiom).
+- DOCUMENTED STRENGTHENING: the APG text is sneak-only ("deals
+  sneak attack damage as if the target were flat-footed"), but this
+  game build exposes no settable sneak-only flag
+  (RuleAttackRoll.IsSneakAttack is read-only - CS0200). Both
+  abilities force full flat-footedness instead: sneak damage AND a
+  denied Dexterity bonus to AC. Charge detection rides the parent
+  weapon-attack rule's IsCharge (the ShiningKnight/Wildbond idiom)
+  and sets the roll's ForceFlatFooted; Skirmisher rides the
+  engine's flat-footed CHECK (RuleCheckTargetFlatFooted - the COP
+  SignatureStealthSurprise idiom) with a round-tick position
+  capture (the mastodon momentum idiom).
 - The tabletop's immunity clause is honored: foes with the vanilla
   uncanny dodge feature are immune to both abilities.
 - Documented adaptations: "moves more than 10 feet" is measured as

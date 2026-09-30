@@ -4583,7 +4583,7 @@
   },
   {
     "Key": "ScoutsCharge.Description",
-    "enGB": "At 4th level, whenever the scout makes a charge, her attack deals sneak attack damage as if the target were flat-footed. Foes with uncanny dodge are immune to this ability. This replaces uncanny dodge.",
+    "enGB": "At 4th level, whenever the scout makes a charge, her attack treats the target as flat-footed - sneak attack damage lands, and the target's Dexterity bonus to AC is denied. Foes with uncanny dodge are immune to this ability. This replaces uncanny dodge.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4597,7 +4597,7 @@
   },
   {
     "Key": "ScoutSkirmisher.Description",
-    "enGB": "At 8th level, whenever the scout moves more than 10 feet in a round and makes an attack, the attack deals sneak attack damage as if the target were flat-footed - but only the first attack she makes that round. Foes with uncanny dodge are immune to this ability. This replaces improved uncanny dodge.",
+    "enGB": "At 8th level, whenever the scout moves more than 10 feet in a round and makes an attack, the attack treats the target as flat-footed - but only the first attack she makes that round. Foes with uncanny dodge are immune to this ability. This replaces improved uncanny dodge.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""

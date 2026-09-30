@@ -30,24 +30,32 @@ namespace MissionWOTR.Archetypes
   /// of the open road, the perfect companion piece to the Guide and
   /// the Wildbond.
   ///
-  /// The kit (tabletop -> WOTR, both abilities verbatim-faithful):
+  /// The kit (tabletop -> WOTR):
   /// - Scout's Charge (4th, replaces uncanny dodge): whenever the
-  ///   scout makes a CHARGE, the attack deals sneak attack damage
-  ///   as if the target were flat-footed. Implementation: an
-  ///   initiator-side RuleAttackRoll rider sets evt.IsSneakAttack
-  ///   (the engine's own flag - TTT's RuleAttackWithWeaponPrecision
-  ///   constructs its rolls with IsSneakAttack for exactly this
-  ///   purpose) when the parent weapon-attack rule IsCharge (the
-  ///   ShiningKnight/Wildbond charge idiom). SNEAK ONLY - not full
-  ///   flat-footed - per the APG text ("deals sneak attack damage
-  ///   as if the target were flat-footed").
+  ///   scout makes a CHARGE, the attack treats the target as
+  ///   flat-footed. Implementation: an initiator-side
+  ///   RuleAttackRoll rider sets evt.ForceFlatFooted (the engine's
+  ///   own flag) when the parent weapon-attack rule IsCharge (the
+  ///   ShiningKnight/Wildbond charge idiom).
   /// - Skirmisher (8th, replaces improved uncanny dodge): whenever
   ///   the scout moves more than 10 feet in a round and makes an
-  ///   attack, the attack deals sneak attack damage as if the
-  ///   target were flat-footed - only the FIRST attack of the
-  ///   round. Implementation: the round tick captures her position
-  ///   (the Wildbond mastodon-momentum idiom); the rider checks
-  ///   displacement > 10 feet.
+  ///   attack, the attack treats the target as flat-footed - only
+  ///   the FIRST attack of the round. Implementation: the round
+  ///   tick captures her position (the Wildbond mastodon-momentum
+  ///   idiom); an initiator-side rider on the engine's
+  ///   flat-footed CHECK (RuleCheckTargetFlatFooted - the COP
+  ///   SignatureStealthSurprise idiom) forces the answer while her
+  ///   displacement exceeds 10 feet.
+  ///
+  /// DOCUMENTED STRENGTHENING (honest, not faked): the APG text is
+  /// sneak-ONLY ("deals sneak attack damage as if the target were
+  /// flat-footed") - but this game build exposes no settable
+  /// sneak-only flag (RuleAttackRoll.IsSneakAttack is read-only
+  /// here; other mods' builds differ - compile error CS0200, the
+  /// compiler is the truth). Both abilities therefore force FULL
+  /// flat-footedness on the attack: sneak damage AND a denied
+  /// Dexterity bonus to AC. Slightly stronger than the tabletop;
+  /// documented rather than faked.
   ///
   /// Both abilities respect the tabletop's immunity clause: FOES
   /// WITH UNCANNY DODGE ARE IMMUNE (checked against the vanilla
@@ -113,11 +121,9 @@ namespace MissionWOTR.Archetypes
   }
 
   /// <summary>
-  /// Scout's Charge: a charge attack counts as a sneak attack - the
-  /// engine's IsSneakAttack flag on the attack roll (the TTT
-  /// RuleAttackWithWeaponPrecision idiom), sneak-only per the APG
-  /// text. Foes with uncanny dodge are immune (the tabletop's
-  /// clause).
+  /// Scout's Charge: a charge attack forces the target flat-footed
+  /// (the engine's ForceFlatFooted flag on the attack roll). Foes
+  /// with uncanny dodge are immune (the tabletop's clause).
   /// </summary>
   [TypeId(Guids.ScoutChargeComponent)]
   internal class ScoutChargeComponent : UnitFactComponentDelegate,
@@ -142,7 +148,7 @@ namespace MissionWOTR.Archetypes
         {
           return; // the tabletop's immunity clause
         }
-        evt.IsSneakAttack = true;
+        evt.ForceFlatFooted = true;
       }
       catch (Exception e)
       {
@@ -155,15 +161,19 @@ namespace MissionWOTR.Archetypes
 
   /// <summary>
   /// Skirmisher: after moving more than 10 feet this round, her
-  /// FIRST attack counts as a sneak attack. Position captured on
-  /// the round tick (net displacement - documented adaptation);
-  /// the first-attack gate resets with it. Foes with uncanny dodge
-  /// are immune.
+  /// FIRST attack forces the target flat-footed. Position captured
+  /// on the round tick (net displacement - documented adaptation);
+  /// the first-attack gate resets with it. The rider sits on the
+  /// engine's flat-footed CHECK (the COP SignatureStealthSurprise
+  /// idiom - evt.IsFlatFooted = true), initiator-gated so only her
+  /// own attacks' checks are forced. Foes with uncanny dodge are
+  /// immune.
   /// </summary>
   [TypeId(Guids.ScoutSkirmisherComponent)]
   internal class ScoutSkirmisherComponent : UnitFactComponentDelegate,
     Kingmaker.Controllers.Units.ITickEachRound,
-    IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
+    IInitiatorRulebookHandler<RuleCheckTargetFlatFooted>,
+    IRulebookHandler<RuleCheckTargetFlatFooted>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
     public BlueprintFeature UncannyDodge;
@@ -183,11 +193,11 @@ namespace MissionWOTR.Archetypes
       spent = false;
     }
 
-    public void OnEventAboutToTrigger(RuleAttackRoll evt)
+    public void OnEventAboutToTrigger(RuleCheckTargetFlatFooted evt)
     {
       try
       {
-        if (evt.Initiator != Owner || evt.IsFake || spent)
+        if (evt.Initiator != Owner || spent)
         {
           return;
         }
@@ -199,7 +209,7 @@ namespace MissionWOTR.Archetypes
         {
           return; // the tabletop's immunity clause
         }
-        evt.IsSneakAttack = true;
+        evt.IsFlatFooted = true;
         spent = true; // the first attack only
       }
       catch (Exception e)
@@ -208,6 +218,6 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    public void OnEventDidTrigger(RuleAttackRoll evt) { }
+    public void OnEventDidTrigger(RuleCheckTargetFlatFooted evt) { }
   }
 }
