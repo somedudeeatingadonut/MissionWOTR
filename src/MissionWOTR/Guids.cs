@@ -895,6 +895,7 @@ namespace MissionWOTR
     internal const string WildbondRetaliationBuff = "50D4E80A-EC34-4CA5-8065-081F3E66B056";
     internal const string WildbondSecondChargeComponent = "6B7B0E86-64E5-41A4-9B11-C2D4D9117EB3";
     internal const string WildbondBreakBulwarkAction = "E4A9F27B-1B3F-4C56-9F1A-7C05D6B2E604";
+    internal const string WildbondBulwarkRiderComponent = "11A3CF15-ED4B-4910-AD9B-4B75ECB0FA76";
 
   }
 }

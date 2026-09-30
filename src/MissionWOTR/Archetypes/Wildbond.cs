@@ -20,6 +20,7 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics;
@@ -1289,8 +1290,7 @@ namespace MissionWOTR.Archetypes
   /// and the tier-5 retaliation.</summary>
   [TypeId(Guids.WildbondHowlComponent)]
   internal class WildbondPackRider : UnitFactComponentDelegate,
-    IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
-    ITargetRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
+    IInitiatorRulebookHandler<RuleAttackRoll>, ITargetRulebookHandler<RuleAttackRoll>,
     ITargetRulebookHandler<RuleDealDamage>, IRulebookHandler<RuleDealDamage>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
@@ -1460,7 +1460,7 @@ namespace MissionWOTR.Archetypes
 
   /// <summary>Iron Charge's rider, on the bulwark buff: +1 AC per
   /// tier, live-scaled from the master's level.</summary>
-  [TypeId(Guids.WildbondBulwarkRider)]
+  [TypeId(Guids.WildbondBulwarkRiderComponent)]
   internal class WildbondBulwarkRider : UnitFactComponentDelegate,
     ITargetRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
     ITargetRulebookSubscriber, ISubscriber
