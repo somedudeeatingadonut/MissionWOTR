@@ -819,6 +819,7 @@ namespace MissionWOTR
     internal const string FortunesFoolLuckAttackComponent = "06338CC2-B8D5-4032-96CE-39987AEB3E09";
     internal const string FortunesFoolWhimsyComponent = "47CE59F8-E91A-4933-A0B9-BAC37A0B48E9";
     internal const string FortunesFoolStarSurgeComponent = "17620BAB-9B62-4CE5-90FA-C6C1BC70F88F";
+    internal const string FortunesFoolFearlessComponent = "A80DB5E1-D218-493F-8CA8-591871829203";
     // ----- Sacred Vow (0.24.0, mythic ability — the Intercessor's Vow) -----
     internal const string SacredVowFeature = "ADE0478D-9F3A-4536-95BF-F52B7A9C84B5";
     internal const string SacredVowIntercedeAbility = "0260ED99-F9A3-4E6D-928E-0FDEE7A99428";

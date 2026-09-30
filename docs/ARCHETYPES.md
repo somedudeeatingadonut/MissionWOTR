@@ -794,6 +794,36 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.26.0 — Fortune's Fool rebalance (user feedback)
+
+- **Aura of Whimsy is tamed** (user: "whimsy is too strong, make it
+  give dr instead"): the scatter band (attacks against allies
+  scattering on a natural 14-17 - a blanket +20% miss chance) is
+  REPLACED by DR 5/- for allies within 10 ft (AddDamageResistance
+  Physical with no bypass: nothing pierces it but damage in excess
+  of it).
+- **The Wandering Star is once per ally until her next turn** (user:
+  "wandering star should be once per ally until the fortunes fool
+  next turn/action"): when an ally's star surge fires, the star
+  buff SPENDS itself (removed after the damage lands) and returns
+  only with her next round tick (the aura's GetBuff-null refresh).
+  Documented edge: if she falls, a spent star stays spent.
+- **Smite and channel are gone** (user: "also get rid of channel and
+  smite for an increased fear save chance (not immunity unlike
+  normal paladin)"): SmiteEvilFeature and ChannelEnergyPaladin
+  Feature are removed, and Fate's Wager gains the fool's answer to
+  fear - a luck bonus on saves against fear equal to her Charisma
+  modifier (minimum +2), descriptor-gated (SpellDescriptor.Fear),
+  NOT the paladin's aura-of-courage immunity (the SisterLoyalty
+  Saves pattern). Terror can still find her; it just blinks first.
+- **Her weapon does chaotic damage** (user: "have your weapon do
+  chaotic damage"): the vanilla AddOutgoingPhysicalDamageProperty
+  component with DamageAlignment.Chaotic - the very mechanism the
+  creature subtypes use (TTT's alignment-subtype fix patches the
+  same component) - her physical damage counts as chaotic-aligned.
+- Divine grace, spells and the divine bond remain her only
+  paladin-ordered privileges.
+
 ## 0.25.0 — the paladins, and the Apocryphal rename
 
 - **The Blood-Scribed is renamed The Apocryphal** (user: "I dont
@@ -1708,6 +1738,71 @@ Wrath adaptations (engine gaps, documented in the code header):
   DirectDamage (exact conservation; no resistance or immunity; the TTT
   DamageRetribution rule pair). Mythic rank 4 widens the vow to two
   companions. A fallen carrier carries nothing.
+
+## Paladin
+
+### Faithful port — Shining Knight (Advanced Player's Guide) — IMPLEMENTED (0.25.0)
+
+| Level | Shining Knight grants | Paladin normally grants |
+|---|---|---|
+| 3 | Skilled Rider (her pets carry her Divine Grace; Ride-skill clause cut - no Ride skill) | Divine Health (removed) |
+| 5 | Divine Bond, fixed: the mount (the vanilla mount selection, no weapon option) | Divine Bond selection (weapon option removed) |
+| 11 | Knight's Charge (mounted charge on her smite target: Will save or panicked, half level rounds) | Aura of Justice (removed) |
+
+- Skilled Rider grants the VANILLA DivineGrace feature to every pet
+  she owns, tick-refreshed (the SisterDragonAura idiom over
+  Owner.Pets, the SetPetMinimumStat enumeration) and removed with the
+  feature - so a later-acquired mount is never missed.
+- Knight's Charge: charge detection via IsCharge on the weapon-attack
+  rule (the TTT OnCharge pattern), mounted via her UnitPartRider's
+  saddled mount (the TTT MountedCombatFixes API), the save via a
+  triggered RuleSavingThrow (the DisjointEnchantments idiom), panic
+  via the vanilla Eyebite panic buff. The smite-target check reads
+  the vanilla SmiteEvilBuff's context target - best-effort,
+  documented (no buff or no target, no rider).
+- Documented cuts: the tabletop's Ride-armor clause (no Ride skill in
+  WOTR) and its no-provoke-on-charge clause (no engine fact for it).
+- (0.26.0 postmortem: this entire section was lost to a parallel-edit
+  race in the 0.25.0 push - the changelog landed, the class section
+  did not. Restored here. The rule is now absolute: one edit per
+  file.)
+
+### Homebrew — Fortune's Fool (user design: the chaos paladin) — IMPLEMENTED (0.25.0; REBALANCED 0.26.0)
+
+| Level | Fortune's Fool grants | Paladin normally grants |
+|---|---|---|
+| 1 | Fate's Wager (natural 1-4: the attack scatters; natural 17+: extra 1d6/2 levels; +Cha luck vs fear, NOT immunity; weapon damage counts as chaotic); chaotic alignment required INSTEAD of lawful good | — |
+| 3 | Aura of the Open Road (allies within 10 ft: +1 luck on attacks) | Aura of Courage (removed) |
+| 8 | Aura of Whimsy (allies within 10 ft: DR 5/-) | Aura of Resolve (removed) |
+| 11 | Aura of the Wandering Star (allies: natural 17+ hits deal +2d6, once per ally until her next turn) | Aura of Justice (removed) |
+| 14 | Aura of Fortune's Favor (allies: +2 luck on all saves) | Aura of Faith (removed) |
+| 17 | Aura of the Laughing Fool (her companions carry Fate's Wager itself) | Aura of Righteousness (removed) |
+| — | — | Lay on Hands, every Mercy, Smite Evil, Channel Positive Energy (all removed) |
+
+- The alignment gate is Owlcat's own archetype-alignment mechanism
+  (PrerequisiteAlignment with ArchetypeAlignment = true, tracker note
+  PF-485644: an archetype's alignment restriction ALWAYS replaces the
+  class's) - the three chaotic alignments replace lawful good.
+- Fate's Wager is pure real dice (no hidden RNG): the attack roll's
+  own natural die decides (evt.D20 read + evt.AutoMiss set, the
+  TricksterParry idiom; the surge is a DirectDamage entry added via
+  evt.Add, the AddAdditionalWeaponDamageOnHit idiom). The surge stacks
+  with critical hits.
+- 0.26.0 additions: the fool laughs at fear (a luck bonus on saves
+  against fear equal to her Charisma modifier, minimum +2,
+  descriptor-gated - NOT the aura-of-courage immunity), and her blade
+  carries chaos (the vanilla AddOutgoingPhysicalDamageProperty with
+  DamageAlignment.Chaotic - the creature-subtype mechanism). The
+  prices: smite evil and channel positive energy removed.
+- 0.26.0 rebalance: Whimsy is DR 5/- (the first draft's scatter band
+  was too strong, per the user); the Wandering Star is once per ally
+  until her next turn (the surge spends the ally's star; her round
+  tick re-lights it - and if she falls, a spent star stays spent).
+- The 17th aura excludes her (she already carries the wager - it never
+  stacks with itself); the other auras include her (the paladin-aura
+  convention).
+- Divine grace, spells and the divine bond are untouched - chance did
+  not ask for them back.
 
 ## Level plan per class (test-mode rule)
 

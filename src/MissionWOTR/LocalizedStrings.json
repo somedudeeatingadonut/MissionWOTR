@@ -3853,7 +3853,7 @@
   {
     "Key": "FortunesFool.Description",
     "ProcessTemplates": false,
-    "enGB": "She swore her oath not to a god of order but to chance itself - the open road, the roll of the die, the freedom of the unrepeated moment. Only the chaotic may walk her road. Fate's Wager rides every blow she strikes: on a natural 1-4 the attack scatters and misses outright, on a natural 17+ the dice surge and the hit deals an extra 1d6 per two paladin levels. She has no lay on hands and no mercies - chance keeps what healing would return - and her auras are not orders but luck: the Open Road, Whimsy, the Wandering Star, Fortune's Favor, and at last the Laughing Fool, which shares her wager with all who fight beside her. This replaces lay on hands, all mercies, and every aura of the base paladin."
+    "enGB": "She swore her oath not to a god of order but to chance itself - the open road, the roll of the die, the freedom of the unrepeated moment. Only the chaotic may walk her road. Fate's Wager rides every blow she strikes: on a natural 1-4 the attack scatters and misses outright, on a natural 17+ the dice surge and the hit deals an extra 1d6 per two paladin levels. She laughs at fear - a luck bonus on saves against fear equal to her Charisma modifier - but she is not immune to it, as a paladin of order would be. Her blade carries chaos: her physical damage counts as chaotic-aligned. She has no lay on hands, no mercies, no smite, and no channel - chance keeps what healing and vengeance would return - and her auras are not orders but luck: the Open Road, Whimsy, the Wandering Star, Fortune's Favor, and at last the Laughing Fool, which shares her wager with all who fight beside her. This replaces lay on hands, all mercies, smite evil, channel positive energy, and every aura of the base paladin."
   },
   {
     "Key": "FortunesFoolFatesWager.Name",
@@ -3863,7 +3863,7 @@
   {
     "Key": "FortunesFoolFatesWager.Description",
     "ProcessTemplates": false,
-    "enGB": "Every weapon attack she makes rides the die. On a natural d20 roll of 1-4, the blow scatters - a miss even if her modifiers would hit. On a natural 17+, the dice surge: the hit deals an extra 1d6 of damage per two paladin levels. The surge stacks with critical hits. Fortune is not fair, and neither is she."
+    "enGB": "Every weapon attack she makes rides the die. On a natural d20 roll of 1-4, the blow scatters - a miss even if her modifiers would hit. On a natural 17+, the dice surge: the hit deals an extra 1d6 of damage per two paladin levels. The surge stacks with critical hits. She also laughs at fear: a luck bonus on saves against fear equal to her Charisma modifier (minimum +2) - not the immunity of an ordered paladin. And her blade carries chaos: her physical damage counts as chaotic-aligned. Fortune is not fair, and neither is she."
   },
   {
     "Key": "FortunesFoolOpenRoad.Name",
@@ -3893,7 +3893,7 @@
   {
     "Key": "FortunesFoolWhimsy.Description",
     "ProcessTemplates": false,
-    "enGB": "Attacks against allies within 10 feet (herself included) scatter on a natural d20 roll of 14-17 - a true extra 20% miss chance, stacked atop all normal results. This replaces aura of resolve."
+    "enGB": "Allies within 10 feet (herself included) gain damage reduction 5 - no weapon, no magic, no material pierces it; only damage in excess of it. This replaces aura of resolve."
   },
   {
     "Key": "FortunesFoolWhimsyBuff.Name",
@@ -3903,7 +3903,7 @@
   {
     "Key": "FortunesFoolWhimsyBuff.Description",
     "ProcessTemplates": false,
-    "enGB": "Attacks against you scatter on a natural d20 roll of 14-17."
+    "enGB": "Damage reduction 5 that no weapon pierces - only damage in excess of it."
   },
   {
     "Key": "FortunesFoolWanderingStar.Name",
@@ -3913,7 +3913,7 @@
   {
     "Key": "FortunesFoolWanderingStar.Description",
     "ProcessTemplates": false,
-    "enGB": "Allies within 10 feet (herself included) carry her lesser blessing: their weapon hits on a natural d20 roll of 17+ deal an extra 2d6 damage. This replaces aura of justice."
+    "enGB": "Allies within 10 feet (herself included) carry her lesser blessing: their weapon hits on a natural d20 roll of 17+ deal an extra 2d6 damage - but the star spends itself when it fires, and returns only with her next turn. This replaces aura of justice."
   },
   {
     "Key": "FortunesFoolWanderingStarBuff.Name",
@@ -3923,7 +3923,7 @@
   {
     "Key": "FortunesFoolWanderingStarBuff.Description",
     "ProcessTemplates": false,
-    "enGB": "Your weapon hits on a natural d20 roll of 17+ deal an extra 2d6 damage."
+    "enGB": "Your weapon hits on a natural d20 roll of 17+ deal an extra 2d6 damage. Once it fires, the star leaves you until her next turn."
   },
   {
     "Key": "FortunesFoolFavor.Name",

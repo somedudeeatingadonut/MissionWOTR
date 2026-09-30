@@ -2,13 +2,16 @@ using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -53,19 +56,30 @@ namespace MissionWOTR.Archetypes
   ///   decides (the TTT TricksterParry idiom - evt.D20 read and
   ///   evt.AutoMiss set in DidTrigger; the surge adds a DirectDamage
   ///   entry via evt.Add, the TTT AddAdditionalWeaponDamageOnHit
-  ///   idiom).
+  ///   idiom). The Wager also carries her answer to fear and the
+  ///   chaos in her blade (0.26.0, per the user):
+  ///   - THE FOOL LAUGHS: a luck bonus on saves against fear equal
+  ///     to her Charisma modifier (minimum +2) - NOT the paladin's
+  ///     immunity; terror can still find her, it just blinks first
+  ///     (the SisterLoyaltySaves descriptor-gated modifier pattern).
+  ///   - CHAOS IN THE BLADE: her physical damage counts as
+  ///     chaotic-aligned - the vanilla AddOutgoingPhysicalDamage
+  ///     Property component (the very mechanism the creature
+  ///     subtypes use), configured with DamageAlignment.Chaotic.
   /// - The auras (replacing the entire vanilla suite - "different
   ///   support auras"): each is a 10-foot ally aura carried on the
   ///   round tick (the SisterDragonAura idiom, self included), and
   ///   every one of them is luck:
   ///   - 3rd, Aura of the Open Road (for Aura of Courage): allies
   ///     within 10 ft gain +1 luck on attack rolls.
-  ///   - 8th, Aura of Whimsy (for Aura of Resolve): attacks against
-  ///     allies within 10 ft scatter on a natural 14-17 - a true +20%
-  ///     miss band stacked atop normal results.
+  ///   - 8th, Aura of Whimsy (for Aura of Resolve): allies within
+  ///     10 ft gain DR 5/- (0.26.0: the first draft's scatter band
+  ///     was TOO STRONG, per the user; traded for damage reduction).
   ///   - 11th, Aura of the Wandering Star (for Aura of Justice):
   ///     allies' weapon hits on a natural 17+ deal an extra 2d6 -
-  ///     her lesser blessing.
+  ///     her lesser blessing, ONCE PER ALLY until her next turn
+  ///     (0.26.0, per the user: the surge spends that ally's star,
+  ///     and her next round tick re-lights it).
   ///   - 14th, Aura of Fortune's Favor (for Aura of Faith): allies
   ///     within 10 ft gain +2 luck on all saving throws.
   ///   - 17th, Aura of the Laughing Fool (for Aura of
@@ -75,9 +89,10 @@ namespace MissionWOTR.Archetypes
   /// The trades (hefty): Lay on Hands (the user's requirement - "doesnt
   /// get lay on hands") with the entire Mercy selection (mercies
   /// improve a pool she does not have - removed as the direct
-  /// consequence), and ALL FIVE vanilla auras. Smite evil, divine
-  /// grace, channel, spells and the bond remain - chance did not ask
-  /// for them back.
+  /// consequence), ALL FIVE vanilla auras, and - 0.26.0, per the user -
+  /// SMITE EVIL and CHANNEL POSITIVE ENERGY: the price paid for the
+  /// fear-save blessing and the chaos in her blade. Divine grace,
+  /// spells and the bond remain.
   ///
   /// Honesty notes (documented, not faked):
   /// - The scatter band (natural 1-4) overlaps the natural-1 auto-miss
@@ -91,6 +106,8 @@ namespace MissionWOTR.Archetypes
   /// - The auras are tick-refreshed with two rounds of natural
   ///   duration (the SisterDragonAura idiom), so a mark outlives her
   ///   by at most a round.
+  /// - The star's once-per-ally reset rides HER round tick: if she
+  ///   falls, a spent star stays spent (her next round never comes).
   /// Log prefix: [fool].
   /// </summary>
   internal static class FortunesFool
@@ -114,7 +131,10 @@ namespace MissionWOTR.Archetypes
         .SetDisplayName("FortunesFoolWhimsyBuff.Name")
         .SetDescription("FortunesFoolWhimsyBuff.Description")
         .SetIcon(AbilityRefs.ShieldOfFaith.Reference.Get().Icon)
-        .AddComponent(new FoolWhimsyScatter())
+        // 0.26.0: the scatter band was too strong (user) - the whimsy
+        // ward is now DR 5/- (AddDamageResistancePhysical with no
+        // bypass: nothing pierces it but damage below it).
+        .AddDamageResistancePhysical(value: ContextValues.Constant(5))
         .Configure();
       var starBuff = BuffConfigurator.New(
         "FortunesFoolWanderingStarBuff", Guids.FortunesFoolWanderingStarBuff)
@@ -123,6 +143,9 @@ namespace MissionWOTR.Archetypes
         .SetIcon(AbilityRefs.SeeInvisibility.Reference.Get().Icon)
         .AddComponent(new FoolStarSurge())
         .Configure();
+      // The star must know itself: the surge component removes the
+      // star buff when it spends, so it needs the finished blueprint.
+      starBuff.GetComponent<FoolStarSurge>().StarBuff = starBuff;
       var favorBuff = BuffConfigurator.New(
         "FortunesFoolFavorBuff", Guids.FortunesFoolFavorBuff)
         .SetDisplayName("FortunesFoolFavorBuff.Name")
@@ -158,6 +181,11 @@ namespace MissionWOTR.Archetypes
         .SetIcon(AbilityRefs.ChainLightning.Reference.Get().Icon)
         .SetIsClassFeature()
         .AddComponent(new FoolFatesWager())
+        // 0.26.0, the user's additions: she laughs at fear (a luck
+        // save bonus, NOT immunity), and her blade carries chaos.
+        .AddComponent(new FoolFearless())
+        .AddOutgoingPhysicalDamageProperty(
+          addAlignment: true, alignment: DamageAlignment.Chaotic)
         .Configure();
 
       var archetype =
@@ -178,7 +206,9 @@ namespace MissionWOTR.Archetypes
           .AddToAddFeatures(LevelPlan.L(14), favor)
           .AddToAddFeatures(LevelPlan.L(17), laughing);
 
-      // The trades: lay on hands, every mercy, and the whole aura suite.
+      // The trades: lay on hands, every mercy, the whole aura suite,
+      // and - 0.26.0, per the user - smite evil and channel positive
+      // energy (the price of the fear blessing and the chaos blade).
       archetype = ArchetypeRemovals.AddRemovals(
         archetype, paladin,
         FeatureRefs.LayOnHandsFeature.ToString(),
@@ -187,7 +217,9 @@ namespace MissionWOTR.Archetypes
         FeatureRefs.AuraOfResolveFeature.ToString(),
         FeatureRefs.AuraOfJusticeFeature.ToString(),
         FeatureRefs.AuraOfFaithFeature.ToString(),
-        FeatureRefs.AuraOfRighteousnessFeature.ToString());
+        FeatureRefs.AuraOfRighteousnessFeature.ToString(),
+        FeatureRefs.SmiteEvilFeature.ToString(),
+        FeatureRefs.ChannelEnergyPaladinFeature.ToString());;
 
       archetype.Configure();
 
@@ -356,35 +388,49 @@ namespace MissionWOTR.Archetypes
   }
 
   /// <summary>
-  /// Aura of Whimsy rider: attacks against the bearer scatter on a
-  /// natural 14-17 - a true +20% miss band stacked atop normal results
-  /// (the same TricksterParry AutoMiss idiom, target-side).
+  /// The fool laughs at terror, but it can still find her: a luck
+  /// bonus on saves against fear equal to her Charisma modifier
+  /// (minimum +2) - NOT the paladin's aura-of-courage immunity (the
+  /// user's distinction, 0.26.0). The SisterLoyaltySaves pattern:
+  /// descriptor-gated temporary modifiers, applied to all three save
+  /// stats (only the rolled one is consumed by the event).
   /// </summary>
-  [TypeId(Guids.FortunesFoolWhimsyComponent)]
-  internal class FoolWhimsyScatter : UnitFactComponentDelegate,
-    ITargetRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
-    ITargetRulebookSubscriber, ISubscriber
+  [TypeId(Guids.FortunesFoolFearlessComponent)]
+  internal class FoolFearless : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>,
+    IInitiatorRulebookSubscriber, ISubscriber
   {
-    public void OnEventAboutToTrigger(RuleAttackRoll evt) { }
-
-    public void OnEventDidTrigger(RuleAttackRoll evt)
+    public void OnEventAboutToTrigger(RuleSavingThrow evt)
     {
       try
       {
-        if (evt.Target != Owner || evt.IsFake)
+        if (evt.Initiator != Owner)
         {
           return;
         }
-        if (evt.D20 >= 14 && evt.D20 <= 17)
+        var descriptor =
+          evt.Reason?.Context?.SourceAbility?.SpellDescriptor ??
+          evt.Reason?.Ability?.Blueprint?.SpellDescriptor ?? SpellDescriptor.None;
+        if ((descriptor & SpellDescriptor.Fear) == 0)
         {
-          evt.AutoMiss = true;
+          return; // only fear
         }
+        int bonus = Math.Max(2, (Owner.Stats.Charisma.ModifiedValue - 10) / 2);
+        evt.AddTemporaryModifier(evt.Initiator.Stats.SaveFortitude
+          .AddModifier(bonus, Runtime, ModifierDescriptor.Luck));
+        evt.AddTemporaryModifier(evt.Initiator.Stats.SaveReflex
+          .AddModifier(bonus, Runtime, ModifierDescriptor.Luck));
+        evt.AddTemporaryModifier(evt.Initiator.Stats.SaveWill
+          .AddModifier(bonus, Runtime, ModifierDescriptor.Luck));
+        CombatLog.Write("The fool laughs at terror - and terror blinks first.", Owner);
       }
       catch (Exception e)
       {
-        MissionFeats.Logger.Error("[fool] whimsy scatter failed.", e);
+        MissionFeats.Logger.Error("[fool] fearless failed.", e);
       }
     }
+
+    public void OnEventDidTrigger(RuleSavingThrow evt) { }
   }
 
   /// <summary>
@@ -397,6 +443,10 @@ namespace MissionWOTR.Archetypes
     IInitiatorRulebookHandler<RulePrepareDamage>, IRulebookHandler<RulePrepareDamage>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
+    /// <summary>The star buff itself - spent when the surge fires
+    /// (once per ally until the Fool's next turn, 0.26.0).</summary>
+    public BlueprintBuff StarBuff;
+
     public void OnEventAboutToTrigger(RulePrepareDamage evt)
     {
       try
@@ -422,6 +472,31 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    public void OnEventDidTrigger(RulePrepareDamage evt) { }
+    public void OnEventDidTrigger(RulePrepareDamage evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner)
+        {
+          return;
+        }
+        var roll = evt.ParentRule?.AttackRoll;
+        if (roll is null || roll.Weapon is null || roll.D20.Result < 17)
+        {
+          return;
+        }
+        // The star spends itself: once per ally until her next turn
+        // (her round tick re-lights it via the aura refresh).
+        if (StarBuff is not null)
+        {
+          Owner.Buffs.RemoveFact(StarBuff);
+          CombatLog.Write("The wandering star spends itself - it returns with her next turn.", Owner);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[fool] star spend failed.", e);
+      }
+    }
   }
 }
