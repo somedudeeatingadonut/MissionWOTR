@@ -97,6 +97,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Wildbond), Wildbond.Configure);
       Configure(nameof(Scout), Scout.Configure);
       Configure(nameof(SteelRain), SteelRain.Configure);
+      Configure(nameof(Anatomist), Anatomist.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -174,6 +175,7 @@ namespace MissionWOTR.Feats
       ("Wildbond", Guids.WildbondArchetype, ranger),
       ("Scout", Guids.ScoutArchetype, rogue),
       ("SteelRain", Guids.SteelRainArchetype, rogue),
+      ("Anatomist", Guids.AnatomistArchetype, rogue),
     };
         foreach (var entry in entries)
         {

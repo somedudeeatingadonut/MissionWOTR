@@ -38,17 +38,13 @@ namespace MissionWOTR.Archetypes
   /// (the whitelist is vanilla-only) - a simple design, simply
   /// documented.
   ///
-  /// The kit (four features, deliberately lean):
+  /// The kit (0.31.0 rebalance, per the user: Ricochet REMOVED,
+  /// Flick of the Wrist moved to 6th, and a new downside added):
   /// - Quick Hands (1st, replaces trapfinding): +1 on attack rolls
   ///   with thrown weapons, +2 at 8th, +3 at 16th (a temporary
   ///   AdditionalAttackBonus modifier on the attack roll - the
   ///   GuideFocusBonus pattern).
-  /// - Ricochet (4th): once per round, when she HITS with a thrown
-  ///   weapon, the blade glances to the nearest other enemy within
-  ///   10 feet of the target for 1d6 per four rogue levels (a
-  ///   triggered RuleDealDamage - the phantom-elk idiom, no second
-  ///   attack roll: simple by design).
-  /// - Flick of the Wrist (8th): she adds her Dexterity modifier to
+  /// - Flick of the Wrist (6th): she adds her Dexterity modifier to
   ///   thrown-weapon damage, on top of the Strength the throw
   ///   already carries (a design choice, documented: throwing
   ///   builds need the help, and her arm is the point).
@@ -58,12 +54,18 @@ namespace MissionWOTR.Archetypes
   ///   feet: a phantom RuleAttackRoll with the same weapon, and on
   ///   a hit 1d6 + her Dexterity modifier (the weapon's own dice
   ///   are not re-read - simple by design, documented).
+  /// - ONE ART (1st, the added downside, per the user): her hands
+  ///   only know the throw - she takes a -2 penalty on attack
+  ///   rolls with any weapon that is NOT a thrown weapon (melee
+  ///   blades and bows alike, up close and out of practice). A
+  ///   visible flaw feature, so the price is read at level-up.
   ///
-  /// The trades: trapfinding (1st) and danger sense (EVERY rank,
-  /// 3rd through 18th - the AddRemovalsAtAllLevels helper). Sneak
-  /// attack, evasion, uncanny dodge, improved uncanny dodge, rogue
-  /// talents, debilitating injuries and master strike are untouched
-  /// - the knife was always the trade; this one simply flies.
+  /// The trades: trapfinding (1st), danger sense (EVERY rank, 3rd
+  /// through 18th - the AddRemovalsAtAllLevels helper), and One
+  /// Art's standing penalty. Sneak attack, evasion, uncanny dodge,
+  /// improved uncanny dodge, rogue talents, debilitating injuries
+  /// and master strike are untouched - the knife was always the
+  /// trade; this one simply flies.
   /// Log prefix: [steelrain].
   /// </summary>
   internal static class SteelRain
@@ -123,17 +125,17 @@ namespace MissionWOTR.Archetypes
         .AddComponent(new SteelRainQuickHands { RogueClass = rogue })
         .Configure();
 
-      // ----- Ricochet (4th) -----
-      var ricochet = FeatureConfigurator.New(
-        "SteelRainRicochetFeature", Guids.SteelRainRicochetFeature)
-        .SetDisplayName("SteelRainRicochet.Name")
-        .SetDescription("SteelRainRicochet.Description")
-        .SetIcon(AbilityRefs.ChainLightning.Reference.Get().Icon)
+      // ----- One Art (1st, the added downside - the user's ask) -----
+      var oneArt = FeatureConfigurator.New(
+        "SteelRainOneArtFeature", Guids.SteelRainOneArtFeature)
+        .SetDisplayName("SteelRainOneArt.Name")
+        .SetDescription("SteelRainOneArt.Description")
+        .SetIcon(AbilityRefs.Bless.Reference.Get().Icon)
         .SetIsClassFeature()
-        .AddComponent(new SteelRainRicochet { RogueClass = rogue })
+        .AddComponent(new SteelRainOneArt())
         .Configure();
 
-      // ----- Flick of the Wrist (8th) -----
+      // ----- Flick of the Wrist (6th) -----
       var flick = FeatureConfigurator.New(
         "SteelRainFlickFeature", Guids.SteelRainFlickFeature)
         .SetDisplayName("SteelRainFlick.Name")
@@ -159,8 +161,8 @@ namespace MissionWOTR.Archetypes
           .SetLocalizedName("SteelRain.Name")
           .SetLocalizedDescription("SteelRain.Description")
           .AddToAddFeatures(LevelPlan.L(1), quickHands)
-          .AddToAddFeatures(LevelPlan.L(4), ricochet)
-          .AddToAddFeatures(LevelPlan.L(8), flick)
+          .AddToAddFeatures(LevelPlan.L(1), oneArt)
+          .AddToAddFeatures(LevelPlan.L(6), flick)
           .AddToAddFeatures(LevelPlan.L(12), catchFeature);
 
       archetype = ArchetypeRemovals.AddRemovals(
@@ -205,76 +207,6 @@ namespace MissionWOTR.Archetypes
     }
 
     public void OnEventDidTrigger(RuleAttackRoll evt) { }
-  }
-
-  /// <summary>
-  /// Ricochet: once per round, a thrown HIT glances to the nearest
-  /// other enemy within 10 feet of the target for 1d6 per four
-  /// rogue levels (a triggered RuleDealDamage, no second roll -
-  /// simple by design).
-  /// </summary>
-  [TypeId(Guids.SteelRainRicochetComponent)]
-  internal class SteelRainRicochet : UnitFactComponentDelegate,
-    Kingmaker.Controllers.Units.ITickEachRound,
-    IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
-    IInitiatorRulebookSubscriber, ISubscriber
-  {
-    public BlueprintCharacterClass RogueClass;
-
-    private bool spent;
-
-    public void OnNewRound()
-    {
-      spent = false;
-    }
-
-    protected override void OnActivate()
-    {
-      spent = false;
-    }
-
-    public void OnEventAboutToTrigger(RuleAttackRoll evt) { }
-
-    public void OnEventDidTrigger(RuleAttackRoll evt)
-    {
-      try
-      {
-        if (evt.Initiator != Owner || evt.IsFake || !evt.IsHit || spent ||
-          !SteelRain.IsThrown(evt.Weapon))
-        {
-          return;
-        }
-        spent = true;
-        // The nearest other enemy within 10 feet of the target (the
-        // target itself is not its own enemy - the Wildbond
-        // EnemiesWithin filter).
-        UnitEntityData victim = null;
-        foreach (var enemy in Wildbond.EnemiesWithin(evt.Target, 10))
-        {
-          if (victim is null ||
-            enemy.DistanceTo(evt.Target) < victim.DistanceTo(evt.Target))
-          {
-            victim = enemy;
-          }
-        }
-        if (victim is null)
-        {
-          return;
-        }
-        int level = Owner.Progression.GetClassLevel(RogueClass);
-        int dice = Math.Max(1, level / 4);
-        var damage = new DirectDamage(new DiceFormula(dice, DiceType.D6), 0)
-        {
-          SourceFact = Fact,
-        };
-        Game.Instance.Rulebook.TriggerEvent(new RuleDealDamage(Owner, victim, damage));
-        CombatLog.Write("The blade glances aside - and finds another.", Owner);
-      }
-      catch (Exception e)
-      {
-        MissionFeats.Logger.Error("[steelrain] ricochet failed.", e);
-      }
-    }
   }
 
   /// <summary>
@@ -389,5 +321,42 @@ namespace MissionWOTR.Archetypes
         MissionFeats.Logger.Error("[steelrain] catch failed.", e);
       }
     }
+  }
+
+
+  /// <summary>
+  /// One Art (the added downside, 0.31.0): her hands only know the
+  /// throw - a -2 penalty on attack rolls with any weapon that is
+  /// NOT a thrown weapon (melee blades and bows alike).
+  /// </summary>
+  [TypeId(Guids.SteelRainOneArtComponent)]
+  internal class SteelRainOneArt : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public void OnEventAboutToTrigger(RuleAttackRoll evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner || evt.IsFake)
+        {
+          return;
+        }
+        // Everything that is not a thrown weapon - including fists
+        // and bows. Her art has exactly one shape.
+        if (evt.Weapon is null || SteelRain.IsThrown(evt.Weapon))
+        {
+          return;
+        }
+        evt.AddTemporaryModifier(evt.Initiator.Stats.AdditionalAttackBonus
+          .AddModifier(-2, Runtime, ModifierDescriptor.UntypedStackable));
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[steelrain] one art failed.", e);
+      }
+    }
+
+    public void OnEventDidTrigger(RuleAttackRoll evt) { }
   }
 }

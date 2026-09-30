@@ -909,12 +909,27 @@ namespace MissionWOTR
     internal const string SteelRainArchetype = "D9B33ECB-1421-4066-966C-78D93C62CAB8";
     internal const string SteelRainQuickHandsFeature = "44F87416-8C0F-40D8-ABD2-E54FE65B84E4";
     internal const string SteelRainQuickHandsComponent = "43D7BD1A-1926-47AC-BF26-4C7057BC9109";
-    internal const string SteelRainRicochetFeature = "39175BE2-77E6-48D2-B2E1-2BDA36904949";
-    internal const string SteelRainRicochetComponent = "7C31C24F-9FC0-4BD8-9EF0-CD9C50AE92CE";
     internal const string SteelRainFlickFeature = "188076DB-E07F-44B8-A26A-AF883E97CD1C";
     internal const string SteelRainFlickComponent = "C228C36C-6AB1-4D62-B064-1D4C910C786F";
     internal const string SteelRainCatchFeature = "97A210CF-A8FC-441D-AC61-B3365CC4F6EB";
     internal const string SteelRainCatchComponent = "973C1277-D722-40FB-BCD0-896413DB0F6F";
+    internal const string SteelRainOneArtFeature = "AB0A2B0A-1F67-4FF6-BC5D-D5D48509BC42";
+    internal const string SteelRainOneArtComponent = "70B1A381-0412-40B7-95AB-561022563C68";
+
+    // ----- The Anatomist (rogue homebrew, 0.31.0) -----
+    internal const string AnatomistArchetype = "471172C9-23AE-413B-9A49-ECD19B8FDE68";
+    internal const string AnatomistWeakPointFeature = "0268F9BA-EEDB-44E8-A9FD-AEAF0502B2AF";
+    internal const string AnatomistWeakPointComponent = "EAD2C24D-5F7C-480E-A485-306D68462129";
+    internal const string AnatomistSeamsMarkBuff = "56B86B43-9217-4ADF-9068-FECDA4745129";
+    internal const string AnatomistSeamsShareComponent = "E92BB195-2723-4E65-88DB-3EB3AE8DB582";
+    internal const string AnatomistDefensesFeature = "04279D2C-36FB-4E7C-8500-06162795406E";
+    internal const string AnatomistWardBuff = "0F1A9EC0-A655-440B-AF6F-0DD2394B7209";
+    internal const string AnatomistDefensesComponent = "EE0B059F-FC07-4DB6-AD08-DC341661B3C4";
+    internal const string AnatomistLearnSeamsFeature = "70864F74-777B-4EE4-88F5-729CB7254A08";
+    internal const string AnatomistLearnSeamsComponent = "AA76473F-CD90-49FE-B934-C430AF1C0332";
+    internal const string AnatomistPerfectStrikeFeature = "AD21874A-A163-485B-B982-C3EB96BA188A";
+    internal const string AnatomistPerfectStrikeComponent = "85A25174-68A8-47BA-B472-35B530FA5822";
+    internal const string AnatomistVitalReadingFeature = "46166EF8-404A-4CD6-BF45-0BE1C3E17AD2";
 
   }
 }

@@ -794,6 +794,45 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.31.0 — the Steel Rain rebalance, and the Anatomist (rogue homebrews)
+
+- **Steel Rain rebalance (user):** Ricochet REMOVED (the glance was
+  doing too much for a 4th-level feature); Flick of the Wrist moved
+  from 8th to 6th; and a new downside, per the user's ask:
+  **One Art** (1st) — a visible flaw feature, -2 on attack rolls
+  with any weapon that is NOT a thrown weapon (melee blades and
+  bows alike). Her hands only know the throw.
+- **The Anatomist** — the user's design: "a 3rd rogue archetype,
+  focused on finding the weak point of an enemy."
+  - Weak Point (1st, replaces trapfinding): a miss that needed a
+    natural 16+ to hit teaches a SEAM — a permanent, stacking +1
+    attack bonus against that enemy (the needed roll read straight
+    off the event: TargetAC − AttackBonus, the dcx PanacheDodge
+    formula; the stacks ride a ranked per-enemy mark, the Wildbond
+    idiom). Self-limiting by design: the stacks lower the needed
+    roll until misses stop qualifying.
+  - Student of Defenses (8th): attacking a spellcaster grants
+    spell resistance (11 + rogue level, the vanilla
+    AddSpellResistance component with a WithLinearProgression(1, 11)
+    class-level rank; casters detected via Spellbooks) for one
+    round, renewed by every attack on a caster — and damaging an
+    enemy with DR grants +1 per five rogue levels, not stackable
+    (DR read from the vanilla UnitPartDamageReduction chunks, the
+    dcx idiom).
+  - Learn the Seams (12th, ours): every seam also adds +1 damage
+    against that enemy.
+  - Perfect Strike (16th, ours): once per round, a hit against an
+    enemy with 5+ seams is an automatic critical — flags set
+    pre-resolution and only when the roll already shows a hit (the
+    PanacheDodge roll-read), so a strike is never wasted on a miss.
+  - Vital Reading (20th, ours): the seams are shared — allies gain
+    her Weak Point attack bonus against marked enemies (a
+    target-side rider on the mark buff, the COP
+    SignatureStealthSurprise buff-rider shape).
+  - Trades: trapfinding + danger sense (every rank) — the same
+    skill-side price as the Steel Rain, making the two alternatives
+    rather than companions (each stacks with the Scout).
+
 ## 0.30.0 — the Steel Rain (rogue homebrew: the throwing-weapon rogue)
 
 - **The Steel Rain** — the user's design: "a rogue that focuses on
@@ -2099,11 +2138,16 @@ covered ten.
 
 | Level | The Steel Rain grants | Rogue normally grants |
 |---|---|---|
-| 1 | Quick Hands (+1 attack with thrown weapons; +2 at 8th, +3 at 16th) | Trapfinding (removed) |
-| 4 | Ricochet (once/round a thrown hit glances to the nearest other enemy within 10 ft: 1d6/4 levels, no roll) | Danger Sense (removed) |
-| 8 | Flick of the Wrist (adds her Dex modifier to thrown damage, atop the throw's Strength) | Danger Sense (removed) |
+| 1 | Quick Hands (+1 attack with thrown weapons; +2 at 8th, +3 at 16th) — AND One Art: the flaw (see below) | Trapfinding (removed) |
+| 6 | Flick of the Wrist (adds her Dex modifier to thrown damage, atop the throw's Strength) | Danger Sense (removed) |
 | 12 | Catch! (once/round a thrown kill earns a free throw at the nearest enemy within 30 ft: 1d6 + Dex) | Danger Sense (removed) |
 | 3–18 | — | Danger Sense (removed at every rank, 3/6/9/12/15/18) |
+
+- 0.31.0 rebalance (user): Ricochet (the 4th-level glance) REMOVED;
+  Flick of the Wrist moved 8th → 6th; and the added downside —
+  **One Art** (1st, a visible flaw feature): -2 on attack rolls
+  with any weapon that is NOT a thrown weapon. Her hands only know
+  the throw; blades and bows alike suffer.
 
 - Detection: thrown weapons in WOTR are RANGED weapon types — a
   whitelist of vanilla thrown candidates filtered at configure time
@@ -2119,6 +2163,36 @@ covered ten.
   rogue talents, debilitating injuries, and master strike are
   untouched — and the Scout's trades (uncanny dodge pair) do not
   overlap these, so the two archetypes remain combinable.
+
+### Homebrew — The Anatomist (user design: the weak-point hunter) — IMPLEMENTED (0.31.0)
+
+| Level | The Anatomist grants | Rogue normally grants |
+|---|---|---|
+| 1 | Weak Point (a miss that needed a natural 16+ teaches a seam: permanent stacking +1 attack vs that enemy, self-limiting) | Trapfinding (removed) |
+| 8 | Student of Defenses (attacking a spellcaster: SR 11 + level for 1 round; damaging a DR enemy: +1 per 5 levels, not stackable) | Danger Sense (removed) |
+| 12 | Learn the Seams (every seam also adds +1 damage vs that enemy) | Danger Sense (removed) |
+| 16 | Perfect Strike (once/round, a hit vs 5+ seams is an automatic critical) | Danger Sense (removed) |
+| 20 | Vital Reading (allies gain her Weak Point attack bonus vs marked enemies) | — |
+| 3–18 | — | Danger Sense (removed at every rank) |
+
+- The needed-natural-roll is read straight off the attack event
+  (TargetAC − AttackBonus — the dcx PanacheDodge formula attack.Roll
+  + attack.AttackBonus >= attack.TargetAC); seams ride a ranked
+  per-enemy mark (the Wildbond mark idiom), so stacks persist
+  through saves.
+- The self-limiting loop is the design: a miss that needed 16+
+  teaches; each seam lowers the needed roll; below 16, misses stop
+  teaching. A hard target educates her until it is no longer hard.
+- SR is the vanilla AddSpellResistance component with a class-level
+  rank config (WithLinearProgression(1, 11) → 11 + rogue level);
+  casters are detected via their Spellbooks; DR via the vanilla
+  UnitPartDamageReduction's chunks (the dcx idiom).
+- Perfect Strike reads the roll BEFORE resolution (the PanacheDodge
+  idiom) and only spends itself on a roll that already shows a hit.
+- Trades: trapfinding + danger sense (every rank) — the same
+  skill-side price as the Steel Rain, so the two are alternatives
+  rather than companions; each stacks with the Scout's uncanny-dodge
+  trades.
 
 ## Level plan per class (test-mode rule)
 
