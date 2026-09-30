@@ -105,7 +105,7 @@ namespace MissionWOTR.Archetypes
       ("Thunderstorm", Guids.StormcallerSwiftThunderstormBlastAbility),
     };
 
-    private static string BlastGuid(string token)
+    internal static string BlastGuid(string token)
     {
       return KineticistExplosion.Blasts
         .First(b => b.Blast == token).BlastGuid;
