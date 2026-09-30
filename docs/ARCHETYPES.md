@@ -1457,7 +1457,9 @@ line-shape surface), Draining and Disintegrating (not yet attempted).
 | 16 | Eye of the Storm (full-dice swift blasts; electricity immunity) | Greater Elemental Focus (removed) |
 
 - Swift blasts: free-action clones of the 7 air-family blasts, gated on
-  owning the base blast; the round's charge is spent only on a hit.
+  owning the base blast; the round's charge is spent when the bolt is
+  loosed - on a hit via RulePrepareDamage, on a miss via RuleAttackRoll
+  (0.22.1; through 0.22.0 a miss cost nothing).
 - Electricity ignores immunity/resistance via the Ascendant Element
   component itself (the vanilla mythic feature's mechanism, per the
   user's "as per other electric damage sources").
@@ -1757,6 +1759,23 @@ Nocticula pattern; self included); dice via UnityEngine.Random.Range (the
 game's own roller); the pulse's once-per-round guard is a visible 1-round
 marker buff, lifted by the apotheosis free-action variant; the death save
 watches RuleDealDamage on allies (DidTrigger, HP ≤ 0, not yet dead) and spends
+the whole rage pool — dying allies in WOTR are rescued post-hit, which is the
+playable reading of "would die". Kinetic powers use the kineticist's own
+vanilla weapon types (KineticBlastEnergyBlade / KineticBlastEnergy) with
+runtime-scaled riders. Log prefix: [sanguine].
+
+**Playtest targets:** aura ticks on each round while raging (and only then);
+pulse resource spend + once-per-round block; shared pulse FH on allies and
+unremovable bleed on self (values 2/3/5 by level); blade toggle granting the
+off-hand elemental attack and the rider dice; blast touch attack + Con damage;
+spellbook clone capping at 3rd-level spells; apotheosis free pulse, 40-ft aura
+formula, and the death save (spends ALL rounds, once per rage); LimitlessRage
+hidden from Sanguine Fonts in mythic level-up.
+
+**Tuning candidates:** all heal amounts and dice; aura/pulse radii; FH/bleed
+tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
+(−2); blast range (Close); death-save heal (10d8 + level).
+uleDealDamage on allies (DidTrigger, HP ≤ 0, not yet dead) and spends
 the whole rage pool — dying allies in WOTR are rescued post-hit, which is the
 playable reading of "would die". Kinetic powers use the kineticist's own
 vanilla weapon types (KineticBlastEnergyBlade / KineticBlastEnergy) with

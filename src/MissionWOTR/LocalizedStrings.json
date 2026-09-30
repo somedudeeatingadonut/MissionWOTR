@@ -3583,7 +3583,7 @@
   {
     "Key": "StormcallerSwiftBlast.Description",
     "ProcessTemplates": false,
-    "enGB": "A swift version of the kinetic blast: a free action that keeps the blast's full attack roll and typing, with every damage entry's dice halved - more casts, less storm in each. Usable once per round (twice with Riding the Current); the round's charge is spent only when the bolt lands."
+    "enGB": "A swift version of the kinetic blast: a free action that keeps the blast's full attack roll and typing, with every damage entry's dice halved - more casts, less storm in each. Usable once per round (twice with Riding the Current); the round's charge is spent when the bolt is loosed - it lands or breaks on the wind, the storm does not refund it."
   },
   {
     "Key": "StormcallerSwiftAir.Name",

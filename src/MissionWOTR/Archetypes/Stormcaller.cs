@@ -72,10 +72,11 @@ namespace MissionWOTR.Archetypes
   /// AND Greater Elemental Focus selections - air is all she is, all the
   /// way down).
   ///
-  /// Honesty notes (documented, not faked):
-  /// - The swift-blast budget is spent when the bolt LANDS (RulePrepare
-  ///   Damage fires on a hit) - a missed free bolt does not consume the
-  ///   round's charge. Generous by construction; documented.
+    /// Honesty notes (documented, not faked):
+    /// - The swift-blast budget is spent when the bolt is LOOSED: on a
+    ///   hit via RulePrepareDamage, and - 0.22.1, per the user - on a
+    ///   miss via RuleAttackRoll (the same Reason chain). A missed free
+    ///   bolt consumes the round's charge; the storm does not refund.
   /// - The budget is a static per-unit registry read by the ability
   ///   restriction and written by the damage handler (the CovertMage
   ///   static-dictionary precedent; entries clear on feature loss).
@@ -409,13 +410,21 @@ namespace MissionWOTR.Archetypes
   /// <summary>
   /// The storm's price and its lifting: halves every damage entry's DICE
   /// when the damage comes from a swift clone (the TTT MythicSneakAttack
-  /// dice-modify pattern) until the Eye of the Storm is hers, and spends
-  /// the round's swift budget when such a bolt lands (RulePrepareDamage
-  /// fires on the hit - a miss charges nothing; documented generosity).
+  /// dice-modify pattern) until the Eye of the Storm is hers; spends the
+  /// round's swift budget when a bolt LANDS (RulePrepareDamage fires on
+  /// the hit), and - 0.22.1, per the user - ALSO when a bolt MISSES: the
+  /// attack roll (RuleAttackRoll, one event per attack - crit
+  /// confirmation is a flag inside it, not a second event, so no double
+  /// spend) carries the same Reason chain as the damage rule (TTT's
+  /// decompiled ContextActionDealDamage builds RuleDealDamage.Reason FROM
+  /// attackRoll.Reason), and Reason.Ability is set for ability attacks
+  /// (the InitiatorSpellCritAutoconfirm proof). A loosed bolt spends the
+  /// charge whether it lands or breaks on the wind.
   /// </summary>
   [TypeId(Guids.StormcallerSwiftTrackerComponent)]
   internal class StormcallerSwiftTracker : UnitFactComponentDelegate,
     IInitiatorRulebookHandler<RulePrepareDamage>, IRulebookHandler<RulePrepareDamage>,
+    IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
     private static readonly HashSet<BlueprintGuid> SwiftGuids =
@@ -423,6 +432,36 @@ namespace MissionWOTR.Archetypes
         Stormcaller.AirFamily.Select(a => BlueprintGuid.Parse(a.CloneGuid)));
 
     public void OnEventAboutToTrigger(RulePrepareDamage evt) { }
+
+    public void OnEventAboutToTrigger(RuleAttackRoll evt) { }
+
+    /// <summary>
+    /// The miss price: a swift bolt that breaks on the wind still spends
+    /// the round's charge - the bolt was loosed either way. (The hit path
+    /// spends in RulePrepareDamage below; IsHit rolls never reach the
+    /// spend here.)
+    /// </summary>
+    public void OnEventDidTrigger(RuleAttackRoll evt)
+    {
+      try
+      {
+        if (evt.IsHit || evt.Initiator != Owner)
+        {
+          return; // lands are paid for below; only HER rolls count
+        }
+        var source = evt.Reason?.Ability?.Blueprint ?? evt.Reason?.Context?.SourceAbility;
+        if (source is null || !SwiftGuids.Contains(source.AssetGuid))
+        {
+          return; // not one of her swift bolts
+        }
+        StormcallerSwiftBudget.Spend(Owner.UniqueId);
+        CombatLog.Write("The swift bolt breaks on the wind - the charge is spent anyway.", Owner);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[stormcaller] swift miss tracker failed.", e);
+      }
+    }
 
     public void OnEventDidTrigger(RulePrepareDamage evt)
     {
