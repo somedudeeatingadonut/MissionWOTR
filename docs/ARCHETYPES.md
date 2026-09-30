@@ -820,10 +820,9 @@ errors suggested:
     feature).
   - Skirmisher (8th, replaces improved uncanny dodge): after
     moving more than 10 feet in a round, her first attack forces
-    the target flat-footed. Position captured on the round tick
-    (the Wildbond mastodon-momentum idiom); the rider sits on the
-    engine's flat-footed CHECK (the COP SignatureStealthSurprise
-    idiom).
+    the target flat-footed (evt.ForceFlatFooted on the attack
+    roll, the compile-proven flag). Position captured on the round
+    tick (the Wildbond mastodon-momentum idiom).
   - DOCUMENTED STRENGTHENING: the APG text is sneak-only, but this
     game build exposes no settable sneak-only flag
     (RuleAttackRoll.IsSneakAttack is read-only here - CS0200; other
@@ -2050,12 +2049,12 @@ covered ten.
   game build exposes no settable sneak-only flag
   (RuleAttackRoll.IsSneakAttack is read-only - CS0200). Both
   abilities force full flat-footedness instead: sneak damage AND a
-  denied Dexterity bonus to AC. Charge detection rides the parent
-  weapon-attack rule's IsCharge (the ShiningKnight/Wildbond idiom)
-  and sets the roll's ForceFlatFooted; Skirmisher rides the
-  engine's flat-footed CHECK (RuleCheckTargetFlatFooted - the COP
-  SignatureStealthSurprise idiom) with a round-tick position
-  capture (the mastodon momentum idiom).
+  denied Dexterity bonus to AC. Both riders sit on the attack roll
+  and set its ForceFlatFooted (compile-proven in this build; the
+  check-event route's IsFlatFooted is read-only here). Charge
+  detection rides the parent weapon-attack rule's IsCharge (the
+  ShiningKnight/Wildbond idiom); Skirmisher's movement rides a
+  round-tick position capture (the mastodon momentum idiom).
 - The tabletop's immunity clause is honored: foes with the vanilla
   uncanny dodge feature are immune to both abilities.
 - Documented adaptations: "moves more than 10 feet" is measured as

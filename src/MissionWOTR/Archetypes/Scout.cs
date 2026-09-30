@@ -42,10 +42,10 @@ namespace MissionWOTR.Archetypes
   ///   attack, the attack treats the target as flat-footed - only
   ///   the FIRST attack of the round. Implementation: the round
   ///   tick captures her position (the Wildbond mastodon-momentum
-  ///   idiom); an initiator-side rider on the engine's
-  ///   flat-footed CHECK (RuleCheckTargetFlatFooted - the COP
-  ///   SignatureStealthSurprise idiom) forces the answer while her
-  ///   displacement exceeds 10 feet.
+  ///   idiom); an initiator-side RuleAttackRoll rider sets
+  ///   evt.ForceFlatFooted while her displacement exceeds 10 feet
+  ///   (the same compile-proven flag as the charge - the check-
+  ///   event route's IsFlatFooted is read-only in this build).
   ///
   /// DOCUMENTED STRENGTHENING (honest, not faked): the APG text is
   /// sneak-ONLY ("deals sneak attack damage as if the target were
@@ -163,17 +163,13 @@ namespace MissionWOTR.Archetypes
   /// Skirmisher: after moving more than 10 feet this round, her
   /// FIRST attack forces the target flat-footed. Position captured
   /// on the round tick (net displacement - documented adaptation);
-  /// the first-attack gate resets with it. The rider sits on the
-  /// engine's flat-footed CHECK (the COP SignatureStealthSurprise
-  /// idiom - evt.IsFlatFooted = true), initiator-gated so only her
-  /// own attacks' checks are forced. Foes with uncanny dodge are
-  /// immune.
+  /// the first-attack gate resets with it. Foes with uncanny dodge
+  /// are immune.
   /// </summary>
   [TypeId(Guids.ScoutSkirmisherComponent)]
   internal class ScoutSkirmisherComponent : UnitFactComponentDelegate,
     Kingmaker.Controllers.Units.ITickEachRound,
-    IInitiatorRulebookHandler<RuleCheckTargetFlatFooted>,
-    IRulebookHandler<RuleCheckTargetFlatFooted>,
+    IInitiatorRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
     public BlueprintFeature UncannyDodge;
@@ -193,11 +189,11 @@ namespace MissionWOTR.Archetypes
       spent = false;
     }
 
-    public void OnEventAboutToTrigger(RuleCheckTargetFlatFooted evt)
+    public void OnEventAboutToTrigger(RuleAttackRoll evt)
     {
       try
       {
-        if (evt.Initiator != Owner || spent)
+        if (evt.Initiator != Owner || evt.IsFake || spent)
         {
           return;
         }
@@ -209,7 +205,7 @@ namespace MissionWOTR.Archetypes
         {
           return; // the tabletop's immunity clause
         }
-        evt.IsFlatFooted = true;
+        evt.ForceFlatFooted = true;
         spent = true; // the first attack only
       }
       catch (Exception e)
@@ -218,6 +214,6 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    public void OnEventDidTrigger(RuleCheckTargetFlatFooted evt) { }
+    public void OnEventDidTrigger(RuleAttackRoll evt) { }
   }
 }
