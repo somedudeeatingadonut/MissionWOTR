@@ -94,6 +94,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(ShiningKnight), ShiningKnight.Configure);
       Configure(nameof(FortunesFool), FortunesFool.Configure);
       Configure(nameof(Guide), Guide.Configure);
+      Configure(nameof(Wildbond), Wildbond.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -167,6 +168,7 @@ namespace MissionWOTR.Feats
       ("ShiningKnight", Guids.ShiningKnightArchetype, paladin),
       ("FortunesFool", Guids.FortunesFoolArchetype, paladin),
       ("Guide", Guids.GuideArchetype, ranger),
+      ("Wildbond", Guids.WildbondArchetype, ranger),
     };
         foreach (var entry in entries)
         {

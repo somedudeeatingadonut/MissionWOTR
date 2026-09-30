@@ -857,5 +857,44 @@ namespace MissionWOTR
     internal const string FortunesFoolWhimsyBuff4 = "B4A27D6E-A4D5-46FC-8699-35369DB82944";
     internal const string FortunesFoolWhimsyAuraComponent = "77879F20-AB92-4C8F-A72B-4D8862FDB481";
 
+    // ----- The Wildbond (ranger homebrew, 0.28.0) -----
+    internal const string WildbondArchetype = "79FEF1EB-1448-4536-8D75-6802A8CB517D";
+    internal const string WildbondFeature = "A355D6C2-8C8D-475B-AB0E-08B7D13F9318";
+    internal const string WildbondDeepening8 = "D8CDD357-83EA-440C-BDA2-E0138C45BA2C";
+    internal const string WildbondDeepening12 = "AAF10008-6BF5-4E5C-805B-E2C415122AC6";
+    internal const string WildbondDeepening16 = "E13100E0-69F3-4CC6-83E9-486D15F31FEA";
+    internal const string WildbondDeepening20 = "0D9CFD1F-FD46-4E77-B9BB-59FD294D9826";
+    internal const string WildbondPetBuff = "A9A31342-82EF-4294-A807-553499824101";
+    internal const string WildbondCoreComponent = "D8B0E0FB-355D-4566-BC9F-E4A8895FE7D4";
+    internal const string WildbondPetRiderComponent = "882EC4DF-2DA2-4C21-B1CF-337F97705EF7";
+    internal const string WildbondMauledBuff = "C3F8DBB6-A8AE-40EC-8BD3-280B2B818F1F";
+    internal const string WildbondMaulReadyBuff = "81BA2543-4503-4765-AECF-78AD7B426328";
+    internal const string WildbondFrenzyBuff = "8B2C599D-00B2-4831-A793-38E95DE30EBB";
+    internal const string WildbondPreyBuff = "16F8AE72-26C4-4615-9BD6-A03222AA37EC";
+    internal const string WildbondHoundedBuff = "AC268785-B261-4456-8980-8A1FD8E7764C";
+    internal const string WildbondDogSpeedBuff = "87CF93FB-1CD1-4C4B-8C10-016D9EFDFE76";
+    internal const string WildbondAmbushBuff = "3132F071-E555-4CA8-9085-3CDF6C914601";
+    internal const string WildbondAmbushReadyBuff = "78D41233-C2FA-4059-98E1-103843E379F7";
+    internal const string WildbondMomentumBuff = "8FA0B532-0A94-42F1-9A57-561A05480E23";
+    internal const string WildbondDevastateComponent = "689F72F9-2FC3-4E3E-B97B-61EACBCDD9F9";
+    internal const string WildbondSlowBuff = "BEF12DC0-DFB4-4DF6-A5E5-FD4F72A95E19";
+    internal const string WildbondBloodshedBuff = "02EB7E65-58C4-4381-A73D-113264648BD0";
+    internal const string WildbondFlurryBuff = "747314C3-C57B-40B2-88D3-81FE3B3134C4";
+    internal const string WildbondRendBuff = "F8B80795-64E5-4AC5-B770-8859C87839AC";
+    internal const string WildbondShredBuff = "23502861-7920-4C32-90F6-931917AEEF0C";
+    internal const string WildbondPackBuff = "CD8D156A-850C-4D36-A0AE-984A3B3093E3";
+    internal const string WildbondHowlComponent = "0FC98259-C8B7-4756-8C2B-F972617C1022";
+    internal const string WildbondBulwarkBuff = "5785C043-668B-47DC-8F7D-222114268AFC";
+    internal const string WildbondBulwarkAllyBuff = "E7F2F0D8-10FD-45C0-ACAB-EBF0D40F4D60";
+    internal const string WildbondSecondChargeBuff = "57231C1D-1029-4290-95C9-1D3BD705D558";
+    internal const string WildbondBreakBulwarkAbility = "B5D165E6-3CE4-4AF6-9BBF-CE3F282F91E1";
+    internal const string WildbondRiderBuff = "3F000752-CE77-4FE2-A55A-C2A15C105E8B";
+    internal const string WildbondVenomBuff = "C2C2B335-C8ED-4A8E-BBAE-C92DEF68BA19";
+    internal const string WildbondMonitorVenomBuff = "23AAB244-316B-4032-A1E3-3317308010C1";
+    internal const string WildbondVigorComponent = "A15C01C1-3AD3-4F03-8617-AE682687A3FE";
+    internal const string WildbondRetaliationBuff = "50D4E80A-EC34-4CA5-8065-081F3E66B056";
+    internal const string WildbondSecondChargeComponent = "6B7B0E86-64E5-41A4-9B11-C2D4D9117EB3";
+    internal const string WildbondBreakBulwarkAction = "E4A9F27B-1B3F-4C56-9F1A-7C05D6B2E604";
+
   }
 }

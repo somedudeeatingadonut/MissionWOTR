@@ -794,6 +794,54 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.28.0 — the Wildbond (ranger homebrew: the user's species-bond design)
+
+- **The Wildbond** — the user's design: "granting specific buffs to
+  its animal companion (which it gets at level 1) based on what the
+  animal companion is, in exchange for favored enemy, terrain,
+  evasion, and a significant nerf to spellcasting."
+  - The companion arrives at 1st (hunter's bond subsumed); the
+    species bond begins at 4th and improves at 8/12/16/20 (the
+    user's wolf schedule generalized to every species).
+  - The trades: favored enemy (all five ranks, AddRemovalsAtAll
+    Levels), favored terrain (all four ranks), evasion — and the
+    significant nerf: spellcasting REMOVED at 4th and RESTORED at
+    12th (the new RemoveSpellcastingDelayed; the Skirmisher removes,
+    the Wildbond delays).
+  - The user's ten bonds, implemented: Dire Bear (Mauling Bond —
+    mauled marks, a damage ward for the ranger, bear follow-up
+    attacks via ForceAttackOfOpportunity), Dire Boar (Primal Fury —
+    frenzy below half, scaling damage/fear immunity/kill-heals; temp
+    HP adapted to a second-wind heal, documented), Dog (Heel & Hound
+    — prey marks, speed on the ranger's strike, prone-prey bonuses),
+    Elk (Stampede — a real phantom RuleAttackRoll at -8 closing to 0
+    by tier 5), Leopard (Ambush Bond — once-per-round marks on
+    vulnerable enemies, scaling precision; the concealment clause
+    cut, +2 replacement documented), Mastodon (Siege Beast — ranked
+    momentum, devastating AoE impact + slow), Smilodon (Predator's
+    Flurry — ranked bloodshed stacks, damage per stack, extra attack
+    at six stacks from tier 3), Velociraptor (Rending Relay — rend
+    stacks the ranger's attack consumes for burst + armor shred),
+    Wolf (Pack Howl — the user's exact five-tier schedule, ending in
+    wolf-and-ranger retaliation), Triceratops (Iron Charge — bulwark
+    after charges, live-scaled AC, ally shelter, a Break-the-Bulwark
+    swift command; the forced re-charge adapted to momentum,
+    documented).
+  - The user asked for inventions for the uncovered pets: WOTR ships
+    thirteen companion species — Centipede, Horse, and Monitor were
+    outside the design. Ours: Toxic Symbiosis (centipede venom the
+    ranger's strikes deepen, -1 saves per rank), Saddleborn (the
+    horse bond: mounted speed + scaling charge damage), Serpent's
+    Vigor (the monitor regenerates while its venom lingers). Any
+    other companion (modded) falls back to Wild Vigor (+tier
+    attack/AC).
+  - Architecture: the bond rides the ranger (species detection from
+    the ranger's own companion facts, including preorder variants)
+    and the pet carries a stamped rider buff; all marks are ranked
+    world buffs, so stacks persist through saves. Documented edges:
+    the first pet only; momentum's moved/attacked flags are
+    runtime-only (a load loses at most one tick).
+
 ## 0.27.0 — the ranger: the Guide, and the whimsy tier (user feedback)
 
 - **Aura of Whimsy now scales** (user: "5 dr is too much for level 8,
@@ -1890,6 +1938,52 @@ Wrath adaptations (engine gaps, documented in the code header):
   archetypes (Nomad's horse, Sable Company's hippogriff), and the
   Guide is the ranger who walks alone — the stage for a genuinely
   strange companion homebrew is clear.
+
+### Homebrew — The Wildbond (user design: the species bonds) — IMPLEMENTED (0.28.0)
+
+| Level | The Wildbond grants | Ranger normally grants |
+|---|---|---|
+| 1 | The animal companion (the vanilla selection, eight levels early) | — |
+| 4 | The species bond (see the table below) | Hunter's Bond (removed, subsumed) |
+| 8 / 12 / 16 / 20 | The bond deepens (tier 2/3/4/5) — and at 12th, the spellbook returns | Favored Enemy (ranks, removed), Favored Terrain (ranks, removed), Evasion (removed), spellcasting at 4th (removed, restored at 12th) |
+
+The bonds (tier = 4-7 / 8-11 / 12-15 / 16-19 / 20):
+
+| Species | Bond | Tier growth |
+|---|---|---|
+| Dire Bear | Mauling Bond: hits MAUL (-10 speed, softer blows vs the ranger); the ranger's hit on a mauled enemy earns a bear attack, 1/round | ward 2→10; marks always on |
+| Dire Boar | Primal Fury: frenzy below 50% HP — +dmg, second wind, fear immunity; kills heal | dmg 2→10, heals 5→25, frenzy at 75% at t5 |
+| Dog | Heel & Hound: prey marks; ranger strikes send the dog running (+15 speed); prone prey = ranger +atk/dmg | bonus +1→5 |
+| Elk | Stampede: charge hits add a phantom elk's attack roll (-8) and damage (1d8+Str-2) | penalty -8→0, dmg +0→+3 |
+| Leopard | Ambush Bond: 1/round marks vulnerable (flanked/shaken/helpless) enemies; ranger precision vs marked | precision 1d6→5d6, +2 atk from t3 (concealment cut) |
+| Mastodon | Siege Beast: momentum per moving/attacking round; at threshold the next hit is an AoE impact + slow | need 4→2, dmg 1d8+2→+10, radius 5→10 |
+| Smilodon | Predator's Flurry: consecutive hits on one target stack bloodshed (+1 dmg/2 stacks); switch = reset | cap 4→12; extra attack at 6 stacks from t3 |
+| Velociraptor | Rending Relay: hits stack rend; the ranger's attack consumes all stacks (burst + -2 AC shred) | cap 3→8, dice 1d4→1d8 |
+| Wolf | Pack Howl: periodic howl buffs the party (vs enemies beside the wolf; enemies beset by 2 pack take penalties) | the user's schedule: t2 attack speed, t3 30ft +2/-2, t4 auto-howl, t5 wolf+ranger retaliation |
+| Triceratops | Iron Charge: post-charge bulwark (+AC, trip immunity, allies +2 AC); Break the Bulwark = second charge | AC 2→6, second charge 2d6→4d6 |
+| Centipede* | Toxic Symbiosis: bites stack venom (-1 saves/rank); ranger strikes deepen it | cap = tier |
+| Horse* | Saddleborn: mounted +10 speed; mounted charge +1d6 per tier above 1 | charge 0→4d6 |
+| Monitor* | Serpent's Vigor: bites leave lingering venom; while it lingers nearby, the monitor regenerates | regen 2→10, doubled vs 2+ |
+| Other (modded) | Wild Vigor: the beast grows anyway — +tier attack, +tier AC | +1→5 |
+
+*Our designs, per the user's "some of the pets dont have an ability,
+make one up for them" — WOTR ships thirteen species; the user's brief
+covered ten.
+
+- Marks are ranked world buffs — stacks persist through saves. The
+  pet carries a stamped rider buff refreshed on the ranger's round
+  tick; species detection reads the ranger's own companion facts
+  (preorder variants included).
+- Engine notes: bear follow-ups and wolf retaliation ride
+  ForceAttackOfOpportunity (the TTT SiezeTheMoment idiom); the
+  phantom elk is a real second RuleAttackRoll (the dcx chain-attack
+  ctor); Pack attack speed is BuffExtraAttack (the Haste idiom);
+  frenzy/kill heals trigger RuleHealDamage (the COP NineLives ctor).
+- Documented adaptations: the boar's temp HP is a second-wind heal;
+  the leopard's concealment-ignore is +2 (no per-roll API); the
+  triceratops's commanded re-charge is momentum, not movement (pet
+  AI takes no orders); the mauled damage-ward is a negative
+  DirectDamage rider; the raptor's bleed is instant damage.
 
 ## Level plan per class (test-mode rule)
 

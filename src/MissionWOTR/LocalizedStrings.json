@@ -4125,5 +4125,425 @@
     "deDE": "",
     "ruRU": "",
     "frFR": ""
+  },
+  {
+    "Key": "Wildbond.Name",
+    "enGB": "Wildbond",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "Wildbond.Description",
+    "enGB": "Some rangers hunt a favored enemy; the wildbonded never needed one - they have a partner instead. Her animal companion answers from 1st level, and the bond between them shapes the beast itself: a bear that maules, a boar that will not die quietly, a dog that sets up every strike, an elk that stamps with a phantom herd, a leopard that marks the kill, a mastodon that breaks formations, a smilodon that finishes one thing at a time, a raptor that tears armor for its master, a wolf that makes the whole party a pack, a triceratops that becomes a wall. The price: no favored enemy, no favored terrain, no evasion - and no spells until 12th level. The beast is the spells.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondFeature.Name",
+    "enGB": "The Wildbond",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondFeature.Description",
+    "enGB": "Your animal companion carries a species bond that grows with you, improving at 4th, 8th, 12th, 16th, and 20th level. See the bond of your chosen beast. This replaces hunter's bond; the companion itself arrives at 1st level.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening8.Name",
+    "enGB": "Wildbond Deepening (8th)",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening8.Description",
+    "enGB": "The bond deepens. Your companion's bond improves to its second tier: the bear's ward hardens, the boar's fury doubles, the dog runs farther, the phantom elk closes the gap, the leopard's precision grows, the mastodon needs less momentum, the smilodon's stacks climb higher, the raptor's rend deepens, the pack howls wider - and the pack gains attack speed.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening12.Name",
+    "enGB": "Wildbond Deepening (12th)",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening12.Description",
+    "enGB": "The bond deepens again (third tier) - and your spells return, eight levels late. The bear wards harder, the boar heals more, the leopard strikes past concealment's edge (+2), the mastodon's impact widens, the smilodon earns an extra attack at six stacks, the raptor's rend bites 1d6, the pack reaches 30 feet at +2/-2.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening16.Name",
+    "enGB": "Wildbond Deepening (16th)",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening16.Description",
+    "enGB": "The bond deepens (fourth tier): the boar frenzies at three quarters health, the phantom elk nearly matches the real one, the mastodon needs but two rounds of momentum, the pack howls every other round - and answers a wounded ally on its own.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening20.Name",
+    "enGB": "Wildbond Deepening (20th)",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDeepening20.Description",
+    "enGB": "The bond completes (fifth tier): the bear's ward is iron, the boar's frenzy is a storm, the phantom elk is the elk, the leopard's precision is 5d6, the smilodon hunts with twelve stacks of bloodshed, the raptor's rend is 1d8, the wolf answers any enemy that fights beside it - and the triceratops's second charge hits like the first.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondPetBuff.Name",
+    "enGB": "Wildbond",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondPetBuff.Description",
+    "enGB": "The bond rides the beast: it grows with the ranger's level.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMauledBuff.Name",
+    "enGB": "Mauled",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMauledBuff.Description",
+    "enGB": "Mauled by the bear: -10 speed, and its blows against the bear's master land softer.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMaulReadyBuff.Name",
+    "enGB": "Mauling Instinct",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMaulReadyBuff.Description",
+    "enGB": "The bear is ready to answer its master's strike against a mauled enemy - once per round.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondFrenzyBuff.Name",
+    "enGB": "Primal Fury",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondFrenzyBuff.Description",
+    "enGB": "The boar's fury, boiled over: bonus damage on every strike, a second wind already spent, and fear forgotten.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondPreyBuff.Name",
+    "enGB": "Prey",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondPreyBuff.Description",
+    "enGB": "The dog has marked this creature as its prey. When its master strikes the prey, the dog runs; when the dog has it down, the master strikes true.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondHoundedBuff.Name",
+    "enGB": "Hounded",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondHoundedBuff.Description",
+    "enGB": "Prone beneath the hound: the ranger gains a bonus on attack and damage rolls against this creature.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDogSpeedBuff.Name",
+    "enGB": "Heel!",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondDogSpeedBuff.Description",
+    "enGB": "The master struck the prey - the dog gains +15 speed for a round.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondAmbushBuff.Name",
+    "enGB": "Ambush Mark",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondAmbushBuff.Description",
+    "enGB": "Marked by the leopard. The ranger's attacks against this creature deal bonus precision damage.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondAmbushReadyBuff.Name",
+    "enGB": "Crouching",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondAmbushReadyBuff.Description",
+    "enGB": "The leopard watches for a vulnerable moment - once per round it can mark.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMomentumBuff.Name",
+    "enGB": "Momentum",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMomentumBuff.Description",
+    "enGB": "The mastodon is moving, and something is about to break.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondSlowBuff.Name",
+    "enGB": "Trampled",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondSlowBuff.Description",
+    "enGB": "Caught in the mastodon's impact: -10 speed.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBloodshedBuff.Name",
+    "enGB": "Bloodshed",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBloodshedBuff.Description",
+    "enGB": "The smilodon's consecutive strikes build: +1 damage per two stacks. Switch targets and it is lost.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondFlurryBuff.Name",
+    "enGB": "Predator's Flurry",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondFlurryBuff.Description",
+    "enGB": "Six stacks of bloodshed: the smilodon strikes with an extra attack each round while the streak holds.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondRendBuff.Name",
+    "enGB": "Rend",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondRendBuff.Description",
+    "enGB": "The raptor's talons have done their work. The ranger's next attack consumes every stack.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondShredBuff.Name",
+    "enGB": "Armor Torn",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondShredBuff.Description",
+    "enGB": "The rending relay pays off: -2 AC for a round.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondPackBuff.Name",
+    "enGB": "Pack",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondPackBuff.Description",
+    "enGB": "The wolf's howl rides you: bonuses against enemies adjacent to the wolf - and from the second tier, attack speed. Enemies beset by two of the pack suffer.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBulwarkBuff.Name",
+    "enGB": "Bulwark",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBulwarkBuff.Description",
+    "enGB": "After its charge, the triceratops plants itself: bonus AC, unable to be tripped, and allies nearby gain +2 AC.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBulwarkAllyBuff.Name",
+    "enGB": "Iron Shelter",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBulwarkAllyBuff.Description",
+    "enGB": "Standing beside the bulwark: +2 AC.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondSecondChargeBuff.Name",
+    "enGB": "Second Charge",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondSecondChargeBuff.Description",
+    "enGB": "The bulwark is broken into momentum: +10 speed, and its next hit deals +2d6.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondRiderBuff.Name",
+    "enGB": "Saddleborn",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondRiderBuff.Description",
+    "enGB": "Riding the bond: +10 speed, and mounted charges hit harder as you grow together.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondVenomBuff.Name",
+    "enGB": "Symbiotic Venom",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondVenomBuff.Description",
+    "enGB": "The centipede's venom, deepened by every strike of its master: -1 to all saves per rank.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMonitorVenomBuff.Name",
+    "enGB": "Lingering Venom",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMonitorVenomBuff.Description",
+    "enGB": "The monitor's bite lingers - and the beast drinks the strength of it.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondRetaliationBuff.Name",
+    "enGB": "Pack Watch",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondRetaliationBuff.Description",
+    "enGB": "The wolf watches - once per round, an enemy that fights beside it answers to fang and master alike.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBreakBulwark.Name",
+    "enGB": "Break the Bulwark",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondBreakBulwark.Description",
+    "enGB": "Swift action: command the triceratops to end its bulwark and ready a second charge (+10 speed; its next hit deals +2d6).",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
   }
 ]

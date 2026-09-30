@@ -206,6 +206,70 @@ namespace MissionWOTR.Archetypes
       return archetype;
     }
 
+    /// <summary>
+    /// The significant NERF, not the Skirmisher's removal: the class's
+    /// spellcasting feature is removed at its native level and re-granted,
+    /// whole, at reAddLevel (the Wildbond's price - no ranger spells until
+    /// 12th level, then the vanilla spellbook). Same AddSpellbook scan as
+    /// RemoveSpellcasting (type-name matched: the namespace moved between
+    /// game builds).
+    /// </summary>
+    internal static ArchetypeConfigurator RemoveSpellcastingDelayed(
+      ArchetypeConfigurator archetype,
+      BlueprintCharacterClass clazz,
+      Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook spellbook,
+      int reAddLevel)
+    {
+      int handled = 0;
+      var progression = clazz.Progression;
+      if (progression?.LevelEntries is null)
+      {
+        MissionWOTR.Main.Logger.Warn(
+          $"[removals] {clazz.name} has no progression - spellcasting NOT delayed!");
+        return archetype;
+      }
+      foreach (var entry in progression.LevelEntries)
+      {
+        if (entry is null)
+        {
+          continue;
+        }
+        foreach (var feature in EntryFeatures(entry))
+        {
+          if (feature?.ComponentsArray is null)
+          {
+            continue;
+          }
+          foreach (var component in feature.ComponentsArray)
+          {
+            if (component is null || component.GetType().Name != "AddSpellbook")
+            {
+              continue;
+            }
+            var book = Call(Read(component, "m_Spellbook"), "Get");
+            if (book != spellbook)
+            {
+              continue;
+            }
+            archetype = archetype.AddToRemoveFeatures(entry.Level, feature);
+            archetype = archetype.AddToAddFeatures(reAddLevel, feature);
+            handled++;
+            MissionWOTR.Main.Logger.Info(
+              $"[removals] {clazz.name}: spellcasting feature {feature.name} " +
+              $"({spellbook.name}) delayed - removed at {entry.Level}, restored at {reAddLevel}.");
+            break;
+          }
+        }
+      }
+      if (handled == 0)
+      {
+        MissionWOTR.Main.Logger.Warn(
+          $"[removals] no feature granting {spellbook.name} found in {clazz.name} " +
+          "progression - spellcasting NOT delayed!");
+      }
+      return archetype;
+    }
+
     private static (int Level, BlueprintFeatureBase Feature)? FindFeature(
       BlueprintProgression progression,
       string featureName)
