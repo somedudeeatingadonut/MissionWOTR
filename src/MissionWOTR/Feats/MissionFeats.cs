@@ -95,6 +95,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(FortunesFool), FortunesFool.Configure);
       Configure(nameof(Guide), Guide.Configure);
       Configure(nameof(Wildbond), Wildbond.Configure);
+      Configure(nameof(Scout), Scout.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -122,6 +123,7 @@ namespace MissionWOTR.Feats
         var cleric = CharacterClassRefs.ClericClass.Reference.Get();
         var paladin = CharacterClassRefs.PaladinClass.Reference.Get();
         var ranger = CharacterClassRefs.RangerClass.Reference.Get();
+        var rogue = CharacterClassRefs.RogueClass.Reference.Get();
         var druid = CharacterClassRefs.DruidClass.Reference.Get();
         var fighter = CharacterClassRefs.FighterClass.Reference.Get();
         var monk = CharacterClassRefs.MonkClass.Reference.Get();
@@ -169,6 +171,7 @@ namespace MissionWOTR.Feats
       ("FortunesFool", Guids.FortunesFoolArchetype, paladin),
       ("Guide", Guids.GuideArchetype, ranger),
       ("Wildbond", Guids.WildbondArchetype, ranger),
+      ("Scout", Guids.ScoutArchetype, rogue),
     };
         foreach (var entry in entries)
         {

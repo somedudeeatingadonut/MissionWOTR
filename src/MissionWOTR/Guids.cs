@@ -896,6 +896,14 @@ namespace MissionWOTR
     internal const string WildbondSecondChargeComponent = "6B7B0E86-64E5-41A4-9B11-C2D4D9117EB3";
     internal const string WildbondBreakBulwarkAction = "E4A9F27B-1B3F-4C56-9F1A-7C05D6B2E604";
     internal const string WildbondBulwarkRiderComponent = "11A3CF15-ED4B-4910-AD9B-4B75ECB0FA76";
+    internal const string WildbondMarkPreyAbility = "95ED8C05-5FAE-4984-8D30-4507E99FBD43";
+    internal const string WildbondMarkPreyAction = "B89A459D-D31A-4722-A17C-788775056438";
+    // ----- The Scout (rogue, 0.29.0) -----
+    internal const string ScoutArchetype = "0B844E18-80FD-4846-8DDD-155BFD631936";
+    internal const string ScoutsChargeFeature = "07C068C6-E418-4340-9898-8C7FA2B3F571";
+    internal const string ScoutChargeComponent = "3BA01CA3-27A1-4732-9337-2AF93BCDC997";
+    internal const string ScoutSkirmisherFeature = "C542CE8E-C3C1-4C7C-AAD6-E25FF157C92B";
+    internal const string ScoutSkirmisherComponent = "94EABAC2-9467-4CAC-96AB-A402618F6AC6";
 
   }
 }

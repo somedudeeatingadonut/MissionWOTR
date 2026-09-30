@@ -4545,5 +4545,61 @@
     "deDE": "",
     "ruRU": "",
     "frFR": ""
+  },
+  {
+    "Key": "WildbondMarkPrey.Name",
+    "enGB": "Mark Prey",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "WildbondMarkPrey.Description",
+    "enGB": "Swift action (the hound's): command the dog to designate one enemy as its Prey. When you strike the prey, the hound gains +15 speed for a round; while the prey is prone, you gain a bonus on attack and damage rolls against it. The hound keeps its prey until you command a new one.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "Scout.Name",
+    "enGB": "Scout",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "Scout.Description",
+    "enGB": "Not all rogues live in the city. Scouts roam the wilderness - bandits, trailblazers, companions to rangers and barbarians - and they kill on the move. Her charge lands like an ambush, and a scout who has covered ground strikes as if from hiding. This replaces uncanny dodge and improved uncanny dodge; everything else about the rogue is untouched.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "ScoutsCharge.Name",
+    "enGB": "Scout's Charge",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "ScoutsCharge.Description",
+    "enGB": "At 4th level, whenever the scout makes a charge, her attack deals sneak attack damage as if the target were flat-footed. Foes with uncanny dodge are immune to this ability. This replaces uncanny dodge.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "ScoutSkirmisher.Name",
+    "enGB": "Skirmisher",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
+  },
+  {
+    "Key": "ScoutSkirmisher.Description",
+    "enGB": "At 8th level, whenever the scout moves more than 10 feet in a round and makes an attack, the attack deals sneak attack damage as if the target were flat-footed - but only the first attack she makes that round. Foes with uncanny dodge are immune to this ability. This replaces improved uncanny dodge.",
+    "deDE": "",
+    "ruRU": "",
+    "frFR": ""
   }
 ]

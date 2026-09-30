@@ -794,6 +794,43 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.29.0 — the Scout (rogue tabletop port), and the companion-control correction
+
+- **The correction (user):** "animal companions CAN be controlled by
+  the player unlike summons" — the Wildbond was built on the wrong
+  assumption, and two things change:
+  - **Mark Prey is now a commanded ability ON THE HOUND** — an
+    active, targeted swift action on the dog itself (select the dog,
+    mark the prey), replacing the automatic latest-struck-enemy
+    designation. The dog keeps its prey until commanded otherwise;
+    the ranger-side bonuses (the dog runs when she strikes the prey;
+    prone prey = her attack/damage bonus) are unchanged.
+  - The triceratops's second charge is RE-DOCUMENTED: companions are
+    player-driven, so Break the Bulwark grants the momentum (+10
+    speed, +2d6 next hit) and the player orders the charge directly.
+- **The Scout (tabletop port — APG pg. 134)** — the rogue coverage
+  check: vanilla WOTR ships EIGHT rogue archetypes (Eldritch
+  Scoundrel, Knife Master, Thug, Master of All, Rowdy, Sylvan
+  Trickster, Underground Chemist, Dark Lurker); TTT/COP/DarkCodex
+  add none; the Scout was unclaimed.
+  - Scout's Charge (4th, replaces uncanny dodge): a charge deals
+    sneak attack damage as if the target were flat-footed —
+    evt.IsSneakAttack on the attack roll (the engine's own flag,
+    the TTT RuleAttackWithWeaponPrecision idiom), sneak-ONLY per
+    the APG text. Foes with uncanny dodge are immune (the
+    tabletop's clause, checked against the vanilla feature).
+  - Skirmisher (8th, replaces improved uncanny dodge): after
+    moving more than 10 feet in a round, her first attack deals
+    sneak attack damage as if the target were flat-footed.
+    Position captured on the round tick (the Wildbond
+    mastodon-momentum idiom).
+  - Documented adaptations: movement is NET displacement from the
+    round-tick position (no distance-traveled accumulator in the
+    engine); "first attack of the turn" resets on the round tick.
+  - The rest of the rogue kit (sneak attack, trapfinding, danger
+    sense, debilitating injuries, talents, master strike) is
+    untouched.
+
 ## 0.28.0 — the Wildbond (ranger homebrew: the user's species-bond design)
 
 - **The Wildbond** — the user's design: "granting specific buffs to
@@ -1953,7 +1990,7 @@ The bonds (tier = 4-7 / 8-11 / 12-15 / 16-19 / 20):
 |---|---|---|
 | Dire Bear | Mauling Bond: hits MAUL (-10 speed, softer blows vs the ranger); the ranger's hit on a mauled enemy earns a bear attack, 1/round | ward 2→10; marks always on |
 | Dire Boar | Primal Fury: frenzy below 50% HP — +dmg, second wind, fear immunity; kills heal | dmg 2→10, heals 5→25, frenzy at 75% at t5 |
-| Dog | Heel & Hound: prey marks; ranger strikes send the dog running (+15 speed); prone prey = ranger +atk/dmg | bonus +1→5 |
+| Dog | Heel & Hound: COMMANDED prey marks (Mark Prey - an active swift action on the hound itself, 0.29.0); ranger strikes send the dog running (+15 speed); prone prey = ranger +atk/dmg | bonus +1→5 |
 | Elk | Stampede: charge hits add a phantom elk's attack roll (-8) and damage (1d8+Str-2) | penalty -8→0, dmg +0→+3 |
 | Leopard | Ambush Bond: 1/round marks vulnerable (flanked/shaken/helpless) enemies; ranger precision vs marked | precision 1d6→5d6, +2 atk from t3 (concealment cut) |
 | Mastodon | Siege Beast: momentum per moving/attacking round; at threshold the next hit is an AoE impact + slow | need 4→2, dmg 1d8+2→+10, radius 5→10 |
@@ -1981,9 +2018,43 @@ covered ten.
   frenzy/kill heals trigger RuleHealDamage (the COP NineLives ctor).
 - Documented adaptations: the boar's temp HP is a second-wind heal;
   the leopard's concealment-ignore is +2 (no per-roll API); the
-  triceratops's commanded re-charge is momentum, not movement (pet
-  AI takes no orders); the mauled damage-ward is a negative
+  triceratops's commanded re-charge is momentum, not a scripted
+  movement (companions are player-controlled - the user's
+  correction, 0.29.0: the player drives the charge, the command
+  grants speed and damage); the mauled damage-ward is a negative
   DirectDamage rider; the raptor's bleed is instant damage.
+
+## Rogue
+
+### Faithful port — The Scout (Advanced Player's Guide) — IMPLEMENTED (0.29.0)
+
+| Level | The Scout grants | Rogue normally grants |
+|---|---|---|
+| 4 | Scout's Charge (a charge deals sneak attack damage as if the target were flat-footed; uncanny-dodge foes immune) | Uncanny Dodge (removed) |
+| 8 | Skirmisher (after moving 10+ feet in a round, her first attack deals sneak attack damage as if the target were flat-footed; uncanny-dodge foes immune) | Improved Uncanny Dodge (removed) |
+
+- Coverage: vanilla WOTR ships EIGHT rogue archetypes — Eldritch
+  Scoundrel, Knife Master, Thug, Master of All, Rowdy, Sylvan
+  Trickster, Underground Chemist, and Dark Lurker (DLC). TTT, COP
+  and DarkCodex add none. The Scout (APG pg. 134) was unclaimed —
+  the rogue of the open road, companion piece to the Guide and the
+  Wildbond.
+- Both abilities are SNEAK-ONLY per the APG text ("deals sneak
+  attack damage as if the target were flat-footed") — implemented
+  with the engine's own evt.IsSneakAttack flag on the attack roll
+  (the TTT RuleAttackWithWeaponPrecision idiom), NOT forced
+  flat-footedness. Charge detection rides the parent weapon-attack
+  rule's IsCharge (the ShiningKnight/Wildbond idiom); Skirmisher's
+  movement rides a round-tick position capture (the mastodon
+  momentum idiom).
+- The tabletop's immunity clause is honored: foes with the vanilla
+  uncanny dodge feature are immune to both abilities.
+- Documented adaptations: "moves more than 10 feet" is measured as
+  net displacement from the round-tick position (no
+  distance-traveled accumulator exists); "first attack of the turn"
+  resets on the round tick.
+- Sneak attack, trapfinding, danger sense, debilitating injuries,
+  rogue talents, and master strike are untouched.
 
 ## Level plan per class (test-mode rule)
 

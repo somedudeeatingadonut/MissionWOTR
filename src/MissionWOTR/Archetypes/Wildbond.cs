@@ -68,12 +68,14 @@ namespace MissionWOTR.Archetypes
   ///   5 HP per tier, and immunity to fear (Shaken/Frightened).
   ///   Each kill restores 5 HP per tier. Documented adaptation:
   ///   the temp HP is a heal (no flat temp-HP component found).
-  /// - DOG - Heel & Hound: the dog's hits designate its PREY (the
-  ///   latest struck enemy - pets take no player commands);
-  ///   whenever the ranger attacks the prey, the dog gains +15
-  ///   speed for a round; when the dog has the prey prone
-  ///   (tripped), the ranger gains +tier on attack and damage
-  ///   against it (the GuideFocusBonus pattern).
+  /// - DOG - Heel & Hound: the hound MARKS ITS PREY on command -
+  ///   Mark Prey is an active, targeted swift action ON THE DOG
+  ///   (animal companions take player commands in WOTR, unlike
+  ///   summons - the user's correction, 0.29.0); whenever the
+  ///   ranger attacks the prey, the dog gains +15 speed for a
+  ///   round; when the dog has the prey prone (tripped), the ranger
+  ///   gains +tier on attack and damage against it (the
+  ///   GuideFocusBonus pattern).
   /// - ELK - Stampede: when the elk's charge hits, a PHANTOM elk -
   ///   five levels lower - makes its own attack roll (-8 at tier
   ///   1, closing to 0 at tier 5) and on a hit deals 1d8 + its
@@ -121,9 +123,10 @@ namespace MissionWOTR.Archetypes
   ///   gain +2 AC. The ranger can command the bulwark broken (a
   ///   swift action): the triceratops immediately readies a second
   ///   charge (+10 speed; its next hit +2d6, 4d6 at tier 5).
-  ///   Documented adaptation: the engine cannot order pet AI to
-  ///   charge on command - the second charge is momentum, not
-  ///   movement.
+  ///   Documented adaptation: companions ARE player-controlled (the
+  ///   user's correction) - the player drives the charge itself;
+  ///   the command grants the momentum (speed and damage), not a
+  ///   scripted movement.
   /// - CENTIPEDE (our design - Toxic Symbiosis): the centipede's
   ///   bites apply a stacking venom (-1 to all saves per rank); the
   ///   RANGER's hits against a venom-marked enemy deepen it (rank
@@ -320,6 +323,23 @@ namespace MissionWOTR.Archetypes
         .AddComponent(new WildbondPetRider())
         .Configure();
 
+      // ----- Mark Prey: the hound's commanded designation (the
+      // user's correction: companions take player commands - the
+      // designation is the dog's own targeted ability, not an
+      // automatic side effect of its bites) -----
+      var markPrey = AbilityConfigurator.New(
+        "WildbondMarkPreyAbility", Guids.WildbondMarkPreyAbility)
+        .SetDisplayName("WildbondMarkPrey.Name")
+        .SetDescription("WildbondMarkPrey.Description")
+        .SetIcon(AbilityRefs.QuarryAbility.Reference.Get().Icon)
+        .SetType(AbilityType.Special)
+        .SetRange(AbilityRange.Long)
+        .SetActionType(UnitCommand.CommandType.Swift)
+        .SetCanTargetEnemies()
+        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(
+          new ContextActionWildbondMarkPrey { Prey = prey }))
+        .Configure();
+
       // ----- Break the Bulwark: the triceratops command -----
       var breakBulwarkAbility = AbilityConfigurator.New(
         "WildbondBreakBulwarkAbility", Guids.WildbondBreakBulwarkAbility)
@@ -349,6 +369,7 @@ namespace MissionWOTR.Archetypes
         {
           RangerClass = ranger,
           PetBuff = petBuff,
+          MarkPreyAbility = markPrey,
           Mauled = mauled,
           MaulReady = maulReady,
           Prey = prey,
@@ -572,6 +593,7 @@ namespace MissionWOTR.Archetypes
   {
     public BlueprintCharacterClass RangerClass;
     public BlueprintBuff PetBuff;
+    public BlueprintAbility MarkPreyAbility;
     public BlueprintBuff Mauled;
     public BlueprintBuff MaulReady;
     public BlueprintBuff Prey;
@@ -604,6 +626,26 @@ namespace MissionWOTR.Archetypes
       Tick();
     }
 
+    protected override void OnDeactivate()
+    {
+      try
+      {
+        var pet = Wildbond.PetOf(Owner);
+        if (pet is not null && MarkPreyAbility is not null)
+        {
+          var granted = pet.GetFact(MarkPreyAbility);
+          if (granted is not null)
+          {
+            pet.RemoveFact(granted);
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[wildbond] bond deactivate failed.", e);
+      }
+    }
+
     private void Tick()
     {
       var pet = Wildbond.PetOf(Owner);
@@ -626,6 +668,16 @@ namespace MissionWOTR.Archetypes
       {
         rider.Species = species;
         rider.RangerClass = RangerClass;
+      }
+
+      // The hound's commanded designation: the Mark Prey ability
+      // rides the dog itself (companion units are player-controlled
+      // - the user's correction, 0.29.0).
+      if (species == Wildbond.Species.Dog &&
+        MarkPreyAbility is not null &&
+        pet.GetFact(MarkPreyAbility) is null)
+      {
+        pet.AddFact(MarkPreyAbility);
       }
 
       // Saddleborn: the rider buff while mounted on the horse.
@@ -702,8 +754,13 @@ namespace MissionWOTR.Archetypes
           Game.Instance.CombatEngagementController.ForceAttackOfOpportunity(pet, evt.Target, false);
         }
         // Heel & Hound: the ranger strikes the prey - the dog runs.
-        if (Wildbond.IsOurMark(evt.Target.Buffs.GetBuff(Prey), Owner) &&
-          pet.Buffs.GetBuff(DogSpeed) is null)
+        // (The mark is cast by the dog's own Mark Prey ability now,
+        // so the caster is the hound, not the ranger.)
+        var preyMark = evt.Target.Buffs.GetBuff(Prey);
+        bool isPrey = preyMark is not null &&
+          (preyMark.MaybeContext?.MaybeCaster == Owner ||
+           preyMark.MaybeContext?.MaybeCaster == pet);
+        if (isPrey && pet.Buffs.GetBuff(DogSpeed) is null)
         {
           pet.Descriptor.AddBuff(DogSpeed, Fact.MaybeContext, new Rounds(1).Seconds);
         }
@@ -998,9 +1055,9 @@ namespace MissionWOTR.Archetypes
             Wildbond.ApplyMark(target, Mauled, Fact.MaybeContext, 2);
             break;
           case Wildbond.Species.Dog:
-            // The latest struck enemy is the prey.
-            Wildbond.ClearMarkEverywhere(Prey, master);
-            Wildbond.ApplyMark(target, Prey, Fact.MaybeContext, 3);
+            // The prey itself is now COMMANDED (Mark Prey, the
+            // user's correction) - the rider only sets up the
+            // prone-prey bonus.
             if (target.State.HasCondition(UnitCondition.Prone))
             {
               Wildbond.ApplyMark(target, Hounded, Fact.MaybeContext, 2);
@@ -1494,6 +1551,49 @@ namespace MissionWOTR.Archetypes
     }
 
     public void OnEventDidTrigger(RuleAttackRoll evt) { }
+  }
+
+  /// <summary>Mark Prey: the hound's commanded designation - clears
+  /// the hound's previous prey and marks the target (ten minutes; a
+  /// fresh command re-marks). The buff's caster is the DOG, so the
+  /// ranger-side checks accept master or hound.</summary>
+  [TypeId(Guids.WildbondMarkPreyAction)]
+  internal class ContextActionWildbondMarkPrey : ContextAction
+  {
+    public BlueprintBuff Prey;
+
+    public override string GetCaption() => "Mark Prey";
+
+    public override void RunAction()
+    {
+      try
+      {
+        var dog = Context.MaybeCaster;
+        var target = Context.MainTarget?.Unit;
+        if (dog is null || target is null || Prey is null)
+        {
+          return;
+        }
+        foreach (var unit in Game.Instance.State.Units)
+        {
+          var buff = unit?.Buffs.GetBuff(Prey);
+          if (buff is not null && buff.MaybeContext?.MaybeCaster == dog)
+          {
+            unit.Buffs.RemoveFact(Prey);
+          }
+        }
+        if (target.Descriptor.State.IsDead)
+        {
+          return;
+        }
+        target.Descriptor.AddBuff(Prey, Context, new Rounds(600).Seconds);
+        CombatLog.Write("The hound has its prey.", dog);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[wildbond] mark prey failed.", e);
+      }
+    }
   }
 
   /// <summary>Break the Bulwark: the triceratops command (a swift
