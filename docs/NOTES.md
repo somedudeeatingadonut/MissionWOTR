@@ -17,6 +17,17 @@ Add to this file whenever a new hard-won fact lands.
 - **Kineticist Elements Expanded** (Nexus mod 344): adds Aether/Void/Wood,
   abandoned. Do not duplicate its elements, and do not lift its code or
   assets (permissions unknown).
+- **alterasc mod-content database** (https://alterasc.github.io/): an
+  auto-collected blueprint inventory of ~60 WOTR content mods with
+  per-mod archetype/class pages. The fastest collision check available;
+  now step 3 of the coverage policy. Caveat (its own): auto-collected,
+  occasionally incomplete — cross-check the mod's own README/Nexus when a
+  mod matters (Ebon's Bard archetype was missing from the DB, caught via
+  its GitHub).
+- **Worldcrawl**: adds a class; widely incompatible with other content
+  mods (Ebon's ships a special WC build that drops an archetype to cope).
+  Per the user: assume anything we ship is incompatible with Worldcrawl;
+  never design against it.
 - **WW-Blueprint-Core**: the csproj pins NuGet 2.8.6, which has NO matching
   git tag. The CI game DLL differs from bpcore's compile target — member
   drift is EXPECTED. bpcore source is a hint, never a guarantee; the CI
