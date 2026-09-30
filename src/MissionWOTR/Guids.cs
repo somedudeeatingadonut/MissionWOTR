@@ -977,6 +977,23 @@ namespace MissionWOTR
     internal const string ChimeraUndeadTrait = "AB3E460F-998E-40E4-BFF7-04736BF542F8";
     internal const string ChimeraVerminMarker = "DFC25AF3-ED6D-4CC7-8EE4-16A473F494F8";
     internal const string ChimeraVerminTrait = "C710B069-91A9-4AFE-B70C-F45EC4DECD11";
+
+    // ----- 0.34.0: Hedge Witch (witch tabletop port) + Speaker for the Past (shaman tabletop port) -----
+    internal const string HedgeWitchArchetype = "D09C75AB-B91E-405B-B990-0B9AD1D22E41";
+    internal const string HedgeWitchSpontaneousHealing = "4F9267CC-5C6E-44EA-BFF5-674E8E1B3141";
+    internal const string HedgeWitchEmpathicHealing = "3592B50F-3BD2-41A1-B394-2E7D992C0652";
+    internal const string HedgeWitchEmpathicHealingAbility = "34E76DAC-A8D8-4CF2-AD18-F602697A787F";
+    internal const string HedgeWitchEmpathicPainBuff = "79692390-7DF0-4C41-AAE6-34DE8D7DEF19";
+    internal const string SpeakerArchetype = "F1DED844-F4B4-4026-A9E5-BF4DAAA42E06";
+    internal const string SpeakerPast = "FEB6376B-0155-4D98-960F-A188A04C244F";
+    internal const string SpeakerRevelationSelection = "9D5319C8-C2E7-40EC-A087-1F1570F9D34E";
+    internal const string SpeakerBloodOfHeroesRevelation = "6B472913-85B2-4384-877E-24DD998CC471";
+    internal const string SpeakerPhantomTouchRevelation = "A9180D7D-DD1E-4DBB-8704-BB89DD07C49E";
+    internal const string SpeakerSacredCouncilRevelation = "A6FE382D-543B-4F28-8345-19F96153047E";
+    internal const string SpeakerSpiritOfTheWarriorRevelation = "35B98972-0CE3-4A9E-BE3A-EE78F69EDE80";
+    internal const string SpeakerSpiritShieldRevelation = "46037B60-A0B8-4448-B08C-9334B231CEAB";
+    internal const string SpeakerSpiritWalkRevelation = "7994B878-CC19-44A4-9E0B-54811D551860";
+    internal const string SpeakerStormOfSoulsRevelation = "666385CA-98CA-4FF7-BF5E-2ADA2EE8D52B";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

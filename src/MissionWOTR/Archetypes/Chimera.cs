@@ -19,6 +19,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
@@ -318,10 +319,16 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
-    /// The Animal Ally clone recipe (TTTB): copy the vanilla
-    /// companion feature and retarget its AddPet level-rank to the
-    /// chimera's own rank feature - the beast then levels with the
-    /// witch's class levels instead of a druid's.
+    /// The Animal Ally clone recipe (TTTB), with a 0.34.0 bugfix:
+    /// bpcore's CopyFrom SHALLOW-COPIES components - the clone's
+    /// component array holds the SAME INSTANCES as the vanilla
+    /// blueprint - so the 0.33.0 EditComponent<AddPet> on the clone
+    /// was silently rewriting the VANILLA companion features too
+    /// (every ranger's dog would have grown off the witch's rank
+    /// feature - rank 0 for anyone but the chimera witch). The clone
+    /// now copies everything EXCEPT AddPet and adds a FRESH AddPet
+    /// built from the vanilla component's values, which are private
+    /// in the raw DLLs and read through ChimeraPrivate.
     /// </summary>
     private static BlueprintFeature CloneCompanion(
       Blueprint<BlueprintReference<BlueprintFeature>> source,
@@ -329,10 +336,27 @@ namespace MissionWOTR.Archetypes
       BlueprintFeature rankFeature)
     {
       var cloneName = "Chimera" + source.Reference.Get().name + "Feature";
+      var oldPet = source.Reference.Get().GetComponent<AddPet>();
+      if (oldPet is null)
+      {
+        MissionFeats.Logger.Error(
+          $"[chimera] {source.Reference.Get().name} has no AddPet component - clone gets a fresh one.");
+      }
+      var petRef = oldPet is null
+        ? null
+        : ChimeraPrivate.Get<BlueprintUnitReference>(oldPet, "m_Pet");
+      var upgradeRef = oldPet is null
+        ? null
+        : ChimeraPrivate.Get<BlueprintFeatureReference>(oldPet, "m_UpgradeFeature");
+      var upgradeLevel = oldPet is null ? 0 : ChimeraPrivate.GetField<int>(oldPet, "UpgradeLevel");
       return FeatureConfigurator.New(cloneName, cloneGuid)
-        .CopyFrom(source)
-        .EditComponent<AddPet>(c => ChimeraPrivate.Set(
-          c, "m_LevelRank", rankFeature.ToReference<BlueprintFeatureReference>()))
+        .CopyFrom(source, c => !(c is AddPet))
+        .AddPet(
+          pet: petRef,
+          upgradeFeature: upgradeRef,
+          upgradeLevel: upgradeLevel,
+          levelRank: rankFeature,
+          levelContextValue: new ContextValue())
         .Configure();
     }
 
@@ -487,6 +511,30 @@ namespace MissionWOTR.Archetypes
         return null;
       }
       return found.GetValue(instance) as T;
+    }
+
+    /// <summary>
+    /// Value-type twin of Get (Get's class constraint would return
+    /// null for boxed ints and structs); returns default on a miss.
+    /// </summary>
+    internal static T GetField<T>(object instance, string field)
+    {
+      var found = instance?.GetType().GetField(field, Flags);
+      if (found is null)
+      {
+        MissionFeats.Logger.Warn(
+          $"[chimera] field {field} not found on {instance?.GetType().Name} - using default.");
+        return default;
+      }
+      try
+      {
+        return (T)found.GetValue(instance);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error($"[chimera] field {field} read failed.", e);
+        return default;
+      }
     }
 
     internal static void Set(object instance, string field, object value)

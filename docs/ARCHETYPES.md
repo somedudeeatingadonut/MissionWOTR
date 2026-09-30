@@ -794,6 +794,71 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.34.0 — two tabletop ports: the Hedge Witch and the Speaker for the Past
+
+- **The picks (wiki-verified first):** the game already ships
+  Stigmatized Witch, Hagbound, Hex Channeler, Ley Line Guardian,
+  Elemental Witch and Witch of the Veil for the witch, and
+  Possessed/Spirit Hunter/Spirit Warden/Unsworn/Witch Doctor/
+  Wildland/Shadow Shaman/Prophet of Pestilence for the shaman —
+  so the Hedge Witch (Ultimate Magic pg. 84) and the Speaker for
+  the Past (Advanced Class Guide pg. 111) fill the two
+  faithful-port slots without touching anything the game covers.
+  Other candidates were researched and rejected with reasons:
+  Speaker for the Past's time-mystery half, Crystal Tender
+  (ioun-stone sharing needs item-bonus plumbing the engine does
+  not expose), Animist (spirit-magic replacement + seven of nine
+  spells absent), Deep Shaman (buoyancy/pressure systems absent),
+  Name-Keeper (wayfinder bond + daily-swap bonds), True Silvered
+  Throne (occult rituals + construct pet), Serendipity (variant
+  channeling + die-roll bumps), Visionary (augury/divination
+  absent), Draconic Shaman (drake subsystem), Benefactor
+  (spellcasting replacement).
+- **Hedge Witch (witch, UM 84):** the smallest, sharpest trade in
+  the port catalog - the hex at 4th becomes **Spontaneous Healing**
+  (the engine's own `SpontaneousSpellConversion`, the cleric's
+  mechanism, retargeted to the witch: lose any prepared spell,
+  cast the cure spell of that level or lower), and the hex at 8th
+  becomes **Empathic Healing** (a standard-action touch that draws
+  out all poisons and diseases via the vanilla cure spells while
+  the witch takes a 1-round 2d6 empathic pain - the tabletop's
+  "suffer the failed save instead" redirect is not exposed to
+  Wrath's data layer; the adaptation is documented in the ability
+  text). The patron note ("normally a healing theme") is a
+  recommendation, not a rule - patron untouched.
+- **Speaker for the Past (shaman, ACG 111):** trades the spirit
+  familiar (1st) and the entire wandering chain (wandering spirit,
+  wandering hex - found in the live progression by name, the
+  0.28-era scan idiom) for **Mysteries of the Past** (class
+  skills: Knowledge World, Perception, Use Magic Device; plus the
+  ancestors' spells as bonus known) and **Revelations of the Past**
+  at 4/6/12/14/20: a selection of the ancestors mystery's
+  revelations as clones (prerequisites stripped at copy time, the
+  two 11th-level ones re-gated on shaman level 11). Her main
+  spirit and ordinary hexes are untouched.
+- **0.33.1-class bugfix riding along (Chimera):** bpcore's
+  `CopyFrom` SHALLOW-COPIES components - the clone's component
+  array holds the same instances as the vanilla blueprint - so the
+  0.33.0 `EditComponent<AddPet>` on the companion clones was
+  silently rewriting the VANILLA companion features too (every
+  ranger's dog would have grown off the witch's rank feature -
+  rank 0 for anyone but a chimera witch; a runtime bug no compile
+  can catch, found reading bpcore's CopyFrom docs this round). The
+  clones now copy everything except AddPet and add a FRESH AddPet
+  built from the vanilla component's values (read through the
+  established reflection helper, which gained a value-type getter).
+- **Documented cuts this round:** the time mystery (does not exist
+  in the game - half of the Speaker's tabletop content), the
+  ancestors spells other than heroism/greater heroism (not in the
+  game), Linguistics (no Wrath skill), Ancestral Weapon (no
+  blueprint exists), regenerate (not in the game - 7th-level
+  conversion slots fall back to heal, which the same-or-lower rule
+  allows), and the Speaker's revelation-scaling caveat (clones
+  reference the vanilla oracle abilities whose level hooks are
+  Owlcat's; anything scaling strictly on oracle levels may
+  under-scale for a shaman - the probe script now dumps the
+  rank-config field maps so a playtest round can tune it).
+
 ## 0.33.0 — the Chimera (witch homebrew: the user's companion design)
 
 - **The brief, corrected by the user:** the parked ranger idea ("the
@@ -2348,7 +2413,41 @@ humanoids leave no piece worth taking (no HumanoidType fact exists to detect
 them - and the chimera would agree); only the companion's kills feed the diet -
 the witch's own kills are hers, not the beast's.
 
-*The faithful witch port is still owed (coverage: 1 of 2).*
+### Faithful port — Hedge Witch (Ultimate Magic pg. 84) — IMPLEMENTED (v1)
+
+A witch who devotes herself to the care of others and restricts her practices to
+the healing arts — the rural community's cleric.
+
+| Level | Feature | Effect |
+| --- | --- | --- |
+| 4 | Spontaneous Healing | (replaces the 4th-level hex) Lose any prepared non-cantrip spell to cast any cure spell of the same spell level or lower (cure light wounds → mass heal; 7th-level slots convert to heal since regenerate is not in the game). The engine's own SpontaneousSpellConversion component, retargeted to the witch. |
+| 8 | Empathic Healing | (replaces the 8th-level hex) Standard-action touch: removes all poisons and diseases from the target; the witch takes 2d6 empathic pain. Port adaptation of the tabletop's failed-save redirect, documented in the ability text. |
+
+The patron selection is untouched (the tabletop's "normally a healing theme" is
+a recommendation, not a rule).
+
+*Witch coverage: 2 of 2 (homebrew: the Chimera, 0.33.0).*
+
+## Shaman
+
+### Faithful port — Speaker for the Past (Advanced Class Guide pg. 111) — IMPLEMENTED (v1)
+
+A shaman who serves as the voice for spirits from her people's history — the
+voice of experience, a resource that lets the past aid the present.
+
+| Level | Feature | Effect |
+| --- | --- | --- |
+| 1 | Mysteries of the Past | (replaces the spirit familiar) Knowledge (World), Perception and Use Magic Device as class skills; heroism (3rd) and greater heroism (6th) as bonus known spells (the other seven ancestor spells are not in the game — documented cut; Linguistics has no Wrath equivalent). |
+| 4, 6, 12, 14, 20 | Revelations of the Past | (replaces wandering spirit and wandering hex, the whole chain) A revelation of the ancestors mystery: Blood of Heroes, Phantom Touch, Sacred Council, Spirit Shield, Storm of Souls, Spirit of the Warrior (11th), Spirit Walk (11th) — clones with vanilla prerequisites stripped, the 11th-level pair re-gated on shaman level 11. |
+
+Her main spirit and her ordinary hexes are untouched. The time mystery half of
+the tabletop archetype is a documented cut (the game has no time mystery). The
+revelation clones reference the vanilla oracle abilities, so anything that
+scales strictly on oracle levels may under-scale for a shaman — playtest will
+tell, and the probe script now dumps the rank-config field maps for exactly
+that tuning pass.
+
+*The shaman homebrew archetype is still owed (coverage: 1 of 2).*
 
 ## Level plan per class (test-mode rule)
 
