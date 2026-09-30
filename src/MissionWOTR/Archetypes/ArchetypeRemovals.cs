@@ -270,6 +270,37 @@ namespace MissionWOTR.Archetypes
       return archetype;
     }
 
+    /// <summary>
+    /// Removes a repeatedly-granted feature at every level EXCEPT its
+    /// first N grants (the Chimera's price: eight of the witch's ten
+    /// hex levels, keeping the first two). Features never granted are
+    /// skipped and logged - same contract as AddRemovals.
+    /// </summary>
+    internal static ArchetypeConfigurator AddRemovalsExceptFirstN(
+      ArchetypeConfigurator archetype,
+      BlueprintCharacterClass clazz,
+      string featureName,
+      int keepFirst)
+    {
+      var progression = clazz.Progression;
+      var matches = FindAllFeatures(progression, featureName);
+      if (matches.Count == 0)
+      {
+        MissionWOTR.Main.Logger.Warn(
+          $"[removals] {featureName} not found at any level of {clazz.name} progression - removal skipped.");
+        return archetype;
+      }
+      int removed = 0;
+      for (int i = Math.Max(0, keepFirst); i < matches.Count; i++)
+      {
+        archetype = archetype.AddToRemoveFeatures(matches[i].Level, matches[i].Feature);
+        removed++;
+      }
+      MissionWOTR.Main.Logger.Info(
+        $"[removals] {featureName}: {matches.Count} grants found, first {Math.Max(0, keepFirst)} kept, {removed} removed.");
+      return archetype;
+    }
+
     private static (int Level, BlueprintFeatureBase Feature)? FindFeature(
       BlueprintProgression progression,
       string featureName)

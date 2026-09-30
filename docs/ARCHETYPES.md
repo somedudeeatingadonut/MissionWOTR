@@ -794,6 +794,58 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.33.0 — the Chimera (witch homebrew: the user's companion design)
+
+- **The brief, corrected by the user:** the parked ranger idea ("the
+  Chimera's Diet" - a companion that takes a piece of what it kills)
+  moves to the witch, "since witch has familiars but not really animal
+  companions to work with. This archetype should remove those familiars,
+  as well as 8 levels of hexes, and lower the amount of spells you can
+  cast each day by 1 starting from level 6." The user's correction
+  settled the carrier: the witch GETS an animal companion that has the
+  chimera stuff - she does not become one herself. "For a pure
+  spellcasting class it wouldnt make much sense, for something like a
+  magus or warpriest it could work though" (noted for a future gish).
+- **The trades:** the familiar (WitchFamiliarSelection, 1st) is
+  removed; EIGHT of the ten hex levels go (the first two hex grants
+  are kept - the new `AddRemovalsExceptFirstN` finds every
+  WitchHexSelection grant in the progression at configure time and
+  removes all but the first two, so the exact vanilla grant schedule
+  is followed rather than assumed); and the spellbook is REPLACED
+  (the COP WinterWitch idiom, `SetReplaceSpellbook`) with a copy of
+  the witch book whose spells-per-day table is rebuilt with one fewer
+  slot at every spell level from class level 6 (floor 0).
+  Documented limitation: prestige classes that advance the witch
+  spellbook (Mystic Theurge and friends) will not advance the
+  Chimera's thinned book.
+- **The companion (1st):** the FULL vanilla selection - sixteen
+  species, preorder variants included - each a clone whose AddPet
+  level-rank is retargeted to a hidden rank feature the archetype
+  grants at levels 1-20 (the TTTB Animal Ally idiom): the beast
+  grows with the witch's FULL class level, no druid tax. The
+  selection also carries the vanilla mount-target and
+  companion-archetype features. (The pet-control rebuild of 0.29
+  already guarantees the beast is player-controlled.)
+- **The Chimera's Diet (the bond, on the witch):** when the
+  COMPANION kills a creature of a type it has not yet eaten, it
+  takes a piece of the kill - a visible marker buff on the beast
+  (its buff bar shows what it has eaten) - and grows a permanent
+  trait. Twelve courses, one per creature type: Alien Mind
+  (aberration, +2 Will) / Beast's Vigor (animal, +10 speed) / Stone
+  Guts (construct, DR 2/adamantine) / Dragon's Eye (dragon, +1
+  attack) / Fey Step (fey, +2 Reflex) / Silverhide (lycanthrope, DR
+  2/silver) / Monster's Hide (magical beast, +2 natural AC) /
+  Hunter's Instinct (monstrous humanoid, +2 initiative) /
+  Hellhound's Blood (outsider, fire resist 10) / Rooted Flesh
+  (plant, +2 Fortitude) / Grave's Gift (undead, +1 all saves) /
+  Swarm-Joints (vermin, immune to entangled). The bond's tick
+  re-applies any trait a reload may drop - the markers are the
+  persisted record.
+- **Documented cuts:** humanoids leave no piece worth taking (no
+  HumanoidType fact exists to detect them - and the chimera would
+  agree); only the companion's kills feed the diet - the witch's
+  own kills are hers, not the beast's.
+
 ## 0.32.0 — the Anatomist rebalance (user feedback)
 
 - **Weak Point now scales** (user: "making weak point scale,
@@ -2231,6 +2283,59 @@ covered ten.
   skill-side price as the Steel Rain, so the two are alternatives
   rather than companions; each stacks with the Scout's uncanny-dodge
   trades.
+
+## Witch
+
+### Homebrew archetype — The Chimera (the user's design) — IMPLEMENTED (v1)
+
+A witch of this bent does not keep a familiar. She keeps a beast, and the beast
+keeps what it kills.
+
+| Level | Feature | Effect |
+| --- | --- | --- |
+| 1 | Chimera's Beast | An animal companion: the full vanilla selection (16 species, preorder variants included), leveling with the witch's FULL class level (a hidden rank feature granted at every level 1-20, no druid tax). Carries the vanilla mount-target and companion-archetype features. |
+| 1 | The Chimera's Bond | The diet (below). |
+
+**The trades.** The familiar goes (WitchFamiliarSelection removed at 1st). Eight
+of the ten hex levels go: every `WitchHexSelection` grant in the witch
+progression is found at configure time and removed except the first two
+(`AddRemovalsExceptFirstN`) - the exact vanilla grant schedule is followed
+rather than assumed. And the spells thin: the archetype carries a REPLACED
+SPELLBOOK (`SetReplaceSpellbook`, the COP WinterWitch idiom) - a copy of the
+vanilla witch book whose spells-per-day table is rebuilt with every spell
+level's slot count reduced by 1 at class levels 6 and above (floor 0).
+Documented limitation: prestige classes that advance the witch spellbook
+(Mystic Theurge and friends) will not advance the Chimera's thinned book.
+
+**The Chimera's Diet.** When the companion kills a creature of a type it has
+not yet eaten, it takes a piece of the kill: a visible marker buff appears on
+the beast (its buff bar shows what it has eaten) and a permanent trait grows
+from that flesh. One course per creature type, twelve types:
+
+| Eaten | Trait | Effect |
+| --- | --- | --- |
+| Aberration | Alien Mind | +2 insight Will saves |
+| Animal | Beast's Vigor | +10 ft. speed (enhancement) |
+| Construct | Stone Guts | DR 2/adamantine |
+| Dragon | Dragon's Eye | +1 competence attack rolls |
+| Fey | Fey Step | +2 insight Reflex saves |
+| Lycanthrope | Silverhide | DR 2/silver |
+| Magical Beast | Monster's Hide | +2 natural armor AC |
+| Monstrous Humanoid | Hunter's Instinct | +2 competence initiative |
+| Outsider | Hellhound's Blood | fire resistance 10 |
+| Plant | Rooted Flesh | +2 insight Fortitude saves |
+| Undead | Grave's Gift | +1 insight all saves |
+| Vermin | Swarm-Joints | immune to entangled |
+
+The diet rides the bond feature on the WITCH (so it survives even a companion
+swap), detects the victim's type facts at the moment of death, and records
+each course as a marker buff on the BEAST - the markers persist in saves and
+the bond's tick re-applies any trait a reload may drop. Documented cuts:
+humanoids leave no piece worth taking (no HumanoidType fact exists to detect
+them - and the chimera would agree); only the companion's kills feed the diet -
+the witch's own kills are hers, not the beast's.
+
+*The faithful witch port is still owed (coverage: 1 of 2).*
 
 ## Level plan per class (test-mode rule)
 

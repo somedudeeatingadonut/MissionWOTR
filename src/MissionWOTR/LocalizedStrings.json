@@ -4797,5 +4797,275 @@
     "deDE": "",
     "ruRU": "",
     "frFR": ""
+  },
+  {
+    "Key": "Chimera.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Chimera"
+  },
+  {
+    "Key": "Chimera.Description",
+    "ProcessTemplates": false,
+    "enGB": "A witch of this bent does not keep a familiar. She keeps a beast, and the beast keeps what it kills.\nThe Chimera trades her familiar, eight of her ten hex levels (the first two hex grants are kept), and one spell slot per spell level at class levels 6 and above for an animal companion of legendary appetite. Whenever her companion slays a creature of a type it has not yet eaten, it takes a piece of the kill and grows a permanent trait from that creature's flesh - one course per creature type, twelve types in all.\nNote: prestige classes that advance the witch spellbook (Mystic Theurge and the like) do not advance the Chimera's thinned spellbook."
+  },
+  {
+    "Key": "ChimeraCompanionSelection.Name",
+    "ProcessTemplates": false,
+    "enGB": "Chimera's Beast"
+  },
+  {
+    "Key": "ChimeraCompanionSelection.Description",
+    "ProcessTemplates": false,
+    "enGB": "Choose the beast the witch bonds with. It grows with her full class level and carries the chimera's diet: whatever it kills, it takes a piece of."
+  },
+  {
+    "Key": "ChimeraBond.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Chimera's Bond"
+  },
+  {
+    "Key": "ChimeraBond.Description",
+    "ProcessTemplates": false,
+    "enGB": "The witch's bond is not a familiar's whisper but a beast's hunger. When her companion kills a creature of a type it has not yet eaten, it takes a piece of the kill and grows a permanent trait from that flesh. Humanoids leave no piece worth taking, and the witch's own kills are hers, not the beast's."
+  },
+  {
+    "Key": "ChimeraAberrationTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Alien Mind"
+  },
+  {
+    "Key": "ChimeraAberrationTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Strange meat reshapes strange minds. The beast gains a +2 insight bonus on Will saves."
+  },
+  {
+    "Key": "ChimeraAberrationMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Aberration Kill"
+  },
+  {
+    "Key": "ChimeraAberrationMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten aberration flesh and grown alien minds."
+  },
+  {
+    "Key": "ChimeraAnimalTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Beast's Vigor"
+  },
+  {
+    "Key": "ChimeraAnimalTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Kinship, devoured. The beast's speed increases by 10 feet."
+  },
+  {
+    "Key": "ChimeraAnimalMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Animal Kill"
+  },
+  {
+    "Key": "ChimeraAnimalMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten animal flesh and found it familiar."
+  },
+  {
+    "Key": "ChimeraConstructTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Stone Guts"
+  },
+  {
+    "Key": "ChimeraConstructTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Gears and plating settle in the gut. The beast gains damage reduction 2/adamantine."
+  },
+  {
+    "Key": "ChimeraConstructMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Construct Kill"
+  },
+  {
+    "Key": "ChimeraConstructMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten construct parts and digested stone."
+  },
+  {
+    "Key": "ChimeraDragonTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dragon's Eye"
+  },
+  {
+    "Key": "ChimeraDragonTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Something old and precise wakes behind its eyes. The beast gains a +1 competence bonus on attack rolls."
+  },
+  {
+    "Key": "ChimeraDragonMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Dragon Kill"
+  },
+  {
+    "Key": "ChimeraDragonMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten dragon flesh and dreams of hoards."
+  },
+  {
+    "Key": "ChimeraFeyTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Fey Step"
+  },
+  {
+    "Key": "ChimeraFeyTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Caprice, swallowed whole. The beast gains a +2 insight bonus on Reflex saves."
+  },
+  {
+    "Key": "ChimeraFeyMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Fey Kill"
+  },
+  {
+    "Key": "ChimeraFeyMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten fey flesh and learned to laugh at danger."
+  },
+  {
+    "Key": "ChimeraLycanthropeTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Silverhide"
+  },
+  {
+    "Key": "ChimeraLycanthropeTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "The moon's mark, eaten. The beast gains damage reduction 2/silver."
+  },
+  {
+    "Key": "ChimeraLycanthropeMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Lycanthrope Kill"
+  },
+  {
+    "Key": "ChimeraLycanthropeMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten lycanthrope flesh and carries the moon's mark."
+  },
+  {
+    "Key": "ChimeraMagicalBeastTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Monster's Hide"
+  },
+  {
+    "Key": "ChimeraMagicalBeastTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "It eats another monster and wears it. The beast gains a +2 natural armor bonus to AC."
+  },
+  {
+    "Key": "ChimeraMagicalBeastMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the MagicalBeast Kill"
+  },
+  {
+    "Key": "ChimeraMagicalBeastMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten magical beast flesh and wears the monster now."
+  },
+  {
+    "Key": "ChimeraMonstrousHumanoidTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hunter's Instinct"
+  },
+  {
+    "Key": "ChimeraMonstrousHumanoidTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Predator eats predator. The beast gains a +2 competence bonus on initiative checks."
+  },
+  {
+    "Key": "ChimeraMonstrousHumanoidMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the MonstrousHumanoid Kill"
+  },
+  {
+    "Key": "ChimeraMonstrousHumanoidMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten monstrous humanoid flesh and hunts first."
+  },
+  {
+    "Key": "ChimeraOutsiderTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Hellhound's Blood"
+  },
+  {
+    "Key": "ChimeraOutsiderTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "The blood of another world burns hot. The beast gains fire resistance 10."
+  },
+  {
+    "Key": "ChimeraOutsiderMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Outsider Kill"
+  },
+  {
+    "Key": "ChimeraOutsiderMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten outsider flesh and its blood burns."
+  },
+  {
+    "Key": "ChimeraPlantTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Rooted Flesh"
+  },
+  {
+    "Key": "ChimeraPlantTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Green stubbornness, chewed and kept. The beast gains a +2 insight bonus on Fortitude saves."
+  },
+  {
+    "Key": "ChimeraPlantMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Plant Kill"
+  },
+  {
+    "Key": "ChimeraPlantMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten plant matter and grown patient roots."
+  },
+  {
+    "Key": "ChimeraUndeadTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Grave's Gift"
+  },
+  {
+    "Key": "ChimeraUndeadTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "Death itself, tasted. The beast gains a +1 insight bonus on all saving throws."
+  },
+  {
+    "Key": "ChimeraUndeadMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Undead Kill"
+  },
+  {
+    "Key": "ChimeraUndeadMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten undead flesh and been greeted by the grave."
+  },
+  {
+    "Key": "ChimeraVerminTrait.Name",
+    "ProcessTemplates": false,
+    "enGB": "Swarm-Joints"
+  },
+  {
+    "Key": "ChimeraVerminTrait.Description",
+    "ProcessTemplates": false,
+    "enGB": "A thousand small lessons in escape. The beast becomes immune to the entangled condition."
+  },
+  {
+    "Key": "ChimeraVerminMarker.Name",
+    "ProcessTemplates": false,
+    "enGB": "Piece of the Vermin Kill"
+  },
+  {
+    "Key": "ChimeraVerminMarker.Description",
+    "ProcessTemplates": false,
+    "enGB": "The beast has eaten vermin and knows how small things slip free."
   }
 ]

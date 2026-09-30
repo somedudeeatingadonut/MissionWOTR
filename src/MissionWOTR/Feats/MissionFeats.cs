@@ -98,6 +98,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Scout), Scout.Configure);
       Configure(nameof(SteelRain), SteelRain.Configure);
       Configure(nameof(Anatomist), Anatomist.Configure);
+      Configure(nameof(Chimera), Chimera.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -133,6 +134,7 @@ namespace MissionWOTR.Feats
         var inquisitor = CharacterClassRefs.InquisitorClass.Reference.Get();
         var kineticist = CharacterClassRefs.KineticistClass.Reference.Get();
         var oracle = CharacterClassRefs.OracleClass.Reference.Get();
+        var witch = CharacterClassRefs.WitchClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -176,6 +178,7 @@ namespace MissionWOTR.Feats
       ("Scout", Guids.ScoutArchetype, rogue),
       ("SteelRain", Guids.SteelRainArchetype, rogue),
       ("Anatomist", Guids.AnatomistArchetype, rogue),
+      ("Chimera", Guids.ChimeraArchetype, witch),
     };
         foreach (var entry in entries)
         {
