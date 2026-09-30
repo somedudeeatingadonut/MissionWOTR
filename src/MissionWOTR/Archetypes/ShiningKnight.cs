@@ -232,9 +232,12 @@ namespace MissionWOTR.Archetypes
           return; // only her hits
         }
         var roll = evt.AttackRoll;
-        if (roll is null || !roll.IsHit || !roll.IsCharge || roll.Weapon is null)
+        if (roll is null || !roll.IsHit || roll.Weapon is null ||
+          roll.RuleAttackWithWeapon?.IsCharge != true)
         {
-          return; // only weapon-charge hits
+          return; // only weapon-charge hits (IsCharge lives on the
+          // weapon-attack rule, not the roll - the TTT
+          // AddAdditionalWeaponDamageOnHit pattern)
         }
         if (Owner.Get<UnitPartRider>()?.SaddledUnit is null)
         {

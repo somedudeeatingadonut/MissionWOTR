@@ -217,6 +217,11 @@ namespace MissionWOTR.Archetypes
   internal class FoolChaosAura : UnitFactComponentDelegate, Kingmaker.Controllers.Units.ITickEachRound
   {
     public BlueprintBuff AuraBuff;
+    /// <summary>
+    /// False only for the 17th aura: she already carries Fate's Wager
+    /// itself, and the wager never stacks with itself.
+    /// </summary>
+    public bool IncludeSelf = true;
 
     public void OnNewRound()
     {
@@ -241,7 +246,10 @@ namespace MissionWOTR.Archetypes
       {
         return;
       }
-      Apply(Owner);
+      if (IncludeSelf)
+      {
+        Apply(Owner);
+      }
       foreach (var ally in SanguineFont.AlliesWithin(Owner, 10))
       {
         Apply(ally);
