@@ -24,6 +24,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
@@ -630,7 +631,7 @@ namespace MissionWOTR.Archetypes
   /// caster and AI-controlled, like every engine summon.
   /// </summary>
   [TypeId(Guids.SpiritRiddenSummonCompanionAction)]
-  internal class SpiritRiddenSummonCompanionAction : Kingmaker.ElementsSystem.ContextAction
+  internal class SpiritRiddenSummonCompanionAction : ContextAction
   {
     internal const string WolfGuid = "03dd28e92faf2e44eb9564a6ba01fdd0";
     internal const string StockSummonBuffGuid = "8728e884eeaa8b047be04197ecf1a0e4";
@@ -698,7 +699,7 @@ namespace MissionWOTR.Archetypes
   /// switching spirits, dispelling, whatever removes the buff.
   /// </summary>
   [TypeId(Guids.SpiritRiddenDespawnCompanionAction)]
-  internal class SpiritRiddenDespawnCompanionAction : Kingmaker.ElementsSystem.ContextAction
+  internal class SpiritRiddenDespawnCompanionAction : ContextAction
   {
     public override void RunAction()
     {
