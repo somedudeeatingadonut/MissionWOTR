@@ -3619,5 +3619,105 @@
     "Key": "StormcallerSwiftThunderstorm.Name",
     "ProcessTemplates": false,
     "enGB": "Swift Thunderstorm Blast"
+  },
+  {
+    "Key": "Intercessor.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Intercessor"
+  },
+  {
+    "Key": "Intercessor.Description",
+    "ProcessTemplates": false,
+    "enGB": "Some oracles speak for the gods. The intercessor speaks for the wounded. Her power is the oldest bargain in scripture: let the blow fall on me. She speaks her vow over a companion, and a portion of every wound that finds them finds her instead - no armor, no resistance, no immunity can touch what crosses the bond, for it is not damage that travels but duty. The more broken her body, the stronger her mercy: her healing on others deepens as her own blood is spent. And once per rest, death itself is refused - hers, and in time, her charge's. She trades every revelation of her mystery for this. The mystery still answers her prayers - its bonus spells, her curse, and its final revelation remain - but its wonders are no longer hers to invoke."
+  },
+  {
+    "Key": "IntercessorVow.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Vow"
+  },
+  {
+    "Key": "IntercessorVow.Description",
+    "ProcessTemplates": false,
+    "enGB": "She may speak the vow over one companion (Intercession, a swift action, close range, never herself): the companion gains the Mark of the Vow. While marked, a quarter of the damage the companion takes is transferred to her. The transfer is absolute - her armor, resistances and immunities do not apply to what crosses the bond. If she falls, the vow carries nothing until she stands again. From 11th level (The Redress) the share is half and she may carry the vow for two companions; from 19th (The Open Embrace) the vow becomes a standing aura and every ally within 30 feet is marked."
+  },
+  {
+    "Key": "Intercession.Name",
+    "ProcessTemplates": false,
+    "enGB": "Intercession"
+  },
+  {
+    "Key": "Intercession.Description",
+    "ProcessTemplates": false,
+    "enGB": "Speak the vow over one ally within close range (never herself): the ally gains the Mark of the Vow. A swift action, usable at will. When the vow is spoken at its capacity, the oldest mark passes on."
+  },
+  {
+    "Key": "IntercessorMark.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mark of the Vow"
+  },
+  {
+    "Key": "IntercessorMark.Description",
+    "ProcessTemplates": false,
+    "enGB": "Her body answers for yours: a quarter of the damage you take (half, with The Redress) is transferred to her, beyond armor and beyond resistance. If she falls, the vow carries nothing."
+  },
+  {
+    "Key": "IntercessorWellOfWounds.Name",
+    "ProcessTemplates": false,
+    "enGB": "Well of Wounds"
+  },
+  {
+    "Key": "IntercessorWellOfWounds.Description",
+    "ProcessTemplates": false,
+    "enGB": "Her mercy deepens as her body fails. While she is below three quarters of her maximum hit points, her healing cast on others is empowered by a quarter; below half, by half; below a quarter, by three quarters. Her own wounds are not eased by this gift - it is for others, as the vow is. This replaces the 3rd-level revelation."
+  },
+  {
+    "Key": "IntercessorDeathRefused.Name",
+    "ProcessTemplates": false,
+    "enGB": "Death Refused"
+  },
+  {
+    "Key": "IntercessorDeathRefused.Description",
+    "ProcessTemplates": false,
+    "enGB": "Once per rest, when a blow would take her below 1 hit point, she refuses: she stands at 1 hit point instead, and a surge of fast healing 5 carries her for 3 rounds. The refusal answers hit-point death only - a death that arrives by other roads is not refused. This replaces the 7th-level revelation."
+  },
+  {
+    "Key": "IntercessorSurge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Unbowed"
+  },
+  {
+    "Key": "IntercessorSurge.Description",
+    "ProcessTemplates": false,
+    "enGB": "She refused. Fast healing 5 for 3 rounds."
+  },
+  {
+    "Key": "IntercessorRedress.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Redress"
+  },
+  {
+    "Key": "IntercessorRedress.Description",
+    "ProcessTemplates": false,
+    "enGB": "The vow deepens: half of each marked companion's damage crosses the bond, and she may carry the vow for two companions at once. This replaces the 11th-level revelation."
+  },
+  {
+    "Key": "IntercessorBrokenBody.Name",
+    "ProcessTemplates": false,
+    "enGB": "Saint of the Broken Body"
+  },
+  {
+    "Key": "IntercessorBrokenBody.Description",
+    "ProcessTemplates": false,
+    "enGB": "The charge of Death Refused is shared with those she carries. When a marked companion would be slain and the charge is unspent, the companion instead stands at 1 hit point - and the rest of the blow, all of it, is hers. The wound she chooses cannot afterward be refused: the charge that would save her is already spent. If it is her time, it is her time. This replaces the 15th-level revelation."
+  },
+  {
+    "Key": "IntercessorOpenEmbrace.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Open Embrace"
+  },
+  {
+    "Key": "IntercessorOpenEmbrace.Description",
+    "ProcessTemplates": false,
+    "enGB": "The vow is no longer spoken; it simply stands. Every ally within 30 feet carries the Mark of the Vow, refreshed each round while she lives, and the vow has no limit worth counting. This replaces the 19th-level revelation."
   }
 ]

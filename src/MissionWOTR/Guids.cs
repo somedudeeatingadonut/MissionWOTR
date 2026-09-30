@@ -754,5 +754,24 @@ namespace MissionWOTR
     internal const string RiftstalkerCrippleComponent = "530ED959-0AEA-453D-AC7F-6467E687F80E";
     internal const string TrueShapeBeastCaster = "AAD38EAE-7D0D-4D79-A4F1-E1C83C113475";
 
+    // ----- The Intercessor (0.23.0, homebrew oracle archetype) -----
+    internal const string IntercessorArchetype = "801BE584-BFD7-4759-A97D-476B4A15F52D";
+    internal const string IntercessorVowFeature = "DCC496B9-1335-4098-B7C1-C69456D0A0D2";
+    internal const string IntercessorIntercedeAbility = "2E36345C-2FDA-4D6C-A357-C4430B0FFA5C";
+    internal const string IntercessorMarkBuff = "A44D5053-BCE0-420A-8961-5793403CC09B";
+    internal const string IntercessorWellOfWoundsFeature = "1C2B2A6E-234B-424B-A72E-A34BD98C48D7";
+    internal const string IntercessorDeathRefusedFeature = "5AC22EE0-747B-4A30-B230-DE89EA704268";
+    internal const string IntercessorSurgeBuff = "8C083064-AE58-4F0F-AC3A-9F2167980B96";
+    internal const string IntercessorChargeResource = "D4E741C7-CAFE-41C7-914E-DFE53571942A";
+    internal const string IntercessorRedressFeature = "291A6E39-8E6A-4D61-A4BE-F8562380B048";
+    internal const string IntercessorBrokenBodyFeature = "AB0606CE-170D-419E-A56B-E59ADE3E9F32";
+    internal const string IntercessorOpenEmbraceFeature = "DC025F8D-A5AD-4A56-966E-FF7C9279D201";
+    internal const string IntercessorMarkComponent = "75F1265C-D1BB-4426-B83F-9E91546AA09B";
+    internal const string IntercessorVowGrantComponent = "C61759F7-CF6C-4CEB-AE0F-B8C145605797";
+    internal const string IntercessorDeathRefusalComponent = "D7A31002-B3C0-4AC0-970A-602A8AF97E76";
+    internal const string IntercessorWellOfWoundsComponent = "D7F2C0A9-5C51-45F8-AED9-6D6FF24AEAFA";
+    internal const string IntercessorOpenEmbraceComponent = "28093FB9-5A8F-411E-B651-29C4705C8081";
+    internal const string IntercessorIntercedeAction = "D5E76B79-8BA0-4F02-9493-B4D769A6B22B";
+
   }
 }

@@ -720,6 +720,72 @@ errors suggested:
   IAbilityCasterRestriction (the kinarch pattern) and cleared on feature
   loss.
 
+## 0.22.1 — Stormcaller: missed bolts spend the charge
+
+- **User request:** "can you make a missed bolt spend the charge?" Yes.
+  A swift blast's round-charge is now spent when the bolt is LOOSED,
+  not only when it lands: on a hit via RulePrepareDamage (as before),
+  on a miss via a new RuleAttackRoll handler on the tracker. The storm
+  does not refund a bolt that breaks on the wind.
+- Why it is safe (verified against TTT's decompiled
+  ContextActionDealDamage and its RuleAttackRoll handlers): one
+  RuleAttackRoll event per attack - critical confirmation is a flag
+  INSIDE the roll (IsCriticalConfirmed/AutoCriticalConfirmation), not a
+  second event, so a hit cannot double-spend; RuleDealDamage.Reason is
+  built FROM attackRoll.Reason (the same chain the hit path already
+  uses); Reason.Ability is set for ability attacks (the
+  InitiatorSpellCritAutoconfirm proof). The handler re-checks the
+  caster and the clone GUIDs, so nothing but her own swift bolts can
+  spend the charge.
+- Swift blast description and in-code honesty notes updated to match
+  ("it lands or breaks on the wind, the storm does not refund it").
+
+## 0.23.0 — The Intercessor (homebrew oracle)
+
+- **The Intercessor** (user brief: "pick an oracle archetype and make
+  it"). Coverage-checked first: vanilla oracle archetypes are Seeker,
+  Dual-Cursed, Enlightened Philosopher, Possessed and Divine
+  Herbalist; the content mods add none (TTT-Base: channel fix +
+  alternate capstone; CharacterOptions+: none; DarkCodex: channel
+  patches). The vanilla paladin Martyr shares the sacrifice fantasy
+  but is stigmata + bardic performances; the live wound-transfer is
+  unoccupied. The name collides with nothing ("Martyr" is a paladin
+  archetype, "Wound-Bearer" a vanilla item).
+- **The Vow (1st, free - the curse is already her price):**
+  Intercession (swift, close range, one ally, never herself) applies
+  the Mark of the Vow: 25% of the damage the marked ally takes is
+  TRANSFERRED to her - the ally healed the share, she taking it as
+  DirectDamage (exact conservation; no resistance or immunity applies
+  to what crosses the bond; a fallen intercessor carries nothing).
+- **Well of Wounds (3rd):** her healing on OTHERS is empowered by her
+  own broken body: +25% below 75% HP, +50% below half, +75% below a
+  quarter (the TTT OutcomingAdditionalDamageAndHealingModifier
+  idiom).
+- **Death Refused (7th):** once per rest (a 1-charge rest-restoring
+  resource), a killing blow leaves her AT 1 HP instead (the COP
+  NineLives exact-heal-to-one death save) plus a 3-round fast
+  healing 5 surge. Hit-point death only, documented.
+- **The Redress (11th):** transfer 50%, two marks. **Saint of the
+  Broken Body (15th):** the refusal charge is shared - a marked
+  companion who would be slain stands at 1 HP and the REST OF THE
+  BLOW is hers; because the charge is already spent, the wound she
+  chose cannot be refused (by construction, not special-casing).
+  **The Open Embrace (19th):** every ally within 30 ft carries the
+  mark, refreshed each round (the SisterDragonAura tick idiom).
+- **The trades (hefty):** ALL FIVE revelations (3/7/11/15/19,
+  OracleRevelationSelection removed per level via RemoveAtLevel).
+  Mystery, curse, bonus spells and the final revelation remain.
+- Engine honesty: the transfer resolves after the marked ally's
+  damage lands; the mark-capacity registry is session-static
+  (post-reload documented); the 15th's redirected remainder shares
+  the one charge by construction; every rule pair is a proven idiom
+  (TTT DamageRetribution for the transfer, COP NineLives for the
+  death save, TTT OutcomingAdditionalHealing for Well of Wounds,
+  in-repo SisterDragonAura for the embrace).
+- Docs fix: the 0.22.1 changelog section was lost to a same-file
+  edit collision in the 0.22.1 push (the detailed-section bullet
+  landed; the section did not). Restored here.
+
 ## Alchemist
 
 ### Eldritch Poisoner (tabletop port — Pathfinder Player Companion: Black Markets)
@@ -1463,6 +1529,31 @@ line-shape surface), Draining and Disintegrating (not yet attempted).
 - Electricity ignores immunity/resistance via the Ascendant Element
   component itself (the vanilla mythic feature's mechanism, per the
   user's "as per other electric damage sources").
+
+## Oracle
+
+### Original homebrew — The Intercessor — IMPLEMENTED (0.23.0)
+
+| Level | The Intercessor grants | Oracle normally grants |
+|---|---|---|
+| 1 | The Vow (Intercession: mark one ally, 25% damage transfer; free - the curse is already her price) | — |
+| 3 | Well of Wounds (heals on others +25%/+50%/+75% below 75%/50%/25% HP) | 3rd-level revelation (removed) |
+| 7 | Death Refused (once per rest, a killing blow leaves her at 1 HP; fast healing 5 surge) | 7th-level revelation (removed) |
+| 11 | The Redress (transfer 50%; two marks) | 11th-level revelation (removed) |
+| 15 | Saint of the Broken Body (shared refusal charge: marked ally stands at 1 HP, the rest of the blow is hers) | 15th-level revelation (removed) |
+| 19 | The Open Embrace (every ally within 30 ft marked, refreshed each round) | 19th-level revelation (removed) |
+
+- The transfer is exact conservation: the ally is healed her share and
+  the intercessor takes it as DirectDamage (no resistance or immunity
+  applies - it is not damage crossing the bond but duty; the TTT
+  DamageRetribution rule pair with a Reason-fact loop guard).
+- The 15th's shared-charge semantics fall out by construction: the
+  charge is spent saving the ally, so the redirected remainder cannot
+  be refused - "if it is her time, it is her time."
+- Documented edges: the transfer resolves after the ally's damage
+  lands; a fallen intercessor's marks go quiet; the refusal answers
+  hit-point death only; the mark registry is session-static (after a
+  save/reload, capacity counts fresh).
 
 ## Level plan per class (test-mode rule)
 

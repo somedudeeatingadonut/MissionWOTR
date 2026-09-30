@@ -119,6 +119,7 @@ namespace MissionWOTR.Feats
         var hunter = CharacterClassRefs.HunterClass.Reference.Get();
         var inquisitor = CharacterClassRefs.InquisitorClass.Reference.Get();
         var kineticist = CharacterClassRefs.KineticistClass.Reference.Get();
+        var oracle = CharacterClassRefs.OracleClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -153,6 +154,7 @@ namespace MissionWOTR.Feats
       ("UnstableKineticist", Guids.UnstableKineticistArchetype, kineticist),
       ("KineticChirurgeon", Guids.KineticChirurgeonArchetype, kineticist),
       ("Stormcaller", Guids.StormcallerArchetype, kineticist),
+      ("Intercessor", Guids.IntercessorArchetype, oracle),
     };
         foreach (var entry in entries)
         {
