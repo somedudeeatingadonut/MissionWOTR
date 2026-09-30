@@ -79,7 +79,9 @@ if (-not (Test-Path $dll)) {
       } catch { return ('(err ' + $_.Exception.Message + ')') }
     }
 
-    $TARGETS = @('BlueprintUnit', 'BlueprintAiAttack', 'BlueprintAiCastSpell', 'BlueprintAiAction', 'BlueprintBrain')
+    $TARGETS = @('BlueprintUnit', 'BlueprintAiAttack', 'BlueprintAiCastSpell', 'BlueprintAiAction', 'BlueprintBrain',
+      'BlueprintSpellbook', 'BlueprintSpellsTable', 'SpellsLevelEntry', 'AddPet',
+      'PhysicalDamageMaterial', 'BlueprintFeatureSelection')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 

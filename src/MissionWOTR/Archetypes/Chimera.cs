@@ -1,4 +1,5 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.Configurators.Classes.Spells;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Spells;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
@@ -8,6 +9,7 @@ using BlueprintCore.Utils.Types;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
@@ -21,6 +23,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
+using System.Reflection;
 using System;
 using System.Collections.Generic;
 
@@ -107,25 +110,22 @@ namespace MissionWOTR.Archetypes
       // ----- The companion clones (the Animal Ally idiom) -----
       var mountTarget = "cb06f0e72ffb5c640a156bd9f8000c1d";
       var companionArchetypes = "65af7290b4efd5f418132141aaa36c1b";
-      var clones = new List<BlueprintFeature>
-      {
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureDog, Guids.ChimeraDogCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureElk, Guids.ChimeraElkCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureHorse, Guids.ChimeraHorseCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureHorse_PreorderBonus, Guids.ChimeraHorsePreorderCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureLeopard, Guids.ChimeraLeopardCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureMonitor, Guids.ChimeraMonitorCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureWolf, Guids.ChimeraWolfCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureBoar, Guids.ChimeraBoarCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureBear, Guids.ChimeraBearCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureCentipede, Guids.ChimeraCentipedeCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureMammoth, Guids.ChimeraMammothCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureSmilodon, Guids.ChimeraSmilodonCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureSmilodon_PreorderBonus, Guids.ChimeraSmilodonPreorderCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureTriceratops, Guids.ChimeraTriceratopsCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureTriceratops_PreorderBonus, Guids.ChimeraTriceratopsPreorderCompanion, rank),
-        CloneCompanion(FeatureRefs.AnimalCompanionFeatureVelociraptor, Guids.ChimeraVelociraptorCompanion, rank),
-      };
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureDog, Guids.ChimeraDogCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureElk, Guids.ChimeraElkCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureHorse, Guids.ChimeraHorseCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureHorse_PreorderBonus, Guids.ChimeraHorsePreorderCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureLeopard, Guids.ChimeraLeopardCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureMonitor, Guids.ChimeraMonitorCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureWolf, Guids.ChimeraWolfCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureBoar, Guids.ChimeraBoarCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureBear, Guids.ChimeraBearCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureCentipede, Guids.ChimeraCentipedeCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureMammoth, Guids.ChimeraMammothCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureSmilodon, Guids.ChimeraSmilodonCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureSmilodon_PreorderBonus, Guids.ChimeraSmilodonPreorderCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureTriceratops, Guids.ChimeraTriceratopsCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureTriceratops_PreorderBonus, Guids.ChimeraTriceratopsPreorderCompanion, rank);
+      CloneCompanion(FeatureRefs.AnimalCompanionFeatureVelociraptor, Guids.ChimeraVelociraptorCompanion, rank);
 
       // ----- The selection -----
       var selection = FeatureSelectionConfigurator.New(
@@ -134,15 +134,24 @@ namespace MissionWOTR.Archetypes
         .SetDescription("ChimeraCompanionSelection.Description")
         .SetIcon(FeatureSelectionRefs.AnimalCompanionSelectionRanger.Reference.Get().Icon)
         .SetIsClassFeature()
+        .SetMode(SelectionMode.OnlyNew)
+        .SetGroup(FeatureGroup.AnimalCompanion)
+        .SetRanks(1)
         .AddFeatureOnApply(mountTarget)
         .AddFeatureOnApply(companionArchetypes)
         .Configure();
-      foreach (var clone in clones)
-      {
-        FeatureSelectionConfigurator.For(selection)
-          .AddToAllFeatures(clone.name)
-          .Configure();
-      }
+      // GUIDs, not blueprint names: AddToAllFeatures takes guids via its
+      // implicit string conversion (passing clone.name would look up a
+      // blueprint NAMED like a guid - a runtime trap).
+      FeatureSelectionConfigurator.For(selection)
+        .AddToAllFeatures(
+          Guids.ChimeraDogCompanion, Guids.ChimeraElkCompanion, Guids.ChimeraHorseCompanion,
+          Guids.ChimeraHorsePreorderCompanion, Guids.ChimeraLeopardCompanion, Guids.ChimeraMonitorCompanion,
+          Guids.ChimeraWolfCompanion, Guids.ChimeraBoarCompanion, Guids.ChimeraBearCompanion,
+          Guids.ChimeraCentipedeCompanion, Guids.ChimeraMammothCompanion, Guids.ChimeraSmilodonCompanion,
+          Guids.ChimeraSmilodonPreorderCompanion, Guids.ChimeraTriceratopsCompanion,
+          Guids.ChimeraTriceratopsPreorderCompanion, Guids.ChimeraVelociraptorCompanion)
+        .Configure();
 
       // ----- The diet: markers and traits -----
       var markers = new List<BlueprintBuff>();
@@ -163,7 +172,7 @@ namespace MissionWOTR.Archetypes
         "ChimeraConstruct", "Stone Guts",
         b => b.AddDamageResistancePhysical(
           value: ContextValues.Constant(2),
-          material: PhysicalDamageMaterial.Adamantine, bypassedByMaterial: true),
+          material: PhysicalDamageMaterial.Adamantite, bypassedByMaterial: true),
         markers, traits, typeFacts);
       Diet(
         FeatureRefs.DragonType, Guids.ChimeraDragonMarker, Guids.ChimeraDragonTrait,
@@ -233,22 +242,46 @@ namespace MissionWOTR.Archetypes
         .Configure();
 
       // ----- The thinned spellbook (the COP WinterWitch idiom) -----
-      // The COP ArrowsongMinstrel recipe, verbatim in spirit: clone the
-      // witch's slots table with every count reduced (floor 0). Rows are
-      // keyed by array position = class level (COP ships without setting
+      // The COP ArrowsongMinstrel recipe, adapted: clone the witch's
+      // slots table with every count reduced (floor 0). Rows are keyed
+      // by array position = class level (COP ships without setting
       // Level on the entries); the tax starts at row 5 = class level 6.
+      // The repo builds against the RAW game DLLs (no publicizer), so
+      // Owlcat's serialized fields - BlueprintSpellbook.m_SpellsPerDay,
+      // BlueprintSpellsTable.Levels, SpellsLevelEntry.Count - are
+      // compile-time invisible to us (CS1061; the same wall
+      // ConstructCrafter's SetBrain went around). The reads and the
+      // entry rebuild go through ChimeraPrivate reflection instead.
       var vanillaBook = SpellbookRefs.WitchSpellbook.Reference.Get();
-      var vanillaTable = vanillaBook.m_SpellsPerDay.Get();
-      var entries = vanillaTable.Levels;
+      var tableRef = ChimeraPrivate.Get<BlueprintSpellsTableReference>(
+        vanillaBook, "m_SpellsPerDay");
+      var vanillaTable = tableRef?.Get();
+      var entries = vanillaTable is null
+        ? new SpellsLevelEntry[0]
+        : ChimeraPrivate.Get<SpellsLevelEntry[]>(vanillaTable, "Levels")
+          ?? new SpellsLevelEntry[0];
+      if (entries.Length == 0)
+      {
+        MissionFeats.Logger.Error(
+          "[chimera] could not read the witch spells-per-day table - the thinned book would have NO slots; investigate the reflection field names.");
+      }
+      else
+      {
+        MissionFeats.Logger.Info(
+          $"[chimera] witch spells-per-day table read: {entries.Length} class-level rows.");
+      }
       var levels = new List<SpellsLevelEntry>();
       for (int row = 0; row < entries.Length; row++)
       {
-        var slots = new int[entries[row].Count.Length];
-        for (int i = 0; i < entries[row].Count.Length; i++)
+        var counts = ChimeraPrivate.Get<int[]>(entries[row], "Count") ?? new int[0];
+        var slots = new int[counts.Length];
+        for (int i = 0; i < counts.Length; i++)
         {
-          slots[i] = row >= 5 ? Math.Max(0, entries[row].Count[i] - 1) : entries[row].Count[i];
+          slots[i] = row >= 5 ? Math.Max(0, counts[i] - 1) : counts[i];
         }
-        levels.Add(new SpellsLevelEntry { Count = slots });
+        var rebuilt = new SpellsLevelEntry();
+        ChimeraPrivate.Set(rebuilt, "Count", slots);
+        levels.Add(rebuilt);
       }
       var table = SpellsTableConfigurator.New(
         "ChimeraSpellsTable", Guids.ChimeraSpellsTable)
@@ -298,8 +331,8 @@ namespace MissionWOTR.Archetypes
       var cloneName = "Chimera" + source.Reference.Get().name + "Feature";
       return FeatureConfigurator.New(cloneName, cloneGuid)
         .CopyFrom(source)
-        .EditComponent<AddPet>(
-          c => c.m_LevelRank = rankFeature.ToReference<BlueprintFeatureReference>())
+        .EditComponent<AddPet>(c => ChimeraPrivate.Set(
+          c, "m_LevelRank", rankFeature.ToReference<BlueprintFeatureReference>()))
         .Configure();
     }
 
@@ -428,4 +461,45 @@ namespace MissionWOTR.Archetypes
       }
     }
   }
+  /// <summary>
+  /// Configure-time reflection for the game's serialized fields. The
+  /// repo compiles against the RAW (unpublicized) game DLLs, where
+  /// Owlcat keeps fields like BlueprintSpellbook.m_SpellsPerDay and
+  /// AddPet.m_LevelRank invisible to us (CS1061) - the same wall
+  /// ConstructCrafter's SetBrain and ElementalObsessor's
+  /// BlueprintsCache walk went around. Everything here runs once at
+  /// load, before any gameplay. A miss logs and degrades: the
+  /// spellbook falls back to an empty (logged) table, a clone keeps
+  /// its vanilla rank feature.
+  /// </summary>
+  internal static class ChimeraPrivate
+  {
+    private const BindingFlags Flags =
+      BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+    internal static T Get<T>(object instance, string field) where T : class
+    {
+      var found = instance?.GetType().GetField(field, Flags);
+      if (found is null)
+      {
+        MissionFeats.Logger.Warn(
+          $"[chimera] field {field} not found on {instance?.GetType().Name} - using default.");
+        return null;
+      }
+      return found.GetValue(instance) as T;
+    }
+
+    internal static void Set(object instance, string field, object value)
+    {
+      var found = instance?.GetType().GetField(field, Flags);
+      if (found is null)
+      {
+        MissionFeats.Logger.Warn(
+          $"[chimera] field {field} not found on {instance?.GetType().Name} - not set.");
+        return;
+      }
+      found.SetValue(instance, value);
+    }
+  }
+
 }

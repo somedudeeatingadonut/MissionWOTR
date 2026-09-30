@@ -845,6 +845,19 @@ errors suggested:
   HumanoidType fact exists to detect them - and the chimera would
   agree); only the companion's kills feed the diet - the witch's
   own kills are hers, not the beast's.
+- **Build note (raw DLLs):** the repo compiles against the RAW game
+  DLLs - no publicizer - so Owlcat's serialized fields
+  (BlueprintSpellbook.m_SpellsPerDay, BlueprintSpellsTable.Levels,
+  SpellsLevelEntry.Count, AddPet.m_LevelRank) are compile-time
+  invisible (CS1061). The table read/rebuild and the clone's
+  level-rank retarget go through configure-time reflection
+  (ChimeraPrivate), the repo's established workaround
+  (ConstructCrafter's SetBrain, ElementalObsessor's cache walk).
+  Alternative considered and deferred: wiring an AssemblyPublicizer
+  into the csproj (the COP/TTTB approach) would allow direct field
+  access, but changes the build chain - a decision left documented
+  rather than taken mid-feature. The probe script's target list was
+  extended to dump these types' real field lists.
 
 ## 0.32.0 — the Anatomist rebalance (user feedback)
 
