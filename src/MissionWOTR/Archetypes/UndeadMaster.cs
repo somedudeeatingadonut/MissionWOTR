@@ -2,10 +2,13 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.References;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using MissionWOTR.Feats;
@@ -52,8 +55,13 @@ namespace MissionWOTR.Archetypes
   /// roleplay guideline, not enforced - documented cut, same as the
   /// tabletop's atonement clauses. Necropolitan's conditional
   /// skill-check modifiers (vs undead vs living) are not expressible -
-  /// documented cut. Corpse Bond's corpse companion has no pet type in
-  /// this engine - documented cut; the bond is left as-is.
+  /// documented cut. Corpse Bond (0.49.0, the user's catch): trades the
+  /// arcane bond for one of the LICH PATH'S OWN undead pets - the real
+  /// MythicLichSkeleton units (tank, two-handed brute, archer, or
+  /// dual-wielder), player-controlled, leveling with wizard levels via
+  /// the animal-companion rank feature (re-granted every level, the
+  /// druid idiom) and the engine's own AddPet with the lich's
+  /// PetType.MythicSkeletalChampion.
   /// </summary>
   internal class UndeadMaster
   {
@@ -149,12 +157,58 @@ namespace MissionWOTR.Archetypes
           spellLevel: 6)
         .Configure();
 
+      // ----- Corpse Bond (1st): the lich path's own undead pets. -----
+      var corpseIcon = AbilityRefs.AnimateDead.Reference.Get().Icon;
+      var corpseUnits = new[]
+      {
+        UnitRefs.MythicLichSkeletonTankUnit, UnitRefs.MythicLichSkeletonTwoHandedUnit,
+        UnitRefs.MythicLichSkeletonArcherUnit, UnitRefs.MythicLichSkeletonDualWielderUnit,
+      };
+      var corpseNames = new[] { "Tank", "TwoHanded", "Archer", "DualWielder" };
+      var corpseGuids = new[]
+      {
+        Guids.UndeadMasterCorpseTankFeature, Guids.UndeadMasterCorpseTwoHandedFeature,
+        Guids.UndeadMasterCorpseArcherFeature, Guids.UndeadMasterCorpseDualWielderFeature,
+      };
+      var corpseOptions = new BlueprintFeature[corpseUnits.Length];
+      for (var i = 0; i < corpseUnits.Length; i++)
+      {
+        // The lich's own pet units, on the engine's own AddPet: the
+        // lich's PetType (probe v9), animal-companion progression so
+        // the corpse scales with WIZARD levels, ranked by the druid's
+        // own rank feature.
+        corpseOptions[i] = FeatureConfigurator.New(
+            "UndeadMasterCorpse" + corpseNames[i] + "Feature", corpseGuids[i])
+          .SetDisplayName("UndeadMasterCorpse" + corpseNames[i] + ".Name")
+          .SetDescription("UndeadMasterCorpse" + corpseNames[i] + ".Description")
+          .SetIcon(corpseIcon)
+          .SetIsClassFeature()
+          .AddPet(
+            pet: corpseUnits[i].Cast<BlueprintUnitReference>(),
+            type: PetType.MythicSkeletalChampion,
+            progressionType: PetProgressionType.AnimalCompanion,
+            levelRank: FeatureRefs.AnimalCompanionRank.Cast<BlueprintFeatureReference>())
+          .Configure();
+      }
+      var corpseBond = FeatureSelectionConfigurator.New(
+        "UndeadMasterCorpseBondSelection", Guids.UndeadMasterCorpseBondSelection)
+        .SetDisplayName("UndeadMasterCorpseBond.Name")
+        .SetDescription("UndeadMasterCorpseBond.Description")
+        .SetIcon(corpseIcon)
+        .SetIsClassFeature()
+        .SetMode(SelectionMode.Default)
+        .Configure();
+      FeatureSelectionConfigurator.For(corpseBond)
+        .AddToAllFeatures(corpseGuids[0], corpseGuids[1], corpseGuids[2], corpseGuids[3])
+        .Configure();
+
       // ----- The archetype. -----
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.UndeadMasterArchetype, CharacterClassRefs.WizardClass)
           .SetLocalizedName("UndeadMaster.Name")
           .SetLocalizedDescription("UndeadMaster.Description")
           .AddToAddFeatures(LevelPlan.L(1), kit)
+          .AddToAddFeatures(LevelPlan.L(1), corpseBond)
           .AddToAddFeatures(LevelPlan.L(3), reanimator3)
           .AddToAddFeatures(LevelPlan.L(5), reanimator5)
           .AddToAddFeatures(LevelPlan.L(6), extras[0])
@@ -171,6 +225,18 @@ namespace MissionWOTR.Archetypes
           archetype, wizard.Progression, level,
           FeatureSelectionRefs.WizardFeatSelection.ToString());
       }
+      // The corpse's rank: the animal-companion rank feature,
+      // re-granted at every wizard level (the druid idiom) - the pet's
+      // level tracks the RankToLevel table against that rank.
+      var rankRef = FeatureRefs.AnimalCompanionRank.Cast<BlueprintFeatureBaseReference>();
+      for (var level = 1; level <= 20; level++)
+      {
+        archetype = archetype.AddToAddFeatures(LevelPlan.L(level), rankRef);
+      }
+      // Corpse Bond replaces the arcane bond (no familiar - the corpse
+      // would be jealous).
+      archetype = ArchetypeRemovals.RemoveEveryGrant(
+        archetype, wizard, FeatureSelectionRefs.ArcaneBondSelection.ToString());
       archetype.Configure();
       MissionFeats.Logger.Info("[undeadmaster] configured: " + ArchetypeName + ".");
     }

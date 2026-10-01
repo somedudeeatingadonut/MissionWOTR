@@ -794,6 +794,45 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.49.0 — Corpse Bond (the lich's own pets) + the Elementalist Shifter (the final class port)
+
+- **The user's catch:** "there is undead pets that the lich mythic path
+  uses, you could make it use that." Correct — probe v9 found
+  `PetType.MythicSkeletalChampion` as a first-class engine member, and
+  the refs hold the lich's whole kit: four MythicLichSkeleton units
+  (tank / two-handed / archer / dual-wielder), their grant features,
+  and a companion-rank feature. **Corpse Bond (Undead Master, 1st)** is
+  now real: a selection of the lich's own undead pets — player-
+  controlled, scaling with wizard levels via the animal-companion rank
+  idiom (the rank feature re-granted every level, the druid's own
+  pattern) on the engine's own AddPet with the lich's pet type. Trades
+  the arcane bond (no familiar — the corpse would be jealous).
+- **The final class: the shifter** (DLC). Trap-check by archetype NAME:
+  the vanilla game ships SEVEN shifter archetypes — Child of Manticore,
+  Dragonblood, Feyform, Fiendflesh, Griffonheart, Rageshaper, and Wild
+  Effigy (Weretouched's aspects were folded into the base class).
+- **The port — Elementalist Shifter (Ultimate Wilderness pg. 78):**
+  chosen for maximum real-content reuse.
+  - **Elemental Aspect (1st, +5th/10th/15th):** four real aspects —
+    Air/Fire +2 Dex, Earth +2 Con, Water +2 Str, scaling to +4/+6 via
+    the class-level rank-config idiom.
+  - **Elemental Strike (1st, replaces claws):** swift action, 1 round:
+    melee attacks deal +1d6 energy of the chosen element (+1d6 per 4
+    levels, 6d6 at 20th) — the Overchanneler's damage watcher mirrored
+    to weapons, melee-checked via the DarkCodex IsMelee chain.
+  - **Elemental Form (4th, replaces wild shape):** the REAL elemental
+    body I spells (Air/Earth/Fire/Water), at will, each restricted to
+    casters who own the matching aspect (engine's own
+    AbilityCasterHasFacts).
+  - **Trades:** the aspect selection (every grant — the animal aspects
+    and their major forms go with it), the claws line (all eleven
+    feature names), chimeric aspect, greater chimeric aspect.
+  - **Documented cuts:** Elemental Speech (no hook) and Omnielement-
+    alist's six weather auras (noted as the obvious candidate for the
+    user's upcoming shifter homebrew). Wild empathy kept.
+- The user's shifter homebrew is pending ("while I think of something
+  to homebrew") — this round ships the port only.
+
 ## 0.48.0 — the wizard round: Undead Master (port) + the Inkbound (homebrew)
 
 - **The user handed me the wheel** for the second-to-last class: "for
@@ -3450,7 +3489,7 @@ Wizard, Elemental Specialist, Spell Master, Cruoromancer, and Shadowcaster. Miss
 
 | Archetype | Source | Concept |
 | --- | --- | --- |
-| Undead Master | Horror Adventures pg. 75 | The congregation of the dead: casts the real Command Undead spell on its own pool, writes the real animate-line spells into the real spellbook, and at 20th the dead accept him (the game's own One Of Us). Trades the 5/10/15/20 bonus feats. |
+| Undead Master | Horror Adventures pg. 75 | The congregation of the dead: casts the real Command Undead spell on its own pool, writes the real animate-line spells into the real spellbook, and at 20th the dead accept him (the game's own One Of Us). Corpse Bond (0.49.0) grants one of the lich path's own undead pets, player-controlled and wizard-level-scaling. Trades the 5/10/15/20 bonus feats + the arcane bond. |
 | Inkbound | MissionWOTR homebrew | The living grimoire: every spell cast in combat leaves ink (cap 10, starts empty); quillwork spends it on Blot/Wordwall/Recitation, deepening with Iron-Gall, armored in Vellum Skin, refilled once a day by The Last Chapter. Trades the arcane bond + 10/15/20 bonus feats. |
 
 
@@ -3459,5 +3498,14 @@ MissionWOTR:
 
 | Archetype | Source | Concept |
 | --- | --- | --- |
-| Champion of the Faith | Advanced Class Guide pg. 128 | The crusader: chooses an alignment axis (good/evil/law/chaos) — weapon damage counts as that alignment, smite marks a foe (+Cha to attacks, +level damage vs opposed-aligned), a daily align-weapon miracle (holy/unholy/axiomatic/anarchic). Trades the 3rd bonus feat and ALL channel energy. |
+| Champion of the Faith | Advanced Class Guide pg. 128 | The crusader: chooses an alignment axis (good/evil/law/chaos) — weapon damage counts as that alignment, smite
+## Shifter archetypes
+
+The shifter class (DLC) ships SEVEN vanilla archetypes: Child of Manticore, Dragonblood Shifter, Feyform Shifter,
+Fiendflesh Shifter, Griffonheart, Rageshaper, and Wild Effigy. MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Elementalist Shifter | Ultimate Wilderness pg. 78 | Power from the Inner Sphere, not bestial aspects: a chosen element's passive minor form, a swift Elemental Strike charging melee with +1d6/4 levels of energy, and at 4th the REAL elemental body I spells at will; gains more aspects at 5/10/15. Trades the aspect line, claws, and chimeric aspects. |
+ marks a foe (+Cha to attacks, +level damage vs opposed-aligned), a daily align-weapon miracle (holy/unholy/axiomatic/anarchic). Trades the 3rd bonus feat and ALL channel energy. |
 

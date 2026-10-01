@@ -1142,6 +1142,34 @@ namespace MissionWOTR
     internal const string InkboundKitFeature = "B658BE86-E4C5-4725-A480-A8E9E4010153";
     internal const string InkboundInkRider = "CFBF01D7-4D0B-43CE-B4F1-0039D2B338D7";
     internal const string InkboundQuillAction = "62E7169A-AC33-418D-81D9-2FA0E11C7540";
+
+    // ----- 0.49.0: Corpse Bond (the lich's pets) + the Elementalist Shifter -----
+    internal const string UndeadMasterCorpseBondSelection = "E51FF0DD-63BB-48D8-B802-41EA71D10453";
+    internal const string UndeadMasterCorpseTankFeature = "2DAE4DBB-3176-403B-A847-0B23441BEF01";
+    internal const string UndeadMasterCorpseTwoHandedFeature = "0765B1D2-91A9-4C0B-99B4-56CDB0DE5D1A";
+    internal const string UndeadMasterCorpseArcherFeature = "E8A7FF37-2CBF-4294-A946-28CEE3442041";
+    internal const string UndeadMasterCorpseDualWielderFeature = "85A25693-B95F-438B-9044-DBBF2EA59421";
+    internal const string ElementalistShifterArchetype = "E2735214-DFCC-4159-86EA-9BDF736970C3";
+    internal const string ElementalistAspectSelection = "D4F141D7-43B5-4055-B8A9-A52B1550C4D5";
+    internal const string ElementalistFormFeature = "59F8A9B4-F07E-4D73-A4F6-237AB6F6131F";
+    internal const string ElementalistStrikeAction = "4C474608-E491-41D6-AF57-0E7CD3541113";
+    internal const string ElementalistStrikeRider = "EA15A75D-1C81-48FD-AC5E-7D0CE81FFD33";
+    internal const string ElementalistAspectAirFeature = "162BF6CF-3D84-4028-977E-DD285D37CAC2";
+    internal const string ElementalistStrikeAirBuff = "969C6A4E-2A29-47DA-8BCD-897A7E2D7A74";
+    internal const string ElementalistStrikeAirAbility = "BF3A78D5-C9B4-4336-85D6-43FE7AAC4995";
+    internal const string ElementalistFormAirAbility = "142AC302-EC99-4E0D-896D-B4A775B11D01";
+    internal const string ElementalistAspectEarthFeature = "BE7450E8-81BA-484F-9A6B-9158618C09A8";
+    internal const string ElementalistStrikeEarthBuff = "AE61116F-64A7-49EF-866C-2CB6433AA411";
+    internal const string ElementalistStrikeEarthAbility = "328C7167-048D-4254-9E4C-34805DA11167";
+    internal const string ElementalistFormEarthAbility = "02338065-9939-4731-9E08-5C7CECB5122B";
+    internal const string ElementalistAspectFireFeature = "B717C6DA-5C2E-4B7E-B96B-E0E78B51418F";
+    internal const string ElementalistStrikeFireBuff = "923DCB18-92EF-4268-82EB-5959F74A9F6A";
+    internal const string ElementalistStrikeFireAbility = "CC4239D4-CFF5-4B32-A23A-BD8252381E52";
+    internal const string ElementalistFormFireAbility = "B84166F0-AEBA-4E56-B663-27FFB60A2482";
+    internal const string ElementalistAspectWaterFeature = "69581038-7CA6-4BA8-8859-2A41DE7D1223";
+    internal const string ElementalistStrikeWaterBuff = "8917E902-E130-4D33-AFAE-2185984F311B";
+    internal const string ElementalistStrikeWaterAbility = "F18AFE42-9806-4F09-8D0E-213F1F160CFE";
+    internal const string ElementalistFormWaterAbility = "A70A97DB-269E-46F7-8790-B96F7806193D";
     internal const string InkboundBlotBuff = "87A31A0A-2BEC-42C1-BC36-19280A8A63D5";
     internal const string InkboundBlotIronBuff = "60DF5F8E-B146-4546-BEC8-6D6634800371";
     internal const string InkboundWordwallBuff = "A8884B14-F437-443C-84EA-1030A8C6022A";

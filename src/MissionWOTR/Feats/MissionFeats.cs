@@ -112,6 +112,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(MendingBlade), MendingBlade.Configure);
       Configure(nameof(UndeadMaster), UndeadMaster.Configure);
       Configure(nameof(Inkbound), Inkbound.Configure);
+      Configure(nameof(ElementalistShifter), ElementalistShifter.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -154,6 +155,7 @@ namespace MissionWOTR.Feats
         var sorcerer = CharacterClassRefs.SorcererClass.Reference.Get();
         var warpriest = CharacterClassRefs.WarpriestClass.Reference.Get();
         var wizard = CharacterClassRefs.WizardClass.Reference.Get();
+        var shifter = CharacterClassRefs.ShifterClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -211,6 +213,7 @@ namespace MissionWOTR.Feats
       ("MendingBlade", Guids.MendingBladeArchetype, warpriest),
       ("UndeadMaster", Guids.UndeadMasterArchetype, wizard),
       ("Inkbound", Guids.InkboundArchetype, wizard),
+      ("ElementalistShifter", Guids.ElementalistShifterArchetype, shifter),
     };
         foreach (var entry in entries)
         {
