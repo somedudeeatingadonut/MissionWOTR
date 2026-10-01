@@ -132,7 +132,8 @@ namespace MissionWOTR.Archetypes
         .SetDescription("DreadnaughtStudy.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
-        .AddFacts(new() { ability, FeatureRefs.HeavyArmorProficiency })
+        .AddFacts(new() { ability,
+          FeatureRefs.HeavyArmorProficiency.Cast<BlueprintUnitFactReference>() })
         .AddContextStatBonus(StatType.SkillPersuasion, ContextValues.Rank(),
           ModifierDescriptor.UntypedStackable)
         .AddContextRankConfig(ContextRankConfigs.ClassLevel(
