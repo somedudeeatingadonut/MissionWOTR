@@ -222,6 +222,125 @@ namespace MissionWOTR.Archetypes
           aspectGuids[0], aspectGuids[1], aspectGuids[2], aspectGuids[3])
         .Configure();
 
+      // ----- Omnielementalist (9th, +a second pick at 15th): the six
+      // fusions. Each combo feature requires its two aspects (the
+      // object-overload prerequisites) and grants a swift, at-will
+      // ability that enters the fusion for 1 minute. Faithful where the
+      // engine allows; adapted where it does not (documented in loc). -----
+      var fusionGuids = new[]
+      {
+        Guids.ElementalistFusionAshStormFeature, Guids.ElementalistFusionDownpourFeature,
+        Guids.ElementalistFusionMudslideFeature, Guids.ElementalistFusionSandstormFeature,
+        Guids.ElementalistFusionSteamCloudFeature, Guids.ElementalistFusionVolcanicStrideFeature,
+      };
+      var fusionAbilityGuids = new[]
+      {
+        Guids.ElementalistFusionAshStormAbility, Guids.ElementalistFusionDownpourAbility,
+        Guids.ElementalistFusionMudslideAbility, Guids.ElementalistFusionSandstormAbility,
+        Guids.ElementalistFusionSteamCloudAbility, Guids.ElementalistFusionVolcanicStrideAbility,
+      };
+      var fusionBuffGuids = new[]
+      {
+        Guids.ElementalistFusionAshStormBuff, Guids.ElementalistFusionDownpourBuff,
+        Guids.ElementalistFusionMudslideBuff, Guids.ElementalistFusionSandstormBuff,
+        Guids.ElementalistFusionSteamCloudBuff, Guids.ElementalistFusionVolcanicStrideBuff,
+      };
+      // Key, aspect A index, aspect B index, icon.
+      var combos = new[]
+      {
+        new { Key = "AshStorm", A = 0, B = 2, Icon = AbilityRefs.LightningBolt },   // air + fire
+        new { Key = "Downpour", A = 0, B = 3, Icon = AbilityRefs.IceStorm },        // air + water
+        new { Key = "Mudslide", A = 1, B = 3, Icon = AbilityRefs.AcidArrow },       // earth + water
+        new { Key = "Sandstorm", A = 0, B = 1, Icon = AbilityRefs.LightningBolt },  // air + earth
+        new { Key = "SteamCloud", A = 2, B = 3, Icon = AbilityRefs.IceStorm },      // fire + water
+        new { Key = "VolcanicStride", A = 1, B = 2, Icon = AbilityRefs.Fireball },  // earth + fire
+      };
+      for (var i = 0; i < combos.Length; i++)
+      {
+        var combo = combos[i];
+        var buff = BuffConfigurator.New("ElementalistFusion" + combo.Key + "Buff", fusionBuffGuids[i])
+          .SetDisplayName("ElementalistFusion" + combo.Key + ".Name")
+          .SetDescription("ElementalistFusion" + combo.Key + ".Description")
+          .SetIcon(combo.Icon.Reference.Get().Icon)
+          .SetIsClassFeature();
+        switch (combo.Key)
+        {
+          case "AshStorm":
+            // Faithful: 20% miss chance against RANGED attacks (the
+            // engine's own ranged-only concealment filter, probe v10).
+            buff.AddConcealment(
+              concealment: Concealment.Partial,
+              checkWeaponRangeType: true,
+              rangeType: WeaponRangeType.Ranged);
+            break;
+          case "Downpour":
+            // Adapted: the tabletop's rain-extinguish aura becomes
+            // fire resistance 10 (rain-soaked).
+            buff.AddDamageResistanceEnergy(
+              type: DamageEnergyType.Fire, value: ContextValues.Constant(10));
+            break;
+          case "Mudslide":
+            // Adapted: the churning ground becomes a maneuver bonus.
+            buff.AddContextStatBonus(
+              StatType.AdditionalCMD, ContextValues.Constant(4), ModifierDescriptor.UntypedStackable);
+            break;
+          case "Sandstorm":
+            // Faithful: 1d6 damage each round to enemies within 20 ft
+            // (the ITickEachRound sweep; the light-dimming is cut).
+            buff.AddComponent(new ElementalistSandstormRider());
+            break;
+          case "SteamCloud":
+            // Adapted: the obscuring-mist cloud becomes a 20%
+            // concealment aura around her.
+            buff.AddConcealment(concealment: Concealment.Partial);
+            break;
+          case "VolcanicStride":
+            // Adapted: the burning ground becomes +1d6 fire on her
+            // melee attacks.
+            buff.AddComponent(new ElementalistVolcanicRider());
+            break;
+        }
+        var fusionBuff = buff.Configure();
+
+        var ability = AbilityConfigurator.New(
+            "ElementalistFusion" + combo.Key + "Ability", fusionAbilityGuids[i])
+          .SetDisplayName("ElementalistFusion" + combo.Key + ".Name")
+          .SetDescription("ElementalistFusion" + combo.Key + ".Description")
+          .SetIcon(combo.Icon.Reference.Get().Icon)
+          .SetType(AbilityType.Special)
+          .SetRange(AbilityRange.Personal)
+          .SetActionType(UnitCommand.CommandType.Swift)
+          .SetCanTargetSelf()
+          .AddAbilityEffectRunAction(ActionsBuilder.New().Add(new ElementalistFusionAction
+          {
+            Buff = fusionBuff,
+          }).Build())
+          .Configure();
+
+        FeatureConfigurator.New("ElementalistFusion" + combo.Key + "Feature", fusionGuids[i])
+          .SetDisplayName("ElementalistFusion" + combo.Key + ".Name")
+          .SetDescription("ElementalistFusion" + combo.Key + ".Description")
+          .SetIcon(combo.Icon.Reference.Get().Icon)
+          .SetIsClassFeature()
+          .AddPrerequisiteFeature(aspects[combo.A])
+          .AddPrerequisiteFeature(aspects[combo.B])
+          .AddFacts(new() { ability })
+          .Configure();
+      }
+
+      var omnielementalist = FeatureSelectionConfigurator.New(
+        "ElementalistOmnielementalistSelection", Guids.ElementalistOmnielementalistSelection)
+        .SetDisplayName("ElementalistOmnielementalist.Name")
+        .SetDescription("ElementalistOmnielementalist.Description")
+        .SetIcon(AbilityRefs.ElementalBodyIBase.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .SetMode(SelectionMode.Default)
+        .Configure();
+      FeatureSelectionConfigurator.For(omnielementalist)
+        .AddToAllFeatures(fusionGuids[0], fusionGuids[1], fusionGuids[2],
+          fusionGuids[3], fusionGuids[4], fusionGuids[5])
+        .Configure();
+
       // ----- The archetype. -----
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.ElementalistShifterArchetype, CharacterClassRefs.ShifterClass)
