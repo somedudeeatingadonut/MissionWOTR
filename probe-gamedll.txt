@@ -1466,6 +1466,55 @@ RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.O
   FIELD: m_Value [private]
   FIELD: Undetectable [protorint]
   FIELD: m_Owner [private]
+=== TYPE Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.Object ===
+  FIELD: AlignmentAngle [private]
+  FIELD: AlignmentMagnitudeInitial [private]
+  FIELD: TrueNeutralRadius [private]
+  FIELD: AlignmentBorderCos [private]
+  FIELD: AlignmentsCircle [private]
+  FIELD: m_Vector [private]
+  FIELD: m_LockedAlignmentMask [private]
+  FIELD: m_TargetAlignment [private]
+  FIELD: m_History [private]
+  FIELD: m_Value [private]
+  FIELD: Undetectable [protorint]
+  FIELD: m_Owner [private]
+  PROP: VectorRaw
+  PROP: VectorVisible
+  PROP: ValueRaw
+  PROP: ValueVisible
+  PROP: Radius
+  PROP: LockMask
+  PROP: History
+  METHOD: Cos
+  METHOD: Sin
+  METHOD: get_VectorRaw
+  METHOD: get_VectorVisible
+  METHOD: get_ValueRaw
+  METHOD: get_ValueVisible
+  METHOD: get_Radius
+  METHOD: get_LockMask
+  METHOD: get_History
+  METHOD: .ctor
+  METHOD: .ctor
+  METHOD: PostLoad
+  METHOD: Shift
+  METHOD: Shift
+  METHOD: Initialize
+  METHOD: InitializeFrom
+  METHOD: Set
+  METHOD: Set
+  METHOD: LockAlignment
+  METHOD: Reset
+  METHOD: UpdateValue
+  METHOD: SetVector
+  METHOD: CorrectByLockedMask
+  METHOD: GetDirection
+  METHOD: OnChanged
+  METHOD: GetAlignment
+  METHOD: GetAlignmentsSortedByDistance
+  METHOD: CopyFrom
+  METHOD: .cctor
 === TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParams vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
   FIELD: UseKineticistMainStat [protorint]
   FIELD: StatType [protorint]
