@@ -83,7 +83,8 @@ if (-not (Test-Path $dll)) {
       'BlueprintSpellbook', 'BlueprintSpellsTable', 'SpellsLevelEntry', 'AddPet',
       'PhysicalDamageMaterial', 'BlueprintFeatureSelection',
       'ContextRankConfig', 'SpontaneousSpellConversion', 'AddKnownSpell',
-      'ContextCalculateAbilityParams', 'ContextCalculateAbilityParamsBasedOnClass', 'AddFacts')
+      'ContextCalculateAbilityParams', 'ContextCalculateAbilityParamsBasedOnClass', 'AddFacts',
+      'BuffExtraEffects')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
@@ -92,6 +93,21 @@ if (-not (Test-Path $dll)) {
       $name = $md.GetString($td.Name)
       if ([string]::IsNullOrEmpty($name)) { continue }
       $ns = $md.GetString($td.Namespace)
+
+      # 0.41.0: every Rage-named type with its fields - hunting the skald
+      # rage-power grant component (BuffExtraEffects is known; the
+      # ally-side carrier for inspired rage is not).
+      if ($name -match 'Rage' -or $name -eq 'BuffExtraEvents') {
+        $v = [int]$td.Attributes -band 7
+        Log ("RAGE-TYPE: {0}.{1} vis={2} base={3}" -f $ns, $name, $VIS[$v], (BaseTypeName $md $td))
+        if (-not $ns.StartsWith('Kingmaker.UI') -and -not $ns.Contains('Blueprints.References')) {
+          foreach ($fh in $td.GetFields()) {
+            $fd = $md.GetFieldDefinition($fh)
+            $fa = [int]$fd.Attributes -band 7
+            Log ("  FIELD: {0} [{1}]" -f $md.GetString($fd.Name), $FACC[$fa])
+          }
+        }
+      }
 
       if ($ns -eq 'Kingmaker.AI.Blueprints') {
         $v = [int]$td.Attributes -band 7
