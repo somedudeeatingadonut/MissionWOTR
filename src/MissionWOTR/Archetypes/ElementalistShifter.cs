@@ -24,6 +24,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;
 
