@@ -414,91 +414,91 @@ RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature v
   PROP: FortificationOvercomed
   PROP: Weapon
   METHOD: get_AttackBonusPenalty
-  METHOD: set_AttackBonusPenalty
+  METHOD: set_AttackBonusPenalty (value)
   METHOD: get_Result
-  METHOD: set_Result
+  METHOD: set_Result (value)
   METHOD: get_D20
-  METHOD: set_D20
+  METHOD: set_D20 (value)
   METHOD: get_AttackBonus
-  METHOD: set_AttackBonus
+  METHOD: set_AttackBonus (value)
   METHOD: get_HitMirrorImageIndex
-  METHOD: set_HitMirrorImageIndex
+  METHOD: set_HitMirrorImageIndex (value)
   METHOD: get_IsCriticalRoll
-  METHOD: set_IsCriticalRoll
+  METHOD: set_IsCriticalRoll (value)
   METHOD: get_IsCriticalConfirmed
-  METHOD: set_IsCriticalConfirmed
+  METHOD: set_IsCriticalConfirmed (value)
   METHOD: get_CriticalConfirmationD20
-  METHOD: set_CriticalConfirmationD20
+  METHOD: set_CriticalConfirmationD20 (value)
   METHOD: get_TargetAC
-  METHOD: set_TargetAC
+  METHOD: set_TargetAC (value)
   METHOD: get_TargetCriticalAC
-  METHOD: set_TargetCriticalAC
+  METHOD: set_TargetCriticalAC (value)
   METHOD: get_IsTargetFlatFooted
-  METHOD: set_IsTargetFlatFooted
+  METHOD: set_IsTargetFlatFooted (value)
   METHOD: get_IsSneakAttack
-  METHOD: set_IsSneakAttack
+  METHOD: set_IsSneakAttack (value)
   METHOD: get_IsSneakAttackUsed
-  METHOD: set_IsSneakAttackUsed
+  METHOD: set_IsSneakAttackUsed (value)
   METHOD: get_FortificationChance
-  METHOD: set_FortificationChance
+  METHOD: set_FortificationChance (value)
   METHOD: get_FortificationRoll
-  METHOD: set_FortificationRoll
+  METHOD: set_FortificationRoll (value)
   METHOD: get_FortificationNegatesSneakAttack
-  METHOD: set_FortificationNegatesSneakAttack
+  METHOD: set_FortificationNegatesSneakAttack (value)
   METHOD: get_FortificationNegatesCriticalHit
-  METHOD: set_FortificationNegatesCriticalHit
+  METHOD: set_FortificationNegatesCriticalHit (value)
   METHOD: get_MissChanceValue
-  METHOD: set_MissChanceValue
+  METHOD: set_MissChanceValue (value)
   METHOD: get_MissChanceRoll
-  METHOD: set_MissChanceRoll
+  METHOD: set_MissChanceRoll (value)
   METHOD: get_ConcealmentCheck
-  METHOD: set_ConcealmentCheck
+  METHOD: set_ConcealmentCheck (value)
   METHOD: get_AttackBonusRule
-  METHOD: set_AttackBonusRule
+  METHOD: set_AttackBonusRule (value)
   METHOD: get_ACRule
-  METHOD: set_ACRule
+  METHOD: set_ACRule (value)
   METHOD: get_Parry
-  METHOD: set_Parry
+  METHOD: set_Parry (value)
   METHOD: get_RuleAttackWithWeapon
-  METHOD: set_RuleAttackWithWeapon
+  METHOD: set_RuleAttackWithWeapon (value)
   METHOD: get_AttackType
-  METHOD: set_AttackType
+  METHOD: set_AttackType (value)
   METHOD: get_CriticalConfirmationBonus
-  METHOD: set_CriticalConfirmationBonus
+  METHOD: set_CriticalConfirmationBonus (value)
   METHOD: get_AutoCriticalConfirmation
-  METHOD: set_AutoCriticalConfirmation
+  METHOD: set_AutoCriticalConfirmation (value)
   METHOD: get_AutoCriticalThreat
-  METHOD: set_AutoCriticalThreat
+  METHOD: set_AutoCriticalThreat (value)
   METHOD: get_AutoMiss
-  METHOD: set_AutoMiss
+  METHOD: set_AutoMiss (value)
   METHOD: get_DoNotProvokeAttacksOfOpportunity
-  METHOD: set_DoNotProvokeAttacksOfOpportunity
+  METHOD: set_DoNotProvokeAttacksOfOpportunity (value)
   METHOD: get_AutoHit
-  METHOD: set_AutoHit
+  METHOD: set_AutoHit (value)
   METHOD: get_IgnoreConcealment
-  METHOD: set_IgnoreConcealment
+  METHOD: set_IgnoreConcealment (value)
   METHOD: get_ForceFlatFooted
-  METHOD: set_ForceFlatFooted
+  METHOD: set_ForceFlatFooted (value)
   METHOD: get_TargetIsFlanked
-  METHOD: set_TargetIsFlanked
+  METHOD: set_TargetIsFlanked (value)
   METHOD: get_PreciseStrike
-  METHOD: set_PreciseStrike
+  METHOD: set_PreciseStrike (value)
   METHOD: get_IgnoreCritImmunity
-  METHOD: set_IgnoreCritImmunity
+  METHOD: set_IgnoreCritImmunity (value)
   METHOD: get_ImmuneToCriticalHit
-  METHOD: set_ImmuneToCriticalHit
+  METHOD: set_ImmuneToCriticalHit (value)
   METHOD: get_ImmuneToSneakAttack
-  METHOD: set_ImmuneToSneakAttack
+  METHOD: set_ImmuneToSneakAttack (value)
   METHOD: get_IsFake
-  METHOD: set_IsFake
+  METHOD: set_IsFake (value)
   METHOD: get_SuspendCombatLog
-  METHOD: set_SuspendCombatLog
+  METHOD: set_SuspendCombatLog (value)
   METHOD: get_AddedToCombatLog
-  METHOD: set_AddedToCombatLog
+  METHOD: set_AddedToCombatLog (value)
   METHOD: get_ParryLogEntry
-  METHOD: set_ParryLogEntry
+  METHOD: set_ParryLogEntry (value)
   METHOD: get_AttackLogEntry
-  METHOD: set_AttackLogEntry
+  METHOD: set_AttackLogEntry (value)
   METHOD: get_Roll
   METHOD: get_CriticalConfirmationRollBonus
   METHOD: get_CriticalConfirmationRoll
@@ -506,21 +506,212 @@ RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature v
   METHOD: get_TargetUseFortification
   METHOD: get_FortificationOvercomed
   METHOD: get_Weapon
-  METHOD: IsSuccessRoll
-  METHOD: CopyWithNewTarget
-  METHOD: .ctor
-  METHOD: .ctor
-  METHOD: SetFake
-  METHOD: OnTrigger
+  METHOD: IsSuccessRoll (d20)
+  METHOD: CopyWithNewTarget (attackRoll, target)
+  METHOD: .ctor (initiator, target, weaponStats, attackBonusPenalty)
+  METHOD: .ctor (initiator, target, weapon, attackBonusPenalty)
+  METHOD: SetFake (result)
+  METHOD: OnTrigger (context)
   METHOD: TryOvercomeTargetConcealmentAndMissChance
   METHOD: ConsumeMirrorImageIfNecessary
-  METHOD: SetAttackBonusPenalty
-  METHOD: TryParry
+  METHOD: SetAttackBonusPenalty (penalty)
+  METHOD: TryParry (unit, weapon, penalty)
   METHOD: UseSneakAttack
-  METHOD: SetMissChance
-  METHOD: ModifyMissChance
+  METHOD: SetMissChance (value)
+  METHOD: ModifyMissChance (value)
   METHOD: IsAttackRollSuitableForSneakAttack
-  METHOD: <OnTrigger>b__196_0
+  METHOD: <OnTrigger>b__196_0 (h)
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
+  FIELD: m_DamageBundle [private]
+  FIELD: <DamageWithoutReduction>k__BackingField [private]
+  FIELD: <DamageBeforeDifficulty>k__BackingField [private]
+  FIELD: <Calculate>k__BackingField [private]
+  FIELD: <IsDot>k__BackingField [private]
+  FIELD: <ExtraHitFx>k__BackingField [private]
+  FIELD: <ResultList>k__BackingField [private]
+  FIELD: <Result>k__BackingField [private]
+  FIELD: <RawResult>k__BackingField [private]
+  FIELD: <RedirectedDamage>k__BackingField [private]
+  FIELD: <AttackRoll>k__BackingField [private]
+  FIELD: <Projectile>k__BackingField [private]
+  FIELD: <HalfBecauseSavingThrow>k__BackingField [private]
+  FIELD: <Half>k__BackingField [private]
+  FIELD: <DisableSneakDamage>k__BackingField [private]
+  FIELD: <AddAdditionalDamage>k__BackingField [private]
+  FIELD: <AddFavoredEnemyDamage>k__BackingField [private]
+  FIELD: <AlreadyHalved>k__BackingField [private]
+  FIELD: <DisablePrecisionDamage>k__BackingField [private]
+  FIELD: <MinHPAfterDamage>k__BackingField [private]
+  FIELD: <IsFake>k__BackingField [private]
+  FIELD: <DifficultyModifier>k__BackingField [private]
+  FIELD: <IgnoreDamageReduction>k__BackingField [private]
+  FIELD: <IgnoreGrowthByDifficulty>k__BackingField [private]
+  FIELD: <DisableRegeneration>k__BackingField [private]
+  FIELD: <ModifierBonus>k__BackingField [private]
+  FIELD: <SourceAbility>k__BackingField [private]
+  FIELD: <SourceArea>k__BackingField [private]
+  FIELD: <ForceUseReasonAsSource>k__BackingField [private]
+  FIELD: <DisableFxAndSound>k__BackingField [private]
+  FIELD: RedirectedPercent [protorint]
+  FIELD: RedirectionTarget [protorint]
+  PROP: DamageWithoutReduction
+  PROP: DamageBeforeDifficulty
+  PROP: Calculate
+  PROP: IsDot
+  PROP: ExtraHitFx
+  PROP: ResultList
+  PROP: Result
+  PROP: RawResult
+  PROP: RedirectedDamage
+  PROP: AttackRoll
+  PROP: Projectile
+  PROP: HalfBecauseSavingThrow
+  PROP: Half
+  PROP: DisableSneakDamage
+  PROP: AddAdditionalDamage
+  PROP: AddFavoredEnemyDamage
+  PROP: AlreadyHalved
+  PROP: DisablePrecisionDamage
+  PROP: MinHPAfterDamage
+  PROP: IsFake
+  PROP: DifficultyModifier
+  PROP: IgnoreDamageReduction
+  PROP: IgnoreGrowthByDifficulty
+  PROP: DisableRegeneration
+  PROP: ModifierBonus
+  PROP: SourceAbility
+  PROP: SourceArea
+  PROP: ForceUseReasonAsSource
+  PROP: DisableFxAndSound
+  PROP: DamageBundle
+  METHOD: get_DamageWithoutReduction
+  METHOD: set_DamageWithoutReduction (value)
+  METHOD: get_DamageBeforeDifficulty
+  METHOD: set_DamageBeforeDifficulty (value)
+  METHOD: get_Calculate
+  METHOD: set_Calculate (value)
+  METHOD: get_IsDot
+  METHOD: set_IsDot (value)
+  METHOD: get_ExtraHitFx
+  METHOD: set_ExtraHitFx (value)
+  METHOD: get_ResultList
+  METHOD: set_ResultList (value)
+  METHOD: get_Result
+  METHOD: set_Result (value)
+  METHOD: get_RawResult
+  METHOD: set_RawResult (value)
+  METHOD: get_RedirectedDamage
+  METHOD: set_RedirectedDamage (value)
+  METHOD: get_AttackRoll
+  METHOD: set_AttackRoll (value)
+  METHOD: get_Projectile
+  METHOD: set_Projectile (value)
+  METHOD: get_HalfBecauseSavingThrow
+  METHOD: set_HalfBecauseSavingThrow (value)
+  METHOD: get_Half
+  METHOD: set_Half (value)
+  METHOD: get_DisableSneakDamage
+  METHOD: set_DisableSneakDamage (value)
+  METHOD: get_AddAdditionalDamage
+  METHOD: set_AddAdditionalDamage (value)
+  METHOD: get_AddFavoredEnemyDamage
+  METHOD: set_AddFavoredEnemyDamage (value)
+  METHOD: get_AlreadyHalved
+  METHOD: set_AlreadyHalved (value)
+  METHOD: get_DisablePrecisionDamage
+  METHOD: set_DisablePrecisionDamage (value)
+  METHOD: get_MinHPAfterDamage
+  METHOD: set_MinHPAfterDamage (value)
+  METHOD: get_IsFake
+  METHOD: set_IsFake (value)
+  METHOD: get_DifficultyModifier
+  METHOD: set_DifficultyModifier (value)
+  METHOD: get_IgnoreDamageReduction
+  METHOD: set_IgnoreDamageReduction (value)
+  METHOD: get_IgnoreGrowthByDifficulty
+  METHOD: set_IgnoreGrowthByDifficulty (value)
+  METHOD: get_DisableRegeneration
+  METHOD: set_DisableRegeneration (value)
+  METHOD: get_ModifierBonus
+  METHOD: set_ModifierBonus (value)
+  METHOD: get_SourceAbility
+  METHOD: set_SourceAbility (value)
+  METHOD: get_SourceArea
+  METHOD: set_SourceArea (value)
+  METHOD: get_ForceUseReasonAsSource
+  METHOD: set_ForceUseReasonAsSource (value)
+  METHOD: get_DisableFxAndSound
+  METHOD: set_DisableFxAndSound (value)
+  METHOD: get_DamageBundle
+  METHOD: .ctor (initiator, target, damage)
+  METHOD: .ctor (initiator, target, damage)
+  METHOD: OnTrigger (context)
+  METHOD: ApplyDifficultyModifiers (damage)
+  METHOD: AddHitFx (hit)
+  METHOD: Add (damage)
+  METHOD: Remove (pred)
+  METHOD: <OnTrigger>b__127_0 (h)
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.RuleHealDamage vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
+  FIELD: m_Modifiers [private]
+  FIELD: m_ModifiersSum [private]
+  FIELD: <HealFormula>k__BackingField [private]
+  FIELD: <RollResult>k__BackingField [private]
+  FIELD: <ValueWithoutReduction>k__BackingField [private]
+  FIELD: <Value>k__BackingField [private]
+  FIELD: <HealResistance>k__BackingField [private]
+  FIELD: <Bonus>k__BackingField [private]
+  FIELD: <AdditionalBonus>k__BackingField [private]
+  FIELD: <CalculationType>k__BackingField [private]
+  FIELD: <Empower>k__BackingField [private]
+  FIELD: <EmpowerModifier>k__BackingField [private]
+  FIELD: <Interrupted>k__BackingField [private]
+  FIELD: <IsFake>k__BackingField [private]
+  FIELD: <SourceFact>k__BackingField [private]
+  PROP: HealFormula
+  PROP: RollResult
+  PROP: ValueWithoutReduction
+  PROP: Value
+  PROP: HealResistance
+  PROP: Bonus
+  PROP: AdditionalBonus
+  PROP: CalculationType
+  PROP: Empower
+  PROP: ModifierBonus
+  PROP: ModifierWithSources
+  PROP: EmpowerModifier
+  PROP: Interrupted
+  PROP: IsFake
+  PROP: SourceFact
+  METHOD: get_HealFormula
+  METHOD: set_HealFormula (value)
+  METHOD: get_RollResult
+  METHOD: set_RollResult (value)
+  METHOD: get_ValueWithoutReduction
+  METHOD: set_ValueWithoutReduction (value)
+  METHOD: get_Value
+  METHOD: set_Value (value)
+  METHOD: get_HealResistance
+  METHOD: get_Bonus
+  METHOD: get_AdditionalBonus
+  METHOD: get_CalculationType
+  METHOD: get_Empower
+  METHOD: get_ModifierBonus
+  METHOD: get_ModifierWithSources
+  METHOD: get_EmpowerModifier
+  METHOD: set_EmpowerModifier (value)
+  METHOD: get_Interrupted
+  METHOD: set_Interrupted (value)
+  METHOD: get_IsFake
+  METHOD: set_IsFake (value)
+  METHOD: get_SourceFact
+  METHOD: set_SourceFact (value)
+  METHOD: .ctor (initiator, target, bonus)
+  METHOD: .ctor (initiator, target, dice, bonus)
+  METHOD: OnTrigger (context)
+  METHOD: AddModifierBonus (bonus, fact)
+  METHOD: ClearModifiers
+  METHOD: Roll (unitsCount)
+  METHOD: <OnTrigger>b__55_0 (h)
 RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentShiftHandler vis=public base=(nil)
 RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentChangeHandler vis=public base=(nil)
 RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentFeaturesChangeHandler vis=public base=(nil)
@@ -623,6 +814,511 @@ RAGE-TYPE: Kingmaker.DialogSystem.Blueprints.MythicAlignment vis=public base=Sys
   FIELD: Mythic [protorint]
   FIELD: Alignment [protorint]
 SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
+=== TYPE Kingmaker.EntitySystem.Entities.UnitEntityData vis=public base=Kingmaker.EntitySystem.EntityDataBase ===
+  FIELD: PartAddedEvent [private]
+  FIELD: PartRemovedEvent [private]
+  FIELD: m_GroupId [private]
+  FIELD: m_Position [private]
+  FIELD: m_SavedRagdoll [private]
+  FIELD: m_SavedDismemberment [private]
+  FIELD: m_AiEnabled [private]
+  FIELD: m_AiEnabledInTurnBased [private]
+  FIELD: m_Orientation [private]
+  FIELD: m_DroppedLootEntityDataRef [private]
+  FIELD: m_IsDeathRevealed [private]
+  FIELD: m_AppliedUpgraders [private]
+  FIELD: <Stealth>k__BackingField [private]
+  FIELD: <HoldState>k__BackingField [private]
+  FIELD: <StopState>k__BackingField [private]
+  FIELD: <IsExtra>k__BackingField [private]
+  FIELD: <AllowEvaluatorsForSaveOptimization>k__BackingField [private]
+  FIELD: <HasDummyView>k__BackingField [private]
+  FIELD: <BonusExperience>k__BackingField [private]
+  FIELD: <SpawnPosition>k__BackingField [private]
+  FIELD: <LastMoveTime>k__BackingField [private]
+  FIELD: <Descriptor>k__BackingField [private]
+  FIELD: <IsLink>k__BackingField [private]
+  FIELD: <FlyHeight>k__BackingField [private]
+  FIELD: <LootSpawnPosition>k__BackingField [private]
+  FIELD: <PreviousPosition>k__BackingField [private]
+  FIELD: <DesiredOrientation>k__BackingField [private]
+  FIELD: <TimeToNextRoundTick>k__BackingField [private]
+  FIELD: <VisionRangeMetersOverride>k__BackingField [private]
+  FIELD: <CombatVisionRangeMetersOverride>k__BackingField [private]
+  FIELD: <CachedPerceptionRoll>k__BackingField [private]
+  FIELD: <IsHiddenBecauseDead>k__BackingField [private]
+  FIELD: <GiveExperienceOnDeath>k__BackingField [private]
+  FIELD: m_Group [private]
+  FIELD: m_IsSleeping [private]
+  FIELD: m_MemoizedSpeed [private]
+  FIELD: m_IsCloneOfManeCharacter [private]
+  FIELD: Passive [protorint]
+  FIELD: PreventDirectControl [protorint]
+  FIELD: Familiars [protorint]
+  FIELD: SightCache [protorint]
+  FIELD: CanBeInVisionRange [protorint]
+  FIELD: Sleepless [protorint]
+  FIELD: <IsRestoredFromPlaceholder>k__BackingField [private]
+  FIELD: <PreviewOf>k__BackingField [private]
+  FIELD: <OptimizationLevel>k__BackingField [private]
+  FIELD: <Abilities>k__BackingField [private]
+  FIELD: <ActivatableAbilities>k__BackingField [private]
+  FIELD: <Buffs>k__BackingField [private]
+  FIELD: <Commands>k__BackingField [private]
+  FIELD: <CombatState>k__BackingField [private]
+  FIELD: <AwakeTimer>k__BackingField [private]
+  FIELD: <FadeAwakeTimer>k__BackingField [private]
+  FIELD: <LootViewed>k__BackingField [private]
+  FIELD: <LastHandledDamage>k__BackingField [private]
+  FIELD: <ExtendedVisionArea>k__BackingField [private]
+  FIELD: <CutsceneControlledUnit>k__BackingField [private]
+  FIELD: <IsNoFadeSleeping>k__BackingField [private]
+  FIELD: <RiderPart>k__BackingField [private]
+  FIELD: <SaddledPart>k__BackingField [private]
+  FIELD: m_TempUnmountPet [private]
+  FIELD: <IsImportedCustomCompanion>k__BackingField [private]
+  FIELD: IsLinkedToPersonage [protorint]
+  FIELD: m_IsOverrideBlood [private]
+  FIELD: m_OverrideBlood [private]
+  FIELD: IsForceRevealerOnFogOfWar [protorint]
+  FIELD: m_BuffsDuplicates [private]
+  FIELD: <UpdateCommand>k__BackingField [private]
+  PROP: Stealth
+  PROP: HoldState
+  PROP: StopState
+  PROP: IsExtra
+  PROP: AllowEvaluatorsForSaveOptimization
+  PROP: HasDummyView
+  PROP: BonusExperience
+  PROP: SpawnPosition
+  PROP: LastMoveTime
+  PROP: Descriptor
+  PROP: IsLink
+  PROP: FlyHeight
+  PROP: LootSpawnPosition
+  PROP: PreviousPosition
+  PROP: DesiredOrientation
+  PROP: TimeToNextRoundTick
+  PROP: VisionRangeMetersOverride
+  PROP: CombatVisionRangeMetersOverride
+  PROP: CachedPerceptionRoll
+  PROP: IsHiddenBecauseDead
+  PROP: GiveExperienceOnDeath
+  PROP: IsRestoredFromPlaceholder
+  PROP: Position
+  PROP: HoldingState
+  PROP: PreviewOf
+  PROP: Damage
+  PROP: OptimizationLevel
+  PROP: Abilities
+  PROP: ActivatableAbilities
+  PROP: Buffs
+  PROP: Commands
+  PROP: CombatState
+  PROP: AwakeTimer
+  PROP: FadeAwakeTimer
+  PROP: LootViewed
+  PROP: LastHandledDamage
+  PROP: ExtendedVisionArea
+  PROP: CutsceneControlledUnit
+  PROP: IsSleeping
+  PROP: IsNoFadeSleeping
+  PROP: GroupId
+  PROP: Orientation
+  PROP: IsAIEnabled
+  PROP: ReplaceBlueprintForInspection
+  PROP: IsDeathRevealed
+  PROP: RiderPart
+  PROP: SaddledPart
+  PROP: HasLoot
+  PROP: SavedRagdoll
+  PROP: SavedDismemberment
+  PROP: EyePosition
+  PROP: Body
+  PROP: AttackFactions
+  PROP: Faction
+  PROP: Portrait
+  PROP: OverridePortrait
+  PROP: CrossPortrait
+  PROP: DamageNonLethal
+  PROP: HPLeft
+  PROP: MaxHP
+  PROP: TemporaryHP
+  PROP: Progression
+  PROP: Stats
+  PROP: IsInCombat
+  PROP: CanDismissCompanion
+  PROP: IsViewActive
+  PROP: IsViewActiveNoFade
+  PROP: Group
+  PROP: Memory
+  PROP: IsAwake
+  PROP: Blueprint
+  PROP: OriginalBlueprint
+  PROP: BlueprintForInspection
+  PROP: Gender
+  PROP: CharacterName
+  PROP: ConsoleSpeedModifier
+  PROP: NonCombatBaseSpeedFeet
+  PROP: BaseSpeedMps
+  PROP: CurrentSpeedMps
+  PROP: CombatSpeedMps
+  PROP: ModifiedSpeedMps
+  PROP: SpeedIsAffected
+  PROP: HasMotionThisTick
+  PROP: OrientationDirection
+  PROP: View
+  PROP: Brain
+  PROP: AiMovementForbidden
+  PROP: Inventory
+  PROP: VendorInventory
+  PROP: IsDeadAndHasLoot
+  PROP: IsPlayerFaction
+  PROP: IsPlayersEnemy
+  PROP: IsMainCharacter
+  PROP: IsImportedCustomCompanion
+  PROP: IsCloneOfMainCharacter
+  PROP: VisionRangeMeters
+  PROP: UISettings
+  PROP: IsDirectlyControllable
+  PROP: AreHandsBusyWithAnimation
+  PROP: BloodType
+  PROP: IsDetached
+  PROP: Corpulence
+  PROP: SilentCaster
+  PROP: Pets
+  PROP: Master
+  PROP: IsPet
+  PROP: IsReallyInFactPet
+  PROP: State
+  PROP: BaseCR
+  PROP: CR
+  PROP: Spellbooks
+  PROP: AlwaysDestroyViewOnDispose
+  PROP: RequiresSphereBoundsCollider
+  PROP: OriginalSize
+  PROP: Proficiencies
+  PROP: Alignment
+  PROP: Resources
+  PROP: MainFact
+  PROP: Context
+  PROP: IsSuppressible
+  PROP: IsAffectedByFogOfWar
+  PROP: AlwaysRevealedInFogOfWar
+  PROP: FootprintType
+  PROP: UpdateCommand
+  METHOD: add_PartAddedEvent (value)
+  METHOD: remove_PartAddedEvent (value)
+  METHOD: add_PartRemovedEvent (value)
+  METHOD: remove_PartRemovedEvent (value)
+  METHOD: get_Stealth
+  METHOD: set_Stealth (value)
+  METHOD: get_HoldState
+  METHOD: set_HoldState (value)
+  METHOD: get_StopState
+  METHOD: set_StopState (value)
+  METHOD: get_IsExtra
+  METHOD: set_IsExtra (value)
+  METHOD: get_AllowEvaluatorsForSaveOptimization
+  METHOD: set_AllowEvaluatorsForSaveOptimization (value)
+  METHOD: get_HasDummyView
+  METHOD: set_HasDummyView (value)
+  METHOD: get_BonusExperience
+  METHOD: set_BonusExperience (value)
+  METHOD: get_SpawnPosition
+  METHOD: set_SpawnPosition (value)
+  METHOD: get_LastMoveTime
+  METHOD: set_LastMoveTime (value)
+  METHOD: get_Descriptor
+  METHOD: set_Descriptor (value)
+  METHOD: get_IsLink
+  METHOD: set_IsLink (value)
+  METHOD: get_FlyHeight
+  METHOD: set_FlyHeight (value)
+  METHOD: get_LootSpawnPosition
+  METHOD: set_LootSpawnPosition (value)
+  METHOD: get_PreviousPosition
+  METHOD: set_PreviousPosition (value)
+  METHOD: get_DesiredOrientation
+  METHOD: set_DesiredOrientation (value)
+  METHOD: get_TimeToNextRoundTick
+  METHOD: set_TimeToNextRoundTick (value)
+  METHOD: get_VisionRangeMetersOverride
+  METHOD: set_VisionRangeMetersOverride (value)
+  METHOD: get_CombatVisionRangeMetersOverride
+  METHOD: set_CombatVisionRangeMetersOverride (value)
+  METHOD: get_CachedPerceptionRoll
+  METHOD: set_CachedPerceptionRoll (value)
+  METHOD: get_IsHiddenBecauseDead
+  METHOD: set_IsHiddenBecauseDead (value)
+  METHOD: get_GiveExperienceOnDeath
+  METHOD: set_GiveExperienceOnDeath (value)
+  METHOD: get_IsRestoredFromPlaceholder
+  METHOD: set_IsRestoredFromPlaceholder (value)
+  METHOD: get_Position
+  METHOD: set_Position (value)
+  METHOD: get_HoldingState
+  METHOD: set_HoldingState (value)
+  METHOD: get_PreviewOf
+  METHOD: set_PreviewOf (value)
+  METHOD: get_Damage
+  METHOD: set_Damage (value)
+  METHOD: get_OptimizationLevel
+  METHOD: set_OptimizationLevel (value)
+  METHOD: get_Abilities
+  METHOD: set_Abilities (value)
+  METHOD: get_ActivatableAbilities
+  METHOD: set_ActivatableAbilities (value)
+  METHOD: get_Buffs
+  METHOD: set_Buffs (value)
+  METHOD: get_Commands
+  METHOD: set_Commands (value)
+  METHOD: get_CombatState
+  METHOD: set_CombatState (value)
+  METHOD: get_AwakeTimer
+  METHOD: set_AwakeTimer (value)
+  METHOD: get_FadeAwakeTimer
+  METHOD: set_FadeAwakeTimer (value)
+  METHOD: get_LootViewed
+  METHOD: set_LootViewed (value)
+  METHOD: get_LastHandledDamage
+  METHOD: set_LastHandledDamage (value)
+  METHOD: get_ExtendedVisionArea
+  METHOD: set_ExtendedVisionArea (value)
+  METHOD: get_CutsceneControlledUnit
+  METHOD: set_CutsceneControlledUnit (value)
+  METHOD: get_IsSleeping
+  METHOD: set_IsSleeping (value)
+  METHOD: get_IsNoFadeSleeping
+  METHOD: set_IsNoFadeSleeping (value)
+  METHOD: get_GroupId
+  METHOD: set_GroupId (value)
+  METHOD: get_Orientation
+  METHOD: set_Orientation (value)
+  METHOD: get_IsAIEnabled
+  METHOD: set_IsAIEnabled (value)
+  METHOD: get_ReplaceBlueprintForInspection
+  METHOD: set_ReplaceBlueprintForInspection (value)
+  METHOD: get_IsDeathRevealed
+  METHOD: set_IsDeathRevealed (value)
+  METHOD: get_RiderPart
+  METHOD: set_RiderPart (value)
+  METHOD: get_SaddledPart
+  METHOD: set_SaddledPart (value)
+  METHOD: get_HasLoot
+  METHOD: get_SavedRagdoll
+  METHOD: get_SavedDismemberment
+  METHOD: get_EyePosition
+  METHOD: get_Body
+  METHOD: get_AttackFactions
+  METHOD: get_Faction
+  METHOD: get_Portrait
+  METHOD: get_OverridePortrait
+  METHOD: get_CrossPortrait
+  METHOD: get_DamageNonLethal
+  METHOD: get_HPLeft
+  METHOD: get_MaxHP
+  METHOD: get_TemporaryHP
+  METHOD: get_Progression
+  METHOD: get_Stats
+  METHOD: get_IsInCombat
+  METHOD: get_CanDismissCompanion
+  METHOD: get_IsViewActive
+  METHOD: get_IsViewActiveNoFade
+  METHOD: get_Group
+  METHOD: get_Memory
+  METHOD: get_IsAwake
+  METHOD: get_Blueprint
+  METHOD: get_OriginalBlueprint
+  METHOD: get_BlueprintForInspection
+  METHOD: get_Gender
+  METHOD: get_CharacterName
+  METHOD: get_ConsoleSpeedModifier
+  METHOD: get_NonCombatBaseSpeedFeet
+  METHOD: get_BaseSpeedMps
+  METHOD: get_CurrentSpeedMps
+  METHOD: GetViewActive (includedFade)
+  METHOD: CalculateCurrentSpeed
+  METHOD: get_CombatSpeedMps
+  METHOD: get_ModifiedSpeedMps
+  METHOD: get_SpeedIsAffected
+  METHOD: get_HasMotionThisTick
+  METHOD: get_OrientationDirection
+  METHOD: get_View
+  METHOD: get_Brain
+  METHOD: get_AiMovementForbidden
+  METHOD: get_Inventory
+  METHOD: get_VendorInventory
+  METHOD: get_IsDeadAndHasLoot
+  METHOD: get_IsPlayerFaction
+  METHOD: get_IsPlayersEnemy
+  METHOD: get_IsMainCharacter
+  METHOD: get_IsImportedCustomCompanion
+  METHOD: set_IsImportedCustomCompanion (value)
+  METHOD: get_IsCloneOfMainCharacter
+  METHOD: get_VisionRangeMeters
+  METHOD: get_UISettings
+  METHOD: get_IsDirectlyControllable
+  METHOD: get_AreHandsBusyWithAnimation
+  METHOD: SetOverrideBlood (isOn, overrideBlood)
+  METHOD: get_BloodType
+  METHOD: get_IsDetached
+  METHOD: get_Corpulence
+  METHOD: get_SilentCaster
+  METHOD: get_Pets
+  METHOD: get_Master
+  METHOD: get_IsPet
+  METHOD: get_IsReallyInFactPet
+  METHOD: get_State
+  METHOD: get_BaseCR
+  METHOD: get_CR
+  METHOD: get_Spellbooks
+  METHOD: get_AlwaysDestroyViewOnDispose
+  METHOD: get_RequiresSphereBoundsCollider
+  METHOD: get_OriginalSize
+  METHOD: get_Proficiencies
+  METHOD: get_Alignment
+  METHOD: get_Resources
+  METHOD: get_MainFact
+  METHOD: get_Context
+  METHOD: get_IsSuppressible
+  METHOD: get_IsAffectedByFogOfWar
+  METHOD: get_AlwaysRevealedInFogOfWar
+  METHOD: get_FootprintType
+  METHOD: .ctor (view)
+  METHOD: .ctor (uniqueId, isInGame, blueprint)
+  METHOD: .ctor (_)
+  METHOD: EnsureFactProcessors
+  METHOD: Initialize
+  METHOD: UpdateHasDummyView
+  METHOD: OnIsInGameChanged
+  METHOD: TranslocatePetsClose
+  METHOD: GetScaleMultiplierBySize (unit)
+  METHOD: DropLootToGround (dismember, overridePos, force)
+  METHOD: Translocate (position, orientation)
+  METHOD: InRange (center, radius)
+  METHOD: DistanceTo (other)
+  METHOD: DistanceTo (point)
+  METHOD: DistanceTo (data)
+  METHOD: SqrDistanceTo (other)
+  METHOD: SqrDistanceTo (point)
+  METHOD: IsEnemy (unit)
+  METHOD: IsAlly (unit)
+  METHOD: CanAttack (unit)
+  METHOD: HasLOS (other)
+  METHOD: HasLOS (point, fudgeRadius)
+  METHOD: HasLOS (view)
+  METHOD: HasLOS (point, overridePosition)
+  METHOD: CheckLOS (point, overridePosition, hasLOS, hasLOSWithoutDistance)
+  METHOD: CheckLOSBetweenPoints (p1, p2, hasLOS, hasLOSWithoutDistance)
+  METHOD: UpdateGroup
+  METHOD: JoinCombat (notSurprised)
+  METHOD: LeaveCombat
+  METHOD: UpdateCombatSwitch
+  METHOD: CreateView
+  METHOD: InstantiateView_Internal (originalPrefab)
+  METHOD: GetActivePolymorph
+  METHOD: GetPrefabGuid
+  METHOD: CreateViewForData
+  METHOD: OnViewDidAttach
+  METHOD: OnComponentsDidPostLoad
+  METHOD: OnApplyPostLoadFixes
+  METHOD: OnPreSave
+  METHOD: OnPostLoad
+  METHOD: OnTurnOn
+  METHOD: OnTurnOff (reason)
+  METHOD: OnDestroy
+  METHOD: OnDispose
+  METHOD: TransferInventoryToDroppedLoot
+  METHOD: ToString
+  METHOD: GetLookAtAngle (point)
+  METHOD: LookAt (point)
+  METHOD: ForceLookAt (point)
+  METHOD: UpdateSlowRotation (maxAngle)
+  METHOD: CalculateSpeedModifier
+  METHOD: SelectClickInteraction (initiator)
+  METHOD: Wake (time, isForFade)
+  METHOD: SetPositionWithoutWaking (pos)
+  METHOD: ForceExitStealth
+  METHOD: GetFirstWeapon
+  METHOD: SetMaster (master, petType)
+  METHOD: RemoveMaster
+  METHOD: GetPet (type)
+  METHOD: OnAreaBeginUnloading
+  METHOD: OnAreaDidLoad
+  METHOD: SwitchFactions (faction, resetAttackFactions)
+  METHOD: Resurrect
+  METHOD: DemandSpellbook (class)
+  METHOD: DemandSpellbook (spellbook)
+  METHOD: GetSpellbook (blueprint)
+  METHOD: GetSpellbook (blueprint)
+  METHOD: op_Implicit (unit)
+  METHOD: op_Equality (u1, u2)
+  METHOD: op_Inequality (u1, u2)
+  METHOD: Equals (obj)
+  METHOD: GetHashCode
+  METHOD: OnPartAddedOrPostLoad (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartAdded (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartRemoved (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartPostLoad (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartsManagerPostLoad (manager)
+  METHOD: UpdateCachedPart (part, removed)
+  METHOD: Stop
+  METHOD: CancelStop
+  METHOD: Hold
+  METHOD: CancelHold
+  METHOD: TryCancelCommands
+  METHOD: IsAbleToAct
+  METHOD: WillTakeTurn
+  METHOD: HasControlLossEffects
+  METHOD: GetTimeToNextTurn
+  METHOD: HasFullRoundAction
+  METHOD: HasStandardAction
+  METHOD: HasMoveAction
+  METHOD: HasSwiftAction
+  METHOD: UsedStandardAction
+  METHOD: UsedOneMoveAction
+  METHOD: UsedTwoMoveAction
+  METHOD: IsMoveActionRestricted
+  METHOD: IsStandardActionRestricted
+  METHOD: IsSurprising
+  METHOD: IsActingSurpriseCommands
+  METHOD: GetAllCommands
+  METHOD: HasOffensiveCommand (pred)
+  METHOD: HasSurpriseCommand (pred)
+  METHOD: IsSummoned
+  METHOD: IsSummoned (caster)
+  METHOD: IsUnseen
+  METHOD: IsCurrentUnit
+  METHOD: SpendAction (type, isFullRound, timeSinceCommandStart)
+  METHOD: HasFreeTouch
+  METHOD: PreparedSpellCombat
+  METHOD: PreparedSpellStrike
+  METHOD: AddBuffDuration (blueprint, duration)
+  METHOD: SetBuffDuration (blueprint, duration)
+  METHOD: PrepareRespec
+  METHOD: get_UpdateCommand
+  METHOD: ReplaceCommands (newCmds)
+  METHOD: MarkNoExtra
+  METHOD: MarkExtra
+  METHOD: MarkAsCloneOfMainCharacter
+  METHOD: SetStealthData (stealthDta)
+  METHOD: MarkNotOptimizableInSave (aliveOnly)
+  METHOD: OnMarkedForDestroy
+  METHOD: RecreateView
+  METHOD: TempUnmount
+  METHOD: RecoveryMount
+  METHOD: .cctor
+  METHOD: <DropLootToGround>b__383_1 (i)
+  METHOD: <JoinCombat>b__401_0 (h)
+  METHOD: <LeaveCombat>b__402_0 (h)
+  METHOD: <OnViewDidAttach>b__409_1 (h)
+  METHOD: <OnTurnOn>b__415_0 (a)
+  METHOD: <OnDestroy>b__417_0 (h)
+  METHOD: <ForceExitStealth>b__429_0 (h)
+  METHOD: <GetFirstWeapon>g__IsNotUnarmedWeapon|430_0 (unit, hand)
+  METHOD: <SetMaster>b__431_0 (h)
+  METHOD: <IsUnseen>b__478_0 (group)
 RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint vis=public base=Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyAction
 === TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
   FIELD: m_Type [private]
@@ -683,23 +1379,23 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions
   METHOD: get_CharacterName
   METHOD: get_Race
   METHOD: get_PortraitSafe
-  METHOD: set_PortraitSafe
+  METHOD: set_PortraitSafe (value)
   METHOD: get_CustomizationPreset
-  METHOD: set_CustomizationPreset
+  METHOD: set_CustomizationPreset (value)
   METHOD: get_Faction
-  METHOD: set_Faction
+  METHOD: set_Faction (value)
   METHOD: get_StartingInventory
   METHOD: get_DefaultBrain
   METHOD: get_AdditionalTemplates
   METHOD: get_AddFacts
   METHOD: get_PS4ChunkId
-  METHOD: set_PS4ChunkId
+  METHOD: set_PS4ChunkId (value)
   METHOD: get_HasAssignedChunkId
-  METHOD: add_OnOpenUnitStats
-  METHOD: remove_OnOpenUnitStats
+  METHOD: add_OnOpenUnitStats (value)
+  METHOD: remove_OnOpenUnitStats (value)
   METHOD: UnitAnalyzer
   METHOD: ValidateBrainsButton
-  METHOD: ValidateBrains
+  METHOD: ValidateBrains (vc)
   METHOD: get_CR
   METHOD: get_Tags
   METHOD: get_AttackFactions
@@ -707,14 +1403,14 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions
   METHOD: get_ShowDisplayName
   METHOD: get_ShowDescription
   METHOD: GetFactType
-  METHOD: CheckEqualsWithPrototype
-  METHOD: ApplyValidation
-  METHOD: ValidateBrainActions
-  METHOD: CheckWeaponInAdditionalLimbAnimationExists
-  METHOD: CheckWeaponAnimationExists
+  METHOD: CheckEqualsWithPrototype (other)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: ValidateBrainActions (unit, brain, context)
+  METHOD: CheckWeaponInAdditionalLimbAnimationExists (context, weapon, animSet, checkOffHand, checkMain)
+  METHOD: CheckWeaponAnimationExists (context, weapon, animSet, checkOffHand, checkMain)
   METHOD: PreloadResources
   METHOD: .ctor
-  METHOD: <PreloadResources>b__89_0
+  METHOD: <PreloadResources>b__89_0 (b)
 RAGE-TYPE: Kingmaker.Blueprints.Items.Components.EquipmentRestrictionAlignment vis=public base=Kingmaker.Blueprints.Items.Components.EquipmentRestriction
   FIELD: Alignment [protorint]
 === TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
@@ -769,11 +1465,11 @@ RAGE-TYPE: Kingmaker.Blueprints.Items.Components.EquipmentRestrictionAlignment v
   METHOD: Kingmaker.UI.IUIDataProvider.get_Description
   METHOD: Kingmaker.UI.IUIDataProvider.get_Icon
   METHOD: Kingmaker.UI.IUIDataProvider.get_NameForAcronym
-  METHOD: ApplyValidation
+  METHOD: ApplyValidation (context, parentIndex)
   METHOD: .ctor
 === TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
   FIELD: Levels [protorint]
-  METHOD: GetCount
+  METHOD: GetCount (classLevel, spellLevel)
   METHOD: .ctor
 === TYPE Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry vis=public base=System.Object ===
   FIELD: Count [protorint]
@@ -794,14 +1490,14 @@ RAGE-TYPE: Kingmaker.Blueprints.Items.Components.EquipmentRestrictionAlignment v
   PROP: IsGroupNone
   METHOD: get_Features
   METHOD: get_AllFeatures
-  METHOD: ExtractSelectionItems
+  METHOD: ExtractSelectionItems (beforeLevelUpUnit, previewUnit)
   METHOD: get_Items
   METHOD: get_IsGroupNone
-  METHOD: CanSelect
+  METHOD: CanSelect (unit, state, selectionState, item)
   METHOD: GetGroup
   METHOD: IsIgnorePrerequisites
   METHOD: IsObligatory
-  METHOD: IsSelectionProhibited
+  METHOD: IsSelectionProhibited (unit)
   METHOD: .ctor
 RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
   FIELD: IngorePrerequisiteCheck [protorint]
@@ -898,19 +1594,19 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   PROP: Name
   PROP: RankToSource
   METHOD: get_Rank
-  METHOD: set_Rank
+  METHOD: set_Rank (value)
   METHOD: get_IsTemporary
-  METHOD: set_IsTemporary
+  METHOD: set_IsTemporary (value)
   METHOD: get_SourceLevel
-  METHOD: set_SourceLevel
+  METHOD: set_SourceLevel (value)
   METHOD: get_IgnorePrerequisites
-  METHOD: set_IgnorePrerequisites
+  METHOD: set_IgnorePrerequisites (value)
   METHOD: get_DisabledBecauseOfPrerequisites
-  METHOD: set_DisabledBecauseOfPrerequisites
+  METHOD: set_DisabledBecauseOfPrerequisites (value)
   METHOD: get_ParamConverter
-  METHOD: set_ParamConverter
+  METHOD: set_ParamConverter (value)
   METHOD: get_Param
-  METHOD: set_Param
+  METHOD: set_Param (value)
   METHOD: get_Context
   METHOD: get_Source
   METHOD: get_SourceProgression
@@ -922,22 +1618,22 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   METHOD: get_IsMythic
   METHOD: get_Name
   METHOD: get_RankToSource
-  METHOD: .ctor
-  METHOD: .ctor
+  METHOD: .ctor (blueprint, owner, parentContext)
+  METHOD: .ctor (_)
   METHOD: GetRank
-  METHOD: SetRank
+  METHOD: SetRank (rank)
   METHOD: AddRank
   METHOD: RemoveRank
   METHOD: OnActivate
   METHOD: OnDispose
-  METHOD: Kingmaker.UnitLogic.Mechanics.Components.IFactContextOwner.RunActionInContext
+  METHOD: Kingmaker.UnitLogic.Mechanics.Components.IFactContextOwner.RunActionInContext (action, target)
   METHOD: GetSourceClass
-  METHOD: SetSource
-  METHOD: SetSameSource
+  METHOD: SetSource (source, level)
+  METHOD: SetSameSource (feature)
   METHOD: SetSourceSameAsLastRankToSourceValue
-  METHOD: HasSource
-  METHOD: <AddRank>b__59_0
-  METHOD: <RemoveRank>b__60_0
+  METHOD: HasSource (source, level)
+  METHOD: <AddRank>b__59_0 (h)
+  METHOD: <RemoveRank>b__60_0 (h)
 === TYPE Kingmaker.UnitLogic.FeatureSelectionData vis=public base=System.Object ===
   FIELD: Empty [protorint]
   FIELD: m_SelectionsByLevel [private]
@@ -951,11 +1647,11 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   METHOD: get_IsMythic
   METHOD: get_IsEmpty
   METHOD: .ctor
-  METHOD: .ctor
-  METHOD: GetSelections
-  METHOD: AddSelection
-  METHOD: RemoveSelection
-  METHOD: RemoveLevel
+  METHOD: .ctor (source)
+  METHOD: GetSelections (level)
+  METHOD: AddSelection (level, feature)
+  METHOD: RemoveSelection (level, feature)
+  METHOD: RemoveLevel (level)
   METHOD: .cctor
 === TYPE Kingmaker.UnitLogic.UnitDescriptor vis=public base=System.Object ===
   FIELD: m_Inventory [protorint]
@@ -1042,33 +1738,33 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   PROP: IsMainCharacter
   PROP: BlueprintForInspection
   METHOD: get_Body
-  METHOD: set_Body
+  METHOD: set_Body (value)
   METHOD: get_ReplaceBlueprintForInspection
-  METHOD: set_ReplaceBlueprintForInspection
+  METHOD: set_ReplaceBlueprintForInspection (value)
   METHOD: get_Brain
-  METHOD: set_Brain
+  METHOD: set_Brain (value)
   METHOD: get_OriginalBlueprint
-  METHOD: set_OriginalBlueprint
+  METHOD: set_OriginalBlueprint (value)
   METHOD: get_Blueprint
-  METHOD: set_Blueprint
+  METHOD: set_Blueprint (value)
   METHOD: get_MainFact
-  METHOD: set_MainFact
+  METHOD: set_MainFact (value)
   METHOD: get_Encumbrance
-  METHOD: set_Encumbrance
+  METHOD: set_Encumbrance (value)
   METHOD: get_HasOwnInventory
-  METHOD: set_HasOwnInventory
+  METHOD: set_HasOwnInventory (value)
   METHOD: get_LastRestTime
-  METHOD: set_LastRestTime
-  METHOD: set_Doll
+  METHOD: set_LastRestTime (value)
+  METHOD: set_Doll (value)
   METHOD: get_Unit
-  METHOD: set_Unit
+  METHOD: set_Unit (value)
   METHOD: get_IsTurnedOn
-  METHOD: set_IsTurnedOn
+  METHOD: set_IsTurnedOn (value)
   METHOD: get_Faction
-  METHOD: set_Faction
+  METHOD: set_Faction (value)
   METHOD: get_FactionOriginal
   METHOD: get_Damage
-  METHOD: set_Damage
+  METHOD: set_Damage (value)
   METHOD: get_Abilities
   METHOD: get_ActivatableAbilities
   METHOD: get_Buffs
@@ -1104,49 +1800,49 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   METHOD: TurnOn
   METHOD: TurnOff
   METHOD: PreSave
-  METHOD: PostLoad
+  METHOD: PostLoad (entity)
   METHOD: OnComponentsDidPostLoad
   METHOD: ApplyPostLoadFixes
   METHOD: EnsureNaturalProficiencies
   METHOD: Dispose
-  METHOD: GetFactionSwitcher
-  METHOD: SwitchFactions
-  METHOD: SwitchFactions
+  METHOD: GetFactionSwitcher (faction, resetAttackFactions)
+  METHOD: SwitchFactions (faction, resetAttackFactions)
+  METHOD: SwitchFactions (faction, resetAttackFactions, permanently)
   METHOD: FixInventoryOnPlayerPostLoad
-  METHOD: SetupInventory
-  METHOD: SetFakeBlueprint
-  METHOD: .ctor
+  METHOD: SetupInventory (restoreOnPlayerPostLoad)
+  METHOD: SetFakeBlueprint (fake)
+  METHOD: .ctor (blueprint, data)
   METHOD: EnsureOwnInventory
   METHOD: SetupSharedInventoryForPet
   METHOD: ToString
-  METHOD: .ctor
+  METHOD: .ctor (_)
   METHOD: Initialize
-  METHOD: Initialize
+  METHOD: Initialize (unit, blueprint)
   METHOD: AddStartingInventory
-  METHOD: AddStartingInventory
-  METHOD: InitializeStat
-  METHOD: SetSkills
-  METHOD: ApplyTemplate
-  METHOD: GetSpellbook
-  METHOD: DemandSpellbook
-  METHOD: GetSpellbook
-  METHOD: DemandSpellbook
-  METHOD: DeleteSpellbook
-  METHOD: OnGainClassLevel
-  METHOD: Resurrect
-  METHOD: ResurrectAndFullRestore
-  METHOD: Resurrect
+  METHOD: AddStartingInventory (unit, blueprint)
+  METHOD: InitializeStat (stat, value)
+  METHOD: SetSkills (skills)
+  METHOD: ApplyTemplate (unit, template)
+  METHOD: GetSpellbook (characterClass)
+  METHOD: DemandSpellbook (characterClass)
+  METHOD: GetSpellbook (blueprint)
+  METHOD: DemandSpellbook (blueprint)
+  METHOD: DeleteSpellbook (spellbook)
+  METHOD: OnGainClassLevel (class)
+  METHOD: Resurrect (initiator, resultHealthPart, restoreHealth)
+  METHOD: ResurrectAndFullRestore (initiator)
+  METHOD: Resurrect (initiator, resultHealthPart, restoreHealth, fullRestore)
   METHOD: RemoveBuffsOnResurrect
   METHOD: UpdateSizeModifiers
-  METHOD: GetWeaponRange
+  METHOD: GetWeaponRange (weapon)
   METHOD: OnDifficultyChanged
-  METHOD: op_Implicit
+  METHOD: op_Implicit (unit)
   METHOD: AddEssentialMark
   METHOD: RemoveEssentialMark
-  METHOD: <ApplyPostLoadFixes>b__149_0
-  METHOD: <SwitchFactions>b__154_0
-  METHOD: <.ctor>b__158_0
-  METHOD: <Resurrect>b__178_0
+  METHOD: <ApplyPostLoadFixes>b__149_0 (a)
+  METHOD: <SwitchFactions>b__154_0 (h)
+  METHOD: <.ctor>b__158_0 (a)
+  METHOD: <Resurrect>b__178_0 (h)
 === TYPE Kingmaker.UnitLogic.UnitProgressionData vis=public base=System.Object ===
   FIELD: m_Race [private]
   FIELD: m_ClassesOrder [private]
@@ -1196,23 +1892,23 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   PROP: GetAllProgressions
   METHOD: get_LastMythicClass
   METHOD: get_Experience
-  METHOD: set_Experience
+  METHOD: set_Experience (value)
   METHOD: get_MythicExperience
-  METHOD: set_MythicExperience
+  METHOD: set_MythicExperience (value)
   METHOD: get_ObligatoryMythicClassesQueue
-  METHOD: set_ObligatoryMythicClassesQueue
+  METHOD: set_ObligatoryMythicClassesQueue (value)
   METHOD: get_Owner
-  METHOD: set_Owner
+  METHOD: set_Owner (value)
   METHOD: get_Features
-  METHOD: set_Features
+  METHOD: set_Features (value)
   METHOD: get_CurrentScalePercent
-  METHOD: set_CurrentScalePercent
+  METHOD: set_CurrentScalePercent (value)
   METHOD: get_AdditionalVisualSettings
-  METHOD: set_AdditionalVisualSettings
+  METHOD: set_AdditionalVisualSettings (value)
   METHOD: get_CharacterLevel
-  METHOD: set_CharacterLevel
+  METHOD: set_CharacterLevel (value)
   METHOD: get_MythicLevel
-  METHOD: set_MythicLevel
+  METHOD: set_MythicLevel (value)
   METHOD: get_Race
   METHOD: get_VisibleRace
   METHOD: get_CanLevelUpNormal
@@ -1226,78 +1922,78 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   METHOD: get_Selections
   METHOD: get_ClassesOrder
   METHOD: get_NextObligatoryMythicClass
-  METHOD: .ctor
+  METHOD: .ctor (unit)
   METHOD: .ctor
   METHOD: SetupLevelsIfNecessary
   METHOD: GetCurrentMythicClass
   METHOD: HasMythic
-  METHOD: UpdateScalePercent
+  METHOD: UpdateScalePercent (scalePercent)
   METHOD: ResetScalePercent
-  METHOD: GetClassLevel
-  METHOD: GetClassData
-  METHOD: AddClassLevel
+  METHOD: GetClassLevel (characterClass)
+  METHOD: GetClassData (characterClass)
+  METHOD: AddClassLevel (characterClass)
   METHOD: RecalculateHP
-  METHOD: AddFakeLevel
-  METHOD: CanAddArchetype
-  METHOD: AddArchetype
-  METHOD: AddSelection
-  METHOD: GetSelectionsForProgession
-  METHOD: IsAlreadyApplyInProgression
-  METHOD: GetSelections
-  METHOD: GetSelectionData
-  METHOD: GetSourceSelection
-  METHOD: GetClassProgressions
+  METHOD: AddFakeLevel (class)
+  METHOD: CanAddArchetype (characterClass, archetype)
+  METHOD: AddArchetype (characterClass, archetype)
+  METHOD: AddSelection (selection, source, level, feature)
+  METHOD: GetSelectionsForProgession (selection, level, progression)
+  METHOD: IsAlreadyApplyInProgression (index, selectionEntry)
+  METHOD: GetSelections (selection, level)
+  METHOD: GetSelectionData (selection)
+  METHOD: GetSourceSelection (blueprintFeature)
+  METHOD: GetClassProgressions (characterClass)
   METHOD: PreSave
-  METHOD: PostLoad
+  METHOD: PostLoad (owner)
   METHOD: ApplyPostLoadFixes
   METHOD: Dispose
   METHOD: ReapplyFeaturesOnLevelUp
   METHOD: GetMaxClass
-  METHOD: GetMaxSuitableNoMythicClass
+  METHOD: GetMaxSuitableNoMythicClass (state)
   METHOD: GetSignificantClasses
   METHOD: GetEquipmentClass
-  METHOD: SetRace
-  METHOD: AddLevelPlan
-  METHOD: SetLevelPlanSkills
-  METHOD: GetNextLevelPlan
+  METHOD: SetRace (race)
+  METHOD: AddLevelPlan (plan)
+  METHOD: SetLevelPlanSkills (skills)
+  METHOD: GetNextLevelPlan (mythic)
   METHOD: GetLevelPlanSkills
-  METHOD: DropLevelPlans
+  METHOD: DropLevelPlans (mythic)
   METHOD: RestoreLevelPlans
   METHOD: ClearRestoreLevelPlans
-  METHOD: SureClassData
-  METHOD: AddFakeClassLevels
-  METHOD: RemoveClassLevels
-  METHOD: SureProgressionData
-  METHOD: GetProgression
+  METHOD: SureClassData (characterClass)
+  METHOD: AddFakeClassLevels (characterClass, targetLevel)
+  METHOD: RemoveClassLevels (characterClass, levels)
+  METHOD: SureProgressionData (progression)
+  METHOD: GetProgression (progression)
   METHOD: get_GetAllProgressions
-  METHOD: GainExperience
-  METHOD: AdvanceExperienceTo
-  METHOD: GainMythicExperience
-  METHOD: AdvanceMythicExperience
-  METHOD: ReplaceFeature
-  METHOD: IsArchetype
+  METHOD: GainExperience (exp, log, allowForPet, statType)
+  METHOD: AdvanceExperienceTo (targetExp, log, allowForPet)
+  METHOD: GainMythicExperience (experience)
+  METHOD: AdvanceMythicExperience (target, log)
+  METHOD: ReplaceFeature (remove, add)
+  METHOD: IsArchetype (archetype)
   METHOD: TryRestoreClassFeatures
   METHOD: TryRestoreSelectedFeatures
-  METHOD: ShouldRestoreFeature
-  METHOD: CopyFrom
-  METHOD: CopyLevelPlanFrom
+  METHOD: ShouldRestoreFeature (feature)
+  METHOD: CopyFrom (other)
+  METHOD: CopyLevelPlanFrom (other)
   METHOD: CheckStatPrerequisitesAndUpdate
   METHOD: GetVisualSettingsProvider
   METHOD: UpdateAdditionalVisualSettings
   METHOD: SyncWithView
-  METHOD: SetObligatoryMythicClasses
-  METHOD: AddFeatures
+  METHOD: SetObligatoryMythicClasses (mythicClasses)
+  METHOD: AddFeatures (features)
   METHOD: DisableAdditionalVisualSettings
   METHOD: EnableAdditionalVisualSettings
-  METHOD: RemoveMythicLevel
+  METHOD: RemoveMythicLevel (class)
   METHOD: ReplaceAllMythicLevelsWithMythicHeroLevels
-  METHOD: GetMythicSelectionsData
-  METHOD: CheatRemoveMythicLevels
+  METHOD: GetMythicSelectionsData (blueprint)
+  METHOD: CheatRemoveMythicLevels (levels)
   METHOD: CheatSimplifyMythicLevels
-  METHOD: <GetVisualSettingsProvider>g__IsSecondClassHasGreaterPriority|134_0
-  METHOD: <RemoveMythicLevel>g__DestroyPet|142_0
+  METHOD: <GetVisualSettingsProvider>g__IsSecondClassHasGreaterPriority|134_0 (first, second)
+  METHOD: <RemoveMythicLevel>g__DestroyPet|142_0 (pet)
   METHOD: <ReplaceAllMythicLevelsWithMythicHeroLevels>g__IsSuitableProgression|143_0
-  METHOD: <GetMythicSelectionsData>g__GetFeatureParam|144_0
+  METHOD: <GetMythicSelectionsData>g__GetFeatureParam|144_0 (feature)
 RAGE-TYPE: Kingmaker.UnitLogic.Parts.UnitPartItemCasterLevelBonus vis=public base=Kingmaker.UnitLogic.OldStyleUnitPart
   FIELD: Entries [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddCasterSpellFailureChance vis=public base=Kingmaker.Blueprints.BlueprintComponent
@@ -1320,9 +2016,9 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddCasterSpellFailureChance vis=public 
   METHOD: OnRecalculate
   METHOD: OnApplyPostLoadFixes
   METHOD: Clear
-  METHOD: UpdateFacts
-  METHOD: SetSourceItem
-  METHOD: ApplyValidation
+  METHOD: UpdateFacts (postLoad)
+  METHOD: SetSourceItem (fact)
+  METHOD: ApplyValidation (context, parentIndex)
   METHOD: .ctor
 RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddFactsFromCasterData vis=public base=System.Object
   FIELD: AppliedFacts [protorint]
@@ -1349,9 +2045,9 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddItemCasterLevelBonus vis=public base
   METHOD: get_ExcludeArchetype
   METHOD: OnActivate
   METHOD: AddSpell
-  METHOD: HandleLevelUpComplete
+  METHOD: HandleLevelUpComplete (unit, isChargen)
   METHOD: .ctor
-  METHOD: <AddSpell>b__14_0
+  METHOD: <AddSpell>b__14_0 (p)
 === TYPE Kingmaker.UnitLogic.FactLogic.AddPet vis=public base=TypeSpecification ===
   FIELD: Type [protorint]
   FIELD: ProgressionType [protorint]
@@ -1383,7 +2079,7 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddItemCasterLevelBonus vis=public base
   METHOD: TryLevelUpPet
   METHOD: OnPostLoad
   METHOD: OnApplyPostLoadFixes
-  METHOD: ApplyValidation
+  METHOD: ApplyValidation (context, parentIndex)
   METHOD: .ctor
   METHOD: .cctor
 RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddUndetectableAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
@@ -1486,8 +2182,8 @@ RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.O
   PROP: Radius
   PROP: LockMask
   PROP: History
-  METHOD: Cos
-  METHOD: Sin
+  METHOD: Cos (angle)
+  METHOD: Sin (angle)
   METHOD: get_VectorRaw
   METHOD: get_VectorVisible
   METHOD: get_ValueRaw
@@ -1496,24 +2192,24 @@ RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.O
   METHOD: get_LockMask
   METHOD: get_History
   METHOD: .ctor
-  METHOD: .ctor
-  METHOD: PostLoad
-  METHOD: Shift
-  METHOD: Shift
-  METHOD: Initialize
-  METHOD: InitializeFrom
-  METHOD: Set
-  METHOD: Set
-  METHOD: LockAlignment
-  METHOD: Reset
+  METHOD: .ctor (owner)
+  METHOD: PostLoad (owner)
+  METHOD: Shift (provider)
+  METHOD: Shift (direction, value, provider)
+  METHOD: Initialize (alignment)
+  METHOD: InitializeFrom (alignment)
+  METHOD: Set (alignment)
+  METHOD: Set (alignment, raiseEvents)
+  METHOD: LockAlignment (lockMask, targetAlignment)
+  METHOD: Reset (resetLock)
   METHOD: UpdateValue
-  METHOD: SetVector
-  METHOD: CorrectByLockedMask
-  METHOD: GetDirection
-  METHOD: OnChanged
-  METHOD: GetAlignment
-  METHOD: GetAlignmentsSortedByDistance
-  METHOD: CopyFrom
+  METHOD: SetVector (newVector)
+  METHOD: CorrectByLockedMask (newValue)
+  METHOD: GetDirection (direction)
+  METHOD: OnChanged (direction, prevVector, provider, raiseEvent)
+  METHOD: GetAlignment (vec, mask)
+  METHOD: GetAlignmentsSortedByDistance (vec)
+  METHOD: CopyFrom (alignment)
   METHOD: .cctor
 === TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParams vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
   FIELD: UseKineticistMainStat [protorint]
@@ -1524,10 +2220,10 @@ RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.O
   FIELD: CasterLevel [protorint]
   FIELD: ReplaceSpellLevel [protorint]
   FIELD: SpellLevel [protorint]
-  METHOD: Calculate
-  METHOD: Calculate
-  METHOD: Calculate
-  METHOD: ApplyValidation
+  METHOD: Calculate (context)
+  METHOD: Calculate (ability)
+  METHOD: Calculate (context, blueprint, caster, ability)
+  METHOD: ApplyValidation (context, parentIndex)
   METHOD: .ctor
 === TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParamsBasedOnClass vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
   FIELD: UseKineticistMainStat [protorint]
@@ -1535,10 +2231,10 @@ RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.O
   FIELD: m_CharacterClass [private]
   PROP: CharacterClass
   METHOD: get_CharacterClass
-  METHOD: Calculate
-  METHOD: Calculate
-  METHOD: Calculate
-  METHOD: ApplyValidation
+  METHOD: Calculate (context)
+  METHOD: Calculate (ability)
+  METHOD: Calculate (context, blueprint, caster, ability)
+  METHOD: ApplyValidation (context, parentIndex)
   METHOD: .ctor
 === TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig vis=public base=Kingmaker.Blueprints.BlueprintComponent ===
   FIELD: m_Type [private]
@@ -1614,17 +2310,17 @@ RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.O
   METHOD: get_IsCustomProgression
   METHOD: get_IsBasedOnBuffRank
   METHOD: get_Type
-  METHOD: GetValue
-  METHOD: GetBaseValue
-  METHOD: ApplyProgression
-  METHOD: ApplyMinMax
-  METHOD: ApplyValidation
+  METHOD: GetValue (context)
+  METHOD: GetBaseValue (context)
+  METHOD: ApplyProgression (value)
+  METHOD: ApplyMinMax (value, unlimited, context)
+  METHOD: ApplyValidation (context, parentIndex)
   METHOD: .ctor
-  METHOD: <GetBaseValue>g__CheckItem|75_0
-  METHOD: <GetBaseValue>g__CheckAndAddToValue|75_1
-  METHOD: <GetBaseValue>g__CheckAndSetMaxValue|75_2
-  METHOD: <GetBaseValue>g__MExceptClasses|75_3
-  METHOD: <GetBaseValue>g__CheckClassForArchetype|75_4
+  METHOD: <GetBaseValue>g__CheckItem|75_0 (modifier)
+  METHOD: <GetBaseValue>g__CheckAndAddToValue|75_1 (classEntry, value)
+  METHOD: <GetBaseValue>g__CheckAndSetMaxValue|75_2 (classEntry, value)
+  METHOD: <GetBaseValue>g__MExceptClasses|75_3 (classEntry)
+  METHOD: <GetBaseValue>g__CheckClassForArchetype|75_4 (classEntry)
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.DuplicateDamageToCaster vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionOnContextCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
   FIELD: TargetAsCaster [protorint]
@@ -1741,9 +2437,9 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AttackBonusAgainstAlignment vis=p
   METHOD: OnApplyPostLoadFixes
   METHOD: OnDeactivate
   METHOD: CheckAndReapply
-  METHOD: HandleBuffDidAdded
+  METHOD: HandleBuffDidAdded (buff)
   METHOD: CheckHadPrerequiredBuff
-  METHOD: HandleBuffDidRemoved
+  METHOD: HandleBuffDidRemoved (buff)
   METHOD: .ctor
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.CritAutoconfirmAgainstAlignment vis=public base=Kingmaker.EntitySystem.EntityFactComponentDelegate
   FIELD: EnemyAlignment [protorint]
@@ -1872,32 +2568,32 @@ AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScri
   METHOD: get_TargetConsiderations
   METHOD: get_PreventMovementFinish
   METHOD: get_UseCommand
-  METHOD: IsActorValid
-  METHOD: IsActorValidReasonDebug
-  METHOD: IsTargetValid
-  METHOD: IsTargetValidReasonDebug
-  METHOD: CreateCommand
-  METHOD: GetTargetType
-  METHOD: GetDeadTargetType
+  METHOD: IsActorValid (context)
+  METHOD: IsActorValidReasonDebug (context)
+  METHOD: IsTargetValid (context)
+  METHOD: IsTargetValidReasonDebug (context)
+  METHOD: CreateCommand (context, target)
+  METHOD: GetTargetType (context)
+  METHOD: GetDeadTargetType (context)
   METHOD: ApplyAction
-  METHOD: IsAvailable
-  METHOD: IsAvailableReasonDebug
-  METHOD: IsExpended
-  METHOD: GetRange
-  METHOD: GetRadius
-  METHOD: InitContext
-  METHOD: CanKeepCommand
-  METHOD: CalculateDestinationPosition
-  METHOD: GetAbilityParams
+  METHOD: IsAvailable (context)
+  METHOD: IsAvailableReasonDebug (context)
+  METHOD: IsExpended (context)
+  METHOD: GetRange (context)
+  METHOD: GetRadius (context)
+  METHOD: InitContext (context)
+  METHOD: CanKeepCommand (command)
+  METHOD: CalculateDestinationPosition (context)
+  METHOD: GetAbilityParams (context)
   METHOD: .ctor
 AI-TYPE: TargetType vis=public(1) base=System.Enum
 AI-TYPE: BlueprintAiAttack vis=internal(0) base=Kingmaker.AI.Blueprints.BlueprintAiAction
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiAttack vis=internal base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
-  METHOD: CreateCommand
-  METHOD: GetTargetType
-  METHOD: CanKeepCommand
-  METHOD: GetRange
-  METHOD: GetRadius
+  METHOD: CreateCommand (context, target)
+  METHOD: GetTargetType (context)
+  METHOD: CanKeepCommand (command)
+  METHOD: GetRange (context)
+  METHOD: GetRadius (context)
   METHOD: .ctor
 AI-TYPE: BlueprintAiCastSpell vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiCastSpell vis=public base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
@@ -1933,32 +2629,32 @@ AI-TYPE: BlueprintAiCastSpell vis=public(1) base=Kingmaker.AI.Blueprints.Bluepri
   METHOD: get_AffectedByImpatience
   METHOD: get_TargetPointUnderTarget
   METHOD: OnEnable
-  METHOD: InitContext
-  METHOD: GetAbilityParams
-  METHOD: GetAbilityForUse
-  METHOD: CreateAbilityData
-  METHOD: GetSpellbookForUse
-  METHOD: GetSpellbookForUseFailReasonDebug
-  METHOD: ShouldBeInActionsList
-  METHOD: ShouldNotBeInActionsListReasonDebug
-  METHOD: IsExpended
-  METHOD: IsAvailable
-  METHOD: IsExpended
-  METHOD: CreateCommand
-  METHOD: TrySelectTargetFromLocators
-  METHOD: GetTargetType
-  METHOD: GetDeadTargetType
-  METHOD: GetRange
-  METHOD: GetRadius
-  METHOD: IsTargetValid
-  METHOD: IsTargetValidReasonDebug
-  METHOD: IsTargetValid
-  METHOD: IsTargetValidReasonDebug
-  METHOD: ApplyValidation
-  METHOD: IsPartyInRangeOfLocator
+  METHOD: InitContext (context)
+  METHOD: GetAbilityParams (context)
+  METHOD: GetAbilityForUse (unit)
+  METHOD: CreateAbilityData (caster, fact, spellbookBlueprint)
+  METHOD: GetSpellbookForUse (unit)
+  METHOD: GetSpellbookForUseFailReasonDebug (unit)
+  METHOD: ShouldBeInActionsList (unit)
+  METHOD: ShouldNotBeInActionsListReasonDebug (unit)
+  METHOD: IsExpended (ability, spellbook)
+  METHOD: IsAvailable (context)
+  METHOD: IsExpended (context)
+  METHOD: CreateCommand (context, target)
+  METHOD: TrySelectTargetFromLocators (context)
+  METHOD: GetTargetType (context)
+  METHOD: GetDeadTargetType (context)
+  METHOD: GetRange (context)
+  METHOD: GetRadius (context)
+  METHOD: IsTargetValid (context)
+  METHOD: IsTargetValidReasonDebug (context)
+  METHOD: IsTargetValid (ability, unit, target)
+  METHOD: IsTargetValidReasonDebug (ability, unit, target)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: IsPartyInRangeOfLocator (position)
   METHOD: .ctor
   METHOD: .cctor
-  METHOD: <GetSpellbookForUse>b__38_0
+  METHOD: <GetSpellbookForUse>b__38_0 (spellbook)
 AI-TYPE: BlueprintAiFollow vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
 AI-TYPE: BlueprintAiRandomMove vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
 AI-TYPE: BlueprintAiRoam vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
@@ -2025,9 +2721,9 @@ RAGE-TYPE: .CasterLevelBonusEntry vis=nested-public base=System.Object
   PROP: Unlocked
   PROP: Active
   METHOD: get_Unlocked
-  METHOD: set_Unlocked
+  METHOD: set_Unlocked (value)
   METHOD: get_Active
-  METHOD: set_Active
+  METHOD: set_Active (value)
   METHOD: Unlock
   METHOD: Lock
   METHOD: .ctor
