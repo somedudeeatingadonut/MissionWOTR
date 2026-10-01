@@ -1119,6 +1119,11 @@ namespace MissionWOTR
     internal const string SacredFistArchetype = "B03B168E-0EF6-49B5-99D8-21D2341C6B63";
     internal const string SacredFistBlessedFortitudeFeature = "34765F2D-AEA8-41BF-A47F-74593E2C1B2F";
 
+    // ----- 0.45.0: the Mending Blade (warpriest homebrew) -----
+    internal const string MendingBladeArchetype = "E047031C-1939-411D-9432-FC3D0B9676C1";
+    internal const string MendingBladeTitheFeature = "0F4AF2DB-C127-4E64-A114-F63AC31DF64E";
+    internal const string MendingBladeTitheRider = "8809F352-10F1-4969-A406-09F2CEB700E1";
+
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

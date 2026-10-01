@@ -5567,5 +5567,25 @@
     "Key": "SacredFistBlessedFortitude.Description",
     "ProcessTemplates": false,
     "enGB": "The sacred fist's deity shields his body: he gains a +2 sacred bonus on Fortitude saving throws. (Adapted port: the tabletop's avoid-the-effect-entirely rule is not something the game exposes to mods; a save bonus stands in its place.)"
+  },
+  {
+    "Key": "MendingBlade.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mending Blade"
+  },
+  {
+    "Key": "MendingBlade.Description",
+    "ProcessTemplates": false,
+    "enGB": "His god's grace no longer arrives in bursts from a holy symbol; it drips from every blow. A mending blade trades the channel energy of a normal warpriest for a quiet, constant miracle: each wound he inflicts pays a small tithe of healing to the allies fighting beside him. (Homebrew archetype: Blessed Tithe below; replaces channel energy, the whole line.)"
+  },
+  {
+    "Key": "MendingBladeTithe.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blessed Tithe"
+  },
+  {
+    "Key": "MendingBladeTithe.Description",
+    "ProcessTemplates": false,
+    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for 5% of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe is slight by design - a trickle, not a torrent. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. (Homebrew note: a killing blow counts at the full damage rolled, overkill included. This ability replaces channel energy.)"
   }
 ]

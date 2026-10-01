@@ -109,6 +109,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(EldritchScrapper), EldritchScrapper.Configure);
       Configure(nameof(Overchanneler), Overchanneler.Configure);
       Configure(nameof(SacredFist), SacredFist.Configure);
+      Configure(nameof(MendingBlade), MendingBlade.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -204,6 +205,7 @@ namespace MissionWOTR.Feats
       ("EldritchScrapper", Guids.EldritchScrapperArchetype, sorcerer),
       ("Overchanneler", Guids.OverchannelerArchetype, sorcerer),
       ("SacredFist", Guids.SacredFistArchetype, warpriest),
+      ("MendingBlade", Guids.MendingBladeArchetype, warpriest),
     };
         foreach (var entry in entries)
         {

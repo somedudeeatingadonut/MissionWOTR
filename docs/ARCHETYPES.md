@@ -794,6 +794,30 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.45.0 — the Mending Blade (warpriest homebrew)
+
+- **The user's brief:** "a warpriest that heals the team based on the
+  damage he deals (a very slight amount)." Homebrew #4, and the brief's
+  parenthetical is the balance call, taken at face value: **5% of damage
+  dealt, rounded down, minimum 1** — a trickle, not a torrent. One knob,
+  no scaling, no multiplier (the 0.43.0 lesson applied at design time).
+- **Blessed Tithe (1st):** whenever the warpriest deals damage to an
+  enemy, every living ally within 30 feet of him (himself included) is
+  healed for 5% of the damage dealt, as positive-energy healing through
+  the game's standard healing rule. Weapon blows, spells, and lingering
+  damage all count; friendly fire pays no tithe; a killing blow counts
+  the full rolled damage (overkill included — documented).
+- **The trade:** the entire Channel Energy line (every grant). Fervor —
+  the class's core self-buff engine — is untouched.
+- **Engine notes:** every hook is probe-verified (v6) or proven
+  in-repo — `RuleDealDamage.Result` for the dealt amount, `IsFake` to
+  skip preview triggers, `RuleHealDamage(initiator, target, bonus)` as
+  the heal (with the game's own floaty text and combat log), the
+  `Game.Instance.State.Units` sweep from the withdrawn Champion code,
+  and bpcore's `new Feet(30).Meters` conversion. `HPLeft` is
+  getter-only, so the rule trigger is not just the honest path — it is
+  the only one.
+
 ## 0.44.0 — the Sacred Fist (warpriest); 0.43.0's Champion of the Faith WITHDRAWN
 
 - **The user's catch:** "warpriest exists, it has archetypes, and
@@ -3331,6 +3355,7 @@ Champion, Mantis Zealot, Proclaimer, and Shieldbearer. MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Sacred Fist | Advanced Class Guide pg. 130 | The unarmored warpriest-monk: the monk's own AC bonus (Wis to AC), flurry of blows, and unarmed scaling, granted verbatim; trades proficiencies, focus weapon, ALL sacred weapon, and the 3rd/6th/12th/18th bonus feats. |
+| Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies for 5% of the damage dealt (a very slight amount, by design); trades the entire channel-energy line. |
 
 
 The warpriest class ships in the current game build with NO archetypes.
