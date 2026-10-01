@@ -1141,6 +1141,7 @@ namespace MissionWOTR
     internal const string InkboundArchetype = "C7D20600-8E86-429F-837F-736C6244A2C8";
     internal const string InkboundKitFeature = "B658BE86-E4C5-4725-A480-A8E9E4010153";
     internal const string InkboundInkRider = "CFBF01D7-4D0B-43CE-B4F1-0039D2B338D7";
+    internal const string InkboundQuillAction = "62E7169A-AC33-418D-81D9-2FA0E11C7540";
     internal const string InkboundBlotBuff = "87A31A0A-2BEC-42C1-BC36-19280A8A63D5";
     internal const string InkboundBlotIronBuff = "60DF5F8E-B146-4546-BEC8-6D6634800371";
     internal const string InkboundWordwallBuff = "A8884B14-F437-443C-84EA-1030A8C6022A";
