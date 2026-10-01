@@ -5,8 +5,12 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Controllers.Units;
+using Kingmaker.UnitLogic;
 using Kingmaker.Enums;
 using MissionWOTR.Feats;
+using System;
 using System.Collections.Generic;
 
 namespace MissionWOTR.Archetypes
