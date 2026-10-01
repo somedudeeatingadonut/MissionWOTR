@@ -377,12 +377,16 @@ namespace MissionWOTR.Archetypes
       return AlignmentMaskType.None;
     }
 
-    /// <summary>Does the unit bear the given alignment component?</summary>
+    /// <summary>
+    /// Does the unit bear the given alignment component? ValueVisible
+    /// (not ValueRaw) is the read: a creature hiding its alignment
+    /// (Undetectable) fairly escapes the champion's discernment.
+    /// </summary>
     internal static bool BearsComponent(UnitEntityData unit, AlignmentMaskType component)
     {
       try
       {
-        var value = unit?.Descriptor?.Alignment?.Value ?? AlignmentMaskType.None;
+        var value = unit?.Descriptor?.Alignment?.ValueVisible ?? AlignmentMaskType.None;
         return (value & component) != 0;
       }
       catch
