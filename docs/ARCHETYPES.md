@@ -794,6 +794,45 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.38.0 — the wolf's long-rest rule + the Spell Warrior (skald)
+
+- **The user's fix:** "Make it so that if the wolf dies, it cannot come
+  back until long rest, otherwise you could just switch forms to
+  something then back, and acquire it again." Implemented as an ability
+  resource with max 1, spent when the wolf dies and restored by the
+  engine's rest processing (every ability resource in the game refills
+  on rest) — no rest-detection code needed. Death is caught three ways:
+  a guard buff riding the wolf itself listens for the killing damage
+  (the SanguineFont target-side idiom), the form's round tick notices a
+  corpse in the summon pool, and the deactivation sweep charges for a
+  corpse it finds. Switching spirits and back now correctly yields no
+  wolf until the vessel rests.
+- **The Spell Warrior (skald archetype, Advanced Class Guide pg. 116)**
+  — the user asked for "a skald ttb archetype"; TabletopTweaks itself
+  ships no skald archetype (its skald content is the Spell Kenning
+  feature implementation), so the pick came from the tabletop list.
+  The spell warrior trades his rage-granting song for one that enchants
+  allied steel: **Enhance Weapons** — a standard-action raging song
+  granting every ally within 60 feet +1 weapon enhancement (+1 more at
+  5th and every 5 levels, to +5 at 20th), overlapping (never stacking
+  with) existing enhancements, so it shines on unenhanced steel: early
+  weapons, summons, animal companions. Every round it plays drains one
+  raging-song round; at zero the song ends itself.
+  - Trades: Inspired Rage, the vanilla Raging Song button (removed —
+    with no songs left it would be a dead, crash-prone button; the
+    rounds pool is re-granted by our feature), Dirge of Doom, Master
+    Skald. Scribe Scroll and Spell Kenning do not exist in WOTR.
+  - Engine: the ally enchantment rides the game's own
+    BuffEnchantAnyWeapon (the component NPC greater-magic-weapon buffs
+    use) with the VANILLA +1..+5 enchantment blueprints; the 60-foot
+    radius rides the game's area-effect system (the Doomsayer aura
+    pattern), following the singer and cleaning itself up.
+  - Documented cuts (the low-cut port rule): the counterspell line
+    (Improved/Greater Counterspell, Parry Spell) — WOTR has no
+    counterspelling; the "bonus by number of weapons" limiter; the
+    weapon special-ability picks (need a selection UI); the rage-power
+    interaction rider.
+
 ## 0.37.0 — the Spirit-Ridden expansion: four caster spirits (user design)
 
 - **The user's brief:** "The point of this class would be flexibility
@@ -3004,3 +3043,13 @@ hidden from Sanguine Fonts in mythic level-up.
 **Tuning candidates:** all heal amounts and dice; aura/pulse radii; FH/bleed
 tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
 (−2); blast range (Close); death-save heal (10d8 + level).
+
+
+## Skald archetypes
+
+In-game (vanilla): Battle Scion, Herald of the Horn. MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Spell Warrior | Advanced Class Guide pg. 116 | Trades the rage-granting song for one that enchants allied weapons: +1 to +5 enhancement in a 60-foot radius, overlapping existing enhancements, draining raging-song rounds while it plays. |
+

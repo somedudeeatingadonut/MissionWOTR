@@ -1,5 +1,6 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
@@ -138,6 +139,27 @@ namespace MissionWOTR.Archetypes
           .AddConditionImmunity(condition: UnitCondition.Shaken)
           .AddConditionImmunity(condition: UnitCondition.Frightened));
 
+      // ----- 0.38.0: the wolf's long-rest rule. The user: "if the wolf
+      // dies, it cannot come back until long rest, otherwise you could
+      // just switch forms to something then back, and acquire it again."
+      // The lockout is an ability resource with max 1: spent when the
+      // wolf dies, restored by the engine's rest processing (every
+      // ability resource in the game refills on rest) - no rest-detection
+      // code needed at all.
+      var wolfResource = AbilityResourceConfigurator.New(
+        "SpiritRiddenWolfResource", Guids.SpiritRiddenWolfResource)
+        .SetMax(1)
+        .Configure();
+      // The death watch rides the wolf itself: a guard buff applied at
+      // spawn whose rider listens for the killing RuleDealDamage (the
+      // SanguineFont target-side idiom) and spends the summoner's resource
+      // the moment the wolf dies.
+      var wolfGuard = BuffConfigurator.New(
+        "SpiritRiddenWolfGuardBuff", Guids.SpiritRiddenWolfGuardBuff)
+        .SetIsClassFeature()
+        .AddComponent(new SpiritRiddenWolfGuard { WolfResource = wolfResource })
+        .Configure();
+
       // ----- 0.37.0: the four caster spirits (the user's expansion - -----
       // non-ranged role choices; NO buffing spirit by the user's design
       // rule: "an easy free before combat team buffing machine, would be
@@ -154,12 +176,17 @@ namespace MissionWOTR.Archetypes
       var antlered = Spirit(
         "Antlered", Guids.SpiritRiddenAntleredFeature, Guids.SpiritRiddenAntleredAbility, Guids.SpiritRiddenAntleredBuff,
         FeatureRefs.MonkWeaponProficiency, minLevel: 6,
-        c => { },
+        c => { c.TracksWolf = true; c.WolfResource = wolfResource; },
         b => b
           .AddFacts(new() { thorn, mend })
           .AddFactContextActions(deactivated: ActionsBuilder.New().Add(
             new SpiritRiddenDespawnCompanionAction())),
-        channel => channel.Add(new SpiritRiddenSummonCompanionAction()));
+        channel => channel.Add(new SpiritRiddenSummonCompanionAction
+        {
+          WolfResource = wolfResource,
+          GuardBuff = wolfGuard,
+        }),
+        f => f.AddAbilityResources(resource: wolfResource, restoreAmount: true));
 
       var bolt = SpiritSpell("SpiritRiddenPyreBolt", Guids.SpiritRiddenPyreBoltAbility,
         AbilityRefs.ScorchingRay, pretendLevel: 2, AbilityRange.Long,
@@ -322,7 +349,8 @@ namespace MissionWOTR.Archetypes
       int minLevel,
       Action<SpiritRiddenForm> configureForm,
       Action<BuffConfigurator> buffExtras = null,
-      Func<ActionsBuilder, ActionsBuilder> channelExtras = null)
+      Func<ActionsBuilder, ActionsBuilder> channelExtras = null,
+      Action<FeatureConfigurator> featureExtras = null)
     {
       var prof = proficiencies.Reference.Get();
       var icon = prof.Icon;
@@ -398,6 +426,10 @@ namespace MissionWOTR.Archetypes
         feature = feature.AddPrerequisiteClassLevel(
           CharacterClassRefs.ShamanClass.Cast<BlueprintCharacterClassReference>(), minLevel);
       }
+      if (featureExtras != null)
+      {
+        feature = featureExtras(feature);
+      }
       return feature.Configure();
     }
   }
@@ -434,6 +466,8 @@ namespace MissionWOTR.Archetypes
     public bool SneakRider;
     public int AttackPer6;
     public int EnergyRiderPer5;
+    public bool TracksWolf;
+    public BlueprintAbilityResource WolfResource;
 
     private readonly List<ModifiableValue.Modifier> m_Added = new();
     private bool m_RiderUsed;
@@ -442,6 +476,20 @@ namespace MissionWOTR.Archetypes
     {
       m_RiderUsed = false;
       Recalculate();
+      // The wolf's long-rest rule, fallback catch: if the wolf died
+      // without the guard rider seeing it (death not via RuleDealDamage),
+      // the round tick notices the corpse and locks the resource.
+      if (TracksWolf && WolfResource != null)
+      {
+        try
+        {
+          SpiritRiddenCompanionSweep.MarkIfDead(Owner, WolfResource);
+        }
+        catch (Exception e)
+        {
+          MissionFeats.Logger.Error("[spiritridden] wolf death check failed.", e);
+        }
+      }
     }
 
     protected override void OnTurnOn()
@@ -639,6 +687,12 @@ namespace MissionWOTR.Archetypes
     internal const string StockSummonBuffGuid = "8728e884eeaa8b047be04197ecf1a0e4";
     internal const string SummonPoolGuid = "d94c93e7240f10e41ae41db4c83d1cbe";
 
+    /// <summary>One charge per rest: spent when the wolf dies.</summary>
+    public BlueprintAbilityResource WolfResource;
+
+    /// <summary>The death-watch buff applied to the wolf at spawn.</summary>
+    public BlueprintBuff GuardBuff;
+
     public override void RunAction()
     {
       try
@@ -649,8 +703,25 @@ namespace MissionWOTR.Archetypes
           MissionFeats.Logger.Warn("[spiritridden] wolf summon: no caster in context.");
           return;
         }
-        // Never two wolves: re-channeling sweeps the old one first.
-        SpiritRiddenCompanionSweep.DespawnAll(caster);
+        // The long-rest rule: if the wolf already died today, it does not
+        // answer again until the vessel rests (the user's fix for
+        // form-cycling a fresh wolf).
+        if (WolfResource != null && caster.Resources.GetResourceAmount(WolfResource) <= 0)
+        {
+          MissionFeats.Logger.Warn(
+            "[spiritridden] the wolf fell this day; it answers only after a long rest.");
+          return;
+        }
+        // Never two wolves: re-channeling sweeps the old one first. The
+        // sweep may find a corpse it had not yet charged for - so the
+        // gate is checked again below.
+        SpiritRiddenCompanionSweep.DespawnAll(caster, WolfResource);
+        if (WolfResource != null && caster.Resources.GetResourceAmount(WolfResource) <= 0)
+        {
+          MissionFeats.Logger.Warn(
+            "[spiritridden] the wolf fell this day; it answers only after a long rest.");
+          return;
+        }
         var wolf = BlueprintTool.Get<Kingmaker.Blueprints.BlueprintUnit>(WolfGuid);
         if (wolf is null)
         {
@@ -678,10 +749,14 @@ namespace MissionWOTR.Archetypes
           summonAction, BlueprintTool.GetRef<Kingmaker.Blueprints.BlueprintSummonPoolReference>(SummonPoolGuid));
         spawnType.GetField("LevelValue", fieldFlags)?.SetValue(
           summonAction, ContextValues.Constant(0));
+        // The guard buff rides the wolf so its death is charged the
+        // instant it happens (the same ApplyBuff idiom as the stock
+        // summon buff above it).
         summonAction.AfterSpawn = ActionsBuilder.New()
           .ApplyBuff(
             BlueprintTool.Get<BlueprintBuff>(StockSummonBuffGuid),
             ContextDuration.Fixed(100000))
+          .ApplyBuff(GuardBuff, ContextDuration.Fixed(100000))
           .Build();
         summonAction.RunAction();
         MissionFeats.Logger.Info("[spiritridden] the Antlered One's wolf answers.");
@@ -703,6 +778,9 @@ namespace MissionWOTR.Archetypes
   [TypeId(Guids.SpiritRiddenDespawnCompanionAction)]
   internal class SpiritRiddenDespawnCompanionAction : ContextAction
   {
+    /// <summary>One charge per rest: spent when the wolf dies.</summary>
+    public BlueprintAbilityResource WolfResource;
+
     public override void RunAction()
     {
       var caster = Context?.MaybeCaster;
@@ -710,7 +788,7 @@ namespace MissionWOTR.Archetypes
       {
         return;
       }
-      SpiritRiddenCompanionSweep.DespawnAll(caster);
+      SpiritRiddenCompanionSweep.DespawnAll(caster, WolfResource);
     }
 
     public override string GetCaption() => "Spirit-Ridden: the wolf fades";
@@ -725,59 +803,156 @@ namespace MissionWOTR.Archetypes
   /// </summary>
   internal static class SpiritRiddenCompanionSweep
   {
-    internal static void DespawnAll(UnitEntityData caster)
+    /// <summary>
+    /// The fallback death catch: scans the pool for the caster's wolf; if
+    /// it is dead, charges the long-rest resource and sweeps the corpse.
+    /// Called every round while the Antlered One holds the reins.
+    /// </summary>
+    internal static void MarkIfDead(UnitEntityData caster, BlueprintAbilityResource wolfResource)
+    {
+      foreach (var wolf in FindWolves(caster))
+      {
+        if (wolf.HPLeft <= 0 || wolf.Descriptor.State.IsDead)
+        {
+          ChargeWolfDeath(caster, wolfResource);
+          DespawnWolf(wolf, "round-tick corpse sweep");
+        }
+      }
+    }
+
+    /// <summary>Charges the long-rest resource once for a dead wolf.</summary>
+    private static void ChargeWolfDeath(UnitEntityData caster, BlueprintAbilityResource wolfResource)
+    {
+      if (wolfResource == null || caster is null)
+      {
+        return;
+      }
+      if (caster.Resources.GetResourceAmount(wolfResource) > 0)
+      {
+        caster.Resources.Spend(wolfResource, 1);
+        MissionFeats.Logger.Info(
+          "[spiritridden] the wolf's death is felt; it cannot return until a long rest.");
+      }
+    }
+
+    private static System.Collections.Generic.IEnumerable<UnitEntityData> FindWolves(
+      UnitEntityData caster)
+    {
+      var pool = Game.Instance.SummonPools.GetPool(
+        BlueprintTool.Get<Kingmaker.Blueprints.BlueprintSummonPool>(
+          SpiritRiddenSummonCompanionAction.SummonPoolGuid));
+      if (pool is null)
+      {
+        yield break;
+      }
+      var wolfName = BlueprintTool.Get<Kingmaker.Blueprints.BlueprintUnit>(
+        SpiritRiddenSummonCompanionAction.WolfGuid)?.name;
+      foreach (var old in pool.Units.ToList())
+      {
+        if (old is null || old.Blueprint is null ||
+          !string.Equals(old.Blueprint.name, wolfName, StringComparison.OrdinalIgnoreCase))
+        {
+          continue;
+        }
+        var summoner = old
+          .Get<Kingmaker.UnitLogic.Parts.UnitPartSummonedMonster>()?.Summoner;
+        if (summoner is null || summoner.UniqueId != caster.UniqueId)
+        {
+          continue;
+        }
+        yield return old;
+      }
+    }
+
+    internal static void DespawnAll(UnitEntityData caster, BlueprintAbilityResource wolfResource = null)
     {
       try
       {
-        var pool = Game.Instance.SummonPools.GetPool(
-          BlueprintTool.Get<Kingmaker.Blueprints.BlueprintSummonPool>(
-            SpiritRiddenSummonCompanionAction.SummonPoolGuid));
-        if (pool is null)
+        foreach (var old in FindWolves(caster))
         {
-          return;
-        }
-        var wolfName = BlueprintTool.Get<Kingmaker.Blueprints.BlueprintUnit>(
-          SpiritRiddenSummonCompanionAction.WolfGuid)?.name;
-        foreach (var old in pool.Units.ToList())
-        {
-          if (old is null || old.Blueprint is null ||
-            !string.Equals(old.Blueprint.name, wolfName, StringComparison.OrdinalIgnoreCase))
+          // If this wolf is a corpse, its death is charged before the
+          // body is cleared (the deactivate-path death catch).
+          if (old.HPLeft <= 0 || old.Descriptor.State.IsDead)
           {
-            continue;
+            ChargeWolfDeath(caster, wolfResource);
           }
-          var summoner = old
-            .Get<Kingmaker.UnitLogic.Parts.UnitPartSummonedMonster>()?.Summoner;
-          if (summoner is null || summoner.UniqueId != caster.UniqueId)
-          {
-            continue;
-          }
-          MissionFeats.Logger.Info(
-            $"[spiritridden] the wolf (uid={old.UniqueId}) fades with the spirit.");
-          try
-          {
-            old.Buffs.RemoveFact(
-              Game.Instance.BlueprintRoot.SystemMechanics.SummonedUnitBuff);
-          }
-          catch (Exception buffEx)
-          {
-            MissionFeats.Logger.Warn(
-              $"[spiritridden] wolf summon-buff removal failed: {buffEx.Message}");
-          }
-          old.IsInGame = false;
-          try
-          {
-            old.MarkForDestroy();
-          }
-          catch (Exception destroyEx)
-          {
-            MissionFeats.Logger.Warn(
-              $"[spiritridden] wolf destroy failed: {destroyEx.Message}");
-          }
+          DespawnWolf(old, "sweep");
         }
       }
       catch (Exception e)
       {
         MissionFeats.Logger.Error("[spiritridden] wolf sweep failed.", e);
+      }
+    }
+
+    /// <summary>The engine's despawn, all in one place (the ConstructCrafter recipe).</summary>
+    private static void DespawnWolf(UnitEntityData old, string source)
+    {
+      MissionFeats.Logger.Info(
+        $"[spiritridden] the wolf (uid={old.UniqueId}) leaves ({source}).");
+      try
+      {
+        old.Buffs.RemoveFact(
+          Game.Instance.BlueprintRoot.SystemMechanics.SummonedUnitBuff);
+      }
+      catch (Exception buffEx)
+      {
+        MissionFeats.Logger.Warn(
+          $"[spiritridden] wolf summon-buff removal failed: {buffEx.Message}");
+      }
+      old.IsInGame = false;
+      try
+      {
+        old.MarkForDestroy();
+      }
+      catch (Exception destroyEx)
+      {
+        MissionFeats.Logger.Warn(
+          $"[spiritridden] wolf destroy failed: {destroyEx.Message}");
+      }
+    }
+  }
+
+  /// <summary>
+  /// The wolf's death watch, riding the wolf itself (the SanguineFont
+  /// target-side RuleDealDamage idiom). The guard buff is applied at
+  /// spawn; the moment the killing damage lands, the summoner's
+  /// long-rest resource is spent - so switching spirits and back cannot
+  /// conjure a fresh wolf (the user's exact rule).
+  /// </summary>
+  [TypeId(Guids.SpiritRiddenWolfGuardComponent)]
+  internal class SpiritRiddenWolfGuard : UnitFactComponentDelegate,
+    ITargetRulebookHandler<RuleDealDamage>, IRulebookHandler<RuleDealDamage>,
+    ITargetRulebookSubscriber, ISubscriber
+  {
+    public BlueprintAbilityResource WolfResource;
+
+    public void OnEventAboutToTrigger(RuleDealDamage evt) { }
+
+    public void OnEventDidTrigger(RuleDealDamage evt)
+    {
+      try
+      {
+        if (Owner.HPLeft > 0 && !Owner.Descriptor.State.IsDead)
+        {
+          return;
+        }
+        var summoner = Owner
+          .Get<Kingmaker.UnitLogic.Parts.UnitPartSummonedMonster>()?.Summoner;
+        if (summoner is null || WolfResource == null)
+        {
+          return;
+        }
+        if (summoner.Resources.GetResourceAmount(WolfResource) > 0)
+        {
+          summoner.Resources.Spend(WolfResource, 1);
+          MissionFeats.Logger.Info(
+            "[spiritridden] the wolf's death is felt; it cannot return until a long rest.");
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[spiritridden] wolf death watch failed.", e);
       }
     }
   }

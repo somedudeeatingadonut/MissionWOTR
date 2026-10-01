@@ -1034,6 +1034,31 @@ namespace MissionWOTR
     internal const string SpiritRiddenArchivistMienAbility = "F7A7CF08-683B-4271-BD58-438D2D6554AD";
     internal const string SpiritRiddenSummonCompanionAction = "535E8193-A289-4CE1-AB74-FE50F9DFDA55";
     internal const string SpiritRiddenDespawnCompanionAction = "4FA19501-7D8D-44BF-B204-E2AFEC019C8E";
+
+    // ----- 0.38.0: Spell Warrior (skald) + the wolf's long-rest rule -----
+    internal const string SpellWarriorArchetype = "8ABC0881-F3ED-4B17-8AD7-A0181DA35B97";
+    internal const string SpellWarriorFeature = "CDDED9FC-76AE-4708-88C3-9DA54AC8381E";
+    internal const string SpellWarriorAbility = "53163D53-9EBD-4A25-B725-5925811F44B7";
+    internal const string SpellWarriorStartSongAction = "15692C15-19E0-4908-98F0-23EDD77F06D4";
+    internal const string SpellWarriorSongRounds = "7B4F26CB-60B8-40FF-A3FD-1BB2C768296D";
+    internal const string SpellWarriorSongBuff1 = "CB15CF81-28A4-4CE5-9F2B-6D8CD8DE9B6E";
+    internal const string SpellWarriorSongArea1 = "444CC522-E2AB-42E7-BDFD-3274922D53AE";
+    internal const string SpellWarriorSongAllyBuff1 = "37B18E1C-254C-4AAD-81A1-9392F239D808";
+    internal const string SpellWarriorSongBuff2 = "A8649C29-2FCF-4306-AE2F-EBB4CBCB162F";
+    internal const string SpellWarriorSongArea2 = "BC41FE14-F72F-463E-88B7-514660EB3E31";
+    internal const string SpellWarriorSongAllyBuff2 = "D33D88B6-9742-474B-BA7F-4E5928A56331";
+    internal const string SpellWarriorSongBuff3 = "0E4B78E5-F494-43DE-A0E5-62D81E593060";
+    internal const string SpellWarriorSongArea3 = "8BE2BBB2-F53E-4C5B-A048-125FFF116B37";
+    internal const string SpellWarriorSongAllyBuff3 = "66ECDE06-598D-414C-9120-2B58042F49C3";
+    internal const string SpellWarriorSongBuff4 = "D2D3D153-016E-4E0E-A3E4-C851B9283DF0";
+    internal const string SpellWarriorSongArea4 = "56742CF3-EBF5-48A3-954E-65A5DA395DB3";
+    internal const string SpellWarriorSongAllyBuff4 = "851979BB-681B-46D7-9D04-4AB2DF6955B3";
+    internal const string SpellWarriorSongBuff5 = "3FC9BE51-2443-45C5-8E57-45EEE0D024F1";
+    internal const string SpellWarriorSongArea5 = "6BBEB38E-2C4C-4218-9624-B1FD05531C38";
+    internal const string SpellWarriorSongAllyBuff5 = "5BD0815E-9EE2-473E-B816-0E079A5A8F33";
+    internal const string SpiritRiddenWolfResource = "495DDA9C-F81D-4C4F-86DA-C8AACFC3D16E";
+    internal const string SpiritRiddenWolfGuardBuff = "58CCF5CB-850D-4BC0-BF7B-38248D59A238";
+    internal const string SpiritRiddenWolfGuardComponent = "68ABF213-C79E-477B-A0D0-1421D446EEBE";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

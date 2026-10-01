@@ -5317,5 +5317,35 @@
     "Key": "SpiritRiddenSpellblade.Description",
     "ProcessTemplates": false,
     "enGB": "A duelist who fused sword and spell so thoroughly that neither survived her apart. While the Spellblade holds the reins, the vessel fights with the magus's weapon arts, and every weapon strike carries her parting fire: +1d6 fire damage per five effective levels."
+  },
+  {
+    "Key": "SpellWarrior.Name",
+    "ProcessTemplates": false,
+    "enGB": "Spell Warrior"
+  },
+  {
+    "Key": "SpellWarrior.Description",
+    "ProcessTemplates": false,
+    "enGB": "The spell warrior uses his arcane knowledge rather than his rage to turn the tide of battle in favor of himself and his allies. With a clash of bracers and a sonorous chant, his song reaches out to touch the weapons of his allies, lending them arcane power. While his song does not inspire rage, he can use the power of his music to enchant the weapons of his allies. (The counterspelling arts of the tabletop warrior have no place in the Worldwound's wars - this port carries the weapon song only.)"
+  },
+  {
+    "Key": "SpellWarriorEnhance.Name",
+    "ProcessTemplates": false,
+    "enGB": "Enhance Weapons"
+  },
+  {
+    "Key": "SpellWarriorEnhance.Description",
+    "ProcessTemplates": false,
+    "enGB": "A raging song of a different kind: while it plays, the weapons of all allies within 60 feet gain an enhancement bonus - +1 at 1st level, increasing by 1 at 5th level and every 5 levels thereafter (to a maximum of +5 at 20th). The bonus overlaps (does not stack with) any enhancement a weapon already has, and the song drains raging-song rounds for every round it plays."
+  },
+  {
+    "Key": "SpellWarriorSong.Name",
+    "ProcessTemplates": false,
+    "enGB": "Weapon Song"
+  },
+  {
+    "Key": "SpellWarriorSong.Description",
+    "ProcessTemplates": false,
+    "enGB": "The spell warrior's song flows through allied steel: weapons wielded by allies within 60 feet are enchanted while the song plays."
   }
 ]

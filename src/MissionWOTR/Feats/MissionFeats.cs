@@ -102,6 +102,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(HedgeWitch), HedgeWitch.Configure);
       Configure(nameof(Jiuweihu), Jiuweihu.Configure);
       Configure(nameof(SpiritRidden), SpiritRidden.Configure);
+      Configure(nameof(SpellWarrior), SpellWarrior.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -139,6 +140,7 @@ namespace MissionWOTR.Feats
         var oracle = CharacterClassRefs.OracleClass.Reference.Get();
         var witch = CharacterClassRefs.WitchClass.Reference.Get();
         var shaman = CharacterClassRefs.ShamanClass.Reference.Get();
+        var skald = CharacterClassRefs.SkaldClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -186,6 +188,7 @@ namespace MissionWOTR.Feats
       ("HedgeWitch", Guids.HedgeWitchArchetype, witch),
       ("Jiuweihu", Guids.JiuweihuArchetype, shaman),
       ("SpiritRidden", Guids.SpiritRiddenArchetype, shaman),
+      ("SpellWarrior", Guids.SpellWarriorArchetype, skald),
     };
         foreach (var entry in entries)
         {
