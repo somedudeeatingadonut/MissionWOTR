@@ -794,6 +794,48 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.41.0 — rage powers WORK with momentum; the Grave Warden (slayer)
+
+- **The user's challenge: "Can you make rage powers work?" — YES, and
+  they do now.** Two CI metadata-probe rounds found the engine's own
+  carrier: `AddFactsFromCaster` (the component the vanilla inspired
+  rage uses to push the skald's SELECTED rage powers onto her allies;
+  public class, private fields set via the repo's established
+  reflection idiom) and confirmed `BuffExtraEffects` as the payload
+  gate. The Crescendo now:
+  1. carries `AddFactsFromCaster` pointed at the skald's rage-power
+     selection — every ally with momentum is granted the skald's
+     selected rage powers for exactly as long as their momentum lasts;
+  2. patches each skald rage power's payload gate with a twin that
+     fires on momentum instead of the rage song — so the powers'
+     actual effects trigger for anyone the crescendo carries.
+  The 0.40.0 rage-power removal is REVERTED for the Crescendo (the
+  skald keeps her rage powers — they now function); the Spell Warrior
+  keeps its removal (weapon enhancement is its trade; the tabletop
+  rage-power rider was already a documented cut). Documented edges:
+  rage powers without a BuffExtraEffects payload are granted as-is
+  (passives become momentum-window passives; once-per-rage powers may
+  stay inert), and the patched features are shared blueprints with
+  barbarians, so a raging barbarian under someone else's crescendo
+  could see a payload twice — harmless (the engine dedupes the same
+  buff).
+- **The Grave Warden (slayer archetype, Advanced Class Guide pg. 120)**
+  — the user's real tabletop port (the Vanguard was the trap; already
+  in the game). An undead-hunter for the Worldwound:
+  - **Blessed Edge (2nd, replaces the 2nd talent):** swift action
+    anoints his weapon for 1 round; weapon damage against undead
+    carries +2d6 holy damage (the holy-water direct hit, flask
+    bookkeeping cut).
+  - **Death Ward Ritual (7th, replaces stalker):** standard action,
+    self death ward for 1 minute per slayer level (the flask cost and
+    1-minute ritual time are the documented cut).
+  - **Dustbringer (10th, replaces the 10th talent):** swift action
+    marks an undead foe for 1 round; if his next attack hits, Will
+    save (DC 10 + half level + Int) or the target is DESTROYED —
+    delivered as overwhelming damage through the engine's own
+    RuleDealDamage (the Breaker idiom). A successful save grants 24
+    hours of immunity to that warden's dustbringer.
+
 ## 0.40.0 — the Dreadnaught (slayer homebrew); rage powers answered; Vanguard
 
 - **The user's question: "The skald also gets rage powers, would those
@@ -3143,4 +3185,5 @@ blueprints; no MissionWOTR rebuild needed). MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Dreadnaught | MissionWOTR homebrew (user design) | Trades studied target's strike bonuses, ALL sneak attack, and the middle (10th-level) talent for a save-cracking Dread Study mark (−1..−5 on all saves, tiered), demoralize-on-study, heavy armor, +half level Persuasion, and medium Will (+1/+2/+3 at 1st/8th/15th). |
+| Grave Warden | Advanced Class Guide pg. 120 | The undead-hunter: Blessed Edge (+2d6 holy vs undead for a round), a self Death Ward ritual (1 min/level), and Dustbringer — mark an undead, land the blow, Will save or be destroyed (24h immunity on a save). Trades the 2nd and 10th talents + stalker. |
 

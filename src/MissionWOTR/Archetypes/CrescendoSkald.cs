@@ -170,12 +170,135 @@ namespace MissionWOTR.Archetypes
         archetype, skald,
         FeatureRefs.RagingSong.ToString(),
         FeatureRefs.InspiredRage.ToString());
-      // 0.40.0: rage powers ride the inspired-rage song in this engine -
-      // with that song gone they would be selectable-but-inert picks, so
-      // every rage-power grant goes too (the user's question, answered).
-      archetype = ArchetypeRemovals.RemoveEveryGrant(archetype, skald, "RagePower");
+      // 0.41.0: RAGE POWERS NOW WORK (the user's challenge: "can you make
+      // rage powers work?"). Two pieces, both on verified engine parts:
+      // 1) the momentum buff carries AddFactsFromCaster pointed at the
+      //    skald's rage-power selection - every ally with momentum is
+      //    granted the skald's SELECTED rage powers for as long as their
+      //    momentum lasts (this is the vanilla inspired-rage carrier
+      //    component, found via the CI metadata probe); and
+      // 2) every skald rage power's BuffExtraEffects payload gate is
+      //    cloned to ALSO fire while momentum is on the holder - so the
+      //    payloads (the actual rage-power effects) trigger for anyone
+      //    the crescendo carries, not just the singer.
+      // The skald keeps her rage-power grants (the 0.40.0 removal is
+      // reverted); the Spell Warrior keeps its removal (its trade is
+      // weapon enhancement, and the tabletop rage-power rider was cut).
+      AttachRagePowers(momentumBuff);
       archetype.Configure();
       MissionFeats.Logger.Info("[crescendo] configured: " + ArchetypeName + ".");
+    }
+
+    /// <summary>
+    /// Wires the skald's rage powers to MOMENTUM (the user's design
+    /// challenge, 0.41.0). Uses only engine parts verified by the CI
+    /// metadata probe: AddFactsFromCaster (public class; private fields
+    /// set via reflection - the ConstructCrafter idiom) and
+    /// BuffExtraEffects (public; fields m_CheckedBuff/m_ExtraEffectBuff
+    /// confirmed by the same probe).
+    /// </summary>
+    private static void AttachRagePowers(BlueprintBuff momentumBuff)
+    {
+      try
+      {
+        const System.Reflection.BindingFlags flags =
+          System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+          System.Reflection.BindingFlags.Instance;
+
+        // 1. Allies with momentum receive the skald's selected rage
+        // powers (and lose them again when their momentum ends).
+        var selection = FeatureSelectionRefs.SkaldRagePowerSelection.Reference.Get();
+        var fromCaster = new Kingmaker.UnitLogic.FactLogic.AddFactsFromCaster();
+        var fromCasterType = fromCaster.GetType();
+        fromCasterType.GetField("m_Facts", flags)?.SetValue(
+          fromCaster, new BlueprintUnitFactReference[0]);
+        var selectionField = fromCasterType.GetField("m_Selection", flags);
+        if (selectionField != null)
+        {
+          object selectionRef;
+          if (typeof(BlueprintFeatureSelectionReference).IsAssignableFrom(selectionField.FieldType))
+          {
+            selectionRef = FeatureSelectionRefs.SkaldRagePowerSelection.Reference;
+          }
+          else
+          {
+            selectionRef = selection.ToReference<BlueprintFeatureReference>();
+          }
+          selectionField.SetValue(fromCaster, selectionRef);
+        }
+        fromCasterType.GetField("FeatureFromSelection", flags)?.SetValue(fromCaster, true);
+        BuffConfigurator.For(momentumBuff).AddComponent(fromCaster).Configure();
+        MissionFeats.Logger.Info("[crescendo] momentum now carries the skald's rage powers.");
+
+        // 2. Each skald rage power's payload gate (BuffExtraEffects)
+        // gets a twin that fires on momentum instead of the rage song.
+        // Note: these feature blueprints are shared with barbarians; the
+        // twin only ever matters for a unit that holds BOTH the feature
+        // and a momentum buff - i.e. the skald and her carried allies.
+        int patched = 0;
+        var features = ReadSelectionFeatures(selection);
+        foreach (var feature in features)
+        {
+          if (feature?.ComponentsArray is null)
+          {
+            continue;
+          }
+          foreach (var gate in feature.ComponentsArray
+            .OfType<Kingmaker.Designers.Mechanics.Facts.BuffExtraEffects>())
+          {
+            if (gate is null)
+            {
+              continue;
+            }
+            var clone = new Kingmaker.Designers.Mechanics.Facts.BuffExtraEffects();
+            foreach (var field in clone.GetType().GetFields(flags))
+            {
+              if (field.Name == "m_CheckedBuff")
+              {
+                field.SetValue(clone, momentumBuff.ToReference<BlueprintBuffReference>());
+              }
+              else if (field.Name == "m_CheckedBuffList")
+              {
+                field.SetValue(clone, new BlueprintBuffReference[0]);
+              }
+              else
+              {
+                field.SetValue(clone, field.GetValue(gate));
+              }
+            }
+            FeatureConfigurator.For(feature).AddComponent(clone).Configure();
+            patched++;
+          }
+        }
+        MissionFeats.Logger.Info(
+          $"[crescendo] {patched} rage-power payload gate(s) now also fire on momentum.");
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[crescendo] rage-power wiring failed.", e);
+      }
+    }
+
+    /// <summary>Reads a feature selection's feature list (prop or field).</summary>
+    private static System.Collections.Generic.IEnumerable<BlueprintFeature> ReadSelectionFeatures(
+      BlueprintFeatureSelection selection)
+    {
+      const System.Reflection.BindingFlags flags =
+        System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
+        System.Reflection.BindingFlags.Instance;
+      var raw = selection.GetType().GetProperty("AllFeatures", flags)?.GetValue(selection, null)
+        ?? selection.GetType().GetField("m_AllFeatures", flags)?.GetValue(selection);
+      if (raw is System.Collections.IEnumerable list)
+      {
+        foreach (var item in list)
+        {
+          var feature = (item as BlueprintFeatureReference)?.Get();
+          if (feature is not null)
+          {
+            yield return feature;
+          }
+        }
+      }
     }
   }
 

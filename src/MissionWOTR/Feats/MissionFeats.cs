@@ -105,6 +105,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(SpellWarrior), SpellWarrior.Configure);
       Configure(nameof(CrescendoSkald), CrescendoSkald.Configure);
       Configure(nameof(Dreadnaught), Dreadnaught.Configure);
+      Configure(nameof(GraveWarden), GraveWarden.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -194,6 +195,7 @@ namespace MissionWOTR.Feats
       ("SpellWarrior", Guids.SpellWarriorArchetype, skald),
       ("CrescendoSkald", Guids.CrescendoSkaldArchetype, skald),
       ("Dreadnaught", Guids.DreadnaughtArchetype, slayer),
+      ("GraveWarden", Guids.GraveWardenArchetype, slayer),
     };
         foreach (var entry in entries)
         {

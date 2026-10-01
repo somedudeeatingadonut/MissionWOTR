@@ -1081,6 +1081,22 @@ namespace MissionWOTR
     internal const string DreadnaughtMarkBuff3 = "2694D465-DC71-41A0-9696-AB687E7158C4";
     internal const string DreadnaughtMarkBuff4 = "4CD4BEA8-16AB-43ED-BF7E-CA0C3DAB87FD";
     internal const string DreadnaughtMarkBuff5 = "D588F4AD-1620-4398-A954-7342709A6C3C";
+
+    // ----- 0.41.0: the Grave Warden (slayer, ACG 120) -----
+    internal const string GraveWardenArchetype = "F6089279-5B1A-4CC2-9251-6046CFED1BCF";
+    internal const string GraveWardenBlessedEdgeFeature = "7D22F449-A42B-480D-A7AB-2191634F231B";
+    internal const string GraveWardenBlessedEdgeAbility = "885B5B3E-735C-4006-B1DD-27966A769EF1";
+    internal const string GraveWardenBlessedEdgeBuff = "9CBCBBA6-50B6-42A0-BEEA-643BDBD603AD";
+    internal const string GraveWardenBlessedEdgeRiderComponent = "7AD47468-575E-4129-83AA-4EC94B659060";
+    internal const string GraveWardenDeathWardFeature = "4BF146EE-6297-4E7C-9412-4699C4F1B970";
+    internal const string GraveWardenDeathWardAbility = "F67E9B8D-4DA1-450B-A092-15D23F61171E";
+    internal const string GraveWardenDeathWardAction = "E295F659-44D5-4E20-80A5-A35610EC4602";
+    internal const string GraveWardenDustbringerFeature = "C5B77A0C-A371-4518-AFBC-4DCFC5314C6E";
+    internal const string GraveWardenDustbringerAbility = "17CADF4F-E0A5-4D71-AD13-FEE9C7CD01EB";
+    internal const string GraveWardenDustbringerStrikeAction = "C61B362A-AE33-41D7-BC9A-A7DFAA84D343";
+    internal const string GraveWardenDustbringerMarkBuff = "4BDC61FC-FACA-432B-A1B1-CF1E75DC142B";
+    internal const string GraveWardenDustbringerMarkComponent = "816408BD-D87C-4096-8D07-94BBC8077EEE";
+    internal const string GraveWardenDustbringerImmunityBuff = "22587580-CD29-42DD-8922-9CB3E3BDD535";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

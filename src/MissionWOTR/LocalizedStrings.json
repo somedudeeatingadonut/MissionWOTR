@@ -5417,5 +5417,65 @@
     "Key": "DreadnaughtResolve.Description",
     "ProcessTemplates": false,
     "enGB": "The Dreadnaught's Will is not the slayer's weak one, but stands halfway to a champion's: +1 at 1st level, +2 at 8th, +3 at 15th."
+  },
+  {
+    "Key": "GraveWarden.Name",
+    "ProcessTemplates": false,
+    "enGB": "Grave Warden"
+  },
+  {
+    "Key": "GraveWarden.Description",
+    "ProcessTemplates": false,
+    "enGB": "While paladins and inquisitors use their connection with the divine to fight undead hordes and other horrors of the night, a grave warden relies on knowledge, skill with weapons, and tenacity to put an end to these night-born terrors. His blade carries holy water's bite, he wards himself against death itself, and the oldest undead fear his finishing stroke: one that does not merely slay them, but unmakes them."
+  },
+  {
+    "Key": "GraveWardenBlessedEdge.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blessed Edge"
+  },
+  {
+    "Key": "GraveWardenBlessedEdge.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a swift action, the grave warden anoints his held weapon for 1 round. While the anointment lasts, his weapon damage against undead creatures carries an additional 2d6 points of holy damage, as if from a direct hit by holy water."
+  },
+  {
+    "Key": "GraveWardenDeathWard.Name",
+    "ProcessTemplates": false,
+    "enGB": "Death Ward Ritual"
+  },
+  {
+    "Key": "GraveWardenDeathWard.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a standard action, the grave warden performs the warding rites upon himself, gaining the benefits of death ward for 1 minute per slayer level."
+  },
+  {
+    "Key": "GraveWardenDustbringer.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dustbringer"
+  },
+  {
+    "Key": "GraveWardenDustbringer.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a swift action, the grave warden marks a single undead creature for 1 round. If his next attack against it hits, the mark resolves: the target must succeed at a Will save (DC 10 + half his slayer level + his Intelligence modifier) or be destroyed outright. A target that saves is immune to this grave warden's dustbringer for 24 hours."
+  },
+  {
+    "Key": "GraveWardenDustbringerMark.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dustbringer Mark"
+  },
+  {
+    "Key": "GraveWardenDustbringerMark.Description",
+    "ProcessTemplates": false,
+    "enGB": "The grave warden's killing stroke waits upon the next blow that lands. When it does, the undead must save or be unmade."
+  },
+  {
+    "Key": "GraveWardenDustbringerImmunity.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dustbringer Immunity"
+  },
+  {
+    "Key": "GraveWardenDustbringerImmunity.Description",
+    "ProcessTemplates": false,
+    "enGB": "This creature has withstood the grave warden's dustbringer within the last day and cannot be marked again yet."
   }
 ]
