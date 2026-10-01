@@ -794,6 +794,20 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.47.0 — Mending Blade rebalance (turn-based-safe)
+
+- **The user's numbers:** "level 8 change the healing to 10%, and 16
+  give 1 hit of 15%." So: 5% at 1st, **10% at 8th**, **one 15% surge
+  hit per round at 16th**, and at 20th the surge covers the **first two
+  hits** (per the 0.46.0 spec). Radius unchanged (30/45/60).
+- **Turn-based correctness** ("that's what I play the game on
+  personally"): the surge window's clock is now the same source the
+  game's own round cooldowns use — in turn-based combat it reads the
+  turn-based controller's clock (`CombatController.IsInTurnBasedCombat`
+  in `TurnBased.Controllers`, probe v8), in real time the game clock.
+  The window resets with the rounds the player actually sees, in both
+  modes.
+
 ## 0.46.0 — the Mending Blade tuning pass + GRAVE TITHE
 
 - **The user's tuning, verbatim:**
@@ -3389,7 +3403,7 @@ Champion, Mantis Zealot, Proclaimer, and Shieldbearer. MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Sacred Fist | Advanced Class Guide pg. 130 | The unarmored warpriest-monk: the monk's own AC bonus (Wis to AC), flurry of blows, and unarmed scaling, granted verbatim; trades proficiencies, focus weapon, ALL sacred weapon, and the 3rd/6th/12th/18th bonus feats. |
-| Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies (30 ft, growing to 45/60 ft) for 5% of the damage dealt — at 20th, 15% for the first two hits each round, 10% after; trades the entire channel-energy line. The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. |
+| Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies (30 ft, growing to 45/60 ft) for 5% of the damage dealt — 10% at 8th, first hit each round 15% at 16th (first two at 20th); trades the entire channel-energy line. The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. | The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. |
 
 
 The warpriest class ships in the current game build with NO archetypes.

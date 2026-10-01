@@ -5586,7 +5586,7 @@
   {
     "Key": "MendingBladeTithe.Description",
     "ProcessTemplates": false,
-    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for 5% of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe's reach grows as he does: 45 feet at 10th level, 60 feet at 20th. At 20th level the tithe matures: the first two hits each round heal 15%, and every hit after that 10%. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. (Homebrew note: a killing blow counts at the full damage rolled, overkill included. This ability replaces channel energy.)"
+    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for a share of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe grows as he does: 10% at 8th level, and from 16th level the first hit of each round is a surge that heals 15% (at 20th level, the first two hits each round surge), with all other hits at 10%. The tithe's reach also grows: 45 feet at 10th level, 60 feet at 20th. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. (Homebrew note: a killing blow counts at the full damage rolled, overkill included. This ability replaces channel energy.)"
   },
   {
     "Key": "MendingBladeGraveTithe.Name",

@@ -12,6 +12,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;
+using TurnBased.Controllers;
 
 namespace MissionWOTR.Archetypes
 {
@@ -132,9 +133,10 @@ namespace MissionWOTR.Archetypes
   /// The Blessed Tithe rider. Watches RuleDealDamage (initiator side):
   /// when the warpriest deals real damage to a non-ally, every living
   /// player-faction unit within his tithe radius is healed for a
-  /// percent of it (rounded down, minimum 1). The percent: 5% below
-  /// 20th level; at 20th, the first two hits of each round at 15% and
-  /// the rest at 10%. The radius: 30 ft, 45 ft at 10th, 60 ft at 20th.
+  /// percent of it (rounded down, minimum 1). The percent: 5% at 1st,
+  /// 10% at 8th, and from 16th the first hit of each round surges to 15%
+  /// (the first two at 20th). The radius: 30 ft, 45 ft at 10th, 60 ft at
+  /// 20th.
   /// With the Grave Tithe feat, the tithe is paid in negative energy:
   /// undead allies are healed as normal, living allies are scorched
   /// (never below 1 HP).
@@ -144,18 +146,15 @@ namespace MissionWOTR.Archetypes
     IInitiatorRulebookHandler<RuleDealDamage>, IRulebookHandler<RuleDealDamage>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
-    /// <summary>The base tithe, in percent of damage dealt.</summary>
-    public const int BasePercent = 5;
+    /// <summary>The early tithe (1st-7th), in percent of damage dealt.</summary>
+    public const int EarlyPercent = 5;
 
-    /// <summary>The mature tithe at 20th+, in percent.</summary>
+    /// <summary>The mature tithe (8th+), in percent.</summary>
     public const int MaturePercent = 10;
 
-    /// <summary>The surge tithe for the first hits of each round at
-    /// 20th+, in percent.</summary>
+    /// <summary>The surge tithe for the first hits of each round (16th+),
+    /// in percent.</summary>
     public const int SurgePercent = 15;
-
-    /// <summary>How many hits each round get the surge percent.</summary>
-    public const int SurgeHits = 2;
 
     /// <summary>A combat round, in seconds of game time.</summary>
     public const double RoundSeconds = 6.0;
@@ -187,24 +186,33 @@ namespace MissionWOTR.Archetypes
         var radiusFeet = level >= 20 ? 60 : level >= 10 ? 45 : 30;
         var radius = new Feet(radiusFeet).Meters;
 
-        // The tithe percent: 5% until 20th; at 20th, the first two hits
-        // of each 6-second round at 15%, the rest at 10%. The window
-        // anchors on the first hit and resets on the game clock - which
-        // freezes on pause, so no rounds tick by while the player reads.
+        // The tithe percent (the 0.47.0 rebalance, the user's numbers):
+        // 5% at 1st; 10% at 8th; at 16th the first hit of each round
+        // surges to 15%; at 20th the first TWO hits surge. The window is
+        // turn-based-safe: in turn-based combat it runs on the engine's
+        // own turn clock (the same source the game's round cooldowns
+        // use), so it resets with the round structure the player sees;
+        // in real time it is a 6-second window on the game clock (which
+        // freezes on pause, so no rounds tick by while the player reads).
         int percent;
-        if (level < 20)
+        if (level < 8)
         {
-          percent = BasePercent;
+          percent = EarlyPercent;
+        }
+        else if (level < 16)
+        {
+          percent = MaturePercent;
         }
         else
         {
-          var now = Kingmaker.Game.Instance.TimeController.GameTime;
+          var surgeHits = level >= 20 ? 2 : 1;
+          var now = Now();
           if ((now - m_WindowStart).TotalSeconds >= RoundSeconds)
           {
             m_WindowStart = now;
             m_HitsThisRound = 0;
           }
-          percent = m_HitsThisRound < SurgeHits ? SurgePercent : MaturePercent;
+          percent = m_HitsThisRound < surgeHits ? SurgePercent : MaturePercent;
           m_HitsThisRound++;
         }
 
@@ -271,6 +279,21 @@ namespace MissionWOTR.Archetypes
       {
         MissionFeats.Logger.Error("[mendingblade] tithe failed.", e);
       }
+    }
+
+    /// <summary>
+    /// The round clock, turn-based-safe. In turn-based combat the game's
+    /// own cooldowns read the turn-based controller's clock (the
+    /// DarkCodex PartCooldown idiom, compile-proven against this game);
+    /// in real time they read the game clock. The surge window uses the
+    /// same source so it resets with the rounds the player actually
+    /// experiences - which is the mode the user plays.
+    /// </summary>
+    private static TimeSpan Now()
+    {
+      return CombatController.IsInTurnBasedCombat()
+        ? Kingmaker.Game.Instance.TurnBasedCombatController.TurnStartTime
+        : Kingmaker.Game.Instance.TimeController.GameTime;
     }
 
     /// <summary>
