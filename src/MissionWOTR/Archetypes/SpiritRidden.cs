@@ -350,7 +350,7 @@ namespace MissionWOTR.Archetypes
       Action<SpiritRiddenForm> configureForm,
       Action<BuffConfigurator> buffExtras = null,
       Func<ActionsBuilder, ActionsBuilder> channelExtras = null,
-      Action<FeatureConfigurator> featureExtras = null)
+      Func<FeatureConfigurator, FeatureConfigurator> featureExtras = null)
     {
       var prof = proficiencies.Reference.Get();
       var icon = prof.Icon;

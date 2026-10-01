@@ -204,7 +204,9 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .AddFacts(new() { ability })
         .AddAbilityResources(
-          resource: AbilityResourceRefs.RagingSongResource, restoreAmount: true)
+          resource: AbilityResourceRefs.RagingSongResource
+            .Cast<BlueprintAbilityResourceReference>(),
+          restoreAmount: true)
         .Configure();
 
       // ----- The archetype. -----
