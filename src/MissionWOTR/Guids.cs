@@ -1127,6 +1127,35 @@ namespace MissionWOTR
     // ----- 0.46.0: Grave Tithe (the Mending Blade's feat) -----
     internal const string MendingBladeGraveTitheFeature = "C18D75DF-637A-4762-998F-38795F5FA374";
 
+    // ----- 0.48.0: the wizard round - Undead Master (port) + the Inkbound (homebrew) -----
+    internal const string UndeadMasterArchetype = "B0C5CE37-A0C8-470C-819A-14643E00BB8F";
+    internal const string UndeadMasterKitFeature = "95930B53-5594-4665-A129-1DE40391989A";
+    internal const string UndeadMasterCommandAbility = "0E171CE6-3986-4F26-8B0C-F2F3129380AE";
+    internal const string UndeadMasterCommandResource = "AA651E19-E245-43F4-B6A5-9B57ACCA5452";
+    internal const string UndeadMasterCommandExtra6 = "59072D45-0028-41DE-BC56-486232AC465A";
+    internal const string UndeadMasterCommandExtra12 = "001CD8DF-476C-4008-98C2-2B33F67DA941";
+    internal const string UndeadMasterCommandExtra18 = "9A9329F7-F9E9-4D28-85DC-75021DED87C6";
+    internal const string UndeadMasterReanimator3 = "6F04B5FE-0150-4E90-AE97-F4F1D038566E";
+    internal const string UndeadMasterReanimator5 = "E440353C-31FF-409A-8204-43343E695351";
+    internal const string UndeadMasterReanimator11 = "510A43F4-DA56-46EE-9BA6-56028897CF88";
+    internal const string InkboundArchetype = "C7D20600-8E86-429F-837F-736C6244A2C8";
+    internal const string InkboundKitFeature = "B658BE86-E4C5-4725-A480-A8E9E4010153";
+    internal const string InkboundInkRider = "CFBF01D7-4D0B-43CE-B4F1-0039D2B338D7";
+    internal const string InkboundBlotBuff = "87A31A0A-2BEC-42C1-BC36-19280A8A63D5";
+    internal const string InkboundBlotIronBuff = "60DF5F8E-B146-4546-BEC8-6D6634800371";
+    internal const string InkboundWordwallBuff = "A8884B14-F437-443C-84EA-1030A8C6022A";
+    internal const string InkboundWordwallIronBuff = "B240F532-C6FA-47E0-B0AE-4695F9F35459";
+    internal const string InkboundBlotAbility = "A2802EE0-A434-46FB-9A97-DD71BB47ACB8";
+    internal const string InkboundWordwallAbility = "C4EFA29A-370E-4DE6-8F75-9CA07F6D62FD";
+    internal const string InkboundRecitationAbility = "85972AB6-D24C-464C-BDA9-0807ADA97A03";
+    internal const string InkboundRecitationFeature = "5B3C063A-9CCB-4A4F-8125-2D538CDB88E1";
+    internal const string InkboundIronGallFeature = "91F7CB93-8BE7-415E-BE59-A9139F6BCA3C";
+    internal const string InkboundVellumFeature = "C5AF952A-ED45-4D1C-896B-EB63E376ACD0";
+    internal const string InkboundLastChapterFeature = "89B617F8-815F-4683-A1BA-EF8E644FC329";
+    internal const string InkboundLastChapterAbility = "C62AA6AF-DA85-43C2-885B-AD5CD0989D88";
+    internal const string InkboundLastChapterResource = "DB0145A9-88D3-4252-8589-491815A8D2D0";
+    internal const string InkboundLastChapterAction = "EF086DA3-62E3-4600-887B-D4CFEA155F5B";
+
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

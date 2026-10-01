@@ -5597,5 +5597,135 @@
     "Key": "MendingBladeGraveTithe.Description",
     "ProcessTemplates": false,
     "enGB": "Your blessed tithe is paid in grave coin: it becomes negative energy. Undead allies are healed by the tithe exactly as before, but living allies are scorched by it instead - though the scorch can never drop them below 1 hit point. For a party of the living this is a poor trade; for a party of the dead, it is perfect. Requires: Blessed Tithe (the Mending Blade archetype). (Homebrew feat.)"
+  },
+  {
+    "Key": "UndeadMaster.Name",
+    "ProcessTemplates": false,
+    "enGB": "Undead Master"
+  },
+  {
+    "Key": "UndeadMaster.Description",
+    "ProcessTemplates": false,
+    "enGB": "Undead masters have great power over undeath. Where other wizards study the dead as a subject, the undead master studies them as a congregation - and expects to be obeyed. He commands the dead with the church's own prayers run backwards, fills his book with the animate line, and at the end of his studies the dead simply accept him as one of their own. Trades the wizard bonus feats at 5th/10th/15th/20th. (Port of the Horror Adventures archetype with documented adaptations.)"
+  },
+  {
+    "Key": "UndeadMasterCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Command the Dead"
+  },
+  {
+    "Key": "UndeadMasterCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The undead master casts the Command Undead spell as a special ability, on its own pool: 3 uses per day, plus one at 6th, 12th, and 18th level. (Adapted port: the tabletop's Command Undead feat, powered by channel energy or school-power uses, does not exist in this game - the real spell stands in for it.)"
+  },
+  {
+    "Key": "UndeadMasterReanimator.Name",
+    "ProcessTemplates": false,
+    "enGB": "Reanimator"
+  },
+  {
+    "Key": "UndeadMasterReanimator.Description",
+    "ProcessTemplates": false,
+    "enGB": "The undead master's studies fill his spellbook with the animate line: lesser animate dead (added at 3rd level), animate dead (5th), and undeath to death (11th) - each the genuine spell, written into the genuine spellbook. (Adapted port: the tabletop also grants repair undead, undead anatomy, create undead, create greater undead, and cursed earth - none exist on this game's spell list - and allows spontaneous casting of the whole list, which the engine does not expose.)"
+  },
+  {
+    "Key": "Inkbound.Name",
+    "ProcessTemplates": false,
+    "enGB": "Inkbound"
+  },
+  {
+    "Key": "Inkbound.Description",
+    "ProcessTemplates": false,
+    "enGB": "He does not memorize spells; the book memorizes him. An Inkbound is a wizard who made a covenant with a living grimoire - it lends him its pages, and every spell he casts leaves ink behind. He begins every fight with a blank book and writes his way to power: the longer the battle, the deeper the well. Trades his arcane bond (the book would be jealous) and the wizard bonus feats at 10th/15th/20th. (MissionWOTR homebrew: Living Ink below.)"
+  },
+  {
+    "Key": "InkboundInk.Name",
+    "ProcessTemplates": false,
+    "enGB": "Living Ink"
+  },
+  {
+    "Key": "InkboundInk.Description",
+    "ProcessTemplates": false,
+    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (cap 10; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. (Homebrew note: ink does not persist through save/load.)"
+  },
+  {
+    "Key": "InkboundBlot.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blot"
+  },
+  {
+    "Key": "InkboundBlot.Description",
+    "ProcessTemplates": false,
+    "enGB": "Cost: 1 ink. A stain across the target's destiny: -2 on attack rolls, saving throws, and AC for 1 round (swift action). With Iron-Gall Ink the stain darkens to -3."
+  },
+  {
+    "Key": "InkboundBlot.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blot"
+  },
+  {
+    "Key": "InkboundBlot.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "A stain across destiny: penalties on attacks, saves, and AC."
+  },
+  {
+    "Key": "InkboundWordwall.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wordwall"
+  },
+  {
+    "Key": "InkboundWordwall.Description",
+    "ProcessTemplates": false,
+    "enGB": "Cost: 2 ink. A wall of script rises before an ally: +4 deflection bonus to AC for 1 round (swift action). With Iron-Gall Ink the wall thickens to +6."
+  },
+  {
+    "Key": "InkboundWordwall.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Wordwall"
+  },
+  {
+    "Key": "InkboundWordwall.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "A wall of script: a deflection bonus to AC."
+  },
+  {
+    "Key": "InkboundRecitation.Name",
+    "ProcessTemplates": false,
+    "enGB": "Recitation"
+  },
+  {
+    "Key": "InkboundRecitation.Description",
+    "ProcessTemplates": false,
+    "enGB": "Cost: 3 ink. The book screams a stolen syllable at one enemy, dealing sonic damage equal to 5 plus the Inkbound's wizard level (standard action)."
+  },
+  {
+    "Key": "InkboundIronGall.Name",
+    "ProcessTemplates": false,
+    "enGB": "Iron-Gall Ink"
+  },
+  {
+    "Key": "InkboundIronGall.Description",
+    "ProcessTemplates": false,
+    "enGB": "The ink darkens with use: Blot's penalties worsen to -3, and Wordwall's wall thickens to +6."
+  },
+  {
+    "Key": "InkboundVellum.Name",
+    "ProcessTemplates": false,
+    "enGB": "Vellum Skin"
+  },
+  {
+    "Key": "InkboundVellum.Description",
+    "ProcessTemplates": false,
+    "enGB": "The book writes ON him: the Inkbound gains a +2 natural armor bonus to AC, always."
+  },
+  {
+    "Key": "InkboundLastChapter.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Last Chapter"
+  },
+  {
+    "Key": "InkboundLastChapter.Description",
+    "ProcessTemplates": false,
+    "enGB": "Once per day, as a swift action, the book finishes itself: the ink floods back to full."
   }
 ]

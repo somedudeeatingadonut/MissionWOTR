@@ -110,6 +110,8 @@ namespace MissionWOTR.Feats
       Configure(nameof(Overchanneler), Overchanneler.Configure);
       Configure(nameof(SacredFist), SacredFist.Configure);
       Configure(nameof(MendingBlade), MendingBlade.Configure);
+      Configure(nameof(UndeadMaster), UndeadMaster.Configure);
+      Configure(nameof(Inkbound), Inkbound.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -151,6 +153,7 @@ namespace MissionWOTR.Feats
         var slayer = CharacterClassRefs.SlayerClass.Reference.Get();
         var sorcerer = CharacterClassRefs.SorcererClass.Reference.Get();
         var warpriest = CharacterClassRefs.WarpriestClass.Reference.Get();
+        var wizard = CharacterClassRefs.WizardClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -206,6 +209,8 @@ namespace MissionWOTR.Feats
       ("Overchanneler", Guids.OverchannelerArchetype, sorcerer),
       ("SacredFist", Guids.SacredFistArchetype, warpriest),
       ("MendingBlade", Guids.MendingBladeArchetype, warpriest),
+      ("UndeadMaster", Guids.UndeadMasterArchetype, wizard),
+      ("Inkbound", Guids.InkboundArchetype, wizard),
     };
         foreach (var entry in entries)
         {

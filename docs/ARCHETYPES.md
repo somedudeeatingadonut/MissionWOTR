@@ -794,6 +794,44 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.48.0 — the wizard round: Undead Master (port) + the Inkbound (homebrew)
+
+- **The user handed me the wheel** for the second-to-last class: "for
+  both tabletop and homebrew, make it something unique for the
+  homebrew."
+- **Trap-check (by archetype NAME, the post-0.44.0 rule):** the vanilla
+  wizard ships EIGHT archetypes — Arcane Bomber, Scroll Savant,
+  Thassilonian Specialist, Exploiter Wizard, Elemental Specialist,
+  Spell Master, Cruoromancer, Shadowcaster. The first candidate I
+  researched (Arcane Bomber) was caught by the name-search before a
+  line was written — the corrected methodology doing its job.
+- **The port — Undead Master (Horror Adventures pg. 75):** chosen
+  because this user builds for undead parties (the Grave Tithe feat
+  exists for exactly that reason). Command the Dead (1st) casts the
+  REAL Command Undead spell on its own pool (3/day, +1 at 6/12/18) —
+  the tabletop's feat, powered by channels, doesn't exist here.
+  Reanimator writes the REAL spells into the REAL spellbook via the
+  engine's own AddKnownSpell: lesser animate dead at 3rd, animate dead
+  at 5th, undeath to death at 11th (the rest of the tabletop list
+  isn't on this game's spell list — documented cut; the spontaneous-
+  casting clause has no exposed hook — documented cut). Lich-Loved
+  (20th) grants the game's own BloodlineUndeadOneOfUs feature
+  verbatim. Trades the wizard bonus feats at 5/10/15/20 (scribe
+  scroll, the tabletop's other trade, doesn't exist in WOTR).
+- **The homebrew — the Inkbound:** every caster resource in this game
+  starts full or refills at rest. The Inkbound's starts EMPTY and is
+  earned by the one thing wizards do every round: **each spell cast in
+  combat leaves one measure of ink (cap 10)**. Quillwork spends it:
+  Blot (1 ink, swift, -2 attacks/saves/AC), Wordwall (2 ink, swift,
+  +4 deflection AC), Recitation (5th, 3 ink, sonic 5 + level),
+  Iron-Gall (8th, darkens Blot to -3 / Wordwall to +6), Vellum Skin
+  (16th, +2 natural armor), The Last Chapter (20th, 1/day: the ink
+  floods back to full). Trades the arcane bond (the book would be
+  jealous) and bonus feats at 10/15/20. The ink meter is a static
+  per-wizard well — fight-scoped, resets on save/load (the book starts
+  each session blank; documented as flavor), because the engine's
+  resource API has no verified gain call.
+
 ## 0.47.0 — Mending Blade rebalance (turn-based-safe)
 
 - **The user's numbers:** "level 8 change the healing to 10%, and 16
@@ -3404,6 +3442,16 @@ Champion, Mantis Zealot, Proclaimer, and Shieldbearer. MissionWOTR:
 | --- | --- | --- |
 | Sacred Fist | Advanced Class Guide pg. 130 | The unarmored warpriest-monk: the monk's own AC bonus (Wis to AC), flurry of blows, and unarmed scaling, granted verbatim; trades proficiencies, focus weapon, ALL sacred weapon, and the 3rd/6th/12th/18th bonus feats. |
 | Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies (30 ft, growing to 45/60 ft) for 5% of the damage dealt — 10% at 8th, first hit each round 15% at 16th (first two at 20th); trades the entire channel-energy line. The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. | The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. |
+
+## Wizard archetypes
+
+The vanilla wizard ships EIGHT archetypes: Arcane Bomber, Scroll Savant, Thassilonian Specialist, Exploiter
+Wizard, Elemental Specialist, Spell Master, Cruoromancer, and Shadowcaster. MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Undead Master | Horror Adventures pg. 75 | The congregation of the dead: casts the real Command Undead spell on its own pool, writes the real animate-line spells into the real spellbook, and at 20th the dead accept him (the game's own One Of Us). Trades the 5/10/15/20 bonus feats. |
+| Inkbound | MissionWOTR homebrew | The living grimoire: every spell cast in combat leaves ink (cap 10, starts empty); quillwork spends it on Blot/Wordwall/Recitation, deepening with Iron-Gall, armored in Vellum Skin, refilled once a day by The Last Chapter. Trades the arcane bond + 10/15/20 bonus feats. |
 
 
 The warpriest class ships in the current game build with NO archetypes.
