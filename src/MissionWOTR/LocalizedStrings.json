@@ -5736,7 +5736,7 @@
   {
     "Key": "UndeadMasterCorpseBond.Description",
     "ProcessTemplates": false,
-    "enGB": "The undead master forges his bond with the dead itself: he animates a corpse companion from the lich's own legion and commands it in battle. Choose one - a shield-bearing tank, a two-handed brute, an archer, or a dual wielder. The corpse is player-controlled and grows in power as he does. This replaces his arcane bond (he cannot gain a familiar). (Adapted port: the tabletop's corpse companion, realized with the lich mythic path's own undead pets.)"
+    "enGB": "The undead master forges his bond with the dead itself: he animates a corpse companion from the lich's own legion and commands it in battle. Choose one - a shield-bearing tank, a two-handed brute, an archer, or a dual wielder. The corpse is player-controlled and grows in power as he does, occupying the standard companion slot - which means an undead master who takes the Lich mythic path commands BOTH his corpse bond and the lich path's own skeletal champion. This replaces his arcane bond (he cannot gain a familiar). (Adapted port: the tabletop's corpse companion, realized with the lich mythic path's own undead pets.)"
   },
   {
     "Key": "UndeadMasterCorpseTank.Name",
@@ -5857,5 +5857,105 @@
     "Key": "ElementalistForm.Description",
     "ProcessTemplates": false,
     "enGB": "At 4th level, the elementalist shifter can assume the form of a Medium elemental of any element she has chosen, as elemental body I, at will (standard action). This replaces wild shape."
+  },
+  {
+    "Key": "ElementalistOmnielementalist.Name",
+    "ProcessTemplates": false,
+    "enGB": "Omnielementalist"
+  },
+  {
+    "Key": "ElementalistOmnielementalist.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 9th level the elementalist shifter can fuse two of her elemental aspects, manifesting their combined power as a natural phenomenon. She learns one fusion of her choosing (a second at 15th level); each requires its two aspects, and entering one is a swift action lasting 1 minute, usable at will. (Adapted port of the tabletop ability, which fuses minor forms passively.)"
+  },
+  {
+    "Key": "ElementalistFusionAshStorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Ash Storm"
+  },
+  {
+    "Key": "ElementalistFusionAshStorm.Description",
+    "ProcessTemplates": false,
+    "enGB": "Air and fire swirl into a storm of ash around her: ranged attacks against her suffer a 20% miss chance. (Air + Fire.) Entering the fusion is a swift action and it lasts 1 minute."
+  },
+  {
+    "Key": "ElementalistFusionDownpour.Name",
+    "ProcessTemplates": false,
+    "enGB": "Downpour"
+  },
+  {
+    "Key": "ElementalistFusionDownpour.Description",
+    "ProcessTemplates": false,
+    "enGB": "Air and water combine into torrential rain: she is soaked and fireproof, gaining fire resistance 10. (Adapted from the tabletop's fire-extinguishing rain. Air + Water.) Entering the fusion is a swift action and it lasts 1 minute."
+  },
+  {
+    "Key": "ElementalistFusionMudslide.Name",
+    "ProcessTemplates": false,
+    "enGB": "Mudslide"
+  },
+  {
+    "Key": "ElementalistFusionMudslide.Description",
+    "ProcessTemplates": false,
+    "enGB": "Earth and water churn into a moving aura of mud: she gains a +4 bonus to her combat maneuver defense. (Adapted from the tabletop's difficult-terrain aura. Earth + Water.) Entering the fusion is a swift action and it lasts 1 minute."
+  },
+  {
+    "Key": "ElementalistFusionSandstorm.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sandstorm"
+  },
+  {
+    "Key": "ElementalistFusionSandstorm.Description",
+    "ProcessTemplates": false,
+    "enGB": "Air and earth combine into a howling sandstorm: each round, enemies within 20 feet of her take 1d6 points of damage. (The tabletop's nonlethal damage and light-dimming are simplified. Air + Earth.) Entering the fusion is a swift action and it lasts 1 minute."
+  },
+  {
+    "Key": "ElementalistFusionSteamCloud.Name",
+    "ProcessTemplates": false,
+    "enGB": "Steam Cloud"
+  },
+  {
+    "Key": "ElementalistFusionSteamCloud.Description",
+    "ProcessTemplates": false,
+    "enGB": "Fire and water explode into a cloud of steam: she gains 20% concealment against all attacks. (Adapted from the tabletop's obscuring-mist cloud. Fire + Water.) Entering the fusion is a swift action and it lasts 1 minute."
+  },
+  {
+    "Key": "ElementalistFusionVolcanicStride.Name",
+    "ProcessTemplates": false,
+    "enGB": "Volcanic Stride"
+  },
+  {
+    "Key": "ElementalistFusionVolcanicStride.Description",
+    "ProcessTemplates": false,
+    "enGB": "Earth and fire fuse beneath her feet: her melee attacks deal an additional 1d6 points of fire damage. (Adapted from the tabletop's burning-ground terrain. Earth + Fire.) Entering the fusion is a swift action and it lasts 1 minute."
+  },
+  {
+    "Key": "Beastbound.Name",
+    "ProcessTemplates": false,
+    "enGB": "Beastbound"
+  },
+  {
+    "Key": "Beastbound.Description",
+    "ProcessTemplates": false,
+    "enGB": "The wild never lived in her. She is the still point at the center of the storm - the watcher, the keeper, the one who remembers the shapes. Her beast carries every aspect she would have taken and becomes the storm in her stead: a real animal companion of the game's own menagerie, player-controlled, wearing the real shifter aspects she links to it. Trades her own aspects, her claws, and her chimeric aspects; keeps defensive instinct and the wild skills. (MissionWOTR homebrew: Bond of the Wild and Aspect Link below.)"
+  },
+  {
+    "Key": "BeastboundAspectLink.Name",
+    "ProcessTemplates": false,
+    "enGB": "Aspect Link"
+  },
+  {
+    "Key": "BeastboundAspectLink.Description",
+    "ProcessTemplates": false,
+    "enGB": "Choose a linked aspect for her companion: the real shifter aspect is granted to the beast itself - its minor form is always on, and its major form appears on the companion's own ability bar, ready for the beast to shift into. She gains another link at 5th, 9th, 13th, and 17th level."
+  },
+  {
+    "Key": "BeastboundLink.Name",
+    "ProcessTemplates": false,
+    "enGB": "Linked Aspect"
+  },
+  {
+    "Key": "BeastboundLink.Description",
+    "ProcessTemplates": false,
+    "enGB": "Link this aspect to her companion: the beast receives the real shifter aspect - the minor-form passive always on, the major form on its own ability bar. The shifter does not shift; the beast does."
   }
 ]

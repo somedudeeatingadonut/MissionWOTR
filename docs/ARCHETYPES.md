@@ -794,6 +794,53 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.50.0 — Corpse Bond lich coexistence; Omnielementalist IMPLEMENTED; the Beastbound (homebrew)
+
+- **Corpse Bond × Lich path (the user's request):** "make sure that
+  the skeletal pet works with the lich pet — it'd be the most thematic
+  path." The engine's pet TYPE is the slot key, and the corpse was
+  using the lich's own slot — an Undead Master → Lich would have had
+  his corpse and the lich's skeletal champion fight over one slot. The
+  corpse now occupies the standard ANIMAL COMPANION slot (the druid's
+  chassis, which is also what the tabletop corpse companion is), which
+  leaves the lich slot free: **a Lich Undead Master commands both his
+  corpse bond AND the lich path's own skeletal champion.**
+- **Omnielementalist — implemented, not cut (the user's challenge):
+  "if you cut it for a potential homebrew, is it not possible for you
+  to actually implement it for the archetype it's meant for?" Fair —
+  done.** At 9th (a second pick at 15th) the Elementalist learns one of
+  six fusions, each requiring its two aspects, entered as a swift
+  action for 1 minute, at will:
+  - **Ash Storm (Air+Fire):** 20% miss chance against RANGED attacks —
+    faithful, via the engine's own ranged-only concealment filter
+    (probe v10).
+  - **Downpour (Air+Water):** fire resistance 10 (adapted from the
+    rain-extinguish aura).
+  - **Mudslide (Earth+Water):** +4 CMD (adapted from the
+    difficult-terrain aura).
+  - **Sandstorm (Air+Earth):** each round, enemies within 20 ft take
+    1d6 (ITickEachRound sweep — the DarkCodex idiom; nonlethal and
+    light-dimming simplified).
+  - **Steam Cloud (Fire+Water):** 20% concealment (adapted from the
+    obscuring-mist cloud).
+  - **Volcanic Stride (Earth+Fire):** melee attacks +1d6 fire (adapted
+    from the burning-ground terrain).
+- **The Beastbound (the user's homebrew concept, verbatim: "the
+  shifter themselves arent the ones shifting, but they have an animal
+  companion that does"):** the wild never lived in her — it lives in
+  her beast. **Bond of the Wild (1st)** grants a real animal companion
+  (the game's own menagerie selection, engine AddPet internals,
+  player-controlled, rank re-granted every level — the druid idiom).
+  **Aspect Link (1st/5th/9th/13th/17th)** grants the REAL shifter
+  aspects to the companion via the engine's own AddFactsToPet — twelve
+  animals (Bear, Boar, Dinosaur, Elephant, Griffon, Horse, Lizard,
+  Manticore, Spider, Tiger, Wolf, Wolverine): minor form always on the
+  beast, major form on the beast's own ability bar. Trades: her
+  aspects, her claws, the chimeric line. Keeps: defensive instinct,
+  wild empathy, track, woodland stride.
+- Probe v10 (Concealment/WeaponRangeType/ITickEachRound) needed a
+  retrigger after its results push lost a race with the code push.
+
 ## 0.49.0 — Corpse Bond (the lich's own pets) + the Elementalist Shifter (the final class port)
 
 - **The user's catch:** "there is undead pets that the lich mythic path
@@ -3506,6 +3553,7 @@ Fiendflesh Shifter, Griffonheart, Rageshaper, and Wild Effigy. MissionWOTR:
 
 | Archetype | Source | Concept |
 | --- | --- | --- |
-| Elementalist Shifter | Ultimate Wilderness pg. 78 | Power from the Inner Sphere, not bestial aspects: a chosen element's passive minor form, a swift Elemental Strike charging melee with +1d6/4 levels of energy, and at 4th the REAL elemental body I spells at will; gains more aspects at 5/10/15. Trades the aspect line, claws, and chimeric aspects. |
+| Elementalist Shifter | Ultimate Wilderness pg. 78 | Power from the Inner Sphere, not bestial aspects: a chosen element's passive minor form, a swift Elemental Strike charging melee with +1d6/4 levels of energy, and at 4th the REAL elemental body I spells at will; gains more aspects at 5/10/15 and fusions at 9/15 (Omnielementalist: Ash Storm, Downpour, Mudslide, Sandstorm, Steam Cloud, Volcanic Stride). Trades the aspect line, claws, and chimeric aspects. |
  marks a foe (+Cha to attacks, +level damage vs opposed-aligned), a daily align-weapon miracle (holy/unholy/axiomatic/anarchic). Trades the 3rd bonus feat and ALL channel energy. |
 
+| Beastbound | MissionWOTR homebrew | The still point and the storm: a real animal companion (the game's own menagerie, player-controlled) carries HER shifting — the real shifter aspects linked to the beast via AddFactsToPet (minor form always on, major form on the pet's own bar); links at 1/5/9/13/17. Trades her aspects, claws, and chimeric line; keeps defensive instinct and the wild skills. |

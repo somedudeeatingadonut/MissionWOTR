@@ -11,6 +11,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Controllers.Units;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
@@ -227,8 +228,10 @@ namespace MissionWOTR.Archetypes
           .AddToAddFeatures(LevelPlan.L(1), selection)
           .AddToAddFeatures(LevelPlan.L(4), form)
           .AddToAddFeatures(LevelPlan.L(5), selection)
+          .AddToAddFeatures(LevelPlan.L(9), omnielementalist)
           .AddToAddFeatures(LevelPlan.L(10), selection)
-          .AddToAddFeatures(LevelPlan.L(15), selection);
+          .AddToAddFeatures(LevelPlan.L(15), selection)
+          .AddToAddFeatures(LevelPlan.L(15), omnielementalist);
       // The trades: the aspect selection (every grant - the animal
       // aspects and their major forms go with it), the claws line,
       // chimeric aspect, and greater chimeric aspect.
@@ -320,6 +323,108 @@ namespace MissionWOTR.Archetypes
       catch (Exception e)
       {
         MissionFeats.Logger.Error("[elementalist] strike rider failed.", e);
+      }
+    }
+  }
+}
+
+  /// <summary>
+  /// Enters an elemental fusion: applies its buff for 1 minute (the
+  /// tabletop's "while she maintains the forms" becomes an at-will
+  /// swift-action stance).
+  /// </summary>
+  [TypeId(Guids.ElementalistFusionAction)]
+  internal class ElementalistFusionAction : ContextAction
+  {
+    public BlueprintBuff Buff;
+
+    public override void RunAction()
+    {
+      try
+      {
+        var caster = Context?.MaybeCaster;
+        if (caster is null)
+        {
+          return;
+        }
+        caster.AddBuff(Buff, Context, TimeSpan.FromSeconds(60));
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[elementalist] fusion failed.", e);
+      }
+    }
+
+    public override string GetCaption() => "Elemental Fusion";
+  }
+
+  /// <summary>
+  /// Sandstorm's round-tick: each round, enemies within 20 feet of the
+  /// shifter take 1d6 damage (the ITickEachRound interface, the
+  /// DarkCodex BleedBuff idiom; the sweep is the Mending Blade idiom).
+  /// The tabletop's nonlethal/light-dimming is a documented cut.
+  /// </summary>
+  [TypeId(Guids.ElementalistSandstormRider)]
+  internal class ElementalistSandstormRider : UnitBuffComponentDelegate, ITickEachRound
+  {
+    private static readonly float RadiusMeters = new Feet(20).Meters;
+
+    public void OnNewRound()
+    {
+      try
+      {
+        using (var enumerator = Kingmaker.Game.Instance.State.Units.GetEnumerator())
+        {
+          while (enumerator.MoveNext())
+          {
+            var unit = enumerator.Current;
+            if (unit is null || unit.Descriptor.State.IsDead ||
+              unit.IsPlayerFaction ||
+              Owner.DistanceTo(unit) > RadiusMeters)
+            {
+              continue;
+            }
+            var bundle = new DamageBundle();
+            bundle.Add(new DirectDamage(new DiceFormula(1, DiceType.D6), 0));
+            Rulebook.Trigger(new RuleDealDamage(Owner, unit, bundle) { Reason = Fact });
+          }
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[elementalist] sandstorm tick failed.", e);
+      }
+    }
+  }
+
+  /// <summary>
+  /// Volcanic Stride's heat: her melee weapon attacks deal +1d6 fire
+  /// while the fusion lasts (the strike-rider pattern, flat dice).
+  /// </summary>
+  [TypeId(Guids.ElementalistVolcanicRider)]
+  internal class ElementalistVolcanicRider : UnitFactComponentDelegate,
+    IInitiatorRulebookHandler<RulePrepareDamage>, IRulebookHandler<RulePrepareDamage>,
+    IInitiatorRulebookSubscriber, ISubscriber
+  {
+    public void OnEventAboutToTrigger(RulePrepareDamage evt) { }
+
+    public void OnEventDidTrigger(RulePrepareDamage evt)
+    {
+      try
+      {
+        if (evt.Initiator != Owner ||
+          evt.DamageBundle?.Weapon?.Blueprint?.IsMelee != true)
+        {
+          return;
+        }
+        evt.Add(new EnergyDamage(new DiceFormula(1, DiceType.D6), 0, DamageEnergyType.Fire)
+        {
+          SourceFact = Fact,
+        });
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[elementalist] volcanic stride failed.", e);
       }
     }
   }

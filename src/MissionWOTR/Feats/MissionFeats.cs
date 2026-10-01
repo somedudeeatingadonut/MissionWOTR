@@ -113,6 +113,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(UndeadMaster), UndeadMaster.Configure);
       Configure(nameof(Inkbound), Inkbound.Configure);
       Configure(nameof(ElementalistShifter), ElementalistShifter.Configure);
+      Configure(nameof(Beastbound), Beastbound.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -214,6 +215,7 @@ namespace MissionWOTR.Feats
       ("UndeadMaster", Guids.UndeadMasterArchetype, wizard),
       ("Inkbound", Guids.InkboundArchetype, wizard),
       ("ElementalistShifter", Guids.ElementalistShifterArchetype, shifter),
+      ("Beastbound", Guids.BeastboundArchetype, shifter),
     };
         foreach (var entry in entries)
         {

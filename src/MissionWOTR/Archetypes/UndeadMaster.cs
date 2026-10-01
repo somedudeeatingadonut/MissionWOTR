@@ -173,10 +173,16 @@ namespace MissionWOTR.Archetypes
       var corpseOptions = new BlueprintFeature[corpseUnits.Length];
       for (var i = 0; i < corpseUnits.Length; i++)
       {
-        // The lich's own pet units, on the engine's own AddPet: the
-        // lich's PetType (probe v9), animal-companion progression so
-        // the corpse scales with WIZARD levels, ranked by the druid's
-        // own rank feature.
+        // The lich's own pet units, on the engine's own AddPet. The pet
+        // TYPE is the engine's slot key - so the corpse takes the
+        // standard AnimalCompanion slot (like a druid's companion),
+        // deliberately LEAVING THE LICH SLOT FREE: an Undead Master who
+        // takes the Lich mythic path keeps his corpse bond AND gains
+        // the lich path's own skeletal champion (PetType.MythicSkeletal
+        // Champion). Two skeletons, both player-controlled - the most
+        // thematic path, per the user. Progression is animal-companion,
+        // ranked by the druid's own rank feature, so the corpse scales
+        // with WIZARD levels.
         corpseOptions[i] = FeatureConfigurator.New(
             "UndeadMasterCorpse" + corpseNames[i] + "Feature", corpseGuids[i])
           .SetDisplayName("UndeadMasterCorpse" + corpseNames[i] + ".Name")
@@ -185,7 +191,7 @@ namespace MissionWOTR.Archetypes
           .SetIsClassFeature()
           .AddPet(
             pet: corpseUnits[i].Cast<BlueprintUnitReference>(),
-            type: PetType.MythicSkeletalChampion,
+            type: PetType.AnimalCompanion,
             progressionType: PetProgressionType.AnimalCompanion,
             levelRank: FeatureRefs.AnimalCompanionRank.Cast<BlueprintFeatureReference>())
           .Configure();
