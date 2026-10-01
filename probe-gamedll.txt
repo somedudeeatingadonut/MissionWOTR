@@ -295,42 +295,24 @@ umm UnityModManager.dll: True
 umm 0Harmony.dll: True
 === PROBE fingerprint ===
 Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
-RAGE-TYPE: Kingmaker.Visual.Lightmapping.LightmapStorage vis=public base=UnityEngine.MonoBehaviour
-  FIELD: ShadowmaskDisabled [protorint]
-  FIELD: LightmapSettingsChanged [private]
-  FIELD: <Current>k__BackingField [private]
-  FIELD: Instances [protorint]
-  FIELD: m_Chunks [private]
-  FIELD: m_Lightmaps [private]
-  FIELD: m_BakedLightProbes [private]
-  FIELD: m_LightProbes [private]
-  FIELD: m_RendererData [private]
-RAGE-TYPE: Kingmaker.ResourceManagement.IResourceStorage`1 vis=public base=(nil)
-RAGE-TYPE: Kingmaker.ResourceManagement.ResourceStorage`1 vis=public base=System.Object
-  FIELD: m_CreateFunc [private]
-  FIELD: m_Requests [private]
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.Rest.RestCasterLevelItemVM vis=public base=Owlcat.Runtime.UI.SelectionGroup.SelectionGroupEntityVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.Rest.RestCasterLevelVM vis=public base=Owlcat.Runtime.UI.MVVM.VMBase
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemPCView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelPCView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelSelectorPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.Rest.RestCasterLevelItemConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsConsoleView vis=public base=TypeSpecification
 === TYPE Kingmaker.Enums.Damage.PhysicalDamageMaterial vis=public base=System.Enum ===
   FIELD: value__ [protorint]
   FIELD: ColdIron [protorint]
   FIELD: Silver [protorint]
   FIELD: Adamantite [protorint]
-RAGE-TYPE: Kingmaker.EntitySystem.EntityPartKeyValueStorage vis=public base=Kingmaker.EntitySystem.EntityPart
-  FIELD: m_Data [private]
 SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
-RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SaveStorageAccessNewServer vis=public base=System.Object
-  FIELD: s_HttpClient [private]
-  FIELD: s_UploadParams [private]
-RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SavesStorageAccess vis=public base=System.Object
-  FIELD: s_UploadingCount [private]
-  FIELD: s_UploadParams [private]
-  FIELD: UploadDelay [private]
-  FIELD: s_NextUploadTime [private]
-  FIELD: UploadEnabled [private]
-  FIELD: s_HttpClient [private]
-  FIELD: <UploadedLink>k__BackingField [private]
-  FIELD: <UploadedDirectLink>k__BackingField [private]
-  FIELD: ProjectId [protorint]
-  FIELD: ProdPublicUri [protorint]
 === TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
   FIELD: m_Type [private]
   FIELD: LocalizedName [protorint]
@@ -508,6 +490,257 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SavesStorageAccess vi
   METHOD: IsObligatory
   METHOD: IsSelectionProhibited
   METHOD: .ctor
+RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
+  FIELD: IsArcane [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
+  FIELD: IsArcane [protorint]
+  FIELD: OnlySpontaneous [protorint]
+  FIELD: RequiredSpellLevel [protorint]
+=== TYPE Kingmaker.UnitLogic.Feature vis=public base=TypeSpecification ===
+  FIELD: m_Context [private]
+  FIELD: m_Source [private]
+  FIELD: m_RankToSource [private]
+  FIELD: <Rank>k__BackingField [private]
+  FIELD: <IsTemporary>k__BackingField [private]
+  FIELD: <SourceLevel>k__BackingField [private]
+  FIELD: <IgnorePrerequisites>k__BackingField [private]
+  FIELD: <DisabledBecauseOfPrerequisites>k__BackingField [private]
+  FIELD: <Param>k__BackingField [private]
+  PROP: Rank
+  PROP: IsTemporary
+  PROP: SourceLevel
+  PROP: IgnorePrerequisites
+  PROP: DisabledBecauseOfPrerequisites
+  PROP: ParamConverter
+  PROP: Param
+  PROP: Context
+  PROP: Source
+  PROP: SourceProgression
+  PROP: SourceRace
+  PROP: SourceClass
+  PROP: IsEnabled
+  PROP: MythicSource
+  PROP: Hidden
+  PROP: IsMythic
+  PROP: Name
+  PROP: RankToSource
+  METHOD: get_Rank
+  METHOD: set_Rank
+  METHOD: get_IsTemporary
+  METHOD: set_IsTemporary
+  METHOD: get_SourceLevel
+  METHOD: set_SourceLevel
+  METHOD: get_IgnorePrerequisites
+  METHOD: set_IgnorePrerequisites
+  METHOD: get_DisabledBecauseOfPrerequisites
+  METHOD: set_DisabledBecauseOfPrerequisites
+  METHOD: get_ParamConverter
+  METHOD: set_ParamConverter
+  METHOD: get_Param
+  METHOD: set_Param
+  METHOD: get_Context
+  METHOD: get_Source
+  METHOD: get_SourceProgression
+  METHOD: get_SourceRace
+  METHOD: get_SourceClass
+  METHOD: get_IsEnabled
+  METHOD: get_MythicSource
+  METHOD: get_Hidden
+  METHOD: get_IsMythic
+  METHOD: get_Name
+  METHOD: get_RankToSource
+  METHOD: .ctor
+  METHOD: .ctor
+  METHOD: GetRank
+  METHOD: SetRank
+  METHOD: AddRank
+  METHOD: RemoveRank
+  METHOD: OnActivate
+  METHOD: OnDispose
+  METHOD: Kingmaker.UnitLogic.Mechanics.Components.IFactContextOwner.RunActionInContext
+  METHOD: GetSourceClass
+  METHOD: SetSource
+  METHOD: SetSameSource
+  METHOD: SetSourceSameAsLastRankToSourceValue
+  METHOD: HasSource
+  METHOD: <AddRank>b__59_0
+  METHOD: <RemoveRank>b__60_0
+=== TYPE Kingmaker.UnitLogic.FeatureSelectionData vis=public base=System.Object ===
+  FIELD: Empty [protorint]
+  FIELD: m_SelectionsByLevel [private]
+  FIELD: Source [protorint]
+  PROP: SelectionsByLevel
+  PROP: MythicSource
+  PROP: IsMythic
+  PROP: IsEmpty
+  METHOD: get_SelectionsByLevel
+  METHOD: get_MythicSource
+  METHOD: get_IsMythic
+  METHOD: get_IsEmpty
+  METHOD: .ctor
+  METHOD: .ctor
+  METHOD: GetSelections
+  METHOD: AddSelection
+  METHOD: RemoveSelection
+  METHOD: RemoveLevel
+  METHOD: .cctor
+=== TYPE Kingmaker.UnitLogic.UnitProgressionData vis=public base=System.Object ===
+  FIELD: m_Race [private]
+  FIELD: m_ClassesOrder [private]
+  FIELD: Classes [protorint]
+  FIELD: m_Progressions [private]
+  FIELD: m_Selections [private]
+  FIELD: ClassSkills [protorint]
+  FIELD: m_LevelPlans [private]
+  FIELD: m_MythicLevelPlans [private]
+  FIELD: m_MythicLevelPlanDisabled [private]
+  FIELD: m_PlanSkills [private]
+  FIELD: m_AdditionalVisualSettingsDisabled [private]
+  FIELD: <Experience>k__BackingField [private]
+  FIELD: <MythicExperience>k__BackingField [private]
+  FIELD: <ObligatoryMythicClassesQueue>k__BackingField [private]
+  FIELD: m_CharacterLevel [private]
+  FIELD: m_MythicLevel [private]
+  FIELD: LevelUpPlanProviders [protorint]
+  FIELD: <Owner>k__BackingField [private]
+  FIELD: <Features>k__BackingField [private]
+  FIELD: <CurrentScalePercent>k__BackingField [private]
+  FIELD: <AdditionalVisualSettings>k__BackingField [private]
+  FIELD: m_PlansForRestore [private]
+  PROP: LastMythicClass
+  PROP: Experience
+  PROP: MythicExperience
+  PROP: ObligatoryMythicClassesQueue
+  PROP: Owner
+  PROP: Features
+  PROP: CurrentScalePercent
+  PROP: AdditionalVisualSettings
+  PROP: CharacterLevel
+  PROP: MythicLevel
+  PROP: Race
+  PROP: VisibleRace
+  PROP: CanLevelUpNormal
+  PROP: CanLevelUpNormalOnNext
+  PROP: CanLevelUpMythic
+  PROP: CanLevelUpMythicOnNext
+  PROP: MaxAvailableCharacterLevel
+  PROP: MaxAvailableMythicLevel
+  PROP: MaxCharacterLevel
+  PROP: ExperienceTable
+  PROP: Selections
+  PROP: ClassesOrder
+  PROP: NextObligatoryMythicClass
+  PROP: GetAllProgressions
+  METHOD: get_LastMythicClass
+  METHOD: get_Experience
+  METHOD: set_Experience
+  METHOD: get_MythicExperience
+  METHOD: set_MythicExperience
+  METHOD: get_ObligatoryMythicClassesQueue
+  METHOD: set_ObligatoryMythicClassesQueue
+  METHOD: get_Owner
+  METHOD: set_Owner
+  METHOD: get_Features
+  METHOD: set_Features
+  METHOD: get_CurrentScalePercent
+  METHOD: set_CurrentScalePercent
+  METHOD: get_AdditionalVisualSettings
+  METHOD: set_AdditionalVisualSettings
+  METHOD: get_CharacterLevel
+  METHOD: set_CharacterLevel
+  METHOD: get_MythicLevel
+  METHOD: set_MythicLevel
+  METHOD: get_Race
+  METHOD: get_VisibleRace
+  METHOD: get_CanLevelUpNormal
+  METHOD: get_CanLevelUpNormalOnNext
+  METHOD: get_CanLevelUpMythic
+  METHOD: get_CanLevelUpMythicOnNext
+  METHOD: get_MaxAvailableCharacterLevel
+  METHOD: get_MaxAvailableMythicLevel
+  METHOD: get_MaxCharacterLevel
+  METHOD: get_ExperienceTable
+  METHOD: get_Selections
+  METHOD: get_ClassesOrder
+  METHOD: get_NextObligatoryMythicClass
+  METHOD: .ctor
+  METHOD: .ctor
+  METHOD: SetupLevelsIfNecessary
+  METHOD: GetCurrentMythicClass
+  METHOD: HasMythic
+  METHOD: UpdateScalePercent
+  METHOD: ResetScalePercent
+  METHOD: GetClassLevel
+  METHOD: GetClassData
+  METHOD: AddClassLevel
+  METHOD: RecalculateHP
+  METHOD: AddFakeLevel
+  METHOD: CanAddArchetype
+  METHOD: AddArchetype
+  METHOD: AddSelection
+  METHOD: GetSelectionsForProgession
+  METHOD: IsAlreadyApplyInProgression
+  METHOD: GetSelections
+  METHOD: GetSelectionData
+  METHOD: GetSourceSelection
+  METHOD: GetClassProgressions
+  METHOD: PreSave
+  METHOD: PostLoad
+  METHOD: ApplyPostLoadFixes
+  METHOD: Dispose
+  METHOD: ReapplyFeaturesOnLevelUp
+  METHOD: GetMaxClass
+  METHOD: GetMaxSuitableNoMythicClass
+  METHOD: GetSignificantClasses
+  METHOD: GetEquipmentClass
+  METHOD: SetRace
+  METHOD: AddLevelPlan
+  METHOD: SetLevelPlanSkills
+  METHOD: GetNextLevelPlan
+  METHOD: GetLevelPlanSkills
+  METHOD: DropLevelPlans
+  METHOD: RestoreLevelPlans
+  METHOD: ClearRestoreLevelPlans
+  METHOD: SureClassData
+  METHOD: AddFakeClassLevels
+  METHOD: RemoveClassLevels
+  METHOD: SureProgressionData
+  METHOD: GetProgression
+  METHOD: get_GetAllProgressions
+  METHOD: GainExperience
+  METHOD: AdvanceExperienceTo
+  METHOD: GainMythicExperience
+  METHOD: AdvanceMythicExperience
+  METHOD: ReplaceFeature
+  METHOD: IsArchetype
+  METHOD: TryRestoreClassFeatures
+  METHOD: TryRestoreSelectedFeatures
+  METHOD: ShouldRestoreFeature
+  METHOD: CopyFrom
+  METHOD: CopyLevelPlanFrom
+  METHOD: CheckStatPrerequisitesAndUpdate
+  METHOD: GetVisualSettingsProvider
+  METHOD: UpdateAdditionalVisualSettings
+  METHOD: SyncWithView
+  METHOD: SetObligatoryMythicClasses
+  METHOD: AddFeatures
+  METHOD: DisableAdditionalVisualSettings
+  METHOD: EnableAdditionalVisualSettings
+  METHOD: RemoveMythicLevel
+  METHOD: ReplaceAllMythicLevelsWithMythicHeroLevels
+  METHOD: GetMythicSelectionsData
+  METHOD: CheatRemoveMythicLevels
+  METHOD: CheatSimplifyMythicLevels
+  METHOD: <GetVisualSettingsProvider>g__IsSecondClassHasGreaterPriority|134_0
+  METHOD: <RemoveMythicLevel>g__DestroyPet|142_0
+  METHOD: <ReplaceAllMythicLevelsWithMythicHeroLevels>g__IsSuitableProgression|143_0
+  METHOD: <GetMythicSelectionsData>g__GetFeatureParam|144_0
+RAGE-TYPE: Kingmaker.UnitLogic.Parts.UnitPartItemCasterLevelBonus vis=public base=Kingmaker.UnitLogic.OldStyleUnitPart
+  FIELD: Entries [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddCasterSpellFailureChance vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Chance [protorint]
+  FIELD: FailFx [protorint]
+  FIELD: Conditions [protorint]
 === TYPE Kingmaker.UnitLogic.FactLogic.AddFacts vis=public base=TypeSpecification ===
   FIELD: m_Facts [private]
   FIELD: Dummy [protorint]
@@ -528,6 +761,15 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SavesStorageAccess vi
   METHOD: SetSourceItem
   METHOD: ApplyValidation
   METHOD: .ctor
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddFactsFromCasterData vis=public base=System.Object
+  FIELD: AppliedFacts [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddFactsFromCaster vis=public base=TypeSpecification
+  FIELD: m_Facts [private]
+  FIELD: FeatureFromSelection [protorint]
+  FIELD: m_Selection [private]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddItemCasterLevelBonus vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Bonus [protorint]
+  FIELD: ItemType [protorint]
 === TYPE Kingmaker.UnitLogic.FactLogic.AddKnownSpell vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate ===
   FIELD: m_CharacterClass [private]
   FIELD: SpellLevel [protorint]
@@ -593,6 +835,8 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SavesStorageAccess vi
   METHOD: OnTurnOn
   METHOD: OnTurnOff
   METHOD: .ctor
+RAGE-TYPE: Kingmaker.UnitLogic.Buffs.Components.RemoveBuffIfCasterIsMissing vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
+  FIELD: RemoveOnCasterDeath [protorint]
 === TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParams vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
   FIELD: UseKineticistMainStat [protorint]
   FIELD: StatType [protorint]
@@ -703,6 +947,76 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SavesStorageAccess vi
   METHOD: <GetBaseValue>g__CheckAndSetMaxValue|75_2
   METHOD: <GetBaseValue>g__MExceptClasses|75_3
   METHOD: <GetBaseValue>g__CheckClassForArchetype|75_4
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.DuplicateDamageToCaster vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionOnContextCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  FIELD: TargetAsCaster [protorint]
+  FIELD: Actions [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionProvokeAttackFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasBuffWithDescriptor vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: SpellDescriptor [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasFact vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_Fact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasTwoWeapons vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponGrip vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_gripStyle [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponInTwoHands vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareCasterHP vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_CompareType [private]
+  FIELD: Value [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_Buff [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsArcaneCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsDivineCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.AbilityShowIfCasterHasFact vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_UnitFact [private]
+  FIELD: Not [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetCanSeeCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Not [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsAreaEffectFromCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Alignment [protorint]
+  FIELD: m_IgnoreFact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasChosenWeapon vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_ChosenWeaponFeature [private]
+  FIELD: m_IgnoreWeaponFact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasFacts vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_Facts [private]
+  FIELD: NeedsAll [protorint]
+  FIELD: m_FactsMissingCache [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasNoFacts vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_Facts [private]
+  FIELD: m_FactsPets [private]
+  FIELD: m_FactsPresentedCache [private]
+  FIELD: m_MountFactsPresentedCache [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasWeaponWithRangeType vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: RangeType [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterInCombat vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Not [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterIsOnFavoredTerrain vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_IgnoreFeature [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponCheck vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Category [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponIsMelee vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponIsTwoHanded vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterNotPolymorphed vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.Base.IAbilityCasterRestriction vis=public base=(nil)
+RAGE-TYPE: Kingmaker.Designers.Mechanics.EquipmentEnchants.AddCasterLevelEquipment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate
+  FIELD: m_Spell [private]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForAbility vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_Spell [private]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForSpellbook vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+  FIELD: m_Spellbooks [private]
 === TYPE Kingmaker.Designers.Mechanics.Facts.BuffExtraEffects vis=public base=TypeSpecification ===
   FIELD: m_UseBaffContext [private]
   FIELD: m_CheckedBuff [private]
@@ -723,11 +1037,51 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SavesStorageAccess vi
   METHOD: CheckHadPrerequiredBuff
   METHOD: HandleBuffDidRemoved
   METHOD: .ctor
-RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.ArmagsBladeEnrageData vis=public base=System.Object
-  FIELD: AppliedCondition [protorint]
-  FIELD: DC [protorint]
-RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.ArmagsBladeEnrage vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.DispelCasterLevelCheckBonus vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Value [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Value [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseCastersSavingThrowTypeDC vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Type [protorint]
+  FIELD: BonusDC [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseSpellDescriptorCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Descriptor [protorint]
+  FIELD: BonusCasterLevel [protorint]
+  FIELD: ModifierDescriptor [protorint]
+  FIELD: SpellsOnly [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseSpellSchoolCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: School [protorint]
+  FIELD: BonusLevel [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.MobCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfAbility vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_Spell [private]
+  FIELD: m_Class [private]
+  FIELD: m_AdditionalClasses [private]
+  FIELD: m_Archetypes [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfFeature vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_Feature [private]
+  FIELD: m_Class [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ShieldedCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_ShieldedCasterFact [private]
+  FIELD: Radius [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.TargetCritAutoconfirmFromCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.ACBonusAgainstCaster vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
+  FIELD: Value [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.AttackBonusAgainstCaster vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
+  FIELD: Value [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsEqualCasterLevelData vis=public base=System.Object
+  FIELD: Modifier [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsEqualCasterLevel vis=public base=TypeSpecification
+  FIELD: Descriptor [protorint]
 SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Evaluators.CasterUnit vis=public base=Kingmaker.ElementsSystem.UnitEvaluator
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.ContextData.CasterUnitData vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCaster vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
 AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
   FIELD: AdditionalBehaviour [protorint]
@@ -856,13 +1210,46 @@ AI-TYPE: BlueprintBrain vis=public(1) base=Kingmaker.Blueprints.BlueprintScripta
   METHOD: .ctor
 AI-TYPE: CustomAiConsiderationsRoot vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 AI-TYPE: DeadTargetType vis=public(1) base=System.Enum
-RAGE-TYPE: .TemporaryStorage vis=nested-private base=System.Object
-  FIELD: m_Size [private]
-  FIELD: m_ListIndex [private]
-  FIELD: m_Lists [private]
-RAGE-TYPE: .WeaponCoverage vis=nested-public base=System.Enum
+RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.BuffNotFromCasterConsideration vis=public base=Kingmaker.AI.Blueprints.Considerations.Consideration
+  FIELD: m_Buffs [private]
+  FIELD: HasBuffNotFromCasterScore [protorint]
+  FIELD: ElseScore [protorint]
+RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.CasterClassConsideration vis=public base=Kingmaker.AI.Blueprints.Considerations.Consideration
+  FIELD: NotCasterScore [protorint]
+  FIELD: ArcaneCasterScore [protorint]
+  FIELD: DivineCasterScore [protorint]
+RAGE-TYPE: .CasterPosition vis=nested-family base=System.ValueType
+  FIELD: Position [protorint]
+  FIELD: Corpulence [protorint]
+RAGE-TYPE: .IContextCaster vis=nested-public base=(nil)
+RAGE-TYPE: .IOptionalContextCaster vis=nested-public base=(nil)
+RAGE-TYPE: .CasterInspectionInfo vis=nested-private base=System.ValueType
+  FIELD: Caster [protorint]
+  FIELD: CheckPassed [protorint]
+RAGE-TYPE: .CasterLevelBonusEntry vis=nested-public base=System.Object
+  FIELD: Bonus [protorint]
+  FIELD: Source [protorint]
+  FIELD: ItemType [protorint]
+=== TYPE .Feature vis=nested-public base=System.Object ===
+  FIELD: <Unlocked>k__BackingField [private]
+  FIELD: m_Active [private]
+  PROP: Unlocked
+  PROP: Active
+  METHOD: get_Unlocked
+  METHOD: set_Unlocked
+  METHOD: get_Active
+  METHOD: set_Active
+  METHOD: Unlock
+  METHOD: Lock
+  METHOD: .ctor
+=== TYPE .Feature vis=nested-private base=System.Enum ===
   FIELD: value__ [protorint]
-  FIELD: All [protorint]
-  FIELD: Melee [protorint]
-  FIELD: Ranged [protorint]
+  FIELD: ArcherBlast [protorint]
+=== TYPE .Feature vis=nested-private base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: SpellCombat [protorint]
+  FIELD: Spellstrike [protorint]
+  FIELD: WandWielder [protorint]
+  FIELD: Counterstrike [protorint]
+  FIELD: EldritchArcher [protorint]
 === PROBE done ===
