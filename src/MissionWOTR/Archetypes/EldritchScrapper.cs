@@ -1,6 +1,8 @@
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.References;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using MissionWOTR.Feats;
 
 namespace MissionWOTR.Archetypes
@@ -47,11 +49,16 @@ namespace MissionWOTR.Archetypes
           // The adapted trade: the vanilla crossblooded spellbook - one
           // fewer spell known per level, the game's own price for
           // bloodline-strength trades.
-          .SetReplaceSpellbook(SpellbookRefs.CrossbloodedSpellbook)
-          .AddToAddFeatures(LevelPlan.L(1), FeatureRefs.MartialWeaponProficiency)
-          .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection)
-          .AddToAddFeatures(LevelPlan.L(9), FeatureSelectionRefs.FighterFeatSelection)
-          .AddToAddFeatures(LevelPlan.L(15), FeatureSelectionRefs.FighterFeatSelection);
+          .SetReplaceSpellbook(
+            SpellbookRefs.CrossbloodedSpellbook.Cast<BlueprintSpellbookReference>())
+          .AddToAddFeatures(LevelPlan.L(1),
+            FeatureRefs.MartialWeaponProficiency.Cast<BlueprintFeatureBaseReference>())
+          .AddToAddFeatures(LevelPlan.L(1),
+            FeatureSelectionRefs.FighterFeatSelection.Cast<BlueprintFeatureBaseReference>())
+          .AddToAddFeatures(LevelPlan.L(9),
+            FeatureSelectionRefs.FighterFeatSelection.Cast<BlueprintFeatureBaseReference>())
+          .AddToAddFeatures(LevelPlan.L(15),
+            FeatureSelectionRefs.FighterFeatSelection.Cast<BlueprintFeatureBaseReference>());
       archetype.Configure();
       MissionFeats.Logger.Info("[scrapper] configured: " + ArchetypeName + ".");
     }

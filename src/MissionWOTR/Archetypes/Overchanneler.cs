@@ -1,7 +1,7 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
-using BlueprintCore.Blueprints.CustomConfigurators.Classes.Spells;
+using BlueprintCore.Blueprints.Configurators.Classes.Spells;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
@@ -73,7 +73,7 @@ namespace MissionWOTR.Archetypes
     {
       var sorcerer = CharacterClassRefs.SorcererClass.Reference.Get();
       var source = SpellbookRefs.SorcererSpellbook.Reference.Get();
-      var icon = AbilityRefs.WailOfTheBanshee.Reference.Get().Icon;
+      var icon = AbilityRefs.Fireball.Reference.Get().Icon;
 
       // ----- The trade: the taxed spellbook. -----
       var book = CloneSpellbookWithPerDayTax(
