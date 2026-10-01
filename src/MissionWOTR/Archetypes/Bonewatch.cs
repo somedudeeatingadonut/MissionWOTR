@@ -1,6 +1,7 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators;
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
@@ -186,11 +187,11 @@ namespace MissionWOTR.Archetypes
           .ToList();
       var progression = ProgressionConfigurator.New("BonewatchProgression", Guids.BonewatchProgression)
         .SetLevelEntries(
-          new LevelEntry { Level = 1, m_Features = Refs(mantle, commandKit) },
-          new LevelEntry { Level = 2, m_Features = Refs(cadre) },
-          new LevelEntry { Level = 3, m_Features = Refs(commandExtra3) },
-          new LevelEntry { Level = 4, m_Features = Refs(mantleGreater) },
-          new LevelEntry { Level = 5, m_Features = Refs(lastOrder) })
+          new LevelEntry { Level = 1, Features = Refs(mantle, commandKit) },
+          new LevelEntry { Level = 2, Features = Refs(cadre) },
+          new LevelEntry { Level = 3, Features = Refs(commandExtra3) },
+          new LevelEntry { Level = 4, Features = Refs(mantleGreater) },
+          new LevelEntry { Level = 5, Features = Refs(lastOrder) })
         .Configure();
 
       // ----- The class. -----
@@ -214,7 +215,7 @@ namespace MissionWOTR.Archetypes
         })
         .AddComponent(new PrerequisiteFeaturesFromList
         {
-          m_Features = new[]
+          Features = new[]
           {
             FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
             FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),

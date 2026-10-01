@@ -1,6 +1,7 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators;
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
@@ -233,7 +234,7 @@ namespace MissionWOTR.Archetypes
         new LevelEntry
         {
           Level = level,
-          m_Features = features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()).ToList(),
+          Features = features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()).ToList(),
         };
       var progression = ProgressionConfigurator.New("HolyVindicatorProgression", Guids.HolyVindicatorProgression)
         .SetLevelEntries(
@@ -274,7 +275,7 @@ namespace MissionWOTR.Archetypes
         })
         .AddComponent(new PrerequisiteFeaturesFromList
         {
-          m_Features = new[]
+          Features = new[]
           {
             FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
             FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
