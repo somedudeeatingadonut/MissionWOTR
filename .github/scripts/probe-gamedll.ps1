@@ -84,7 +84,7 @@ if (-not (Test-Path $dll)) {
       'PhysicalDamageMaterial', 'BlueprintFeatureSelection',
       'ContextRankConfig', 'SpontaneousSpellConversion', 'AddKnownSpell',
       'ContextCalculateAbilityParams', 'ContextCalculateAbilityParamsBasedOnClass', 'AddFacts',
-      'BuffExtraEffects')
+      'BuffExtraEffects', 'UnitProgressionData', 'FeatureSelectionData', 'Feature')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
@@ -97,7 +97,7 @@ if (-not (Test-Path $dll)) {
       # 0.41.0: every Rage-named type with its fields - hunting the skald
       # rage-power grant component (BuffExtraEffects is known; the
       # ally-side carrier for inspired rage is not).
-      if ($name -match 'Rage' -or $name -eq 'BuffExtraEvents') {
+      if ($name -cmatch 'Rage|Caster' -or $name -eq 'BuffExtraEvents') {
         $v = [int]$td.Attributes -band 7
         Log ("RAGE-TYPE: {0}.{1} vis={2} base={3}" -f $ns, $name, $VIS[$v], (BaseTypeName $md $td))
         if (-not $ns.StartsWith('Kingmaker.UI') -and -not $ns.Contains('Blueprints.References')) {
