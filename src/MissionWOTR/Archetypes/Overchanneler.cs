@@ -11,6 +11,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
