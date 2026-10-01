@@ -88,22 +88,6 @@ namespace MissionWOTR.Archetypes
   {
     internal const string ClassName = "HolyVindicator";
 
-    internal static PrerequisiteFeaturesFromList ChannelGate()
-    {
-      var gate = new PrerequisiteFeaturesFromList
-      {
-        Group = Prerequisite.GroupType.Any,
-        Amount = 1,
-      };
-      gate.Features.AddRange(new[]
-      {
-        FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
-        FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
-        FeatureRefs.ChannelEnergyEmpyrealFeature.Cast<BlueprintFeatureReference>(),
-      });
-      return gate;
-    }
-
     internal static void Configure()
     {
       var icon = AbilityRefs.Bless.Reference.Get().Icon;
@@ -249,8 +233,10 @@ namespace MissionWOTR.Archetypes
       LevelEntry Entry(int level, params BlueprintFeature[] features)
       {
         var entry = new LevelEntry { Level = level };
-        entry.Features.AddRange(
-          features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()));
+        foreach (var f in features)
+        {
+          entry.Features.Add(f);
+        }
         return entry;
       }
       var progression = ProgressionConfigurator.New("HolyVindicatorProgression", Guids.HolyVindicatorProgression)
@@ -290,7 +276,15 @@ namespace MissionWOTR.Archetypes
           Stat = StatType.BaseAttackBonus,
           Value = 5,
         })
-        .AddComponent(ChannelGate())
+        .AddPrerequisiteFeaturesFromList(
+          new System.Collections.Generic.List<BlueprintCore.Utils.Blueprint<BlueprintFeatureReference>>
+          {
+            FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
+            FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
+            FeatureRefs.ChannelEnergyEmpyrealFeature.Cast<BlueprintFeatureReference>(),
+          },
+          amount: 1,
+          group: Prerequisite.GroupType.Any)
         .Configure();
 
       // The reverse link: the progression belongs to the class.

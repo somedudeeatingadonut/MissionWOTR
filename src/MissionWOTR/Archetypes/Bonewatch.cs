@@ -184,8 +184,10 @@ namespace MissionWOTR.Archetypes
       LevelEntry Entry(int level, params BlueprintFeature[] features)
       {
         var entry = new LevelEntry { Level = level };
-        entry.Features.AddRange(
-          features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()));
+        foreach (var f in features)
+        {
+          entry.Features.Add(f);
+        }
         return entry;
       }
       var progression = ProgressionConfigurator.New("BonewatchProgression", Guids.BonewatchProgression)
@@ -216,7 +218,16 @@ namespace MissionWOTR.Archetypes
           Stat = StatType.BaseAttackBonus,
           Value = 3,
         })
-        .AddComponent(HolyVindicator.ChannelGate())
+        .AddPrerequisiteFeaturesFromList(
+          new System.Collections.Generic.List<BlueprintCore.Utils.Blueprint<BlueprintFeatureReference>>
+          {
+            FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
+            FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
+            FeatureRefs.ChannelEnergyEmpyrealFeature.Cast<BlueprintFeatureReference>(),
+            Guids.UndeadMasterKitFeature,
+          },
+          amount: 1,
+          group: Prerequisite.GroupType.Any)
         .Configure();
 
       ProgressionConfigurator.For(progression)
