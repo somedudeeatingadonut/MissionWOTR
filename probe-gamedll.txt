@@ -1,26 +1,3330 @@
 === PROBE harvest report ===
---- download errors ---
-ASSET Managed.zip exited 1: HTTP 500 (https://api.github.com/repos/somedudeeatingadonut/MissionWOTR/releases/assets/570296696)
 --- _gamelibs contents ---
 _gamelibs: _gamelibs\0Harmony.dll size=2219008
+_gamelibs: _gamelibs\Managed.zip size=34232435
 _gamelibs: _gamelibs\UnityModManager.dll size=204800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\0Harmony.dll size=769536
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Accessibility.dll size=12288
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Assembly-CSharp-firstpass.dll size=3314176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Assembly-CSharp.dll size=11891712
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\AstarPathfindingProject.dll size=528384
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Async.dll size=10240
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Cheats.dll size=59904
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Console.dll size=22528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Overlays.dll size=16896
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Core.Reflection.dll size=10240
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DemiLib.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DotNetZip.dll size=457728
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween.dll size=139264
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween43.dll size=9728
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween46.dll size=20480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTween50.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DOTweenPro.dll size=16896
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Builders.dll size=195584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Core.dll size=99840
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Common.dll size=29696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Flow.dll size=100864
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Flow.Implementations.dll size=71680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Grammar.dll size=18432
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Graph.dll size=27648
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Meshing.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.Navigation2D.dll size=19456
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.SxEngine.dll size=24064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.UI.dll size=87040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.Modules.VisibilityGraph.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DungeonArchitect.ThirdParty.dll size=181248
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\DXTCompressor.dll size=20480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\FFmpegOut.dll size=18944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\GalaxyCSharp.dll size=397312
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.CJK.dll size=680448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.dll size=31744
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.MidEast.dll size=29184
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.Other.dll size=32256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.Rare.dll size=171008
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\I18N.West.dll size=65536
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Kingmaker.GameInfo.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip size=12381026
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.Data.Sqlite.dll size=166912
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.Posix.dll size=212480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.Security.dll size=309248
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Mono.WebBrowser.dll size=166912
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\mscorlib.dll size=4073472
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\netstandard.dll size=84992
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Newtonsoft.Json.dll size=404480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Novell.Directory.Ldap.dll size=247296
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Core.dll size=270848
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Hardware.dll size=7680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.UI.dll size=204288
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.UniRx.dll size=24064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Validation.dll size=28160
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.Runtime.Visual.dll size=424448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Owlcat.SharedTypes.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Pathfinding.ClipperLib.dll size=58880
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Pathfinding.Ionic.Zip.Reduced.dll size=240640
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Pathfinding.Poly2Tri.dll size=36352
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewired_Core.dll size=1946624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewired_Windows_Functions.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewired_Windows.dll size=891904
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Rewited.Internal.dll size=84480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\SonyNP.dll size=242176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\SonyPS4CommonDialog.dll size=18944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\SonyPS4SaveData.dll size=70656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.ComponentModel.Composition.dll size=256512
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.ComponentModel.DataAnnotations.dll size=84480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Configuration.dll size=124928
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Core.dll size=1046016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Data.dll size=2081280
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Design.dll size=282112
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Diagnostics.StackTrace.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.DirectoryServices.dll size=93184
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.dll size=2750976
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Drawing.Design.dll size=29696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Drawing.dll size=481280
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.EnterpriseServices.dll size=44544
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Globalization.Extensions.dll size=6144
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.IO.Compression.dll size=98816
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.IO.Compression.FileSystem.dll size=23040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Net.Http.dll size=115200
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Numerics.dll size=114176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.dll size=12800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.Serialization.dll size=928256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.Serialization.Formatters.Soap.dll size=38400
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Runtime.Serialization.Xml.dll size=7168
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Security.dll size=184320
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.ServiceModel.Internals.dll size=214528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Transactions.dll size=34304
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Web.ApplicationServices.dll size=33792
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Web.dll size=3154944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Web.Services.dll size=727040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Windows.Forms.dll size=2879488
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Xml.dll size=3137536
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Xml.Linq.dll size=119296
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\System.Xml.XPath.XDocument.dll size=5120
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UniRx.dll size=423936
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Analytics.DataPrivacy.dll size=7680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Analytics.StandardEvents.dll size=32256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Analytics.Tracker.dll size=18944
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Burst.dll size=309248
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Burst.Unsafe.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Collections.dll size=367104
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Collections.LowLevel.ILSupport.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Formats.Fbx.Runtime.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Jobs.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Mathematics.dll size=723968
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.PlayableGraphVisualizer.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.dll size=356864
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.KdTree.dll size=18432
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.Poly2Tri.dll size=34816
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ProBuilder.Stl.dll size=12800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Recorder.Base.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Recorder.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.RenderPipelines.Core.Runtime.dll size=218624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll size=3584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.ScriptableBuildPipeline.dll size=7168
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Analytics.dll size=72192
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Analytics.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Configuration.dll size=10752
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Device.dll size=5120
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.dll size=10240
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Environments.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Environments.Internal.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Internal.dll size=50176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Networking.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Registration.dll size=14848
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Scheduler.dll size=8192
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Telemetry.dll size=26624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Services.Core.Threading.dll size=5632
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.TerrainTools.dll size=4608
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.TextMeshPro.dll size=370688
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.Timeline.dll size=111616
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Unity.VisualEffectGraph.Runtime.dll size=45056
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AccessibilityModule.dll size=23064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AIModule.dll size=55832
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AndroidJNIModule.dll size=78872
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AnimationModule.dll size=161304
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ARModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AssetBundleModule.dll size=33304
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.AudioModule.dll size=70168
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ClothModule.dll size=25624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ClusterInputModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ClusterRendererModule.dll size=22040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.CoreModule.dll size=1167384
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.CrashReportingModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.DirectorModule.dll size=24600
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.dll size=103448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.DSPGraphModule.dll size=28696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.GameCenterModule.dll size=38424
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.GIModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.GridModule.dll size=24600
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.HotReloadModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ImageConversionModule.dll size=24088
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.IMGUIModule.dll size=171544
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.InputLegacyModule.dll size=36376
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.InputModule.dll size=23064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.JSONSerializeModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.LocalizationModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ParticleSystemModule.dll size=153624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.PerformanceReportingModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.Physics2DModule.dll size=117784
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.PhysicsModule.dll size=107544
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ProfilerModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll size=19992
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.ScreenCaptureModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SharedInternalsModule.dll size=31768
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SpriteMaskModule.dll size=21016
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SpriteShapeModule.dll size=25112
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.StreamingModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SubstanceModule.dll size=24600
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.SubsystemsModule.dll size=34328
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TerrainModule.dll size=92696
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TerrainPhysicsModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TextCoreModule.dll size=197656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TextRenderingModule.dll size=38424
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TilemapModule.dll size=36888
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.TLSModule.dll size=26136
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UI.dll size=233472
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UIElementsModule.dll size=810008
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UIElementsNativeModule.dll size=57880
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UIModule.dll size=34328
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UmbraModule.dll size=19480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UNETModule.dll size=89624
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityAnalyticsCommonModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityAnalyticsModule.dll size=44056
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityConnectModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityCurlModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityTestProtocolModule.dll size=19992
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll size=22552
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestAudioModule.dll size=22040
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestModule.dll size=54808
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestTextureModule.dll size=21528
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.UnityWebRequestWWWModule.dll size=31256
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VehiclesModule.dll size=23576
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VFXModule.dll size=50712
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VideoModule.dll size=39960
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VirtualTexturingModule.dll size=34328
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.VRModule.dll size=26136
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.WindModule.dll size=20504
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityEngine.XRModule.dll size=66584
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Utility.ModsInfo.dll size=4096
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Utility.Reporting.Base.dll size=8192
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass.dll size=3314176
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp.dll size=11891712
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json.dll size=404480
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core.dll size=270848
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware.dll size=7680
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI.dll size=204288
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx.dll size=24064
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation.dll size=28160
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual.dll size=424448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes.dll size=6656
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule.dll size=1167384
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.dll size=103448
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp\.text size=11889216
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp\.rsrc\version.txt size=1290
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass\.text size=3311420
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Assembly-CSharp-firstpass\.rsrc\version.txt size=1876
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json\.text size=401916
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Newtonsoft.Json\.rsrc\version.txt size=1844
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core\.text size=268412
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Core\.rsrc\version.txt size=1306
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware\.text size=5456
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Hardware\.rsrc\version.txt size=1322
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI\.text size=201756
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UI\.rsrc\version.txt size=1298
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx\.text size=21576
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.UniRx\.rsrc\version.txt size=1310
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation\.text size=25728
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Validation\.rsrc\version.txt size=1330
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual\.text size=422152
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.Runtime.Visual\.rsrc\version.txt size=1314
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes\.text size=4468
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\Owlcat.SharedTypes\.rsrc\version.txt size=1302
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\.text size=90896
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\CERTIFICATE size=10264
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine\.rsrc\version.txt size=1274
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\.reloc size=12
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\.text size=1154724
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\CERTIFICATE size=10264
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\Managed.zip_extracted\UnityEngine.CoreModule\.rsrc\version.txt size=1318
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\0Harmony.dll size=2219008
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\Config.xml size=769
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\dnlib.dll size=1136128
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\Log.txt size=1478098
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\Params.xml size=8692
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\UnityModManager.dll size=204800
+_gamelibs: _gamelibs\Managed.zip_extracted\Managed\UnityModManager\UnityModManager.xml size=46099
 --- Libs contents ---
+Libs: Assembly-CSharp-firstpass.dll size=3314176
+Libs: Assembly-CSharp.dll size=11891712
+Libs: Newtonsoft.Json.dll size=404480
+Libs: Owlcat.Runtime.Core.dll size=270848
+Libs: Owlcat.Runtime.UI.dll size=204288
+Libs: Owlcat.Runtime.Validation.dll size=28160
+Libs: Owlcat.Runtime.Visual.dll size=424448
 Libs: README.md size=1140
+Libs: UnityEngine.CoreModule.dll size=1167384
+Libs: UnityEngine.dll size=103448
 Libs: 0Harmony.dll size=2219008
 Libs: UnityModManager.dll size=204800
 --- required DLL presence (Libs/) ---
-managed Assembly-CSharp.dll: False
-managed Assembly-CSharp-firstpass.dll: False
-managed Newtonsoft.Json.dll: False
-managed Owlcat.Runtime.Core.dll: False
-managed Owlcat.Runtime.UI.dll: False
-managed Owlcat.Runtime.Validation.dll: False
-managed Owlcat.Runtime.Visual.dll: False
-managed UnityEngine.dll: False
-managed UnityEngine.CoreModule.dll: False
+managed Assembly-CSharp.dll: True
+managed Assembly-CSharp-firstpass.dll: True
+managed Newtonsoft.Json.dll: True
+managed Owlcat.Runtime.Core.dll: True
+managed Owlcat.Runtime.UI.dll: True
+managed Owlcat.Runtime.Validation.dll: True
+managed Owlcat.Runtime.Visual.dll: True
+managed UnityEngine.dll: True
+managed UnityEngine.CoreModule.dll: True
 umm UnityModManager.dll: True
 umm 0Harmony.dll: True
 --- required DLL presence (src/MissionWOTR/lib/) ---
 umm UnityModManager.dll: True
 umm 0Harmony.dll: True
-Assembly-CSharp.dll MISSING - no metadata dump possible.
+=== PROBE fingerprint ===
+Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
+RAGE-TYPE: .AlignmentLayout vis=public base=UnityEngine.MonoBehaviour
+  FIELD: m_RectTransformComponent [private]
+  FIELD: m_Clamp [protected]
+  FIELD: m_Envelope [protected]
+  FIELD: m_Min [protected]
+  FIELD: m_Max [protected]
+  FIELD: m_WorldClampCornes [protected]
+  FIELD: m_Cornes [protected]
+  FIELD: m_LocalClampCornes [protected]
+=== TYPE TurnBased.Controllers.CombatController vis=public base=System.Object ===
+  FIELD: PathfindingCharacterTag [private]
+  FIELD: m_Enabled [private]
+  FIELD: m_CurrentTurn [private]
+  FIELD: m_HasEnemyInCombat [private]
+  FIELD: m_HasSurpriseRound [private]
+  FIELD: m_IsUnitsChanged [private]
+  FIELD: m_StartTime [private]
+  FIELD: m_Units [private]
+  FIELD: m_KnownInitiative [private]
+  FIELD: m_UnitsOrderComaprer [private]
+  FIELD: m_NextUnit [private]
+  FIELD: TimeScaleWhenIdle [protorint]
+  FIELD: TimeScaleBetweenTurns [protorint]
+  FIELD: m_BeforeCombatSelectedUnit [private]
+  FIELD: IsManualPredictionChange [protorint]
+  FIELD: MaxDelayBetweenIterativeAttacks [protorint]
+  FIELD: LastTickTimeOfAbilityExecutionProcess [protorint]
+  FIELD: m_NextUnitChosenThisTick [private]
+  FIELD: m_NavmeshCuts [private]
+  FIELD: <HadEnemyAtSomePoint>k__BackingField [private]
+  FIELD: <Initialized>k__BackingField [private]
+  FIELD: <RoundNumber>k__BackingField [private]
+  FIELD: <TickedRayView>k__BackingField [private]
+  FIELD: <TimeSinceStart>k__BackingField [private]
+  FIELD: <TimeToNextRound>k__BackingField [private]
+  FIELD: m_NavmeshUpdateTimer [private]
+  FIELD: s_UpdatedCuts [private]
+  FIELD: OnNextTern [protorint]
+  FIELD: m_IsPassing [private]
+  FIELD: <RoundStartTime>k__BackingField [private]
+  FIELD: <TurnStartTime>k__BackingField [private]
+  FIELD: <WaitingForUI>k__BackingField [private]
+  FIELD: <IsInitiativeTrackerAnimating_ForSave>k__BackingField [private]
+  FIELD: CanChangeWeaponSet [protorint]
+  PROP: TimeScaleInPlayerTurn
+  PROP: TimeScaleInNonPlayerTurn
+  PROP: CurrentTurn
+  PROP: HasEnemyInCombat
+  PROP: HadEnemyAtSomePoint
+  PROP: Initialized
+  PROP: Priority
+  PROP: SortedUnits
+  PROP: RoundNumber
+  PROP: TickedRayView
+  PROP: TimeSinceStart
+  PROP: TimeToNextRound
+  PROP: LogStrings
+  PROP: SelectedUnit
+  PROP: Rider
+  PROP: Mount
+  PROP: RoundStartTime
+  PROP: TurnStartTime
+  PROP: WaitingForUI
+  PROP: WaitingForUI_ForSave
+  PROP: IsInitiativeTrackerAnimating_ForSave
+  METHOD: RevertNavmeshForUnit (unitInfo)
+  METHOD: UpdateNavigationGridTags
+  METHOD: FindUnitInfo (unit)
+  METHOD: get_TimeScaleInPlayerTurn
+  METHOD: get_TimeScaleInNonPlayerTurn
+  METHOD: get_CurrentTurn
+  METHOD: set_CurrentTurn (value)
+  METHOD: get_HasEnemyInCombat
+  METHOD: set_HasEnemyInCombat (value)
+  METHOD: get_HadEnemyAtSomePoint
+  METHOD: set_HadEnemyAtSomePoint (value)
+  METHOD: get_Initialized
+  METHOD: set_Initialized (value)
+  METHOD: get_Priority
+  METHOD: get_SortedUnits
+  METHOD: get_RoundNumber
+  METHOD: set_RoundNumber (value)
+  METHOD: get_TickedRayView
+  METHOD: get_TimeSinceStart
+  METHOD: set_TimeSinceStart (value)
+  METHOD: get_TimeToNextRound
+  METHOD: set_TimeToNextRound (value)
+  METHOD: get_LogStrings
+  METHOD: GetUpdatedCuts
+  METHOD: UpdateNavigationGrid
+  METHOD: Tick
+  METHOD: ChooseNextUnit
+  METHOD: StartRound
+  METHOD: Activate
+  METHOD: Deactivate
+  METHOD: TickTime
+  METHOD: IsSurprising (unit)
+  METHOD: IsSurprised (unit)
+  METHOD: IsActingSurpriseCommands (unit)
+  METHOD: PrepareUnitNavmeshUpdateObject (unitInfo)
+  METHOD: StartTurn (unit)
+  METHOD: Reset (tryToInitialize, isPartyCombatStateChanged)
+  METHOD: Clear
+  METHOD: SortUnits (reason)
+  METHOD: IsAOEOrTargetsParty (cmd, party)
+  METHOD: ModifyMovementLimitOn
+  METHOD: ModifyMovementLimitOff
+  METHOD: ChangeCursorAction
+  METHOD: HandleCombatStart (isPartyCombatStateChanged)
+  METHOD: HandleCombatEnd
+  METHOD: LogRound
+  METHOD: AddUnit (unit)
+  METHOD: RemoveUnit (unit)
+  METHOD: IsNavmeshCutUnderNavmesh (cut)
+  METHOD: HandleDelayTurn (unit, targetUnit)
+  METHOD: Enable
+  METHOD: Disable
+  METHOD: HandlePartyCombatStateChanged (inCombat)
+  METHOD: HandleUnitRollsInitiative (rule)
+  METHOD: HandleUnitJoinCombat (unit)
+  METHOD: HandleUnitSpawned (entityData)
+  METHOD: HandleUnitLeaveCombat (unit)
+  METHOD: HandleUnitDeath (entityData)
+  METHOD: HandleUnitDestroyed (entityData)
+  METHOD: HandleUnitMount (unit, mount)
+  METHOD: HandleUnitDismount (unit, mount)
+  METHOD: HandleObjectInGameChanged (entityData)
+  METHOD: HandleTurnBasedModeStateChanged (enabled)
+  METHOD: UpdateMandatoryTurnBasedModeState
+  METHOD: IsInTurnBasedCombat
+  METHOD: IsPassing
+  METHOD: GetCachedInitiative (unit)
+  METHOD: Start
+  METHOD: Stop
+  METHOD: get_SelectedUnit
+  METHOD: get_Rider
+  METHOD: get_Mount
+  METHOD: get_RoundStartTime
+  METHOD: set_RoundStartTime (value)
+  METHOD: get_TurnStartTime
+  METHOD: set_TurnStartTime (value)
+  METHOD: get_WaitingForUI
+  METHOD: set_WaitingForUI (value)
+  METHOD: get_WaitingForUI_ForSave
+  METHOD: get_IsInitiativeTrackerAnimating_ForSave
+  METHOD: set_IsInitiativeTrackerAnimating_ForSave (value)
+  METHOD: .ctor
+  METHOD: .cctor
+  METHOD: <ChooseNextUnit>b__68_0 (u)
+  METHOD: <LogRound>b__87_0 (h)
+=== TYPE Kingmaker.Game vis=public base=System.Object ===
+  FIELD: s_Instance [private]
+  FIELD: m_ControllerMode [private]
+  FIELD: m_BugReportDisposable [private]
+  FIELD: m_BeforeTickActions [private]
+  FIELD: m_GameModes [private]
+  FIELD: m_SceneLoader [private]
+  FIELD: m_ModesCount [private]
+  FIELD: m_GameModeTicking [private]
+  FIELD: m_DefaultUnit [private]
+  FIELD: m_AlreadyInitialized [private]
+  FIELD: m_LoadedCampaignAudioChunk [private]
+  FIELD: ProjectileController [protorint]
+  FIELD: Rulebook [protorint]
+  FIELD: State [protorint]
+  FIELD: StaticInfoCollector [protorint]
+  FIELD: UnitGroupsController [protorint]
+  FIELD: Keyboard [protorint]
+  FIELD: TimeController [protorint]
+  FIELD: TimedEventsController [protorint]
+  FIELD: EntityCreator [protorint]
+  FIELD: EntityDestroyer [protorint]
+  FIELD: UnitMemoryController [protorint]
+  FIELD: StealthController [protorint]
+  FIELD: CursorController [protorint]
+  FIELD: RandomEncountersController [protorint]
+  FIELD: GlobalMapController [protorint]
+  FIELD: KingdomController [protorint]
+  FIELD: GroupCommands [protorint]
+  FIELD: DialogController [protorint]
+  FIELD: RestController [protorint]
+  FIELD: LightsController [protorint]
+  FIELD: AbilityExecutor [protorint]
+  FIELD: FogOfWar [protorint]
+  FIELD: FogOfWarGM [protorint]
+  FIELD: FollowersFormationController [protorint]
+  FIELD: ProjectileSpawnerController [protorint]
+  FIELD: FxSpawnController [protorint]
+  FIELD: TacticalCombat [protorint]
+  FIELD: TacticalGridController [protorint]
+  FIELD: CustomUpdateController [protorint]
+  FIELD: GlobalMapViewController [protorint]
+  FIELD: GlobalMapNavigationArrowsController [protorint]
+  FIELD: UnitVisionRangeController [protorint]
+  FIELD: EntityBoundsController [protorint]
+  FIELD: TravelLogicController [protorint]
+  FIELD: SelectionCharacter [protorint]
+  FIELD: TurnBasedCombatController [protorint]
+  FIELD: AiBrainController [protorint]
+  FIELD: UnitTicksController [protorint]
+  FIELD: IslesController [protorint]
+  FIELD: ActivatableAbilitiesController [protorint]
+  FIELD: SaddledUnitController [protorint]
+  FIELD: DungeonController [protorint]
+  FIELD: GameLogController [protorint]
+  FIELD: DefaultPointerController [protorint]
+  FIELD: LocustController [protorint]
+  FIELD: PhotoModeController [protorint]
+  FIELD: <ClickEventsController>k__BackingField [private]
+  FIELD: <CameraController>k__BackingField [private]
+  FIELD: <InteractionHighlightController>k__BackingField [private]
+  FIELD: <HandsEquipmentController>k__BackingField [private]
+  FIELD: <CombatEngagementController>k__BackingField [private]
+  FIELD: UI [protorint]
+  FIELD: UISettingsManager [protorint]
+  FIELD: UIPhotoModeManager [protorint]
+  FIELD: SaveManager [protorint]
+  FIELD: Vendor [protorint]
+  FIELD: m_Runner [private]
+  FIELD: IsBlockUnloadScene [protorint]
+  FIELD: s_NewGamePreset [private]
+  FIELD: s_ImportSave [private]
+  FIELD: s_NewGameUnit [private]
+  FIELD: <ClothDisabled>k__BackingField [private]
+  FIELD: <TimeOfDay>k__BackingField [private]
+  FIELD: m_TimeOfDayOverrideVisual [private]
+  FIELD: m_WillBePaused [private]
+  FIELD: <RootUiContext>k__BackingField [private]
+  FIELD: <IsUnloading>k__BackingField [private]
+  FIELD: <LoadingSave>k__BackingField [private]
+  FIELD: m_IsFakePause [protorint]
+  FIELD: m_SummonPoolsProxy [private]
+  FIELD: <SelectedAbilityHandler>k__BackingField [private]
+  FIELD: <SelectedClicksObjectHandler>k__BackingField [private]
+  FIELD: <PlaceRestMarkerHandler>k__BackingField [private]
+  FIELD: <CutsceneLock>k__BackingField [private]
+  FIELD: m_MatchTimeOfDayScheduled [private]
+  FIELD: InvertPauseButtonPressed [protorint]
+  FIELD: <PauseOnLoadPendingTicks>k__BackingField [private]
+  FIELD: <LevelUpController>k__BackingField [private]
+  FIELD: <IsTempHighlight>k__BackingField [private]
+  FIELD: m_LoadingProgress [private]
+  FIELD: m_LoadingScenesProgress [private]
+  FIELD: <m_WaitOnStart>k__BackingField [private]
+  PROP: ControllerMode
+  PROP: IsControllerMouse
+  PROP: IsControllerGamepad
+  PROP: AlreadyInitialized
+  PROP: Statistic
+  PROP: ClickEventsController
+  PROP: CameraController
+  PROP: InteractionHighlightController
+  PROP: HandsEquipmentController
+  PROP: CombatEngagementController
+  PROP: NewGamePreset
+  PROP: ImportSave
+  PROP: NewGameUnit
+  PROP: Instance
+  PROP: HasInstance
+  PROP: Runner
+  PROP: ClothDisabled
+  PROP: IsBlockCamera
+  PROP: UnitGroups
+  PROP: ReadyForCombatUnitGroups
+  PROP: BlueprintRoot
+  PROP: LoadedAreaState
+  PROP: TimeOfDay
+  PROP: TimeOfDayVisual
+  PROP: Player
+  PROP: CurrentlyLoadedArea
+  PROP: CurrentlyLoadedAreaPart
+  PROP: DynamicRoot
+  PROP: CrossSceneRoot
+  PROP: RootUiContext
+  PROP: IsUnloading
+  PROP: IsLoadingSave
+  PROP: LoadingSave
+  PROP: IsFakePause
+  PROP: IsPaused
+  PROP: SummonPools
+  PROP: DefaultUnit
+  PROP: CurrentMode
+  PROP: IsFullScreenUI
+  PROP: SelectedAbilityHandler
+  PROP: SelectedClicksObjectHandler
+  PROP: PlaceRestMarkerHandler
+  PROP: CutsceneLock
+  PROP: PauseOnLoadPendingTicks
+  PROP: LevelUpController
+  PROP: UILoadingProgress
+  PROP: ModesCount
+  PROP: IsTempHighlight
+  PROP: CurrentScene
+  PROP: ControllerOverride
+  PROP: m_WaitOnStart
+  METHOD: get_ControllerMode
+  METHOD: set_ControllerMode (value)
+  METHOD: get_IsControllerMouse
+  METHOD: get_IsControllerGamepad
+  METHOD: get_AlreadyInitialized
+  METHOD: get_Statistic
+  METHOD: get_ClickEventsController
+  METHOD: set_ClickEventsController (value)
+  METHOD: get_CameraController
+  METHOD: set_CameraController (value)
+  METHOD: get_InteractionHighlightController
+  METHOD: set_InteractionHighlightController (value)
+  METHOD: get_HandsEquipmentController
+  METHOD: set_HandsEquipmentController (value)
+  METHOD: get_CombatEngagementController
+  METHOD: set_CombatEngagementController (value)
+  METHOD: get_NewGamePreset
+  METHOD: set_NewGamePreset (value)
+  METHOD: get_ImportSave
+  METHOD: set_ImportSave (value)
+  METHOD: get_NewGameUnit
+  METHOD: set_NewGameUnit (value)
+  METHOD: get_Instance
+  METHOD: get_HasInstance
+  METHOD: get_Runner
+  METHOD: get_ClothDisabled
+  METHOD: set_ClothDisabled (value)
+  METHOD: get_IsBlockCamera
+  METHOD: get_UnitGroups
+  METHOD: get_ReadyForCombatUnitGroups
+  METHOD: get_BlueprintRoot
+  METHOD: get_LoadedAreaState
+  METHOD: get_TimeOfDay
+  METHOD: set_TimeOfDay (value)
+  METHOD: get_TimeOfDayVisual
+  METHOD: get_Player
+  METHOD: get_CurrentlyLoadedArea
+  METHOD: get_CurrentlyLoadedAreaPart
+  METHOD: get_DynamicRoot
+  METHOD: get_CrossSceneRoot
+  METHOD: get_RootUiContext
+  METHOD: get_IsUnloading
+  METHOD: set_IsUnloading (value)
+  METHOD: get_IsLoadingSave
+  METHOD: get_LoadingSave
+  METHOD: set_LoadingSave (value)
+  METHOD: get_IsFakePause
+  METHOD: set_IsFakePause (value)
+  METHOD: get_IsPaused
+  METHOD: set_IsPaused (value)
+  METHOD: get_SummonPools
+  METHOD: get_DefaultUnit
+  METHOD: get_CurrentMode
+  METHOD: get_IsFullScreenUI
+  METHOD: get_SelectedAbilityHandler
+  METHOD: set_SelectedAbilityHandler (value)
+  METHOD: get_SelectedClicksObjectHandler
+  METHOD: set_SelectedClicksObjectHandler (value)
+  METHOD: get_PlaceRestMarkerHandler
+  METHOD: set_PlaceRestMarkerHandler (value)
+  METHOD: get_CutsceneLock
+  METHOD: get_PauseOnLoadPendingTicks
+  METHOD: set_PauseOnLoadPendingTicks (value)
+  METHOD: get_LevelUpController
+  METHOD: set_LevelUpController (value)
+  METHOD: get_UILoadingProgress
+  METHOD: get_ModesCount
+  METHOD: get_IsTempHighlight
+  METHOD: set_IsTempHighlight (value)
+  METHOD: get_CurrentScene
+  METHOD: get_ControllerOverride
+  METHOD: .ctor
+  METHOD: IsModeActive (gameModeType)
+  METHOD: IsModeActiveOrActivateSoon (gameModeType)
+  METHOD: Initialize
+  METHOD: MakeQuickSave
+  METHOD: SkipBark
+  METHOD: SkipCutscene
+  METHOD: PauseAfterLoad
+  METHOD: PauseBind
+  METHOD: UnpauseBindOff
+  METHOD: UnpauseBindOn
+  METHOD: EnsureServices
+  METHOD: ExecuteBeforeTickActions
+  METHOD: Tick
+  METHOD: HandleQuit
+  METHOD: ScheduleAction (action)
+  METHOD: StartMode (type)
+  METHOD: StopMode (type)
+  METHOD: DoStartMode (type)
+  METHOD: DoStopMode (type)
+  METHOD: StopAllModes
+  METHOD: GetController (includeInactive)
+  METHOD: HandleGameModeChanged (oldMode, newMode)
+  METHOD: ClearPublicControllers
+  METHOD: SetupPublicControllers
+  METHOD: AdvanceGameTime (delta, silent)
+  METHOD: HandleAreaBeginUnloading (forDispose, leaveAreaRelatedEffects)
+  METHOD: LoadArea (areaEnterPoint, autoSaveMode, callback)
+  METHOD: TryOptimizeOnLoadAreaCoroutine (areaEnterPoint)
+  METHOD: TryOptimizeOnLoadArea (areaEnterPoint)
+  METHOD: LoadAreaForce (areaEnterPoint, autoSaveMode, callback)
+  METHOD: Teleport (areaEnterPoint, includeFollowers, callback)
+  METHOD: AwaitTextureCompressionShell
+  METHOD: TeleportPartyCoroutine (areaEnterPoint, includeFollowers)
+  METHOD: LoadArbiter (area)
+  METHOD: MatchTimeOfDay (callback)
+  METHOD: MatchTimeOfDayForced
+  METHOD: OverrideVisualTimeOfDay (timeOfDay)
+  METHOD: MatchTimeOfDayCoroutine (preserveFoW)
+  METHOD: UnloadMainMenuRoutine
+  METHOD: get_m_WaitOnStart
+  METHOD: set_m_WaitOnStart (value)
+  METHOD: UnloadUnusedAssetsCoroutine
+  METHOD: ReloadAreaMechanic (clearFx, callback)
+  METHOD: LoadArea (area, enterPoint, autoSaveMode, forceUnload, saveInfo, callback)
+  METHOD: OnLoadingScenesProgress (value)
+  METHOD: ResetLoadingProgress
+  METHOD: ExecuteSafe (action)
+  METHOD: ReloadUI (callback)
+  METHOD: ReloadArea
+  METHOD: AfterSceneLoaderFinishedArea
+  METHOD: AwaitTextureCompression
+  METHOD: AreaLoadingComplete
+  METHOD: PreloadUnitResources
+  METHOD: LoadNewGame
+  METHOD: LoadNewGame (preset, importFrom)
+  METHOD: ResetToMainMenu (message, messageType)
+  METHOD: CreateUnitVacuum (unit)
+  METHOD: AddUnitToPersistentState (unit)
+  METHOD: QuickLoadGame
+  METHOD: LoadGame (saveInfo)
+  METHOD: LoadGameForSmokeTest (save)
+  METHOD: LoadGameFromMainMenu (saveInfo)
+  METHOD: DisposeState
+  METHOD: SaveGame (saveInfo, callback)
+  METHOD: CrossSceneStateHandler (state, data)
+  METHOD: Reset
+  METHOD: ResetUI (isGameInputChange)
+  METHOD: OnGamepadConnectDisconnectResetUI
+  METHOD: GetCamera
+  METHOD: FixAreaPart (part)
+  METHOD: ChangeUIPlatform (nextPlatform)
+  METHOD: .cctor
+  METHOD: <Initialize>b__217_0
+  METHOD: <Initialize>b__217_1
+  METHOD: <Initialize>b__217_2
+  METHOD: <Initialize>b__217_3
+  METHOD: <ResetToMainMenu>b__272_0
+RAGE-TYPE: Kingmaker.Visual.CapitalAlignmentEffects vis=public base=UnityEngine.MonoBehaviour
+  FIELD: m_CapitalPPList [private]
+RAGE-TYPE: Kingmaker.Visual.UnitTerrainAlignment vis=public base=Owlcat.Runtime.Core.Updatables.UpdateableBehaviour
+  FIELD: m_View [private]
+  FIELD: UnitLength [protorint]
+  FIELD: m_Animator [private]
+  FIELD: m_IsInitializated [private]
+  FIELD: m_RigRotationEuler [private]
+  FIELD: m_CachedTransform [private]
+RAGE-TYPE: Kingmaker.Utility.AlignmentMaskAttribute vis=public base=UnityEngine.PropertyAttribute
+RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature vis=public base=Kingmaker.Tutorial.TutorialTrigger
+=== TYPE Kingmaker.RuleSystem.Rules.RuleAttackRoll vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
+  FIELD: missChance [private]
+  FIELD: WeaponStats [protorint]
+  FIELD: <AttackBonusPenalty>k__BackingField [private]
+  FIELD: <Result>k__BackingField [private]
+  FIELD: <D20>k__BackingField [private]
+  FIELD: <AttackBonus>k__BackingField [private]
+  FIELD: <HitMirrorImageIndex>k__BackingField [private]
+  FIELD: <IsCriticalRoll>k__BackingField [private]
+  FIELD: <IsCriticalConfirmed>k__BackingField [private]
+  FIELD: <CriticalConfirmationD20>k__BackingField [private]
+  FIELD: <TargetAC>k__BackingField [private]
+  FIELD: <TargetCriticalAC>k__BackingField [private]
+  FIELD: <IsTargetFlatFooted>k__BackingField [private]
+  FIELD: <IsSneakAttack>k__BackingField [private]
+  FIELD: <IsSneakAttackUsed>k__BackingField [private]
+  FIELD: <FortificationChance>k__BackingField [private]
+  FIELD: <FortificationRoll>k__BackingField [private]
+  FIELD: <FortificationNegatesSneakAttack>k__BackingField [private]
+  FIELD: <FortificationNegatesCriticalHit>k__BackingField [private]
+  FIELD: <MissChanceValue>k__BackingField [private]
+  FIELD: <MissChanceRoll>k__BackingField [private]
+  FIELD: <ConcealmentCheck>k__BackingField [private]
+  FIELD: <AttackBonusRule>k__BackingField [private]
+  FIELD: <ACRule>k__BackingField [private]
+  FIELD: <Parry>k__BackingField [private]
+  FIELD: <RuleAttackWithWeapon>k__BackingField [private]
+  FIELD: <AttackType>k__BackingField [private]
+  FIELD: <CriticalConfirmationBonus>k__BackingField [private]
+  FIELD: <AutoCriticalConfirmation>k__BackingField [private]
+  FIELD: <AutoCriticalThreat>k__BackingField [private]
+  FIELD: <AutoMiss>k__BackingField [private]
+  FIELD: <DoNotProvokeAttacksOfOpportunity>k__BackingField [private]
+  FIELD: <AutoHit>k__BackingField [private]
+  FIELD: <IgnoreConcealment>k__BackingField [private]
+  FIELD: <ForceFlatFooted>k__BackingField [private]
+  FIELD: <TargetIsFlanked>k__BackingField [private]
+  FIELD: <PreciseStrike>k__BackingField [private]
+  FIELD: <IgnoreCritImmunity>k__BackingField [private]
+  FIELD: <ImmuneToCriticalHit>k__BackingField [private]
+  FIELD: <ImmuneToSneakAttack>k__BackingField [private]
+  FIELD: <IsFake>k__BackingField [private]
+  FIELD: <SuspendCombatLog>k__BackingField [private]
+  FIELD: <AddedToCombatLog>k__BackingField [private]
+  FIELD: <ParryLogEntry>k__BackingField [private]
+  FIELD: <AttackLogEntry>k__BackingField [private]
+  FIELD: AttackIndexForLog [protorint]
+  FIELD: AttacksCountForLog [protorint]
+  PROP: AttackBonusPenalty
+  PROP: Result
+  PROP: D20
+  PROP: AttackBonus
+  PROP: HitMirrorImageIndex
+  PROP: IsCriticalRoll
+  PROP: IsCriticalConfirmed
+  PROP: CriticalConfirmationD20
+  PROP: TargetAC
+  PROP: TargetCriticalAC
+  PROP: IsTargetFlatFooted
+  PROP: IsSneakAttack
+  PROP: IsSneakAttackUsed
+  PROP: FortificationChance
+  PROP: FortificationRoll
+  PROP: FortificationNegatesSneakAttack
+  PROP: FortificationNegatesCriticalHit
+  PROP: MissChanceValue
+  PROP: MissChanceRoll
+  PROP: ConcealmentCheck
+  PROP: AttackBonusRule
+  PROP: ACRule
+  PROP: Parry
+  PROP: RuleAttackWithWeapon
+  PROP: AttackType
+  PROP: CriticalConfirmationBonus
+  PROP: AutoCriticalConfirmation
+  PROP: AutoCriticalThreat
+  PROP: AutoMiss
+  PROP: DoNotProvokeAttacksOfOpportunity
+  PROP: AutoHit
+  PROP: IgnoreConcealment
+  PROP: ForceFlatFooted
+  PROP: TargetIsFlanked
+  PROP: PreciseStrike
+  PROP: IgnoreCritImmunity
+  PROP: ImmuneToCriticalHit
+  PROP: ImmuneToSneakAttack
+  PROP: IsFake
+  PROP: SuspendCombatLog
+  PROP: AddedToCombatLog
+  PROP: ParryLogEntry
+  PROP: AttackLogEntry
+  PROP: Roll
+  PROP: CriticalConfirmationRollBonus
+  PROP: CriticalConfirmationRoll
+  PROP: IsHit
+  PROP: TargetUseFortification
+  PROP: FortificationOvercomed
+  PROP: Weapon
+  METHOD: get_AttackBonusPenalty
+  METHOD: set_AttackBonusPenalty (value)
+  METHOD: get_Result
+  METHOD: set_Result (value)
+  METHOD: get_D20
+  METHOD: set_D20 (value)
+  METHOD: get_AttackBonus
+  METHOD: set_AttackBonus (value)
+  METHOD: get_HitMirrorImageIndex
+  METHOD: set_HitMirrorImageIndex (value)
+  METHOD: get_IsCriticalRoll
+  METHOD: set_IsCriticalRoll (value)
+  METHOD: get_IsCriticalConfirmed
+  METHOD: set_IsCriticalConfirmed (value)
+  METHOD: get_CriticalConfirmationD20
+  METHOD: set_CriticalConfirmationD20 (value)
+  METHOD: get_TargetAC
+  METHOD: set_TargetAC (value)
+  METHOD: get_TargetCriticalAC
+  METHOD: set_TargetCriticalAC (value)
+  METHOD: get_IsTargetFlatFooted
+  METHOD: set_IsTargetFlatFooted (value)
+  METHOD: get_IsSneakAttack
+  METHOD: set_IsSneakAttack (value)
+  METHOD: get_IsSneakAttackUsed
+  METHOD: set_IsSneakAttackUsed (value)
+  METHOD: get_FortificationChance
+  METHOD: set_FortificationChance (value)
+  METHOD: get_FortificationRoll
+  METHOD: set_FortificationRoll (value)
+  METHOD: get_FortificationNegatesSneakAttack
+  METHOD: set_FortificationNegatesSneakAttack (value)
+  METHOD: get_FortificationNegatesCriticalHit
+  METHOD: set_FortificationNegatesCriticalHit (value)
+  METHOD: get_MissChanceValue
+  METHOD: set_MissChanceValue (value)
+  METHOD: get_MissChanceRoll
+  METHOD: set_MissChanceRoll (value)
+  METHOD: get_ConcealmentCheck
+  METHOD: set_ConcealmentCheck (value)
+  METHOD: get_AttackBonusRule
+  METHOD: set_AttackBonusRule (value)
+  METHOD: get_ACRule
+  METHOD: set_ACRule (value)
+  METHOD: get_Parry
+  METHOD: set_Parry (value)
+  METHOD: get_RuleAttackWithWeapon
+  METHOD: set_RuleAttackWithWeapon (value)
+  METHOD: get_AttackType
+  METHOD: set_AttackType (value)
+  METHOD: get_CriticalConfirmationBonus
+  METHOD: set_CriticalConfirmationBonus (value)
+  METHOD: get_AutoCriticalConfirmation
+  METHOD: set_AutoCriticalConfirmation (value)
+  METHOD: get_AutoCriticalThreat
+  METHOD: set_AutoCriticalThreat (value)
+  METHOD: get_AutoMiss
+  METHOD: set_AutoMiss (value)
+  METHOD: get_DoNotProvokeAttacksOfOpportunity
+  METHOD: set_DoNotProvokeAttacksOfOpportunity (value)
+  METHOD: get_AutoHit
+  METHOD: set_AutoHit (value)
+  METHOD: get_IgnoreConcealment
+  METHOD: set_IgnoreConcealment (value)
+  METHOD: get_ForceFlatFooted
+  METHOD: set_ForceFlatFooted (value)
+  METHOD: get_TargetIsFlanked
+  METHOD: set_TargetIsFlanked (value)
+  METHOD: get_PreciseStrike
+  METHOD: set_PreciseStrike (value)
+  METHOD: get_IgnoreCritImmunity
+  METHOD: set_IgnoreCritImmunity (value)
+  METHOD: get_ImmuneToCriticalHit
+  METHOD: set_ImmuneToCriticalHit (value)
+  METHOD: get_ImmuneToSneakAttack
+  METHOD: set_ImmuneToSneakAttack (value)
+  METHOD: get_IsFake
+  METHOD: set_IsFake (value)
+  METHOD: get_SuspendCombatLog
+  METHOD: set_SuspendCombatLog (value)
+  METHOD: get_AddedToCombatLog
+  METHOD: set_AddedToCombatLog (value)
+  METHOD: get_ParryLogEntry
+  METHOD: set_ParryLogEntry (value)
+  METHOD: get_AttackLogEntry
+  METHOD: set_AttackLogEntry (value)
+  METHOD: get_Roll
+  METHOD: get_CriticalConfirmationRollBonus
+  METHOD: get_CriticalConfirmationRoll
+  METHOD: get_IsHit
+  METHOD: get_TargetUseFortification
+  METHOD: get_FortificationOvercomed
+  METHOD: get_Weapon
+  METHOD: IsSuccessRoll (d20)
+  METHOD: CopyWithNewTarget (attackRoll, target)
+  METHOD: .ctor (initiator, target, weaponStats, attackBonusPenalty)
+  METHOD: .ctor (initiator, target, weapon, attackBonusPenalty)
+  METHOD: SetFake (result)
+  METHOD: OnTrigger (context)
+  METHOD: TryOvercomeTargetConcealmentAndMissChance
+  METHOD: ConsumeMirrorImageIfNecessary
+  METHOD: SetAttackBonusPenalty (penalty)
+  METHOD: TryParry (unit, weapon, penalty)
+  METHOD: UseSneakAttack
+  METHOD: SetMissChance (value)
+  METHOD: ModifyMissChance (value)
+  METHOD: IsAttackRollSuitableForSneakAttack
+  METHOD: <OnTrigger>b__196_0 (h)
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.DirectDamage vis=public base=Kingmaker.RuleSystem.Rules.Damage.BaseDamage ===
+  PROP: Type
+  METHOD: .ctor (dice, bonus)
+  METHOD: .ctor (dice, bonus)
+  METHOD: get_Type
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.EnergyDamage vis=public base=Kingmaker.RuleSystem.Rules.Damage.BaseDamage ===
+  FIELD: <EnergyType>k__BackingField [private]
+  PROP: EnergyType
+  PROP: Type
+  METHOD: get_EnergyType
+  METHOD: set_EnergyType (value)
+  METHOD: .ctor (dice, bonus, energyType)
+  METHOD: .ctor (dice, energyType)
+  METHOD: .ctor (dice, bonus, energyType)
+  METHOD: get_Type
+  METHOD: CreateTypeDescription
+  METHOD: ReplaceEnergy (energy)
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
+  FIELD: m_DamageBundle [private]
+  FIELD: <DamageWithoutReduction>k__BackingField [private]
+  FIELD: <DamageBeforeDifficulty>k__BackingField [private]
+  FIELD: <Calculate>k__BackingField [private]
+  FIELD: <IsDot>k__BackingField [private]
+  FIELD: <ExtraHitFx>k__BackingField [private]
+  FIELD: <ResultList>k__BackingField [private]
+  FIELD: <Result>k__BackingField [private]
+  FIELD: <RawResult>k__BackingField [private]
+  FIELD: <RedirectedDamage>k__BackingField [private]
+  FIELD: <AttackRoll>k__BackingField [private]
+  FIELD: <Projectile>k__BackingField [private]
+  FIELD: <HalfBecauseSavingThrow>k__BackingField [private]
+  FIELD: <Half>k__BackingField [private]
+  FIELD: <DisableSneakDamage>k__BackingField [private]
+  FIELD: <AddAdditionalDamage>k__BackingField [private]
+  FIELD: <AddFavoredEnemyDamage>k__BackingField [private]
+  FIELD: <AlreadyHalved>k__BackingField [private]
+  FIELD: <DisablePrecisionDamage>k__BackingField [private]
+  FIELD: <MinHPAfterDamage>k__BackingField [private]
+  FIELD: <IsFake>k__BackingField [private]
+  FIELD: <DifficultyModifier>k__BackingField [private]
+  FIELD: <IgnoreDamageReduction>k__BackingField [private]
+  FIELD: <IgnoreGrowthByDifficulty>k__BackingField [private]
+  FIELD: <DisableRegeneration>k__BackingField [private]
+  FIELD: <ModifierBonus>k__BackingField [private]
+  FIELD: <SourceAbility>k__BackingField [private]
+  FIELD: <SourceArea>k__BackingField [private]
+  FIELD: <ForceUseReasonAsSource>k__BackingField [private]
+  FIELD: <DisableFxAndSound>k__BackingField [private]
+  FIELD: RedirectedPercent [protorint]
+  FIELD: RedirectionTarget [protorint]
+  PROP: DamageWithoutReduction
+  PROP: DamageBeforeDifficulty
+  PROP: Calculate
+  PROP: IsDot
+  PROP: ExtraHitFx
+  PROP: ResultList
+  PROP: Result
+  PROP: RawResult
+  PROP: RedirectedDamage
+  PROP: AttackRoll
+  PROP: Projectile
+  PROP: HalfBecauseSavingThrow
+  PROP: Half
+  PROP: DisableSneakDamage
+  PROP: AddAdditionalDamage
+  PROP: AddFavoredEnemyDamage
+  PROP: AlreadyHalved
+  PROP: DisablePrecisionDamage
+  PROP: MinHPAfterDamage
+  PROP: IsFake
+  PROP: DifficultyModifier
+  PROP: IgnoreDamageReduction
+  PROP: IgnoreGrowthByDifficulty
+  PROP: DisableRegeneration
+  PROP: ModifierBonus
+  PROP: SourceAbility
+  PROP: SourceArea
+  PROP: ForceUseReasonAsSource
+  PROP: DisableFxAndSound
+  PROP: DamageBundle
+  METHOD: get_DamageWithoutReduction
+  METHOD: set_DamageWithoutReduction (value)
+  METHOD: get_DamageBeforeDifficulty
+  METHOD: set_DamageBeforeDifficulty (value)
+  METHOD: get_Calculate
+  METHOD: set_Calculate (value)
+  METHOD: get_IsDot
+  METHOD: set_IsDot (value)
+  METHOD: get_ExtraHitFx
+  METHOD: set_ExtraHitFx (value)
+  METHOD: get_ResultList
+  METHOD: set_ResultList (value)
+  METHOD: get_Result
+  METHOD: set_Result (value)
+  METHOD: get_RawResult
+  METHOD: set_RawResult (value)
+  METHOD: get_RedirectedDamage
+  METHOD: set_RedirectedDamage (value)
+  METHOD: get_AttackRoll
+  METHOD: set_AttackRoll (value)
+  METHOD: get_Projectile
+  METHOD: set_Projectile (value)
+  METHOD: get_HalfBecauseSavingThrow
+  METHOD: set_HalfBecauseSavingThrow (value)
+  METHOD: get_Half
+  METHOD: set_Half (value)
+  METHOD: get_DisableSneakDamage
+  METHOD: set_DisableSneakDamage (value)
+  METHOD: get_AddAdditionalDamage
+  METHOD: set_AddAdditionalDamage (value)
+  METHOD: get_AddFavoredEnemyDamage
+  METHOD: set_AddFavoredEnemyDamage (value)
+  METHOD: get_AlreadyHalved
+  METHOD: set_AlreadyHalved (value)
+  METHOD: get_DisablePrecisionDamage
+  METHOD: set_DisablePrecisionDamage (value)
+  METHOD: get_MinHPAfterDamage
+  METHOD: set_MinHPAfterDamage (value)
+  METHOD: get_IsFake
+  METHOD: set_IsFake (value)
+  METHOD: get_DifficultyModifier
+  METHOD: set_DifficultyModifier (value)
+  METHOD: get_IgnoreDamageReduction
+  METHOD: set_IgnoreDamageReduction (value)
+  METHOD: get_IgnoreGrowthByDifficulty
+  METHOD: set_IgnoreGrowthByDifficulty (value)
+  METHOD: get_DisableRegeneration
+  METHOD: set_DisableRegeneration (value)
+  METHOD: get_ModifierBonus
+  METHOD: set_ModifierBonus (value)
+  METHOD: get_SourceAbility
+  METHOD: set_SourceAbility (value)
+  METHOD: get_SourceArea
+  METHOD: set_SourceArea (value)
+  METHOD: get_ForceUseReasonAsSource
+  METHOD: set_ForceUseReasonAsSource (value)
+  METHOD: get_DisableFxAndSound
+  METHOD: set_DisableFxAndSound (value)
+  METHOD: get_DamageBundle
+  METHOD: .ctor (initiator, target, damage)
+  METHOD: .ctor (initiator, target, damage)
+  METHOD: OnTrigger (context)
+  METHOD: ApplyDifficultyModifiers (damage)
+  METHOD: AddHitFx (hit)
+  METHOD: Add (damage)
+  METHOD: Remove (pred)
+  METHOD: <OnTrigger>b__127_0 (h)
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.RuleHealDamage vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
+  FIELD: m_Modifiers [private]
+  FIELD: m_ModifiersSum [private]
+  FIELD: <HealFormula>k__BackingField [private]
+  FIELD: <RollResult>k__BackingField [private]
+  FIELD: <ValueWithoutReduction>k__BackingField [private]
+  FIELD: <Value>k__BackingField [private]
+  FIELD: <HealResistance>k__BackingField [private]
+  FIELD: <Bonus>k__BackingField [private]
+  FIELD: <AdditionalBonus>k__BackingField [private]
+  FIELD: <CalculationType>k__BackingField [private]
+  FIELD: <Empower>k__BackingField [private]
+  FIELD: <EmpowerModifier>k__BackingField [private]
+  FIELD: <Interrupted>k__BackingField [private]
+  FIELD: <IsFake>k__BackingField [private]
+  FIELD: <SourceFact>k__BackingField [private]
+  PROP: HealFormula
+  PROP: RollResult
+  PROP: ValueWithoutReduction
+  PROP: Value
+  PROP: HealResistance
+  PROP: Bonus
+  PROP: AdditionalBonus
+  PROP: CalculationType
+  PROP: Empower
+  PROP: ModifierBonus
+  PROP: ModifierWithSources
+  PROP: EmpowerModifier
+  PROP: Interrupted
+  PROP: IsFake
+  PROP: SourceFact
+  METHOD: get_HealFormula
+  METHOD: set_HealFormula (value)
+  METHOD: get_RollResult
+  METHOD: set_RollResult (value)
+  METHOD: get_ValueWithoutReduction
+  METHOD: set_ValueWithoutReduction (value)
+  METHOD: get_Value
+  METHOD: set_Value (value)
+  METHOD: get_HealResistance
+  METHOD: get_Bonus
+  METHOD: get_AdditionalBonus
+  METHOD: get_CalculationType
+  METHOD: get_Empower
+  METHOD: get_ModifierBonus
+  METHOD: get_ModifierWithSources
+  METHOD: get_EmpowerModifier
+  METHOD: set_EmpowerModifier (value)
+  METHOD: get_Interrupted
+  METHOD: set_Interrupted (value)
+  METHOD: get_IsFake
+  METHOD: set_IsFake (value)
+  METHOD: get_SourceFact
+  METHOD: set_SourceFact (value)
+  METHOD: .ctor (initiator, target, bonus)
+  METHOD: .ctor (initiator, target, dice, bonus)
+  METHOD: OnTrigger (context)
+  METHOD: AddModifierBonus (bonus, fact)
+  METHOD: ClearModifiers
+  METHOD: Roll (unitsCount)
+  METHOD: <OnTrigger>b__55_0 (h)
+RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentShiftHandler vis=public base=(nil)
+RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentChangeHandler vis=public base=(nil)
+RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentFeaturesChangeHandler vis=public base=(nil)
+RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSAlignment vis=public base=Kingmaker.UI.Common.UISection
+RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSAlignmentHistory vis=public base=Kingmaker.UI.Common.UISection
+RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSComponentAlignmentSector vis=public base=UnityEngine.MonoBehaviour
+RAGE-TYPE: Kingmaker.UI.Models.Log.Events.GameLogEventAlignmentShifted vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.Dialog.AlignmentShiftLogThread vis=public base=Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreadBase
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.CharInfoAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.Rest.RestCasterLevelItemVM vis=public base=Owlcat.Runtime.UI.SelectionGroup.SelectionGroupEntityVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.Rest.RestCasterLevelVM vis=public base=Owlcat.Runtime.UI.MVVM.VMBase
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Alignment.CharGenAlignmentPhaseVM vis=public base=Kingmaker.UI.MVVM._VM.CharGen.Phases.CharGenPhaseBaseVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Alignment.CharGenAlignmentSectorVM vis=public base=Owlcat.Runtime.UI.SelectionGroup.SelectionGroupEntityVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.Tooltip.Templates.TooltipTemplateAlignment vis=public base=Owlcat.Runtime.UI.Tooltips.TooltipBaseTemplate
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelView`1 vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryView`1 vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemPCView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelPCView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelSelectorPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentPhaseDetailedPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentPhaseRoadmapPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentSectorPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentSelectorPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordView
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.Rest.RestCasterLevelItemConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentPhaseDetailedConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentPhaseRoadmapConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentSectorConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentSelectorConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.Enums.AlignmentComponent vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: None [protorint]
+  FIELD: Neutral [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+RAGE-TYPE: Kingmaker.Enums.Alignment vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+RAGE-TYPE: Kingmaker.Enums.AlignmentGroup vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Any [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Neutral [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Good [protorint]
+  FIELD: EGNeutral [protorint]
+  FIELD: LCNeutral [protorint]
+RAGE-TYPE: Kingmaker.Enums.AlignmentExtension vis=public base=System.Object
+=== TYPE Kingmaker.Enums.Concealment vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: None [protorint]
+  FIELD: Partial [protorint]
+  FIELD: Total [protorint]
+=== TYPE Kingmaker.Enums.PetType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: AnimalCompanion [protorint]
+  FIELD: MythicSkeletalChampion [protorint]
+  FIELD: AzataHavocDragon [protorint]
+  FIELD: Clone [protorint]
+  FIELD: NightHag [protorint]
+=== TYPE Kingmaker.Enums.PetProgressionType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: AnimalCompanion [protorint]
+  FIELD: MythicSkeletalChampion [protorint]
+  FIELD: AzataHavocDragon [protorint]
+  FIELD: NightHag [protorint]
+=== TYPE Kingmaker.Enums.WeaponRangeType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: Melee [protorint]
+  FIELD: Ranged [protorint]
+  FIELD: Touch [protorint]
+  FIELD: Normal [protorint]
+  FIELD: MeleeNormal [protorint]
+  FIELD: RangedNormal [protorint]
+  FIELD: MeleeTouch [protorint]
+  FIELD: RangedTouch [protorint]
+RAGE-TYPE: Kingmaker.Enums.Damage.DamageAlignment vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Lawful [protorint]
+=== TYPE Kingmaker.Enums.Damage.DamageEnergyType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: Fire [protorint]
+  FIELD: Cold [protorint]
+  FIELD: Sonic [protorint]
+  FIELD: Electricity [protorint]
+  FIELD: Acid [protorint]
+  FIELD: NegativeEnergy [protorint]
+  FIELD: PositiveEnergy [protorint]
+  FIELD: Holy [protorint]
+  FIELD: Unholy [protorint]
+  FIELD: Divine [protorint]
+  FIELD: Magic [protorint]
+RAGE-TYPE: Kingmaker.Enums.Damage.PhysicalDamageAlignment vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Neutral [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Lawful [protorint]
+=== TYPE Kingmaker.Enums.Damage.PhysicalDamageMaterial vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: ColdIron [protorint]
+  FIELD: Silver [protorint]
+  FIELD: Adamantite [protorint]
+RAGE-TYPE: Kingmaker.DialogSystem.Blueprints.MythicAlignment vis=public base=System.Object
+  FIELD: Mythic [protorint]
+  FIELD: Alignment [protorint]
+=== TYPE Kingmaker.EntitySystem.Stats.StatType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: Unknown [protorint]
+  FIELD: HitPoints [protorint]
+  FIELD: TemporaryHitPoints [protorint]
+  FIELD: Strength [protorint]
+  FIELD: Dexterity [protorint]
+  FIELD: Constitution [protorint]
+  FIELD: Intelligence [protorint]
+  FIELD: Wisdom [protorint]
+  FIELD: Charisma [protorint]
+  FIELD: BaseAttackBonus [protorint]
+  FIELD: AdditionalAttackBonus [protorint]
+  FIELD: AdditionalDamage [protorint]
+  FIELD: AttackOfOpportunityCount [protorint]
+  FIELD: AC [protorint]
+  FIELD: AdditionalCMB [protorint]
+  FIELD: AdditionalCMD [protorint]
+  FIELD: SaveFortitude [protorint]
+  FIELD: SaveWill [protorint]
+  FIELD: SaveReflex [protorint]
+  FIELD: SkillMobility [protorint]
+  FIELD: SkillAthletics [protorint]
+  FIELD: SkillPersuasion [protorint]
+  FIELD: SkillThievery [protorint]
+  FIELD: SkillLoreNature [protorint]
+  FIELD: SkillPerception [protorint]
+  FIELD: SkillStealth [protorint]
+  FIELD: SkillUseMagicDevice [protorint]
+  FIELD: SkillLoreReligion [protorint]
+  FIELD: SkillKnowledgeWorld [protorint]
+  FIELD: SkillKnowledgeArcana [protorint]
+  FIELD: CheckBluff [protorint]
+  FIELD: CheckDiplomacy [protorint]
+  FIELD: CheckIntimidate [protorint]
+  FIELD: Initiative [protorint]
+  FIELD: Speed [protorint]
+  FIELD: SneakAttack [protorint]
+  FIELD: Reach [protorint]
+  FIELD: DamageNonLethal [protorint]
+  FIELD: BonusCasterLevel [protorint]
+SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
+=== TYPE Kingmaker.EntitySystem.Entities.UnitEntityData vis=public base=Kingmaker.EntitySystem.EntityDataBase ===
+  FIELD: PartAddedEvent [private]
+  FIELD: PartRemovedEvent [private]
+  FIELD: m_GroupId [private]
+  FIELD: m_Position [private]
+  FIELD: m_SavedRagdoll [private]
+  FIELD: m_SavedDismemberment [private]
+  FIELD: m_AiEnabled [private]
+  FIELD: m_AiEnabledInTurnBased [private]
+  FIELD: m_Orientation [private]
+  FIELD: m_DroppedLootEntityDataRef [private]
+  FIELD: m_IsDeathRevealed [private]
+  FIELD: m_AppliedUpgraders [private]
+  FIELD: <Stealth>k__BackingField [private]
+  FIELD: <HoldState>k__BackingField [private]
+  FIELD: <StopState>k__BackingField [private]
+  FIELD: <IsExtra>k__BackingField [private]
+  FIELD: <AllowEvaluatorsForSaveOptimization>k__BackingField [private]
+  FIELD: <HasDummyView>k__BackingField [private]
+  FIELD: <BonusExperience>k__BackingField [private]
+  FIELD: <SpawnPosition>k__BackingField [private]
+  FIELD: <LastMoveTime>k__BackingField [private]
+  FIELD: <Descriptor>k__BackingField [private]
+  FIELD: <IsLink>k__BackingField [private]
+  FIELD: <FlyHeight>k__BackingField [private]
+  FIELD: <LootSpawnPosition>k__BackingField [private]
+  FIELD: <PreviousPosition>k__BackingField [private]
+  FIELD: <DesiredOrientation>k__BackingField [private]
+  FIELD: <TimeToNextRoundTick>k__BackingField [private]
+  FIELD: <VisionRangeMetersOverride>k__BackingField [private]
+  FIELD: <CombatVisionRangeMetersOverride>k__BackingField [private]
+  FIELD: <CachedPerceptionRoll>k__BackingField [private]
+  FIELD: <IsHiddenBecauseDead>k__BackingField [private]
+  FIELD: <GiveExperienceOnDeath>k__BackingField [private]
+  FIELD: m_Group [private]
+  FIELD: m_IsSleeping [private]
+  FIELD: m_MemoizedSpeed [private]
+  FIELD: m_IsCloneOfManeCharacter [private]
+  FIELD: Passive [protorint]
+  FIELD: PreventDirectControl [protorint]
+  FIELD: Familiars [protorint]
+  FIELD: SightCache [protorint]
+  FIELD: CanBeInVisionRange [protorint]
+  FIELD: Sleepless [protorint]
+  FIELD: <IsRestoredFromPlaceholder>k__BackingField [private]
+  FIELD: <PreviewOf>k__BackingField [private]
+  FIELD: <OptimizationLevel>k__BackingField [private]
+  FIELD: <Abilities>k__BackingField [private]
+  FIELD: <ActivatableAbilities>k__BackingField [private]
+  FIELD: <Buffs>k__BackingField [private]
+  FIELD: <Commands>k__BackingField [private]
+  FIELD: <CombatState>k__BackingField [private]
+  FIELD: <AwakeTimer>k__BackingField [private]
+  FIELD: <FadeAwakeTimer>k__BackingField [private]
+  FIELD: <LootViewed>k__BackingField [private]
+  FIELD: <LastHandledDamage>k__BackingField [private]
+  FIELD: <ExtendedVisionArea>k__BackingField [private]
+  FIELD: <CutsceneControlledUnit>k__BackingField [private]
+  FIELD: <IsNoFadeSleeping>k__BackingField [private]
+  FIELD: <RiderPart>k__BackingField [private]
+  FIELD: <SaddledPart>k__BackingField [private]
+  FIELD: m_TempUnmountPet [private]
+  FIELD: <IsImportedCustomCompanion>k__BackingField [private]
+  FIELD: IsLinkedToPersonage [protorint]
+  FIELD: m_IsOverrideBlood [private]
+  FIELD: m_OverrideBlood [private]
+  FIELD: IsForceRevealerOnFogOfWar [protorint]
+  FIELD: m_BuffsDuplicates [private]
+  FIELD: <UpdateCommand>k__BackingField [private]
+  PROP: Stealth
+  PROP: HoldState
+  PROP: StopState
+  PROP: IsExtra
+  PROP: AllowEvaluatorsForSaveOptimization
+  PROP: HasDummyView
+  PROP: BonusExperience
+  PROP: SpawnPosition
+  PROP: LastMoveTime
+  PROP: Descriptor
+  PROP: IsLink
+  PROP: FlyHeight
+  PROP: LootSpawnPosition
+  PROP: PreviousPosition
+  PROP: DesiredOrientation
+  PROP: TimeToNextRoundTick
+  PROP: VisionRangeMetersOverride
+  PROP: CombatVisionRangeMetersOverride
+  PROP: CachedPerceptionRoll
+  PROP: IsHiddenBecauseDead
+  PROP: GiveExperienceOnDeath
+  PROP: IsRestoredFromPlaceholder
+  PROP: Position
+  PROP: HoldingState
+  PROP: PreviewOf
+  PROP: Damage
+  PROP: OptimizationLevel
+  PROP: Abilities
+  PROP: ActivatableAbilities
+  PROP: Buffs
+  PROP: Commands
+  PROP: CombatState
+  PROP: AwakeTimer
+  PROP: FadeAwakeTimer
+  PROP: LootViewed
+  PROP: LastHandledDamage
+  PROP: ExtendedVisionArea
+  PROP: CutsceneControlledUnit
+  PROP: IsSleeping
+  PROP: IsNoFadeSleeping
+  PROP: GroupId
+  PROP: Orientation
+  PROP: IsAIEnabled
+  PROP: ReplaceBlueprintForInspection
+  PROP: IsDeathRevealed
+  PROP: RiderPart
+  PROP: SaddledPart
+  PROP: HasLoot
+  PROP: SavedRagdoll
+  PROP: SavedDismemberment
+  PROP: EyePosition
+  PROP: Body
+  PROP: AttackFactions
+  PROP: Faction
+  PROP: Portrait
+  PROP: OverridePortrait
+  PROP: CrossPortrait
+  PROP: DamageNonLethal
+  PROP: HPLeft
+  PROP: MaxHP
+  PROP: TemporaryHP
+  PROP: Progression
+  PROP: Stats
+  PROP: IsInCombat
+  PROP: CanDismissCompanion
+  PROP: IsViewActive
+  PROP: IsViewActiveNoFade
+  PROP: Group
+  PROP: Memory
+  PROP: IsAwake
+  PROP: Blueprint
+  PROP: OriginalBlueprint
+  PROP: BlueprintForInspection
+  PROP: Gender
+  PROP: CharacterName
+  PROP: ConsoleSpeedModifier
+  PROP: NonCombatBaseSpeedFeet
+  PROP: BaseSpeedMps
+  PROP: CurrentSpeedMps
+  PROP: CombatSpeedMps
+  PROP: ModifiedSpeedMps
+  PROP: SpeedIsAffected
+  PROP: HasMotionThisTick
+  PROP: OrientationDirection
+  PROP: View
+  PROP: Brain
+  PROP: AiMovementForbidden
+  PROP: Inventory
+  PROP: VendorInventory
+  PROP: IsDeadAndHasLoot
+  PROP: IsPlayerFaction
+  PROP: IsPlayersEnemy
+  PROP: IsMainCharacter
+  PROP: IsImportedCustomCompanion
+  PROP: IsCloneOfMainCharacter
+  PROP: VisionRangeMeters
+  PROP: UISettings
+  PROP: IsDirectlyControllable
+  PROP: AreHandsBusyWithAnimation
+  PROP: BloodType
+  PROP: IsDetached
+  PROP: Corpulence
+  PROP: SilentCaster
+  PROP: Pets
+  PROP: Master
+  PROP: IsPet
+  PROP: IsReallyInFactPet
+  PROP: State
+  PROP: BaseCR
+  PROP: CR
+  PROP: Spellbooks
+  PROP: AlwaysDestroyViewOnDispose
+  PROP: RequiresSphereBoundsCollider
+  PROP: OriginalSize
+  PROP: Proficiencies
+  PROP: Alignment
+  PROP: Resources
+  PROP: MainFact
+  PROP: Context
+  PROP: IsSuppressible
+  PROP: IsAffectedByFogOfWar
+  PROP: AlwaysRevealedInFogOfWar
+  PROP: FootprintType
+  PROP: UpdateCommand
+  METHOD: add_PartAddedEvent (value)
+  METHOD: remove_PartAddedEvent (value)
+  METHOD: add_PartRemovedEvent (value)
+  METHOD: remove_PartRemovedEvent (value)
+  METHOD: get_Stealth
+  METHOD: set_Stealth (value)
+  METHOD: get_HoldState
+  METHOD: set_HoldState (value)
+  METHOD: get_StopState
+  METHOD: set_StopState (value)
+  METHOD: get_IsExtra
+  METHOD: set_IsExtra (value)
+  METHOD: get_AllowEvaluatorsForSaveOptimization
+  METHOD: set_AllowEvaluatorsForSaveOptimization (value)
+  METHOD: get_HasDummyView
+  METHOD: set_HasDummyView (value)
+  METHOD: get_BonusExperience
+  METHOD: set_BonusExperience (value)
+  METHOD: get_SpawnPosition
+  METHOD: set_SpawnPosition (value)
+  METHOD: get_LastMoveTime
+  METHOD: set_LastMoveTime (value)
+  METHOD: get_Descriptor
+  METHOD: set_Descriptor (value)
+  METHOD: get_IsLink
+  METHOD: set_IsLink (value)
+  METHOD: get_FlyHeight
+  METHOD: set_FlyHeight (value)
+  METHOD: get_LootSpawnPosition
+  METHOD: set_LootSpawnPosition (value)
+  METHOD: get_PreviousPosition
+  METHOD: set_PreviousPosition (value)
+  METHOD: get_DesiredOrientation
+  METHOD: set_DesiredOrientation (value)
+  METHOD: get_TimeToNextRoundTick
+  METHOD: set_TimeToNextRoundTick (value)
+  METHOD: get_VisionRangeMetersOverride
+  METHOD: set_VisionRangeMetersOverride (value)
+  METHOD: get_CombatVisionRangeMetersOverride
+  METHOD: set_CombatVisionRangeMetersOverride (value)
+  METHOD: get_CachedPerceptionRoll
+  METHOD: set_CachedPerceptionRoll (value)
+  METHOD: get_IsHiddenBecauseDead
+  METHOD: set_IsHiddenBecauseDead (value)
+  METHOD: get_GiveExperienceOnDeath
+  METHOD: set_GiveExperienceOnDeath (value)
+  METHOD: get_IsRestoredFromPlaceholder
+  METHOD: set_IsRestoredFromPlaceholder (value)
+  METHOD: get_Position
+  METHOD: set_Position (value)
+  METHOD: get_HoldingState
+  METHOD: set_HoldingState (value)
+  METHOD: get_PreviewOf
+  METHOD: set_PreviewOf (value)
+  METHOD: get_Damage
+  METHOD: set_Damage (value)
+  METHOD: get_OptimizationLevel
+  METHOD: set_OptimizationLevel (value)
+  METHOD: get_Abilities
+  METHOD: set_Abilities (value)
+  METHOD: get_ActivatableAbilities
+  METHOD: set_ActivatableAbilities (value)
+  METHOD: get_Buffs
+  METHOD: set_Buffs (value)
+  METHOD: get_Commands
+  METHOD: set_Commands (value)
+  METHOD: get_CombatState
+  METHOD: set_CombatState (value)
+  METHOD: get_AwakeTimer
+  METHOD: set_AwakeTimer (value)
+  METHOD: get_FadeAwakeTimer
+  METHOD: set_FadeAwakeTimer (value)
+  METHOD: get_LootViewed
+  METHOD: set_LootViewed (value)
+  METHOD: get_LastHandledDamage
+  METHOD: set_LastHandledDamage (value)
+  METHOD: get_ExtendedVisionArea
+  METHOD: set_ExtendedVisionArea (value)
+  METHOD: get_CutsceneControlledUnit
+  METHOD: set_CutsceneControlledUnit (value)
+  METHOD: get_IsSleeping
+  METHOD: set_IsSleeping (value)
+  METHOD: get_IsNoFadeSleeping
+  METHOD: set_IsNoFadeSleeping (value)
+  METHOD: get_GroupId
+  METHOD: set_GroupId (value)
+  METHOD: get_Orientation
+  METHOD: set_Orientation (value)
+  METHOD: get_IsAIEnabled
+  METHOD: set_IsAIEnabled (value)
+  METHOD: get_ReplaceBlueprintForInspection
+  METHOD: set_ReplaceBlueprintForInspection (value)
+  METHOD: get_IsDeathRevealed
+  METHOD: set_IsDeathRevealed (value)
+  METHOD: get_RiderPart
+  METHOD: set_RiderPart (value)
+  METHOD: get_SaddledPart
+  METHOD: set_SaddledPart (value)
+  METHOD: get_HasLoot
+  METHOD: get_SavedRagdoll
+  METHOD: get_SavedDismemberment
+  METHOD: get_EyePosition
+  METHOD: get_Body
+  METHOD: get_AttackFactions
+  METHOD: get_Faction
+  METHOD: get_Portrait
+  METHOD: get_OverridePortrait
+  METHOD: get_CrossPortrait
+  METHOD: get_DamageNonLethal
+  METHOD: get_HPLeft
+  METHOD: get_MaxHP
+  METHOD: get_TemporaryHP
+  METHOD: get_Progression
+  METHOD: get_Stats
+  METHOD: get_IsInCombat
+  METHOD: get_CanDismissCompanion
+  METHOD: get_IsViewActive
+  METHOD: get_IsViewActiveNoFade
+  METHOD: get_Group
+  METHOD: get_Memory
+  METHOD: get_IsAwake
+  METHOD: get_Blueprint
+  METHOD: get_OriginalBlueprint
+  METHOD: get_BlueprintForInspection
+  METHOD: get_Gender
+  METHOD: get_CharacterName
+  METHOD: get_ConsoleSpeedModifier
+  METHOD: get_NonCombatBaseSpeedFeet
+  METHOD: get_BaseSpeedMps
+  METHOD: get_CurrentSpeedMps
+  METHOD: GetViewActive (includedFade)
+  METHOD: CalculateCurrentSpeed
+  METHOD: get_CombatSpeedMps
+  METHOD: get_ModifiedSpeedMps
+  METHOD: get_SpeedIsAffected
+  METHOD: get_HasMotionThisTick
+  METHOD: get_OrientationDirection
+  METHOD: get_View
+  METHOD: get_Brain
+  METHOD: get_AiMovementForbidden
+  METHOD: get_Inventory
+  METHOD: get_VendorInventory
+  METHOD: get_IsDeadAndHasLoot
+  METHOD: get_IsPlayerFaction
+  METHOD: get_IsPlayersEnemy
+  METHOD: get_IsMainCharacter
+  METHOD: get_IsImportedCustomCompanion
+  METHOD: set_IsImportedCustomCompanion (value)
+  METHOD: get_IsCloneOfMainCharacter
+  METHOD: get_VisionRangeMeters
+  METHOD: get_UISettings
+  METHOD: get_IsDirectlyControllable
+  METHOD: get_AreHandsBusyWithAnimation
+  METHOD: SetOverrideBlood (isOn, overrideBlood)
+  METHOD: get_BloodType
+  METHOD: get_IsDetached
+  METHOD: get_Corpulence
+  METHOD: get_SilentCaster
+  METHOD: get_Pets
+  METHOD: get_Master
+  METHOD: get_IsPet
+  METHOD: get_IsReallyInFactPet
+  METHOD: get_State
+  METHOD: get_BaseCR
+  METHOD: get_CR
+  METHOD: get_Spellbooks
+  METHOD: get_AlwaysDestroyViewOnDispose
+  METHOD: get_RequiresSphereBoundsCollider
+  METHOD: get_OriginalSize
+  METHOD: get_Proficiencies
+  METHOD: get_Alignment
+  METHOD: get_Resources
+  METHOD: get_MainFact
+  METHOD: get_Context
+  METHOD: get_IsSuppressible
+  METHOD: get_IsAffectedByFogOfWar
+  METHOD: get_AlwaysRevealedInFogOfWar
+  METHOD: get_FootprintType
+  METHOD: .ctor (view)
+  METHOD: .ctor (uniqueId, isInGame, blueprint)
+  METHOD: .ctor (_)
+  METHOD: EnsureFactProcessors
+  METHOD: Initialize
+  METHOD: UpdateHasDummyView
+  METHOD: OnIsInGameChanged
+  METHOD: TranslocatePetsClose
+  METHOD: GetScaleMultiplierBySize (unit)
+  METHOD: DropLootToGround (dismember, overridePos, force)
+  METHOD: Translocate (position, orientation)
+  METHOD: InRange (center, radius)
+  METHOD: DistanceTo (other)
+  METHOD: DistanceTo (point)
+  METHOD: DistanceTo (data)
+  METHOD: SqrDistanceTo (other)
+  METHOD: SqrDistanceTo (point)
+  METHOD: IsEnemy (unit)
+  METHOD: IsAlly (unit)
+  METHOD: CanAttack (unit)
+  METHOD: HasLOS (other)
+  METHOD: HasLOS (point, fudgeRadius)
+  METHOD: HasLOS (view)
+  METHOD: HasLOS (point, overridePosition)
+  METHOD: CheckLOS (point, overridePosition, hasLOS, hasLOSWithoutDistance)
+  METHOD: CheckLOSBetweenPoints (p1, p2, hasLOS, hasLOSWithoutDistance)
+  METHOD: UpdateGroup
+  METHOD: JoinCombat (notSurprised)
+  METHOD: LeaveCombat
+  METHOD: UpdateCombatSwitch
+  METHOD: CreateView
+  METHOD: InstantiateView_Internal (originalPrefab)
+  METHOD: GetActivePolymorph
+  METHOD: GetPrefabGuid
+  METHOD: CreateViewForData
+  METHOD: OnViewDidAttach
+  METHOD: OnComponentsDidPostLoad
+  METHOD: OnApplyPostLoadFixes
+  METHOD: OnPreSave
+  METHOD: OnPostLoad
+  METHOD: OnTurnOn
+  METHOD: OnTurnOff (reason)
+  METHOD: OnDestroy
+  METHOD: OnDispose
+  METHOD: TransferInventoryToDroppedLoot
+  METHOD: ToString
+  METHOD: GetLookAtAngle (point)
+  METHOD: LookAt (point)
+  METHOD: ForceLookAt (point)
+  METHOD: UpdateSlowRotation (maxAngle)
+  METHOD: CalculateSpeedModifier
+  METHOD: SelectClickInteraction (initiator)
+  METHOD: Wake (time, isForFade)
+  METHOD: SetPositionWithoutWaking (pos)
+  METHOD: ForceExitStealth
+  METHOD: GetFirstWeapon
+  METHOD: SetMaster (master, petType)
+  METHOD: RemoveMaster
+  METHOD: GetPet (type)
+  METHOD: OnAreaBeginUnloading
+  METHOD: OnAreaDidLoad
+  METHOD: SwitchFactions (faction, resetAttackFactions)
+  METHOD: Resurrect
+  METHOD: DemandSpellbook (class)
+  METHOD: DemandSpellbook (spellbook)
+  METHOD: GetSpellbook (blueprint)
+  METHOD: GetSpellbook (blueprint)
+  METHOD: op_Implicit (unit)
+  METHOD: op_Equality (u1, u2)
+  METHOD: op_Inequality (u1, u2)
+  METHOD: Equals (obj)
+  METHOD: GetHashCode
+  METHOD: OnPartAddedOrPostLoad (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartAdded (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartRemoved (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartPostLoad (part)
+  METHOD: Kingmaker.EntitySystem.IEntityPartsManagerDelegate.OnPartsManagerPostLoad (manager)
+  METHOD: UpdateCachedPart (part, removed)
+  METHOD: Stop
+  METHOD: CancelStop
+  METHOD: Hold
+  METHOD: CancelHold
+  METHOD: TryCancelCommands
+  METHOD: IsAbleToAct
+  METHOD: WillTakeTurn
+  METHOD: HasControlLossEffects
+  METHOD: GetTimeToNextTurn
+  METHOD: HasFullRoundAction
+  METHOD: HasStandardAction
+  METHOD: HasMoveAction
+  METHOD: HasSwiftAction
+  METHOD: UsedStandardAction
+  METHOD: UsedOneMoveAction
+  METHOD: UsedTwoMoveAction
+  METHOD: IsMoveActionRestricted
+  METHOD: IsStandardActionRestricted
+  METHOD: IsSurprising
+  METHOD: IsActingSurpriseCommands
+  METHOD: GetAllCommands
+  METHOD: HasOffensiveCommand (pred)
+  METHOD: HasSurpriseCommand (pred)
+  METHOD: IsSummoned
+  METHOD: IsSummoned (caster)
+  METHOD: IsUnseen
+  METHOD: IsCurrentUnit
+  METHOD: SpendAction (type, isFullRound, timeSinceCommandStart)
+  METHOD: HasFreeTouch
+  METHOD: PreparedSpellCombat
+  METHOD: PreparedSpellStrike
+  METHOD: AddBuffDuration (blueprint, duration)
+  METHOD: SetBuffDuration (blueprint, duration)
+  METHOD: PrepareRespec
+  METHOD: get_UpdateCommand
+  METHOD: ReplaceCommands (newCmds)
+  METHOD: MarkNoExtra
+  METHOD: MarkExtra
+  METHOD: MarkAsCloneOfMainCharacter
+  METHOD: SetStealthData (stealthDta)
+  METHOD: MarkNotOptimizableInSave (aliveOnly)
+  METHOD: OnMarkedForDestroy
+  METHOD: RecreateView
+  METHOD: TempUnmount
+  METHOD: RecoveryMount
+  METHOD: .cctor
+  METHOD: <DropLootToGround>b__383_1 (i)
+  METHOD: <JoinCombat>b__401_0 (h)
+  METHOD: <LeaveCombat>b__402_0 (h)
+  METHOD: <OnViewDidAttach>b__409_1 (h)
+  METHOD: <OnTurnOn>b__415_0 (a)
+  METHOD: <OnDestroy>b__417_0 (h)
+  METHOD: <ForceExitStealth>b__429_0 (h)
+  METHOD: <GetFirstWeapon>g__IsNotUnarmedWeapon|430_0 (unit, hand)
+  METHOD: <SetMaster>b__431_0 (h)
+  METHOD: <IsUnseen>b__478_0 (group)
+RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint vis=public base=Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyAction
+=== TYPE Kingmaker.Controllers.TimeController vis=public base=System.Object ===
+  FIELD: m_LastDeltaTimes [private]
+  FIELD: m_DeltaTimeFor3Frames [private]
+  FIELD: m_UiTimeScaleValue [private]
+  FIELD: m_DeltaTime [private]
+  FIELD: <GameDeltaTime>k__BackingField [private]
+  FIELD: <PlayerTimeScale>k__BackingField [private]
+  FIELD: DebugTimeScale [protorint]
+  FIELD: m_JustActivated [protorint]
+  PROP: DeltaTime
+  PROP: GameDeltaTime
+  PROP: PlayerTimeScale
+  PROP: GameTime
+  PROP: RealTime
+  PROP: UiTimeScale
+  METHOD: get_DeltaTime
+  METHOD: set_DeltaTime (value)
+  METHOD: get_GameDeltaTime
+  METHOD: set_GameDeltaTime (value)
+  METHOD: get_PlayerTimeScale
+  METHOD: set_PlayerTimeScale (value)
+  METHOD: get_GameTime
+  METHOD: get_RealTime
+  METHOD: get_UiTimeScale
+  METHOD: set_UiTimeScale (value)
+  METHOD: .ctor
+  METHOD: Tick
+  METHOD: TickRealTime
+  METHOD: Activate
+  METHOD: Deactivate
+  METHOD: Suspend
+  METHOD: GetDeltaTimeForFrames (framesCount)
+  METHOD: SkipTime (timeOfDay)
+  METHOD: Stop
+  METHOD: SetDeltaTime (value)
+  METHOD: SetGameDeltaTime (value)
+=== TYPE Kingmaker.Controllers.Units.ITickEachRound vis=public base=(nil) ===
+  METHOD: OnNewRound
+=== TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
+  FIELD: m_Type [private]
+  FIELD: LocalizedName [protorint]
+  FIELD: Gender [protorint]
+  FIELD: Size [protorint]
+  FIELD: IsLeftHanded [protorint]
+  FIELD: Color [protorint]
+  FIELD: m_Race [private]
+  FIELD: Alignment [protorint]
+  FIELD: m_Portrait [private]
+  FIELD: Prefab [protorint]
+  FIELD: m_CustomizationPreset [private]
+  FIELD: Visual [protorint]
+  FIELD: m_Faction [private]
+  FIELD: FactionOverrides [protorint]
+  FIELD: m_StartingInventory [private]
+  FIELD: m_Brain [private]
+  FIELD: AlternativeBrains [protorint]
+  FIELD: Body [protorint]
+  FIELD: Strength [protorint]
+  FIELD: Dexterity [protorint]
+  FIELD: Constitution [protorint]
+  FIELD: Intelligence [protorint]
+  FIELD: Wisdom [protorint]
+  FIELD: Charisma [protorint]
+  FIELD: Speed [protorint]
+  FIELD: BaseAttackBonus [protorint]
+  FIELD: Skills [protorint]
+  FIELD: MaxHP [protorint]
+  FIELD: m_AdditionalTemplates [private]
+  FIELD: m_AddFacts [private]
+  FIELD: IsCheater [protorint]
+  FIELD: IsFake [protorint]
+  FIELD: m_PS4ChunkId [private]
+  FIELD: m_HasAssignedChunkId [private]
+  FIELD: OnOpenUnitStats [private]
+  FIELD: m_CachedTags [private]
+  PROP: Type
+  PROP: CharacterName
+  PROP: Race
+  PROP: PortraitSafe
+  PROP: CustomizationPreset
+  PROP: Faction
+  PROP: StartingInventory
+  PROP: DefaultBrain
+  PROP: AdditionalTemplates
+  PROP: AddFacts
+  PROP: PS4ChunkId
+  PROP: HasAssignedChunkId
+  PROP: CR
+  PROP: Tags
+  PROP: AttackFactions
+  PROP: IsCompanion
+  PROP: ShowDisplayName
+  PROP: ShowDescription
+  METHOD: get_Type
+  METHOD: get_CharacterName
+  METHOD: get_Race
+  METHOD: get_PortraitSafe
+  METHOD: set_PortraitSafe (value)
+  METHOD: get_CustomizationPreset
+  METHOD: set_CustomizationPreset (value)
+  METHOD: get_Faction
+  METHOD: set_Faction (value)
+  METHOD: get_StartingInventory
+  METHOD: get_DefaultBrain
+  METHOD: get_AdditionalTemplates
+  METHOD: get_AddFacts
+  METHOD: get_PS4ChunkId
+  METHOD: set_PS4ChunkId (value)
+  METHOD: get_HasAssignedChunkId
+  METHOD: add_OnOpenUnitStats (value)
+  METHOD: remove_OnOpenUnitStats (value)
+  METHOD: UnitAnalyzer
+  METHOD: ValidateBrainsButton
+  METHOD: ValidateBrains (vc)
+  METHOD: get_CR
+  METHOD: get_Tags
+  METHOD: get_AttackFactions
+  METHOD: get_IsCompanion
+  METHOD: get_ShowDisplayName
+  METHOD: get_ShowDescription
+  METHOD: GetFactType
+  METHOD: CheckEqualsWithPrototype (other)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: ValidateBrainActions (unit, brain, context)
+  METHOD: CheckWeaponInAdditionalLimbAnimationExists (context, weapon, animSet, checkOffHand, checkMain)
+  METHOD: CheckWeaponAnimationExists (context, weapon, animSet, checkOffHand, checkMain)
+  METHOD: PreloadResources
+  METHOD: .ctor
+  METHOD: <PreloadResources>b__89_0 (b)
+RAGE-TYPE: Kingmaker.Blueprints.Items.Components.EquipmentRestrictionAlignment vis=public base=Kingmaker.Blueprints.Items.Components.EquipmentRestriction
+  FIELD: Alignment [protorint]
+=== TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: MaxPossibleSpellLevel [protorint]
+  FIELD: Name [protorint]
+  FIELD: IsMythic [protorint]
+  FIELD: m_SpellsPerDay [private]
+  FIELD: m_SpellsKnown [private]
+  FIELD: m_SpellSlots [private]
+  FIELD: m_SpellList [private]
+  FIELD: m_MythicSpellList [private]
+  FIELD: m_CharacterClass [private]
+  FIELD: CastingAttribute [protorint]
+  FIELD: Spontaneous [protorint]
+  FIELD: SpellsPerLevel [protorint]
+  FIELD: AllSpellsKnown [protorint]
+  FIELD: CantripsType [protorint]
+  FIELD: CasterLevelModifier [protorint]
+  FIELD: CanCopyScrolls [protorint]
+  FIELD: IsArcane [protorint]
+  FIELD: IsArcanist [protorint]
+  FIELD: IsIgnoreAddSpellKnownTemporary [protorint]
+  FIELD: HasSpecialSpellList [protorint]
+  FIELD: SpecialSpellListName [protorint]
+  PROP: DisplayName
+  PROP: SpellsPerDay
+  PROP: SpellsKnown
+  PROP: SpellSlots
+  PROP: SpellList
+  PROP: MythicSpellList
+  PROP: CharacterClass
+  PROP: MemorizeSpells
+  PROP: IsAlchemist
+  PROP: IsSinMagicSpecialist
+  PROP: MaxSpellLevel
+  PROP: Kingmaker.UI.IUIDataProvider.Name
+  PROP: Kingmaker.UI.IUIDataProvider.Description
+  PROP: Kingmaker.UI.IUIDataProvider.Icon
+  PROP: Kingmaker.UI.IUIDataProvider.NameForAcronym
+  METHOD: get_DisplayName
+  METHOD: get_SpellsPerDay
+  METHOD: get_SpellsKnown
+  METHOD: get_SpellSlots
+  METHOD: get_SpellList
+  METHOD: get_MythicSpellList
+  METHOD: get_CharacterClass
+  METHOD: get_MemorizeSpells
+  METHOD: get_IsAlchemist
+  METHOD: get_IsSinMagicSpecialist
+  METHOD: get_MaxSpellLevel
+  METHOD: Kingmaker.UI.IUIDataProvider.get_Name
+  METHOD: Kingmaker.UI.IUIDataProvider.get_Description
+  METHOD: Kingmaker.UI.IUIDataProvider.get_Icon
+  METHOD: Kingmaker.UI.IUIDataProvider.get_NameForAcronym
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: .ctor
+=== TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellsTable vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: Levels [protorint]
+  METHOD: GetCount (classLevel, spellLevel)
+  METHOD: .ctor
+=== TYPE Kingmaker.Blueprints.Classes.Spells.SpellsLevelEntry vis=public base=System.Object ===
+  FIELD: Count [protorint]
+  METHOD: .ctor
+=== TYPE Kingmaker.Blueprints.Classes.Selection.BlueprintFeatureSelection vis=public base=Kingmaker.Blueprints.Classes.BlueprintFeature ===
+  FIELD: IgnorePrerequisites [protorint]
+  FIELD: ExceptWhiteListed [protorint]
+  FIELD: Obligatory [protorint]
+  FIELD: Mode [protorint]
+  FIELD: Group [protorint]
+  FIELD: Group2 [protorint]
+  FIELD: m_Features [private]
+  FIELD: m_AllFeatures [private]
+  FIELD: ShowThisSelection [protorint]
+  PROP: Features
+  PROP: AllFeatures
+  PROP: Items
+  PROP: IsGroupNone
+  METHOD: get_Features
+  METHOD: get_AllFeatures
+  METHOD: ExtractSelectionItems (beforeLevelUpUnit, previewUnit)
+  METHOD: get_Items
+  METHOD: get_IsGroupNone
+  METHOD: CanSelect (unit, state, selectionState, item)
+  METHOD: GetGroup
+  METHOD: IsIgnorePrerequisites
+  METHOD: IsObligatory
+  METHOD: IsSelectionProhibited (unit)
+  METHOD: .ctor
+RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
+  FIELD: IngorePrerequisiteCheck [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: ArchetypeAlignment [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
+  FIELD: IsArcane [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
+  FIELD: IsArcane [protorint]
+  FIELD: OnlySpontaneous [protorint]
+  FIELD: RequiredSpellLevel [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Root.AlignmentColors vis=public base=System.Object
+  FIELD: m_TextColor [private]
+  FIELD: m_BackgroundColor [private]
+  FIELD: m_HistoryPointColor [private]
+RAGE-TYPE: Kingmaker.Blueprints.Root.AlignmentUIPart vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Text [protorint]
+  FIELD: Background [protorint]
+  FIELD: HistoryPoint [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.DamageAlignmentString vis=public base=TypeSpecification
+  FIELD: Entries [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=System.Object
+  FIELD: TrueNeutral [protorint]
+  FIELD: TrueNeutralDescription [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: ChaoticNeutralDescription [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: ChaoticGoodDescription [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: NeutralGoodDescription [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: LawfulGoodDescription [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: LawfulNeutralDescription [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: LawfulEvilDescription [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: NeutralEvilDescription [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: ChaoticEvilDescription [protorint]
+  FIELD: ShiftTrueNeutral [protorint]
+  FIELD: ShiftChaoticNeutral [protorint]
+  FIELD: ShiftChaoticGood [protorint]
+  FIELD: ShiftNeutralGood [protorint]
+  FIELD: ShiftLawfulGood [protorint]
+  FIELD: ShiftLawfulNeutral [protorint]
+  FIELD: ShiftLawfulEvil [protorint]
+  FIELD: ShiftNeutralEvil [protorint]
+  FIELD: ShiftChaoticEvil [protorint]
+  FIELD: ShiftGood [protorint]
+  FIELD: ShiftEvil [protorint]
+  FIELD: ShiftLawful [protorint]
+  FIELD: ShiftChaotic [protorint]
+  FIELD: AlignmentRequirementGood [protorint]
+  FIELD: AlignmentRequirementEvil [protorint]
+  FIELD: AlignmentRequirementLawful [protorint]
+  FIELD: AlignmentRequirementChaotic [protorint]
+  FIELD: AlignmentRequirementNatural [protorint]
+  FIELD: AnyAlignmentGroup [protorint]
+  FIELD: LawfulGroup [protorint]
+  FIELD: ChaoticGroup [protorint]
+  FIELD: NeutralGroup [protorint]
+  FIELD: EvilGroup [protorint]
+  FIELD: GoodGroup [protorint]
+  FIELD: EGNeutralGroup [protorint]
+  FIELD: LCNeutralGroup [protorint]
+=== TYPE Kingmaker.UnitLogic.Feature vis=public base=TypeSpecification ===
+  FIELD: m_Context [private]
+  FIELD: m_Source [private]
+  FIELD: m_RankToSource [private]
+  FIELD: <Rank>k__BackingField [private]
+  FIELD: <IsTemporary>k__BackingField [private]
+  FIELD: <SourceLevel>k__BackingField [private]
+  FIELD: <IgnorePrerequisites>k__BackingField [private]
+  FIELD: <DisabledBecauseOfPrerequisites>k__BackingField [private]
+  FIELD: <Param>k__BackingField [private]
+  PROP: Rank
+  PROP: IsTemporary
+  PROP: SourceLevel
+  PROP: IgnorePrerequisites
+  PROP: DisabledBecauseOfPrerequisites
+  PROP: ParamConverter
+  PROP: Param
+  PROP: Context
+  PROP: Source
+  PROP: SourceProgression
+  PROP: SourceRace
+  PROP: SourceClass
+  PROP: IsEnabled
+  PROP: MythicSource
+  PROP: Hidden
+  PROP: IsMythic
+  PROP: Name
+  PROP: RankToSource
+  METHOD: get_Rank
+  METHOD: set_Rank (value)
+  METHOD: get_IsTemporary
+  METHOD: set_IsTemporary (value)
+  METHOD: get_SourceLevel
+  METHOD: set_SourceLevel (value)
+  METHOD: get_IgnorePrerequisites
+  METHOD: set_IgnorePrerequisites (value)
+  METHOD: get_DisabledBecauseOfPrerequisites
+  METHOD: set_DisabledBecauseOfPrerequisites (value)
+  METHOD: get_ParamConverter
+  METHOD: set_ParamConverter (value)
+  METHOD: get_Param
+  METHOD: set_Param (value)
+  METHOD: get_Context
+  METHOD: get_Source
+  METHOD: get_SourceProgression
+  METHOD: get_SourceRace
+  METHOD: get_SourceClass
+  METHOD: get_IsEnabled
+  METHOD: get_MythicSource
+  METHOD: get_Hidden
+  METHOD: get_IsMythic
+  METHOD: get_Name
+  METHOD: get_RankToSource
+  METHOD: .ctor (blueprint, owner, parentContext)
+  METHOD: .ctor (_)
+  METHOD: GetRank
+  METHOD: SetRank (rank)
+  METHOD: AddRank
+  METHOD: RemoveRank
+  METHOD: OnActivate
+  METHOD: OnDispose
+  METHOD: Kingmaker.UnitLogic.Mechanics.Components.IFactContextOwner.RunActionInContext (action, target)
+  METHOD: GetSourceClass
+  METHOD: SetSource (source, level)
+  METHOD: SetSameSource (feature)
+  METHOD: SetSourceSameAsLastRankToSourceValue
+  METHOD: HasSource (source, level)
+  METHOD: <AddRank>b__59_0 (h)
+  METHOD: <RemoveRank>b__60_0 (h)
+=== TYPE Kingmaker.UnitLogic.FeatureSelectionData vis=public base=System.Object ===
+  FIELD: Empty [protorint]
+  FIELD: m_SelectionsByLevel [private]
+  FIELD: Source [protorint]
+  PROP: SelectionsByLevel
+  PROP: MythicSource
+  PROP: IsMythic
+  PROP: IsEmpty
+  METHOD: get_SelectionsByLevel
+  METHOD: get_MythicSource
+  METHOD: get_IsMythic
+  METHOD: get_IsEmpty
+  METHOD: .ctor
+  METHOD: .ctor (source)
+  METHOD: GetSelections (level)
+  METHOD: AddSelection (level, feature)
+  METHOD: RemoveSelection (level, feature)
+  METHOD: RemoveLevel (level)
+  METHOD: .cctor
+=== TYPE Kingmaker.UnitLogic.UnitDescriptor vis=public base=System.Object ===
+  FIELD: m_Inventory [protorint]
+  FIELD: m_Damage [private]
+  FIELD: m_Spellbooks [private]
+  FIELD: m_Faction [private]
+  FIELD: Stats [protorint]
+  FIELD: <Body>k__BackingField [private]
+  FIELD: AttackFactions [protorint]
+  FIELD: <ReplaceBlueprintForInspection>k__BackingField [private]
+  FIELD: Resources [protorint]
+  FIELD: Progression [protorint]
+  FIELD: UISettings [protorint]
+  FIELD: State [protorint]
+  FIELD: Proficiencies [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: <Brain>k__BackingField [private]
+  FIELD: <OriginalBlueprint>k__BackingField [private]
+  FIELD: <Blueprint>k__BackingField [private]
+  FIELD: CustomGender [protorint]
+  FIELD: LeftHandedOverride [protorint]
+  FIELD: CustomName [protorint]
+  FIELD: CustomAsks [protorint]
+  FIELD: OverrideAsks [protorint]
+  FIELD: ForceUseClassEquipment [protorint]
+  FIELD: BirthDay [protorint]
+  FIELD: BirthMonth [protorint]
+  FIELD: CustomPrefabGuid [protorint]
+  FIELD: m_AppliedFixers [private]
+  FIELD: m_IsEssentialForGame [private]
+  FIELD: <MainFact>k__BackingField [private]
+  FIELD: <Encumbrance>k__BackingField [private]
+  FIELD: <HasOwnInventory>k__BackingField [private]
+  FIELD: <LastRestTime>k__BackingField [private]
+  FIELD: m_LoadedDollData [private]
+  FIELD: m_Context [private]
+  FIELD: m_IsPlayerFactionCached [private]
+  FIELD: <Unit>k__BackingField [private]
+  FIELD: <IsTurnedOn>k__BackingField [private]
+  FIELD: m_FactionOriginal [private]
+  FIELD: FactionSwitchers [private]
+  PROP: Body
+  PROP: ReplaceBlueprintForInspection
+  PROP: Brain
+  PROP: OriginalBlueprint
+  PROP: Blueprint
+  PROP: MainFact
+  PROP: Encumbrance
+  PROP: HasOwnInventory
+  PROP: LastRestTime
+  PROP: Doll
+  PROP: Unit
+  PROP: IsTurnedOn
+  PROP: Faction
+  PROP: FactionOriginal
+  PROP: Damage
+  PROP: Abilities
+  PROP: ActivatableAbilities
+  PROP: Buffs
+  PROP: DamageNonLethal
+  PROP: Gender
+  PROP: IsLeftHanded
+  PROP: CharacterName
+  PROP: Asks
+  PROP: UseClassEquipment
+  PROP: OriginalSize
+  PROP: Context
+  PROP: Facts
+  PROP: Inventory
+  PROP: HPLeft
+  PROP: MaxHP
+  PROP: TemporaryHP
+  PROP: Spellbooks
+  PROP: IsPlayerFaction
+  PROP: HasUMDSkill
+  PROP: IsImmuneToVisualEffects
+  PROP: IsSeeInvisibility
+  PROP: IsUndead
+  PROP: IsEssentialForGame
+  PROP: UseMartialArts
+  PROP: Portrait
+  PROP: OverridePortrait
+  PROP: CrossPortrait
+  PROP: IsMainCharacter
+  PROP: BlueprintForInspection
+  METHOD: get_Body
+  METHOD: set_Body (value)
+  METHOD: get_ReplaceBlueprintForInspection
+  METHOD: set_ReplaceBlueprintForInspection (value)
+  METHOD: get_Brain
+  METHOD: set_Brain (value)
+  METHOD: get_OriginalBlueprint
+  METHOD: set_OriginalBlueprint (value)
+  METHOD: get_Blueprint
+  METHOD: set_Blueprint (value)
+  METHOD: get_MainFact
+  METHOD: set_MainFact (value)
+  METHOD: get_Encumbrance
+  METHOD: set_Encumbrance (value)
+  METHOD: get_HasOwnInventory
+  METHOD: set_HasOwnInventory (value)
+  METHOD: get_LastRestTime
+  METHOD: set_LastRestTime (value)
+  METHOD: set_Doll (value)
+  METHOD: get_Unit
+  METHOD: set_Unit (value)
+  METHOD: get_IsTurnedOn
+  METHOD: set_IsTurnedOn (value)
+  METHOD: get_Faction
+  METHOD: set_Faction (value)
+  METHOD: get_FactionOriginal
+  METHOD: get_Damage
+  METHOD: set_Damage (value)
+  METHOD: get_Abilities
+  METHOD: get_ActivatableAbilities
+  METHOD: get_Buffs
+  METHOD: get_DamageNonLethal
+  METHOD: get_Gender
+  METHOD: get_IsLeftHanded
+  METHOD: get_CharacterName
+  METHOD: get_Asks
+  METHOD: get_UseClassEquipment
+  METHOD: get_OriginalSize
+  METHOD: get_Context
+  METHOD: get_Facts
+  METHOD: get_Inventory
+  METHOD: get_HPLeft
+  METHOD: get_MaxHP
+  METHOD: get_TemporaryHP
+  METHOD: get_Spellbooks
+  METHOD: get_IsPlayerFaction
+  METHOD: get_HasUMDSkill
+  METHOD: get_IsImmuneToVisualEffects
+  METHOD: get_IsSeeInvisibility
+  METHOD: get_IsUndead
+  METHOD: get_IsEssentialForGame
+  METHOD: get_UseMartialArts
+  METHOD: get_Portrait
+  METHOD: get_OverridePortrait
+  METHOD: get_CrossPortrait
+  METHOD: get_IsMainCharacter
+  METHOD: get_BlueprintForInspection
+  METHOD: Get
+  METHOD: Ensure
+  METHOD: Remove
+  METHOD: TurnOn
+  METHOD: TurnOff
+  METHOD: PreSave
+  METHOD: PostLoad (entity)
+  METHOD: OnComponentsDidPostLoad
+  METHOD: ApplyPostLoadFixes
+  METHOD: EnsureNaturalProficiencies
+  METHOD: Dispose
+  METHOD: GetFactionSwitcher (faction, resetAttackFactions)
+  METHOD: SwitchFactions (faction, resetAttackFactions)
+  METHOD: SwitchFactions (faction, resetAttackFactions, permanently)
+  METHOD: FixInventoryOnPlayerPostLoad
+  METHOD: SetupInventory (restoreOnPlayerPostLoad)
+  METHOD: SetFakeBlueprint (fake)
+  METHOD: .ctor (blueprint, data)
+  METHOD: EnsureOwnInventory
+  METHOD: SetupSharedInventoryForPet
+  METHOD: ToString
+  METHOD: .ctor (_)
+  METHOD: Initialize
+  METHOD: Initialize (unit, blueprint)
+  METHOD: AddStartingInventory
+  METHOD: AddStartingInventory (unit, blueprint)
+  METHOD: InitializeStat (stat, value)
+  METHOD: SetSkills (skills)
+  METHOD: ApplyTemplate (unit, template)
+  METHOD: GetSpellbook (characterClass)
+  METHOD: DemandSpellbook (characterClass)
+  METHOD: GetSpellbook (blueprint)
+  METHOD: DemandSpellbook (blueprint)
+  METHOD: DeleteSpellbook (spellbook)
+  METHOD: OnGainClassLevel (class)
+  METHOD: Resurrect (initiator, resultHealthPart, restoreHealth)
+  METHOD: ResurrectAndFullRestore (initiator)
+  METHOD: Resurrect (initiator, resultHealthPart, restoreHealth, fullRestore)
+  METHOD: RemoveBuffsOnResurrect
+  METHOD: UpdateSizeModifiers
+  METHOD: GetWeaponRange (weapon)
+  METHOD: OnDifficultyChanged
+  METHOD: op_Implicit (unit)
+  METHOD: AddEssentialMark
+  METHOD: RemoveEssentialMark
+  METHOD: <ApplyPostLoadFixes>b__149_0 (a)
+  METHOD: <SwitchFactions>b__154_0 (h)
+  METHOD: <.ctor>b__158_0 (a)
+  METHOD: <Resurrect>b__178_0 (h)
+=== TYPE Kingmaker.UnitLogic.UnitProgressionData vis=public base=System.Object ===
+  FIELD: m_Race [private]
+  FIELD: m_ClassesOrder [private]
+  FIELD: Classes [protorint]
+  FIELD: m_Progressions [private]
+  FIELD: m_Selections [private]
+  FIELD: ClassSkills [protorint]
+  FIELD: m_LevelPlans [private]
+  FIELD: m_MythicLevelPlans [private]
+  FIELD: m_MythicLevelPlanDisabled [private]
+  FIELD: m_PlanSkills [private]
+  FIELD: m_AdditionalVisualSettingsDisabled [private]
+  FIELD: <Experience>k__BackingField [private]
+  FIELD: <MythicExperience>k__BackingField [private]
+  FIELD: <ObligatoryMythicClassesQueue>k__BackingField [private]
+  FIELD: m_CharacterLevel [private]
+  FIELD: m_MythicLevel [private]
+  FIELD: LevelUpPlanProviders [protorint]
+  FIELD: <Owner>k__BackingField [private]
+  FIELD: <Features>k__BackingField [private]
+  FIELD: <CurrentScalePercent>k__BackingField [private]
+  FIELD: <AdditionalVisualSettings>k__BackingField [private]
+  FIELD: m_PlansForRestore [private]
+  PROP: LastMythicClass
+  PROP: Experience
+  PROP: MythicExperience
+  PROP: ObligatoryMythicClassesQueue
+  PROP: Owner
+  PROP: Features
+  PROP: CurrentScalePercent
+  PROP: AdditionalVisualSettings
+  PROP: CharacterLevel
+  PROP: MythicLevel
+  PROP: Race
+  PROP: VisibleRace
+  PROP: CanLevelUpNormal
+  PROP: CanLevelUpNormalOnNext
+  PROP: CanLevelUpMythic
+  PROP: CanLevelUpMythicOnNext
+  PROP: MaxAvailableCharacterLevel
+  PROP: MaxAvailableMythicLevel
+  PROP: MaxCharacterLevel
+  PROP: ExperienceTable
+  PROP: Selections
+  PROP: ClassesOrder
+  PROP: NextObligatoryMythicClass
+  PROP: GetAllProgressions
+  METHOD: get_LastMythicClass
+  METHOD: get_Experience
+  METHOD: set_Experience (value)
+  METHOD: get_MythicExperience
+  METHOD: set_MythicExperience (value)
+  METHOD: get_ObligatoryMythicClassesQueue
+  METHOD: set_ObligatoryMythicClassesQueue (value)
+  METHOD: get_Owner
+  METHOD: set_Owner (value)
+  METHOD: get_Features
+  METHOD: set_Features (value)
+  METHOD: get_CurrentScalePercent
+  METHOD: set_CurrentScalePercent (value)
+  METHOD: get_AdditionalVisualSettings
+  METHOD: set_AdditionalVisualSettings (value)
+  METHOD: get_CharacterLevel
+  METHOD: set_CharacterLevel (value)
+  METHOD: get_MythicLevel
+  METHOD: set_MythicLevel (value)
+  METHOD: get_Race
+  METHOD: get_VisibleRace
+  METHOD: get_CanLevelUpNormal
+  METHOD: get_CanLevelUpNormalOnNext
+  METHOD: get_CanLevelUpMythic
+  METHOD: get_CanLevelUpMythicOnNext
+  METHOD: get_MaxAvailableCharacterLevel
+  METHOD: get_MaxAvailableMythicLevel
+  METHOD: get_MaxCharacterLevel
+  METHOD: get_ExperienceTable
+  METHOD: get_Selections
+  METHOD: get_ClassesOrder
+  METHOD: get_NextObligatoryMythicClass
+  METHOD: .ctor (unit)
+  METHOD: .ctor
+  METHOD: SetupLevelsIfNecessary
+  METHOD: GetCurrentMythicClass
+  METHOD: HasMythic
+  METHOD: UpdateScalePercent (scalePercent)
+  METHOD: ResetScalePercent
+  METHOD: GetClassLevel (characterClass)
+  METHOD: GetClassData (characterClass)
+  METHOD: AddClassLevel (characterClass)
+  METHOD: RecalculateHP
+  METHOD: AddFakeLevel (class)
+  METHOD: CanAddArchetype (characterClass, archetype)
+  METHOD: AddArchetype (characterClass, archetype)
+  METHOD: AddSelection (selection, source, level, feature)
+  METHOD: GetSelectionsForProgession (selection, level, progression)
+  METHOD: IsAlreadyApplyInProgression (index, selectionEntry)
+  METHOD: GetSelections (selection, level)
+  METHOD: GetSelectionData (selection)
+  METHOD: GetSourceSelection (blueprintFeature)
+  METHOD: GetClassProgressions (characterClass)
+  METHOD: PreSave
+  METHOD: PostLoad (owner)
+  METHOD: ApplyPostLoadFixes
+  METHOD: Dispose
+  METHOD: ReapplyFeaturesOnLevelUp
+  METHOD: GetMaxClass
+  METHOD: GetMaxSuitableNoMythicClass (state)
+  METHOD: GetSignificantClasses
+  METHOD: GetEquipmentClass
+  METHOD: SetRace (race)
+  METHOD: AddLevelPlan (plan)
+  METHOD: SetLevelPlanSkills (skills)
+  METHOD: GetNextLevelPlan (mythic)
+  METHOD: GetLevelPlanSkills
+  METHOD: DropLevelPlans (mythic)
+  METHOD: RestoreLevelPlans
+  METHOD: ClearRestoreLevelPlans
+  METHOD: SureClassData (characterClass)
+  METHOD: AddFakeClassLevels (characterClass, targetLevel)
+  METHOD: RemoveClassLevels (characterClass, levels)
+  METHOD: SureProgressionData (progression)
+  METHOD: GetProgression (progression)
+  METHOD: get_GetAllProgressions
+  METHOD: GainExperience (exp, log, allowForPet, statType)
+  METHOD: AdvanceExperienceTo (targetExp, log, allowForPet)
+  METHOD: GainMythicExperience (experience)
+  METHOD: AdvanceMythicExperience (target, log)
+  METHOD: ReplaceFeature (remove, add)
+  METHOD: IsArchetype (archetype)
+  METHOD: TryRestoreClassFeatures
+  METHOD: TryRestoreSelectedFeatures
+  METHOD: ShouldRestoreFeature (feature)
+  METHOD: CopyFrom (other)
+  METHOD: CopyLevelPlanFrom (other)
+  METHOD: CheckStatPrerequisitesAndUpdate
+  METHOD: GetVisualSettingsProvider
+  METHOD: UpdateAdditionalVisualSettings
+  METHOD: SyncWithView
+  METHOD: SetObligatoryMythicClasses (mythicClasses)
+  METHOD: AddFeatures (features)
+  METHOD: DisableAdditionalVisualSettings
+  METHOD: EnableAdditionalVisualSettings
+  METHOD: RemoveMythicLevel (class)
+  METHOD: ReplaceAllMythicLevelsWithMythicHeroLevels
+  METHOD: GetMythicSelectionsData (blueprint)
+  METHOD: CheatRemoveMythicLevels (levels)
+  METHOD: CheatSimplifyMythicLevels
+  METHOD: <GetVisualSettingsProvider>g__IsSecondClassHasGreaterPriority|134_0 (first, second)
+  METHOD: <RemoveMythicLevel>g__DestroyPet|142_0 (pet)
+  METHOD: <ReplaceAllMythicLevelsWithMythicHeroLevels>g__IsSuitableProgression|143_0
+  METHOD: <GetMythicSelectionsData>g__GetFeatureParam|144_0 (feature)
+RAGE-TYPE: Kingmaker.UnitLogic.Parts.UnitPartItemCasterLevelBonus vis=public base=Kingmaker.UnitLogic.OldStyleUnitPart
+  FIELD: Entries [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddCasterSpellFailureChance vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Chance [protorint]
+  FIELD: FailFx [protorint]
+  FIELD: Conditions [protorint]
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddFacts vis=public base=TypeSpecification ===
+  FIELD: m_Facts [private]
+  FIELD: Dummy [protorint]
+  FIELD: CasterLevel [protorint]
+  FIELD: DoNotRestoreMissingFacts [protorint]
+  FIELD: HasDifficultyRequirements [protorint]
+  FIELD: InvertDifficultyRequirements [protorint]
+  FIELD: MinDifficulty [protorint]
+  PROP: Facts
+  METHOD: get_Facts
+  METHOD: IsRestrictedByDifficulty
+  METHOD: OnActivate
+  METHOD: OnDeactivate
+  METHOD: OnRecalculate
+  METHOD: OnApplyPostLoadFixes
+  METHOD: Clear
+  METHOD: UpdateFacts (postLoad)
+  METHOD: SetSourceItem (fact)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: .ctor
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddFactsFromCasterData vis=public base=System.Object
+  FIELD: AppliedFacts [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddFactsFromCaster vis=public base=TypeSpecification
+  FIELD: m_Facts [private]
+  FIELD: FeatureFromSelection [protorint]
+  FIELD: m_Selection [private]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddItemCasterLevelBonus vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Bonus [protorint]
+  FIELD: ItemType [protorint]
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddKnownSpell vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate ===
+  FIELD: m_CharacterClass [private]
+  FIELD: SpellLevel [protorint]
+  FIELD: m_Spell [private]
+  FIELD: m_Archetype [private]
+  FIELD: m_ExcludeArchetype [private]
+  PROP: CharacterClass
+  PROP: Spell
+  PROP: Archetype
+  PROP: ExcludeArchetype
+  METHOD: get_CharacterClass
+  METHOD: get_Spell
+  METHOD: get_Archetype
+  METHOD: get_ExcludeArchetype
+  METHOD: OnActivate
+  METHOD: AddSpell
+  METHOD: HandleLevelUpComplete (unit, isChargen)
+  METHOD: .ctor
+  METHOD: <AddSpell>b__14_0 (p)
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddPet vis=public base=TypeSpecification ===
+  FIELD: Type [protorint]
+  FIELD: ProgressionType [protorint]
+  FIELD: m_Pet [private]
+  FIELD: m_UseContextValueLevel [private]
+  FIELD: m_LevelRank [private]
+  FIELD: m_LevelContextValue [private]
+  FIELD: m_ForceAutoLevelup [private]
+  FIELD: m_UpgradeFeature [private]
+  FIELD: m_DestroyPetOnDeactivate [private]
+  FIELD: UpgradeLevel [protorint]
+  FIELD: RankToLevelAnimalCompanion [private]
+  FIELD: RankToLevelMythicSkeletalChampion [private]
+  FIELD: RankToLevelAzataHavocDragon [private]
+  FIELD: RankToLevelNightHag [private]
+  PROP: Pet
+  PROP: LevelRank
+  PROP: UpgradeFeature
+  METHOD: get_Pet
+  METHOD: get_LevelRank
+  METHOD: get_UpgradeFeature
+  METHOD: OnActivate
+  METHOD: OnDeactivate
+  METHOD: OnAreaBeginUnloading
+  METHOD: OnAreaDidLoad
+  METHOD: Kingmaker.UnitLogic.FactLogic.IUpdatePet.TryUpdatePet
+  METHOD: TryUpdatePet
+  METHOD: GetPetLevel
+  METHOD: TryLevelUpPet
+  METHOD: OnPostLoad
+  METHOD: OnApplyPostLoadFixes
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: .ctor
+  METHOD: .cctor
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddUndetectableAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.ForbidSpellbookOnAlignmentDeviation vis=public base=TypeSpecification
+  FIELD: m_Spellbooks [private]
+  FIELD: Alignment [protorint]
+  FIELD: m_IgnoreFact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.SpellResistanceAgainstAlignment vis=public base=TypeSpecification
+  FIELD: Value [protorint]
+  FIELD: Alignment [protorint]
+=== TYPE Kingmaker.UnitLogic.FactLogic.SpontaneousSpellConversion vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate ===
+  FIELD: m_CharacterClass [private]
+  FIELD: m_SpellsByLevel [private]
+  PROP: CharacterClass
+  PROP: SpellsByLevel
+  PROP: Id
+  METHOD: get_CharacterClass
+  METHOD: get_SpellsByLevel
+  METHOD: get_Id
+  METHOD: OnTurnOn
+  METHOD: OnTurnOff
+  METHOD: .ctor
+RAGE-TYPE: Kingmaker.UnitLogic.Class.LevelUp.Actions.SelectAlignment vis=public base=System.Object
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Buffs.Components.RemoveBuffIfCasterIsMissing vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
+  FIELD: RemoveOnCasterDeath [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentHistoryRecord vis=public base=System.Object
+  FIELD: Position [protorint]
+  FIELD: Direction [protorint]
+  FIELD: m_Provider [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentShiftDirection vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentMaskType vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Any [protorint]
+  FIELD: None [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentMaskTypeEx vis=public base=System.Object
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.IAlignmentShiftProvider vis=public base=(nil)
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentShift vis=public base=System.Object
+  FIELD: Direction [protorint]
+  FIELD: Value [protorint]
+  FIELD: Description [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentShiftExtension vis=public base=System.Object
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.Object
+  FIELD: AlignmentAngle [private]
+  FIELD: AlignmentMagnitudeInitial [private]
+  FIELD: TrueNeutralRadius [private]
+  FIELD: AlignmentBorderCos [private]
+  FIELD: AlignmentsCircle [private]
+  FIELD: m_Vector [private]
+  FIELD: m_LockedAlignmentMask [private]
+  FIELD: m_TargetAlignment [private]
+  FIELD: m_History [private]
+  FIELD: m_Value [private]
+  FIELD: Undetectable [protorint]
+  FIELD: m_Owner [private]
+=== TYPE Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.Object ===
+  FIELD: AlignmentAngle [private]
+  FIELD: AlignmentMagnitudeInitial [private]
+  FIELD: TrueNeutralRadius [private]
+  FIELD: AlignmentBorderCos [private]
+  FIELD: AlignmentsCircle [private]
+  FIELD: m_Vector [private]
+  FIELD: m_LockedAlignmentMask [private]
+  FIELD: m_TargetAlignment [private]
+  FIELD: m_History [private]
+  FIELD: m_Value [private]
+  FIELD: Undetectable [protorint]
+  FIELD: m_Owner [private]
+  PROP: VectorRaw
+  PROP: VectorVisible
+  PROP: ValueRaw
+  PROP: ValueVisible
+  PROP: Radius
+  PROP: LockMask
+  PROP: History
+  METHOD: Cos (angle)
+  METHOD: Sin (angle)
+  METHOD: get_VectorRaw
+  METHOD: get_VectorVisible
+  METHOD: get_ValueRaw
+  METHOD: get_ValueVisible
+  METHOD: get_Radius
+  METHOD: get_LockMask
+  METHOD: get_History
+  METHOD: .ctor
+  METHOD: .ctor (owner)
+  METHOD: PostLoad (owner)
+  METHOD: Shift (provider)
+  METHOD: Shift (direction, value, provider)
+  METHOD: Initialize (alignment)
+  METHOD: InitializeFrom (alignment)
+  METHOD: Set (alignment)
+  METHOD: Set (alignment, raiseEvents)
+  METHOD: LockAlignment (lockMask, targetAlignment)
+  METHOD: Reset (resetLock)
+  METHOD: UpdateValue
+  METHOD: SetVector (newVector)
+  METHOD: CorrectByLockedMask (newValue)
+  METHOD: GetDirection (direction)
+  METHOD: OnChanged (direction, prevVector, provider, raiseEvent)
+  METHOD: GetAlignment (vec, mask)
+  METHOD: GetAlignmentsSortedByDistance (vec)
+  METHOD: CopyFrom (alignment)
+  METHOD: .cctor
+=== TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParams vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
+  FIELD: UseKineticistMainStat [protorint]
+  FIELD: StatType [protorint]
+  FIELD: StatTypeFromCustomProperty [protorint]
+  FIELD: m_CustomProperty [private]
+  FIELD: ReplaceCasterLevel [protorint]
+  FIELD: CasterLevel [protorint]
+  FIELD: ReplaceSpellLevel [protorint]
+  FIELD: SpellLevel [protorint]
+  METHOD: Calculate (context)
+  METHOD: Calculate (ability)
+  METHOD: Calculate (context, blueprint, caster, ability)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParamsBasedOnClass vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
+  FIELD: UseKineticistMainStat [protorint]
+  FIELD: StatType [protorint]
+  FIELD: m_CharacterClass [private]
+  PROP: CharacterClass
+  METHOD: get_CharacterClass
+  METHOD: Calculate (context)
+  METHOD: Calculate (ability)
+  METHOD: Calculate (context, blueprint, caster, ability)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: .ctor
+=== TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextRankConfig vis=public base=Kingmaker.Blueprints.BlueprintComponent ===
+  FIELD: m_Type [private]
+  FIELD: m_BaseValueType [private]
+  FIELD: useArmorBaseAc [private]
+  FIELD: useArmorBonusAc [private]
+  FIELD: useArmorFocusAc [private]
+  FIELD: userShieldBaseAc [private]
+  FIELD: useShieldBonusAc [private]
+  FIELD: useShieldFocusAc [private]
+  FIELD: m_OnlyFromItems [private]
+  FIELD: m_OnlyForItemTypes [private]
+  FIELD: m_ItemsTypes [private]
+  FIELD: m_UseArmorTypeFilter [private]
+  FIELD: m_ArmorTypes [private]
+  FIELD: m_Feature [private]
+  FIELD: m_FeatureList [private]
+  FIELD: m_Stat [private]
+  FIELD: m_SpecificModifier [private]
+  FIELD: m_Buff [private]
+  FIELD: m_BuffRankMultiplier [private]
+  FIELD: m_Progression [private]
+  FIELD: m_CustomProgression [private]
+  FIELD: m_StartLevel [private]
+  FIELD: m_StepLevel [private]
+  FIELD: m_UseMin [private]
+  FIELD: m_Min [private]
+  FIELD: m_UseMax [private]
+  FIELD: m_AffectedByIntensifiedMetamagic [private]
+  FIELD: m_Max [private]
+  FIELD: m_ExceptClasses [private]
+  FIELD: Archetype [private]
+  FIELD: m_AdditionalArchetypes [private]
+  FIELD: m_Class [private]
+  FIELD: m_CustomProperty [private]
+  FIELD: m_CustomPropertyList [private]
+  FIELD: m_DisableRankBonus [private]
+  PROP: ShowFromItems
+  PROP: ShowOnlyForItemTypes
+  PROP: ShowItemsTypes
+  PROP: ShowArmorTypes
+  PROP: Archetypes
+  PROP: IsBaseOnArmor
+  PROP: IsBaseOnShied
+  PROP: IsBasedOnClassLevel
+  PROP: RequiresArchetype
+  PROP: IsBasedOnFeatureRank
+  PROP: IsBasedOnStatBonus
+  PROP: IsFeatureList
+  PROP: IsBasedOnCustomProperty
+  PROP: IsBasedOnCustomPropertyList
+  PROP: IsDivisionProgression
+  PROP: IsDivisionProgressionStart
+  PROP: IsCustomProgression
+  PROP: IsBasedOnBuffRank
+  PROP: Type
+  METHOD: get_ShowFromItems
+  METHOD: get_ShowOnlyForItemTypes
+  METHOD: get_ShowItemsTypes
+  METHOD: get_ShowArmorTypes
+  METHOD: get_Archetypes
+  METHOD: get_IsBaseOnArmor
+  METHOD: get_IsBaseOnShied
+  METHOD: get_IsBasedOnClassLevel
+  METHOD: get_RequiresArchetype
+  METHOD: get_IsBasedOnFeatureRank
+  METHOD: get_IsBasedOnStatBonus
+  METHOD: get_IsFeatureList
+  METHOD: get_IsBasedOnCustomProperty
+  METHOD: get_IsBasedOnCustomPropertyList
+  METHOD: get_IsDivisionProgression
+  METHOD: get_IsDivisionProgressionStart
+  METHOD: get_IsCustomProgression
+  METHOD: get_IsBasedOnBuffRank
+  METHOD: get_Type
+  METHOD: GetValue (context)
+  METHOD: GetBaseValue (context)
+  METHOD: ApplyProgression (value)
+  METHOD: ApplyMinMax (value, unlimited, context)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: .ctor
+  METHOD: <GetBaseValue>g__CheckItem|75_0 (modifier)
+  METHOD: <GetBaseValue>g__CheckAndAddToValue|75_1 (classEntry, value)
+  METHOD: <GetBaseValue>g__CheckAndSetMaxValue|75_2 (classEntry, value)
+  METHOD: <GetBaseValue>g__MExceptClasses|75_3 (classEntry)
+  METHOD: <GetBaseValue>g__CheckClassForArchetype|75_4 (classEntry)
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.DuplicateDamageToCaster vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionOnContextCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  FIELD: TargetAsCaster [protorint]
+  FIELD: Actions [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionProvokeAttackFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignment vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: CheckCaster [protorint]
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignmentDifference vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: AlignmentStepDifference [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasBuffWithDescriptor vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: SpellDescriptor [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasFact vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_Fact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasTwoWeapons vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponGrip vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_gripStyle [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponInTwoHands vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareCasterHP vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_CompareType [private]
+  FIELD: Value [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: m_Buff [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsArcaneCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsDivineCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.AbilityShowIfCasterHasFact vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_UnitFact [private]
+  FIELD: Not [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetCanSeeCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Not [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsAreaEffectFromCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Alignment [protorint]
+  FIELD: m_IgnoreFact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasChosenWeapon vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_ChosenWeaponFeature [private]
+  FIELD: m_IgnoreWeaponFact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasFacts vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_Facts [private]
+  FIELD: NeedsAll [protorint]
+  FIELD: m_FactsMissingCache [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasNoFacts vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_Facts [private]
+  FIELD: m_FactsPets [private]
+  FIELD: m_FactsPresentedCache [private]
+  FIELD: m_MountFactsPresentedCache [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterHasWeaponWithRangeType vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: RangeType [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterInCombat vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Not [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterIsOnFavoredTerrain vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: m_IgnoreFeature [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponCheck vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Category [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponIsMelee vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponIsTwoHanded vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterNotPolymorphed vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.Base.IAbilityCasterRestriction vis=public base=(nil)
+RAGE-TYPE: Kingmaker.Kingdom.Conditions.KingdomAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Kingdom.Settlements.BuildingComponents.AlignmentRestriction vis=public base=Kingmaker.Kingdom.Settlements.BuildingRestriction
+  FIELD: Allowed [protorint]
+RAGE-TYPE: Kingmaker.Kingdom.Actions.KingdomActionSetAlignment vis=public base=Kingmaker.Kingdom.Blueprints.KingdomAction
+RAGE-TYPE: Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionResetAlignment vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  FIELD: m_ResetAlignmentLock [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.EquipmentEnchants.AddCasterLevelEquipment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate
+  FIELD: m_Spell [private]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForAbility vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_Spell [private]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForSpellbook vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+  FIELD: m_Spellbooks [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddFeatureOnAlignmentData vis=public base=System.Object
+  FIELD: AppliedFacts [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddFeatureOnAlignment vis=public base=TypeSpecification
+  FIELD: Alignment [protorint]
+  FIELD: m_Facts [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ArmorClassBonusAgainstAlignment vis=public base=TypeSpecification
+  FIELD: alignment [protorint]
+  FIELD: Descriptor [protorint]
+  FIELD: Value [protorint]
+  FIELD: Bonus [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AttackBonusAgainstAlignment vis=public base=TypeSpecification
+  FIELD: Alignment [protorint]
+  FIELD: OnlyMelee [protorint]
+  FIELD: DamageBonus [protorint]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+=== TYPE Kingmaker.Designers.Mechanics.Facts.BuffExtraEffects vis=public base=TypeSpecification ===
+  FIELD: m_UseBaffContext [private]
+  FIELD: m_CheckedBuff [private]
+  FIELD: m_CheckedBuffList [private]
+  FIELD: m_ExtraEffectBuff [private]
+  FIELD: m_ExceptionFact [private]
+  PROP: CheckedBuff
+  PROP: ExtraEffectBuff
+  PROP: ExceptionFact
+  METHOD: get_CheckedBuff
+  METHOD: get_ExtraEffectBuff
+  METHOD: get_ExceptionFact
+  METHOD: OnActivate
+  METHOD: OnApplyPostLoadFixes
+  METHOD: OnDeactivate
+  METHOD: CheckAndReapply
+  METHOD: HandleBuffDidAdded (buff)
+  METHOD: CheckHadPrerequiredBuff
+  METHOD: HandleBuffDidRemoved (buff)
+  METHOD: .ctor
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.CritAutoconfirmAgainstAlignment vis=public base=Kingmaker.EntitySystem.EntityFactComponentDelegate
+  FIELD: EnemyAlignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.DamageBonusAgainstAlignment vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Alignment [protorint]
+  FIELD: OnlyMelee [protorint]
+  FIELD: DamageBonus [protorint]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.DispelCasterLevelCheckBonus vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Value [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Value [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseCastersSavingThrowTypeDC vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Type [protorint]
+  FIELD: BonusDC [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseSpellDescriptorCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Descriptor [protorint]
+  FIELD: BonusCasterLevel [protorint]
+  FIELD: ModifierDescriptor [protorint]
+  FIELD: SpellsOnly [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseSpellSchoolCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: School [protorint]
+  FIELD: BonusLevel [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.MobCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfAbility vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_Spell [private]
+  FIELD: m_Class [private]
+  FIELD: m_AdditionalClasses [private]
+  FIELD: m_Archetypes [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfFeature vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_Feature [private]
+  FIELD: m_Class [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstAlignment vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Alignment [protorint]
+  FIELD: Descriptor [protorint]
+  FIELD: Value [protorint]
+  FIELD: Bonus [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstAlignmentDifference vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Descriptor [protorint]
+  FIELD: Value [protorint]
+  FIELD: AlignmentDifference [protorint]
+  FIELD: SavingThrow [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ShieldedCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: m_ShieldedCasterFact [private]
+  FIELD: Radius [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.TargetCritAutoconfirmFromCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.WeaponAlignment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.WeaponEnchantmentLogic
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.WeaponCritAutoconfirmAgainstAlignment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.WeaponEnchantmentLogic
+  FIELD: EnemyAlignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.WeaponDamageAgainstAlignment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.WeaponEnchantmentLogic
+  FIELD: EnemyAlignment [protorint]
+  FIELD: WeaponAlignment [protorint]
+  FIELD: Value [protorint]
+  FIELD: DamageType [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.ACBonusAgainstCaster vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
+  FIELD: Value [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.AttackBonusAgainstCaster vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
+  FIELD: Value [protorint]
+  FIELD: Descriptor [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsEqualCasterLevelData vis=public base=System.Object
+  FIELD: Modifier [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsEqualCasterLevel vis=public base=TypeSpecification
+  FIELD: Descriptor [protorint]
+SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Evaluators.CasterUnit vis=public base=Kingmaker.ElementsSystem.UnitEvaluator
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.ContextData.CasterUnitData vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AlignmentCheck vis=public base=Kingmaker.ElementsSystem.Condition
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: SelectClosest [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: m_ActionsByAlignment [private]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: m_DontLog [private]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: TargetAlignment [protorint]
+  FIELD: CanUnlockAlignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.LockAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
+  FIELD: AlignmentMask [protorint]
+  FIELD: TargetAlignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCaster vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ShiftAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: Amount [protorint]
+AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: AdditionalBehaviour [protorint]
+  FIELD: MinDifficulty [protorint]
+  FIELD: InvertDifficultyRequirements [protorint]
+  FIELD: OncePerRound [protorint]
+  FIELD: CooldownRounds [protorint]
+  FIELD: CooldownDice [protorint]
+  FIELD: StartCooldownRounds [protorint]
+  FIELD: CombatCount [protorint]
+  FIELD: UseWhenAIDisabled [protorint]
+  FIELD: UseOnLimitedAI [protorint]
+  FIELD: BaseScore [protorint]
+  FIELD: m_ActorConsiderations [protected]
+  FIELD: m_TargetConsiderations [protected]
+  FIELD: Actions [protorint]
+  PROP: ActorConsiderations
+  PROP: TargetConsiderations
+  PROP: PreventMovementFinish
+  PROP: UseCommand
+  METHOD: get_ActorConsiderations
+  METHOD: get_TargetConsiderations
+  METHOD: get_PreventMovementFinish
+  METHOD: get_UseCommand
+  METHOD: IsActorValid (context)
+  METHOD: IsActorValidReasonDebug (context)
+  METHOD: IsTargetValid (context)
+  METHOD: IsTargetValidReasonDebug (context)
+  METHOD: CreateCommand (context, target)
+  METHOD: GetTargetType (context)
+  METHOD: GetDeadTargetType (context)
+  METHOD: ApplyAction
+  METHOD: IsAvailable (context)
+  METHOD: IsAvailableReasonDebug (context)
+  METHOD: IsExpended (context)
+  METHOD: GetRange (context)
+  METHOD: GetRadius (context)
+  METHOD: InitContext (context)
+  METHOD: CanKeepCommand (command)
+  METHOD: CalculateDestinationPosition (context)
+  METHOD: GetAbilityParams (context)
+  METHOD: .ctor
+AI-TYPE: TargetType vis=public(1) base=System.Enum
+AI-TYPE: BlueprintAiAttack vis=internal(0) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiAttack vis=internal base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
+  METHOD: CreateCommand (context, target)
+  METHOD: GetTargetType (context)
+  METHOD: CanKeepCommand (command)
+  METHOD: GetRange (context)
+  METHOD: GetRadius (context)
+  METHOD: .ctor
+AI-TYPE: BlueprintAiCastSpell vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+=== TYPE Kingmaker.AI.Blueprints.BlueprintAiCastSpell vis=public base=Kingmaker.AI.Blueprints.BlueprintAiAction ===
+  FIELD: LocatorsForSelect [private]
+  FIELD: m_MinCasterSqrDistanceToLocator [private]
+  FIELD: m_MinPartySqrDistanceToLocator [private]
+  FIELD: m_MaxPartySqrDistanceToLocator [private]
+  FIELD: m_AffectedByImpatience [private]
+  FIELD: m_Ability [private]
+  FIELD: m_ForceTargetSelf [private]
+  FIELD: m_ForceTargetEnemy [private]
+  FIELD: m_TargetPointUnderTarget [private]
+  FIELD: m_DeadTargetType [private]
+  FIELD: m_RandomVariant [private]
+  FIELD: m_Variant [private]
+  FIELD: m_VariantsSet [private]
+  FIELD: Locators [protorint]
+  FIELD: CheckCasterDistance [protorint]
+  FIELD: MinCasterDistanceToLocator [protorint]
+  FIELD: CheckPartyDistance [protorint]
+  FIELD: MinPartyDistanceToLocator [protorint]
+  FIELD: MaxPartyDistanceToLocator [protorint]
+  PROP: Ability
+  PROP: Variant
+  PROP: ForceTargetEnemy
+  PROP: ForceTargetSelf
+  PROP: AffectedByImpatience
+  PROP: TargetPointUnderTarget
+  METHOD: get_Ability
+  METHOD: get_Variant
+  METHOD: get_ForceTargetEnemy
+  METHOD: get_ForceTargetSelf
+  METHOD: get_AffectedByImpatience
+  METHOD: get_TargetPointUnderTarget
+  METHOD: OnEnable
+  METHOD: InitContext (context)
+  METHOD: GetAbilityParams (context)
+  METHOD: GetAbilityForUse (unit)
+  METHOD: CreateAbilityData (caster, fact, spellbookBlueprint)
+  METHOD: GetSpellbookForUse (unit)
+  METHOD: GetSpellbookForUseFailReasonDebug (unit)
+  METHOD: ShouldBeInActionsList (unit)
+  METHOD: ShouldNotBeInActionsListReasonDebug (unit)
+  METHOD: IsExpended (ability, spellbook)
+  METHOD: IsAvailable (context)
+  METHOD: IsExpended (context)
+  METHOD: CreateCommand (context, target)
+  METHOD: TrySelectTargetFromLocators (context)
+  METHOD: GetTargetType (context)
+  METHOD: GetDeadTargetType (context)
+  METHOD: GetRange (context)
+  METHOD: GetRadius (context)
+  METHOD: IsTargetValid (context)
+  METHOD: IsTargetValidReasonDebug (context)
+  METHOD: IsTargetValid (ability, unit, target)
+  METHOD: IsTargetValidReasonDebug (ability, unit, target)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: IsPartyInRangeOfLocator (position)
+  METHOD: .ctor
+  METHOD: .cctor
+  METHOD: <GetSpellbookForUse>b__38_0 (spellbook)
+AI-TYPE: BlueprintAiFollow vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRandomMove vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRoam vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiRunAway vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintAiSwitchWeapon vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: SwitchMode vis=public(1) base=System.Enum
+AI-TYPE: BlueprintAiTouch vis=public(1) base=Kingmaker.AI.Blueprints.BlueprintAiAction
+AI-TYPE: BlueprintBrain vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+=== TYPE Kingmaker.AI.Blueprints.BlueprintBrain vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
+  FIELD: m_Actions [private]
+  PROP: UseGameActions
+  PROP: Actions
+  METHOD: get_UseGameActions
+  METHOD: get_Actions
+  METHOD: .ctor
+AI-TYPE: CustomAiConsiderationsRoot vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
+AI-TYPE: DeadTargetType vis=public(1) base=System.Enum
+RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.AlignmentConsideration vis=public base=Kingmaker.AI.Blueprints.Considerations.Consideration
+  FIELD: Alignment [protorint]
+  FIELD: SpecifiedAlignmentScore [protorint]
+  FIELD: OtherAlignmentScore [protorint]
+RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.BuffNotFromCasterConsideration vis=public base=Kingmaker.AI.Blueprints.Considerations.Consideration
+  FIELD: m_Buffs [private]
+  FIELD: HasBuffNotFromCasterScore [protorint]
+  FIELD: ElseScore [protorint]
+RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.CasterClassConsideration vis=public base=Kingmaker.AI.Blueprints.Considerations.Consideration
+  FIELD: NotCasterScore [protorint]
+  FIELD: ArcaneCasterScore [protorint]
+  FIELD: DivineCasterScore [protorint]
+RAGE-TYPE: .TrailAlignment vis=nested-public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: View [protorint]
+  FIELD: World [protorint]
+RAGE-TYPE: .Align vis=nested-public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: None [protorint]
+  FIELD: Left [protorint]
+  FIELD: Right [protorint]
+  FIELD: Center [protorint]
+=== TYPE .StatType vis=nested-public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: BAB [protorint]
+  FIELD: Fortitude [protorint]
+  FIELD: Will [protorint]
+  FIELD: Reflex [protorint]
+RAGE-TYPE: .AlignData vis=nested-public base=System.Object
+  FIELD: m_OrginPivot [protected]
+  FIELD: m_ContextPivot [protected]
+RAGE-TYPE: .CasterPosition vis=nested-family base=System.ValueType
+  FIELD: Position [protorint]
+  FIELD: Corpulence [protorint]
+RAGE-TYPE: .<GetAllAlignments>d__3 vis=nested-private base=System.Object
+  FIELD: <>1__state [private]
+  FIELD: <>2__current [private]
+  FIELD: <>l__initialThreadId [private]
+  FIELD: alignmentMask [private]
+  FIELD: <>3__alignmentMask [protorint]
+RAGE-TYPE: .IContextCaster vis=nested-public base=(nil)
+RAGE-TYPE: .IOptionalContextCaster vis=nested-public base=(nil)
+RAGE-TYPE: .CasterInspectionInfo vis=nested-private base=System.ValueType
+  FIELD: Caster [protorint]
+  FIELD: CheckPassed [protorint]
+RAGE-TYPE: .CasterLevelBonusEntry vis=nested-public base=System.Object
+  FIELD: Bonus [protorint]
+  FIELD: Source [protorint]
+  FIELD: ItemType [protorint]
+=== TYPE .Feature vis=nested-public base=System.Object ===
+  FIELD: <Unlocked>k__BackingField [private]
+  FIELD: m_Active [private]
+  PROP: Unlocked
+  PROP: Active
+  METHOD: get_Unlocked
+  METHOD: set_Unlocked (value)
+  METHOD: get_Active
+  METHOD: set_Active (value)
+  METHOD: Unlock
+  METHOD: Lock
+  METHOD: .ctor
+=== TYPE .Feature vis=nested-private base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: ArcherBlast [protorint]
+=== TYPE .Feature vis=nested-private base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: SpellCombat [protorint]
+  FIELD: Spellstrike [protorint]
+  FIELD: WandWielder [protorint]
+  FIELD: Counterstrike [protorint]
+  FIELD: EldritchArcher [protorint]
+RAGE-TYPE: .<SelectAlignments>d__22 vis=nested-private base=System.Object
+  FIELD: <>1__state [private]
+  FIELD: <>2__current [private]
+  FIELD: <>l__initialThreadId [private]
+  FIELD: rule [private]
+  FIELD: <>3__rule [protorint]
+  FIELD: <>7__wrap1 [private]
+  FIELD: <>7__wrap2 [private]
+=== TYPE .CalculationType vis=nested-public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: Once [protorint]
+  FIELD: PerBuilding [protorint]
+=== PROBE done ===
