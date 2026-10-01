@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
@@ -120,8 +121,8 @@ namespace MissionWOTR.Archetypes
         .SetIcon(icon)
         .SetIsClassFeature()
         .AddKnownSpell(
-          characterClass: CharacterClassRefs.WizardClass,
-          spell: AbilityRefs.AnimateDeadLesser,
+          characterClass: CharacterClassRefs.WizardClass.Cast<BlueprintCharacterClassReference>(),
+          spell: AbilityRefs.AnimateDeadLesser.Cast<BlueprintAbilityReference>(),
           spellLevel: 3)
         .Configure();
       var reanimator5 = FeatureConfigurator.New(
@@ -131,8 +132,8 @@ namespace MissionWOTR.Archetypes
         .SetIcon(icon)
         .SetIsClassFeature()
         .AddKnownSpell(
-          characterClass: CharacterClassRefs.WizardClass,
-          spell: AbilityRefs.AnimateDead,
+          characterClass: CharacterClassRefs.WizardClass.Cast<BlueprintCharacterClassReference>(),
+          spell: AbilityRefs.AnimateDead.Cast<BlueprintAbilityReference>(),
           spellLevel: 5)
         .Configure();
       var reanimator11 = FeatureConfigurator.New(
@@ -142,8 +143,8 @@ namespace MissionWOTR.Archetypes
         .SetIcon(icon)
         .SetIsClassFeature()
         .AddKnownSpell(
-          characterClass: CharacterClassRefs.WizardClass,
-          spell: AbilityRefs.UndeathToDeath,
+          characterClass: CharacterClassRefs.WizardClass.Cast<BlueprintCharacterClassReference>(),
+          spell: AbilityRefs.UndeathToDeath.Cast<BlueprintAbilityReference>(),
           spellLevel: 6)
         .Configure();
 

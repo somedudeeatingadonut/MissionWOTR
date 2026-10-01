@@ -310,6 +310,11 @@ namespace MissionWOTR.Archetypes
     {
       Well[unit] = Cap;
     }
+
+    internal static void Drain(UnitEntityData unit)
+    {
+      Well.Remove(unit);
+    }
   }
 
   /// <summary>
@@ -345,7 +350,7 @@ namespace MissionWOTR.Archetypes
     protected override void OnDeactivate()
     {
       // The well drains when the covenant leaves the unit.
-      InkboundInk.Well.Remove(Owner);
+      InkboundInk.Drain(Owner);
     }
   }
 
