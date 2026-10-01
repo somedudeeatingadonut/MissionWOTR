@@ -82,7 +82,8 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetEnemies()
         .AddAbilityResourceLogic(requiredResource: pool, amount: 1, isSpendResource: true)
         .AddAbilityEffectRunAction(
-          ActionsBuilder.New().CastSpell(AbilityRefs.CommandUndead).Build())
+          ActionsBuilder.New().CastSpell(
+            AbilityRefs.CommandUndead.Cast<BlueprintAbilityReference>()).Build())
         .Configure();
 
       // ----- The kit (1st): the ability + the pool. -----
