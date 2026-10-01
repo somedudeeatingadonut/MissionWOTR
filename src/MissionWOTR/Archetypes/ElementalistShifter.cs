@@ -326,7 +326,6 @@ namespace MissionWOTR.Archetypes
       }
     }
   }
-}
 
   /// <summary>
   /// Enters an elemental fusion: applies its buff for 1 minute (the
