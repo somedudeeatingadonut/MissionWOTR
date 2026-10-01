@@ -12,7 +12,6 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using MissionWOTR.Feats;
 using System;
-using TurnBased.Controllers;
 
 namespace MissionWOTR.Archetypes
 {
@@ -288,12 +287,15 @@ namespace MissionWOTR.Archetypes
     /// in real time they read the game clock. The surge window uses the
     /// same source so it resets with the rounds the player actually
     /// experiences - which is the mode the user plays.
+    ///
+    /// 0.52.1: this was the mod's only turn-based-safe clock, and six
+    /// other features were still reading the raw game clock. The
+    /// implementation now lives in <see cref="CombatTime"/> so there is
+    /// exactly one definition to keep correct; behaviour is unchanged.
     /// </summary>
     private static TimeSpan Now()
     {
-      return CombatController.IsInTurnBasedCombat()
-        ? Kingmaker.Game.Instance.TurnBasedCombatController.TurnStartTime
-        : Kingmaker.Game.Instance.TimeController.GameTime;
+      return CombatTime.Now();
     }
 
     /// <summary>

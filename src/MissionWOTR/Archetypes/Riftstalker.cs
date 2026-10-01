@@ -388,7 +388,7 @@ namespace MissionWOTR.Archetypes
 
         // Once per round, the first connecting strike brands the target -
         // and only one creature may bear the mark at a time.
-        var now = Kingmaker.Game.Instance.TimeController.GameTime;
+        var now = CombatTime.Now();
         if (Data.LastUse + 1.Rounds().Seconds <= now && target.HPLeft > 0)
         {
           Data.LastUse = now;

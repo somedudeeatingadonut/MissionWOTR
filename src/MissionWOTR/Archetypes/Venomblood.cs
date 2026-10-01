@@ -155,7 +155,7 @@ namespace MissionWOTR.Archetypes
         }
 
         // Once per round - only the first connecting strike carries venom.
-        var now = Kingmaker.Game.Instance.TimeController.GameTime;
+        var now = CombatTime.Now();
         if (Data.LastUse + 1.Rounds().Seconds > now)
         {
           return;

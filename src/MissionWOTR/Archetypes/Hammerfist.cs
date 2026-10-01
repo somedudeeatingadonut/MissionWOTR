@@ -132,7 +132,11 @@ namespace MissionWOTR.Archetypes
   /// deals extra damage (2 + 1.5 x monk level). Implemented on
   /// RulePrepareDamage - which fires only for attacks that connect - with a
   /// round-long cooldown in component data, the same bookkeeping Step Aside
-  /// uses. Works identically in real-time and turn-based modes.
+  /// uses. Works identically in real-time and turn-based modes - true
+  /// only as of 0.52.1, when the round clock moved to CombatTime.Now().
+  /// Before that it read the real-time game clock, which turn-based
+  /// combat holds still, so the bonus landed once per FIGHT rather than
+  /// once per round.
   /// </summary>
   [TypeId(Guids.HammerfistCrushingFistComponent)]
   internal class HammerfistCrushingFistComponent :
@@ -156,7 +160,7 @@ namespace MissionWOTR.Archetypes
         }
 
         // Once per round - only the first connecting unarmed strike.
-        var now = Kingmaker.Game.Instance.TimeController.GameTime;
+        var now = CombatTime.Now();
         if (Data.LastUse + 1.Rounds().Seconds > now)
         {
           return;

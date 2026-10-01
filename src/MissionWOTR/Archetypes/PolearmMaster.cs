@@ -539,8 +539,8 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        if (Data.LastUse + 1.Rounds().Seconds >
-          Kingmaker.Game.Instance.TimeController.GameTime)
+        var now = CombatTime.Now();
+        if (Data.LastUse + 1.Rounds().Seconds > now)
         {
           return; // once per round
         }
@@ -553,7 +553,7 @@ namespace MissionWOTR.Archetypes
         var destination = Owner.Position +
           away.normalized * TurnController.MetersOfFiveFootStep;
         CarouselChargeLogic.ForceChargePath(Owner, Owner.Position, destination);
-        Data.LastUse = Kingmaker.Game.Instance.TimeController.GameTime;
+        Data.LastUse = now;
         MissionFeats.Logger.Info(
           $"[polearm] step aside: {Owner.CharacterName} steps away from {attacker.CharacterName}.");
       }

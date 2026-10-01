@@ -794,6 +794,112 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.52.1 — the old-code sweep (alchemist → present)
+
+The user's ask: *"Just double check the code all the way from alchemist
+down to the most recent class, as the bug fixes you've done have mostly
+been for the more recent ones."* So this pass deliberately ignored the
+0.48–0.52 material the last bug hunt already covered and went back
+through everything older. One real bug class, in six features.
+
+- **FIXED — six once-per-round gates read the real-time clock, so they
+  never reset in turn-based combat.** The gate shape is
+  `LastUse + 1 round > now`, and `now` was
+  `Game.Instance.TimeController.GameTime` — the real-time clock. In
+  turn-based combat the game holds that clock while the turn-based
+  controller waits on the player's commands, so the gate never expires
+  and each feature quietly degrades from *once per round* to *once per
+  combat*. This is the identical bug MendingBlade's surge window had
+  until 0.47.0; these six were simply never swept. Affected, with what
+  the player would have seen:
+  - **Hammerfist — Crushing Fist** (0.11.0): the damage bonus landed on
+    the first unarmed strike of the fight and then never again.
+  - **Polearm Master — Step Aside** (0.9.0, turn-based from 0.10.0): one
+    reactive five-foot step per fight instead of one per round.
+  - **Riftstalker — mark delivery** (0.12.0): the companion branded one
+    target for the whole encounter and never moved the mark.
+  - **Stormcaller — swift-action budget** (0.22.0): the per-round cap on
+    swift clones drained and never refilled.
+  - **Strategic Soldier — Punishing Strike** (0.9.0): one retaliatory
+    attack of opportunity per fight.
+  - **Venomblood — supernatural venom** (0.12.0): the first connecting
+    strike of the fight carried venom and no later one did.
+
+  Note the 0.12.0 changelog's own closing line — *"Nothing here is
+  mode-gated - real-time and turn-based behave identically."* That was
+  the assumption this bug hid behind: the code was not mode-gated, and
+  the two modes did not behave identically.
+- **The fix:** a new `Archetypes/CombatTime.cs` — one `CombatTime.Now()`
+  for the whole mod. Turn-based: the turn-based controller's stamp;
+  real time: the game clock. All eight call sites (the six above, plus
+  Stormcaller's two budget methods) now read it, and MendingBlade's
+  private `Now()` delegates to it so there is exactly one definition of
+  the clock to keep correct. MendingBlade's behaviour is unchanged.
+- **Why this is the right clock, not an assumption:** the engine itself
+  refuses to use the game clock for round accounting in turn-based mode.
+  Its own `BuffCollection.AddBuffInternal` starts from
+  `Game.Instance.TimeController.GameTime` and then replaces it with
+  `Game.Instance.TurnBasedCombatController.TurnStartTime` whenever
+  `CombatController.IsInTurnBasedCombat()` is true — reproduced in
+  edoipi/TweakOrTreat (`TweakOrTreat/BuffTickFix.cs`, decompiled from
+  the shipped game). `TurnStartTime` is also the clock MendingBlade has
+  used since 0.47.0, so this centralises an existing convention rather
+  than introducing one.
+- **Considered and rejected: `RoundStartTime`.** It is the more literal
+  round boundary, and its type is confirmed — `TimeSpan`, because the
+  engine assigns it to the same variable it assigns `TurnStartTime` to.
+  But nothing in the shipped game, and nothing in any reference mod
+  checked (TweakOrTreat, NosVladimir/KineticArchetypes,
+  fl01/pathfinder-wotr-multiplayer, hsinyuhcan/KingmakerTurnBasedMod —
+  the Kingmaker mod that WOTR's turn-based system descends from, and
+  which has no `RoundStartTime` at all), demonstrates that it is stamped
+  on every `StartRound`. If it is only stamped at combat start, every
+  gate routed through it becomes once-per-combat: the exact bug being
+  removed. Not worth an unverifiable dependency. The round counter
+  (`RoundNumber`, confirmed `int`) was also considered and rejected as a
+  gate key: it resets to 0/1 at each combat start (Kingmaker mod
+  `CombatController.cs:181,234`), so a bare round index would carry a
+  stale block from the previous fight into the first round of the next
+  one.
+- **Investigated and cleared** (nothing found; recorded so the sweep
+  does not have to be redone):
+  - the 0.52.0 stat-modifier bug class — `RemoveModifiersFrom` keyed on
+    anything other than the component `Runtime`: zero remaining hits.
+  - registration — every `Configure` is reached; the five that look
+    orphaned (`ConstructCrafterAbilities/Cores/Programs`,
+    `EldritchPoisonerDiscoveries`, `MissionFeats`) are called by their
+    parents (`ConstructCrafter.cs:108-110`,
+    `EldritchPoisoner.cs:185`).
+  - BlueprintCore duplicate names/GUIDs across all 265 `Configurator.New`
+    calls — none, so no `GuidByName` crash risk.
+  - pet slots vs. the lich — `PetType` is the engine slot key;
+    Beastbound, Carousel and UndeadMaster all say
+    `PetType.AnimalCompanion` explicitly, and Chimera's `.AddPet` omits
+    `type:`, which leaves BlueprintCore's `new AddPet().Type` default —
+    field order in the probe makes that `AnimalCompanion` (value 0). No
+    collision with `MythicSkeletalChampion`.
+  - localisation — the ten keys that look missing are all built by
+    string concatenation and all resolve: TrueShape's
+    `MenagerieName + "8.Name"`, Chimera's twelve `{diet}Marker/Trait`
+    pairs, Riftstalker's ten `{command}Command` pairs.
+  - recursion — MendingBlade's Grave Tithe rider and SacredVow's wound
+    transfer both look like heal/damage loops; both are guarded
+    (player-faction scorch targets break the tithe chain; the vow checks
+    `evt.Reason?.Fact == Fact`).
+  - mutating `RulePrepareDamage.DamageBundle` in `OnEventDidTrigger`
+    (Hammerfist, PolearmMaster ×2, SisterInArms, Spellfist) — cleared,
+    this is the engine's own timing: TabletopTweaks patches Owlcat's
+    `WeaponReality`/`WeaponMaterial`/`WeaponAlignment` at exactly that
+    method and mutates the bundle there.
+  - `OnActivate` without `OnDeactivate` (Anatomist, Bonewatch, Chimera,
+    FortunesFool, Guide, LionShaman, Scout, SteelRain, Wildbond) —
+    spot-checked; these reset flags or restore pet traits rather than
+    registering anything, so there is nothing to unwind. `Inkbound`'s
+    lone `OnDeactivate` just drains its ink well.
+  - mutable statics — only `MummerMage.m_Warned`, a log-once flag.
+  - other clock sources anywhere in `src/` — none; the `Stopwatch` in
+    `Main.cs:146` times mod load, nothing else reads a clock.
+
 ## 0.52.0 — the bug hunt
 
 A full pass over the session's shipped work. Three real bugs found and

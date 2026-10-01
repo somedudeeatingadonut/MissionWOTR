@@ -286,7 +286,7 @@ namespace MissionWOTR.Archetypes
       {
         return 0;
       }
-      var now = Kingmaker.Game.Instance.TimeController.GameTime;
+      var now = CombatTime.Now();
       if (entry.ResetAt <= now)
       {
         return 0; // stale - the round rolled over
@@ -296,7 +296,7 @@ namespace MissionWOTR.Archetypes
 
     internal static void Spend(string unitId)
     {
-      var now = Kingmaker.Game.Instance.TimeController.GameTime;
+      var now = CombatTime.Now();
       var entry = Registry.TryGetValue(unitId, out var existing) && existing.ResetAt > now
         ? existing
         : new Entry { ResetAt = now + 1.Rounds().Seconds };

@@ -415,7 +415,8 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        if (Data.LastUse + 1.Rounds().Seconds > Game.Instance.TimeController.GameTime)
+        var now = CombatTime.Now();
+        if (Data.LastUse + 1.Rounds().Seconds > now)
         {
           return; // once per round
         }
@@ -426,7 +427,7 @@ namespace MissionWOTR.Archetypes
         }
         Owner.CombatState.AttackOfOpportunityCount -= 1;
         Game.Instance.CombatEngagementController.ForceAttackOfOpportunity(Owner, attacker, false);
-        Data.LastUse = Game.Instance.TimeController.GameTime;
+        Data.LastUse = now;
         MissionFeats.Logger.Info(
           $"[strategic] punishing strike: {Owner.CharacterName} answers for {victim.CharacterName}.");
       }
