@@ -304,6 +304,300 @@ RAGE-TYPE: .AlignmentLayout vis=public base=UnityEngine.MonoBehaviour
   FIELD: m_WorldClampCornes [protected]
   FIELD: m_Cornes [protected]
   FIELD: m_LocalClampCornes [protected]
+=== TYPE Kingmaker.Game vis=public base=System.Object ===
+  FIELD: s_Instance [private]
+  FIELD: m_ControllerMode [private]
+  FIELD: m_BugReportDisposable [private]
+  FIELD: m_BeforeTickActions [private]
+  FIELD: m_GameModes [private]
+  FIELD: m_SceneLoader [private]
+  FIELD: m_ModesCount [private]
+  FIELD: m_GameModeTicking [private]
+  FIELD: m_DefaultUnit [private]
+  FIELD: m_AlreadyInitialized [private]
+  FIELD: m_LoadedCampaignAudioChunk [private]
+  FIELD: ProjectileController [protorint]
+  FIELD: Rulebook [protorint]
+  FIELD: State [protorint]
+  FIELD: StaticInfoCollector [protorint]
+  FIELD: UnitGroupsController [protorint]
+  FIELD: Keyboard [protorint]
+  FIELD: TimeController [protorint]
+  FIELD: TimedEventsController [protorint]
+  FIELD: EntityCreator [protorint]
+  FIELD: EntityDestroyer [protorint]
+  FIELD: UnitMemoryController [protorint]
+  FIELD: StealthController [protorint]
+  FIELD: CursorController [protorint]
+  FIELD: RandomEncountersController [protorint]
+  FIELD: GlobalMapController [protorint]
+  FIELD: KingdomController [protorint]
+  FIELD: GroupCommands [protorint]
+  FIELD: DialogController [protorint]
+  FIELD: RestController [protorint]
+  FIELD: LightsController [protorint]
+  FIELD: AbilityExecutor [protorint]
+  FIELD: FogOfWar [protorint]
+  FIELD: FogOfWarGM [protorint]
+  FIELD: FollowersFormationController [protorint]
+  FIELD: ProjectileSpawnerController [protorint]
+  FIELD: FxSpawnController [protorint]
+  FIELD: TacticalCombat [protorint]
+  FIELD: TacticalGridController [protorint]
+  FIELD: CustomUpdateController [protorint]
+  FIELD: GlobalMapViewController [protorint]
+  FIELD: GlobalMapNavigationArrowsController [protorint]
+  FIELD: UnitVisionRangeController [protorint]
+  FIELD: EntityBoundsController [protorint]
+  FIELD: TravelLogicController [protorint]
+  FIELD: SelectionCharacter [protorint]
+  FIELD: TurnBasedCombatController [protorint]
+  FIELD: AiBrainController [protorint]
+  FIELD: UnitTicksController [protorint]
+  FIELD: IslesController [protorint]
+  FIELD: ActivatableAbilitiesController [protorint]
+  FIELD: SaddledUnitController [protorint]
+  FIELD: DungeonController [protorint]
+  FIELD: GameLogController [protorint]
+  FIELD: DefaultPointerController [protorint]
+  FIELD: LocustController [protorint]
+  FIELD: PhotoModeController [protorint]
+  FIELD: <ClickEventsController>k__BackingField [private]
+  FIELD: <CameraController>k__BackingField [private]
+  FIELD: <InteractionHighlightController>k__BackingField [private]
+  FIELD: <HandsEquipmentController>k__BackingField [private]
+  FIELD: <CombatEngagementController>k__BackingField [private]
+  FIELD: UI [protorint]
+  FIELD: UISettingsManager [protorint]
+  FIELD: UIPhotoModeManager [protorint]
+  FIELD: SaveManager [protorint]
+  FIELD: Vendor [protorint]
+  FIELD: m_Runner [private]
+  FIELD: IsBlockUnloadScene [protorint]
+  FIELD: s_NewGamePreset [private]
+  FIELD: s_ImportSave [private]
+  FIELD: s_NewGameUnit [private]
+  FIELD: <ClothDisabled>k__BackingField [private]
+  FIELD: <TimeOfDay>k__BackingField [private]
+  FIELD: m_TimeOfDayOverrideVisual [private]
+  FIELD: m_WillBePaused [private]
+  FIELD: <RootUiContext>k__BackingField [private]
+  FIELD: <IsUnloading>k__BackingField [private]
+  FIELD: <LoadingSave>k__BackingField [private]
+  FIELD: m_IsFakePause [protorint]
+  FIELD: m_SummonPoolsProxy [private]
+  FIELD: <SelectedAbilityHandler>k__BackingField [private]
+  FIELD: <SelectedClicksObjectHandler>k__BackingField [private]
+  FIELD: <PlaceRestMarkerHandler>k__BackingField [private]
+  FIELD: <CutsceneLock>k__BackingField [private]
+  FIELD: m_MatchTimeOfDayScheduled [private]
+  FIELD: InvertPauseButtonPressed [protorint]
+  FIELD: <PauseOnLoadPendingTicks>k__BackingField [private]
+  FIELD: <LevelUpController>k__BackingField [private]
+  FIELD: <IsTempHighlight>k__BackingField [private]
+  FIELD: m_LoadingProgress [private]
+  FIELD: m_LoadingScenesProgress [private]
+  FIELD: <m_WaitOnStart>k__BackingField [private]
+  PROP: ControllerMode
+  PROP: IsControllerMouse
+  PROP: IsControllerGamepad
+  PROP: AlreadyInitialized
+  PROP: Statistic
+  PROP: ClickEventsController
+  PROP: CameraController
+  PROP: InteractionHighlightController
+  PROP: HandsEquipmentController
+  PROP: CombatEngagementController
+  PROP: NewGamePreset
+  PROP: ImportSave
+  PROP: NewGameUnit
+  PROP: Instance
+  PROP: HasInstance
+  PROP: Runner
+  PROP: ClothDisabled
+  PROP: IsBlockCamera
+  PROP: UnitGroups
+  PROP: ReadyForCombatUnitGroups
+  PROP: BlueprintRoot
+  PROP: LoadedAreaState
+  PROP: TimeOfDay
+  PROP: TimeOfDayVisual
+  PROP: Player
+  PROP: CurrentlyLoadedArea
+  PROP: CurrentlyLoadedAreaPart
+  PROP: DynamicRoot
+  PROP: CrossSceneRoot
+  PROP: RootUiContext
+  PROP: IsUnloading
+  PROP: IsLoadingSave
+  PROP: LoadingSave
+  PROP: IsFakePause
+  PROP: IsPaused
+  PROP: SummonPools
+  PROP: DefaultUnit
+  PROP: CurrentMode
+  PROP: IsFullScreenUI
+  PROP: SelectedAbilityHandler
+  PROP: SelectedClicksObjectHandler
+  PROP: PlaceRestMarkerHandler
+  PROP: CutsceneLock
+  PROP: PauseOnLoadPendingTicks
+  PROP: LevelUpController
+  PROP: UILoadingProgress
+  PROP: ModesCount
+  PROP: IsTempHighlight
+  PROP: CurrentScene
+  PROP: ControllerOverride
+  PROP: m_WaitOnStart
+  METHOD: get_ControllerMode
+  METHOD: set_ControllerMode (value)
+  METHOD: get_IsControllerMouse
+  METHOD: get_IsControllerGamepad
+  METHOD: get_AlreadyInitialized
+  METHOD: get_Statistic
+  METHOD: get_ClickEventsController
+  METHOD: set_ClickEventsController (value)
+  METHOD: get_CameraController
+  METHOD: set_CameraController (value)
+  METHOD: get_InteractionHighlightController
+  METHOD: set_InteractionHighlightController (value)
+  METHOD: get_HandsEquipmentController
+  METHOD: set_HandsEquipmentController (value)
+  METHOD: get_CombatEngagementController
+  METHOD: set_CombatEngagementController (value)
+  METHOD: get_NewGamePreset
+  METHOD: set_NewGamePreset (value)
+  METHOD: get_ImportSave
+  METHOD: set_ImportSave (value)
+  METHOD: get_NewGameUnit
+  METHOD: set_NewGameUnit (value)
+  METHOD: get_Instance
+  METHOD: get_HasInstance
+  METHOD: get_Runner
+  METHOD: get_ClothDisabled
+  METHOD: set_ClothDisabled (value)
+  METHOD: get_IsBlockCamera
+  METHOD: get_UnitGroups
+  METHOD: get_ReadyForCombatUnitGroups
+  METHOD: get_BlueprintRoot
+  METHOD: get_LoadedAreaState
+  METHOD: get_TimeOfDay
+  METHOD: set_TimeOfDay (value)
+  METHOD: get_TimeOfDayVisual
+  METHOD: get_Player
+  METHOD: get_CurrentlyLoadedArea
+  METHOD: get_CurrentlyLoadedAreaPart
+  METHOD: get_DynamicRoot
+  METHOD: get_CrossSceneRoot
+  METHOD: get_RootUiContext
+  METHOD: get_IsUnloading
+  METHOD: set_IsUnloading (value)
+  METHOD: get_IsLoadingSave
+  METHOD: get_LoadingSave
+  METHOD: set_LoadingSave (value)
+  METHOD: get_IsFakePause
+  METHOD: set_IsFakePause (value)
+  METHOD: get_IsPaused
+  METHOD: set_IsPaused (value)
+  METHOD: get_SummonPools
+  METHOD: get_DefaultUnit
+  METHOD: get_CurrentMode
+  METHOD: get_IsFullScreenUI
+  METHOD: get_SelectedAbilityHandler
+  METHOD: set_SelectedAbilityHandler (value)
+  METHOD: get_SelectedClicksObjectHandler
+  METHOD: set_SelectedClicksObjectHandler (value)
+  METHOD: get_PlaceRestMarkerHandler
+  METHOD: set_PlaceRestMarkerHandler (value)
+  METHOD: get_CutsceneLock
+  METHOD: get_PauseOnLoadPendingTicks
+  METHOD: set_PauseOnLoadPendingTicks (value)
+  METHOD: get_LevelUpController
+  METHOD: set_LevelUpController (value)
+  METHOD: get_UILoadingProgress
+  METHOD: get_ModesCount
+  METHOD: get_IsTempHighlight
+  METHOD: set_IsTempHighlight (value)
+  METHOD: get_CurrentScene
+  METHOD: get_ControllerOverride
+  METHOD: .ctor
+  METHOD: IsModeActive (gameModeType)
+  METHOD: IsModeActiveOrActivateSoon (gameModeType)
+  METHOD: Initialize
+  METHOD: MakeQuickSave
+  METHOD: SkipBark
+  METHOD: SkipCutscene
+  METHOD: PauseAfterLoad
+  METHOD: PauseBind
+  METHOD: UnpauseBindOff
+  METHOD: UnpauseBindOn
+  METHOD: EnsureServices
+  METHOD: ExecuteBeforeTickActions
+  METHOD: Tick
+  METHOD: HandleQuit
+  METHOD: ScheduleAction (action)
+  METHOD: StartMode (type)
+  METHOD: StopMode (type)
+  METHOD: DoStartMode (type)
+  METHOD: DoStopMode (type)
+  METHOD: StopAllModes
+  METHOD: GetController (includeInactive)
+  METHOD: HandleGameModeChanged (oldMode, newMode)
+  METHOD: ClearPublicControllers
+  METHOD: SetupPublicControllers
+  METHOD: AdvanceGameTime (delta, silent)
+  METHOD: HandleAreaBeginUnloading (forDispose, leaveAreaRelatedEffects)
+  METHOD: LoadArea (areaEnterPoint, autoSaveMode, callback)
+  METHOD: TryOptimizeOnLoadAreaCoroutine (areaEnterPoint)
+  METHOD: TryOptimizeOnLoadArea (areaEnterPoint)
+  METHOD: LoadAreaForce (areaEnterPoint, autoSaveMode, callback)
+  METHOD: Teleport (areaEnterPoint, includeFollowers, callback)
+  METHOD: AwaitTextureCompressionShell
+  METHOD: TeleportPartyCoroutine (areaEnterPoint, includeFollowers)
+  METHOD: LoadArbiter (area)
+  METHOD: MatchTimeOfDay (callback)
+  METHOD: MatchTimeOfDayForced
+  METHOD: OverrideVisualTimeOfDay (timeOfDay)
+  METHOD: MatchTimeOfDayCoroutine (preserveFoW)
+  METHOD: UnloadMainMenuRoutine
+  METHOD: get_m_WaitOnStart
+  METHOD: set_m_WaitOnStart (value)
+  METHOD: UnloadUnusedAssetsCoroutine
+  METHOD: ReloadAreaMechanic (clearFx, callback)
+  METHOD: LoadArea (area, enterPoint, autoSaveMode, forceUnload, saveInfo, callback)
+  METHOD: OnLoadingScenesProgress (value)
+  METHOD: ResetLoadingProgress
+  METHOD: ExecuteSafe (action)
+  METHOD: ReloadUI (callback)
+  METHOD: ReloadArea
+  METHOD: AfterSceneLoaderFinishedArea
+  METHOD: AwaitTextureCompression
+  METHOD: AreaLoadingComplete
+  METHOD: PreloadUnitResources
+  METHOD: LoadNewGame
+  METHOD: LoadNewGame (preset, importFrom)
+  METHOD: ResetToMainMenu (message, messageType)
+  METHOD: CreateUnitVacuum (unit)
+  METHOD: AddUnitToPersistentState (unit)
+  METHOD: QuickLoadGame
+  METHOD: LoadGame (saveInfo)
+  METHOD: LoadGameForSmokeTest (save)
+  METHOD: LoadGameFromMainMenu (saveInfo)
+  METHOD: DisposeState
+  METHOD: SaveGame (saveInfo, callback)
+  METHOD: CrossSceneStateHandler (state, data)
+  METHOD: Reset
+  METHOD: ResetUI (isGameInputChange)
+  METHOD: OnGamepadConnectDisconnectResetUI
+  METHOD: GetCamera
+  METHOD: FixAreaPart (part)
+  METHOD: ChangeUIPlatform (nextPlatform)
+  METHOD: .cctor
+  METHOD: <Initialize>b__217_0
+  METHOD: <Initialize>b__217_1
+  METHOD: <Initialize>b__217_2
+  METHOD: <Initialize>b__217_3
+  METHOD: <ResetToMainMenu>b__272_0
 RAGE-TYPE: Kingmaker.Visual.CapitalAlignmentEffects vis=public base=UnityEngine.MonoBehaviour
   FIELD: m_CapitalPPList [private]
 RAGE-TYPE: Kingmaker.Visual.UnitTerrainAlignment vis=public base=Owlcat.Runtime.Core.Updatables.UpdateableBehaviour
@@ -521,6 +815,23 @@ RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature v
   METHOD: ModifyMissChance (value)
   METHOD: IsAttackRollSuitableForSneakAttack
   METHOD: <OnTrigger>b__196_0 (h)
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.DirectDamage vis=public base=Kingmaker.RuleSystem.Rules.Damage.BaseDamage ===
+  PROP: Type
+  METHOD: .ctor (dice, bonus)
+  METHOD: .ctor (dice, bonus)
+  METHOD: get_Type
+=== TYPE Kingmaker.RuleSystem.Rules.Damage.EnergyDamage vis=public base=Kingmaker.RuleSystem.Rules.Damage.BaseDamage ===
+  FIELD: <EnergyType>k__BackingField [private]
+  PROP: EnergyType
+  PROP: Type
+  METHOD: get_EnergyType
+  METHOD: set_EnergyType (value)
+  METHOD: .ctor (dice, bonus, energyType)
+  METHOD: .ctor (dice, energyType)
+  METHOD: .ctor (dice, bonus, energyType)
+  METHOD: get_Type
+  METHOD: CreateTypeDescription
+  METHOD: ReplaceEnergy (energy)
 === TYPE Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
   FIELD: m_DamageBundle [private]
   FIELD: <DamageWithoutReduction>k__BackingField [private]
@@ -798,6 +1109,19 @@ RAGE-TYPE: Kingmaker.Enums.Damage.DamageAlignment vis=public base=System.Enum
   FIELD: Evil [protorint]
   FIELD: Chaotic [protorint]
   FIELD: Lawful [protorint]
+=== TYPE Kingmaker.Enums.Damage.DamageEnergyType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: Fire [protorint]
+  FIELD: Cold [protorint]
+  FIELD: Sonic [protorint]
+  FIELD: Electricity [protorint]
+  FIELD: Acid [protorint]
+  FIELD: NegativeEnergy [protorint]
+  FIELD: PositiveEnergy [protorint]
+  FIELD: Holy [protorint]
+  FIELD: Unholy [protorint]
+  FIELD: Divine [protorint]
+  FIELD: Magic [protorint]
 RAGE-TYPE: Kingmaker.Enums.Damage.PhysicalDamageAlignment vis=public base=System.Enum
   FIELD: value__ [protorint]
   FIELD: Neutral [protorint]
@@ -1320,6 +1644,42 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: <SetMaster>b__431_0 (h)
   METHOD: <IsUnseen>b__478_0 (group)
 RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint vis=public base=Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyAction
+=== TYPE Kingmaker.Controllers.TimeController vis=public base=System.Object ===
+  FIELD: m_LastDeltaTimes [private]
+  FIELD: m_DeltaTimeFor3Frames [private]
+  FIELD: m_UiTimeScaleValue [private]
+  FIELD: m_DeltaTime [private]
+  FIELD: <GameDeltaTime>k__BackingField [private]
+  FIELD: <PlayerTimeScale>k__BackingField [private]
+  FIELD: DebugTimeScale [protorint]
+  FIELD: m_JustActivated [protorint]
+  PROP: DeltaTime
+  PROP: GameDeltaTime
+  PROP: PlayerTimeScale
+  PROP: GameTime
+  PROP: RealTime
+  PROP: UiTimeScale
+  METHOD: get_DeltaTime
+  METHOD: set_DeltaTime (value)
+  METHOD: get_GameDeltaTime
+  METHOD: set_GameDeltaTime (value)
+  METHOD: get_PlayerTimeScale
+  METHOD: set_PlayerTimeScale (value)
+  METHOD: get_GameTime
+  METHOD: get_RealTime
+  METHOD: get_UiTimeScale
+  METHOD: set_UiTimeScale (value)
+  METHOD: .ctor
+  METHOD: Tick
+  METHOD: TickRealTime
+  METHOD: Activate
+  METHOD: Deactivate
+  METHOD: Suspend
+  METHOD: GetDeltaTimeForFrames (framesCount)
+  METHOD: SkipTime (timeOfDay)
+  METHOD: Stop
+  METHOD: SetDeltaTime (value)
+  METHOD: SetGameDeltaTime (value)
 === TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
   FIELD: m_Type [private]
   FIELD: LocalizedName [protorint]
@@ -2745,4 +3105,8 @@ RAGE-TYPE: .<SelectAlignments>d__22 vis=nested-private base=System.Object
   FIELD: <>3__rule [protorint]
   FIELD: <>7__wrap1 [private]
   FIELD: <>7__wrap2 [private]
+=== TYPE .CalculationType vis=nested-public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: Once [protorint]
+  FIELD: PerBuilding [protorint]
 === PROBE done ===
