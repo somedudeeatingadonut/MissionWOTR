@@ -6,6 +6,7 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v6: RuleDealDamage / RuleHealDamage / UnitEntityData member + ctor-param dump (the heal-by-damage homebrew).
 # Remove this step + script once the API surface is known and the build is green.
 $ErrorActionPreference = 'Continue'
 
@@ -85,7 +86,8 @@ if (-not (Test-Path $dll)) {
       'ContextRankConfig', 'SpontaneousSpellConversion', 'AddKnownSpell',
       'ContextCalculateAbilityParams', 'ContextCalculateAbilityParamsBasedOnClass', 'AddFacts',
       'BuffExtraEffects', 'UnitProgressionData', 'FeatureSelectionData', 'Feature',
-      'UnitDescriptor', 'RuleAttackRoll', 'UnitAlignment')
+      'UnitDescriptor', 'RuleAttackRoll', 'UnitAlignment',
+      'RuleDealDamage', 'RuleHealDamage', 'UnitEntityData')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
@@ -129,7 +131,17 @@ if (-not (Test-Path $dll)) {
           Log ("  PROP: {0}" -f $md.GetString($md.GetPropertyDefinition($ph).Name))
         }
         foreach ($mh in $td.GetMethods()) {
-          Log ("  METHOD: {0}" -f $md.GetString($md.GetMethodDefinition($mh).Name))
+          $mdo = $md.GetMethodDefinition($mh)
+          $paramStr = ''
+          try {
+            $names = @()
+            foreach ($ph in $mdo.GetParameters()) {
+              $pd = $md.GetParameter($ph)
+              if ($pd.SequenceNumber -gt 0) { $names += $md.GetString($pd.Name) }
+            }
+            if ($names.Count -gt 0) { $paramStr = ' (' + ($names -join ', ') + ')' }
+          } catch { $paramStr = ' (params?)' }
+          Log ("  METHOD: {0}{1}" -f $md.GetString($mdo.Name), $paramStr)
         }
       }
     }
