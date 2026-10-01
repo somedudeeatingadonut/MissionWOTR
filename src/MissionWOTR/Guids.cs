@@ -1097,6 +1097,23 @@ namespace MissionWOTR
     internal const string GraveWardenDustbringerMarkBuff = "4BDC61FC-FACA-432B-A1B1-CF1E75DC142B";
     internal const string GraveWardenDustbringerMarkComponent = "816408BD-D87C-4096-8D07-94BBC8077EEE";
     internal const string GraveWardenDustbringerImmunityBuff = "22587580-CD29-42DD-8922-9CB3E3BDD535";
+
+    // ----- 0.42.0: Eldritch Scrapper (sorcerer, ACG 122) + the Overchanneler (homebrew) -----
+    internal const string EldritchScrapperArchetype = "E5487C25-7876-4514-B0E3-D398017077AA";
+    internal const string OverchannelerArchetype = "32205A0A-159B-43E7-BB46-F1540378B537";
+    internal const string OverchannelerAbility = "28F1396E-109E-47B9-85E7-AC361BA59719";
+    internal const string OverchannelerAction = "2E9D9D96-AF45-4576-BCBA-880818B30C01";
+    internal const string OverchannelerBuff1 = "21AEABA2-E29A-4899-B7B3-F1C003BB719A";
+    internal const string OverchannelerBuff2 = "06186324-B82B-4634-9EF4-E709990B7B82";
+    internal const string OverchannelerBuff3 = "CC7CBFE7-F496-4780-A9B4-1264D558C0B0";
+    internal const string OverchannelerApexBuff = "8EDC545C-AF5A-4BC5-AA5B-570B372C30B3";
+    internal const string OverchannelerRiderComponent = "5C9E4567-709D-424A-8C67-B38D54F30C52";
+    internal const string OverchannelerBloodClotFeature = "AE8D6768-A275-4CC8-9B6D-421BB3A30E8D";
+    internal const string OverchannelerApexFeature = "29BC78B2-B204-41E6-9A9F-7031046F7F90";
+    internal const string OverchannelerResource = "D89C01B3-0443-4292-A848-A8D2EE5A6DE4";
+    internal const string OverchannelerSpellbook = "4A20909A-76AC-44D9-9D73-34F77AC0B506";
+    internal const string OverchannelerPerDayTable = "2101A7A2-3691-4596-8198-F59F4A340E48";
+    internal const string OverchannelerKitFeature = "B94C4B6E-D7CD-4F9D-ADBF-174DF4CD85CA";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

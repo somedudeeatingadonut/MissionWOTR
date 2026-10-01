@@ -794,6 +794,47 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.42.0 — sorcerer: the Eldritch Scrapper (port) + the Overchanneler (homebrew)
+
+- **The trap-check round:** before building, the vanilla refs were swept
+  for what Owlcat already ships — and the sorcerer is well covered:
+  Crossblooded (with its own taxed spellbook), Seeker, the wildblooded
+  trio (Sage, Empyreal, Sylvan), and the Nine-Tailed Heir are all
+  in-game. Not present: Eldritch Scrapper, Tattooed, Razmiran Priest,
+  Dragon Drinker, Mongrel Mage, Umbral Scion, Stone Warder, Sorcerer of
+  Sleep, Wishcrafter.
+- **The Eldritch Scrapper (Advanced Class Guide pg. 122):** the martial
+  sorcerer. Gains martial weapon proficiency and a bonus combat feat at
+  1st, 9th, and 15th. **Adapted trade, documented:** the tabletop trades
+  the 1st/9th/15th bloodline powers, but bloodline powers live inside
+  the bloodline blueprints' own progressions in this engine — an
+  archetype cannot remove them. Owlcat's own in-game Crossblooded ships
+  the same adaptation (second bloodline granted in full, paid in spells
+  known), so this port reuses **the vanilla crossblooded spellbook**
+  (one fewer spell known per level) as its price — the game's own
+  balanced precedent rather than an invented tax. Martial flexibility
+  (borrow-any-combat-feat for a minute) has no engine support — no
+  brawler class, no mid-combat feat picker — so the three flexibility
+  tiers are substituted by real combat feat picks at the same levels
+  (the standing suitable-alternative rule). She keeps her bloodline
+  powers, natural attacks included.
+- **The Overchanneler (MissionWOTR homebrew, our own design):** she
+  opens the channel wider than her body was meant to bear.
+  - **Trade:** a cloned sorcerer spellbook with **one fewer spell slot
+    per day at every level** (all other fields reflection-copied from
+    the vanilla book; the per-day table rebuilt with Count−1, min 1).
+  - **Overchannel (1st):** swift, at will, 1 round: **+2 caster level**
+    (+4 at 9th, +6 at 17th — AddCasterLevel, the Aeon ascension buff's
+    own component) and **+that bonus in damage per spell level** on
+    every spell she casts (a RulePrepareDamage rider, the SanguineFont
+    idiom). The price: the moment a spell leaves the open channel she
+    takes **3 damage per spell level**, flat and unresistable.
+  - **Blood Clot (9th):** the backlash can no longer drop her below
+    1 HP (clamped before the damage rule — death cannot sneak through).
+  - **Apex of the Channel (17th):** once per day the channel opens to
+    its apex — +8 caster level, +8 damage per spell level, and no blood
+    price at all.
+
 ## 0.41.0 — rage powers WORK with momentum; the Grave Warden (slayer)
 
 - **The user's challenge: "Can you make rage powers work?" — YES, and
@@ -3186,4 +3227,16 @@ blueprints; no MissionWOTR rebuild needed). MissionWOTR:
 | --- | --- | --- |
 | Dreadnaught | MissionWOTR homebrew (user design) | Trades studied target's strike bonuses, ALL sneak attack, and the middle (10th-level) talent for a save-cracking Dread Study mark (−1..−5 on all saves, tiered), demoralize-on-study, heavy armor, +half level Persuasion, and medium Will (+1/+2/+3 at 1st/8th/15th). |
 | Grave Warden | Advanced Class Guide pg. 120 | The undead-hunter: Blessed Edge (+2d6 holy vs undead for a round), a self Death Ward ritual (1 min/level), and Dustbringer — mark an undead, land the blow, Will save or be destroyed (24h immunity on a save). Trades the 2nd and 10th talents + stalker. |
+
+
+
+## Sorcerer archetypes
+
+In-game (vanilla): Crossblooded, Seeker, Sage, Empyreal, Sylvan
+(wildblooded), and the Nine-Tailed Heir (kitsune). MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Eldritch Scrapper | Advanced Class Guide pg. 122 | The martial sorcerer: martial weapon proficiency + a combat feat at 1st/9th/15th; pays the vanilla crossblooded price (one fewer spell known per level) in place of the unportable bloodline-power trades. |
+| Overchanneler | MissionWOTR homebrew (our design) | Opens the channel for a round: +2/+4/+6 caster level and matching damage per spell level, at 3 damage per spell level of her own blood; one fewer spell slot per day per level; Blood Clot (9th) caps the burn at 1 HP; a daily apex round (17th) costs nothing. |
 

@@ -5477,5 +5477,75 @@
     "Key": "GraveWardenDustbringerImmunity.Description",
     "ProcessTemplates": false,
     "enGB": "This creature has withstood the grave warden's dustbringer within the last day and cannot be marked again yet."
+  },
+  {
+    "Key": "EldritchScrapper.Name",
+    "ProcessTemplates": false,
+    "enGB": "Eldritch Scrapper"
+  },
+  {
+    "Key": "EldritchScrapper.Description",
+    "ProcessTemplates": false,
+    "enGB": "An eldritch scrapper is usually spoiling for a fight, looking to prove that she's just as tough as a martial character. A veteran of many brawls against opponents who were suspicious of her manifesting magic, an eldritch scrapper has a thick skin and a fighting style that blends weapons with spells. She trains with every weapon a soldier might carry, and her battlefield instincts let her pick up combat tricks her caster studies never left time for. (Adapted port: the conflicting blood of the tabletop's trades is paid in spells known instead - one fewer at every level, the same price the crossblooded pays.)"
+  },
+  {
+    "Key": "Overchanneler.Name",
+    "ProcessTemplates": false,
+    "enGB": "Overchanneler"
+  },
+  {
+    "Key": "Overchanneler.Description",
+    "ProcessTemplates": false,
+    "enGB": "Some sorcerers let the blood carry them. The overchanneler carries the blood: she opens the channel wider than her body was meant to bear, and every spell she throws through the open channel burns her as it leaves. In exchange, her magic strikes harder, lasts longer, and counts for more while the channel is open. She gives up a little endurance - one spell slot of every level per day - for peaks no careful caster will ever reach. (A MissionWOTR homebrew.)"
+  },
+  {
+    "Key": "Overchannel.Name",
+    "ProcessTemplates": false,
+    "enGB": "Overchannel"
+  },
+  {
+    "Key": "Overchannel.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a swift action, the overchanneler opens the channel for 1 round: while it is open, her caster level is increased (+2 at 1st, +4 at 9th, +6 at 17th) and every spell she casts deals bonus damage equal to that bonus times the spell's level. The moment a spell leaves her through the open channel, her blood pays for it: she takes damage equal to 1d6 per level of the spell cast."
+  },
+  {
+    "Key": "OverchannelBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Open Channel"
+  },
+  {
+    "Key": "OverchannelBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The channel is open: her caster level is increased and every spell she casts deals bonus damage equal to that bonus times the spell's level - and burns her for 3 damage per spell level as it leaves."
+  },
+  {
+    "Key": "OverchannelApexBuff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Apex Channel"
+  },
+  {
+    "Key": "OverchannelApexBuff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The channel is opened to its apex: +8 caster level, +8 damage per spell level, and no blood price. This peak can be reached once per day."
+  },
+  {
+    "Key": "OverchannelBloodClot.Name",
+    "ProcessTemplates": false,
+    "enGB": "Blood Clot"
+  },
+  {
+    "Key": "OverchannelBloodClot.Description",
+    "ProcessTemplates": false,
+    "enGB": "The overchanneler's veins have learned to close around the burn: her backlash damage can no longer reduce her below 1 hit point."
+  },
+  {
+    "Key": "OverchannelApex.Name",
+    "ProcessTemplates": false,
+    "enGB": "Apex of the Channel"
+  },
+  {
+    "Key": "OverchannelApex.Description",
+    "ProcessTemplates": false,
+    "enGB": "Once per day, the overchanneler may open the channel to its apex: +8 caster level and +8 damage per spell level for one round, with no backlash at all."
   }
 ]

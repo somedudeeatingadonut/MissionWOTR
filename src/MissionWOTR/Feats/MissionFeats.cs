@@ -106,6 +106,8 @@ namespace MissionWOTR.Feats
       Configure(nameof(CrescendoSkald), CrescendoSkald.Configure);
       Configure(nameof(Dreadnaught), Dreadnaught.Configure);
       Configure(nameof(GraveWarden), GraveWarden.Configure);
+      Configure(nameof(EldritchScrapper), EldritchScrapper.Configure);
+      Configure(nameof(Overchanneler), Overchanneler.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -145,6 +147,7 @@ namespace MissionWOTR.Feats
         var shaman = CharacterClassRefs.ShamanClass.Reference.Get();
         var skald = CharacterClassRefs.SkaldClass.Reference.Get();
         var slayer = CharacterClassRefs.SlayerClass.Reference.Get();
+        var sorcerer = CharacterClassRefs.SorcererClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -196,6 +199,8 @@ namespace MissionWOTR.Feats
       ("CrescendoSkald", Guids.CrescendoSkaldArchetype, skald),
       ("Dreadnaught", Guids.DreadnaughtArchetype, slayer),
       ("GraveWarden", Guids.GraveWardenArchetype, slayer),
+      ("EldritchScrapper", Guids.EldritchScrapperArchetype, sorcerer),
+      ("Overchanneler", Guids.OverchannelerArchetype, sorcerer),
     };
         foreach (var entry in entries)
         {
