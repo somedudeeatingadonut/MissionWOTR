@@ -1124,6 +1124,9 @@ namespace MissionWOTR
     internal const string MendingBladeTitheFeature = "0F4AF2DB-C127-4E64-A114-F63AC31DF64E";
     internal const string MendingBladeTitheRider = "8809F352-10F1-4969-A406-09F2CEB700E1";
 
+    // ----- 0.46.0: Grave Tithe (the Mending Blade's feat) -----
+    internal const string MendingBladeGraveTitheFeature = "C18D75DF-637A-4762-998F-38795F5FA374";
+
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

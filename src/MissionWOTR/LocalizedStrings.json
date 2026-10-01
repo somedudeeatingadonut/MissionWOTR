@@ -5586,6 +5586,16 @@
   {
     "Key": "MendingBladeTithe.Description",
     "ProcessTemplates": false,
-    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for 5% of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe is slight by design - a trickle, not a torrent. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. (Homebrew note: a killing blow counts at the full damage rolled, overkill included. This ability replaces channel energy.)"
+    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for 5% of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe's reach grows as he does: 45 feet at 10th level, 60 feet at 20th. At 20th level the tithe matures: the first two hits each round heal 15%, and every hit after that 10%. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. (Homebrew note: a killing blow counts at the full damage rolled, overkill included. This ability replaces channel energy.)"
+  },
+  {
+    "Key": "MendingBladeGraveTithe.Name",
+    "ProcessTemplates": false,
+    "enGB": "Grave Tithe"
+  },
+  {
+    "Key": "MendingBladeGraveTithe.Description",
+    "ProcessTemplates": false,
+    "enGB": "Your blessed tithe is paid in grave coin: it becomes negative energy. Undead allies are healed by the tithe exactly as before, but living allies are scorched by it instead - though the scorch can never drop them below 1 hit point. For a party of the living this is a poor trade; for a party of the dead, it is perfect. Requires: Blessed Tithe (the Mending Blade archetype). (Homebrew feat.)"
   }
 ]

@@ -794,6 +794,40 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.46.0 — the Mending Blade tuning pass + GRAVE TITHE
+
+- **The user's tuning, verbatim:**
+  - **Radius:** "expand to 60 ft over time" — 30 ft at 1st, 45 ft at
+    10th (blessings' major powers), 60 ft at 20th (Aspect of War);
+    recomputed from his level on every tithe.
+  - **Amount:** "15% at level 20 for the first 2 hits, then 10% for the
+    rest" — below 20th the 5% trickle stands; at 20th, the first two
+    hits of each round tithe 15% and the rest 10%. The round is a
+    6-second window on the engine's own game clock (which freezes on
+    pause).
+  - **Grave Tithe (feat):** "changes it to negative energy, still
+    affecting only allies... just in case someone wants to do a
+    complete undead lich party." Prerequisite: Blessed Tithe (nothing
+    else). Undead allies are healed as normal; living allies are
+    scorched with real, typed, resistible negative-energy damage —
+    clamped by the engine's own MinHPAfterDamage so it can never drop
+    an ally below 1 HP.
+- **Engine notes:** probe v7 settled the last unknowns —
+  `Game.Instance.TimeController.GameTime` is a public
+  `System.TimeSpan` (DarkCodex's PartCooldown stores it as one);
+  `DamageEnergyType` carries `PositiveEnergy`/`NegativeEnergy` (probe
+  v6/v7 field-visibility labels were mis-mapped — "protorint" is
+  public); `EnergyDamage(dice, bonus, energyType)` is the typed-damage
+  constructor. `RuleHealDamage` is a PURE restore rule with no polarity
+  — polarity is the caller's choice, which is the engine's own model
+  and exactly what Grave Tithe follows. The rider's friendly-fire guard
+  doubles as the recursion breaker for the scorch. The feat is found by
+  the rider via lazy `BlueprintTool.Get` (the ConstructCrafter idiom)
+  because its prerequisite is Blessed Tithe itself — a blueprint cycle.
+  Fallback documented in-code: if the restore rule ever proves to
+  invert on undead, the undead path swaps to the `Descriptor.Damage`
+  setter.
+
 ## 0.45.0 — the Mending Blade (warpriest homebrew)
 
 - **The user's brief:** "a warpriest that heals the team based on the
@@ -3355,7 +3389,7 @@ Champion, Mantis Zealot, Proclaimer, and Shieldbearer. MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Sacred Fist | Advanced Class Guide pg. 130 | The unarmored warpriest-monk: the monk's own AC bonus (Wis to AC), flurry of blows, and unarmed scaling, granted verbatim; trades proficiencies, focus weapon, ALL sacred weapon, and the 3rd/6th/12th/18th bonus feats. |
-| Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies for 5% of the damage dealt (a very slight amount, by design); trades the entire channel-energy line. |
+| Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies (30 ft, growing to 45/60 ft) for 5% of the damage dealt — at 20th, 15% for the first two hits each round, 10% after; trades the entire channel-energy line. The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. |
 
 
 The warpriest class ships in the current game build with NO archetypes.
