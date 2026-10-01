@@ -88,6 +88,22 @@ namespace MissionWOTR.Archetypes
   {
     internal const string ClassName = "HolyVindicator";
 
+    internal static PrerequisiteFeaturesFromList ChannelGate()
+    {
+      var gate = new PrerequisiteFeaturesFromList
+      {
+        Group = Prerequisite.GroupType.Any,
+        Amount = 1,
+      };
+      gate.Features.AddRange(new[]
+      {
+        FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
+        FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
+        FeatureRefs.ChannelEnergyEmpyrealFeature.Cast<BlueprintFeatureReference>(),
+      });
+      return gate;
+    }
+
     internal static void Configure()
     {
       var icon = AbilityRefs.Bless.Reference.Get().Icon;
@@ -230,12 +246,13 @@ namespace MissionWOTR.Archetypes
         .Configure();
 
       // ----- The progression. -----
-      LevelEntry Entry(int level, params BlueprintFeature[] features) =>
-        new LevelEntry
-        {
-          Level = level,
-          Features = features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()).ToList(),
-        };
+      LevelEntry Entry(int level, params BlueprintFeature[] features)
+      {
+        var entry = new LevelEntry { Level = level };
+        entry.Features.AddRange(
+          features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()));
+        return entry;
+      }
       var progression = ProgressionConfigurator.New("HolyVindicatorProgression", Guids.HolyVindicatorProgression)
         .SetLevelEntries(
           Entry(1, shieldFeature),
@@ -268,22 +285,12 @@ namespace MissionWOTR.Archetypes
         .SetSkillPoints(2)
         .SetClassSkills(StatType.SkillLoreReligion, StatType.CheckIntimidate, StatType.CheckDiplomacy)
         .SetProgression(progression)
-        .AddComponent(new PrerequisiteFullStatValue
+        .AddComponent(new PrerequisiteStatValue
         {
           Stat = StatType.BaseAttackBonus,
           Value = 5,
         })
-        .AddComponent(new PrerequisiteFeaturesFromList
-        {
-          Features = new[]
-          {
-            FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
-            FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
-            FeatureRefs.ChannelEnergyEmpyrealFeature.Cast<BlueprintFeatureReference>(),
-          },
-          Group = Prerequisite.GroupType.Any,
-          Amount = 1,
-        })
+        .AddComponent(ChannelGate())
         .Configure();
 
       // The reverse link: the progression belongs to the class.

@@ -181,17 +181,20 @@ namespace MissionWOTR.Archetypes
         .Configure();
 
       // ----- The progression. -----
-      System.Collections.Generic.List<BlueprintFeatureBaseReference> Refs(
-        params BlueprintFeature[] features) =>
-        features.Select(f => f.ToReference<BlueprintFeatureBaseReference>())
-          .ToList();
+      LevelEntry Entry(int level, params BlueprintFeature[] features)
+      {
+        var entry = new LevelEntry { Level = level };
+        entry.Features.AddRange(
+          features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()));
+        return entry;
+      }
       var progression = ProgressionConfigurator.New("BonewatchProgression", Guids.BonewatchProgression)
         .SetLevelEntries(
-          new LevelEntry { Level = 1, Features = Refs(mantle, commandKit) },
-          new LevelEntry { Level = 2, Features = Refs(cadre) },
-          new LevelEntry { Level = 3, Features = Refs(commandExtra3) },
-          new LevelEntry { Level = 4, Features = Refs(mantleGreater) },
-          new LevelEntry { Level = 5, Features = Refs(lastOrder) })
+          Entry(1, mantle, commandKit),
+          Entry(2, cadre),
+          Entry(3, commandExtra3),
+          Entry(4, mantleGreater),
+          Entry(5, lastOrder))
         .Configure();
 
       // ----- The class. -----
@@ -208,23 +211,12 @@ namespace MissionWOTR.Archetypes
         .SetSkillPoints(2)
         .SetClassSkills(StatType.SkillLoreReligion, StatType.CheckIntimidate, StatType.SkillKnowledgeWorld)
         .SetProgression(progression)
-        .AddComponent(new PrerequisiteFullStatValue
+        .AddComponent(new PrerequisiteStatValue
         {
           Stat = StatType.BaseAttackBonus,
           Value = 3,
         })
-        .AddComponent(new PrerequisiteFeaturesFromList
-        {
-          Features = new[]
-          {
-            FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
-            FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
-            FeatureRefs.ChannelEnergyEmpyrealFeature.Cast<BlueprintFeatureReference>(),
-            Guids.UndeadMasterKitFeature,
-          },
-          Group = Prerequisite.GroupType.Any,
-          Amount = 1,
-        })
+        .AddComponent(HolyVindicator.ChannelGate())
         .Configure();
 
       ProgressionConfigurator.For(progression)
