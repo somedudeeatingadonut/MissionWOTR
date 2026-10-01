@@ -295,12 +295,42 @@ umm UnityModManager.dll: True
 umm 0Harmony.dll: True
 === PROBE fingerprint ===
 Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
+RAGE-TYPE: Kingmaker.Visual.Lightmapping.LightmapStorage vis=public base=UnityEngine.MonoBehaviour
+  FIELD: ShadowmaskDisabled [protorint]
+  FIELD: LightmapSettingsChanged [private]
+  FIELD: <Current>k__BackingField [private]
+  FIELD: Instances [protorint]
+  FIELD: m_Chunks [private]
+  FIELD: m_Lightmaps [private]
+  FIELD: m_BakedLightProbes [private]
+  FIELD: m_LightProbes [private]
+  FIELD: m_RendererData [private]
+RAGE-TYPE: Kingmaker.ResourceManagement.IResourceStorage`1 vis=public base=(nil)
+RAGE-TYPE: Kingmaker.ResourceManagement.ResourceStorage`1 vis=public base=System.Object
+  FIELD: m_CreateFunc [private]
+  FIELD: m_Requests [private]
 === TYPE Kingmaker.Enums.Damage.PhysicalDamageMaterial vis=public base=System.Enum ===
   FIELD: value__ [protorint]
   FIELD: ColdIron [protorint]
   FIELD: Silver [protorint]
   FIELD: Adamantite [protorint]
+RAGE-TYPE: Kingmaker.EntitySystem.EntityPartKeyValueStorage vis=public base=Kingmaker.EntitySystem.EntityPart
+  FIELD: m_Data [private]
 SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
+RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SaveStorageAccessNewServer vis=public base=System.Object
+  FIELD: s_HttpClient [private]
+  FIELD: s_UploadParams [private]
+RAGE-TYPE: Kingmaker.EntitySystem.Persistence.SavesStorage.SavesStorageAccess vis=public base=System.Object
+  FIELD: s_UploadingCount [private]
+  FIELD: s_UploadParams [private]
+  FIELD: UploadDelay [private]
+  FIELD: s_NextUploadTime [private]
+  FIELD: UploadEnabled [private]
+  FIELD: s_HttpClient [private]
+  FIELD: <UploadedLink>k__BackingField [private]
+  FIELD: <UploadedDirectLink>k__BackingField [private]
+  FIELD: ProjectId [protorint]
+  FIELD: ProdPublicUri [protorint]
 === TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
   FIELD: m_Type [private]
   FIELD: LocalizedName [protorint]
@@ -673,6 +703,30 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: <GetBaseValue>g__CheckAndSetMaxValue|75_2
   METHOD: <GetBaseValue>g__MExceptClasses|75_3
   METHOD: <GetBaseValue>g__CheckClassForArchetype|75_4
+=== TYPE Kingmaker.Designers.Mechanics.Facts.BuffExtraEffects vis=public base=TypeSpecification ===
+  FIELD: m_UseBaffContext [private]
+  FIELD: m_CheckedBuff [private]
+  FIELD: m_CheckedBuffList [private]
+  FIELD: m_ExtraEffectBuff [private]
+  FIELD: m_ExceptionFact [private]
+  PROP: CheckedBuff
+  PROP: ExtraEffectBuff
+  PROP: ExceptionFact
+  METHOD: get_CheckedBuff
+  METHOD: get_ExtraEffectBuff
+  METHOD: get_ExceptionFact
+  METHOD: OnActivate
+  METHOD: OnApplyPostLoadFixes
+  METHOD: OnDeactivate
+  METHOD: CheckAndReapply
+  METHOD: HandleBuffDidAdded
+  METHOD: CheckHadPrerequiredBuff
+  METHOD: HandleBuffDidRemoved
+  METHOD: .ctor
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.ArmagsBladeEnrageData vis=public base=System.Object
+  FIELD: AppliedCondition [protorint]
+  FIELD: DC [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.ArmagsBladeEnrage vis=public base=TypeSpecification
 SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
 AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
@@ -802,4 +856,13 @@ AI-TYPE: BlueprintBrain vis=public(1) base=Kingmaker.Blueprints.BlueprintScripta
   METHOD: .ctor
 AI-TYPE: CustomAiConsiderationsRoot vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 AI-TYPE: DeadTargetType vis=public(1) base=System.Enum
+RAGE-TYPE: .TemporaryStorage vis=nested-private base=System.Object
+  FIELD: m_Size [private]
+  FIELD: m_ListIndex [private]
+  FIELD: m_Lists [private]
+RAGE-TYPE: .WeaponCoverage vis=nested-public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: All [protorint]
+  FIELD: Melee [protorint]
+  FIELD: Ranged [protorint]
 === PROBE done ===
