@@ -85,7 +85,7 @@ if (-not (Test-Path $dll)) {
       'ContextRankConfig', 'SpontaneousSpellConversion', 'AddKnownSpell',
       'ContextCalculateAbilityParams', 'ContextCalculateAbilityParamsBasedOnClass', 'AddFacts',
       'BuffExtraEffects', 'UnitProgressionData', 'FeatureSelectionData', 'Feature',
-      'UnitDescriptor', 'RuleAttackRoll')
+      'UnitDescriptor', 'RuleAttackRoll', 'UnitAlignment')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
