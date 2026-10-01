@@ -794,6 +794,40 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.39.0 — the Crescendo Skald (homebrew, user design)
+
+- **The user's brief:** "a skald buff that focuses on momentum instead
+  of rage, giving increasing bonuses per turn in combat as long as at
+  least one attack/spell lands. Being overall 30% stronger than a rage
+  buff, without the no casting downside of rage, but requiring time to
+  get to potential, and completely resetting if no attack or spell
+  lands for the ally getting the effect (doesn't reset for all of
+  them, just that one ally who missed)."
+- **The Crescendo** (trades Inspired Rage + the vanilla raging-song
+  button; the rounds pool is re-granted, everything else about the
+  skald stands): a standard-action raging song with a 60-foot aura in
+  which every ally builds **Momentum**, tracked PER ALLY:
+  - each round an ally lands at least one attack (RuleAttackRoll,
+    IsHit) or completes at least one real spell (RuleCastSpell), their
+    Momentum grows by 1, to a maximum of 5;
+  - a round with nothing landed resets THAT ally's Momentum to zero —
+    the others keep theirs (per-ally state, exactly as designed);
+  - Momentum grants morale bonuses to Strength and Constitution
+    (+1 at 1 stack, +2 at 3, +3 at 5) and +1 Will, at a cost of 1 AC
+    while it lasts; **casting is never blocked**;
+  - the song drains one raging-song round per round and ends itself at
+    zero (the Spell Warrior rounds component, reused verbatim).
+- **The math, documented:** rage (the inspired rage ally effect) is
+  +2 Str, +2 Con, +1 Will, −1 AC with casting locked; peak Momentum is
+  +3 Str, +3 Con, +1 Will, −1 AC with casting free — the nearest whole
+  step to "30% stronger" (+2.6 → +3). Rage parity arrives at 3 stacks
+  and the peak at 5: the ramp, the per-ally reset risk, and the round
+  cost are the price. Every number lives in one table in
+  CrescendoMomentum if the peak should sit closer to +30%.
+- **Documented simplification:** "a spell lands" counts any completed
+  real-spell cast — the engine does not expose save outcomes, so buffs
+  and heals also carry momentum.
+
 ## 0.38.0 — the wolf's long-rest rule + the Spell Warrior (skald)
 
 - **The user's fix:** "Make it so that if the wolf dies, it cannot come
@@ -3052,4 +3086,5 @@ In-game (vanilla): Battle Scion, Herald of the Horn. MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Spell Warrior | Advanced Class Guide pg. 116 | Trades the rage-granting song for one that enchants allied weapons: +1 to +5 enhancement in a 60-foot radius, overlapping existing enhancements, draining raging-song rounds while it plays. |
+| Crescendo Skald | MissionWOTR homebrew (user design) | Trades the rage song for momentum: per-ally stacks (+1/round while landing attacks or spells, max 5, reset only for the ally who landed nothing) granting +1/+2/+3 Str & Con, +1 Will, −1 AC at full strength with casting never blocked. |
 

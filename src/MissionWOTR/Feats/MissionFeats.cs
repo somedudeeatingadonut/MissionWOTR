@@ -103,6 +103,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(Jiuweihu), Jiuweihu.Configure);
       Configure(nameof(SpiritRidden), SpiritRidden.Configure);
       Configure(nameof(SpellWarrior), SpellWarrior.Configure);
+      Configure(nameof(CrescendoSkald), CrescendoSkald.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -189,6 +190,7 @@ namespace MissionWOTR.Feats
       ("Jiuweihu", Guids.JiuweihuArchetype, shaman),
       ("SpiritRidden", Guids.SpiritRiddenArchetype, shaman),
       ("SpellWarrior", Guids.SpellWarriorArchetype, skald),
+      ("CrescendoSkald", Guids.CrescendoSkaldArchetype, skald),
     };
         foreach (var entry in entries)
         {

@@ -1059,6 +1059,16 @@ namespace MissionWOTR
     internal const string SpiritRiddenWolfResource = "495DDA9C-F81D-4C4F-86DA-C8AACFC3D16E";
     internal const string SpiritRiddenWolfGuardBuff = "58CCF5CB-850D-4BC0-BF7B-38248D59A238";
     internal const string SpiritRiddenWolfGuardComponent = "68ABF213-C79E-477B-A0D0-1421D446EEBE";
+
+    // ----- 0.39.0: the Crescendo Skald (homebrew, user design) -----
+    internal const string CrescendoSkaldArchetype = "D757A3E0-768D-488B-A684-375B2D99B26B";
+    internal const string CrescendoSkaldFeature = "A5BD5B44-5784-4A06-988B-1123F5DA9784";
+    internal const string CrescendoSkaldAbility = "C2870984-E2FB-4F4C-B4A3-9BB716E06D60";
+    internal const string CrescendoStartSongAction = "A068E7CD-E5E6-4C95-8769-7935F9EF1AA0";
+    internal const string CrescendoSongBuff = "014B97A7-FD1E-4732-8CEF-FE7752074794";
+    internal const string CrescendoSongArea = "4490E67E-4425-4DD4-9FCF-EDDBF44944D8";
+    internal const string CrescendoMomentumBuff = "D1B3CFD8-810C-4930-9F48-17588EA8D558";
+    internal const string CrescendoMomentumComponent = "BB449E29-7387-4207-BF3A-A0156E347146";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

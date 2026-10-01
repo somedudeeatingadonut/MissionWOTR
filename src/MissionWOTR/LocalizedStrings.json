@@ -5347,5 +5347,35 @@
     "Key": "SpellWarriorSong.Description",
     "ProcessTemplates": false,
     "enGB": "The spell warrior's song flows through allied steel: weapons wielded by allies within 60 feet are enchanted while the song plays."
+  },
+  {
+    "Key": "CrescendoSkald.Name",
+    "ProcessTemplates": false,
+    "enGB": "Crescendo Skald"
+  },
+  {
+    "Key": "CrescendoSkald.Description",
+    "ProcessTemplates": false,
+    "enGB": "Not rage but rhythm. The crescendo skald's song does not throw allies into a fury - it picks them up and carries them, building speed as each of them finds their mark. Allies who keep landing blows and spells rise with the music; one quiet round and that momentum is spent. Spellcasting is never blocked: momentum flows through sword and spell alike. (A MissionWOTR homebrew.)"
+  },
+  {
+    "Key": "Crescendo.Name",
+    "ProcessTemplates": false,
+    "enGB": "Crescendo"
+  },
+  {
+    "Key": "Crescendo.Description",
+    "ProcessTemplates": false,
+    "enGB": "A raging song of momentum rather than fury. While it plays, every ally within 60 feet builds Momentum: one stack each round in which they land at least one attack or complete at least one spell (maximum 5 stacks). A round in which an ally lands nothing resets that ally's Momentum to zero - only that ally's. Momentum grants morale bonuses to Strength and Constitution (+1 at one stack, +2 at three, +3 at five) and +1 on Will saves, at a cost of 1 AC while it lasts. The song drains one raging-song round per round and ends when none remain."
+  },
+  {
+    "Key": "CrescendoMomentum.Name",
+    "ProcessTemplates": false,
+    "enGB": "Momentum"
+  },
+  {
+    "Key": "CrescendoMomentum.Description",
+    "ProcessTemplates": false,
+    "enGB": "The crescendo carries this ally: a morale bonus to Strength and Constitution (+1 at one stack of Momentum, +2 at three, +3 at five) and +1 on Will saves, at a cost of 1 AC while it lasts. Each round with at least one landed attack or completed spell adds a stack (maximum 5); a round with nothing landed resets it - and only this ally's."
   }
 ]
