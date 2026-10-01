@@ -6,6 +6,7 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v10b: retrigger - the v10 probe push lost a race with the code push; same targets (Concealment, WeaponRangeType, ITickEachRound).
 # v10: Concealment + WeaponRangeType enum members (Omnielementalist's Ash Storm) + ITickEachRound (Sandstorm round-tick).
 # v9: PetType + PetProgressionType enum members (the lich's undead pet for Undead Master's Corpse Bond).
 # v8: TurnBasedCombatController + CombatController (turn-based round window - the user plays TB) + StatType (speed penalty checks).
