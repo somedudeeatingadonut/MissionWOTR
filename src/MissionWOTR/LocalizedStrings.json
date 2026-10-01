@@ -5549,113 +5549,23 @@
     "enGB": "Once per day, the overchanneler may open the channel to its apex: +8 caster level and +8 damage per spell level for one round, with no backlash at all."
   },
   {
-    "Key": "ChampionOfTheFaith.Name",
+    "Key": "SacredFist.Name",
     "ProcessTemplates": false,
-    "enGB": "Champion of the Faith"
+    "enGB": "Sacred Fist"
   },
   {
-    "Key": "ChampionOfTheFaith.Description",
+    "Key": "SacredFist.Description",
     "ProcessTemplates": false,
-    "enGB": "Champions of the faith are crusaders who use the power of their divine patron to annihilate the faith's enemies. Where other warpriests hedge their devotion with channeling and blessings for every occasion, the champion chooses one alignment - one axis of the eternal war - and turns everything against its opposite. In the Worldwound, most choose good."
+    "enGB": "Unlike many warpriests, sacred fists leave behind armor and shield and instead rely on their fists and whatever protection their deity bestows on them. Their deity guards them as they fight unarmored, their strikes fall like a monk's in a flurry of blows, and their style - adopted in the monasteries of their faith - completes the art."
   },
   {
-    "Key": "ChampionAlignment.Name",
+    "Key": "SacredFistBlessedFortitude.Name",
     "ProcessTemplates": false,
-    "enGB": "Chosen Alignment"
+    "enGB": "Blessed Fortitude"
   },
   {
-    "Key": "ChampionAlignment.Description",
+    "Key": "SacredFistBlessedFortitude.Description",
     "ProcessTemplates": false,
-    "enGB": "The champion must select one axis of the eternal war as his chosen alignment: good, evil, law, or chaos. His sacred weapon strikes carry this alignment for the purpose of overcoming damage reduction, his smite turns its full force against creatures of the opposed alignment, and his align-weapon miracle infuses his weapon with the matching power."
-  },
-  {
-    "Key": "ChampionChosenGood.Name",
-    "ProcessTemplates": false,
-    "enGB": "Chosen Alignment: Good"
-  },
-  {
-    "Key": "ChampionChosenGood.Description",
-    "ProcessTemplates": false,
-    "enGB": "The champion has chosen good. His weapon damage counts as good-aligned, his smite breaks evil creatures, and his align-weapon miracle makes his blade holy."
-  },
-  {
-    "Key": "ChampionChosenEvil.Name",
-    "ProcessTemplates": false,
-    "enGB": "Chosen Alignment: Evil"
-  },
-  {
-    "Key": "ChampionChosenEvil.Description",
-    "ProcessTemplates": false,
-    "enGB": "The champion has chosen evil. His weapon damage counts as evil-aligned, his smite breaks good creatures, and his align-weapon miracle makes his blade unholy."
-  },
-  {
-    "Key": "ChampionChosenLaw.Name",
-    "ProcessTemplates": false,
-    "enGB": "Chosen Alignment: Law"
-  },
-  {
-    "Key": "ChampionChosenLaw.Description",
-    "ProcessTemplates": false,
-    "enGB": "The champion has chosen law. His weapon damage counts as lawful-aligned, his smite breaks chaotic creatures, and his align-weapon miracle makes his blade axiomatic."
-  },
-  {
-    "Key": "ChampionChosenChaos.Name",
-    "ProcessTemplates": false,
-    "enGB": "Chosen Alignment: Chaos"
-  },
-  {
-    "Key": "ChampionChosenChaos.Description",
-    "ProcessTemplates": false,
-    "enGB": "The champion has chosen chaos. His weapon damage counts as chaotic-aligned, his smite breaks lawful creatures, and his align-weapon miracle makes his blade anarchic."
-  },
-  {
-    "Key": "ChampionDetect.Name",
-    "ProcessTemplates": false,
-    "enGB": "Detect Alignment"
-  },
-  {
-    "Key": "ChampionDetect.Description",
-    "ProcessTemplates": false,
-    "enGB": "As a move action, the champion focuses on a single creature within 60 feet and learns whether it bears his opposed alignment."
-  },
-  {
-    "Key": "ChampionSmite.Name",
-    "ProcessTemplates": false,
-    "enGB": "Smite"
-  },
-  {
-    "Key": "ChampionSmite.Description",
-    "ProcessTemplates": false,
-    "enGB": "As a swift action, the champion chooses one target within sight to smite. He adds his Charisma bonus (if any) to his attack rolls for 1 minute, and his attacks against the target of his smite deal bonus damage equal to his warpriest level if it bears his opposed alignment. (Adapted port: the attack bonus applies against all foes while the smite burns, and DR bypass and the deflection bonus are not carried.)"
-  },
-  {
-    "Key": "ChampionSmiteBuff.Name",
-    "ProcessTemplates": false,
-    "enGB": "Smite"
-  },
-  {
-    "Key": "ChampionSmiteBuff.Description",
-    "ProcessTemplates": false,
-    "enGB": "The champion's wrath focuses his hand: he adds his Charisma bonus to his attack rolls, and his attacks against the target of his smite deal bonus damage equal to his warpriest level if it bears his opposed alignment."
-  },
-  {
-    "Key": "ChampionSmiteMark.Name",
-    "ProcessTemplates": false,
-    "enGB": "Smitten"
-  },
-  {
-    "Key": "ChampionSmiteMark.Description",
-    "ProcessTemplates": false,
-    "enGB": "The champion's smite is fixed upon this creature."
-  },
-  {
-    "Key": "ChampionAlignWeapon.Name",
-    "ProcessTemplates": false,
-    "enGB": "Align Weapon"
-  },
-  {
-    "Key": "ChampionAlignWeapon.Description",
-    "ProcessTemplates": false,
-    "enGB": "As a swift action, the champion infuses his weapon with his chosen alignment for 1 minute: holy if he chose good, unholy if evil, axiomatic if law, anarchic if chaos."
+    "enGB": "The sacred fist's deity shields his body: he gains a +2 sacred bonus on Fortitude saving throws. (Adapted port: the tabletop's avoid-the-effect-entirely rule is not something the game exposes to mods; a save bonus stands in its place.)"
   }
 ]

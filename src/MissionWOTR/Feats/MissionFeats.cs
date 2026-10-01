@@ -108,7 +108,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(GraveWarden), GraveWarden.Configure);
       Configure(nameof(EldritchScrapper), EldritchScrapper.Configure);
       Configure(nameof(Overchanneler), Overchanneler.Configure);
-      Configure(nameof(ChampionOfTheFaith), ChampionOfTheFaith.Configure);
+      Configure(nameof(SacredFist), SacredFist.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -203,7 +203,7 @@ namespace MissionWOTR.Feats
       ("GraveWarden", Guids.GraveWardenArchetype, slayer),
       ("EldritchScrapper", Guids.EldritchScrapperArchetype, sorcerer),
       ("Overchanneler", Guids.OverchannelerArchetype, sorcerer),
-      ("ChampionOfTheFaith", Guids.ChampionOfTheFaithArchetype, warpriest),
+      ("SacredFist", Guids.SacredFistArchetype, warpriest),
     };
         foreach (var entry in entries)
         {

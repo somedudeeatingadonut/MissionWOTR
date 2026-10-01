@@ -794,6 +794,44 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.44.0 — the Sacred Fist (warpriest); 0.43.0's Champion of the Faith WITHDRAWN
+
+- **The user's catch:** "warpriest exists, it has archetypes, and
+  champion of the faith is one of them." Correct on all three counts —
+  and the 0.43.0 trap-check was structurally flawed: it grepped the
+  archetype reference file for the CLASS name, but Owlcat names
+  archetype blueprints after the ARCHETYPE ("ChampionOfTheFaithArchetype"
+  contains no "Warpriest" — nor does "CrossbloodedArchetype" contain
+  "Sorcerer"). The vanilla warpriest ships SEVEN archetypes: Champion
+  of the Faith, Cult Leader, Disenchanter, Feral Champion, Mantis
+  Zealot, Proclaimer, Shieldbearer. **The 0.43.0 duplicate is
+  withdrawn** (archetype, features, buffs, resources, strings, guids —
+  fully removed). The Overchanneler nerf from 0.43.0 stands.
+- **The Sacred Fist (Advanced Class Guide pg. 130)** — genuinely absent,
+  and the lowest-cut port this mod has shipped: everything it grants is
+  the game's own monk content, verbatim.
+  - **AC Bonus (1st):** the monk's own MonkACBonus — Wisdom to AC and
+    CMD plus the scaling dodge bonus. (Documented limitation: the dodge
+    scaling is monk-level-based inside the engine's feature; the
+    Wisdom bonus applies regardless.)
+  - **Flurry of Blows (1st):** FlurryOfBlows + the game's own non-monk
+    flurry scaling unlock (ImitationMonkFlurryUnlock), + the level-11
+    extra attack.
+  - **Unarmed Strike (1st):** ImprovedUnarmedStrike + the monk's
+    MonkUnarmedStrike damage scaling.
+  - **Blessed Fortitude (3rd):** documented substitute — the tabletop's
+    "avoid the effect entirely on a successful save" is not
+    engine-exposed; **+2 sacred on Fortitude saves** instead.
+  - **Bonus style feats (6th/12th/18th):** FighterFeatSelection (style
+    feats are combat feats; no separate style selection exists) —
+    documented substitute.
+  - **The trades (all live-progression scans):** weapon/armor
+    proficiencies (the monk weapon package comes instead), focus weapon
+    (the 1st-level weapon focus selection), sacred weapon (EVERY grant
+    — flurry replaces it whole), and the bonus feats at 3rd/6th/12th/
+    18th. Class skills are baked into the class — the skill list swap
+    is a documented cut.
+
 ## 0.43.0 — Overchanneler nerf; Champion of the Faith (warpriest)
 
 - **The Overchanneler nerf (the user's call: "does too much damage to
@@ -807,9 +845,11 @@ errors suggested:
   game build (WarpriestClass in the live blueprints) — but with ZERO
   archetypes. Every tabletop warpriest archetype is genuinely absent;
   no trap this time, just an open field.
-- **The Champion of the Faith (Advanced Class Guide pg. 128):** the
+- **WITHDRAWN in 0.44.0 — duplicated the vanilla archetype** (the
+  user's catch; see 0.44.0). The build notes below are kept for the
+  record. ~~The Champion of the Faith (Advanced Class Guide pg. 128):** the
   crusader who annihilates the faith's enemies — the natural
-  warpriest archetype for the Worldwound.
+  warpriest archetype for the Worldwound.~~
   - **Chosen Alignment (1st):** good, evil, law, or chaos. His weapon
     damage counts as that alignment for overcoming DR (the
     FortunesFool-proven aligned-damage component) and sets his opposed
@@ -3283,6 +3323,15 @@ In-game (vanilla): Crossblooded, Seeker, Sage, Empyreal, Sylvan
 
 
 ## Warpriest archetypes
+
+The warpriest class ships in the current game build with SEVEN vanilla
+archetypes: Champion of the Faith, Cult Leader, Disenchanter, Feral
+Champion, Mantis Zealot, Proclaimer, and Shieldbearer. MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Sacred Fist | Advanced Class Guide pg. 130 | The unarmored warpriest-monk: the monk's own AC bonus (Wis to AC), flurry of blows, and unarmed scaling, granted verbatim; trades proficiencies, focus weapon, ALL sacred weapon, and the 3rd/6th/12th/18th bonus feats. |
+
 
 The warpriest class ships in the current game build with NO archetypes.
 MissionWOTR:
