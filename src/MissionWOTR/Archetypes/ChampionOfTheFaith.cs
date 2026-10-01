@@ -10,6 +10,7 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
@@ -245,8 +246,7 @@ namespace MissionWOTR.Archetypes
         extras[i] = FeatureConfigurator.New(
           "ChampionSmiteExtra" + new[] { 8, 12, 16, 20 }[i], extraGuids[i])
           .SetIsClassFeature()
-          .AddIncreaseResourceAmount(
-            resource: smiteResource.Cast<BlueprintAbilityResourceReference>(), value: 1)
+          .AddIncreaseResourceAmount(resource: smiteResource, value: 1)
           .Configure();
       }
 
@@ -310,14 +310,12 @@ namespace MissionWOTR.Archetypes
       var alignExtra16 = FeatureConfigurator.New(
         "ChampionAlignExtra16", Guids.ChampionAlignExtra16)
         .SetIsClassFeature()
-        .AddIncreaseResourceAmount(
-          resource: alignResource.Cast<BlueprintAbilityResourceReference>(), value: 1)
+        .AddIncreaseResourceAmount(resource: alignResource, value: 1)
         .Configure();
       var alignExtra20 = FeatureConfigurator.New(
         "ChampionAlignExtra20", Guids.ChampionAlignExtra20)
         .SetIsClassFeature()
-        .AddIncreaseResourceAmount(
-          resource: alignResource.Cast<BlueprintAbilityResourceReference>(), value: 1)
+        .AddIncreaseResourceAmount(resource: alignResource, value: 1)
         .Configure();
 
       // ----- The archetype. -----
@@ -379,15 +377,36 @@ namespace MissionWOTR.Archetypes
 
     /// <summary>
     /// Does the unit bear the given alignment component? ValueVisible
-    /// (not ValueRaw) is the read: a creature hiding its alignment
-    /// (Undetectable) fairly escapes the champion's discernment.
+    /// (not ValueRaw) is the read - it comes back as the nine-point
+    /// Alignment enum, so the check is a plain switch. A creature
+    /// hiding its alignment (Undetectable) fairly escapes the
+    /// champion's discernment.
     /// </summary>
     internal static bool BearsComponent(UnitEntityData unit, AlignmentMaskType component)
     {
       try
       {
-        var value = unit?.Descriptor?.Alignment?.ValueVisible ?? AlignmentMaskType.None;
-        return (value & component) != 0;
+        var visible = unit?.Descriptor?.Alignment?.ValueVisible;
+        if (visible is null)
+        {
+          return false;
+        }
+        return component switch
+        {
+          AlignmentMaskType.Good =>
+            visible is Alignment.LawfulGood or Alignment.NeutralGood or
+              Alignment.ChaoticGood,
+          AlignmentMaskType.Evil =>
+            visible is Alignment.LawfulEvil or Alignment.NeutralEvil or
+              Alignment.ChaoticEvil,
+          AlignmentMaskType.Lawful =>
+            visible is Alignment.LawfulGood or Alignment.LawfulNeutral or
+              Alignment.LawfulEvil,
+          AlignmentMaskType.Chaotic =>
+            visible is Alignment.ChaoticGood or Alignment.ChaoticNeutral or
+              Alignment.ChaoticEvil,
+          _ => false,
+        };
       }
       catch
       {
