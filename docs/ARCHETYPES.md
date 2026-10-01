@@ -794,6 +794,46 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.43.0 — Overchanneler nerf; Champion of the Faith (warpriest)
+
+- **The Overchanneler nerf (the user's call: "does too much damage to
+  enemies, that should be nerfed heavily"):** the damage rider no longer
+  multiplies by spell level — it is now a FLAT bonus equal to the tier
+  (+2/+4/+6, apex +8) per damage event. At 17th a level-9 spell went
+  from +54 damage to +6. The caster-level bonus (dice caps, durations,
+  penetration — the real prize) and the 3-per-spell-level blood price
+  are unchanged: the risk/reward shape stands, the spike is gone.
+- **The warpriest trap-check:** the class itself SHIPPED in the current
+  game build (WarpriestClass in the live blueprints) — but with ZERO
+  archetypes. Every tabletop warpriest archetype is genuinely absent;
+  no trap this time, just an open field.
+- **The Champion of the Faith (Advanced Class Guide pg. 128):** the
+  crusader who annihilates the faith's enemies — the natural
+  warpriest archetype for the Worldwound.
+  - **Chosen Alignment (1st):** good, evil, law, or chaos. His weapon
+    damage counts as that alignment for overcoming DR (the
+    FortunesFool-proven aligned-damage component) and sets his opposed
+    alignment.
+  - **Detect Alignment (3rd, replaces the 3rd bonus feat):** a move
+    action focused on one creature — does it bear the opposed
+    alignment? (Simplified to a plain yes/no read.)
+  - **Smite (4th, replaces every Channel Energy grant):** a swift
+    action marks one target (the Dreadnaught mark pattern) and lights
+    his wrath for 1 minute: +Charisma on attack rolls (the Doomsayer
+    context-stat idiom), and his attacks against the marked target
+    deal bonus damage equal to his warpriest level while it bears the
+    opposed alignment. 1/day, +1 at 8th/12th/16th/20th.
+  - **Align Weapon (12th):** a swift action infusing his weapon with
+    his chosen alignment for 1 minute — the four VANILLA enchantments
+    (holy/unholy/axiomatic/anarchic) via the Spell Warrior's
+    enchantment component. 1/day, +1 at 16th and 20th.
+  - Documented adaptations: the smite attack bonus applies vs all foes
+    while it burns (not only the target); DR bypass, the Charisma
+    deflection bonus, and outsider damage-doubling are cut; the
+    aligned-damage property arrives at 1st with the choice; the
+    sacred-weapon enhancement removal is ATTEMPTED by name scan
+    (logged and skipped if the progression names them differently).
+
 ## 0.42.0 — sorcerer: the Eldritch Scrapper (port) + the Overchanneler (homebrew)
 
 - **The trap-check round:** before building, the vanilla refs were swept
@@ -3239,4 +3279,15 @@ In-game (vanilla): Crossblooded, Seeker, Sage, Empyreal, Sylvan
 | --- | --- | --- |
 | Eldritch Scrapper | Advanced Class Guide pg. 122 | The martial sorcerer: martial weapon proficiency + a combat feat at 1st/9th/15th; pays the vanilla crossblooded price (one fewer spell known per level) in place of the unportable bloodline-power trades. |
 | Overchanneler | MissionWOTR homebrew (our design) | Opens the channel for a round: +2/+4/+6 caster level and matching damage per spell level, at 3 damage per spell level of her own blood; one fewer spell slot per day per level; Blood Clot (9th) caps the burn at 1 HP; a daily apex round (17th) costs nothing. |
+
+
+
+## Warpriest archetypes
+
+The warpriest class ships in the current game build with NO archetypes.
+MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Champion of the Faith | Advanced Class Guide pg. 128 | The crusader: chooses an alignment axis (good/evil/law/chaos) — weapon damage counts as that alignment, smite marks a foe (+Cha to attacks, +level damage vs opposed-aligned), a daily align-weapon miracle (holy/unholy/axiomatic/anarchic). Trades the 3rd bonus feat and ALL channel energy. |
 

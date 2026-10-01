@@ -46,13 +46,14 @@ namespace MissionWOTR.Archetypes
   /// - Overchannel (1st): a swift action, at will, opening the channel
   ///   for 1 round. While open: +2 caster level (4 at 9th, 6 at 17th -
   ///   the AddCasterLevel component, the one the Aeon ascension buff
-  ///   uses) and every spell she casts deals bonus damage equal to that
-  ///   bonus times the spell's level. The price: the moment a spell
-  ///   leaves the open channel, she takes 3 damage per spell level.
+  ///   uses) and her spells carry a flat +2 bonus damage (+4 at 9th,
+  ///   +6 at 17th - the 0.43.0 heavy nerf; no spell-level multiplier).
+  ///   The price: the moment a spell leaves the open channel, she takes
+  ///   3 damage per spell level.
   /// - Blood Clot (9th): the backlash can no longer drop her below 1 HP.
   /// - Apex of the Channel (17th): once per day, the channel opens to
-  ///   its apex - +8 caster level, +8 damage per spell level, and no
-  ///   blood price at all.
+  ///   its apex - +8 caster level, +8 flat bonus damage, and no blood
+  ///   price at all.
   ///
   /// ENGINE NOTES:
   /// - The spellbook clone: all fields reflection-copied from the vanilla
@@ -353,7 +354,13 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        var bonus = Tier * m_SpellLevel;
+        // 0.43.0, the user's nerf: "does too much damage to enemies,
+        // that should be nerfed heavily." The damage rider no longer
+        // multiplies by spell level - it is a FLAT bonus equal to the
+        // tier (+2/+4/+6, apex +8) per damage event. The caster-level
+        // bonus (the real prize: dice caps, durations, penetration)
+        // and the blood price are unchanged.
+        var bonus = Tier;
         if (bonus > 0)
         {
           evt.Add(new DirectDamage(DiceFormula.Zero, bonus) { SourceFact = Fact });
