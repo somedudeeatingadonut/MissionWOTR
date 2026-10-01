@@ -295,9 +295,260 @@ umm UnityModManager.dll: True
 umm 0Harmony.dll: True
 === PROBE fingerprint ===
 Assembly-CSharp.dll size=11891712 md5=748B3A143B60A92A3CB9CA2A8C88BEC9
+RAGE-TYPE: .AlignmentLayout vis=public base=UnityEngine.MonoBehaviour
+  FIELD: m_RectTransformComponent [private]
+  FIELD: m_Clamp [protected]
+  FIELD: m_Envelope [protected]
+  FIELD: m_Min [protected]
+  FIELD: m_Max [protected]
+  FIELD: m_WorldClampCornes [protected]
+  FIELD: m_Cornes [protected]
+  FIELD: m_LocalClampCornes [protected]
+RAGE-TYPE: Kingmaker.Visual.CapitalAlignmentEffects vis=public base=UnityEngine.MonoBehaviour
+  FIELD: m_CapitalPPList [private]
+RAGE-TYPE: Kingmaker.Visual.UnitTerrainAlignment vis=public base=Owlcat.Runtime.Core.Updatables.UpdateableBehaviour
+  FIELD: m_View [private]
+  FIELD: UnitLength [protorint]
+  FIELD: m_Animator [private]
+  FIELD: m_IsInitializated [private]
+  FIELD: m_RigRotationEuler [private]
+  FIELD: m_CachedTransform [private]
+RAGE-TYPE: Kingmaker.Utility.AlignmentMaskAttribute vis=public base=UnityEngine.PropertyAttribute
+RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature vis=public base=Kingmaker.Tutorial.TutorialTrigger
+=== TYPE Kingmaker.RuleSystem.Rules.RuleAttackRoll vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
+  FIELD: missChance [private]
+  FIELD: WeaponStats [protorint]
+  FIELD: <AttackBonusPenalty>k__BackingField [private]
+  FIELD: <Result>k__BackingField [private]
+  FIELD: <D20>k__BackingField [private]
+  FIELD: <AttackBonus>k__BackingField [private]
+  FIELD: <HitMirrorImageIndex>k__BackingField [private]
+  FIELD: <IsCriticalRoll>k__BackingField [private]
+  FIELD: <IsCriticalConfirmed>k__BackingField [private]
+  FIELD: <CriticalConfirmationD20>k__BackingField [private]
+  FIELD: <TargetAC>k__BackingField [private]
+  FIELD: <TargetCriticalAC>k__BackingField [private]
+  FIELD: <IsTargetFlatFooted>k__BackingField [private]
+  FIELD: <IsSneakAttack>k__BackingField [private]
+  FIELD: <IsSneakAttackUsed>k__BackingField [private]
+  FIELD: <FortificationChance>k__BackingField [private]
+  FIELD: <FortificationRoll>k__BackingField [private]
+  FIELD: <FortificationNegatesSneakAttack>k__BackingField [private]
+  FIELD: <FortificationNegatesCriticalHit>k__BackingField [private]
+  FIELD: <MissChanceValue>k__BackingField [private]
+  FIELD: <MissChanceRoll>k__BackingField [private]
+  FIELD: <ConcealmentCheck>k__BackingField [private]
+  FIELD: <AttackBonusRule>k__BackingField [private]
+  FIELD: <ACRule>k__BackingField [private]
+  FIELD: <Parry>k__BackingField [private]
+  FIELD: <RuleAttackWithWeapon>k__BackingField [private]
+  FIELD: <AttackType>k__BackingField [private]
+  FIELD: <CriticalConfirmationBonus>k__BackingField [private]
+  FIELD: <AutoCriticalConfirmation>k__BackingField [private]
+  FIELD: <AutoCriticalThreat>k__BackingField [private]
+  FIELD: <AutoMiss>k__BackingField [private]
+  FIELD: <DoNotProvokeAttacksOfOpportunity>k__BackingField [private]
+  FIELD: <AutoHit>k__BackingField [private]
+  FIELD: <IgnoreConcealment>k__BackingField [private]
+  FIELD: <ForceFlatFooted>k__BackingField [private]
+  FIELD: <TargetIsFlanked>k__BackingField [private]
+  FIELD: <PreciseStrike>k__BackingField [private]
+  FIELD: <IgnoreCritImmunity>k__BackingField [private]
+  FIELD: <ImmuneToCriticalHit>k__BackingField [private]
+  FIELD: <ImmuneToSneakAttack>k__BackingField [private]
+  FIELD: <IsFake>k__BackingField [private]
+  FIELD: <SuspendCombatLog>k__BackingField [private]
+  FIELD: <AddedToCombatLog>k__BackingField [private]
+  FIELD: <ParryLogEntry>k__BackingField [private]
+  FIELD: <AttackLogEntry>k__BackingField [private]
+  FIELD: AttackIndexForLog [protorint]
+  FIELD: AttacksCountForLog [protorint]
+  PROP: AttackBonusPenalty
+  PROP: Result
+  PROP: D20
+  PROP: AttackBonus
+  PROP: HitMirrorImageIndex
+  PROP: IsCriticalRoll
+  PROP: IsCriticalConfirmed
+  PROP: CriticalConfirmationD20
+  PROP: TargetAC
+  PROP: TargetCriticalAC
+  PROP: IsTargetFlatFooted
+  PROP: IsSneakAttack
+  PROP: IsSneakAttackUsed
+  PROP: FortificationChance
+  PROP: FortificationRoll
+  PROP: FortificationNegatesSneakAttack
+  PROP: FortificationNegatesCriticalHit
+  PROP: MissChanceValue
+  PROP: MissChanceRoll
+  PROP: ConcealmentCheck
+  PROP: AttackBonusRule
+  PROP: ACRule
+  PROP: Parry
+  PROP: RuleAttackWithWeapon
+  PROP: AttackType
+  PROP: CriticalConfirmationBonus
+  PROP: AutoCriticalConfirmation
+  PROP: AutoCriticalThreat
+  PROP: AutoMiss
+  PROP: DoNotProvokeAttacksOfOpportunity
+  PROP: AutoHit
+  PROP: IgnoreConcealment
+  PROP: ForceFlatFooted
+  PROP: TargetIsFlanked
+  PROP: PreciseStrike
+  PROP: IgnoreCritImmunity
+  PROP: ImmuneToCriticalHit
+  PROP: ImmuneToSneakAttack
+  PROP: IsFake
+  PROP: SuspendCombatLog
+  PROP: AddedToCombatLog
+  PROP: ParryLogEntry
+  PROP: AttackLogEntry
+  PROP: Roll
+  PROP: CriticalConfirmationRollBonus
+  PROP: CriticalConfirmationRoll
+  PROP: IsHit
+  PROP: TargetUseFortification
+  PROP: FortificationOvercomed
+  PROP: Weapon
+  METHOD: get_AttackBonusPenalty
+  METHOD: set_AttackBonusPenalty
+  METHOD: get_Result
+  METHOD: set_Result
+  METHOD: get_D20
+  METHOD: set_D20
+  METHOD: get_AttackBonus
+  METHOD: set_AttackBonus
+  METHOD: get_HitMirrorImageIndex
+  METHOD: set_HitMirrorImageIndex
+  METHOD: get_IsCriticalRoll
+  METHOD: set_IsCriticalRoll
+  METHOD: get_IsCriticalConfirmed
+  METHOD: set_IsCriticalConfirmed
+  METHOD: get_CriticalConfirmationD20
+  METHOD: set_CriticalConfirmationD20
+  METHOD: get_TargetAC
+  METHOD: set_TargetAC
+  METHOD: get_TargetCriticalAC
+  METHOD: set_TargetCriticalAC
+  METHOD: get_IsTargetFlatFooted
+  METHOD: set_IsTargetFlatFooted
+  METHOD: get_IsSneakAttack
+  METHOD: set_IsSneakAttack
+  METHOD: get_IsSneakAttackUsed
+  METHOD: set_IsSneakAttackUsed
+  METHOD: get_FortificationChance
+  METHOD: set_FortificationChance
+  METHOD: get_FortificationRoll
+  METHOD: set_FortificationRoll
+  METHOD: get_FortificationNegatesSneakAttack
+  METHOD: set_FortificationNegatesSneakAttack
+  METHOD: get_FortificationNegatesCriticalHit
+  METHOD: set_FortificationNegatesCriticalHit
+  METHOD: get_MissChanceValue
+  METHOD: set_MissChanceValue
+  METHOD: get_MissChanceRoll
+  METHOD: set_MissChanceRoll
+  METHOD: get_ConcealmentCheck
+  METHOD: set_ConcealmentCheck
+  METHOD: get_AttackBonusRule
+  METHOD: set_AttackBonusRule
+  METHOD: get_ACRule
+  METHOD: set_ACRule
+  METHOD: get_Parry
+  METHOD: set_Parry
+  METHOD: get_RuleAttackWithWeapon
+  METHOD: set_RuleAttackWithWeapon
+  METHOD: get_AttackType
+  METHOD: set_AttackType
+  METHOD: get_CriticalConfirmationBonus
+  METHOD: set_CriticalConfirmationBonus
+  METHOD: get_AutoCriticalConfirmation
+  METHOD: set_AutoCriticalConfirmation
+  METHOD: get_AutoCriticalThreat
+  METHOD: set_AutoCriticalThreat
+  METHOD: get_AutoMiss
+  METHOD: set_AutoMiss
+  METHOD: get_DoNotProvokeAttacksOfOpportunity
+  METHOD: set_DoNotProvokeAttacksOfOpportunity
+  METHOD: get_AutoHit
+  METHOD: set_AutoHit
+  METHOD: get_IgnoreConcealment
+  METHOD: set_IgnoreConcealment
+  METHOD: get_ForceFlatFooted
+  METHOD: set_ForceFlatFooted
+  METHOD: get_TargetIsFlanked
+  METHOD: set_TargetIsFlanked
+  METHOD: get_PreciseStrike
+  METHOD: set_PreciseStrike
+  METHOD: get_IgnoreCritImmunity
+  METHOD: set_IgnoreCritImmunity
+  METHOD: get_ImmuneToCriticalHit
+  METHOD: set_ImmuneToCriticalHit
+  METHOD: get_ImmuneToSneakAttack
+  METHOD: set_ImmuneToSneakAttack
+  METHOD: get_IsFake
+  METHOD: set_IsFake
+  METHOD: get_SuspendCombatLog
+  METHOD: set_SuspendCombatLog
+  METHOD: get_AddedToCombatLog
+  METHOD: set_AddedToCombatLog
+  METHOD: get_ParryLogEntry
+  METHOD: set_ParryLogEntry
+  METHOD: get_AttackLogEntry
+  METHOD: set_AttackLogEntry
+  METHOD: get_Roll
+  METHOD: get_CriticalConfirmationRollBonus
+  METHOD: get_CriticalConfirmationRoll
+  METHOD: get_IsHit
+  METHOD: get_TargetUseFortification
+  METHOD: get_FortificationOvercomed
+  METHOD: get_Weapon
+  METHOD: IsSuccessRoll
+  METHOD: CopyWithNewTarget
+  METHOD: .ctor
+  METHOD: .ctor
+  METHOD: SetFake
+  METHOD: OnTrigger
+  METHOD: TryOvercomeTargetConcealmentAndMissChance
+  METHOD: ConsumeMirrorImageIfNecessary
+  METHOD: SetAttackBonusPenalty
+  METHOD: TryParry
+  METHOD: UseSneakAttack
+  METHOD: SetMissChance
+  METHOD: ModifyMissChance
+  METHOD: IsAttackRollSuitableForSneakAttack
+  METHOD: <OnTrigger>b__196_0
+RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentShiftHandler vis=public base=(nil)
+RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentChangeHandler vis=public base=(nil)
+RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentFeaturesChangeHandler vis=public base=(nil)
+RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSAlignment vis=public base=Kingmaker.UI.Common.UISection
+RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSAlignmentHistory vis=public base=Kingmaker.UI.Common.UISection
+RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSComponentAlignmentSector vis=public base=UnityEngine.MonoBehaviour
+RAGE-TYPE: Kingmaker.UI.Models.Log.Events.GameLogEventAlignmentShifted vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.Dialog.AlignmentShiftLogThread vis=public base=Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreadBase
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.CharInfoAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.Rest.RestCasterLevelItemVM vis=public base=Owlcat.Runtime.UI.SelectionGroup.SelectionGroupEntityVM
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.Rest.RestCasterLevelVM vis=public base=Owlcat.Runtime.UI.MVVM.VMBase
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Alignment.CharGenAlignmentPhaseVM vis=public base=Kingmaker.UI.MVVM._VM.CharGen.Phases.CharGenPhaseBaseVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Alignment.CharGenAlignmentSectorVM vis=public base=Owlcat.Runtime.UI.SelectionGroup.SelectionGroupEntityVM
+RAGE-TYPE: Kingmaker.UI.MVVM._VM.Tooltip.Templates.TooltipTemplateAlignment vis=public base=Owlcat.Runtime.UI.Tooltips.TooltipBaseTemplate
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelView`1 vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordView
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryView`1 vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView vis=public base=TypeSpecification
@@ -305,14 +556,74 @@ RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemPCView vis=public b
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelPCView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelBaseView
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelSelectorPCView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentPhaseDetailedPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentPhaseRoadmapPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentSectorPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentSelectorPCView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.Rest.RestCasterLevelItemConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.Rest.RestCasterLevelItemBaseView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Class.Mechanic.CharGenClassCasterStatsConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentPhaseDetailedConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentPhaseRoadmapConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentSectorConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentSelectorConsoleView vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.Enums.AlignmentComponent vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: None [protorint]
+  FIELD: Neutral [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+RAGE-TYPE: Kingmaker.Enums.Alignment vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+RAGE-TYPE: Kingmaker.Enums.AlignmentGroup vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Any [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Neutral [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Good [protorint]
+  FIELD: EGNeutral [protorint]
+  FIELD: LCNeutral [protorint]
+RAGE-TYPE: Kingmaker.Enums.AlignmentExtension vis=public base=System.Object
+RAGE-TYPE: Kingmaker.Enums.Damage.DamageAlignment vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Lawful [protorint]
+RAGE-TYPE: Kingmaker.Enums.Damage.PhysicalDamageAlignment vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Neutral [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Lawful [protorint]
 === TYPE Kingmaker.Enums.Damage.PhysicalDamageMaterial vis=public base=System.Enum ===
   FIELD: value__ [protorint]
   FIELD: ColdIron [protorint]
   FIELD: Silver [protorint]
   FIELD: Adamantite [protorint]
+RAGE-TYPE: Kingmaker.DialogSystem.Blueprints.MythicAlignment vis=public base=System.Object
+  FIELD: Mythic [protorint]
+  FIELD: Alignment [protorint]
 SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
+RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint vis=public base=Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyAction
 === TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
   FIELD: m_Type [private]
   FIELD: LocalizedName [protorint]
@@ -404,6 +715,8 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: PreloadResources
   METHOD: .ctor
   METHOD: <PreloadResources>b__89_0
+RAGE-TYPE: Kingmaker.Blueprints.Items.Components.EquipmentRestrictionAlignment vis=public base=Kingmaker.Blueprints.Items.Components.EquipmentRestriction
+  FIELD: Alignment [protorint]
 === TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
   FIELD: MaxPossibleSpellLevel [protorint]
   FIELD: Name [protorint]
@@ -490,12 +803,72 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: IsObligatory
   METHOD: IsSelectionProhibited
   METHOD: .ctor
+RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteAlignment vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
+  FIELD: IngorePrerequisiteCheck [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: ArchetypeAlignment [protorint]
 RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterType vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
   FIELD: IsArcane [protorint]
 RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpellLevel vis=public base=Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite
   FIELD: IsArcane [protorint]
   FIELD: OnlySpontaneous [protorint]
   FIELD: RequiredSpellLevel [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Root.AlignmentColors vis=public base=System.Object
+  FIELD: m_TextColor [private]
+  FIELD: m_BackgroundColor [private]
+  FIELD: m_HistoryPointColor [private]
+RAGE-TYPE: Kingmaker.Blueprints.Root.AlignmentUIPart vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: Text [protorint]
+  FIELD: Background [protorint]
+  FIELD: HistoryPoint [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.DamageAlignmentString vis=public base=TypeSpecification
+  FIELD: Entries [protorint]
+RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=System.Object
+  FIELD: TrueNeutral [protorint]
+  FIELD: TrueNeutralDescription [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: ChaoticNeutralDescription [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: ChaoticGoodDescription [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: NeutralGoodDescription [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: LawfulGoodDescription [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: LawfulNeutralDescription [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: LawfulEvilDescription [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: NeutralEvilDescription [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: ChaoticEvilDescription [protorint]
+  FIELD: ShiftTrueNeutral [protorint]
+  FIELD: ShiftChaoticNeutral [protorint]
+  FIELD: ShiftChaoticGood [protorint]
+  FIELD: ShiftNeutralGood [protorint]
+  FIELD: ShiftLawfulGood [protorint]
+  FIELD: ShiftLawfulNeutral [protorint]
+  FIELD: ShiftLawfulEvil [protorint]
+  FIELD: ShiftNeutralEvil [protorint]
+  FIELD: ShiftChaoticEvil [protorint]
+  FIELD: ShiftGood [protorint]
+  FIELD: ShiftEvil [protorint]
+  FIELD: ShiftLawful [protorint]
+  FIELD: ShiftChaotic [protorint]
+  FIELD: AlignmentRequirementGood [protorint]
+  FIELD: AlignmentRequirementEvil [protorint]
+  FIELD: AlignmentRequirementLawful [protorint]
+  FIELD: AlignmentRequirementChaotic [protorint]
+  FIELD: AlignmentRequirementNatural [protorint]
+  FIELD: AnyAlignmentGroup [protorint]
+  FIELD: LawfulGroup [protorint]
+  FIELD: ChaoticGroup [protorint]
+  FIELD: NeutralGroup [protorint]
+  FIELD: EvilGroup [protorint]
+  FIELD: GoodGroup [protorint]
+  FIELD: EGNeutralGroup [protorint]
+  FIELD: LCNeutralGroup [protorint]
 === TYPE Kingmaker.UnitLogic.Feature vis=public base=TypeSpecification ===
   FIELD: m_Context [private]
   FIELD: m_Source [private]
@@ -584,6 +957,196 @@ RAGE-TYPE: Kingmaker.Blueprints.Classes.Prerequisites.PrerequisiteCasterTypeSpel
   METHOD: RemoveSelection
   METHOD: RemoveLevel
   METHOD: .cctor
+=== TYPE Kingmaker.UnitLogic.UnitDescriptor vis=public base=System.Object ===
+  FIELD: m_Inventory [protorint]
+  FIELD: m_Damage [private]
+  FIELD: m_Spellbooks [private]
+  FIELD: m_Faction [private]
+  FIELD: Stats [protorint]
+  FIELD: <Body>k__BackingField [private]
+  FIELD: AttackFactions [protorint]
+  FIELD: <ReplaceBlueprintForInspection>k__BackingField [private]
+  FIELD: Resources [protorint]
+  FIELD: Progression [protorint]
+  FIELD: UISettings [protorint]
+  FIELD: State [protorint]
+  FIELD: Proficiencies [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: <Brain>k__BackingField [private]
+  FIELD: <OriginalBlueprint>k__BackingField [private]
+  FIELD: <Blueprint>k__BackingField [private]
+  FIELD: CustomGender [protorint]
+  FIELD: LeftHandedOverride [protorint]
+  FIELD: CustomName [protorint]
+  FIELD: CustomAsks [protorint]
+  FIELD: OverrideAsks [protorint]
+  FIELD: ForceUseClassEquipment [protorint]
+  FIELD: BirthDay [protorint]
+  FIELD: BirthMonth [protorint]
+  FIELD: CustomPrefabGuid [protorint]
+  FIELD: m_AppliedFixers [private]
+  FIELD: m_IsEssentialForGame [private]
+  FIELD: <MainFact>k__BackingField [private]
+  FIELD: <Encumbrance>k__BackingField [private]
+  FIELD: <HasOwnInventory>k__BackingField [private]
+  FIELD: <LastRestTime>k__BackingField [private]
+  FIELD: m_LoadedDollData [private]
+  FIELD: m_Context [private]
+  FIELD: m_IsPlayerFactionCached [private]
+  FIELD: <Unit>k__BackingField [private]
+  FIELD: <IsTurnedOn>k__BackingField [private]
+  FIELD: m_FactionOriginal [private]
+  FIELD: FactionSwitchers [private]
+  PROP: Body
+  PROP: ReplaceBlueprintForInspection
+  PROP: Brain
+  PROP: OriginalBlueprint
+  PROP: Blueprint
+  PROP: MainFact
+  PROP: Encumbrance
+  PROP: HasOwnInventory
+  PROP: LastRestTime
+  PROP: Doll
+  PROP: Unit
+  PROP: IsTurnedOn
+  PROP: Faction
+  PROP: FactionOriginal
+  PROP: Damage
+  PROP: Abilities
+  PROP: ActivatableAbilities
+  PROP: Buffs
+  PROP: DamageNonLethal
+  PROP: Gender
+  PROP: IsLeftHanded
+  PROP: CharacterName
+  PROP: Asks
+  PROP: UseClassEquipment
+  PROP: OriginalSize
+  PROP: Context
+  PROP: Facts
+  PROP: Inventory
+  PROP: HPLeft
+  PROP: MaxHP
+  PROP: TemporaryHP
+  PROP: Spellbooks
+  PROP: IsPlayerFaction
+  PROP: HasUMDSkill
+  PROP: IsImmuneToVisualEffects
+  PROP: IsSeeInvisibility
+  PROP: IsUndead
+  PROP: IsEssentialForGame
+  PROP: UseMartialArts
+  PROP: Portrait
+  PROP: OverridePortrait
+  PROP: CrossPortrait
+  PROP: IsMainCharacter
+  PROP: BlueprintForInspection
+  METHOD: get_Body
+  METHOD: set_Body
+  METHOD: get_ReplaceBlueprintForInspection
+  METHOD: set_ReplaceBlueprintForInspection
+  METHOD: get_Brain
+  METHOD: set_Brain
+  METHOD: get_OriginalBlueprint
+  METHOD: set_OriginalBlueprint
+  METHOD: get_Blueprint
+  METHOD: set_Blueprint
+  METHOD: get_MainFact
+  METHOD: set_MainFact
+  METHOD: get_Encumbrance
+  METHOD: set_Encumbrance
+  METHOD: get_HasOwnInventory
+  METHOD: set_HasOwnInventory
+  METHOD: get_LastRestTime
+  METHOD: set_LastRestTime
+  METHOD: set_Doll
+  METHOD: get_Unit
+  METHOD: set_Unit
+  METHOD: get_IsTurnedOn
+  METHOD: set_IsTurnedOn
+  METHOD: get_Faction
+  METHOD: set_Faction
+  METHOD: get_FactionOriginal
+  METHOD: get_Damage
+  METHOD: set_Damage
+  METHOD: get_Abilities
+  METHOD: get_ActivatableAbilities
+  METHOD: get_Buffs
+  METHOD: get_DamageNonLethal
+  METHOD: get_Gender
+  METHOD: get_IsLeftHanded
+  METHOD: get_CharacterName
+  METHOD: get_Asks
+  METHOD: get_UseClassEquipment
+  METHOD: get_OriginalSize
+  METHOD: get_Context
+  METHOD: get_Facts
+  METHOD: get_Inventory
+  METHOD: get_HPLeft
+  METHOD: get_MaxHP
+  METHOD: get_TemporaryHP
+  METHOD: get_Spellbooks
+  METHOD: get_IsPlayerFaction
+  METHOD: get_HasUMDSkill
+  METHOD: get_IsImmuneToVisualEffects
+  METHOD: get_IsSeeInvisibility
+  METHOD: get_IsUndead
+  METHOD: get_IsEssentialForGame
+  METHOD: get_UseMartialArts
+  METHOD: get_Portrait
+  METHOD: get_OverridePortrait
+  METHOD: get_CrossPortrait
+  METHOD: get_IsMainCharacter
+  METHOD: get_BlueprintForInspection
+  METHOD: Get
+  METHOD: Ensure
+  METHOD: Remove
+  METHOD: TurnOn
+  METHOD: TurnOff
+  METHOD: PreSave
+  METHOD: PostLoad
+  METHOD: OnComponentsDidPostLoad
+  METHOD: ApplyPostLoadFixes
+  METHOD: EnsureNaturalProficiencies
+  METHOD: Dispose
+  METHOD: GetFactionSwitcher
+  METHOD: SwitchFactions
+  METHOD: SwitchFactions
+  METHOD: FixInventoryOnPlayerPostLoad
+  METHOD: SetupInventory
+  METHOD: SetFakeBlueprint
+  METHOD: .ctor
+  METHOD: EnsureOwnInventory
+  METHOD: SetupSharedInventoryForPet
+  METHOD: ToString
+  METHOD: .ctor
+  METHOD: Initialize
+  METHOD: Initialize
+  METHOD: AddStartingInventory
+  METHOD: AddStartingInventory
+  METHOD: InitializeStat
+  METHOD: SetSkills
+  METHOD: ApplyTemplate
+  METHOD: GetSpellbook
+  METHOD: DemandSpellbook
+  METHOD: GetSpellbook
+  METHOD: DemandSpellbook
+  METHOD: DeleteSpellbook
+  METHOD: OnGainClassLevel
+  METHOD: Resurrect
+  METHOD: ResurrectAndFullRestore
+  METHOD: Resurrect
+  METHOD: RemoveBuffsOnResurrect
+  METHOD: UpdateSizeModifiers
+  METHOD: GetWeaponRange
+  METHOD: OnDifficultyChanged
+  METHOD: op_Implicit
+  METHOD: AddEssentialMark
+  METHOD: RemoveEssentialMark
+  METHOD: <ApplyPostLoadFixes>b__149_0
+  METHOD: <SwitchFactions>b__154_0
+  METHOD: <.ctor>b__158_0
+  METHOD: <Resurrect>b__178_0
 === TYPE Kingmaker.UnitLogic.UnitProgressionData vis=public base=System.Object ===
   FIELD: m_Race [private]
   FIELD: m_ClassesOrder [private]
@@ -823,6 +1386,14 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddItemCasterLevelBonus vis=public base
   METHOD: ApplyValidation
   METHOD: .ctor
   METHOD: .cctor
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddUndetectableAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.ForbidSpellbookOnAlignmentDeviation vis=public base=TypeSpecification
+  FIELD: m_Spellbooks [private]
+  FIELD: Alignment [protorint]
+  FIELD: m_IgnoreFact [private]
+RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.SpellResistanceAgainstAlignment vis=public base=TypeSpecification
+  FIELD: Value [protorint]
+  FIELD: Alignment [protorint]
 === TYPE Kingmaker.UnitLogic.FactLogic.SpontaneousSpellConversion vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate ===
   FIELD: m_CharacterClass [private]
   FIELD: m_SpellsByLevel [private]
@@ -835,8 +1406,66 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddItemCasterLevelBonus vis=public base
   METHOD: OnTurnOn
   METHOD: OnTurnOff
   METHOD: .ctor
+RAGE-TYPE: Kingmaker.UnitLogic.Class.LevelUp.Actions.SelectAlignment vis=public base=System.Object
+  FIELD: Alignment [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Buffs.Components.RemoveBuffIfCasterIsMissing vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
   FIELD: RemoveOnCasterDeath [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentHistoryRecord vis=public base=System.Object
+  FIELD: Position [protorint]
+  FIELD: Direction [protorint]
+  FIELD: m_Provider [private]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentShiftDirection vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentMaskType vis=public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: Good [protorint]
+  FIELD: Evil [protorint]
+  FIELD: Lawful [protorint]
+  FIELD: Chaotic [protorint]
+  FIELD: Any [protorint]
+  FIELD: None [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentMaskTypeEx vis=public base=System.Object
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.IAlignmentShiftProvider vis=public base=(nil)
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentShift vis=public base=System.Object
+  FIELD: Direction [protorint]
+  FIELD: Value [protorint]
+  FIELD: Description [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentShiftExtension vis=public base=System.Object
+RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.Object
+  FIELD: AlignmentAngle [private]
+  FIELD: AlignmentMagnitudeInitial [private]
+  FIELD: TrueNeutralRadius [private]
+  FIELD: AlignmentBorderCos [private]
+  FIELD: AlignmentsCircle [private]
+  FIELD: m_Vector [private]
+  FIELD: m_LockedAlignmentMask [private]
+  FIELD: m_TargetAlignment [private]
+  FIELD: m_History [private]
+  FIELD: m_Value [private]
+  FIELD: Undetectable [protorint]
+  FIELD: m_Owner [private]
 === TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParams vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
   FIELD: UseKineticistMainStat [protorint]
   FIELD: StatType [protorint]
@@ -952,6 +1581,11 @@ RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionOnContextCaster vi
   FIELD: TargetAsCaster [protorint]
   FIELD: Actions [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionProvokeAttackFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignment vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: CheckCaster [protorint]
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignmentDifference vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+  FIELD: AlignmentStepDifference [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasBuffWithDescriptor vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: SpellDescriptor [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasFact vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
@@ -972,6 +1606,8 @@ RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsDivi
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.AbilityShowIfCasterHasFact vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: m_UnitFact [private]
   FIELD: Not [protorint]
+RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
+  FIELD: Alignment [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetCanSeeCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: Not [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsAreaEffectFromCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
@@ -1002,6 +1638,13 @@ RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCaster
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponIsTwoHanded vis=public base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterNotPolymorphed vis=public base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.Base.IAbilityCasterRestriction vis=public base=(nil)
+RAGE-TYPE: Kingmaker.Kingdom.Conditions.KingdomAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Kingdom.Settlements.BuildingComponents.AlignmentRestriction vis=public base=Kingmaker.Kingdom.Settlements.BuildingRestriction
+  FIELD: Allowed [protorint]
+RAGE-TYPE: Kingmaker.Kingdom.Actions.KingdomActionSetAlignment vis=public base=Kingmaker.Kingdom.Blueprints.KingdomAction
+RAGE-TYPE: Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionResetAlignment vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  FIELD: m_ResetAlignmentLock [private]
 RAGE-TYPE: Kingmaker.Designers.Mechanics.EquipmentEnchants.AddCasterLevelEquipment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate
   FIELD: m_Spell [private]
   FIELD: Bonus [protorint]
@@ -1017,6 +1660,22 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForSpellbook vis=pu
   FIELD: Bonus [protorint]
   FIELD: Descriptor [protorint]
   FIELD: m_Spellbooks [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddFeatureOnAlignmentData vis=public base=System.Object
+  FIELD: AppliedFacts [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddFeatureOnAlignment vis=public base=TypeSpecification
+  FIELD: Alignment [protorint]
+  FIELD: m_Facts [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ArmorClassBonusAgainstAlignment vis=public base=TypeSpecification
+  FIELD: alignment [protorint]
+  FIELD: Descriptor [protorint]
+  FIELD: Value [protorint]
+  FIELD: Bonus [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AttackBonusAgainstAlignment vis=public base=TypeSpecification
+  FIELD: Alignment [protorint]
+  FIELD: OnlyMelee [protorint]
+  FIELD: DamageBonus [protorint]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
 === TYPE Kingmaker.Designers.Mechanics.Facts.BuffExtraEffects vis=public base=TypeSpecification ===
   FIELD: m_UseBaffContext [private]
   FIELD: m_CheckedBuff [private]
@@ -1037,6 +1696,14 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AddCasterLevelForSpellbook vis=pu
   METHOD: CheckHadPrerequiredBuff
   METHOD: HandleBuffDidRemoved
   METHOD: .ctor
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.CritAutoconfirmAgainstAlignment vis=public base=Kingmaker.EntitySystem.EntityFactComponentDelegate
+  FIELD: EnemyAlignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.DamageBonusAgainstAlignment vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Alignment [protorint]
+  FIELD: OnlyMelee [protorint]
+  FIELD: DamageBonus [protorint]
+  FIELD: Bonus [protorint]
+  FIELD: Descriptor [protorint]
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.DispelCasterLevelCheckBonus vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
   FIELD: Value [protorint]
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.IncreaseCasterLevel vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
@@ -1063,10 +1730,29 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfAbility vis=p
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfFeature vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
   FIELD: m_Feature [private]
   FIELD: m_Class [private]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstAlignment vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Alignment [protorint]
+  FIELD: Descriptor [protorint]
+  FIELD: Value [protorint]
+  FIELD: Bonus [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstAlignmentDifference vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+  FIELD: Descriptor [protorint]
+  FIELD: Value [protorint]
+  FIELD: AlignmentDifference [protorint]
+  FIELD: SavingThrow [protorint]
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ShieldedCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
   FIELD: m_ShieldedCasterFact [private]
   FIELD: Radius [protorint]
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.TargetCritAutoconfirmFromCaster vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.WeaponAlignment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.WeaponEnchantmentLogic
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.WeaponCritAutoconfirmAgainstAlignment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.WeaponEnchantmentLogic
+  FIELD: EnemyAlignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.WeaponDamageAgainstAlignment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.WeaponEnchantmentLogic
+  FIELD: EnemyAlignment [protorint]
+  FIELD: WeaponAlignment [protorint]
+  FIELD: Value [protorint]
+  FIELD: DamageType [protorint]
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.ACBonusAgainstCaster vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
   FIELD: Value [protorint]
   FIELD: Descriptor [protorint]
@@ -1080,8 +1766,39 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsEqualCasterLeve
 SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Evaluators.CasterUnit vis=public base=Kingmaker.ElementsSystem.UnitEvaluator
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.ContextData.CasterUnitData vis=public base=TypeSpecification
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AlignmentCheck vis=public base=Kingmaker.ElementsSystem.Condition
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
+  FIELD: Alignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: SelectClosest [protorint]
+  FIELD: LawfulGood [protorint]
+  FIELD: NeutralGood [protorint]
+  FIELD: ChaoticGood [protorint]
+  FIELD: LawfulNeutral [protorint]
+  FIELD: TrueNeutral [protorint]
+  FIELD: ChaoticNeutral [protorint]
+  FIELD: LawfulEvil [protorint]
+  FIELD: NeutralEvil [protorint]
+  FIELD: ChaoticEvil [protorint]
+  FIELD: m_ActionsByAlignment [private]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: m_DontLog [private]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: TargetAlignment [protorint]
+  FIELD: CanUnlockAlignment [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.LockAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
+  FIELD: AlignmentMask [protorint]
+  FIELD: TargetAlignment [protorint]
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCaster vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
+RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ShiftAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
+  FIELD: Unit [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: Amount [protorint]
 AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
   FIELD: AdditionalBehaviour [protorint]
@@ -1210,6 +1927,10 @@ AI-TYPE: BlueprintBrain vis=public(1) base=Kingmaker.Blueprints.BlueprintScripta
   METHOD: .ctor
 AI-TYPE: CustomAiConsiderationsRoot vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 AI-TYPE: DeadTargetType vis=public(1) base=System.Enum
+RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.AlignmentConsideration vis=public base=Kingmaker.AI.Blueprints.Considerations.Consideration
+  FIELD: Alignment [protorint]
+  FIELD: SpecifiedAlignmentScore [protorint]
+  FIELD: OtherAlignmentScore [protorint]
 RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.BuffNotFromCasterConsideration vis=public base=Kingmaker.AI.Blueprints.Considerations.Consideration
   FIELD: m_Buffs [private]
   FIELD: HasBuffNotFromCasterScore [protorint]
@@ -1218,9 +1939,28 @@ RAGE-TYPE: Kingmaker.AI.Blueprints.Considerations.CasterClassConsideration vis=p
   FIELD: NotCasterScore [protorint]
   FIELD: ArcaneCasterScore [protorint]
   FIELD: DivineCasterScore [protorint]
+RAGE-TYPE: .TrailAlignment vis=nested-public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: View [protorint]
+  FIELD: World [protorint]
+RAGE-TYPE: .Align vis=nested-public base=System.Enum
+  FIELD: value__ [protorint]
+  FIELD: None [protorint]
+  FIELD: Left [protorint]
+  FIELD: Right [protorint]
+  FIELD: Center [protorint]
+RAGE-TYPE: .AlignData vis=nested-public base=System.Object
+  FIELD: m_OrginPivot [protected]
+  FIELD: m_ContextPivot [protected]
 RAGE-TYPE: .CasterPosition vis=nested-family base=System.ValueType
   FIELD: Position [protorint]
   FIELD: Corpulence [protorint]
+RAGE-TYPE: .<GetAllAlignments>d__3 vis=nested-private base=System.Object
+  FIELD: <>1__state [private]
+  FIELD: <>2__current [private]
+  FIELD: <>l__initialThreadId [private]
+  FIELD: alignmentMask [private]
+  FIELD: <>3__alignmentMask [protorint]
 RAGE-TYPE: .IContextCaster vis=nested-public base=(nil)
 RAGE-TYPE: .IOptionalContextCaster vis=nested-public base=(nil)
 RAGE-TYPE: .CasterInspectionInfo vis=nested-private base=System.ValueType
@@ -1252,4 +1992,12 @@ RAGE-TYPE: .CasterLevelBonusEntry vis=nested-public base=System.Object
   FIELD: WandWielder [protorint]
   FIELD: Counterstrike [protorint]
   FIELD: EldritchArcher [protorint]
+RAGE-TYPE: .<SelectAlignments>d__22 vis=nested-private base=System.Object
+  FIELD: <>1__state [private]
+  FIELD: <>2__current [private]
+  FIELD: <>l__initialThreadId [private]
+  FIELD: rule [private]
+  FIELD: <>3__rule [protorint]
+  FIELD: <>7__wrap1 [private]
+  FIELD: <>7__wrap2 [private]
 === PROBE done ===
