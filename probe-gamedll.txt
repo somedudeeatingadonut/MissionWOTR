@@ -304,6 +304,147 @@ RAGE-TYPE: .AlignmentLayout vis=public base=UnityEngine.MonoBehaviour
   FIELD: m_WorldClampCornes [protected]
   FIELD: m_Cornes [protected]
   FIELD: m_LocalClampCornes [protected]
+=== TYPE TurnBased.Controllers.CombatController vis=public base=System.Object ===
+  FIELD: PathfindingCharacterTag [private]
+  FIELD: m_Enabled [private]
+  FIELD: m_CurrentTurn [private]
+  FIELD: m_HasEnemyInCombat [private]
+  FIELD: m_HasSurpriseRound [private]
+  FIELD: m_IsUnitsChanged [private]
+  FIELD: m_StartTime [private]
+  FIELD: m_Units [private]
+  FIELD: m_KnownInitiative [private]
+  FIELD: m_UnitsOrderComaprer [private]
+  FIELD: m_NextUnit [private]
+  FIELD: TimeScaleWhenIdle [protorint]
+  FIELD: TimeScaleBetweenTurns [protorint]
+  FIELD: m_BeforeCombatSelectedUnit [private]
+  FIELD: IsManualPredictionChange [protorint]
+  FIELD: MaxDelayBetweenIterativeAttacks [protorint]
+  FIELD: LastTickTimeOfAbilityExecutionProcess [protorint]
+  FIELD: m_NextUnitChosenThisTick [private]
+  FIELD: m_NavmeshCuts [private]
+  FIELD: <HadEnemyAtSomePoint>k__BackingField [private]
+  FIELD: <Initialized>k__BackingField [private]
+  FIELD: <RoundNumber>k__BackingField [private]
+  FIELD: <TickedRayView>k__BackingField [private]
+  FIELD: <TimeSinceStart>k__BackingField [private]
+  FIELD: <TimeToNextRound>k__BackingField [private]
+  FIELD: m_NavmeshUpdateTimer [private]
+  FIELD: s_UpdatedCuts [private]
+  FIELD: OnNextTern [protorint]
+  FIELD: m_IsPassing [private]
+  FIELD: <RoundStartTime>k__BackingField [private]
+  FIELD: <TurnStartTime>k__BackingField [private]
+  FIELD: <WaitingForUI>k__BackingField [private]
+  FIELD: <IsInitiativeTrackerAnimating_ForSave>k__BackingField [private]
+  FIELD: CanChangeWeaponSet [protorint]
+  PROP: TimeScaleInPlayerTurn
+  PROP: TimeScaleInNonPlayerTurn
+  PROP: CurrentTurn
+  PROP: HasEnemyInCombat
+  PROP: HadEnemyAtSomePoint
+  PROP: Initialized
+  PROP: Priority
+  PROP: SortedUnits
+  PROP: RoundNumber
+  PROP: TickedRayView
+  PROP: TimeSinceStart
+  PROP: TimeToNextRound
+  PROP: LogStrings
+  PROP: SelectedUnit
+  PROP: Rider
+  PROP: Mount
+  PROP: RoundStartTime
+  PROP: TurnStartTime
+  PROP: WaitingForUI
+  PROP: WaitingForUI_ForSave
+  PROP: IsInitiativeTrackerAnimating_ForSave
+  METHOD: RevertNavmeshForUnit (unitInfo)
+  METHOD: UpdateNavigationGridTags
+  METHOD: FindUnitInfo (unit)
+  METHOD: get_TimeScaleInPlayerTurn
+  METHOD: get_TimeScaleInNonPlayerTurn
+  METHOD: get_CurrentTurn
+  METHOD: set_CurrentTurn (value)
+  METHOD: get_HasEnemyInCombat
+  METHOD: set_HasEnemyInCombat (value)
+  METHOD: get_HadEnemyAtSomePoint
+  METHOD: set_HadEnemyAtSomePoint (value)
+  METHOD: get_Initialized
+  METHOD: set_Initialized (value)
+  METHOD: get_Priority
+  METHOD: get_SortedUnits
+  METHOD: get_RoundNumber
+  METHOD: set_RoundNumber (value)
+  METHOD: get_TickedRayView
+  METHOD: get_TimeSinceStart
+  METHOD: set_TimeSinceStart (value)
+  METHOD: get_TimeToNextRound
+  METHOD: set_TimeToNextRound (value)
+  METHOD: get_LogStrings
+  METHOD: GetUpdatedCuts
+  METHOD: UpdateNavigationGrid
+  METHOD: Tick
+  METHOD: ChooseNextUnit
+  METHOD: StartRound
+  METHOD: Activate
+  METHOD: Deactivate
+  METHOD: TickTime
+  METHOD: IsSurprising (unit)
+  METHOD: IsSurprised (unit)
+  METHOD: IsActingSurpriseCommands (unit)
+  METHOD: PrepareUnitNavmeshUpdateObject (unitInfo)
+  METHOD: StartTurn (unit)
+  METHOD: Reset (tryToInitialize, isPartyCombatStateChanged)
+  METHOD: Clear
+  METHOD: SortUnits (reason)
+  METHOD: IsAOEOrTargetsParty (cmd, party)
+  METHOD: ModifyMovementLimitOn
+  METHOD: ModifyMovementLimitOff
+  METHOD: ChangeCursorAction
+  METHOD: HandleCombatStart (isPartyCombatStateChanged)
+  METHOD: HandleCombatEnd
+  METHOD: LogRound
+  METHOD: AddUnit (unit)
+  METHOD: RemoveUnit (unit)
+  METHOD: IsNavmeshCutUnderNavmesh (cut)
+  METHOD: HandleDelayTurn (unit, targetUnit)
+  METHOD: Enable
+  METHOD: Disable
+  METHOD: HandlePartyCombatStateChanged (inCombat)
+  METHOD: HandleUnitRollsInitiative (rule)
+  METHOD: HandleUnitJoinCombat (unit)
+  METHOD: HandleUnitSpawned (entityData)
+  METHOD: HandleUnitLeaveCombat (unit)
+  METHOD: HandleUnitDeath (entityData)
+  METHOD: HandleUnitDestroyed (entityData)
+  METHOD: HandleUnitMount (unit, mount)
+  METHOD: HandleUnitDismount (unit, mount)
+  METHOD: HandleObjectInGameChanged (entityData)
+  METHOD: HandleTurnBasedModeStateChanged (enabled)
+  METHOD: UpdateMandatoryTurnBasedModeState
+  METHOD: IsInTurnBasedCombat
+  METHOD: IsPassing
+  METHOD: GetCachedInitiative (unit)
+  METHOD: Start
+  METHOD: Stop
+  METHOD: get_SelectedUnit
+  METHOD: get_Rider
+  METHOD: get_Mount
+  METHOD: get_RoundStartTime
+  METHOD: set_RoundStartTime (value)
+  METHOD: get_TurnStartTime
+  METHOD: set_TurnStartTime (value)
+  METHOD: get_WaitingForUI
+  METHOD: set_WaitingForUI (value)
+  METHOD: get_WaitingForUI_ForSave
+  METHOD: get_IsInitiativeTrackerAnimating_ForSave
+  METHOD: set_IsInitiativeTrackerAnimating_ForSave (value)
+  METHOD: .ctor
+  METHOD: .cctor
+  METHOD: <ChooseNextUnit>b__68_0 (u)
+  METHOD: <LogRound>b__87_0 (h)
 === TYPE Kingmaker.Game vis=public base=System.Object ===
   FIELD: s_Instance [private]
   FIELD: m_ControllerMode [private]
@@ -1137,6 +1278,47 @@ RAGE-TYPE: Kingmaker.Enums.Damage.PhysicalDamageAlignment vis=public base=System
 RAGE-TYPE: Kingmaker.DialogSystem.Blueprints.MythicAlignment vis=public base=System.Object
   FIELD: Mythic [protorint]
   FIELD: Alignment [protorint]
+=== TYPE Kingmaker.EntitySystem.Stats.StatType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: Unknown [protorint]
+  FIELD: HitPoints [protorint]
+  FIELD: TemporaryHitPoints [protorint]
+  FIELD: Strength [protorint]
+  FIELD: Dexterity [protorint]
+  FIELD: Constitution [protorint]
+  FIELD: Intelligence [protorint]
+  FIELD: Wisdom [protorint]
+  FIELD: Charisma [protorint]
+  FIELD: BaseAttackBonus [protorint]
+  FIELD: AdditionalAttackBonus [protorint]
+  FIELD: AdditionalDamage [protorint]
+  FIELD: AttackOfOpportunityCount [protorint]
+  FIELD: AC [protorint]
+  FIELD: AdditionalCMB [protorint]
+  FIELD: AdditionalCMD [protorint]
+  FIELD: SaveFortitude [protorint]
+  FIELD: SaveWill [protorint]
+  FIELD: SaveReflex [protorint]
+  FIELD: SkillMobility [protorint]
+  FIELD: SkillAthletics [protorint]
+  FIELD: SkillPersuasion [protorint]
+  FIELD: SkillThievery [protorint]
+  FIELD: SkillLoreNature [protorint]
+  FIELD: SkillPerception [protorint]
+  FIELD: SkillStealth [protorint]
+  FIELD: SkillUseMagicDevice [protorint]
+  FIELD: SkillLoreReligion [protorint]
+  FIELD: SkillKnowledgeWorld [protorint]
+  FIELD: SkillKnowledgeArcana [protorint]
+  FIELD: CheckBluff [protorint]
+  FIELD: CheckDiplomacy [protorint]
+  FIELD: CheckIntimidate [protorint]
+  FIELD: Initiative [protorint]
+  FIELD: Speed [protorint]
+  FIELD: SneakAttack [protorint]
+  FIELD: Reach [protorint]
+  FIELD: DamageNonLethal [protorint]
+  FIELD: BonusCasterLevel [protorint]
 SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
 === TYPE Kingmaker.EntitySystem.Entities.UnitEntityData vis=public base=Kingmaker.EntitySystem.EntityDataBase ===
   FIELD: PartAddedEvent [private]
@@ -3054,6 +3236,12 @@ RAGE-TYPE: .Align vis=nested-public base=System.Enum
   FIELD: Left [protorint]
   FIELD: Right [protorint]
   FIELD: Center [protorint]
+=== TYPE .StatType vis=nested-public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: BAB [protorint]
+  FIELD: Fortitude [protorint]
+  FIELD: Will [protorint]
+  FIELD: Reflex [protorint]
 RAGE-TYPE: .AlignData vis=nested-public base=System.Object
   FIELD: m_OrginPivot [protected]
   FIELD: m_ContextPivot [protected]
