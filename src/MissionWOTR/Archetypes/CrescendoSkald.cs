@@ -281,7 +281,7 @@ namespace MissionWOTR.Archetypes
 
     /// <summary>Reads a feature selection's feature list (prop or field).</summary>
     private static System.Collections.Generic.IEnumerable<BlueprintFeature> ReadSelectionFeatures(
-      BlueprintFeatureSelection selection)
+      object selection)
     {
       const System.Reflection.BindingFlags flags =
         System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic |
