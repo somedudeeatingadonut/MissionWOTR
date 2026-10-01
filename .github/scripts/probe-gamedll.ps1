@@ -6,6 +6,7 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v10: Concealment + WeaponRangeType enum members (Omnielementalist's Ash Storm) + ITickEachRound (Sandstorm round-tick).
 # v9: PetType + PetProgressionType enum members (the lich's undead pet for Undead Master's Corpse Bond).
 # v8: TurnBasedCombatController + CombatController (turn-based round window - the user plays TB) + StatType (speed penalty checks).
 # v7: Game / TimeController / GameTime (round window), ContextActionHeal + CalculationType (heal polarity), DamageEnergyType / EnergyDamage.
@@ -94,7 +95,7 @@ if (-not (Test-Path $dll)) {
       'Game', 'TimeController', 'GameTime', 'ContextActionHeal',
       'CalculationType', 'HealCalculationType', 'DamageEnergyType', 'EnergyDamage', 'DirectDamage',
       'TurnBasedCombatController', 'CombatController', 'StatType',
-      'PetType', 'PetProgressionType')
+      'PetType', 'PetProgressionType', 'Concealment', 'WeaponRangeType', 'ITickEachRound')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
