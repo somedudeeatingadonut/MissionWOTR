@@ -212,8 +212,8 @@ namespace MissionWOTR.Archetypes
           {
             continue;
           }
-          stats.AdditionalAttackBonus.RemoveModifiersFrom(Fact);
-          stats.AdditionalDamage.RemoveModifiersFrom(Fact);
+          stats.AdditionalAttackBonus.RemoveModifiersFrom(Runtime);
+          stats.AdditionalDamage.RemoveModifiersFrom(Runtime);
         }
       }
       catch (Exception e)
@@ -236,10 +236,10 @@ namespace MissionWOTR.Archetypes
           {
             continue;
           }
-          stats.AdditionalAttackBonus.RemoveModifiersFrom(Fact);
-          stats.AdditionalDamage.RemoveModifiersFrom(Fact);
-          stats.AdditionalAttackBonus.AddModifierUnique(tier, Fact, ModifierDescriptor.Morale);
-          stats.AdditionalDamage.AddModifierUnique(tier, Fact, ModifierDescriptor.Morale);
+          stats.AdditionalAttackBonus.RemoveModifiersFrom(Runtime);
+          stats.AdditionalDamage.RemoveModifiersFrom(Runtime);
+          stats.AdditionalAttackBonus.AddModifierUnique(tier, Runtime, ModifierDescriptor.Morale);
+          stats.AdditionalDamage.AddModifierUnique(tier, Runtime, ModifierDescriptor.Morale);
         }
       }
       catch (Exception e)
