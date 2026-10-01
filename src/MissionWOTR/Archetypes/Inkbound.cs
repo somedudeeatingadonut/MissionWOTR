@@ -471,5 +471,10 @@ namespace MissionWOTR.Archetypes
     {
       return caster is not null && InkboundInk.Of(caster) >= Cost;
     }
+
+    public string GetAbilityCasterRestrictionUIText()
+    {
+      return "Not enough ink in the book";
+    }
   }
 }
