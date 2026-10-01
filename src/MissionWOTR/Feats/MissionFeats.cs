@@ -114,6 +114,8 @@ namespace MissionWOTR.Feats
       Configure(nameof(Inkbound), Inkbound.Configure);
       Configure(nameof(ElementalistShifter), ElementalistShifter.Configure);
       Configure(nameof(Beastbound), Beastbound.Configure);
+      Configure(nameof(HolyVindicator), HolyVindicator.Configure);
+      Configure(nameof(Bonewatch), Bonewatch.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.

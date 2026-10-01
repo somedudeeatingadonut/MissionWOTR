@@ -5957,5 +5957,145 @@
     "Key": "BeastboundLink.Description",
     "ProcessTemplates": false,
     "enGB": "Link this aspect to her companion: the beast receives the real shifter aspect - the minor-form passive always on, the major form on its own ability bar. The shifter does not shift; the beast does."
+  },
+  {
+    "Key": "HolyVindicator.Name",
+    "ProcessTemplates": false,
+    "enGB": "Holy Vindicator"
+  },
+  {
+    "Key": "HolyVindicator.Description",
+    "ProcessTemplates": false,
+    "enGB": "Paragons of battle, eschewing sermons for steel - living conduits of divine power, down to their very blood, which they happily shed in a moment if it brings greater glory to their deity. A 10-level prestige class (d10, full base attack) for those who already channel energy: bleeding stigmata, a shield of faith, and divine spellcasting that keeps growing. (Adapted port of the Advanced Player's Guide prestige class.)"
+  },
+  {
+    "Key": "HVShield.Name",
+    "ProcessTemplates": false,
+    "enGB": "Vindicator's Shield"
+  },
+  {
+    "Key": "HVShield.Description",
+    "ProcessTemplates": false,
+    "enGB": "As a swift action, the vindicator wraps himself in his faith for 1 minute, gaining a +2 sacred bonus to AC. The shield strengthens as he does: +3 at 4th level, +4 at 7th, +5 at 10th. (Adapted: the tabletop's channel-fed 24-hour shield, scaled to class level.)"
+  },
+  {
+    "Key": "HVStigmata.Name",
+    "ProcessTemplates": false,
+    "enGB": "Stigmata"
+  },
+  {
+    "Key": "HVStigmata.Description",
+    "ProcessTemplates": false,
+    "enGB": "The vindicator willingly gives his blood in service of his faith. Two stances, each a swift action lasting 1 minute: STIGMATA OF WRATH grants a sacred bonus equal to half his class level (round up) on attack rolls and weapon damage; STIGMATA OF THE MARTYR grants the same bonus on saving throws and AC. The price: while the blood flows, he takes damage equal to half his class level every round. (Adapted: the tabletop's pick-one-of-five, condensed to offense and defense.)"
+  },
+  {
+    "Key": "HVStigmataWrath.Name",
+    "ProcessTemplates": false,
+    "enGB": "Stigmata of Wrath"
+  },
+  {
+    "Key": "HVStigmataMartyr.Name",
+    "ProcessTemplates": false,
+    "enGB": "Stigmata of the Martyr"
+  },
+  {
+    "Key": "HVFaithHealing.Name",
+    "ProcessTemplates": false,
+    "enGB": "Faith Healing"
+  },
+  {
+    "Key": "HVFaithHealing.Description",
+    "ProcessTemplates": false,
+    "enGB": "Healing the vindicator casts on himself is buoyed by his faith: it gains a bonus equal to half his class level (round up). At 8th level the bonus doubles. (Adapted: the tabletop's empower-then-maximize, done as flat bonuses.)"
+  },
+  {
+    "Key": "HVBloodfire.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodfire"
+  },
+  {
+    "Key": "HVBloodfire.Description",
+    "ProcessTemplates": false,
+    "enGB": "While his stigmata bleed, the vindicator's blood runs down his weapons: his melee attacks deal an additional 1d6 points of damage. (Adapted: the tabletop's Channel Smite rider - Channel Smite itself does not exist in this game.)"
+  },
+  {
+    "Key": "HVSpellcasting.Name",
+    "ProcessTemplates": false,
+    "enGB": "Divine Spellcasting"
+  },
+  {
+    "Key": "HVSpellcasting.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 2nd, 3rd, 4th, 6th, 7th, 8th, and 10th level, the vindicator gains spells per day as if he had also gained a level in a divine spellcasting class he belonged to. Pick the same class each time (cleric, druid, inquisitor, or hunter). (Warpriest and oracle advancement does not exist in this engine - documented limitation.)"
+  },
+  {
+    "Key": "Bonewatch.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Bonewatch"
+  },
+  {
+    "Key": "Bonewatch.Description",
+    "ProcessTemplates": false,
+    "enGB": "Every deathless legion needs an officer who does not flinch. The Bonewatch is the marshal of the dead - the one who stands in the gap between the living world and the ranks he commands, banner in hand, wearing the grave's own armor. A 5-level prestige class (d10, full base attack) for those sworn to the dead: bone armor, the command of graves, and an unbreakable last stand. (MissionWOTR homebrew prestige class.)"
+  },
+  {
+    "Key": "BonewatchBoneMantle.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bone Mantle"
+  },
+  {
+    "Key": "BonewatchBoneMantle.Description",
+    "ProcessTemplates": false,
+    "enGB": "The grave grows on him: +2 natural armor to AC, thickening by another +2 at 4th level."
+  },
+  {
+    "Key": "BonewatchCommand.Name",
+    "ProcessTemplates": false,
+    "enGB": "Grave Command"
+  },
+  {
+    "Key": "BonewatchCommand.Description",
+    "ProcessTemplates": false,
+    "enGB": "The marshal speaks and the dead obey: he casts the Command Undead spell as a special ability, 1 use per day (2 per day at 3rd level)."
+  },
+  {
+    "Key": "BonewatchCadre.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cadre of Bone"
+  },
+  {
+    "Key": "BonewatchCadre.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "Cadre of Bone"
+  },
+  {
+    "Key": "BonewatchCadre.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The marshal's will drives the dead onward: +2 on attack rolls and weapon damage."
+  },
+  {
+    "Key": "BonewatchCadre.Description",
+    "ProcessTemplates": false,
+    "enGB": "The marshal's will drives his ranks: every pet he controls within 30 feet gains a +2 morale bonus on attack rolls and weapon damage. (The aura refreshes each round while he stands.)"
+  },
+  {
+    "Key": "BonewatchLastOrder.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Last Order"
+  },
+  {
+    "Key": "BonewatchLastOrder.Description",
+    "ProcessTemplates": false,
+    "enGB": "Once per day, as a swift action, the marshal gives the order that cannot be disobeyed - not even by death: for 1 round, no damage can reduce him below 1 hit point."
+  },
+  {
+    "Key": "BonewatchLastOrder.Buff.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Last Order"
+  },
+  {
+    "Key": "BonewatchLastOrder.Buff.Description",
+    "ProcessTemplates": false,
+    "enGB": "The order stands: for 1 round, no damage can reduce the marshal below 1 hit point."
   }
 ]

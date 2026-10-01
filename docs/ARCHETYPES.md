@@ -794,6 +794,43 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.51.0 — the prestige pair: Holy Vindicator (port) + The Bonewatch (homebrew)
+
+- **The user's request:** "add 2 prestige classes." The first NEW
+  CLASSES in the mod (everything before was archetypes): real
+  BlueprintCharacterClass authoring — prestige flag, hit die, full BAB,
+  save progressions, a 10-level and a 5-level progression, and class
+  prerequisites as components.
+- **The port — Holy Vindicator (Advanced Player's Guide pg. 263):**
+  the church militant that sheds its own blood. Entry: BAB +5 + any
+  channel energy feature. Vindicator's Shield (1st, adapted: swift
+  stance, +2 to +5 sacred AC by level); Stigmata (2nd, adapted: two
+  swift stances — Wrath for attacks/damage, Martyr for saves/AC — each
+  granting half class level while bleeding that much every round);
+  Faith Healing (3rd/8th, adapted: +half level on self-heals, doubled
+  at 8th); Bloodfire (5th, adapted: +1d6 melee while stigmata bleed);
+  and +1 divine spellcasting level at 2/3/4/6/7/8/10 via the game's
+  own Loremaster-style LevelUp features (cleric, druid, inquisitor,
+  hunter — warpriest/oracle don't exist in the engine, documented).
+  Documented cuts: channel stacking, the crit-spell-sacrifice trio,
+  versatile channel, bloodrain.
+- **The homebrew — The Bonewatch:** the marshal of the deathless
+  legion, built for this user's undead parties. Entry: BAB +3 + a bond
+  with death (any channel feature OR our own Undead Master's Command
+  the Dead kit). Bone Mantle (1st/4th: +2 then +4 natural armor), Grave
+  Command (1st: the real Command Undead spell, 1/day, 2 at 3rd), Cadre
+  of Bone (2nd: pets within 30 ft gain +2 attack/damage aura), and The
+  Last Order (5th, 1/day: for 1 round, no damage can reduce him below
+  1 HP — the engine's own MinHPAfterDamage field).
+- Class authoring notes: BAB/saves are the game's shared
+  BlueprintStatProgression blueprints; LevelEntry lists are built by
+  hand (the dcx idiom); prerequisites are raw components
+  (PrerequisiteFullStatValue for BAB, PrerequisiteFeaturesFromList for
+  features); prestige casting reuses the vanilla Loremaster LevelUp
+  features ranked via FeaturesRankIncrease.
+- The class blueprints should appear in the level-up prestige list on
+  the game's own enumeration; flagged for in-game verification.
+
 ## 0.50.0 — Corpse Bond lich coexistence; Omnielementalist IMPLEMENTED; the Beastbound (homebrew)
 
 - **Corpse Bond × Lich path (the user's request):** "make sure that
@@ -3557,3 +3594,10 @@ Fiendflesh Shifter, Griffonheart, Rageshaper, and Wild Effigy. MissionWOTR:
  marks a foe (+Cha to attacks, +level damage vs opposed-aligned), a daily align-weapon miracle (holy/unholy/axiomatic/anarchic). Trades the 3rd bonus feat and ALL channel energy. |
 
 | Beastbound | MissionWOTR homebrew | The still point and the storm: a real animal companion (the game's own menagerie, player-controlled) carries HER shifting — the real shifter aspects linked to the beast via AddFactsToPet (minor form always on, major form on the pet's own bar); links at 1/5/9/13/17. Trades her aspects, claws, and chimeric line; keeps defensive instinct and the wild skills. |
+
+## Prestige classes
+
+| Class | Source | Concept |
+| --- | --- | --- |
+| Holy Vindicator | Advanced Player's Guide pg. 263 | The church militant that sheds its own blood: stigmata stances (half level to offense or defense, bleeding the same every round), a scaling shield of faith, faith healing, bloodfire — and +1 divine spellcasting at 2/3/4/6/7/8/10 (cleric/druid/inquisitor/hunter). Entry: BAB +5 + channel energy. |
+| The Bonewatch | MissionWOTR homebrew | The marshal of the deathless legion: bone armor (+2/+4 natural), the real Command Undead spell on a pool, a pet aura (+2 attack/damage within 30 ft), and The Last Order — 1/day, one round where nothing can drop him below 1 HP. Entry: BAB +3 + a bond with death (channel, or the Undead Master's kit). |
