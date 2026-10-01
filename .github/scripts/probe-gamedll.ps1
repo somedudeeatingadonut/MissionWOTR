@@ -6,6 +6,7 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v7: Game / TimeController / GameTime (round window), ContextActionHeal + CalculationType (heal polarity), DamageEnergyType / EnergyDamage.
 # v6: RuleDealDamage / RuleHealDamage / UnitEntityData member + ctor-param dump (the heal-by-damage homebrew).
 # Remove this step + script once the API surface is known and the build is green.
 $ErrorActionPreference = 'Continue'
@@ -87,7 +88,9 @@ if (-not (Test-Path $dll)) {
       'ContextCalculateAbilityParams', 'ContextCalculateAbilityParamsBasedOnClass', 'AddFacts',
       'BuffExtraEffects', 'UnitProgressionData', 'FeatureSelectionData', 'Feature',
       'UnitDescriptor', 'RuleAttackRoll', 'UnitAlignment',
-      'RuleDealDamage', 'RuleHealDamage', 'UnitEntityData')
+      'RuleDealDamage', 'RuleHealDamage', 'UnitEntityData',
+      'Game', 'TimeController', 'GameTime', 'ContextActionHeal',
+      'CalculationType', 'HealCalculationType', 'DamageEnergyType', 'EnergyDamage', 'DirectDamage')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
