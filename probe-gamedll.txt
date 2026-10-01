@@ -1244,6 +1244,19 @@ RAGE-TYPE: Kingmaker.Enums.AlignmentGroup vis=public base=System.Enum
   FIELD: EGNeutral [protorint]
   FIELD: LCNeutral [protorint]
 RAGE-TYPE: Kingmaker.Enums.AlignmentExtension vis=public base=System.Object
+=== TYPE Kingmaker.Enums.PetType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: AnimalCompanion [protorint]
+  FIELD: MythicSkeletalChampion [protorint]
+  FIELD: AzataHavocDragon [protorint]
+  FIELD: Clone [protorint]
+  FIELD: NightHag [protorint]
+=== TYPE Kingmaker.Enums.PetProgressionType vis=public base=System.Enum ===
+  FIELD: value__ [protorint]
+  FIELD: AnimalCompanion [protorint]
+  FIELD: MythicSkeletalChampion [protorint]
+  FIELD: AzataHavocDragon [protorint]
+  FIELD: NightHag [protorint]
 RAGE-TYPE: Kingmaker.Enums.Damage.DamageAlignment vis=public base=System.Enum
   FIELD: value__ [protorint]
   FIELD: Good [protorint]
