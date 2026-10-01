@@ -65,18 +65,18 @@ namespace MissionWOTR.Archetypes
       // ----- The twelve real aspects, linked. -----
       var links = new[]
       {
-        new { Key = "Bear", Ref = FeatureRefs.ShifterAspectBear },
-        new { Key = "Boar", Ref = FeatureRefs.ShifterAspectBoar },
-        new { Key = "Dinosaur", Ref = FeatureRefs.ShifterAspectDinosaur },
-        new { Key = "Elephant", Ref = FeatureRefs.ShifterAspectElephant },
-        new { Key = "Griffon", Ref = FeatureRefs.ShifterAspectGriffon },
-        new { Key = "Horse", Ref = FeatureRefs.ShifterAspectHorse },
-        new { Key = "Lizard", Ref = FeatureRefs.ShifterAspectLizard },
-        new { Key = "Manticore", Ref = FeatureRefs.ShifterAspectManticore },
-        new { Key = "Spider", Ref = FeatureRefs.ShifterAspectSpider },
-        new { Key = "Tiger", Ref = FeatureRefs.ShifterAspectTiger },
-        new { Key = "Wolf", Ref = FeatureRefs.ShifterAspectWolf },
-        new { Key = "Wolverine", Ref = FeatureRefs.ShifterAspectWolverine },
+        new { Key = "Bear", Ref = FeatureRefs.ShifterAspectBear, Shape = FeatureRefs.ShifterWildShapeBearFeature },
+        new { Key = "Boar", Ref = FeatureRefs.ShifterAspectBoar, Shape = FeatureRefs.ShifterWildShapeBoarFeature },
+        new { Key = "Dinosaur", Ref = FeatureRefs.ShifterAspectDinosaur, Shape = FeatureRefs.ShifterWildShapeDinosaurFeature },
+        new { Key = "Elephant", Ref = FeatureRefs.ShifterAspectElephant, Shape = FeatureRefs.ShifterWildShapeElephantFeature },
+        new { Key = "Griffon", Ref = FeatureRefs.ShifterAspectGriffon, Shape = FeatureRefs.ShifterWildShapeGriffonFeature },
+        new { Key = "Horse", Ref = FeatureRefs.ShifterAspectHorse, Shape = FeatureRefs.ShifterWildShapeHorseFeature },
+        new { Key = "Lizard", Ref = FeatureRefs.ShifterAspectLizard, Shape = FeatureRefs.ShifterWildShapeLizardFeature },
+        new { Key = "Manticore", Ref = FeatureRefs.ShifterAspectManticore, Shape = FeatureRefs.ShifterWildShapeManticoreFeature },
+        new { Key = "Spider", Ref = FeatureRefs.ShifterAspectSpider, Shape = FeatureRefs.ShifterWildShapeSpiderFeature },
+        new { Key = "Tiger", Ref = FeatureRefs.ShifterAspectTiger, Shape = FeatureRefs.ShifterWildShapeTigerFeature },
+        new { Key = "Wolf", Ref = FeatureRefs.ShifterAspectWolf, Shape = FeatureRefs.ShifterWildShapeWolfFeature },
+        new { Key = "Wolverine", Ref = FeatureRefs.ShifterAspectWolverine, Shape = FeatureRefs.ShifterWildShapeWolverineFeature },
       };
       var linkGuids = new[]
       {
@@ -101,8 +101,19 @@ namespace MissionWOTR.Archetypes
             petType: PetType.AnimalCompanion,
             facts: new List<Blueprint<BlueprintUnitFactReference>>
             {
+              // The real aspect (minor form) AND the real major form -
+              // 0.52.0: the shape feature too, so the beast can actually
+              // shift (the base class's wild-shape progression never
+              // reaches a pet on its own).
               link.Ref.Cast<BlueprintUnitFactReference>(),
+              link.Shape.Cast<BlueprintUnitFactReference>(),
             })
+          // 0.52.0: the linked bonus - the beast grows into the shape,
+          // scaling with the MASTER's shifter level (the pet has none).
+          .AddComponent(new BeastboundLinkRider
+          {
+            ShifterClass = shifter,
+          })
           .Configure();
       }
 
@@ -164,6 +175,73 @@ namespace MissionWOTR.Archetypes
         archetype, shifter, FeatureRefs.GreaterChimericAspectFeature.ToString());
       archetype.Configure();
       MissionFeats.Logger.Info("[beastbound] configured: " + ArchetypeName + ".");
+    }
+  }
+
+  /// <summary>
+  /// The linked bonus (0.52.0 bug-hunt fix): the vanilla aspect's
+  /// minor form ranks off SHIFTER levels the pet does not have, and
+  /// its major form lives in class-progression features that never
+  /// reach a pet. The link therefore also grants the real wild-shape
+  /// feature (done in the feature above), and this rider scales a
+  /// morale bonus on the beast with the MASTER's shifter level: +2
+  /// attack and damage, +3 at 8th, +4 at 15th. The modifiers are
+  /// removed-then-reapplied each refresh so they never stack.
+  /// </summary>
+  [TypeId(Guids.BeastboundLinkRider)]
+  internal class BeastboundLinkRider : UnitFactComponentDelegate, ITickEachRound
+  {
+    public BlueprintCharacterClass ShifterClass;
+
+    protected override void OnActivate() => Refresh();
+
+    public void OnNewRound() => Refresh();
+
+    protected override void OnDeactivate()
+    {
+      try
+      {
+        foreach (var pet in Owner.Pets)
+        {
+          var stats = pet.Entity?.Descriptor.Stats;
+          if (stats is null)
+          {
+            continue;
+          }
+          stats.AdditionalAttackBonus.RemoveModifiersFrom(Fact);
+          stats.AdditionalDamage.RemoveModifiersFrom(Fact);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[beastbound] link release failed.", e);
+      }
+    }
+
+    private void Refresh()
+    {
+      try
+      {
+        var level = ShifterClass is null ? 1 :
+          Owner.Descriptor.Progression.GetClassLevel(ShifterClass);
+        var tier = level >= 15 ? 4 : level >= 8 ? 3 : 2;
+        foreach (var pet in Owner.Pets)
+        {
+          var stats = pet.Entity?.Descriptor.Stats;
+          if (stats is null)
+          {
+            continue;
+          }
+          stats.AdditionalAttackBonus.RemoveModifiersFrom(Fact);
+          stats.AdditionalDamage.RemoveModifiersFrom(Fact);
+          stats.AdditionalAttackBonus.AddModifierUnique(tier, Fact, ModifierDescriptor.Morale);
+          stats.AdditionalDamage.AddModifierUnique(tier, Fact, ModifierDescriptor.Morale);
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[beastbound] link refresh failed.", e);
+      }
     }
   }
 }

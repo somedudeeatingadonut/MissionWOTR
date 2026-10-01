@@ -57,7 +57,7 @@ namespace MissionWOTR.Archetypes
   ///
   /// THE TRADE (live-progression scans): the shifter aspect selection
   /// (every grant - which carries the animal aspects and their major
-  /// forms away with it), the shifter claws line (all eleven feature
+  /// forms away with it), the shifter claws line (all twelve feature
   /// names), chimeric aspect, and greater chimeric aspect.
   ///
   /// DOCUMENTED CUTS: Elemental Speech (tongues with matching
@@ -108,6 +108,7 @@ namespace MissionWOTR.Archetypes
 
       var aspects = new BlueprintFeature[4];
       var strikeAbilities = new BlueprintAbility[4];
+      var strikeBuffs = new BlueprintBuff[4];
       var aspectGuids = new[]
       {
         Guids.ElementalistAspectAirFeature, Guids.ElementalistAspectEarthFeature,
@@ -134,7 +135,7 @@ namespace MissionWOTR.Archetypes
         var e = elements[i];
 
         // ----- The strike buff: 1 round of charged melee. -----
-        var buff = BuffConfigurator.New("ElementalistStrike" + e.Key + "Buff",
+        strikeBuffs[i] = BuffConfigurator.New("ElementalistStrike" + e.Key + "Buff",
             strikeBuffGuids[i])
           .SetDisplayName("ElementalistStrike.Name")
           .SetDescription("ElementalistStrike.Description")
@@ -160,7 +161,8 @@ namespace MissionWOTR.Archetypes
           .SetCanTargetSelf()
           .AddAbilityEffectRunAction(ActionsBuilder.New().Add(new ElementalistStrikeAction
           {
-            Buff = buff,
+            Buff = strikeBuffs[i],
+            Siblings = strikeBuffs,
           }).Build())
           .Configure();
 
@@ -387,6 +389,10 @@ namespace MissionWOTR.Archetypes
   {
     public BlueprintBuff Buff;
 
+    /// <summary>The other strikes - activating one bleeds the rest
+    /// away (0.52.0: they used to stack).</summary>
+    public BlueprintBuff[] Siblings;
+
     public override void RunAction()
     {
       try
@@ -395,6 +401,18 @@ namespace MissionWOTR.Archetypes
         if (caster is null)
         {
           return;
+        }
+        // 0.52.0 fix: a new strike replaces the old one - they no
+        // longer stack their riders.
+        if (Siblings is not null)
+        {
+          foreach (var sibling in Siblings)
+          {
+            if (sibling is not null && sibling != Buff)
+            {
+              caster.Buffs.RemoveFact(sibling);
+            }
+          }
         }
         caster.AddBuff(Buff, Context, TimeSpan.FromSeconds(6));
       }

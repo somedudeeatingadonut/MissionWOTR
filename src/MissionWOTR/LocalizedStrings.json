@@ -5646,7 +5646,7 @@
   {
     "Key": "InkboundInk.Description",
     "ProcessTemplates": false,
-    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (cap 10; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. (Homebrew note: ink does not persist through save/load.)"
+    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (cap 10; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. Quillwork cannot be used without enough ink in the well. (Homebrew note: ink does not persist through save/load.)"
   },
   {
     "Key": "InkboundBlot.Name",
@@ -5846,7 +5846,7 @@
   {
     "Key": "ElementalistStrike.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, charge your melee attacks with elemental energy for 1 round: they deal an additional 1d6 points of energy damage of your chosen element, increasing by 1d6 every 4 levels (to a maximum of 6d6 at 20th). Only the elements you have chosen with elemental aspect can be used. This replaces shifter claws."
+    "enGB": "As a swift action, charge your melee attacks with elemental energy for 1 round: they deal an additional 1d6 points of energy damage of your chosen element, increasing by 1d6 every 4 levels (to a maximum of 6d6 at 20th). Only one strike can be active at a time - a new strike replaces the old. Only the elements you have chosen with elemental aspect can be used. This replaces shifter claws."
   },
   {
     "Key": "ElementalistForm.Name",
@@ -5956,7 +5956,7 @@
   {
     "Key": "BeastboundLink.Description",
     "ProcessTemplates": false,
-    "enGB": "Link this aspect to her companion: the beast receives the real shifter aspect - the minor-form passive always on, the major form on its own ability bar. The shifter does not shift; the beast does."
+    "enGB": "Link this aspect to her companion: the beast receives the real shifter aspect - the minor-form passive always on, and its major form (the real wild shape) on the beast's own ability bar, ready to shift. While linked, the beast also gains a morale bonus on attack rolls and weapon damage that grows with HER shifter level: +2, then +3 at 8th, +4 at 15th. The shifter does not shift; the beast does."
   },
   {
     "Key": "HolyVindicator.Name",

@@ -22,6 +22,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Parts;
 using MissionWOTR.Feats;
 using System;
 using System.Collections.Generic;
@@ -140,6 +141,7 @@ namespace MissionWOTR.Archetypes
         .SetRange(AbilityRange.Long)
         .SetActionType(UnitCommand.CommandType.Swift)
         .SetCanTargetEnemies()
+        .AddComponent(new InkboundInkRestriction { Cost = 1 })
         .AddAbilityEffectRunAction(ActionsBuilder.New().Add(new InkboundQuillAction
         {
           QuillMode = InkboundQuillAction.Mode.Blot,
@@ -160,6 +162,7 @@ namespace MissionWOTR.Archetypes
         .SetActionType(UnitCommand.CommandType.Swift)
         .SetCanTargetFriends(true)
         .SetCanTargetSelf(true)
+        .AddComponent(new InkboundInkRestriction { Cost = 2 })
         .AddAbilityEffectRunAction(ActionsBuilder.New().Add(new InkboundQuillAction
         {
           QuillMode = InkboundQuillAction.Mode.Wordwall,
@@ -179,6 +182,7 @@ namespace MissionWOTR.Archetypes
         .SetRange(AbilityRange.Long)
         .SetActionType(UnitCommand.CommandType.Standard)
         .SetCanTargetEnemies()
+        .AddComponent(new InkboundInkRestriction { Cost = 3 })
         .AddAbilityEffectRunAction(ActionsBuilder.New().Add(new InkboundQuillAction
         {
           QuillMode = InkboundQuillAction.Mode.Recitation,
@@ -449,5 +453,22 @@ namespace MissionWOTR.Archetypes
     }
 
     public override string GetCaption() => "The Last Chapter";
+  }
+
+  /// <summary>
+  /// The ink gate (0.52.0 bug-hunt fix): quillwork abilities are
+  /// UNUSABLE without enough ink in the well. Previously the action
+  /// was consumed and only a log line explained why - now the button
+  /// refuses.
+  /// </summary>
+  [TypeId(Guids.InkboundInkRestriction)]
+  internal class InkboundInkRestriction : BlueprintComponent, IAbilityCasterRestriction
+  {
+    public int Cost;
+
+    public bool IsCasterRestrictionPassed(UnitEntityData caster)
+    {
+      return caster is not null && InkboundInk.Of(caster) >= Cost;
+    }
   }
 }

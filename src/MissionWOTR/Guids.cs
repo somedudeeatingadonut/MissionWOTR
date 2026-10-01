@@ -1243,6 +1243,10 @@ namespace MissionWOTR
     internal const string BonewatchLastOrderAbility = "1B000AD1-89D2-4DA1-AD96-F4708D50EB98";
     internal const string BonewatchLastOrderFeature = "388FC687-4734-48BB-AC3A-0CC6ECFE466E";
     internal const string BonewatchLastOrderRider = "4E31AA64-F9AB-4C91-8C37-5C91BB0E3F73";
+
+    // ----- 0.52.0: the bug hunt -----
+    internal const string InkboundInkRestriction = "6452BC31-DF9D-438E-BF41-57C025441864";
+    internal const string BeastboundLinkRider = "94964E4E-977D-4A96-ABA2-61607162A0EE";
     internal const string InkboundBlotBuff = "87A31A0A-2BEC-42C1-BC36-19280A8A63D5";
     internal const string InkboundBlotIronBuff = "60DF5F8E-B146-4546-BEC8-6D6634800371";
     internal const string InkboundWordwallBuff = "A8884B14-F437-443C-84EA-1030A8C6022A";

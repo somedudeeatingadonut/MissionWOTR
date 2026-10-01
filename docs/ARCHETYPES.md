@@ -794,6 +794,41 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.52.0 — the bug hunt
+
+A full pass over the session's shipped work. Three real bugs found and
+fixed; several suspects investigated and cleared.
+
+- **FIXED — Elementalist strikes stacked (0.49.0):** activating Fire
+  Strike while Air Strike was still running left BOTH riders live -
+  two energy dice per swing. A new strike now replaces the old one
+  (the action bleeds the sibling buffs away before applying its own).
+- **FIXED — Inkbound quillwork wasted actions (0.48.0):** using Blot,
+  Wordwall, or Recitation without enough ink consumed the swift/standard
+  action and only wrote a log line. The abilities now carry a caster
+  restriction (the engine's own IAbilityCasterRestriction, the DarkCodex
+  idiom) and are simply UNUSABLE below their ink cost.
+- **FIXED — Beastbound's beast never really shifted (0.50.0):** the
+  link granted the real aspect feature, but the MAJOR form comes from
+  class-progression wild-shape features that never reach a pet, and
+  the minor form ranks off shifter levels the pet does not have. Links
+  now also grant the real ShifterWildShape feature for the animal (the
+  pet's ability bar gets the actual shape), and a master-side rider
+  scales a linked bonus with HER shifter level (+2 attack/damage, +3
+  at 8th, +4 at 15th) - removed-then-reapplied each round so it never
+  stacks.
+- **Investigated and cleared:** Mending Blade's turn-based surge window
+  reads TurnStartTime - per the engine's own TB convention (the clock
+  the game's round cooldowns use), so it is correct by house standard,
+  documented; duplicate-GUID audit across all 1,135 constants - none;
+  Champion-of-the-Faith leftovers - none; claws-list comment said
+  "eleven" for twelve names - corrected; Inkbound's static well - keyed
+  by unit, drained on feature removal, resets on save/load by design
+  (documented flavor).
+- One runtime item flagged for in-game verification (CI cannot check
+  it): the prestige classes' appearance in the level-up list relies on
+  the game's own class enumeration.
+
 ## 0.51.0 — the prestige pair: Holy Vindicator (port) + The Bonewatch (homebrew)
 
 - **The user's request:** "add 2 prestige classes." The first NEW
