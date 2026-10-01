@@ -24,6 +24,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
@@ -361,8 +362,7 @@ namespace MissionWOTR.Archetypes
   /// </summary>
   [TypeId(Guids.HVFaithHealingRider)]
   internal class HVFaithHealingRider : UnitFactComponentDelegate,
-    ITargetRulebookHandler<RuleHealDamage>, IRulebookHandler<RuleHealDamage>,
-    ITargetRulebookSubscriber, ISubscriber
+    ITargetRulebookHandler<RuleHealDamage>
   {
     public string ClassGuid;
 

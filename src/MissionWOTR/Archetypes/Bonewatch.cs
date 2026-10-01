@@ -20,6 +20,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
@@ -251,7 +252,7 @@ namespace MissionWOTR.Archetypes
 
     public BlueprintBuff AuraBuff;
 
-    public override void OnActivate() => Refresh();
+    protected override void OnActivate() => Refresh();
 
     public void OnNewRound() => Refresh();
 
@@ -311,8 +312,7 @@ namespace MissionWOTR.Archetypes
   /// </summary>
   [TypeId(Guids.BonewatchLastOrderRider)]
   internal class BonewatchLastOrderRider : UnitBuffComponentDelegate,
-    ITargetRulebookHandler<RuleDealDamage>, IRulebookHandler<RuleDealDamage>,
-    ITargetRulebookSubscriber, ISubscriber
+    ITargetRulebookHandler<RuleDealDamage>
   {
     public void OnEventAboutToTrigger(RuleDealDamage evt)
     {
