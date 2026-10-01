@@ -170,6 +170,10 @@ namespace MissionWOTR.Archetypes
         archetype, skald,
         FeatureRefs.RagingSong.ToString(),
         FeatureRefs.InspiredRage.ToString());
+      // 0.40.0: rage powers ride the inspired-rage song in this engine -
+      // with that song gone they would be selectable-but-inert picks, so
+      // every rage-power grant goes too (the user's question, answered).
+      archetype = ArchetypeRemovals.RemoveEveryGrant(archetype, skald, "RagePower");
       archetype.Configure();
       MissionFeats.Logger.Info("[crescendo] configured: " + ArchetypeName + ".");
     }

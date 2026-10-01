@@ -222,6 +222,11 @@ namespace MissionWOTR.Archetypes
         FeatureRefs.DirgeOfDoom.ToString(),
         FeatureRefs.DirgeOfDoomFeature.ToString(),
         FeatureRefs.MasterSkald.ToString());
+      // 0.40.0: rage powers ride the inspired-rage song in this engine -
+      // the tabletop weapon song would carry them to allies, but that
+      // wiring does not exist here; selectable-but-inert picks are worse
+      // than none, so every rage-power grant goes.
+      archetype = ArchetypeRemovals.RemoveEveryGrant(archetype, skald, "RagePower");
       archetype.Configure();
       MissionFeats.Logger.Info("[spellwarrior] configured: " + ArchetypeName + ".");
     }

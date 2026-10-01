@@ -104,6 +104,7 @@ namespace MissionWOTR.Feats
       Configure(nameof(SpiritRidden), SpiritRidden.Configure);
       Configure(nameof(SpellWarrior), SpellWarrior.Configure);
       Configure(nameof(CrescendoSkald), CrescendoSkald.Configure);
+      Configure(nameof(Dreadnaught), Dreadnaught.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // The archetype references the feats above, so it is configured last.
@@ -142,6 +143,7 @@ namespace MissionWOTR.Feats
         var witch = CharacterClassRefs.WitchClass.Reference.Get();
         var shaman = CharacterClassRefs.ShamanClass.Reference.Get();
         var skald = CharacterClassRefs.SkaldClass.Reference.Get();
+        var slayer = CharacterClassRefs.SlayerClass.Reference.Get();
         var entries = new (string Name, string Guid, BlueprintCharacterClass Class)[]
         {
           ("EldritchPoisoner", Guids.EldritchPoisonerArchetype, alchemist),
@@ -191,6 +193,7 @@ namespace MissionWOTR.Feats
       ("SpiritRidden", Guids.SpiritRiddenArchetype, shaman),
       ("SpellWarrior", Guids.SpellWarriorArchetype, skald),
       ("CrescendoSkald", Guids.CrescendoSkaldArchetype, skald),
+      ("Dreadnaught", Guids.DreadnaughtArchetype, slayer),
     };
         foreach (var entry in entries)
         {

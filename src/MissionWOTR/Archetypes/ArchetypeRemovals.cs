@@ -125,6 +125,69 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// Removes EVERY grant of each named feature across the whole
+    /// progression - the sneak-attack style of trade, where the class
+    /// re-grants the feature at many levels and every grant must go.
+    /// Matching is by asset name or guid (dashed or undashed), EXACT OR
+    /// SUBSTRING, so "SneakAttack" catches however the class names its
+    /// sneak-attack grants. Pass onlyAtLevel to restrict to one level
+    /// (the "one talent in the middle" trade). Returns the configurator
+    /// for chaining; a name matching nothing is logged, not fatal.
+    /// </summary>
+    internal static ArchetypeConfigurator RemoveEveryGrant(
+      ArchetypeConfigurator archetype,
+      BlueprintCharacterClass clazz,
+      string featureName,
+      int? onlyAtLevel = null)
+    {
+      var progression = clazz.Progression;
+      if (progression?.LevelEntries is null)
+      {
+        MissionWOTR.Main.Logger.Warn(
+          $"[removals] {clazz.name} has no progression - '{featureName}' NOT removed.");
+        return archetype;
+      }
+      string wanted = NormalizeGuid(featureName);
+      int removed = 0;
+      foreach (var entry in progression.LevelEntries)
+      {
+        if (entry is null || (onlyAtLevel.HasValue && entry.Level != onlyAtLevel.Value))
+        {
+          continue;
+        }
+        foreach (var feature in EntryFeatures(entry))
+        {
+          if (feature is null)
+          {
+            continue;
+          }
+          var name = (Read(feature, "name") as string) ?? "";
+          var guid = NormalizeGuid(Read(feature, "AssetGuid")?.ToString());
+          var matches =
+            name.IndexOf(featureName, StringComparison.OrdinalIgnoreCase) >= 0 ||
+            (wanted.Length > 0 && guid == wanted);
+          if (!matches)
+          {
+            continue;
+          }
+          archetype = archetype.AddToRemoveFeatures(entry.Level, feature);
+          removed++;
+        }
+      }
+      if (removed == 0)
+      {
+        MissionWOTR.Main.Logger.Warn(
+          $"[removals] RemoveEveryGrant: '{featureName}' matched no progression grant - nothing removed.");
+      }
+      else
+      {
+        MissionWOTR.Main.Logger.Info(
+          $"[removals] RemoveEveryGrant: '{featureName}' removed at {removed} level(s).");
+      }
+      return archetype;
+    }
+
+    /// <summary>
     /// First level at which any of the named features appears in the
     /// progression (asset name or guid, dashed or not); 1 if none match -
     /// callers use it to place replacement features at the traded level.

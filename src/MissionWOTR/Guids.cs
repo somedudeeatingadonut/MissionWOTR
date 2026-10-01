@@ -1069,6 +1069,18 @@ namespace MissionWOTR
     internal const string CrescendoSongArea = "4490E67E-4425-4DD4-9FCF-EDDBF44944D8";
     internal const string CrescendoMomentumBuff = "D1B3CFD8-810C-4930-9F48-17588EA8D558";
     internal const string CrescendoMomentumComponent = "BB449E29-7387-4207-BF3A-A0156E347146";
+
+    // ----- 0.40.0: the Dreadnaught (slayer homebrew, user design) -----
+    internal const string DreadnaughtArchetype = "08B44A1F-3D39-428F-A6DA-BBDF58B318EB";
+    internal const string DreadnaughtKitFeature = "659A325B-006D-4194-ABEC-8EA5EA4183E2";
+    internal const string DreadnaughtResolveFeature = "3AA4C587-F15C-4138-9146-BF385179C78A";
+    internal const string DreadnaughtStudyAbility = "1983D633-DB1C-484A-8403-A47F98C746B0";
+    internal const string DreadnaughtStudyAction = "F31ACCF5-CB38-4AB4-A451-04C351DDC13D";
+    internal const string DreadnaughtMarkBuff1 = "D8EC401E-2A1E-404E-8C1E-4D3ED906EBDF";
+    internal const string DreadnaughtMarkBuff2 = "1F8324BE-88DD-41D3-9AFB-5FC97EBA2202";
+    internal const string DreadnaughtMarkBuff3 = "2694D465-DC71-41A0-9696-AB687E7158C4";
+    internal const string DreadnaughtMarkBuff4 = "4CD4BEA8-16AB-43ED-BF7E-CA0C3DAB87FD";
+    internal const string DreadnaughtMarkBuff5 = "D588F4AD-1620-4398-A954-7342709A6C3C";
     internal const string AnatomistRiskyManeuverAbility = "E73E30E6-4949-4AD1-8BC4-CFD6ECAE7EB5";
     internal const string AnatomistRiskyManeuverBuff = "7DDD0FA6-3D6D-49ED-88F0-D2126E66519C";
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";

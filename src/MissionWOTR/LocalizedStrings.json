@@ -5377,5 +5377,45 @@
     "Key": "CrescendoMomentum.Description",
     "ProcessTemplates": false,
     "enGB": "The crescendo carries this ally: a morale bonus to Strength and Constitution (+1 at one stack of Momentum, +2 at three, +3 at five) and +1 on Will saves, at a cost of 1 AC while it lasts. Each round with at least one landed attack or completed spell adds a stack (maximum 5); a round with nothing landed resets it - and only this ally's."
+  },
+  {
+    "Key": "Dreadnaught.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dreadnaught"
+  },
+  {
+    "Key": "Dreadnaught.Description",
+    "ProcessTemplates": false,
+    "enGB": "A slayer who hunts the mind, not the blind side. The Dreadnaught wears the heaviest plate without caring who sees her coming, and her study breaks a foe's resolve instead of guiding blades to its vitals: the mark she lays drains courage, will, and luck from every saving throw. She trades every ounce of sneak attack and one talent for armor that does not hide her, a will that does not break, and a presence that empties enemies before a blade is drawn. (A MissionWOTR homebrew.)"
+  },
+  {
+    "Key": "DreadnaughtStudy.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dread Study"
+  },
+  {
+    "Key": "DreadnaughtStudy.Description",
+    "ProcessTemplates": false,
+    "enGB": "A swift-action study that MARKS a foe: a penalty on all of its saving throws (-1 at 1st level, increasing by 1 at 5th and every 5 levels thereafter, to -5 at 20th) for ten minutes. There is no attack or damage bonus - her study breaks resolve, not guard. A fresh mark also attempts to demoralize the foe: a Persuasion check against 10 + its level + its Wisdom; on a success it is shaken for 1 minute. She adds half her level (minimum 1) on Persuasion checks and is proficient with heavy armor."
+  },
+  {
+    "Key": "DreadnaughtMark.Name",
+    "ProcessTemplates": false,
+    "enGB": "Dread Mark"
+  },
+  {
+    "Key": "DreadnaughtMark.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Dreadnaught's mark: a penalty on all three saving throws while it lasts. The deeper her study, the deeper the dread."
+  },
+  {
+    "Key": "DreadnaughtResolve.Name",
+    "ProcessTemplates": false,
+    "enGB": "Unbreakable"
+  },
+  {
+    "Key": "DreadnaughtResolve.Description",
+    "ProcessTemplates": false,
+    "enGB": "The Dreadnaught's Will is not the slayer's weak one, but stands halfway to a champion's: +1 at 1st level, +2 at 8th, +3 at 15th."
   }
 ]

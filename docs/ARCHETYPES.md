@@ -794,6 +794,50 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.40.0 — the Dreadnaught (slayer homebrew); rage powers answered; Vanguard
+
+- **The user's question: "The skald also gets rage powers, would those
+  work with momentum?"** — Answer: **no.** In this engine the skald's
+  rage powers are wired to the inspired-rage song: they switch on for
+  allies while that specific song effect is on them. The Crescendo
+  (and the Spell Warrior) replace that song, so rage-power picks would
+  be selectable-but-inert — worse than not having them. **Fix shipped:**
+  both skald archetypes now also remove every rage-power grant from
+  their progressions (the new RemoveEveryGrant sweep in
+  ArchetypeRemovals). Wiring rage powers to trigger off momentum
+  instead would mean hooking Owlcat's internal rage machinery —
+  possible future work, not attempted blind.
+- **The Vanguard (the user's requested tabletop port): already in the
+  game.** Owlcat shipped the full ACG Vanguard slayer archetype —
+  `VanguardArchetype` with Vanguard's Bond, the Tactician line (one
+  share-ability per teamwork feat), the allies-study buff and Ever
+  Ready are all in the vanilla blueprints. Nothing was rebuilt; pick it
+  in character creation.
+- **The Dreadnaught (slayer homebrew, the user's design):** "a slayer
+  that focuses on intimidation, and reducing saves using studied
+  target instead of attack and damage rolls, and is able to use heavy
+  armor, has 8 hp per level, and medium will. At the cost of all sneak
+  attack, and 1 slayer talent in the middle."
+  - **Dread Study (1st):** a swift-action study that MARKS a foe — a
+    penalty on ALL THREE of its saving throws, −1 at 1st and one more
+    at 5th/10th/15th/20th (the studied-target tier schedule), for ten
+    minutes. **No attack or damage bonus** — the designed trade. A
+    FRESH mark also attempts to demoralize: Persuasion vs 10 + the
+    foe's level + its Wisdom; success shakes it for a minute (the
+    Doomsayer pronouncement machinery, verbatim). Re-study refreshes
+    the dread but does not re-terrorize.
+  - **Heavy armor proficiency (1st); Menace (1st):** +half level
+    (min 1) on Persuasion (Intimidate lives there in this game);
+    **Unbreakable (1st): medium Will** — +1 at 1st, +2 at 8th, +3 at
+    15th (poor 6 / medium 9 / good 12 at 20th).
+  - **The trades:** every studied-target grant (sweep), every sneak
+    attack grant (sweep), and the middle talent — the level-10 grant.
+  - **Note:** the slayer is already a d8 (8 hp) class — that line of
+    the brief is the class itself, unchanged.
+  - Documented simplifications: the mark lasts ten minutes and several
+    foes can be marked at once; the demoralize is a flat 1 minute on
+    success (no margin scaling).
+
 ## 0.39.0 — the Crescendo Skald (homebrew, user design)
 
 - **The user's brief:** "a skald buff that focuses on momentum instead
@@ -3087,4 +3131,16 @@ In-game (vanilla): Battle Scion, Herald of the Horn. MissionWOTR:
 | --- | --- | --- |
 | Spell Warrior | Advanced Class Guide pg. 116 | Trades the rage-granting song for one that enchants allied weapons: +1 to +5 enhancement in a 60-foot radius, overlapping existing enhancements, draining raging-song rounds while it plays. |
 | Crescendo Skald | MissionWOTR homebrew (user design) | Trades the rage song for momentum: per-ally stacks (+1/round while landing attacks or spells, max 5, reset only for the ally who landed nothing) granting +1/+2/+3 Str & Con, +1 Will, −1 AC at full strength with casting never blocked. |
+
+
+
+## Slayer archetypes
+
+In-game (vanilla): Sanctified Slayer, Spawn Slayer, Stygian Slayer, and
+the Vanguard (the ACG tabletop port — confirmed present in the vanilla
+blueprints; no MissionWOTR rebuild needed). MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Dreadnaught | MissionWOTR homebrew (user design) | Trades studied target's strike bonuses, ALL sneak attack, and the middle (10th-level) talent for a save-cracking Dread Study mark (−1..−5 on all saves, tiered), demoralize-on-study, heavy armor, +half level Persuasion, and medium Will (+1/+2/+3 at 1st/8th/15th). |
 
