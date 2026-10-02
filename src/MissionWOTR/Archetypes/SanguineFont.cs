@@ -448,9 +448,10 @@ namespace MissionWOTR.Archetypes
         // Sanguine Font never reached the game (in-game log 0.52.1:
         // "Failed to configure feat: SanguineFont", "Specified cast is not
         // valid"). Same bug class as the 0.5.3 ElementalObsessor fix -
-        // convert with ToReference instead of casting.
+        // convert per element (the Cook recipe-list idiom) instead of
+        // casting the whole sequence.
         .SetAllFeatures(
-          elementFeatures.Select(f => f.ToReference<BlueprintFeatureReference>()).ToArray())
+          elementFeatures.Select(f => (Blueprint<BlueprintFeatureReference>)f).ToArray())
         .Configure();
 
       // ----- Kinetic Blast (11th) -----
