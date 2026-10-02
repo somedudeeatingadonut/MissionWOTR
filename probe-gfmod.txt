@@ -1,0 +1,724 @@
+Downloading GraciousFriendships-430-0-9-9b-1725651821.zip
+Downloading GraciousFriendships_Woljif-430-0-9-9b-1725652021.zip
+Extracting GraciousFriendships_Woljif-430-0-9-9b-1725652021.zip
+Extracting GraciousFriendships-430-0-9-9b-1725651821.zip
+=== GF inventory: 1215 files ===
+  ext .jbp       1108
+  ext .patch     98
+  ext .json      6
+  ext            2
+  ext .txt       1
+--- top-level layout ---
+  dir _gfmod\x\GraciousFriendships
+  dir _gfmod\x\GraciousFriendships_Woljif
+  dir _gfmod\x\GraciousFriendships\Assemblies
+  dir _gfmod\x\GraciousFriendships\Blueprints
+  dir _gfmod\x\GraciousFriendships\Bundles
+  dir _gfmod\x\GraciousFriendships\Localization
+  dir _gfmod\x\GraciousFriendships\Blueprints\Cutscenes
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs
+  dir _gfmod\x\GraciousFriendships\Blueprints\Encounters
+  dir _gfmod\x\GraciousFriendships\Blueprints\Cutscenes\ch1
+  dir _gfmod\x\GraciousFriendships\Blueprints\Cutscenes\ch1\kenabres_hulrun_killed
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch0
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch1
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch2
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch3
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch4
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch5
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\general
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch0\choice_lann_wenduag
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch0\lann_first_meeting_tiefling
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch0\showing_sword_to_sull
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch1\daeran_party_house
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch1\kenabres_hulrun_killed
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch1\staunton_elbow_excuse
+  dir _gfmod\x\GraciousFriendships\Blueprints\Dialogs\ch1\daeran_party_house\but_we_met_eariler
+=== GF blueprints: 1108 .jbp files ===
+                                     CommandLockControls                        
+                                     CommandStartDialog                         
+                                     CommandWaitForCombatEnd                    
+                                     gate0                                      
+                                     gate1                                      
+                                     gfr_ch0_choice_wenduag_lann_0_Answer_2050_wenduag 
+                                     gfr_ch0_choice_wenduag_lann_1_Answer_2051_lann 
+                                     gfr_ch0_meeting_horgus_noble_0_Answer_2050 
+                                     gfr_ch0_meeting_horgus_noble_1_Cue_2050    
+                                     gfr_ch0_meeting_horgus_noble_2_Cue_2051    
+                                     gfr_ch0_showing_sword_to_sull_party_0_Answer_2050_good 
+                                     gfr_ch0_showing_sword_to_sull_party_1_Answer_2051_chaotic_light 
+                                     gfr_ch0_showing_sword_to_sull_party_2_Answer_2053_neutral 
+                                     gfr_ch0_showing_sword_to_sull_party_3_Answer_2052_evil 
+                                     gfr_ch1_camellia_past_noble_curiosity_0_Answer_2050 
+                                     gfr_ch1_camellia_past_noble_curiosity_0_Cue_2050 
+                                     gfr_ch1_camellia_past_noble_curiosity_1_Answerslist_2050 
+                                     gfr_ch1_camellia_past_noble_curiosity_2_Answer_2051 
+                                     gfr_ch1_camellia_past_noble_curiosity_3_Cue_2051 
+                                     gfr_ch1_camellia_past_noble_curiosity_4_Cue_2052 
+                                     gfr_ch1_camellia_past_noble_curiosity_5_Answer_2052 
+                                     gfr_ch1_camellia_past_noble_curiosity_6_Cue_2053 
+                                     gfr_ch1_daeran_ditch_0_Answer_2050         
+                                     gfr_ch1_daeran_ditch_1_Cue_2050            
+                                     gfr_ch1_daeran_ditch_2_Answerslist_2050    
+                                     gfr_ch1_daeran_ditch_3_Answer_2051         
+                                     gfr_ch1_daeran_ditch_4_rom_Cue_2051        
+                                     gfr_ch1_daeran_ditch_5_Cue_2052            
+                                     gfr_ch1_daeran_ditch_6_Answer_2052         
+                                     gfr_ch1_daeran_ditch_7_Cue_2053            
+                                     gfr_ch1_daeran_ditch_8_Answer_2053         
+                                     gfr_ch1_daeran_ditch_9_Cue_2054            
+                                     gfr_ch1_daeran_first_meet_met_earlier_0_Answer_2050 
+                                     gfr_ch1_daeran_first_meet_met_earlier_1_Cue_2050 
+                                     gfr_ch1_irabeth_hulrun_killed_0_Answer_2050 
+                                     gfr_ch1_irabeth_hulrun_killed_1_Cue_2050   
+                                     gfr_ch1_irabeth_hulrun_killed_10_Answer_2054 
+                                     gfr_ch1_irabeth_hulrun_killed_11_bluff_check 
+                                     gfr_ch1_irabeth_hulrun_killed_11_Cue_bluff_success 
+                                     gfr_ch1_irabeth_hulrun_killed_12_Cue_bluff_failed 
+                                     gfr_ch1_irabeth_hulrun_killed_2_Answerslist_2050 
+                                     gfr_ch1_irabeth_hulrun_killed_3_Answer_2051 
+                                     gfr_ch1_irabeth_hulrun_killed_4_Cue_2051   
+                                     gfr_ch1_irabeth_hulrun_killed_5_Answerslist_2051 
+                                     gfr_ch1_irabeth_hulrun_killed_6_Answer_2052 
+                                     gfr_ch1_irabeth_hulrun_killed_7_Cue_2052   
+                                     gfr_ch1_irabeth_hulrun_killed_8_Answer_2053 
+                                     gfr_ch1_irabeth_hulrun_killed_9_Cue_2053   
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_0_CueSequence_2050 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_1_CueSequenceExit_2050 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_1a_intro 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_2_woljif_Cue_2050 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_3_seelah_Cue_2051 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_4_woljif_Cue_2052 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_5_camellia_Cue_2053 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_6_daeran_Cue_2054 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_7_ember_Cue_2055 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_8_nenio_Cue_2056 
+                                     gfr_ch1_kenabres_hulrun_killed_told_aranka_party_9_daeran_Cue_2057 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_0_Cue_2050 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_1_Answerslist_2050 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_10_Cue_2054 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_11_Answer_2053 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_12_Cue_2055 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_13_Answer_2054 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_14_Cue_2056 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_15_Answer_2055 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_16_Cue_2057 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_2_Answer_2050 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_3_Cue_2051 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_4_CueSequence_2050 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_5_CueSequenceExit_2050 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_6_daeran_Cue_2052 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_7_Answer_2051 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_8_Cue_2053 
+                                     gfr_ch1_ramien_hulrun_killed_market_square_9_Answer_2052 
+                                     gfr_ch2_daeran_main_camp_Answer_2050       
+                                     gfr_ch2_daeran_mythic_demon_Cue_2050       
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_0_Answer_2050 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_1_Cue_2050 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_10_Cue_2054_bluff2_success 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_11_Cue_2055_bluff2_fail 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_12_Answer_2054 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_13_Answer_2055 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_13_bluff3_check 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_2_Cue_2051 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_3_Answerslist_2050 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_4_Answer_2051 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_5_Answer_2052_bluff1 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_5_bluff1_check 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_6_Cue_2052_bluff1_success 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_7_Cue_2053_bluff1_fail 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_8_Answerslist_2051 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_9_Answer_2053_bluff2 
+                                     gfr_ch2_daeran_q2_liotr_hulrun_killed_9_bluff2_check 
+                                     gfr_ch2_lann_romance_apple_Answer_2000     
+                                     gfr_ch2_lann_romance_apple_Cue_2000        
+                                     gfr_ch2_lost_chapel_daeran_only_0_Answer_2050 
+                                     gfr_ch2_lost_chapel_daeran_only_1_Cue_2050 
+                                     gfr_ch2_lost_chapel_daeran_only_2_sly_Answer_2050 
+                                     gfr_ch2_lost_chapel_daeran_only_3_sly_Cue_2050 
+                                     gfr_ch2_lost_chapel_daeran_only_4_rude_Answer_2050 
+                                     gfr_ch2_lost_chapel_daeran_only_5_rude_Cue_2050 
+                                     gfr_ch2_lost_chapel_ember_daeran_0_Answer_2050 
+                                     gfr_ch2_lost_chapel_ember_daeran_1_CueSequence_2050 
+                                     gfr_ch2_lost_chapel_ember_daeran_2_CueSequenceExit_2050 
+                                     gfr_ch2_lost_chapel_ember_daeran_3_ember_Cue_2050 
+                                     gfr_ch2_lost_chapel_ember_daeran_4_daeran_Cue_2051 
+                                     gfr_ch2_lost_chapel_regill_0_Answer_2050   
+                                     gfr_ch2_lost_chapel_regill_1_Cue_2050      
+                                     gfr_ch2_lost_chapel_sosiel_0_Answer_2050   
+                                     gfr_ch2_lost_chapel_sosiel_1_Cue_2050      
+                                     gfr_ch3_lann_romance_after_sparring_lann_0_spellcaster_Answer_2050 
+                                     gfr_ch3_lann_romance_before_sparring_lann_0_spellcaster_Cue_2050 
+                                     gfr_ch3_lann_romance_before_sparring_lann_1_athletics_check 
+                                     gfr_ch3_lann_romance_before_sparring_lann_2_non-athletic_Cue_2051 
+                                     gfr_ch3_lann_romance_before_sparring_lann_3_athletic_Cue_2052 
+                                     gfr_ch4_after_arena_greybor_0_Cue_2050_respect 
+                                     gfr_ch4_after_arena_greybor_1_Answerslist_2050 
+                                     gfr_ch4_after_arena_greybor_10_Answer_2053 
+                                     gfr_ch4_after_arena_greybor_11_Cue_2055    
+                                     gfr_ch4_after_arena_greybor_12_Answer_2054 
+                                     gfr_ch4_after_arena_greybor_13_Cue_2056    
+                                     gfr_ch4_after_arena_greybor_14_Answer_2055 
+                                     gfr_ch4_after_arena_greybor_15_Cue_2057    
+                                     gfr_ch4_after_arena_greybor_2_Answer_2050  
+                                     gfr_ch4_after_arena_greybor_3_Cue_2051     
+                                     gfr_ch4_after_arena_greybor_4_Answer_2051  
+                                     gfr_ch4_after_arena_greybor_5_Cue_2052     
+                                     gfr_ch4_after_arena_greybor_6_Answer_2052  
+                                     gfr_ch4_after_arena_greybor_7_Cue_2053     
+                                     gfr_ch4_after_arena_greybor_8_Cue_2054_no_respect 
+                                     gfr_ch4_after_arena_greybor_9_Answerslist_2051 
+                                     gfr_ch4_after_arena_seelah__Cue_2050       
+                                     gfr_ch4_after_arena_seelah__Cue_2051       
+                                     gfr_ch4_after_arena_seelah__Cue_2052       
+                                     gfr_ch4_after_arena_seelah__Cue_2053       
+                                     gfr_ch4_after_arena_seelah_Answer_2050     
+                                     gfr_ch4_after_arena_seelah_Answer_2051     
+                                     gfr_ch4_after_arena_seelah_Answer_2052     
+                                     gfr_ch4_after_arena_seelah_Answerslist_2050 
+                                     gfr_ch4_camellia_q2_demons_alive           
+                                     gfr_ch4_delights_doppel_2_everyone_arueshalae_rom_Cue_2055 
+                                     gfr_ch4_delights_doppel_2_everyone_CueSequence_2050 
+                                     gfr_ch4_delights_doppel_2_everyone_CueSequenceExit_2050 
+                                     gfr_ch4_delights_doppel_2_everyone_daeran_rom_Cue_2052 
+                                     gfr_ch4_delights_doppel_2_everyone_ember_Cue_2058 
+                                     gfr_ch4_delights_doppel_2_everyone_greybor_Cue_2057 
+                                     gfr_ch4_delights_doppel_2_everyone_lann_Cue_2054 
+                                     gfr_ch4_delights_doppel_2_everyone_lann_rom_Cue_2053 
+                                     gfr_ch4_delights_doppel_2_everyone_regill_Cue_2056 
+                                     gfr_ch4_delights_doppel_2_everyone_seelah_Cue_2050 
+                                     gfr_ch4_delights_doppel_2_everyone_sosiel_rom_Cue_2051 
+                                     gfr_ch4_delights_doppel_3_everyone_0_CueSequence_2050 
+                                     gfr_ch4_delights_doppel_3_everyone_1_CueSequenceExit_2050 
+                                     gfr_ch4_delights_doppel_3_everyone_10_Cue_2057 
+                                     gfr_ch4_delights_doppel_3_everyone_11_Cue_2058 
+                                     gfr_ch4_delights_doppel_3_everyone_12_CueSequence_2051 
+                                     gfr_ch4_delights_doppel_3_everyone_13_CueSequenceExit_2051 
+                                     gfr_ch4_delights_doppel_3_everyone_14_daeran_rom_Cue_2059 
+                                     gfr_ch4_delights_doppel_3_everyone_15_daeran_Cue_2060 
+                                     gfr_ch4_delights_doppel_3_everyone_16_Cue_2061 
+                                     gfr_ch4_delights_doppel_3_everyone_17_Cue_2062 
+                                     gfr_ch4_delights_doppel_3_everyone_18_CueSequence_2052 
+                                     gfr_ch4_delights_doppel_3_everyone_19_CueSequenceExit_2052 
+                                     gfr_ch4_delights_doppel_3_everyone_2_nenio_Cue_2050 
+                                     gfr_ch4_delights_doppel_3_everyone_20_lann_rom_Cue_2063 
+                                     gfr_ch4_delights_doppel_3_everyone_21_lann_Cue_2064 
+                                     gfr_ch4_delights_doppel_3_everyone_22_Cue_2065 
+                                     gfr_ch4_delights_doppel_3_everyone_23_Cue_2066 
+                                     gfr_ch4_delights_doppel_3_everyone_24_CueSequence_2053 
+                                     gfr_ch4_delights_doppel_3_everyone_25_CueSequenceExit_2053 
+                                     gfr_ch4_delights_doppel_3_everyone_26_sosiel_rom_Cue_2067 
+                                     gfr_ch4_delights_doppel_3_everyone_27_sosiel_Cue_2068 
+                                     gfr_ch4_delights_doppel_3_everyone_28_Cue_2069 
+                                     gfr_ch4_delights_doppel_3_everyone_29_Cue_2070 
+                                     gfr_ch4_delights_doppel_3_everyone_3_regill_Cue_2051 
+                                     gfr_ch4_delights_doppel_3_everyone_30_CueSequence_2054 
+                                     gfr_ch4_delights_doppel_3_everyone_31_CueSequenceExit_2054 
+                                     gfr_ch4_delights_doppel_3_everyone_32_arueshalae_rom_Cue_2071 
+                                     gfr_ch4_delights_doppel_3_everyone_33_arueshalae_Cue_2072 
+                                     gfr_ch4_delights_doppel_3_everyone_34_Cue_2073 
+                                     gfr_ch4_delights_doppel_3_everyone_35_Cue_2074 
+                                     gfr_ch4_delights_doppel_3_everyone_36_CueSequence_2055 
+                                     gfr_ch4_delights_doppel_3_everyone_37_CueSequenceExit_2055 
+                                     gfr_ch4_delights_doppel_3_everyone_38_camellia_rom_Cue_2075 
+                                     gfr_ch4_delights_doppel_3_everyone_39_camellia_Cue_2076 
+                                     gfr_ch4_delights_doppel_3_everyone_4_woljif_Cue_2052 
+                                     gfr_ch4_delights_doppel_3_everyone_40_Cue_2077 
+                                     gfr_ch4_delights_doppel_3_everyone_41_Cue_2078 
+                                     gfr_ch4_delights_doppel_3_everyone_42_CueSequence_2056 
+                                     gfr_ch4_delights_doppel_3_everyone_43_CueSequenceExit_2056 
+                                     gfr_ch4_delights_doppel_3_everyone_44_greybor_Cue_2079 
+                                     gfr_ch4_delights_doppel_3_everyone_45_Cue_2080 
+                                     gfr_ch4_delights_doppel_3_everyone_46_Cue_2081 
+                                     gfr_ch4_delights_doppel_3_everyone_47_CueSequence_2057 
+                                     gfr_ch4_delights_doppel_3_everyone_48_CueSequenceExit_2057 
+                                     gfr_ch4_delights_doppel_3_everyone_49_regill_Cue_2082 
+                                     gfr_ch4_delights_doppel_3_everyone_5_seelah_Cue_2053 
+                                     gfr_ch4_delights_doppel_3_everyone_50_Cue_2083 
+                                     gfr_ch4_delights_doppel_3_everyone_51_Cue_2084 
+                                     gfr_ch4_delights_doppel_3_everyone_52_CueSequence_2058 
+                                     gfr_ch4_delights_doppel_3_everyone_53_CueSequenceExit_2058 
+                                     gfr_ch4_delights_doppel_3_everyone_54_seelah_Cue_2085 
+                                     gfr_ch4_delights_doppel_3_everyone_55_Cue_2086 
+                                     gfr_ch4_delights_doppel_3_everyone_56_Cue_2087 
+                                     gfr_ch4_delights_doppel_3_everyone_57_CueSequence_2059 
+                                     gfr_ch4_delights_doppel_3_everyone_58_CueSequenceExit_2059 
+                                     gfr_ch4_delights_doppel_3_everyone_59_woljif_Cue_2088 
+                                     gfr_ch4_delights_doppel_3_everyone_6_seelah_Cue_2054 
+                                     gfr_ch4_delights_doppel_3_everyone_7_regill_Cue_2055 
+                                     gfr_ch4_delights_doppel_3_everyone_8_Answer_2050 
+                                     gfr_ch4_delights_doppel_3_everyone_9_Cue_2056 
+                                     gfr_ch4_everyone_areelu_1_Daeran_2054      
+                                     gfr_ch4_everyone_areelu_1_Daeran_Lann_2055 
+                                     gfr_ch4_everyone_areelu_1_Ember_2053       
+                                     gfr_ch4_everyone_areelu_1_Lann_Cue_2052    
+                                     gfr_ch4_everyone_areelu_1_Regill_2051      
+                                     gfr_ch4_everyone_areelu_1_Seelah_2050      
+                                     gfr_ch4_everyone_areelu_2_Cue_2050         
+                                     gfr_ch4_everyone_areelu_3_daeran_seelah_0_CueSequence_2050 
+                                     gfr_ch4_everyone_areelu_3_daeran_seelah_1_CueSequenceExit_2050 
+                                     gfr_ch4_everyone_areelu_3_daeran_seelah_2_daeran_Cue_2050 
+                                     gfr_ch4_everyone_areelu_3_daeran_seelah_3_seelah_Cue_2051 
+                                     gfr_ch4_everyone_delights_doppel_1_aru_Cue_2053 
+                                     gfr_ch4_everyone_delights_doppel_1_aru_rom_Cue_2052 
+                                     gfr_ch4_everyone_delights_doppel_1_camellia_Cue_2056 
+                                     gfr_ch4_everyone_delights_doppel_1_Cue_before_0005 
+                                     gfr_ch4_everyone_delights_doppel_1_CueSequence_2050 
+                                     gfr_ch4_everyone_delights_doppel_1_CueSequenceExit_2050 
+                                     gfr_ch4_everyone_delights_doppel_1_daeran_Cue_2055 
+                                     gfr_ch4_everyone_delights_doppel_1_daeran_rom_Cue_2054 
+                                     gfr_ch4_everyone_delights_doppel_1_regill_Cue_2051 
+                                     gfr_ch4_everyone_delights_doppel_1_seelah_Cue_2050 
+                                     gfr_ch4_everyone_delights_doppel_1_sosiel_Cue_2059 
+                                     gfr_ch4_everyone_delights_doppel_1_sosiel_rom_Cue_2058 
+                                     gfr_ch4_everyone_delights_doppel_1_woljif_2057 
+                                     gfr_ch4_lann_q2_lann_feels_worse_0_Answer_2050 
+                                     gfr_ch4_lann_q2_lann_feels_worse_1_rom_Answer_2051 
+                                     gfr_ch4_neutral_after_arena_arueshalae_0_Cue_2050 
+                                     gfr_ch4_neutral_after_arena_camellia_0_Cue_2050 
+                                     gfr_ch4_neutral_after_arena_daeran_0_Cue_2050 
+                                     gfr_ch4_neutral_after_arena_ember_0_Cue_2050 
+                                     gfr_ch4_neutral_after_arena_lann_0_Cue_2050 
+                                     gfr_ch4_neutral_after_arena_regill_0_Cue_2050 
+                                     gfr_ch4_neutral_after_arena_sosiel_0_Cue_2050 
+                                     gfr_ch4_neutral_after_arena_woljif_0_Cue_2050 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Answer_2050 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Answer_2051 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Answer_2052 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Answer_2053 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Answerslist_2050 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Cue_2051 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Cue_2052 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Cue_2053 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_Cue_2054 
+                                     gfr_ch4_nexus_after_areelu_arueshalae_rom_Cue_2050 
+                                     gfr_ch4_nexus_after_areelu_daeran_Answer_2050 
+                                     gfr_ch4_nexus_after_areelu_daeran_Answer_2051 
+                                     gfr_ch4_nexus_after_areelu_daeran_Answer_2052 
+                                     gfr_ch4_nexus_after_areelu_daeran_Answer_2053 
+                                     gfr_ch4_nexus_after_areelu_daeran_Answerslist_2050 
+                                     gfr_ch4_nexus_after_areelu_daeran_Cue_2051 
+                                     gfr_ch4_nexus_after_areelu_daeran_Cue_2052 
+                                     gfr_ch4_nexus_after_areelu_daeran_Cue_2053 
+                                     gfr_ch4_nexus_after_areelu_daeran_Cue_2054 
+                                     gfr_ch4_nexus_after_areelu_daeran_Cue_2055 
+                                     gfr_ch4_nexus_after_areelu_daeran_Cue_2056 
+                                     gfr_ch4_nexus_after_areelu_daeran_rom_Cue_2050 
+                                     gfr_ch4_nexus_after_areelu_lann_Answer_2050 
+                                     gfr_ch4_nexus_after_areelu_lann_Answer_2051 
+                                     gfr_ch4_nexus_after_areelu_lann_Answer_2052 
+                                     gfr_ch4_nexus_after_areelu_lann_Answerslist_2050 
+                                     gfr_ch4_nexus_after_areelu_lann_Cue_2051   
+                                     gfr_ch4_nexus_after_areelu_lann_Cue_2052   
+                                     gfr_ch4_nexus_after_areelu_lann_Cue_2053   
+                                     gfr_ch4_nexus_after_areelu_lann_Cue_2054   
+                                     gfr_ch4_nexus_after_areelu_lann_Cue_2055   
+                                     gfr_ch4_nexus_after_areelu_lann_rom_Cue_2050 
+                                     gfr_ch4_nexus_after_areelu_nenio_Answer_2050 
+                                     gfr_ch4_nexus_after_areelu_nenio_Answer_2051 
+                                     gfr_ch4_nexus_after_areelu_nenio_Answer_2052 
+                                     gfr_ch4_nexus_after_areelu_nenio_Answer_2053 
+                                     gfr_ch4_nexus_after_areelu_nenio_Answerslist_2050 
+                                     gfr_ch4_nexus_after_areelu_nenio_Cue_2050  
+                                     gfr_ch4_nexus_after_areelu_nenio_Cue_2051  
+                                     gfr_ch4_nexus_after_areelu_nenio_Cue_2052  
+                                     gfr_ch4_nexus_after_areelu_nenio_Cue_2053  
+                                     gfr_ch4_nexus_after_areelu_nenio_Cue_2054  
+                                     gfr_ch4_nexus_after_areelu_seelah_Answer_2050 
+                                     gfr_ch4_nexus_after_areelu_seelah_Answer_2051 
+                                     gfr_ch4_nexus_after_areelu_seelah_Answer_2052 
+                                     gfr_ch4_nexus_after_areelu_seelah_Answerslist_2050 
+                                     gfr_ch4_nexus_after_areelu_seelah_Cue_2050 
+                                     gfr_ch4_nexus_after_areelu_seelah_Cue_2051 
+                                     gfr_ch4_nexus_after_areelu_seelah_Cue_2052 
+                                     gfr_ch4_nexus_after_areelu_seelah_Cue_2053 
+                                     gfr_ch4_nexus_after_areelu_seelah_Cue_2054_other_mythics 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Answer_2050 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Answer_2051 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Answer_2052 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Answer_2053 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Answerslist_2050 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Cue_2050 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Cue_2051 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Cue_2052 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Cue_2053 
+                                     gfr_ch4_nexus_after_areelu_sosiel_Cue_2054 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_0_CueSequence_2050 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_1_CueSequenceExit_2050 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_10_sosiel_rom_Cue_2058 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_11_sosiel_Cue_2059 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_12_trever_Cue_2060 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_2_lann_rom_Cue_2050 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_3_lann_Cue_2051 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_4_daeran_rom_Cue_2052 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_5_daeran_Cue_2053 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_6_arueshalae_rom_Cue_2054 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_7_arueshalae_Cue_2055 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_8_camellia_rom_Cue_2056 
+                                     gfr_ch4_nexus_after_colyphyr_everyone_9_camellia_Cue_2057 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2051 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2052 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2053 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2054 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2055 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2056 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2057 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2058 
+                                     gfr_ch4_romance_after_arena_arueshalae__Cue_2059 
+                                     gfr_ch4_romance_after_arena_arueshalae__rom_Cue_2050 
+                                     gfr_ch4_romance_after_arena_arueshalae_Answer_2050 
+                                     gfr_ch4_romance_after_arena_arueshalae_Answer_2051 
+                                     gfr_ch4_romance_after_arena_arueshalae_Answer_2052 
+                                     gfr_ch4_romance_after_arena_arueshalae_Answerslist_2050 
+                                     gfr_ch4_romance_after_arena_camellia_0_rom_Cue_2050 
+                                     gfr_ch4_romance_after_arena_camellia_1_Cue_2051 
+                                     gfr_ch4_romance_after_arena_camellia_2_Answerslist_2050 
+                                     gfr_ch4_romance_after_arena_camellia_3_Answer_2050 
+                                     gfr_ch4_romance_after_arena_camellia_4_Cue_2052 
+                                     gfr_ch4_romance_after_arena_camellia_5_Answer_2051 
+                                     gfr_ch4_romance_after_arena_camellia_6_Cue_2053 
+                                     gfr_ch4_romance_after_arena_camellia_7_Answer_2052 
+                                     gfr_ch4_romance_after_arena_camellia_8_Cue_2054 
+                                     gfr_ch4_romance_after_arena_lann__Cue_2051 
+                                     gfr_ch4_romance_after_arena_lann__Cue_2052 
+                                     gfr_ch4_romance_after_arena_lann__Cue_2053 
+                                     gfr_ch4_romance_after_arena_lann__Cue_2054 
+                                     gfr_ch4_romance_after_arena_lann__Cue_2055 
+                                     gfr_ch4_romance_after_arena_lann__Cue_2056 
+                                     gfr_ch4_romance_after_arena_lann__rom_Cue_2050 
+                                     gfr_ch4_romance_after_arena_lann_Answer_2050 
+                                     gfr_ch4_romance_after_arena_lann_Answer_2051 
+                                     gfr_ch4_romance_after_arena_lann_Answer_2052 
+                                     gfr_ch4_romance_after_arena_lann_Answerslist_2050 
+                                     gfr_ch4_romance_after_arena_sosiel_0_rom_Cue_2050 
+                                     gfr_ch4_romance_after_arena_sosiel_1_Answerslist_2050 
+                                     gfr_ch4_romance_after_arena_sosiel_10_Answerslist_2051 
+                                     gfr_ch4_romance_after_arena_sosiel_11_Answer_2053 
+                                     gfr_ch4_romance_after_arena_sosiel_12_Cue_2056 
+                                     gfr_ch4_romance_after_arena_sosiel_13_Answer_2054 
+                                     gfr_ch4_romance_after_arena_sosiel_14_Cue_2057 
+                                     gfr_ch4_romance_after_arena_sosiel_2_Answer_2050 
+                                     gfr_ch4_romance_after_arena_sosiel_3_Cue_2051 
+                                     gfr_ch4_romance_after_arena_sosiel_4_Answer_2051 
+                                     gfr_ch4_romance_after_arena_sosiel_5_Cue_2052 
+                                     gfr_ch4_romance_after_arena_sosiel_6_Answer_2052 
+                                     gfr_ch4_romance_after_arena_sosiel_7_Cue_2053 
+                                     gfr_ch4_romance_after_arena_sosiel_8_Cue_2054 
+                                     gfr_ch4_romance_after_arena_sosiel_9_Cue_2055 
+                                     gfr_ch4_start_camellia_0_Cue_2050          
+                                     gfr_ch4_start_camellia_1_Answerslist_2050  
+                                     gfr_ch4_start_camellia_2_Answer_2050       
+                                     gfr_ch4_start_camellia_3_rom_Cue_2051      
+                                     gfr_ch4_start_camellia_4_Cue_2052          
+                                     gfr_ch4_start_camellia_5_Answer_2051       
+                                     gfr_ch4_start_camellia_6_Cue_2053          
+                                     gfr_ch4_start_camellia_7_Answer_2052       
+                                     gfr_ch4_start_camellia_8_Cue_2054          
+                                     gfr_ch4_start_greybor_0_Cue_2050           
+                                     gfr_ch4_start_greybor_1_Answerslist_2050   
+                                     gfr_ch4_start_greybor_2_Answer_2050        
+                                     gfr_ch4_start_greybor_3_Cue_2051           
+                                     gfr_ch4_start_greybor_4_Answer_2051        
+                                     gfr_ch4_start_greybor_5_Cue_2052           
+                                     gfr_ch4_start_greybor_6_Answer_2052        
+                                     gfr_ch4_start_greybor_7_Cue_2053           
+                                     gfr_ch4_start_hand_intro_0_Cue_2050        
+                                     gfr_ch4_start_hand_intro_1_Cue_2051        
+                                     gfr_ch4_start_lann_0_Cue_2050              
+                                     gfr_ch4_start_lann_1_Answerslist_2050      
+                                     gfr_ch4_start_lann_2_Answer_2050           
+                                     gfr_ch4_start_lann_3_Cue_2051              
+                                     gfr_ch4_start_lann_4_rom_Answer_2051       
+                                     gfr_ch4_start_lann_5_Cue_2052              
+                                     gfr_ch4_start_lann_6_Answer_2052           
+                                     gfr_ch4_start_lann_7_Cue_2053              
+                                     gfr_ch4_start_lann_8_Answer_2053           
+                                     gfr_ch4_start_lann_9_Cue_2054              
+                                     gfr_ch4_start_regill_0_Cue_2050            
+                                     gfr_ch4_start_regill_1_Answerslist_2050    
+                                     gfr_ch4_start_regill_2_Answer_2050         
+                                     gfr_ch4_start_regill_3_Cue_2051            
+                                     gfr_ch4_start_regill_4_Answer_2051         
+                                     gfr_ch4_start_regill_5_Cue_2052            
+                                     gfr_ch4_start_regill_6_Answer_2052         
+                                     gfr_ch4_start_regill_7_Cue_2053            
+                                     gfr_ch4_start_seelah_0_Cue_2050            
+                                     gfr_ch4_start_seelah_1_Answerslist_2050    
+                                     gfr_ch4_start_seelah_2_Answer_2050         
+                                     gfr_ch4_start_seelah_3_Cue_2051            
+                                     gfr_ch4_start_seelah_4_Answer_2051         
+                                     gfr_ch4_start_seelah_5_Cue_2052            
+                                     gfr_ch4_start_seelah_6_Answer_2052         
+                                     gfr_ch4_start_seelah_7_Cue_2053            
+                                     gfr_ch4_start_woljif_0_Cue_2050            
+                                     gfr_ch4_start_woljif_1_Answerslist_2050    
+                                     gfr_ch4_start_woljif_2_Answer_2050         
+                                     gfr_ch4_start_woljif_3_Cue_2051            
+                                     gfr_ch4_start_woljif_4_Answer_2051         
+                                     gfr_ch4_start_woljif_5_Cue_2052            
+                                     gfr_ch4_start_woljif_6_Answer_2052         
+                                     gfr_ch4_start_woljif_7_Cue_2053            
+                                     gfr_ch5_after_baph_prison_arueshalae_0_Cue_0001 
+                                     gfr_ch5_after_baph_prison_arueshalae_1_Cue_0002_alive 
+                                     gfr_ch5_after_baph_prison_arueshalae_1_Cue_0003_dead_myth 
+                                     gfr_ch5_after_baph_prison_arueshalae_1_Cue_0004_dead 
+                                     gfr_ch5_after_baph_prison_arueshalae_2_AnswersList_0001 
+                                     gfr_ch5_after_baph_prison_arueshalae_3_Answer_0001 
+                                     gfr_ch5_after_baph_prison_arueshalae_3_Answer_0002 
+                                     gfr_ch5_after_baph_prison_arueshalae_3_Answer_0003 
+                                     gfr_ch5_after_baph_prison_arueshalae_3_Answer_0004 
+                                     gfr_ch5_after_baph_prison_arueshalae_3_Answer_0005_lich 
+                                     gfr_ch5_after_baph_prison_arueshalae_3_Answer_0006 
+                                     gfr_ch5_after_baph_prison_arueshalae_3_Answer_0007 
+                                     gfr_ch5_after_baph_prison_arueshalae_4_Cue_0005 
+                                     gfr_ch5_after_baph_prison_arueshalae_4_Cue_0007 
+                                     gfr_ch5_after_baph_prison_arueshalae_4_Cue_0008 
+                                     gfr_ch5_after_baph_prison_arueshalae_4_Cue_0010 
+                                     gfr_ch5_after_baph_prison_arueshalae_4_Cue_0011_high 
+                                     gfr_ch5_after_baph_prison_arueshalae_4_Cue_0012 
+                                     gfr_ch5_after_baph_prison_arueshalae_5_Cue_0006 
+                                     gfr_ch5_after_baph_prison_arueshalae_5_Cue_0009 
+                                     gfr_ch5_after_baph_prison_arueshalae_5_Cue_0014 
+                                     gfr_ch5_after_baph_prison_arueshalae_5_Cue_0015_dead 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_0_Cue_0001 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_1_Cue_0002 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_1_Cue_0003_hdead 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_2_AnswersList_0001 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_3_Answer_0001 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_3_Answer_0002 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_3_Answer_0003 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_3_Answer_0004 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_3_Answer_0005 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_4_Cue_0004 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_4_Cue_0005 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_4_Cue_0006 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_4_Cue_0007 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_4_Cue_0008 
+                                     gfr_ch5_after_baph_prison_arueshalae_evil_5_Cue_0009 
+                                     gfr_ch5_after_baph_prison_camellia_0_CueSequence_0001 
+                                     gfr_ch5_after_baph_prison_camellia_0_CueSequenceExit_0001 
+                                     gfr_ch5_after_baph_prison_camellia_1_Cue_0001_rom 
+                                     gfr_ch5_after_baph_prison_camellia_1_Cue_0002 
+                                     gfr_ch5_after_baph_prison_camellia_1_Cue_0003 
+                                     gfr_ch5_after_baph_prison_camellia_2_AnswersList_0001 
+                                     gfr_ch5_after_baph_prison_camellia_3_Answer_0001_rom 
+                                     gfr_ch5_after_baph_prison_camellia_3_Answer_0002 
+                                     gfr_ch5_after_baph_prison_camellia_3_Answer_0008 
+                                     gfr_ch5_after_baph_prison_camellia_3_Answer_0009 
+                                     gfr_ch5_after_baph_prison_camellia_4_Cue_0004 
+                                     gfr_ch5_after_baph_prison_camellia_4_Cue_0005 
+                                     gfr_ch5_after_baph_prison_camellia_5_AnswersList_0002 
+                                     gfr_ch5_after_baph_prison_camellia_6_Answer_0003 
+                                     gfr_ch5_after_baph_prison_camellia_6_Answer_0004 
+                                     gfr_ch5_after_baph_prison_camellia_6_Answer_0005 
+                                     gfr_ch5_after_baph_prison_camellia_6_Answer_0006 
+                                     gfr_ch5_after_baph_prison_camellia_6_Answer_0007 
+                                     gfr_ch5_after_baph_prison_camellia_7_Cue_0006 
+                                     gfr_ch5_after_baph_prison_camellia_7_Cue_0007 
+                                     gfr_ch5_after_baph_prison_camellia_7_Cue_0008 
+                                     gfr_ch5_after_baph_prison_camellia_7_Cue_0009 
+                                     gfr_ch5_after_baph_prison_camellia_8_Cue_0010_rom 
+                                     gfr_ch5_after_baph_prison_camellia_8_Cue_0011 
+                                     gfr_ch5_after_baph_prison_daeran_0_Cue_0001 
+                                     gfr_ch5_after_baph_prison_daeran_1_AnswersList_0001 
+                                     gfr_ch5_after_baph_prison_daeran_2_Answer_0001_shirt 
+                                     gfr_ch5_after_baph_prison_daeran_2_Answer_0002_musings 
+                                     gfr_ch5_after_baph_prison_daeran_2_Answer_0003_repetition 
+                                     gfr_ch5_after_baph_prison_daeran_2_Answer_0004_forkoff 
+                                     gfr_ch5_after_baph_prison_daeran_3_Cue_0002_shirt 
+                                     gfr_ch5_after_baph_prison_daeran_3_Cue_0003_musings 
+                                     gfr_ch5_after_baph_prison_daeran_3_Cue_0008 
+                                     gfr_ch5_after_baph_prison_daeran_3_Cue_0009 
+                                     gfr_ch5_after_baph_prison_daeran_4_AnswersList_0002_musings 
+                                     gfr_ch5_after_baph_prison_daeran_5_Answer_0005 
+                                     gfr_ch5_after_baph_prison_daeran_5_Answer_0006 
+                                     gfr_ch5_after_baph_prison_daeran_5_Answer_0007 
+                                     gfr_ch5_after_baph_prison_daeran_6_Cue_0004 
+                                     gfr_ch5_after_baph_prison_daeran_6_Cue_0006_goto 
+  ... and 608 more
+=== external (vanilla) blueprint references ===
+  distinct external GUIDs: 1400 across 963 files
+--- dialog- and cue-named files first (these are the attach points) ---
+  gfr_ch0_choice_wenduag_lann_0_Answer_2050_wenduag -> 61a7c2a3-c3f3-421d-8d2f-010d1ac3036b a6912117-43ff-4423-9778-8db0b0776a78 b17578ab-8d17-4ba8-a733-860973f2f17f cffeec41-9997-4fba-ab9d-9c44c9fe0223
+  gfr_ch0_choice_wenduag_lann_1_Answer_2051_lann -> 61a7c2a3-c3f3-421d-8d2f-010d1ac3036b a028d046-cffc-437b-a3de-eba1aadc0c19 cffeec41-9997-4fba-ab9d-9c44c9fe0223 f5ad5f24-264e-4260-9d10-abfbf89498e6
+  gfr_ch0_meeting_horgus_noble_0_Answer_2050 -> 16ffa82c-3170-4e2f-a9c9-75948ac2e77b 22365e03-95e6-4ce9-b2ed-63052acbe9cf 74e71e32-1618-414f-8251-7d61149ea9ce 79910e10-f833-417f-961a-2932d54a64cc c88fd5cc-be53-4bce-aa21-9f63f6d95d43 f8a8b106-50f2-430f-8361-7709749abc3e
+  gfr_ch0_meeting_horgus_noble_1_Cue_2050 -> 12cc9ce8-c576-4223-a8d0-751a7539ab6b 1b68c733-9b80-4613-b6b2-d5346c022357 30c7be4e-6eda-4e87-ae80-54eb5d36936a 5501080b-8978-49ef-8e55-ef63b7ee8de4 a50b94ea-630e-4c64-9373-936a76162ede
+  gfr_ch0_meeting_horgus_noble_2_Cue_2051 -> 58f71fa8-edae-4ee7-ab21-5228fce962b6
+  gfr_ch0_showing_sword_to_sull_party_0_Answer_2050_good -> 0a94b6a8-7cbe-46be-98c0-bdc92b5db9c5 3469a3f4-f08c-4e12-ab20-a0541c4f0092 d6fa0e10-dcb5-4845-aea9-b42dcade8c64 e4b7ff4e-9a04-4bbb-9a11-bd4af1585ba2
+  gfr_ch0_showing_sword_to_sull_party_1_Answer_2051_chaotic_light -> 0a94b6a8-7cbe-46be-98c0-bdc92b5db9c5 3469a3f4-f08c-4e12-ab20-a0541c4f0092 e4b7ff4e-9a04-4bbb-9a11-bd4af1585ba2 f32465ff-552d-4949-9c3b-ebb5633cd361
+  gfr_ch0_showing_sword_to_sull_party_2_Answer_2053_neutral -> e22f047a-9c46-4664-8a9b-b1715d6d14c3 e4a57603-5b4b-42e1-83bf-c18b3d9251fa
+  gfr_ch0_showing_sword_to_sull_party_3_Answer_2052_evil -> 1e516f60-f255-4bce-a1a4-be743076e61f 474f4e53-7e11-4e21-b6ff-c0b3f73f052c
+  gfr_ch1_camellia_past_noble_curiosity_0_Answer_2050 -> 16ffa82c-3170-4e2f-a9c9-75948ac2e77b 22365e03-95e6-4ce9-b2ed-63052acbe9cf 3cd2a7f1-3e2d-45f3-b85e-b089f03e7479 4bd79408-cb68-4dcc-a122-bbba0917ce33 74e71e32-1618-414f-8251-7d61149ea9ce 79910e10-f833-417f-961a-2932d54a64cc 97eed23d-8e44-48a3-b0b6-2c128c9069cf f8a8b106-50f2-430f-8361-7709749abc3e
+  gfr_ch1_camellia_past_noble_curiosity_0_Cue_2050 -> 16ffa82c-3170-4e2f-a9c9-75948ac2e77b 22365e03-95e6-4ce9-b2ed-63052acbe9cf 74e71e32-1618-414f-8251-7d61149ea9ce 79910e10-f833-417f-961a-2932d54a64cc ca23c007-c5af-4d2f-940a-07d1f16750a2
+  gfr_ch1_camellia_past_noble_curiosity_2_Answer_2051 -> 10ed9fe8-cc19-46a2-ba2e-3fa19b9ca032
+  gfr_ch1_camellia_past_noble_curiosity_3_Cue_2051 -> 3b79df57-9b98-43d1-9882-bcadd06d0d78 f89ac2f0-d8e4-4fd6-9f1d-6502b34288e4
+  gfr_ch1_camellia_past_noble_curiosity_4_Cue_2052 -> 9d4c676d-684a-4e4a-8515-f1e9150bb600 9fd0571c-a5b3-449b-8b2c-a3a40e732c83
+  gfr_ch1_camellia_past_noble_curiosity_5_Answer_2052 -> 46954002-e8c8-4679-ad14-3375bb379621
+  gfr_ch1_camellia_past_noble_curiosity_6_Cue_2053 -> 70d4fd4e-054a-4ef9-933a-cf1841f8229e
+  gfr_ch1_daeran_ditch_0_Answer_2050 -> 2c137d7d-86b5-4274-8dc6-a6bdf4aea306 6e3d4ca3-4af8-4bc2-9fa5-7450e2653270 d1085dde-5078-49fa-9906-66c0592b4994
+  gfr_ch1_daeran_ditch_1_Cue_2050 -> 0489f5c4-8f51-402d-9114-48840ba8af8e
+  gfr_ch1_daeran_ditch_3_Answer_2051 -> 8a34651b-6c9d-4bbe-bda6-bf0b137bdb9c
+  gfr_ch1_daeran_ditch_4_rom_Cue_2051 -> 79400966-73b9-4563-8aa2-a605c7c9e684 a54da80a-7ad4-4729-888e-bbc88307b8e8
+  gfr_ch1_daeran_ditch_5_Cue_2052 -> 896bcf35-0bbd-4aeb-9692-9ef432b26440 a54da80a-7ad4-4729-888e-bbc88307b8e8
+  gfr_ch1_daeran_ditch_6_Answer_2052 -> 14fa71c7-f31b-4041-a9c5-a9e57ccf4ee6
+  gfr_ch1_daeran_ditch_7_Cue_2053 -> ea202c43-269a-4589-9644-fe045a3759c8
+  gfr_ch1_daeran_ditch_8_Answer_2053 -> e8210883-13a5-4c73-9d61-0798e614b1d4
+  gfr_ch1_daeran_ditch_9_Cue_2054 -> 6d385722-368e-4023-9cd9-3759e03dda9b
+  gfr_ch1_daeran_first_meet_met_earlier_0_Answer_2050 -> 97135c65-77ba-48cd-9a7b-e08672e697bb
+  gfr_ch1_daeran_first_meet_met_earlier_1_Cue_2050 -> f82344ec-a367-45db-9b3a-bce0ba6e93c5
+  gfr_ch1_irabeth_hulrun_killed_0_Answer_2050 -> 17b1ad5e-96e9-4ca8-ba9d-f4422d6ec265 956c7514-d1ed-43b7-80bf-a1d80cf7a326 ece88f42-f963-41c2-9a61-2f79e995787d
+  gfr_ch1_irabeth_hulrun_killed_1_Cue_2050 -> 590a1cea-eff2-4e44-ac2d-86e42e6ba472
+  gfr_ch1_irabeth_hulrun_killed_10_Answer_2054 -> 3243b0c9-df46-4118-bb1f-532274f71498
+  gfr_ch1_irabeth_hulrun_killed_11_Cue_bluff_success -> 52645383-ff65-4873-93da-fdc9c8041ded
+  gfr_ch1_irabeth_hulrun_killed_12_Cue_bluff_failed -> 920f44ff-094d-40be-bc90-936aa6b24acf
+  gfr_ch1_irabeth_hulrun_killed_3_Answer_2051 -> f9815a6a-dc28-497c-9edb-4d38d911ab88
+  gfr_ch1_irabeth_hulrun_killed_4_Cue_2051 -> 26d72ff0-e04c-46e4-ad75-99b194c2ac13
+  gfr_ch1_irabeth_hulrun_killed_6_Answer_2052 -> a025166a-e6d4-456d-b60d-81c5561f0030
+  gfr_ch1_irabeth_hulrun_killed_7_Cue_2052 -> 8e0d50af-fc44-42d9-b6ab-9be16671f3c9
+  gfr_ch1_irabeth_hulrun_killed_8_Answer_2053 -> 3820949c-6282-4f6e-b7d2-0de9e07a8042
+  gfr_ch1_irabeth_hulrun_killed_9_Cue_2053 -> c1160d9b-6a82-4cff-bef1-7bf37b7464b4
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_2_woljif_Cue_2050 -> 1d89c389-8d21-4d9b-a723-a59c0b4ee42a
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_3_seelah_Cue_2051 -> 91074daf-8cff-4a1c-8129-97f11861aa55
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_4_woljif_Cue_2052 -> 20b5b9fa-717c-416d-9eff-58060fb12851
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_5_camellia_Cue_2053 -> fb3c964c-f2b1-45e5-9600-d3210a69212f
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_6_daeran_Cue_2054 -> 1bd02438-1db6-4b7d-b1cd-b9ae7249cf98
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_7_ember_Cue_2055 -> 4bf582a9-0045-4af0-86c2-44f1f079a70c
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_8_nenio_Cue_2056 -> 84e321ec-348e-438b-a4b7-73b50edd21ee
+  gfr_ch1_kenabres_hulrun_killed_told_aranka_party_9_daeran_Cue_2057 -> 07007aed-2a75-492a-8f92-3e2436ea30af
+  gfr_ch1_ramien_hulrun_killed_market_square_0_Cue_2050 -> 2036f276-3cd1-4de4-939f-af7d99b7d67a
+  gfr_ch1_ramien_hulrun_killed_market_square_10_Cue_2054 -> 77ef4c63-1a95-4b73-9b34-20fad703e7ed
+  gfr_ch1_ramien_hulrun_killed_market_square_11_Answer_2053 -> fb755671-7bff-415a-94da-26de3982d8d3
+  gfr_ch1_ramien_hulrun_killed_market_square_12_Cue_2055 -> f686f117-c9fe-4c3e-a1e2-1ae19ec9729d
+  gfr_ch1_ramien_hulrun_killed_market_square_13_Answer_2054 -> 7f377023-0bd5-4917-bac4-471981bb00cc
+  gfr_ch1_ramien_hulrun_killed_market_square_14_Cue_2056 -> 33cb095e-ec0a-4630-9917-73960596c734
+  gfr_ch1_ramien_hulrun_killed_market_square_15_Answer_2055 -> 329ec9b8-4115-4634-ab30-3c9a8cb284ab
+  gfr_ch1_ramien_hulrun_killed_market_square_16_Cue_2057 -> 33cb095e-ec0a-4630-9917-73960596c734
+  gfr_ch1_ramien_hulrun_killed_market_square_2_Answer_2050 -> 43468a3d-8afb-4a84-aca5-2c58d9a52a3d 504e952a-a782-4938-ab2c-e33179acfd6f
+  gfr_ch1_ramien_hulrun_killed_market_square_3_Cue_2051 -> 77e7529a-2151-4b50-9ac9-873e7a8c62ae
+  gfr_ch1_ramien_hulrun_killed_market_square_6_daeran_Cue_2052 -> 02ef904a-7c3b-46bf-a04d-2b4445c7f236
+  gfr_ch1_ramien_hulrun_killed_market_square_7_Answer_2051 -> 4f2a6adc-7617-402d-bc9c-53f7659b4921 57b37bbc-b6d6-4b72-a33f-980e634835ab be24dbba-69e0-4a3f-bc5a-2940c312764a
+  gfr_ch1_ramien_hulrun_killed_market_square_8_Cue_2053 -> a3ce3193-2836-407a-b17f-384e68b9dd66
+  gfr_ch1_ramien_hulrun_killed_market_square_9_Answer_2052 -> 4f2a6adc-7617-402d-bc9c-53f7659b4921 be24dbba-69e0-4a3f-bc5a-2940c312764a ee15c46d-947e-4a1f-a5e7-e0b09cf56158
+  gfr_ch2_daeran_main_camp_Answer_2050 -> 2095d836-3e6e-4587-8e87-e47d6de9a2fb d0df80c8-00c8-431d-a76c-a51eb21201d2
+  gfr_ch2_daeran_mythic_demon_Cue_2050 -> 15a8d3c0-28d5-41eb-b61c-7f73c565aae9
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_0_Answer_2050 -> 9d4952e3-becc-4abb-8624-7e6b4bffde23 d71b6e95-f2d9-424d-abaa-1059be0db285
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_1_Cue_2050 -> 73105fae-1713-4fc3-be1a-51e1f15de536 9b8c55a7-f004-449f-9808-c43c3b857a60
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_10_Cue_2054_bluff2_success -> 083426d9-dcd9-412c-97ad-f70198aed5dc
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_11_Cue_2055_bluff2_fail -> 5c5a4ebd-b475-4405-befa-70370cdc5e23
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_12_Answer_2054 -> b4acde16-6f60-416a-b81f-c489fdc75c3e
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_13_Answer_2055 -> 59cdfc18-2609-4681-930c-de71430ad54a
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_2_Cue_2051 -> d55ddd07-c715-4ddd-a843-40d296c06ac7
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_4_Answer_2051 -> 80ad7180-23e9-419a-8ca2-cd0e32fee622
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_5_Answer_2052_bluff1 -> a8b560f0-05b9-48f4-ae80-c914fa3f70e4
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_6_Cue_2052_bluff1_success -> 39dcc5bd-c924-491f-bbf8-0b90404d36e7
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_7_Cue_2053_bluff1_fail -> 4ae0f629-5986-4f13-9ae2-aea473975c0d
+  gfr_ch2_daeran_q2_liotr_hulrun_killed_9_Answer_2053_bluff2 -> d94c9583-4908-4b69-903a-982b3e062f0b
+  gfr_ch2_lann_romance_apple_Answer_2000 -> 1138d866-49a2-4992-bfa9-c9d3e321f2b1 1defb483-a50b-4ab2-92a4-5b1275697770 4d28581d-1d17-4f9c-b62d-6d24ec009efe 86c8a64d-9a1b-49fc-ac25-ada941d8d9dd
+  gfr_ch2_lann_romance_apple_Cue_2000 -> 42dc4432-a293-4be2-8cef-354adeb932fa
+  gfr_ch2_lost_chapel_daeran_only_0_Answer_2050 -> 421035bc-3ad6-40dd-a600-483e8ed06c8e
+  gfr_ch2_lost_chapel_daeran_only_1_Cue_2050 -> 08023cf4-4e5a-4504-bec1-9c54e3bb6416
+  gfr_ch2_lost_chapel_daeran_only_2_sly_Answer_2050 -> 7b08ce12-9cab-4137-b45c-6b4c43b5a173 a14e53f8-44ae-4a1d-969c-f8158e7aa774
+  gfr_ch2_lost_chapel_daeran_only_3_sly_Cue_2050 -> 34350be2-64c5-4f4b-b32c-58a04c41b654
+  gfr_ch2_lost_chapel_daeran_only_4_rude_Answer_2050 -> 17f42446-08cf-4a69-a80c-e7a4eae89537 d0df80c8-00c8-431d-a76c-a51eb21201d2
+  gfr_ch2_lost_chapel_daeran_only_5_rude_Cue_2050 -> 1d77cf35-f3cf-4946-b7f9-3361aa7909d3 34a31769-737f-4e6f-83b8-b79e11c9aad6 4f3998b1-da97-4eb0-986b-5d40a33185ba 57525105-7972-4abf-8171-59dbb8f7e552 5d417e6f-d24f-4802-bfc0-860cf0622a6b 684ea784-fc0b-42cb-a465-5547b9524429 8540b49d-f6d5-4e21-86ba-1dead803f272 963616f9-3dff-48ec-8f17-f0bc17209b9b 97b4f0c2-5ff9-4d1f-aed1-26df673ed93d bf436251-bf07-49d5-b7b8-0107505d7963 d0b9e3da-897b-4744-99b0-be6ce6839135 fa7a7e25-405b-4b11-8fc6-c768983fe430 fe2c1fe3-58fa-4ad3-840c-34a7cfb06309
+  gfr_ch2_lost_chapel_ember_daeran_0_Answer_2050 -> 11a913a6-ab4f-45f2-9c7f-63069ddfc81b
+  gfr_ch2_lost_chapel_ember_daeran_3_ember_Cue_2050 -> 853a716a-b856-45f7-b152-2a2ad1e9d5d5
+  gfr_ch2_lost_chapel_ember_daeran_4_daeran_Cue_2051 -> d1bfba90-4fca-4c6a-a289-c1c64f548472
+  gfr_ch2_lost_chapel_regill_0_Answer_2050 -> e4090902-59a8-4f5b-a933-5b1fdd67366f
+  gfr_ch2_lost_chapel_regill_1_Cue_2050 -> a7adf461-9df9-4988-8e7e-239f5ab69fcc
+  gfr_ch2_lost_chapel_sosiel_0_Answer_2050 -> 99c75ffc-95d2-40c1-bdd8-02c95d915771 aa971998-2387-4b93-99c1-22d02feeb6b5 e46241f1-bfa6-457f-9186-1c4340107c05
+  gfr_ch2_lost_chapel_sosiel_1_Cue_2050 -> 0f488e18-3f49-47f2-ae7b-b8bb25086139
+  gfr_ch3_lann_romance_after_sparring_lann_0_spellcaster_Answer_2050 -> 05959f7c-ac66-4e83-a895-e8ef34aeb311 c77deb2c-3c9e-4717-8780-2a8bd8245247 ffecc2da-a845-443b-8bd9-8346f3089dc7
+  gfr_ch3_lann_romance_before_sparring_lann_0_spellcaster_Cue_2050 -> 05959f7c-ac66-4e83-a895-e8ef34aeb311 307eec6e-e774-49bf-b92a-486692764ff9 c77deb2c-3c9e-4717-8780-2a8bd8245247
+  gfr_ch3_lann_romance_before_sparring_lann_2_non-athletic_Cue_2051 -> dcc22019-71ea-4327-aaca-d8fc54fbf740
+  gfr_ch3_lann_romance_before_sparring_lann_3_athletic_Cue_2052 -> ace86fe0-b5e8-477a-a0ad-b68f17c4d94b
+  gfr_ch4_after_arena_greybor_0_Cue_2050_respect -> 214f95d1-d52c-4352-b5e5-9c1888a236c4 2bdad7f8-ba9c-4719-8f23-ca24a38c8c30 8f284c18-c769-428d-956b-ff1ebb0816b8 9d445b8a-051f-4418-915a-d97b77131a63 b2077482-bc1f-47fc-8b6d-37f0c5d54b24 b28e3ab0-07a9-4366-bd33-cec3e76d1ac1
+  gfr_ch4_after_arena_greybor_10_Answer_2053 -> 75047b22-897b-43ac-9a11-28dfc9986b33
+  gfr_ch4_after_arena_greybor_11_Cue_2055 -> 4d7e4988-d948-4284-ada8-96eee7b42779
+  gfr_ch4_after_arena_greybor_12_Answer_2054 -> cce3dbab-c6b4-4139-b22f-0fd12058e2fc
+  gfr_ch4_after_arena_greybor_13_Cue_2056 -> fac25803-6ea9-41d2-bac2-3ad255a9193d
+  gfr_ch4_after_arena_greybor_14_Answer_2055 -> 4de53d30-5acf-4165-a8d2-c99241cbe09e
+  gfr_ch4_after_arena_greybor_15_Cue_2057 -> 554e347a-4b14-41ed-9839-c0884de4ee48
+  gfr_ch4_after_arena_greybor_2_Answer_2050 -> b8b539d7-6b34-4d1e-82ae-4f9afbf1442c
+  gfr_ch4_after_arena_greybor_3_Cue_2051 -> b3703b5e-bf50-4b40-ae43-5ba08461e55b
+  gfr_ch4_after_arena_greybor_4_Answer_2051 -> 828951f6-8362-478d-bfcd-6461ddc11cfd
+  gfr_ch4_after_arena_greybor_5_Cue_2052 -> ea01fb59-b33b-457d-81e6-7d41e6f4df44
+  gfr_ch4_after_arena_greybor_6_Answer_2052 -> d13f4dd3-b088-49b8-880c-f3917420c67b
+  gfr_ch4_after_arena_greybor_7_Cue_2053 -> a0e00686-14cf-4e06-91ce-ce93c47f9c27
+  gfr_ch4_after_arena_greybor_8_Cue_2054_no_respect -> 2de3f816-4bb2-4a5b-8ad5-d09e6f912845 9d445b8a-051f-4418-915a-d97b77131a63 a0f431f4-57a5-4d48-a72b-750267e2431d c9e741a3-1dbf-4474-a96b-1b68cfbd49d7 d16e9d70-83ed-4d7f-9a79-5023f82dcf18 e6216f5a-90a4-429e-9920-81aae1d754f1
+  gfr_ch4_after_arena_seelah__Cue_2050 -> 61ea6549-1af0-48fd-8b5a-9ff757e1b964 6a636132-23c7-42ac-a56e-113baa397821 9d445b8a-051f-4418-915a-d97b77131a63 aedfd76c-1501-4092-9024-3fdf6fcfb423
+  gfr_ch4_after_arena_seelah__Cue_2051 -> 1f4da471-c97b-4751-8aa1-04a9aad90855
+  gfr_ch4_after_arena_seelah__Cue_2052 -> 891e9770-d4fe-4eee-b1e9-57cf367cda3c
+  gfr_ch4_after_arena_seelah__Cue_2053 -> 2922051b-6279-4b52-85be-086f959f2e56
+  gfr_ch4_after_arena_seelah_Answer_2050 -> 58f1da5d-1e77-4f7e-a1a2-1effe51ca381
+  gfr_ch4_after_arena_seelah_Answer_2051 -> b62cc3d6-a2ff-427e-80c9-e7f96b3ea2b4
+  gfr_ch4_after_arena_seelah_Answer_2052 -> 52824ff1-25a8-4c9c-a4f2-8bc00db76c67
+  gfr_ch4_delights_doppel_2_everyone_arueshalae_rom_Cue_2055 -> 0b75b979-a6fc-4ab4-b1a0-aae07dbf8046 655a3669-5974-4196-86f1-58ddce90233b
+  gfr_ch4_delights_doppel_2_everyone_daeran_rom_Cue_2052 -> 0d10c032-0596-4e17-8c74-b161141f1483 a54da80a-7ad4-4729-888e-bbc88307b8e8
+  gfr_ch4_delights_doppel_2_everyone_ember_Cue_2058 -> 6e4ce862-e201-4f42-9ed3-051d9781cca0
+  gfr_ch4_delights_doppel_2_everyone_greybor_Cue_2057 -> aa9a249b-15ac-4547-b0fd-91fc9be2f7a9
+  gfr_ch4_delights_doppel_2_everyone_lann_Cue_2054 -> 34789a82-9f92-4993-9d4a-b0c188df6d45 4d28581d-1d17-4f9c-b62d-6d24ec009efe
+  gfr_ch4_delights_doppel_2_everyone_lann_rom_Cue_2053 -> 4d28581d-1d17-4f9c-b62d-6d24ec009efe b9960cb5-63b1-4e07-affa-af37588cb00e
+  gfr_ch4_delights_doppel_2_everyone_regill_Cue_2056 -> 5a01b58a-c6f5-46c2-a56e-1e98b43687cd
+  gfr_ch4_delights_doppel_2_everyone_seelah_Cue_2050 -> d262b836-1944-4487-ad68-ce57a1c9f548
+  gfr_ch4_delights_doppel_2_everyone_sosiel_rom_Cue_2051 -> b7fe4079-020e-472a-a558-1ff816819c0f ea36b8aa-dfc3-4c12-8995-aeb6f6398ef8
+  gfr_ch4_delights_doppel_3_everyone_10_Cue_2057 -> 43468a3d-8afb-4a84-aca5-2c58d9a52a3d cfa22ffe-844d-41fe-bcaf-11f2d5db76b8
+  gfr_ch4_delights_doppel_3_everyone_11_Cue_2058 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_14_daeran_rom_Cue_2059 -> 90796e5b-b98c-4db9-b1f0-f69e1e389ce5 a54da80a-7ad4-4729-888e-bbc88307b8e8
+  gfr_ch4_delights_doppel_3_everyone_15_daeran_Cue_2060 -> 20126cc3-7ee5-45c8-97d6-4a653918ccf9 a54da80a-7ad4-4729-888e-bbc88307b8e8
+  gfr_ch4_delights_doppel_3_everyone_16_Cue_2061 -> 18f48cf1-ac4d-47b8-8744-bcee8bccd1ea f37be99b-4f2b-42f7-a2a1-c13451715aff
+  gfr_ch4_delights_doppel_3_everyone_17_Cue_2062 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_2_nenio_Cue_2050 -> 7b7eb0c3-bc08-4a83-8a86-38c56dfc8ee7
+  gfr_ch4_delights_doppel_3_everyone_20_lann_rom_Cue_2063 -> 4d28581d-1d17-4f9c-b62d-6d24ec009efe a978038e-8bcf-41e0-853f-77141fb5ffba
+  gfr_ch4_delights_doppel_3_everyone_21_lann_Cue_2064 -> 140ae08f-307f-41dd-a2b4-fc7ed24036f9 4d28581d-1d17-4f9c-b62d-6d24ec009efe
+  gfr_ch4_delights_doppel_3_everyone_22_Cue_2065 -> aacc7999-126b-45ba-b2f6-4196e271df3b d713e24c-db5a-4ad0-9ec0-30b4c633e2bc
+  gfr_ch4_delights_doppel_3_everyone_23_Cue_2066 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_26_sosiel_rom_Cue_2067 -> b7fe4079-020e-472a-a558-1ff816819c0f ca680661-2d51-423f-9f9c-a58d16a7218e
+  gfr_ch4_delights_doppel_3_everyone_27_sosiel_Cue_2068 -> 8ce60861-52c1-4bf6-acfb-3c617c6e4102 b7fe4079-020e-472a-a558-1ff816819c0f
+  gfr_ch4_delights_doppel_3_everyone_28_Cue_2069 -> 3c057981-eb77-4380-beb3-09e4047e0626 b2a8a691-b126-4a2d-bc60-5e20830cb519
+  gfr_ch4_delights_doppel_3_everyone_29_Cue_2070 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_3_regill_Cue_2051 -> 9fe1e5b5-b33c-4d56-8b84-5660e2262da6
+  gfr_ch4_delights_doppel_3_everyone_32_arueshalae_rom_Cue_2071 -> 0b75b979-a6fc-4ab4-b1a0-aae07dbf8046 cbec8145-6a36-4655-ad87-482fc832f3ec
+  gfr_ch4_delights_doppel_3_everyone_33_arueshalae_Cue_2072 -> 0b75b979-a6fc-4ab4-b1a0-aae07dbf8046 dbce35e3-0fc6-4f00-91fa-fadaf1174f7d
+  gfr_ch4_delights_doppel_3_everyone_34_Cue_2073 -> 1ee439c4-f812-4e7e-a7fe-7b52b30cc1dd b086c092-6f33-43d5-a8b9-d5fe84a9e514
+  gfr_ch4_delights_doppel_3_everyone_35_Cue_2074 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_38_camellia_rom_Cue_2075 -> 475c1581-df4a-4af5-83f2-e7b589d42c2c 94c288be-f0ee-4f58-9ceb-cf845491286d
+  gfr_ch4_delights_doppel_3_everyone_39_camellia_Cue_2076 -> 07eba517-4d46-4c13-a2fd-356c93de6f8c 94c288be-f0ee-4f58-9ceb-cf845491286d b795306b-daca-44a6-af0d-0343edb3e0b4
+  gfr_ch4_delights_doppel_3_everyone_4_woljif_Cue_2052 -> 16b5a76d-482e-4d6d-a9ee-209547129f21
+  gfr_ch4_delights_doppel_3_everyone_40_Cue_2077 -> 12d24bc4-cea2-4c99-978e-5fb7f25c2325 5d0dc619-22f2-4de7-9b92-c3e57a0788fd
+  gfr_ch4_delights_doppel_3_everyone_41_Cue_2078 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_44_greybor_Cue_2079 -> 479dcf39-0acc-4f46-890a-d4b0d8ec3746
+  gfr_ch4_delights_doppel_3_everyone_45_Cue_2080 -> 6611165d-9750-45fd-afb0-9fe6e34b496e e2ca79cc-e54e-43b5-ad1f-d7c7a5107e8f
+  gfr_ch4_delights_doppel_3_everyone_46_Cue_2081 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_49_regill_Cue_2082 -> 881f8d0b-9bcd-4490-a608-67210dba9c33
+  gfr_ch4_delights_doppel_3_everyone_5_seelah_Cue_2053 -> a77d543f-41fa-42da-adf8-0be94ef09af2
+  gfr_ch4_delights_doppel_3_everyone_50_Cue_2083 -> 325c02d0-c967-4610-82e2-a1237d64dfc3 6ce1fe5b-cdc4-4dca-8e47-a8c19013b782
+  gfr_ch4_delights_doppel_3_everyone_51_Cue_2084 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_54_seelah_Cue_2085 -> e650b695-18e1-44ae-9861-d2070da4bdf6
+  gfr_ch4_delights_doppel_3_everyone_55_Cue_2086 -> 49517aba-2e63-47ff-b181-0b6fdb423e1a d3a3f0ef-df2a-4582-bd41-e5a976885b7b
+  gfr_ch4_delights_doppel_3_everyone_56_Cue_2087 -> 34a17abb-fa8c-43e2-b09f-c457a21a810a
+  gfr_ch4_delights_doppel_3_everyone_59_woljif_Cue_2088 -> 6b4e3334-7f50-4893-999d-3040d6ff139a
+  gfr_ch4_delights_doppel_3_everyone_6_seelah_Cue_2054 -> d4ba2396-98af-44e3-b166-21364880d1ad
+  ... truncated
+=== sample blueprint: CommandStartDialog.jbp (first 130 lines) ===
+  {
+    "AssetId": "2e571a220ab740919bf73db4804df7f4",
+    "Data": {
+      "$type": "dd8667f2c38e5804fba853885780b39a, CommandStartDialog",
+      "EntryCondition": {
+        "Operation": "And",
+        "Conditions": []
+      },
+      "OnFail": "RemoveTrack",
+      "Speaker": null,
+      "m_Dialog": "!bp_db702d15afe3415e861bf7bb60d73f3e",
+      "DialogEvaluator": null,
+      "SpeakerName": {
+        "m_Key": "",
+        "m_OwnerString": "",
+        "m_OwnerPropertyPath": "",
+        "m_JsonPath": "",
+        "Shared": null
+      }
+    }
+  }
