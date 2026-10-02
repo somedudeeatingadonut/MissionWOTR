@@ -97,6 +97,20 @@ namespace MissionWOTR.Archetypes
     internal static BlueprintBuff DreadMienBuff15;
     internal static BlueprintBuff DreadMienBuff30;
     internal static BlueprintBuff CondemnedDoomed;
+    internal static BlueprintBuff CondemnedDoomed2;
+
+    /// <summary>
+    /// 0.53.0 - the Sentence of Ruin's mark deepens: -2 from 14th level,
+    /// -3 from 17th. Returns null when neither tier is wired.
+    /// </summary>
+    internal static BlueprintBuff DoomedMarkerFor(int level)
+    {
+      if (level >= 17 && CondemnedDoomed2 is not null)
+      {
+        return CondemnedDoomed2;
+      }
+      return CondemnedDoomed;
+    }
     internal static BlueprintFeature SentenceOfRuinFeature;
     internal static BlueprintFeature FinalVerdictFeature;
 
@@ -130,6 +144,24 @@ namespace MissionWOTR.Archetypes
           descriptor: ModifierDescriptor.UntypedStackable)
         .Configure();
 
+      // 0.53.0 - the same mark, deeper, from 17th level.
+      CondemnedDoomed2 = BuffConfigurator.New("DoomsayerCondemnedDoomed2", Guids.DoomsayerCondemnedDoomed2)
+        .SetDisplayName("DoomsayerCondemnedDoomed.Name")
+        .SetDescription("DoomsayerCondemnedDoomed2.Description")
+        .SetIcon(icon)
+        .SetIsClassFeature()
+        .AddStatBonus(stat: StatType.AdditionalAttackBonus, value: -3,
+          descriptor: ModifierDescriptor.UntypedStackable)
+        .AddStatBonus(stat: StatType.SaveWill, value: -3,
+          descriptor: ModifierDescriptor.UntypedStackable)
+        .AddStatBonus(stat: StatType.SaveReflex, value: -3,
+          descriptor: ModifierDescriptor.UntypedStackable)
+        .AddStatBonus(stat: StatType.SaveFortitude, value: -3,
+          descriptor: ModifierDescriptor.UntypedStackable)
+        .AddStatBonus(stat: StatType.AC, value: -3,
+          descriptor: ModifierDescriptor.UntypedStackable)
+        .Configure();
+
       // ----- Dread Mien's payload: the weight of doom (not fear) -----
       var dreadDebuff = BuffConfigurator.New("DoomsayerDreadDebuff", Guids.DoomsayerDreadDebuffBuff)
         .SetDisplayName("DoomsayerDreadDebuff.Name")
@@ -139,7 +171,7 @@ namespace MissionWOTR.Archetypes
         // 0.17.1 nerf (user ask): the weight of doom applies only AGAINST
         // the doomsayer - the enemy strikes and saves at full strength
         // against everyone else while inside her mien.
-        .AddComponent(new DoomsayerDreadWeight())
+        .AddComponent(new DoomsayerDreadWeight { Class = inquisitor })
         .Configure();
 
       // ----- The auras: the game's own area-effect system (the same
@@ -318,24 +350,43 @@ namespace MissionWOTR.Archetypes
     IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
-    private static bool AgainstDoomsayer(UnitEntityData unit)
+    public BlueprintCharacterClass Class;
+
+    /// <summary>
+    /// 0.53.0 - the weight of doom was a flat -2 from the day it arrived at
+    /// 8th level until the end of the campaign. It now deepens with the
+    /// doomsayer's years: -2 at 8th, -3 at 12th, -4 at 16th.
+    /// </summary>
+    private int Penalty(UnitEntityData doomsayer)
+    {
+      var level = Class is null ? 8 : doomsayer.Progression.GetClassLevel(Class);
+      return level >= 16 ? 4 : level >= 12 ? 3 : 2;
+    }
+
+    /// <summary>
+    /// The doomsayer whose mien the unit is standing in, or null. Returned as
+    /// an entity rather than a bool so the handlers can read her level.
+    /// </summary>
+    private static UnitEntityData MienBearer(UnitEntityData unit)
     {
       return unit is not null &&
         ((Doomsayer.DreadMienBuff15 is not null &&
           unit.Buffs.GetBuff(Doomsayer.DreadMienBuff15) != null) ||
          (Doomsayer.DreadMienBuff30 is not null &&
-          unit.Buffs.GetBuff(Doomsayer.DreadMienBuff30) != null));
+          unit.Buffs.GetBuff(Doomsayer.DreadMienBuff30) != null))
+        ? unit
+        : null;
     }
-
     public void OnEventAboutToTrigger(RuleCalculateAttackBonus evt)
     {
       try
       {
-        if (evt.Initiator != Owner || !AgainstDoomsayer(evt.Target))
+        var bearer = MienBearer(evt.Target);
+        if (evt.Initiator != Owner || bearer is null)
         {
           return;
         }
-        evt.AddModifier(-2, Fact, ModifierDescriptor.UntypedStackable);
+        evt.AddModifier(-Penalty(bearer), Fact, ModifierDescriptor.UntypedStackable);
       }
       catch (Exception e)
       {
@@ -347,12 +398,13 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        if (evt.Initiator != Owner || !AgainstDoomsayer(evt.Reason?.Caster))
+        var bearer = MienBearer(evt.Reason?.Caster);
+        if (evt.Initiator != Owner || bearer is null)
         {
           return;
         }
         // The roller saves against her: the penalty rides her DC.
-        evt.AddBonusDC(2);
+        evt.AddBonusDC(Penalty(bearer));
       }
       catch (Exception e)
       {
@@ -504,7 +556,7 @@ namespace MissionWOTR.Archetypes
         // something everyone can see.
         var marker = Doomsayer.SentenceOfRuinFeature is not null &&
           caster.HasFact(Doomsayer.SentenceOfRuinFeature)
-            ? Doomsayer.CondemnedDoomed
+            ? Doomsayer.DoomedMarkerFor(level)
             : Doomsayer.CondemnedMarker;
         if (marker is not null)
         {

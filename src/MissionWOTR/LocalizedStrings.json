@@ -3303,7 +3303,7 @@
   {
     "Key": "DoomsayerDreadMien.Description",
     "ProcessTemplates": false,
-    "enGB": "Verdicts yet unspoken hang about her like weather. Enemies within 15 feet take a -2 penalty on attack rolls and saving throws made against the doomsayer while they remain there - against anyone else, their strength is their own. This is the weight of doom, not fear - no save is allowed, and even creatures immune to fear feel it. This replaces second judgment."
+    "enGB": "Verdicts yet unspoken hang about her like weather. Enemies within 15 feet take a -2 penalty on attack rolls and saving throws made against the doomsayer while they remain there - deepening to -3 at 12th level and -4 at 16th - against anyone else, their strength is their own. This is the weight of doom, not fear - no save is allowed, and even creatures immune to fear feel it. This replaces second judgment."
   },
   {
     "Key": "DoomsayerDeathsEcho.Name",
@@ -3323,7 +3323,7 @@
   {
     "Key": "DoomsayerSentenceOfRuin.Description",
     "ProcessTemplates": false,
-    "enGB": "At 14th level, the condemned wears the sentence where all can see it: while marked, the creature takes a -2 penalty on attack rolls, saving throws and Armor Class - against her and against everyone else. This replaces exploit weakness."
+    "enGB": "At 14th level, the condemned wears the sentence where all can see it: while marked, the creature takes a -2 penalty on attack rolls, saving throws and Armor Class - against her and against everyone else, deepening to -3 from 17th level. This replaces exploit weakness."
   },
   {
     "Key": "DoomsayerDreadMienGreater.Name",
@@ -3366,6 +3366,11 @@
     "enGB": "The doomsayer has read this creature its sentence, and the sentence is ruin: -2 on attack rolls, saving throws and Armor Class until the sentence is executed or she condemns another."
   },
   {
+    "Key": "DoomsayerCondemnedDoomed2.Description",
+    "ProcessTemplates": false,
+    "enGB": "The doomsayer has read this creature its sentence, and the sentence is ruin: -3 on attack rolls, saving throws and Armor Class until the sentence is executed or she condemns another. She has been reading sentences a long time, and this one is heavier than the ones she used to write."
+  },
+  {
     "Key": "DoomsayerDreadDebuff.Name",
     "ProcessTemplates": false,
     "enGB": "Doom's Weight"
@@ -3373,7 +3378,7 @@
   {
     "Key": "DoomsayerDreadDebuff.Description",
     "ProcessTemplates": false,
-    "enGB": "Verdicts unspoken hang about the doomsayer; within her mien, enemies take a -2 penalty on attack rolls and saving throws made against her."
+    "enGB": "Verdicts unspoken hang about the doomsayer; within her mien, enemies take a penalty on attack rolls and saving throws made against her: -2, or -3 from her 12th level and -4 from her 16th."
   },
   {
     "Key": "ExplosionInfusion.Name",

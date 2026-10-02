@@ -700,6 +700,9 @@ namespace MissionWOTR
     internal const string DoomsayerFinalVerdictFeature = "AE7E694B-7C6D-4980-81AD-CA5561BEB0FC";
     internal const string DoomsayerCondemnedMarkerBuff = "4C6136D8-2739-4321-9485-21727D416495";
     internal const string DoomsayerCondemnedDoomedBuff = "D2CF0083-1C8F-4006-81DC-79154162ACED";
+    // 0.53.0 - the Sentence of Ruin's mark deepens at 17th level (-3 instead
+    // of -2), so the archetype keeps paying out past the level it arrives at.
+    internal const string DoomsayerCondemnedDoomed2 = "E2C44DDC-D7A4-4B7A-B308-1D558021C860";
     internal const string DoomsayerDreadDebuffBuff = "092CA0AC-12BF-450A-9449-96FE39A4E485";
     internal const string DoomsayerDreadMienArea15 = "F24F5022-F45A-4381-8D1D-C5A8A906E126";
     internal const string DoomsayerDreadMienArea30 = "9D1F02F3-778F-4FE9-BB8E-78C7646F58AD";
