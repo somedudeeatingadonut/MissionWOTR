@@ -2843,7 +2843,7 @@
   {
     "Key": "Venomblood.Description",
     "ProcessTemplates": false,
-    "enGB": "Some hunters are raised on mother's milk. The venomblood was raised on serpent venom, and it never left her blood. She keeps her hound and her beast-aspects, but where other hunters win through coordination - shared tactics, teamwork, one-ness with the wild - she wins through attrition: every bite of her blade leaves poison behind, and the fight is over when the enemy's body gives out. She trades hunter tactics, her teamwork feats, woodland stride and one with the wild for the serpent's gifts."
+    "enGB": "Some hunters are raised on mother's milk. The venomblood was raised on serpent venom, and it never left her blood. She keeps her hound and her beast-aspects, but where other hunters win through coordination - shared tactics, teamwork, one-ness with the wild - she wins through attrition: every bite of her blade leaves poison behind, and the fight is over when the enemy's body gives out. She trades hunter tactics, her teamwork feats, woodland stride and one with the wild for the serpent's gifts, and the venom in her deepens all her life: the dose grows at 12th level and again at 16th."
   },
   {
     "Key": "VenombloodSerpentsGift.Name",
@@ -2853,7 +2853,7 @@
   {
     "Key": "VenombloodSerpentsGift.Description",
     "ProcessTemplates": false,
-    "enGB": "Once per round, the venomblood's first weapon attack that hits injects venom: the target must pass a Fortitude save (DC 10 + half her hunter level + Wisdom) or take 1d2 Constitution damage as the toxin courses through it. The strain burns out after a round, and every round's first hit brings a fresh dose and a fresh save. The venom is supernatural and works even on creatures immune to poison, though they resist it (+4 on the save). This replaces hunter tactics and the teamwork-feat progression."
+    "enGB": "Once per round, the venomblood's first weapon attack that hits injects venom: the target must pass a Fortitude save (DC 10 + half her hunter level + Wisdom) or take 1d2 Constitution damage as the toxin courses through it - 1d4 from 12th level, 1d6 from 16th. The strain burns out after a round, and every round's first hit brings a fresh dose and a fresh save. The venom is supernatural and works even on creatures immune to poison, though they resist it (+4 on the save). This replaces hunter tactics and the teamwork-feat progression."
   },
   {
     "Key": "VenombloodSerpentsSkin.Name",
@@ -2883,7 +2883,37 @@
   {
     "Key": "VenombloodToxinStrain.Description",
     "ProcessTemplates": false,
-    "enGB": "Serpent venom burning through the veins: 1d2 Constitution damage as it enters the blood. The strain burns out after a round."
+    "enGB": "Serpent venom burning through the veins: 1d2 Constitution damage as it enters the blood - rising to 1d4 at 12th level and 1d6 at 16th. The strain burns out after a round."
+  },
+  {
+    "Key": "VenombloodDebilitatingStrain.Name",
+    "ProcessTemplates": false,
+    "enGB": "Venomblood Debilitation"
+  },
+  {
+    "Key": "VenombloodDebilitatingStrain.Description",
+    "ProcessTemplates": false,
+    "enGB": "The venom has found the muscles: 1d2 Dexterity damage as it enters the blood. The strain burns out after a round."
+  },
+  {
+    "Key": "VenombloodPotentVenom.Name",
+    "ProcessTemplates": false,
+    "enGB": "Potent Venom"
+  },
+  {
+    "Key": "VenombloodPotentVenom.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 12th level the venom in the venomblood's blood has had twelve years to concentrate. Serpent's Gift now deals 1d4 Constitution damage instead of 1d2, and a target that fails its save also takes 1d2 Dexterity damage as the toxin reaches the muscles."
+  },
+  {
+    "Key": "VenombloodLethalVenom.Name",
+    "ProcessTemplates": false,
+    "enGB": "Lethal Venom"
+  },
+  {
+    "Key": "VenombloodLethalVenom.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 16th level the venom stops being a nuisance and starts being a sentence. Serpent's Gift now deals 1d6 Constitution damage, and the sickening that Neurotoxin inflicts on a failed save becomes nausea instead - a target that fails cannot act at all for a round."
   },
   {
     "Key": "Riftstalker.Name",

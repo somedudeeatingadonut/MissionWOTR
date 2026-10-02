@@ -60,23 +60,73 @@ namespace MissionWOTR.Archetypes
 
     // Wired during Configure; read by the delivery component.
     internal static BlueprintBuff ToxinStrain;
+    internal static BlueprintBuff ToxinStrain2;
+    internal static BlueprintBuff ToxinStrain3;
+    internal static BlueprintBuff DebilitatingStrain;
     internal static BlueprintFeature NeurotoxinFeature;
+    internal static BlueprintFeature PotentVenomFeature;
+    internal static BlueprintFeature LethalVenomFeature;
+
+    /// <summary>
+    /// 0.53.0 — the dose deepens with the hunter's years: 1d2 Constitution at
+    /// 1st, 1d4 at 12th, 1d6 at 16th.
+    /// </summary>
+    internal static BlueprintBuff StrainFor(int level)
+    {
+      if (level >= 16 && ToxinStrain3 is not null)
+      {
+        return ToxinStrain3;
+      }
+      if (level >= 12 && ToxinStrain2 is not null)
+      {
+        return ToxinStrain2;
+      }
+      return ToxinStrain;
+    }
+
+    /// <summary>
+    /// One tier of the toxin: 1dN Constitution damage as it enters the blood.
+    /// The three tiers share a display name and description; the delivery
+    /// component picks one by level.
+    /// </summary>
+    private static BlueprintBuff ConStrain(string name, string guid, DiceType dice)
+    {
+      return BuffConfigurator.New(name, guid)
+        .SetDisplayName("VenombloodToxinStrain.Name")
+        .SetDescription("VenombloodToxinStrain.Description")
+        .SetIcon(AbilityRefs.Poison.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .AddFactContextActions(activated: ActionsBuilder.New().DealStatDamage(
+          new DiceFormula(1, dice), StatType.Constitution,
+          ElementTool.Create<ContextTargetUnit>(), damageBonus: 0))
+        .Configure();
+    }
 
     public static void Configure()
     {
       var hunter = CharacterClassRefs.HunterClass.Reference.Get();
       var venomIcon = AbilityRefs.Poison.Reference.Get().Icon;
 
-      // ----- The toxin strain: 1d2 Con damage the moment it enters the blood -----
+      // ----- The toxin strain: Con damage the moment it enters the blood ----
       // Built like the Eldritch Poisoner's strains (stat damage on the buff's
       // activated action) - the same Owlcat-adjacent wiring, one round of burn.
-      ToxinStrain = BuffConfigurator.New("VenombloodToxinStrain", Guids.VenombloodToxinStrain)
-        .SetDisplayName("VenombloodToxinStrain.Name")
-        .SetDescription("VenombloodToxinStrain.Description")
+      // 0.53.0: three tiers, picked by level in StrainFor.
+      ToxinStrain = ConStrain(
+        "VenombloodToxinStrain", Guids.VenombloodToxinStrain, DiceType.D2);
+      ToxinStrain2 = ConStrain(
+        "VenombloodToxinStrain2", Guids.VenombloodToxinStrain2, DiceType.D4);
+      ToxinStrain3 = ConStrain(
+        "VenombloodToxinStrain3", Guids.VenombloodToxinStrain3, DiceType.D6);
+
+      // ----- Potent Venom's rider (12th): the venom also saps Dexterity ----
+      DebilitatingStrain = BuffConfigurator.New(
+          "VenombloodDebilitatingStrain", Guids.VenombloodDebilitatingStrain)
+        .SetDisplayName("VenombloodDebilitatingStrain.Name")
+        .SetDescription("VenombloodDebilitatingStrain.Description")
         .SetIcon(venomIcon)
         .SetIsClassFeature()
         .AddFactContextActions(activated: ActionsBuilder.New().DealStatDamage(
-          new DiceFormula(1, DiceType.D2), StatType.Constitution,
+          new DiceFormula(1, DiceType.D2), StatType.Dexterity,
           ElementTool.Create<ContextTargetUnit>(), damageBonus: 0))
         .Configure();
 
@@ -106,13 +156,34 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .Configure();
 
+      // ----- Potent Venom (12th) / Lethal Venom (16th) ----
+      // 0.53.0 - the user's note that the archetype needed more over the
+      // levels was fair: it granted at 1st, 6th and 9th and then flat-lined
+      // for eleven levels. These two are the back half, and they carry the
+      // strain upgrades with them so the climb is visible in the tooltip.
+      PotentVenomFeature = FeatureConfigurator.New("VenombloodPotentVenom", Guids.VenombloodPotentVenom)
+        .SetDisplayName("VenombloodPotentVenom.Name")
+        .SetDescription("VenombloodPotentVenom.Description")
+        .SetIcon(venomIcon)
+        .SetIsClassFeature()
+        .Configure();
+
+      LethalVenomFeature = FeatureConfigurator.New("VenombloodLethalVenom", Guids.VenombloodLethalVenom)
+        .SetDisplayName("VenombloodLethalVenom.Name")
+        .SetDescription("VenombloodLethalVenom.Description")
+        .SetIcon(venomIcon)
+        .SetIsClassFeature()
+        .Configure();
+
       var archetype =
         ArchetypeConfigurator.New(ArchetypeName, Guids.VenombloodArchetype, CharacterClassRefs.HunterClass)
           .SetLocalizedName("Venomblood.Name")
           .SetLocalizedDescription("Venomblood.Description")
           .AddToAddFeatures(LevelPlan.L(1), serpentsGift)
           .AddToAddFeatures(LevelPlan.L(6), serpentsSkin)
-          .AddToAddFeatures(LevelPlan.L(9), NeurotoxinFeature);
+          .AddToAddFeatures(LevelPlan.L(9), NeurotoxinFeature)
+          .AddToAddFeatures(LevelPlan.L(12), PotentVenomFeature)
+          .AddToAddFeatures(LevelPlan.L(16), LethalVenomFeature);
 
       archetype = ArchetypeRemovals.AddRemovals(
         archetype, hunter,
@@ -172,14 +243,15 @@ namespace MissionWOTR.Archetypes
         }
 
         var target = evt.Target;
+        var level = Owner.Progression.GetClassLevel(Class);
+        var strain = Venomblood.StrainFor(level);
 
-        // No reapplication while the strain is already burning.
-        if (Venomblood.ToxinStrain is not null && target.Buffs.GetBuff(Venomblood.ToxinStrain) is not null)
+        // No reapplication while this tier of the strain is already burning.
+        if (strain is not null && target.Buffs.GetBuff(strain) is not null)
         {
           return;
         }
 
-        var level = Owner.Progression.GetClassLevel(Class);
         var dc = 10 + level / 2 + Owner.Stats.Wisdom.Bonus;
 
         // Supernatural venom: bites even poison-immune demons, though they
@@ -199,12 +271,26 @@ namespace MissionWOTR.Archetypes
         }
 
         var seconds = ContextDuration.Fixed(1).Calculate(Context).Seconds;
-        target.AddBuff(Venomblood.ToxinStrain, Context, duration: seconds);
+        target.AddBuff(strain, Context, duration: seconds);
 
-        // Neurotoxin (9th): the venom reaches the nerves.
+        // Potent Venom (12th): the venom also saps Dexterity.
+        if (Venomblood.DebilitatingStrain is not null &&
+          Venomblood.PotentVenomFeature is not null &&
+          Owner.HasFact(Venomblood.PotentVenomFeature))
+        {
+          target.AddBuff(Venomblood.DebilitatingStrain, Context, duration: seconds);
+        }
+
+        // Neurotoxin (9th): the venom reaches the nerves. Lethal Venom (16th)
+        // upgrades the sickening to nausea - the Eldritch Poisoner's 12th-level
+        // escalation, at the same shape.
         if (Venomblood.NeurotoxinFeature is not null && Owner.HasFact(Venomblood.NeurotoxinFeature))
         {
-          target.AddBuff(BuffRefs.Sickened.Reference.Get(), Context, duration: seconds);
+          var lethal = Venomblood.LethalVenomFeature is not null &&
+            Owner.HasFact(Venomblood.LethalVenomFeature);
+          target.AddBuff(
+            (lethal ? BuffRefs.Nauseated : BuffRefs.Sickened).Reference.Get(),
+            Context, duration: seconds);
         }
       }
       catch (Exception e)

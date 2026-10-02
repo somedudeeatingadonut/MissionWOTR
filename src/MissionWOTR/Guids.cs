@@ -649,6 +649,15 @@ namespace MissionWOTR
     internal const string VenombloodNeurotoxin = "02772F08-1B73-41B0-8CF1-40E31497FCEC";
     internal const string VenombloodToxinStrain = "481E888B-B10F-4A6D-8BA4-67190089C824";
     internal const string VenombloodDeliveryComponent = "F8881350-4A67-467E-A7EC-66970AC40ED6";
+    // 0.53.0 - the venom now deepens over levels (user: it needed more per
+    // level). 1d2 Con at 1st, 1d4 at 12th with Potent Venom, 1d6 at 16th with
+    // Lethal Venom; Potent Venom also saps Dexterity, Lethal Venom nauseates
+    // instead of sickening.
+    internal const string VenombloodToxinStrain2 = "73862348-A079-4477-98CF-C39C2E7ABB24";
+    internal const string VenombloodToxinStrain3 = "9C9554E5-C8BE-41E4-B5CB-6BBFCA13481D";
+    internal const string VenombloodDebilitatingStrain = "A1B8DEC8-1237-470F-B42B-3A470C63B77F";
+    internal const string VenombloodPotentVenom = "103215B0-E4B8-4876-880D-4048780AFE3C";
+    internal const string VenombloodLethalVenom = "89A2F15C-549B-497E-9AB6-6ED20762A577";
     internal const string RiftstalkerArchetype = "60FBDC2E-C9E7-4532-B439-A3C10085E021";
     internal const string RiftstalkerRiftMark = "6747D944-92CC-476F-B34D-9F66757BB5FB";
     internal const string RiftstalkerRiftStride = "BE705094-1A30-45CC-83DF-63D06CC8F637";
