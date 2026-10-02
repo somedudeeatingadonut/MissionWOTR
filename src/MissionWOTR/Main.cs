@@ -193,7 +193,7 @@ namespace MissionWOTR
       }
       catch (Exception e)
       {
-        Logger.Warn("[diag] localization pack dump failed.", e);
+        Logger.Warn($"[diag] localization pack dump failed: {e}");
       }
     }
 
