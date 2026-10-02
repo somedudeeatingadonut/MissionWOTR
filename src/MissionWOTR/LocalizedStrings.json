@@ -6201,7 +6201,7 @@
   {
     "Key": "BastionOfFaith.Description",
     "ProcessTemplates": false,
-    "enGB": "At 11th level the faith stops being something she carries and becomes something she stands inside. She gains a +2 sacred bonus on Fortitude, Reflex and Will saves, which stacks with the shield bonus she already has - the wall thickens rather than hardening in one place."
+    "enGB": "At 11th level the sacred shield becomes a wall. She gains a +2 sacred bonus to Fortitude, Reflex and Will saves, and damage reduction 5/evil - physical blows that are not evil-aligned lose 5 points against her. The reduction is strong, and it is supposed to be: it is the tabletop's Bastion of Faith, and she has given up smite evil to have it."
   },
   {
     "Key": "Bloodmarked.Name",

@@ -9,6 +9,7 @@ using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -54,9 +55,14 @@ namespace MissionWOTR.Archetypes
   /// both less code and more correct than the manual conservation the
   /// withdrawn Intercessor did by hand.
   ///
-  /// DOCUMENTED CUT: the Bastion of Faith damage reduction is still out —
-  /// DR 5/evil needs an alignment-qualified physical resistance that the
-  /// simple configurator surface does not expose.
+  /// 0.56.0 — BASTION OF FAITH'S DAMAGE REDUCTION IS REAL. The 0.54.0/0.55.0
+  /// notes called DR 5/evil a documented cut on the grounds that the
+  /// configurator surface did not expose an alignment-qualified physical
+  /// resistance. It does. The probe of the game DLL shows
+  /// AddDamageResistancePhysical carrying public BypassedByAlignment and
+  /// Alignment fields alongside the material ones, plus a
+  /// CheckBypassedByAlignment(damage) method that the engine calls for us.
+  /// Nothing left is cut from this archetype.
   /// </summary>
   internal static class SacredShield
   {
@@ -115,6 +121,14 @@ namespace MissionWOTR.Archetypes
 
       // Bastion of Faith (11th): sacred, so it stacks with the shield bonus
       // rather than replacing it.
+      //
+      // DR 5/evil. Verified against the game DLL rather than assumed: the
+      // component's alignment fields are public, and the engine's own
+      // CheckBypassedByAlignment(damage) decides whether a given hit gets
+      // through, so the evil-alignment carve-out is Owlcat's arithmetic and
+      // not ours. Strong, as the user said it would be - but it is the
+      // tabletop's actual Bastion of Faith, and a paladin archetype is
+      // allowed to be strong.
       var bastion = FeatureConfigurator.New("SacredShieldBastion", Guids.BastionOfFaith)
         .SetDisplayName("BastionOfFaith.Name")
         .SetDescription("BastionOfFaith.Description")
@@ -123,6 +137,8 @@ namespace MissionWOTR.Archetypes
         .AddStatBonus(stat: StatType.SaveFortitude, value: 2, descriptor: ModifierDescriptor.Sacred)
         .AddStatBonus(stat: StatType.SaveReflex, value: 2, descriptor: ModifierDescriptor.Sacred)
         .AddStatBonus(stat: StatType.SaveWill, value: 2, descriptor: ModifierDescriptor.Sacred)
+        .AddDamageResistancePhysical(
+          value: 5, bypassedByAlignment: true, alignment: DamageAlignment.Evil)
         .Configure();
 
       var archetype =

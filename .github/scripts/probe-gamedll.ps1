@@ -6,6 +6,9 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v12: the condition vocabulary (v11's Condition-prefix filter returned zero -
+#      WOTR's condition types carry no prefix) + AddDamageResistanceBase, to confirm
+#      where the DR Value field actually lives now that Sacred Shield sets one.
 # v11: DR-vs-alignment + the whole dialog system. Two open questions: (a) whether
 #      AddDamageResistancePhysical exposes an alignment bypass (Sacred Shield's DR 5/evil)
 #      and (b) whether companion dialogue is reachable at all, and with what vocabulary.
@@ -103,7 +106,8 @@ if (-not (Test-Path $dll)) {
       'CalculationType', 'HealCalculationType', 'DamageEnergyType', 'EnergyDamage', 'DirectDamage',
       'TurnBasedCombatController', 'CombatController', 'StatType',
       'PetType', 'PetProgressionType', 'Concealment', 'WeaponRangeType', 'ITickEachRound',
-      'AddDamageResistancePhysical', 'DamageResistancePhysical', 'DamageResistance',
+      'AddDamageResistancePhysical', 'AddDamageResistanceBase',
+      'DamageResistancePhysical', 'DamageResistance',
       'BlueprintEtude', 'CueSelection', 'BlueprintCheck')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
@@ -148,8 +152,11 @@ if (-not (Test-Path $dll)) {
         }
       }
 
-      # v11: the dialog condition vocabulary - name only, there are a lot of these.
-      if ($ns.Contains('Conditions') -and $name.StartsWith('Condition')) {
+      # v12: the dialog condition vocabulary. v11 filtered on names starting with
+      # 'Condition' and returned ZERO, which is itself the finding: WOTR's condition
+      # types carry no such prefix (DualCompanionInactive sits in the Conditions
+      # namespace). So dump the whole namespace instead of guessing at the naming.
+      if ($ns.Contains('Conditions')) {
         Log ("CONDITION-TYPE: {0}.{1}" -f $ns, $name)
       }
 
