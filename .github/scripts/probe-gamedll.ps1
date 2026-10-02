@@ -6,6 +6,8 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v13: the action vocabulary - whether a dialog can be OPENED from code (no
+#      BlueprintUnit dialog field means there is no unit-level hook to hang one on).
 # v12: the condition vocabulary (v11's Condition-prefix filter returned zero -
 #      WOTR's condition types carry no prefix) + AddDamageResistanceBase, to confirm
 #      where the DR Value field actually lives now that Sacred Shield sets one.
@@ -150,6 +152,23 @@ if (-not (Test-Path $dll)) {
             Log ("  FIELD: {0} [{1}]" -f $md.GetString($fd.Name), $FACC[$fa])
           }
         }
+      }
+
+      # v13: can a conversation be OPENED from code? The condition vocabulary was
+      # half of it; the other half is whether any action or context action starts a
+      # dialog. Without that, a dialog we author has nothing to open it - BlueprintUnit
+      # carries no dialog field, so there is no unit-level hook either. Dumping the
+      # game-action vocabulary by name, and any dialog-ish context action.
+      if ($ns -eq 'Kingmaker.Designers.EventConditionActionSystem.Actions') {
+        Log ("GAME-ACTION: {0}.{1}" -f $ns, $name)
+      }
+      if ($ns -eq 'Kingmaker.UnitLogic.Mechanics.Actions' -and
+          ($name.Contains('Dialog') -or $name.Contains('Cue') -or $name.Contains('Etude'))) {
+        Log ("CTX-ACTION-DIALOG: {0}.{1} base={2}" -f $ns, $name, (BaseTypeName $md $td))
+      }
+      # v13: etude shapes - how a conversation gets triggered on chapter or area.
+      if ($ns.Contains('Etudes')) {
+        Log ("ETUDE-TYPE: {0}.{1} base={2}" -f $ns, $name, (BaseTypeName $md $td))
       }
 
       # v12: the dialog condition vocabulary. v11 filtered on names starting with
