@@ -751,6 +751,8 @@ RAGE-TYPE: Kingmaker.Visual.UnitTerrainAlignment vis=public base=Owlcat.Runtime.
 COMPANION-TYPE: Kingmaker.View.Spawners.CompanionSpawner base=Kingmaker.View.Spawners.UnitSpawnerBase
 RAGE-TYPE: Kingmaker.Utility.AlignmentMaskAttribute vis=public base=UnityEngine.PropertyAttribute
 RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature vis=public base=Kingmaker.Tutorial.TutorialTrigger
+ETUDE-TYPE: Kingmaker.Tutorial.Etudes.EtudeBracketEnableTutorialSingle base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.Tutorial.Etudes.EtudeBracketEnableTutorials base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
 COMPANION-TYPE: Kingmaker.TextTools.CustomCompanionCostTemplate base=Kingmaker.TextTools.TextTemplate
 === TYPE Kingmaker.RuleSystem.Rules.RuleAttackRoll vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
   FIELD: missChance [private]
@@ -3567,6 +3569,18 @@ CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.Dungeo
 CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsIslandCurrentFinished
 CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsTier
 CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsTierReached
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CompletePSNActivity
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartPSNActivity
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddCampingEncounter
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddEquipmentToPet
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddFact
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddFatigueHours
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemToPlayer
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddItemsToCollection
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddPremiumReward
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddUnitToSummonPool
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AdvanceUnitLevel
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: SelectClosest [protorint]
   FIELD: LawfulGood [protorint]
@@ -3579,34 +3593,255 @@ RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelec
   FIELD: NeutralEvil [protorint]
   FIELD: ChaoticEvil [protorint]
   FIELD: m_ActionsByAlignment [private]
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AreaEntranceChange
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AskPlayerForLocationName
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AttachBuff
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CameraToPosition
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
   FIELD: Alignment [protorint]
   FIELD: m_DontLog [private]
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignment
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeBookEventImage
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeBrain
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCompanionState
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCompanionState base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCurrentAreaName
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: TargetAlignment [protorint]
   FIELD: CanUnlockAlignment [protorint]
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeRomance
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeUnitName
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ClearArmyDismissalExp
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ClearBlood
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ClearGameObjectsPools
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ClearQuestsOnAutoKingdom
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ClearUnitReturnPosition
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CombineToGroup
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CompleteEtude
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmy
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmyAsDismissalCompensation
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CreateArmyFromLosses
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CreateGarrison
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CreaturesAround
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CustomEvent
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DLC3CampaignMap
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DamageParty
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DealDamage
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DealStatDamage
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DebugLog
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DeleteTrashAdditionalLimbs
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DeleteUnitFromSummonPool
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyMapObject
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DestroyUnit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DetachBuff
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DisableExperienceFromUnit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DismissAllCompanions
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.DismissAllCompanions base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DrainEnergy
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.EndAreaEffects
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.EnterKingdomInterface
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.FadeoutCommand
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.FakeCharacterRest
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.FakePartyRest
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ForceClearSummonPools
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ForceDayTime
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ForceFillSummonPools
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ForceLevelup
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.GainExp
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.GainMythicLevel
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.GameLog
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.GameOver
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.GiveObjective
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.GlobalMapTeleport
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.HealParty
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.HealUnit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.HideCloak
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.HideMapObject
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.HideUnit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.HideWeapons
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ImportSave
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.IncrementFlagValue
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.InterruptAllActions
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ItemSetCharges
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Kill
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.LevelUpUnit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.LocalMapSetDirty
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.LockAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
   FIELD: AlignmentMask [protorint]
   FIELD: TargetAlignment [protorint]
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.LockAlignment
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.LockFlag
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.LockRomance
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeAutoSave
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeItemNonRemovable
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCaster vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCaster
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkAnswersSelected
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkCuesSeen
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkLocationClosed
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkLocationExplored
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkOnLocalMap
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkUnitEssentialObsolete
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MeleeAttack
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MoveAzataIslandToLocation
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MoveAzataIslandToNearestCrossroad
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MovePartyItemsAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.OpenLootContainer
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.OpenOutgoingEdgesOnGlobalMap
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.OpenSelectMythicUI
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.OverrideRainIntesity
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.OverrideUnitReturnPosition
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PartyMembersAttach
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PartyMembersDetach
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PartyMembersDetachEvaluated
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PartyMembersSwapAttachedAndDetached
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PartyUnits
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PartyUseAbility
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Play2DSound
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Play3DSound
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PlayAnimationOneShot
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCustomMusic
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.PlayCutscene
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RaiseDead
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ActionAndWeight
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RandomAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RecreateUnitView
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Recruit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RecruitInactive
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RecruiteArmyLeader
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ReloadMechanic
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RelockInteraction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveAllAreasFromSave
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveAmbush
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveAreaFromSave
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveCampingEncounter
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDeadUnits
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDeathDoor
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDemonArmies
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveDuplicateItems
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveFact
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveGarrison
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveItemFromPlayer
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveItemsFromCollection
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveMythicLevels
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveQuest
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveUnitFromArmy
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveUnitPartTouchOnAllCompanions
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveUnitPartTouchOnAllCompanions base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ReplaceAllMythicLevelsWithMythicHeroLevels
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ReplaceFeatureInProgression
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ResetLevelupPlan
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ResetLocationPerceptionCheck
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ResetQuest
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ResetQuestObjective
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RespecCompanion
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.RespecCompanion base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RestoreItemsCountInCollection
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RevealGlobalMap
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RollPartySkillCheck
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RollSkillCheck
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RomanceSetMaximum
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RomanceSetMinimum
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RunActionHolder
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.RunActionList
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ScriptZoneActivate
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ScriptZoneDeactivate
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ScripZoneUnits
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SellCollectibleItems
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetDeviceState
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetDeviceTrigger
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetDialogPosition
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetDisableDevice
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetMythicLevelForMainCharacter
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetObjectiveStatus
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetPortrait
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetSoundState
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetStartDate
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetVendorPriceModifier
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SetWarCampLocation
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ShiftAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
   FIELD: Alignment [protorint]
   FIELD: Amount [protorint]
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ShiftAlignment
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ShowBark
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ShowDialogBox
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ShowMessageBox
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ShowMultiEntrance
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ShowPartySelection
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ShowUIWarning
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Spawn
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SpawnBySummonPool
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SpawnByUnitGroup
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SpawnFx
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SplitUnitGroup
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SpotMapObject
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SpotUnit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartChangeVisual
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartCombat
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartDialog
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartEncounter
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartEtude
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartTrade
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StatusEffect
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StopCustomMusic
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StopCutscene
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Summon
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SummonPoolUnits
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SummonUnitCopy
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchActivatableAbility
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchAzataIsland
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchChapter
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDoor
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDualCompanion
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDualCompanion base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchFaction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchInteraction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchRoaming
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchToEnemy
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchToNeutral
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.TeleportParty
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.TimeSkip
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectFx
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ToggleObjectMusic
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.TransferSharedVendorTable
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.TranslocatePlayer
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.TranslocateUnit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.TrapCastSpell
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipAllItems
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnequipItem
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnitDismount
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnitLookAt
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnitStateTransfer
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnitsFromSpawnersInUnitGroup
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlinkDualCompanions
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlinkDualCompanions base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnloadUnusedAssets
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockCompanionStory
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockCompanionStory base=Kingmaker.ElementsSystem.GameAction
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockCookingRecipe
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockFlag
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockLocation
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockMapEdge
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UnmarkAnswersSelected
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.Unrecruit
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudeProgressBar
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.UpdateEtudes
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.WeatherStabilizer
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.DungeonRunActionHolderForNextParty
+GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.ContextActionAddRandomTrashItem
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Events.CompanionRecruitTrigger base=Kingmaker.EntitySystem.EntityFactComponentDelegate
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Events.CompanionUnrecruitTrigger base=Kingmaker.EntitySystem.EntityFactComponentDelegate
 COMPANION-TYPE: Kingmaker.AreaLogic.QuestSystem.CompanionStoriesManager base=System.Object
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.BlueprintEtude base=Kingmaker.Blueprints.Facts.BlueprintFact
 === TYPE Kingmaker.AreaLogic.Etudes.BlueprintEtude vis=public base=Kingmaker.Blueprints.Facts.BlueprintFact ===
   FIELD: m_Parent [private]
   FIELD: ActivationCondition [protorint]
@@ -3663,10 +3898,68 @@ COMPANION-TYPE: Kingmaker.AreaLogic.QuestSystem.CompanionStoriesManager base=Sys
   METHOD: IsLinkedAreaPart (targetAreaPart)
   METHOD: GetUsagesFor (etude)
   METHOD: .ctor
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeReferenceType base=System.Enum
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.IEtudeReference base=(nil)
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.BlueprintEtudeConflictingGroup base=Kingmaker.Blueprints.BlueprintScriptableObject
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.DisableCompanionPartyChecks base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
 COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.DisableCompanionPartyChecks base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.DisableMountRiding base=Kingmaker.EntitySystem.EntityFactComponentDelegate
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.Etude base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketAllowMythicPortrait base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketAudioEvents base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketAudioObjects base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketCampingAction base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketDetachPet base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketDetachPetsOnUnit base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketDisableCampingEncounters base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketDisablePlayerRespec base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketDisableRandomEncounters base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketEnableAzataIsland base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketEnableWarcamp base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketEnsureAudio base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketFollowUnitData base=System.Object
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketFollowUnit base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketForceCombatMode base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketGameModeWaiter base=System.Object
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketIgnoreGameover base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketMakePassive base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketMarkUnitEssential base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketMusic base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideActionsOnClick base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideBark base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideDialog base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.IEtudeBracketOverrideInteraction base=(nil)
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideInteraction`1 base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideInteraction base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideUnitInteraction base=System.Object
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideWeatherInclemency base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketOverrideWeatherProfile base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketPinCompanionInParty base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
 COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketPinCompanionInParty base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketPreventDirectControl base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketProgressBar base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketRestPhase base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketSetCompanionPosition base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
 COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketSetCompanionPosition base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketShowObjectsData base=System.Object
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketShowObjects base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketSkipTimeAction base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketSummonpoolOverrideDialog base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger`1 base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketTriggerAction base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeChangedEvent base=System.Object
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeGameOverTrigger base=Kingmaker.EntitySystem.EntityFactComponentDelegate
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeIgnorePartyEncumbrance base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudeIgnorePersonalEncumbrance base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudePeacefulZone base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudesSystem base=Kingmaker.EntitySystem.EntityDataBase
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.EtudesTree base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.HideAllPets base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.KeepCompanionHidden base=TypeSpecification
 COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.KeepCompanionHidden base=TypeSpecification
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.TrapTrigger base=Kingmaker.EntitySystem.EntityFactComponentDelegate
+ETUDE-TYPE: Kingmaker.AreaLogic.Etudes.VendorDealTrigger base=Kingmaker.EntitySystem.EntityFactComponentDelegate
 COMPANION-TYPE: Kingmaker.AreaLogic.Capital.CapitalCompanionLogic base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
 COMPANION-TYPE: Kingmaker.AreaLogic.Capital.CapitalCompanionSpawnPlace base=UnityEngine.MonoBehaviour
 AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
