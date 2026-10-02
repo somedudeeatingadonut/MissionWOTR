@@ -6142,5 +6142,175 @@
     "Key": "BonewatchLastOrder.Buff.Description",
     "ProcessTemplates": false,
     "enGB": "The order stands: for 1 round, no damage can reduce the marshal below 1 hit point."
+  },
+  {
+    "Key": "RecklessBloodrager.Name",
+    "ProcessTemplates": false,
+    "enGB": "Reckless Bloodrager"
+  },
+  {
+    "Key": "RecklessBloodrager.Description",
+    "ProcessTemplates": false,
+    "enGB": "There is magic in her blood and she has never once asked it for anything. Where another bloodrager learns to shape the power that runs in her veins, the reckless bloodrager spends all of it on the swing - no spells, no subtlety, only the conviction that whatever is standing in front of her will be standing there a moment less than she will. She gives up blood casting entirely for the fury of a woman who has decided in advance that defence is somebody else's problem."
+  },
+  {
+    "Key": "RecklessAbandon.Name",
+    "ProcessTemplates": false,
+    "enGB": "Reckless Abandon"
+  },
+  {
+    "Key": "RecklessAbandon.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 4th level the reckless bloodrager stops holding anything back. She gains a +2 bonus on attack rolls and weapon damage rolls, and takes a -2 penalty to Armor Class. The bonus and the penalty are the same decision seen from two sides."
+  },
+  {
+    "Key": "GreaterRecklessAbandon.Name",
+    "ProcessTemplates": false,
+    "enGB": "Greater Reckless Abandon"
+  },
+  {
+    "Key": "GreaterRecklessAbandon.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 12th level the abandonment deepens: the bonus on attack rolls and weapon damage rolls rises to +4 in total. The penalty to Armor Class does not worsen - by now she has learned exactly how much of herself to spend."
+  },
+  {
+    "Key": "SacredShield.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sacred Shield"
+  },
+  {
+    "Key": "SacredShield.Description",
+    "ProcessTemplates": false,
+    "enGB": "Some paladins are the sword. She is the wall. The sacred shield has given up the smite that her order is known for and taken up the older work instead: standing between what is behind her and what is coming. She does not destroy the wicked so much as refuse them, and after a while the refusal is its own kind of judgement."
+  },
+  {
+    "Key": "SacredShieldGuard.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sacred Shield"
+  },
+  {
+    "Key": "SacredShieldGuard.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 3rd level the paladin's shield becomes the instrument of her oath rather than a piece of equipment. She gains a +2 shield bonus to Armor Class. This replaces smite evil."
+  },
+  {
+    "Key": "BastionOfFaith.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bastion of Faith"
+  },
+  {
+    "Key": "BastionOfFaith.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 11th level the faith stops being something she carries and becomes something she stands inside. She gains a +2 sacred bonus on Fortitude, Reflex and Will saves, which stacks with the shield bonus she already has - the wall thickens rather than hardening in one place."
+  },
+  {
+    "Key": "Bloodmarked.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodmarked"
+  },
+  {
+    "Key": "Bloodmarked.Description",
+    "ProcessTemplates": false,
+    "enGB": "Someone in her line was bitten and lived, and the family has not been entirely human since. The bloodmarked sorcerer's power does not come only from her bloodline - it comes from the thing her bloodline came from. She has the bite whether she wants it or not, the hide that goes with it, and a serenity about violence that unsettles people who have never had to think about the moon."
+  },
+  {
+    "Key": "Bloodmark.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodmark"
+  },
+  {
+    "Key": "Bloodmark.Description",
+    "ProcessTemplates": false,
+    "enGB": "The mark is in the blood and the blood shows. The bloodmarked sorcerer gains a bite natural attack, and a +2 bonus on Will saves - the weretouched are not easily turned, having been turned once already."
+  },
+  {
+    "Key": "BloodmarkedHide.Name",
+    "ProcessTemplates": false,
+    "enGB": "Bloodmarked Hide"
+  },
+  {
+    "Key": "BloodmarkedHide.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 9th level the change she cannot make outward she makes inward: her skin toughens, granting a +1 natural armor bonus to Armor Class. It is not a transformation, and nothing about her silhouette changes. Only the blade notices."
+  },
+  {
+    "Key": "IronCreed.Name",
+    "ProcessTemplates": false,
+    "enGB": "Iron Creed"
+  },
+  {
+    "Key": "IronCreed.Description",
+    "ProcessTemplates": false,
+    "enGB": "His god offers to bless his armour and he declines, every morning, on principle. The priest of the Iron Creed holds that a warrior who needs his plate sanctified has already lost the argument, and that the blessing is better spent on the thing he is holding. He fights unarmoured by choice and hits considerably harder for it - a theology with a body count."
+  },
+  {
+    "Key": "IronCreedFocus.Name",
+    "ProcessTemplates": false,
+    "enGB": "Creed Focus"
+  },
+  {
+    "Key": "IronCreedFocus.Description",
+    "ProcessTemplates": false,
+    "enGB": "The whole of the blessing, poured into one edge. The priest of the Iron Creed gains a +1 bonus on attack rolls and weapon damage rolls. This replaces sacred armor."
+  },
+  {
+    "Key": "IronCreedConviction.Name",
+    "ProcessTemplates": false,
+    "enGB": "Creed Conviction"
+  },
+  {
+    "Key": "IronCreedConviction.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 8th level the blessing deepens: the bonus on attack rolls and weapon damage rolls rises to +3 in total. He has been saying the same prayer for eight years and it has stopped being a request."
+  },
+  {
+    "Key": "IronCreedMastery.Name",
+    "ProcessTemplates": false,
+    "enGB": "Creed Mastery"
+  },
+  {
+    "Key": "IronCreedMastery.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 14th level the bonus on attack rolls and weapon damage rolls rises to +4 in total, and the creed pays for itself in steel: he gains one bonus combat feat chosen from the fighter's list."
+  },
+  {
+    "Key": "PactWizard.Name",
+    "ProcessTemplates": false,
+    "enGB": "Pact Wizard"
+  },
+  {
+    "Key": "PactWizard.Description",
+    "ProcessTemplates": false,
+    "enGB": "He did not find his magic. He was given it, by something that wanted something in return, and the terms were not negotiable. The pact wizard has no familiar and no bonded object - the thing he is bound to is not an item and does not live in a satchel. What the pact gives him is spells he did not learn and could not have chosen: they arrive on schedule, at the levels his patron decides, and they are always the same five."
+  },
+  {
+    "Key": "PactWizardPatronSpell.Description",
+    "ProcessTemplates": false,
+    "enGB": "A spell the patron wrote into his book. He did not research it, cannot replace it, and did not choose it. It is his regardless."
+  },
+  {
+    "Key": "PactWizardPatron1.Name",
+    "ProcessTemplates": false,
+    "enGB": "Patron Spell: Cause Fear"
+  },
+  {
+    "Key": "PactWizardPatron3.Name",
+    "ProcessTemplates": false,
+    "enGB": "Patron Spell: Scorching Ray"
+  },
+  {
+    "Key": "PactWizardPatron5.Name",
+    "ProcessTemplates": false,
+    "enGB": "Patron Spell: Fireball"
+  },
+  {
+    "Key": "PactWizardPatron7.Name",
+    "ProcessTemplates": false,
+    "enGB": "Patron Spell: Fear"
+  },
+  {
+    "Key": "PactWizardPatron9.Name",
+    "ProcessTemplates": false,
+    "enGB": "Patron Spell: True Seeing"
   }
 ]

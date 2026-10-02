@@ -1284,5 +1284,26 @@ namespace MissionWOTR
     internal const string AnatomistRiskyManeuverComponent = "424FA54C-AD21-4834-A83F-3CBED9CED51D";
     internal const string AnatomistRiskyManeuverFeature = "09B56835-A5EC-4543-8B58-71CB8C167910";
 
+    // ----- 0.54.0: the five replacements for the archetypes withdrawn in
+    // 0.53.0 as duplicates of mods the user already runs. -----
+    internal const string RecklessBloodragerArchetype = "6176A2B3-3B73-4829-9059-E5A7F93164FF";
+    internal const string RecklessAbandon = "CBBCE640-BAA3-46D9-91B1-A2FD986238EA";
+    internal const string GreaterRecklessAbandon = "345C8A95-A4F2-473B-AA20-85CADA21C65C";
+    internal const string SacredShieldArchetype = "31740CC9-BD74-4149-AF11-97AC2FD5C4B6";
+    internal const string SacredShieldGuard = "AEFF7029-6DDE-4F4D-8E78-79BFAC14A268";
+    internal const string BastionOfFaith = "1D40DC01-35CE-4AC9-ABC8-9A58C15497A8";
+    internal const string BloodmarkedArchetype = "D68AF901-FE9D-40DA-A12B-605CFB8AF668";
+    internal const string Bloodmark = "589ADA14-64B9-4EF4-93A7-BD5EBE0B2600";
+    internal const string BloodmarkedHide = "561EA181-AB67-4A6F-90F7-2AE71B23E3F6";
+    internal const string IronCreedArchetype = "51C5AECF-9BD8-4BDF-AB12-B8C0BD63EAAB";
+    internal const string IronCreedFocus = "778D553E-E129-45FB-922C-74B532377209";
+    internal const string IronCreedConviction = "053CEE6C-6FA4-4CDC-B0A9-E44DE16A74E8";
+    internal const string IronCreedMastery = "B6527E15-69A1-415E-9BA1-2DC80D7B8F13";
+    internal const string PactWizardArchetype = "CC588CC3-558E-4E7F-BDFB-66F8F42719B2";
+    internal const string PactWizardPatron1 = "60A3D9CF-0424-46B2-83E7-822144FD118E";
+    internal const string PactWizardPatron3 = "74E411F7-1AB5-4AB3-B79B-A441335DF23D";
+    internal const string PactWizardPatron5 = "8322273A-865B-4998-95E7-FAD99FC92346";
+    internal const string PactWizardPatron7 = "1A43E1D6-C322-4263-A5F1-BEB9A1BE1CF3";
+    internal const string PactWizardPatron9 = "4BE3941D-A176-4FDE-9ACC-643EEBF2B324";
   }
 }

@@ -111,6 +111,17 @@ namespace MissionWOTR.Feats
       Configure(nameof(Beastbound), Beastbound.Configure);
       Configure(nameof(HolyVindicator), HolyVindicator.Configure);
       Configure(nameof(Bonewatch), Bonewatch.Configure);
+
+      // 0.54.0 - the five replacements for the archetypes withdrawn in 0.53.0
+      // as duplicates of mods the user already runs. Registered here AND in
+      // the diagnostics table below; the 0.11.0 bug was archetypes that had
+      // the diagnostics entry and no Configure call, so they compiled, passed
+      // CI, and never existed in game.
+      Configure(nameof(RecklessBloodrager), RecklessBloodrager.Configure);
+      Configure(nameof(SacredShield), SacredShield.Configure);
+      Configure(nameof(Bloodmarked), Bloodmarked.Configure);
+      Configure(nameof(IronCreed), IronCreed.Configure);
+      Configure(nameof(PactWizard), PactWizard.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
 
       // 0.53.0 — WITHDRAWN as duplicates of content the user already runs,
@@ -182,6 +193,7 @@ namespace MissionWOTR.Feats
           ("Spellfist", Guids.SpellfistArchetype, magus),
           ("Spellblade", Guids.SpellbladeArchetype, magus),
           ("SanguineFont", Guids.SanguineFontArchetype, bloodrager),
+      ("RecklessBloodrager", Guids.RecklessBloodragerArchetype, bloodrager),
       ("SisterInArms", Guids.SisterArchetype, cavalier),
       ("Carousel", Guids.CarouselArchetype, cavalier),
       ("Cardinal", Guids.CardinalArchetype, cleric),
@@ -204,6 +216,7 @@ namespace MissionWOTR.Feats
       ("PlanarOracle", Guids.PlanarOracleArchetype, oracle),
       ("Apocryphal", Guids.ApocryphalArchetype, oracle),
       ("FortunesFool", Guids.FortunesFoolArchetype, paladin),
+      ("SacredShield", Guids.SacredShieldArchetype, paladin),
       ("Guide", Guids.GuideArchetype, ranger),
       ("Wildbond", Guids.WildbondArchetype, ranger),
       ("Scout", Guids.ScoutArchetype, rogue),
@@ -218,8 +231,11 @@ namespace MissionWOTR.Feats
       ("Dreadnaught", Guids.DreadnaughtArchetype, slayer),
       ("GraveWarden", Guids.GraveWardenArchetype, slayer),
       ("Overchanneler", Guids.OverchannelerArchetype, sorcerer),
+      ("Bloodmarked", Guids.BloodmarkedArchetype, sorcerer),
       ("MendingBlade", Guids.MendingBladeArchetype, warpriest),
+      ("IronCreed", Guids.IronCreedArchetype, warpriest),
       ("Inkbound", Guids.InkboundArchetype, wizard),
+      ("PactWizard", Guids.PactWizardArchetype, wizard),
       ("ElementalistShifter", Guids.ElementalistShifterArchetype, shifter),
       ("Beastbound", Guids.BeastboundArchetype, shifter),
     };
