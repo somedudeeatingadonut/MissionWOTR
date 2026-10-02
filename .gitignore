@@ -27,3 +27,6 @@ Managed.zip
 # Uploaded third-party mods for reference (never committed)
 mods-reference/
 *.zip
+
+# Reference-mod downloads (analyzed in CI, never committed)
+_gfmod/
