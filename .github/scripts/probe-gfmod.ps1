@@ -1,18 +1,19 @@
-# Reference-mod probe: what can we learn from Gracious Friendships without shipping it?
+# Reference-mod probe v2: what can we learn from Gracious Friendships without shipping it?
 #
 # Why: the sandbox cannot reach release-assets.githubusercontent.com (the API works, the
-# asset redirect does not), so the only place a 1.3MB upload can be read is CI. This
-# downloads the Gracious Friendships assets from the 'game-libs' release, unpacks them,
-# and writes a SUMMARY to probe-gfmod.txt - the mod itself is never committed.
+# asset redirect does not), so the only place this upload can be read is CI. Downloads the
+# Gracious Friendships assets from the 'game-libs' release, unpacks them, and writes a
+# SUMMARY to probe-gfmod.txt - the mod itself is never committed.
 #
-# The point is not to copy their content. It is three facts we cannot get any other way:
-#   1. the GUIDs of the vanilla dialogs/cues they hook into - blueprint GUIDs are game
-#      content, so neither the DLL probe nor BlueprintCore's reference lists have them;
-#   2. how a conversation is actually attached to a companion (they have working examples,
-#      we have field lists);
-#   3. what a populated ConditionsChecker / ActionsHolder looks like in the wild.
-#
-# v1: first pass.
+# v2: v1 got the .jbp shape wrong, and it mattered. A .jbp is
+#     { "AssetId": "<32 hex, no dashes>", "Data": { "$type": "<32hex>, TypeName", ... } }
+#     v1 looked for a top-level "AssetGuid" that does not exist, so the "own ids" set came
+#     back empty and every internal reference was miscounted as an external one - hence the
+#     bogus "1400 distinct external GUIDs". Internal refs are also written "!bp_<32hex>",
+#     so the dashed GUIDs v1 counted were not blueprint references at all.
+#     v2 reads AssetId + Data.$type, resolves "!bp_" refs against the real own-id set, and
+#     samples a .patch file - v1 never looked at those, and the patches are how GF modifies
+#     blueprints that already exist.
 $ErrorActionPreference = 'Continue'
 
 $out = New-Object System.Collections.Generic.List[string]
@@ -24,9 +25,6 @@ New-Item -ItemType Directory -Force -Path $work | Out-Null
 $assets = @(& gh release view game-libs --json assets --jq '.assets[].name' |
   Where-Object { $_ -match 'GraciousFriendships' })
 $global:LASTEXITCODE = 0
-if ($assets.Count -eq 0) {
-  Log "No GraciousFriendships assets on the game-libs release."
-}
 foreach ($asset in $assets) {
   if (Test-Path "$work/$asset") { Log "Already downloaded: $asset"; continue }
   Log "Downloading $asset"
@@ -35,12 +33,11 @@ foreach ($asset in $assets) {
   $global:LASTEXITCODE = 0
 }
 
+$root = Join-Path $work 'x'
 Get-ChildItem -Path $work -Filter *.zip -File | ForEach-Object {
   Log "Extracting $($_.Name)"
-  Expand-Archive -Path $_.FullName -DestinationPath (Join-Path $work 'x') -Force
+  Expand-Archive -Path $_.FullName -DestinationPath $root -Force
 }
-
-$root = Join-Path $work 'x'
 if (-not (Test-Path $root)) {
   Log "Nothing extracted - no analysis possible."
   $out | Set-Content probe-gfmod.txt
@@ -50,80 +47,80 @@ if (-not (Test-Path $root)) {
 $files = @(Get-ChildItem -Path $root -Recurse -File)
 Log "=== GF inventory: $($files.Count) files ==="
 $files | Group-Object Extension | Sort-Object Count -Descending |
-  ForEach-Object { Log ("  ext {0,-10} {1}" -f ($_.Name), $_.Count) }
-Log "--- top-level layout ---"
-Get-ChildItem -Path $root -Recurse -Directory | Select-Object -First 25 |
-  ForEach-Object { Log ("  dir " + $_.FullName.Replace((Get-Location).Path + '\', '')) }
+  ForEach-Object { Log ("  ext {0,-10} {1}" -f $_.Name, $_.Count) }
 
-# --- Per-blueprint index -------------------------------------------------------
-# Owlcat .jbp files are JSON. Each carries a $type (the blueprint class) and an
-# AssetGuid (its own id). Collecting both lets us tell GF's own blueprints apart
-# from the vanilla ones they point at.
 $jbps = @($files | Where-Object { $_.Extension -eq '.jbp' })
-Log "=== GF blueprints: $($jbps.Count) .jbp files ==="
-$ownGuids = New-Object System.Collections.Generic.HashSet[string]
-$bpLines = New-Object System.Collections.Generic.List[string]
-foreach ($f in $jbps) {
-  try {
-    $j = Get-Content $f.FullName -Raw | ConvertFrom-Json
-  } catch { Log ("  PARSE-FAIL " + $f.Name + " : " + $_.Exception.Message); continue }
-  $type = ''
-  try { $type = $j.'$type' } catch { }
-  if (-not $type) { try { $type = $j.'Type' } catch { } }
-  $guid = ''
-  try { $guid = $j.'AssetGuid' } catch { }
-  if (-not $guid) { try { $guid = $j.'assetGuid' } catch { } }
-  $nm = $f.BaseName
-  if ($guid) { [void]$ownGuids.Add($guid.ToLower()) }
-  $short = ($type -split ',')[-1]
-  $short = ($short -split '\.')[-1]
-  $bpLines.Add(("  {0,-34} {1,-42} {2}" -f $short, $nm, $guid))
-}
-$bpLines | Sort-Object | Select-Object -First 500 | ForEach-Object { Log $_ }
-if ($bpLines.Count -gt 500) { Log ("  ... and {0} more" -f ($bpLines.Count - 500)) }
+$patches = @($files | Where-Object { $_.Extension -eq '.patch' })
 
-# --- External references: the vanilla dialogs and cues -------------------------
-# Any dashed GUID inside a .jbp that is NOT one of GF's own AssetGuids is a
-# reference to something that already exists in the game. Those are the attach
-# points - the thing we have no other way to obtain.
-Log "=== external (vanilla) blueprint references ==="
-$guidRe = [regex]'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
-$extByFile = @{}
+# --- Blueprint index: type + name + AssetId ------------------------------------
+Log "=== GF blueprints: $($jbps.Count) .jbp files ==="
+$ownIds = New-Object System.Collections.Generic.HashSet[string]
+$parsed = @()
 foreach ($f in $jbps) {
+  try { $j = Get-Content $f.FullName -Raw | ConvertFrom-Json } catch { continue }
+  $id = ''
+  try { $id = $j.AssetId } catch { }
+  $type = ''
+  try { $type = $j.Data.'$type' } catch { }
+  if ($id) { [void]$ownIds.Add($id.ToLower()) }
+  $short = ($type -split ',')[-1].Trim()
+  $parsed += [pscustomobject]@{ File = $f.BaseName; Type = $short; Id = $id }
+}
+Log "--- blueprint types (histogram) ---"
+$parsed | Group-Object Type | Sort-Object Count -Descending | Select-Object -First 20 |
+  ForEach-Object { Log ("  {0,-30} {1}" -f $_.Name, $_.Count) }
+
+# --- External references: !bp_ refs that are not GF's own -----------------------
+# This is the real prize - the vanilla dialogs and cues GF hooks into. Blueprint
+# GUIDs are game content, so neither the DLL probe nor BlueprintCore's reference
+# lists contain them.
+$bpRef = [regex]'!bp_([0-9a-fA-F]{32})'
+$extByFile = @{}
+foreach ($f in $jbps + $patches) {
   try { $raw = Get-Content $f.FullName -Raw } catch { continue }
   $seen = New-Object System.Collections.Generic.HashSet[string]
-  foreach ($m in $guidRe.Matches($raw)) {
-    $g = $m.Value.ToLower()
-    if ($ownGuids.Contains($g)) { continue }
+  foreach ($m in $bpRef.Matches($raw)) {
+    $g = $m.Groups[1].Value.ToLower()
+    if ($ownIds.Contains($g)) { continue }
     [void]$seen.Add($g)
   }
   if ($seen.Count -gt 0) { $extByFile[$f.BaseName] = $seen }
 }
 $allExt = New-Object System.Collections.Generic.HashSet[string]
 foreach ($k in $extByFile.Keys) { foreach ($g in $extByFile[$k]) { [void]$allExt.Add($g) } }
-Log "  distinct external GUIDs: $($allExt.Count) across $($extByFile.Count) files"
-Log "--- dialog- and cue-named files first (these are the attach points) ---"
+Log "=== external (vanilla) blueprint references ==="
+Log "  GF's own AssetIds: $($ownIds.Count)"
+Log "  distinct external refs: $($allExt.Count) across $($extByFile.Count) files"
+Log "--- files referencing vanilla blueprints, dialogs and patches first ---"
 $n = 0
-foreach ($k in ($extByFile.Keys | Sort-Object { -($_ -match 'ialog|Cue|Answer') }, { $_ })) {
-  if ($n -ge 160) { Log "  ... truncated"; break }
+foreach ($k in ($extByFile.Keys | Sort-Object { -($_ -match 'ialog|Patch|Cue') }, { $_ })) {
+  if ($n -ge 200) { Log "  ... truncated"; break }
   Log ("  {0} -> {1}" -f $k, (($extByFile[$k] | Sort-Object) -join ' '))
   $n++
 }
 
-# --- One real example, so the wiring shape is visible --------------------------
-$sample = $jbps | Where-Object { $_.BaseName -match 'ialog' } | Select-Object -First 1
-if (-not $sample) { $sample = $jbps | Select-Object -First 1 }
+# --- One dialog .jbp in full: the populated node shape -------------------------
+$sample = $parsed | Where-Object { $_.Type -eq 'BlueprintDialog' } | Select-Object -First 1
+if (-not $sample) { $sample = $parsed | Where-Object { $_.Type -match 'Cue' } | Select-Object -First 1 }
 if ($sample) {
-  Log "=== sample blueprint: $($sample.Name) (first 130 lines) ==="
-  $lines = Get-Content $sample.FullName
-  $lines | Select-Object -First 130 | ForEach-Object { Log ("  " + $_) }
-  if ($lines.Count -gt 130) { Log ("  ... {0} lines total" -f $lines.Count) }
+  $path = ($jbps | Where-Object { $_.BaseName -eq $sample.File } | Select-Object -First 1).FullName
+  Log "=== sample dialog blueprint: $($sample.File) ($($sample.Type)) ==="
+  Get-Content $path | Select-Object -First 90 | ForEach-Object { Log ("  " + $_) }
+}
+
+# --- One .patch in full: how an existing blueprint gets modified ---------------
+# GF injects reactions into conversations the game already has. The patches are
+# the mechanism, and reading one is worth more than any amount of inference.
+$patch = $patches | Where-Object { $_.Name -match 'ialog' } | Select-Object -First 1
+if (-not $patch) { $patch = $patches | Select-Object -First 1 }
+if ($patch) {
+  Log "=== sample patch: $($patch.Name) ==="
+  Get-Content $patch.FullName | Select-Object -First 90 | ForEach-Object { Log ("  " + $_) }
 }
 
 $out | Set-Content probe-gfmod.txt
 Write-Host "probe-gfmod.txt written ($($out.Count) lines)"
 
-# Commit the summary (never the mod) so it is readable without run-log access.
 git config user.name "ci-probe"
 git config user.email "ci@users.noreply.github.com"
 git add probe-gfmod.txt
