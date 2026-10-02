@@ -25,10 +25,11 @@ namespace MissionWOTR.Archetypes
   /// route, since the crossblooded price is baked into that book's
   /// spells-known table.
   ///
-  /// DOCUMENTED CUT: the tabletop's Skinchange (9th) is an animal-form
-  /// transformation, and the standing rule for this mod is no
-  /// self-transformation on a full caster. What ships in its place is the
-  /// hide — the weretouched toughness the change of shape was always about.
+  /// SKINCHANGE (9th): the real thing. The no-self-transformation rule the
+  /// user set was scoped to one archetype, not to the mod, so this is a
+  /// genuine change of shape - the shifter's own wolf form, granted as a fact
+  /// exactly the way Beastbound references it. She keeps a +1 natural armor
+  /// bonus underneath, because the hide does not go away when she does.
   /// </summary>
   internal static class Bloodmarked
   {
@@ -50,12 +51,13 @@ namespace MissionWOTR.Archetypes
           descriptor: ModifierDescriptor.UntypedStackable)
         .Configure();
 
-      // Skinchange's stand-in (9th): the hide underneath.
-      var hide = FeatureConfigurator.New("BloodmarkedHide", Guids.BloodmarkedHide)
-        .SetDisplayName("BloodmarkedHide.Name")
-        .SetDescription("BloodmarkedHide.Description")
+      // Skinchange (9th): the wolf, and the hide that goes with it.
+      var skinchange = FeatureConfigurator.New("BloodmarkedSkinchange", Guids.BloodmarkedSkinchange)
+        .SetDisplayName("BloodmarkedSkinchange.Name")
+        .SetDescription("BloodmarkedSkinchange.Description")
         .SetIcon(icon)
         .SetIsClassFeature()
+        .AddFacts(new() { FeatureRefs.ShifterWildShapeWolfFeature.Reference.Get() })
         .AddStatBonus(stat: StatType.AC, value: 1, descriptor: ModifierDescriptor.NaturalArmor)
         .Configure();
 
@@ -65,7 +67,7 @@ namespace MissionWOTR.Archetypes
         .SetLocalizedDescription("Bloodmarked.Description")
         .SetReplaceSpellbook(SpellbookRefs.CrossbloodedSpellbook.Reference.Get())
         .AddToAddFeatures(LevelPlan.L(1), bloodmark)
-        .AddToAddFeatures(LevelPlan.L(9), hide)
+        .AddToAddFeatures(LevelPlan.L(9), skinchange)
         .Configure();
 
       MissionFeats.Logger.Info("[bloodmarked] configured: " + ArchetypeName + ".");

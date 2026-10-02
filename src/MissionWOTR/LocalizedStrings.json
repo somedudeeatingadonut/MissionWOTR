@@ -6224,16 +6224,6 @@
     "enGB": "The mark is in the blood and the blood shows. The bloodmarked sorcerer gains a bite natural attack, and a +2 bonus on Will saves - the weretouched are not easily turned, having been turned once already."
   },
   {
-    "Key": "BloodmarkedHide.Name",
-    "ProcessTemplates": false,
-    "enGB": "Bloodmarked Hide"
-  },
-  {
-    "Key": "BloodmarkedHide.Description",
-    "ProcessTemplates": false,
-    "enGB": "At 9th level the change she cannot make outward she makes inward: her skin toughens, granting a +1 natural armor bonus to Armor Class. It is not a transformation, and nothing about her silhouette changes. Only the blade notices."
-  },
-  {
     "Key": "IronCreed.Name",
     "ProcessTemplates": false,
     "enGB": "Iron Creed"
@@ -6312,5 +6302,35 @@
     "Key": "PactWizardPatron9.Name",
     "ProcessTemplates": false,
     "enGB": "Patron Spell: True Seeing"
+  },
+  {
+    "Key": "BloodmarkedSkinchange.Name",
+    "ProcessTemplates": false,
+    "enGB": "Skinchange"
+  },
+  {
+    "Key": "BloodmarkedSkinchange.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 9th level the bloodmarked sorcerer stops resisting the shape her blood wants. She can take the form of a wolf, and the hide stays with her whether she changes or not - a +1 natural armor bonus to Armor Class. The change is not a spell and she does not lose herself in it; the wolf is family."
+  },
+  {
+    "Key": "InHarmsWay.Name",
+    "ProcessTemplates": false,
+    "enGB": "In Harm's Way"
+  },
+  {
+    "Key": "InHarmsWay.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 3rd level the sacred shield can put herself where the blow is going to land. As a standard action she touches an ally and stands for them for one round: while the mark holds, damage that would strike that ally strikes her instead, in full. There is no save and no splitting - she takes all of it, and she can lay the mark again as often as she has actions to lay it. This is granted alongside the shield bonus at 3rd level."
+  },
+  {
+    "Key": "SacredShieldGuarded.Name",
+    "ProcessTemplates": false,
+    "enGB": "Guarded"
+  },
+  {
+    "Key": "SacredShieldGuarded.Description",
+    "ProcessTemplates": false,
+    "enGB": "The sacred shield is standing for this creature. For one round, damage meant for them goes to her instead."
   }
 ]

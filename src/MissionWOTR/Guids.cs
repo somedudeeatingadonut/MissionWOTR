@@ -1294,7 +1294,9 @@ namespace MissionWOTR
     internal const string BastionOfFaith = "1D40DC01-35CE-4AC9-ABC8-9A58C15497A8";
     internal const string BloodmarkedArchetype = "D68AF901-FE9D-40DA-A12B-605CFB8AF668";
     internal const string Bloodmark = "589ADA14-64B9-4EF4-93A7-BD5EBE0B2600";
-    internal const string BloodmarkedHide = "561EA181-AB67-4A6F-90F7-2AE71B23E3F6";
+    // 0.55.0 - renamed from BloodmarkedHide; the GUID is unchanged because
+    // saves reference features by GUID, not by constant name.
+    internal const string BloodmarkedSkinchange = "561EA181-AB67-4A6F-90F7-2AE71B23E3F6";
     internal const string IronCreedArchetype = "51C5AECF-9BD8-4BDF-AB12-B8C0BD63EAAB";
     internal const string IronCreedFocus = "778D553E-E129-45FB-922C-74B532377209";
     internal const string IronCreedConviction = "053CEE6C-6FA4-4CDC-B0A9-E44DE16A74E8";
@@ -1305,5 +1307,10 @@ namespace MissionWOTR
     internal const string PactWizardPatron5 = "8322273A-865B-4998-95E7-FAD99FC92346";
     internal const string PactWizardPatron7 = "1A43E1D6-C322-4263-A5F1-BEB9A1BE1CF3";
     internal const string PactWizardPatron9 = "4BE3941D-A176-4FDE-9ACC-643EEBF2B324";
+    // ----- 0.55.0: the Sacred Shield's In Harm's Way. -----
+    internal const string SacredShieldInHarmsWayFeature = "B3BD8F1D-857B-4FB1-B5EC-86F34BF6A71C";
+    internal const string SacredShieldInHarmsWayAbility = "B90923B7-6CA1-4B5E-844F-8A25FD571718";
+    internal const string SacredShieldGuardedBuff = "DCA03413-82D2-4D09-A016-9946516AA2DD";
+    internal const string SacredShieldGuardedRider = "F00DEBCC-C477-4680-BDC4-389D7A4718F3";
   }
 }
