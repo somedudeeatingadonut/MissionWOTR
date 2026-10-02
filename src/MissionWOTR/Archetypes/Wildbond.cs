@@ -134,7 +134,8 @@ namespace MissionWOTR.Archetypes
   /// - HORSE (our design - Saddleborn): while riding the horse the
   ///   ranger gains +10 speed, and mounted charge hits deal +1d6
   ///   per tier above the first (mounted detection via
-  ///   UnitPartRider, the ShiningKnight idiom).
+  ///   UnitPartRider, the idiom the Shining Knight used before its
+  ///   0.53.0 withdrawal).
   /// - MONITOR (our design - Serpent's Vigor): the monitor's bites
   ///   leave a lingering venom (2 rounds); while any enemy within
   ///   30 feet carries it, the monitor regenerates 2 HP per tier

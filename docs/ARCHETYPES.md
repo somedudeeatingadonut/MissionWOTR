@@ -881,17 +881,41 @@ not. Every fix below is quoted from that log, not inferred.
   (and "Judgment"), level + name + guid, so the next playtest log is the
   ground truth needed to fix the rest rather than another round of
   guessing.
-- **Noted, not yet actioned** (the user's list, tracked so nothing is
-  lost): duplicate content to withdraw against Homebrew Archetypes
-  (Untouchable Rager, Crusader, Sacred Fist, Undead Master), PrestigePlus
-  (Shining Knight) and Ebon's Content Mod (Eldritch Scrapper); the Lion
-  Shaman vs. Expanded Content's Lion Totem Druid; Solipsist must echo
-  only his OWN buffs; Venomblood and Doomsayer need more per level;
-  Inkbound's Recitation and ink economy; the "Mission WOTR homebrew"
-  prefix in later descriptions and the "unknown mod" attribution; the
-  Spirit-Ridden's four caster spirits (they ARE implemented in
-  0.37.0 — Antlered One, Pyre Empress, Pale Archivist, Spellblade — so
-  this is a presentation gap, not missing content); and the Chimera
+- **WITHDRAWN — five archetypes removed as duplicates of mods the user
+  already runs.** Confirmed against the loaded-mod list in the 0.52.1
+  log (which shows HomebrewArchetypes loading
+  `BloodragerArchetypes/Untouchable Rager/UntouchableRagerArchetype.jbp`
+  and `WarpriestArchetypes/SacredFist/…`):
+  - **Untouchable Rager** (bloodrager) — HomebrewArchetypes.
+  - **Sacred Fist** (warpriest) — HomebrewArchetypes.
+  - **Undead Master** (wizard) — HomebrewArchetypes.
+  - **Shining Knight** (paladin) — PrestigePlus.
+  - **Eldritch Scrapper** (sorcerer) — Ebon's Content Mod.
+
+  Each had its `ConfigureAll` call, its diagnostics-table entry and its
+  source file removed; the `Guids.cs` constants stay, annotated
+  `WITHDRAWN 0.53.0`, per the Intercessor precedent in 0.24.0.
+- **The Crusader report was a false alarm — nothing to withdraw.** This
+  mod has never shipped a Crusader: there is no `Crusader.cs`, no
+  `Configure(nameof(Crusader)…)`, and the 0.7.0 cleric pair's own
+  changelog records *why* — "Verified against the loaded mod list -
+  vanilla WOTR already ships Crusader … HomebrewArchetypes adds
+  Crusader …" The Cardinal and the Solipsist were chosen instead,
+  precisely to avoid that collision.
+- **One knock-on fixed:** the Bonewatch's prerequisites listed the Undead
+  Master's kit as a fourth OR-path. With that archetype gone the path is
+  gone too, so entry is now channel energy of any flavour (regular,
+  Hospitaler or Empyreal). Without this the prestige class would have
+  failed to compile.
+- **Kept, per the user's call: the Lion Shaman.** Expanded Content's Lion
+  Totem Druid is close but the user wants this one differentiated rather
+  than withdrawn; that work is queued.
+- **Still open** (tracked so nothing is lost): Solipsist must echo only
+  his OWN buffs; Venomblood and Doomsayer need more per level; Inkbound's
+  Recitation and ink economy; the "Mission WOTR homebrew" prefix in later
+  descriptions and the "unknown mod" attribution; the Spirit-Ridden's four
+  caster spirits (implemented in 0.37.0 — this is a presentation gap, not
+  missing content); the Lion Shaman differentiation; and the Chimera
   spellbook's prestige-class/mythic advancement.
 - **Verified, not a bug:** the Spirit-Ridden caster spirits the user
   asked about are present in `SpiritRidden.cs` (search `Antlered`,

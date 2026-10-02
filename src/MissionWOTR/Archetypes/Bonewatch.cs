@@ -224,7 +224,10 @@ namespace MissionWOTR.Archetypes
             FeatureRefs.ChannelEnergyFeature.Cast<BlueprintFeatureReference>(),
             FeatureRefs.ChannelEnergyHospitalerFeature.Cast<BlueprintFeatureReference>(),
             FeatureRefs.ChannelEnergyEmpyrealFeature.Cast<BlueprintFeatureReference>(),
-            Guids.UndeadMasterKitFeature,
+            // 0.53.0 — the Undead Master's kit used to be a fourth OR-path
+            // in here. That archetype is withdrawn as a HomebrewArchetypes
+            // duplicate, so the path is gone with it: entry is now channel
+            // energy of any flavour.
           },
           amount: 1,
           group: Prerequisite.GroupType.Any)

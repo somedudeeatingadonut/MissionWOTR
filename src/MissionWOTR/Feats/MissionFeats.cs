@@ -63,7 +63,6 @@ namespace MissionWOTR.Feats
       Configure(nameof(Spellfist), Spellfist.Configure);
       Configure(nameof(Spellblade), Spellblade.Configure);
       Configure(nameof(SanguineFont), SanguineFont.Configure);
-      Configure(nameof(UntouchableRager), UntouchableRager.Configure);
       Configure(nameof(SisterInArms), SisterInArms.Configure);
       Configure(nameof(Carousel), Carousel.Configure);
 
@@ -91,7 +90,6 @@ namespace MissionWOTR.Feats
       Configure(nameof(Stormcaller), Stormcaller.Configure);
       Configure(nameof(PlanarOracle), PlanarOracle.Configure);
       Configure(nameof(Apocryphal), Apocryphal.Configure);
-      Configure(nameof(ShiningKnight), ShiningKnight.Configure);
       Configure(nameof(FortunesFool), FortunesFool.Configure);
       Configure(nameof(Guide), Guide.Configure);
       Configure(nameof(Wildbond), Wildbond.Configure);
@@ -106,17 +104,28 @@ namespace MissionWOTR.Feats
       Configure(nameof(CrescendoSkald), CrescendoSkald.Configure);
       Configure(nameof(Dreadnaught), Dreadnaught.Configure);
       Configure(nameof(GraveWarden), GraveWarden.Configure);
-      Configure(nameof(EldritchScrapper), EldritchScrapper.Configure);
       Configure(nameof(Overchanneler), Overchanneler.Configure);
-      Configure(nameof(SacredFist), SacredFist.Configure);
       Configure(nameof(MendingBlade), MendingBlade.Configure);
-      Configure(nameof(UndeadMaster), UndeadMaster.Configure);
       Configure(nameof(Inkbound), Inkbound.Configure);
       Configure(nameof(ElementalistShifter), ElementalistShifter.Configure);
       Configure(nameof(Beastbound), Beastbound.Configure);
       Configure(nameof(HolyVindicator), HolyVindicator.Configure);
       Configure(nameof(Bonewatch), Bonewatch.Configure);
       Configure(nameof(SacredVow), MissionWOTR.Mythics.SacredVow.Configure);
+
+      // 0.53.0 — WITHDRAWN as duplicates of content the user already runs,
+      // on the user's report and the loaded-mod list in the 0.52.1 log:
+      //   UntouchableRager  - HomebrewArchetypes (BloodragerArchetypes/
+      //                       Untouchable Rager/UntouchableRagerArchetype.jbp)
+      //   SacredFist        - HomebrewArchetypes (WarpriestArchetypes/SacredFist/)
+      //   UndeadMaster      - HomebrewArchetypes
+      //   ShiningKnight     - PrestigePlus
+      //   EldritchScrapper  - Ebon's Content Mod
+      // Their Configure calls, diagnostics entries and source files are
+      // gone; the Guids.cs constants stay, annotated, per the Intercessor
+      // precedent. (Crusader was reported too, but this mod never shipped
+      // one - the 0.7.0 cleric pair deliberately avoided it for exactly
+      // this reason. Nothing to withdraw.)
 
       // The archetype references the feats above, so it is configured last.
       Configure(nameof(MissionVanguard), MissionVanguard.Configure);
@@ -173,7 +182,6 @@ namespace MissionWOTR.Feats
           ("Spellfist", Guids.SpellfistArchetype, magus),
           ("Spellblade", Guids.SpellbladeArchetype, magus),
           ("SanguineFont", Guids.SanguineFontArchetype, bloodrager),
-          ("UntouchableRager", Guids.UntouchableRagerArchetype, bloodrager),
       ("SisterInArms", Guids.SisterArchetype, cavalier),
       ("Carousel", Guids.CarouselArchetype, cavalier),
       ("Cardinal", Guids.CardinalArchetype, cleric),
@@ -195,7 +203,6 @@ namespace MissionWOTR.Feats
       ("Stormcaller", Guids.StormcallerArchetype, kineticist),
       ("PlanarOracle", Guids.PlanarOracleArchetype, oracle),
       ("Apocryphal", Guids.ApocryphalArchetype, oracle),
-      ("ShiningKnight", Guids.ShiningKnightArchetype, paladin),
       ("FortunesFool", Guids.FortunesFoolArchetype, paladin),
       ("Guide", Guids.GuideArchetype, ranger),
       ("Wildbond", Guids.WildbondArchetype, ranger),
@@ -210,11 +217,8 @@ namespace MissionWOTR.Feats
       ("CrescendoSkald", Guids.CrescendoSkaldArchetype, skald),
       ("Dreadnaught", Guids.DreadnaughtArchetype, slayer),
       ("GraveWarden", Guids.GraveWardenArchetype, slayer),
-      ("EldritchScrapper", Guids.EldritchScrapperArchetype, sorcerer),
       ("Overchanneler", Guids.OverchannelerArchetype, sorcerer),
-      ("SacredFist", Guids.SacredFistArchetype, warpriest),
       ("MendingBlade", Guids.MendingBladeArchetype, warpriest),
-      ("UndeadMaster", Guids.UndeadMasterArchetype, wizard),
       ("Inkbound", Guids.InkboundArchetype, wizard),
       ("ElementalistShifter", Guids.ElementalistShifterArchetype, shifter),
       ("Beastbound", Guids.BeastboundArchetype, shifter),

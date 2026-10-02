@@ -509,7 +509,7 @@ namespace MissionWOTR
     internal const string SanguineBlastComponent = "0B7F9CD2-BE3B-412B-AF72-780FA57E2658";
     internal const string SanguineApotheosis = "BB4ECBF9-6617-456D-BBF9-6B818DB92ADC";
     internal const string SanguineDeathSaveComponent = "19C0D261-1B41-48C8-943B-55BDF37C4648";
-    internal const string UntouchableRagerArchetype = "7153C8DA-0800-4A0D-8E49-AECF0F1C15E0";
+    internal const string UntouchableRagerArchetype = "7153C8DA-0800-4A0D-8E49-AECF0F1C15E0"; // WITHDRAWN 0.53.0 - duplicate of HomebrewArchetypes (bloodrager); constants kept per the Intercessor precedent
     internal const string UntouchableRagingResistance = "FC71FDC7-E35E-4B29-895B-52793B30F76F";
     internal const string UntouchableSrBuff = "8A29773F-F7DD-4203-A01A-76FBBF6DFEA7";
     internal const string UntouchableControl = "B9C26823-77B1-4D3C-9BA5-AC0E5395CAC3";
@@ -796,7 +796,7 @@ namespace MissionWOTR
     internal const string ApocryphalArchetype = "62B33995-77FD-456C-A6CB-68E798E79D01";
     internal const string ApocryphalGrimoireSelection = "E4E9195C-0C49-4516-B04D-931F2183ECA2";
     // ----- Shining Knight (0.25.0, tabletop port) -----
-    internal const string ShiningKnightArchetype = "3971D417-67CF-4B26-8EB2-AF0C653B7287";
+    internal const string ShiningKnightArchetype = "3971D417-67CF-4B26-8EB2-AF0C653B7287"; // WITHDRAWN 0.53.0 - duplicate of PrestigePlus (paladin); constants kept per the Intercessor precedent
     internal const string ShiningSkilledRiderFeature = "C219DBAD-EA05-4851-ABAF-6448C6FB06C1";
     internal const string ShiningKnightsChargeFeature = "D8E65875-8FB1-4242-9087-72E8C3D895F6";
     internal const string ShiningSkilledRiderComponent = "7CA09083-497A-402E-ADD1-F640A8200ACC";
@@ -1099,7 +1099,7 @@ namespace MissionWOTR
     internal const string GraveWardenDustbringerImmunityBuff = "22587580-CD29-42DD-8922-9CB3E3BDD535";
 
     // ----- 0.42.0: Eldritch Scrapper (sorcerer, ACG 122) + the Overchanneler (homebrew) -----
-    internal const string EldritchScrapperArchetype = "E5487C25-7876-4514-B0E3-D398017077AA";
+    internal const string EldritchScrapperArchetype = "E5487C25-7876-4514-B0E3-D398017077AA"; // WITHDRAWN 0.53.0 - duplicate of Ebon's Content Mod (sorcerer); constants kept per the Intercessor precedent
     internal const string OverchannelerArchetype = "32205A0A-159B-43E7-BB46-F1540378B537";
     internal const string OverchannelerAbility = "28F1396E-109E-47B9-85E7-AC361BA59719";
     internal const string OverchannelerAction = "2E9D9D96-AF45-4576-BCBA-880818B30C01";
@@ -1116,7 +1116,7 @@ namespace MissionWOTR
     internal const string OverchannelerKitFeature = "B94C4B6E-D7CD-4F9D-ADBF-174DF4CD85CA";
 
     // ----- 0.44.0: the Sacred Fist (warpriest, ACG 130) -----
-    internal const string SacredFistArchetype = "B03B168E-0EF6-49B5-99D8-21D2341C6B63";
+    internal const string SacredFistArchetype = "B03B168E-0EF6-49B5-99D8-21D2341C6B63"; // WITHDRAWN 0.53.0 - duplicate of HomebrewArchetypes (warpriest); constants kept per the Intercessor precedent
     internal const string SacredFistBlessedFortitudeFeature = "34765F2D-AEA8-41BF-A47F-74593E2C1B2F";
 
     // ----- 0.45.0: the Mending Blade (warpriest homebrew) -----
@@ -1128,7 +1128,7 @@ namespace MissionWOTR
     internal const string MendingBladeGraveTitheFeature = "C18D75DF-637A-4762-998F-38795F5FA374";
 
     // ----- 0.48.0: the wizard round - Undead Master (port) + the Inkbound (homebrew) -----
-    internal const string UndeadMasterArchetype = "B0C5CE37-A0C8-470C-819A-14643E00BB8F";
+    internal const string UndeadMasterArchetype = "B0C5CE37-A0C8-470C-819A-14643E00BB8F"; // WITHDRAWN 0.53.0 - duplicate of HomebrewArchetypes (wizard); constants kept per the Intercessor precedent
     internal const string UndeadMasterKitFeature = "95930B53-5594-4665-A129-1DE40391989A";
     internal const string UndeadMasterCommandAbility = "0E171CE6-3986-4F26-8B0C-F2F3129380AE";
     internal const string UndeadMasterCommandResource = "AA651E19-E245-43F4-B6A5-9B57ACCA5452";

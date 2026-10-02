@@ -36,7 +36,9 @@ namespace MissionWOTR.Archetypes
   ///   flat-footed. Implementation: an initiator-side
   ///   RuleAttackRoll rider sets evt.ForceFlatFooted (the engine's
   ///   own flag) when the parent weapon-attack rule IsCharge (the
-  ///   ShiningKnight/Wildbond charge idiom).
+  ///   ShiningKnight/Wildbond charge idiom - the Shining Knight was
+  ///   withdrawn in 0.53.0 as a PrestigePlus duplicate, so this file and
+  ///   Wildbond are what remain of it).
   /// - Skirmisher (8th, replaces improved uncanny dodge): whenever
   ///   the scout moves more than 10 feet in a round and makes an
   ///   attack, the attack treats the target as flat-footed - only
