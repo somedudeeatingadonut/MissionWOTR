@@ -400,10 +400,9 @@ namespace MissionWOTR.Archetypes
             {
               continue;
             }
-            foreach (var granted in entry.Features)
+            foreach (var target in GrantedFeatures(entry))
             {
-              var target = granted?.Get();
-              if (target is null || !advancing.Contains(target.AssetGuid.ToString()))
+              if (!advancing.Contains(target.AssetGuid.ToString()))
               {
                 continue;
               }
@@ -420,6 +419,62 @@ namespace MissionWOTR.Archetypes
       catch (Exception e)
       {
         MissionFeats.Logger.Warn($"[chimera] advancement scan failed: {e}");
+      }
+    }
+
+    /// <summary>
+    /// The features a level entry grants, dereferenced. Mirrors
+    /// ArchetypeRemovals.EntryFeatures: the entry's list is read reflectively
+    /// (its field name varies between builds) and each item is either already a
+    /// feature or a reference whose parameterless Get is invoked reflectively -
+    /// the reference type's own Get requires an argument at compile time, so
+    /// calling it directly is CS1501.
+    /// </summary>
+    private static IEnumerable<BlueprintFeatureBase> GrantedFeatures(object entry)
+    {
+      var flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+      var list = ReadField(entry, "Features", flags) ?? ReadField(entry, "m_Features", flags);
+      if (list is not System.Collections.IEnumerable items)
+      {
+        yield break;
+      }
+      foreach (var item in items)
+      {
+        if (item is BlueprintFeatureBase direct)
+        {
+          yield return direct;
+        }
+        if (item is null)
+        {
+          continue;
+        }
+        var get = item.GetType().GetMethod(
+          "Get", flags, null, Type.EmptyTypes, null);
+        object value = null;
+        try
+        {
+          value = get?.Invoke(item, null);
+        }
+        catch
+        {
+          continue;
+        }
+        if (value is BlueprintFeatureBase dereferenced)
+        {
+          yield return dereferenced;
+        }
+      }
+    }
+
+    private static object ReadField(object target, string name, BindingFlags flags)
+    {
+      try
+      {
+        return target.GetType().GetField(name, flags)?.GetValue(target);
+      }
+      catch
+      {
+        return null;
       }
     }
 
