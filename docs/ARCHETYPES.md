@@ -883,6 +883,100 @@ body of writing — hundreds of nodes, voice-consistent per character. Any first
 step should be small enough that a failure is a missing line and not a broken
 companion.
 
+## Reading Gracious Friendships — how companion dialogue actually attaches
+
+The user put the mod on the `game-libs` release. The sandbox cannot read it —
+`gh api` lists the assets fine, but the redirect to
+`release-assets.githubusercontent.com` is unreachable, so the download returns a
+zero-byte file. CI can reach it, so `.github/scripts/probe-gfmod.ps1` downloads
+both assets there, unpacks them, and commits a **summary** only; the mod is never
+added to git and `_gfmod/` is ignored.
+
+### The shape of the mod
+
+1,215 files: **1,108 `.jbp`** blueprints and **98 `.patch`** files.
+
+| Blueprint type | Count |
+|---|---|
+| `BlueprintCue` | 602 |
+| `BlueprintAnswer` | 356 |
+| `BlueprintAnswersList` | 94 |
+| `BlueprintCueSequence` | 21 |
+| `BlueprintSequenceExit` | 21 |
+| `BlueprintCheck` | 5 |
+| `BlueprintDialog` | 1 |
+| `BlueprintUnlockableFlag` | 1 |
+| `Cutscene` + `CommandStartDialog`/`CommandLockControls`/`CommandWaitForCombatEnd` | 1 each |
+
+513 distinct external blueprint references across 615 files.
+
+A `.jbp` is:
+
+```json
+{ "AssetId": "<32 hex, no dashes>",
+  "Data": { "$type": "<32hex>, BlueprintDialog", ... },
+  "Meta": { "ShadowDeleted": false } }
+```
+
+and internal references are written `"!bp_<32hex>"`.
+
+### The attach mechanism — one JSON merge
+
+`gfr__Daeran_Main_dialog.patch`, in full:
+
+```json
+{ "FirstCue": { "Cues": [ "!bp_cf7ca1dd1b5a4d3bade43cbc7c4b7af0", "...12 more" ] },
+  "_#ArrayMergeSettings": "Merge" }
+```
+
+That is the whole trick. A vanilla companion's `BlueprintDialog.FirstCue` is a
+`CueSelection` (`Cues` + `Strategy: "First"`) — an ordered list of candidate
+opening cues, and the dialog takes the first whose `Conditions` pass. GF appends
+its own cues to that list. No etude, no trigger, no `StartDialog`: the
+conversation is already reachable, it just has more entrances.
+
+`BlueprintDialog.FirstCue` is confirmed to have exactly those two fields by the
+DLL probe, and BPCore's `BaseDialogConfigurator` exposes the matching mutator:
+
+```csharp
+public TBuilder ModifyFirstCue(Action<CueSelection> action)
+```
+
+So the C# equivalent of GF's patch is a `ModifyFirstCue` that adds our cue to the
+list. Conversational cutscenes are the separate case — those do go through
+`Cutscene` + `CommandStartDialog` (`m_Dialog: "!bp_..."`, `OnFail: "RemoveTrack"`),
+which is a different system from the `EventConditionActionSystem.Actions.StartDialog`
+found earlier. Both exist; GF uses the cutscene route for scenes and the patch
+route for conversations.
+
+### Thirteen vanilla companion dialogs, by asset name
+
+`Seelah_Main_dialog` · `Daeran_Main_dialog` · `Lann_Main_dialog` ·
+`Regill_Main_dialog` · `Dialogue_Arueshalae_Main` ·
+`EvilArueshalaeCompanion_Dialogue` · `Dialogue_CameliaMain` ·
+`Dialogue_Ember_Main` · `Dialogue_Sosiel_Main` · `NenioCompanion_dialogue` ·
+`GrimborMainDialogue` · `DialogueWoljif_main` · `DLC4_Shifter_CompanionDialogue`
+
+### The one remaining unknown, and a correction
+
+Modifying a vanilla dialog needs its **GUID**, not its name. BPCore's
+`BlueprintTool.Get<T>(string nameOrGuid)` looks like it accepts names — the
+parameter is literally called `nameOrGuid` — but the body is:
+
+```csharp
+if (!GuidsByName.TryGetValue(nameOrGuid, out Guid assetId))
+  { assetId = Guid.Parse(nameOrGuid.ToLower()); }
+```
+
+`GuidsByName` is BPCore's own registry, populated only by `AddGuidsByName`, so it
+holds blueprints *mods* created. A vanilla asset name is not in it, falls through
+to `Guid.Parse`, and throws `FormatException`. So `Seelah_Main_dialog` cannot be
+resolved by name.
+
+That is what `Main.DumpDialogInventory()` (0.56.0) is for: it logs every
+`BlueprintDialog` by name **and** AssetGuid, so one playtest log yields the GUID
+for each of the thirteen dialogs above. Nothing else about this is blocked.
+
 ## 0.55.0 — Skinchange and In Harm's Way, both real
 
 Two corrections from the user, both of which overturned a 0.54.0 assumption of
