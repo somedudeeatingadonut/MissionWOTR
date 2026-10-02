@@ -224,7 +224,11 @@ namespace MissionWOTR.Archetypes
           // The learned flag the command's action checks; the command
           // itself is cast through the Guided Command variant menu, so it
           // is NOT granted as a separate action-bar ability.
-          .AddPrerequisiteClassLevel(CharacterClassRefs.HunterClass.Reference.Get(), entry.Gate)
+          // 0.53.0 - LevelPlan.Gate: in test mode all five command picks land
+          // at level 1, and every command is gated at hunter 4+, so none of
+          // them could be taken.
+          .AddPrerequisiteClassLevel(
+            CharacterClassRefs.HunterClass.Reference.Get(), LevelPlan.Gate(entry.Gate))
           .Configure();
         commandAbilities.Add(ability);
         commandFeatures.Add(feature);

@@ -96,7 +96,11 @@ namespace MissionWOTR.Archetypes
           .SetIcon(spell.Icon)
           .SetIsClassFeature()
           .AddFacts(new() { ability })
-          .AddPrerequisiteClassLevel(CharacterClassRefs.MonkClass.Reference.Get(), power.MinLevel)
+          // 0.53.0 - LevelPlan.Gate: in test mode all three ki picks land at
+          // level 1, and every one of these powers is gated at monk 8+, so all
+          // three picks were coming up empty.
+          .AddPrerequisiteClassLevel(
+            CharacterClassRefs.MonkClass.Reference.Get(), LevelPlan.Gate(power.MinLevel))
           .Configure();
         powerFeatures.Add(feature);
         MissionFeats.Logger.Info(

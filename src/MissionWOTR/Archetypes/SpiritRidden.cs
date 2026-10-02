@@ -412,9 +412,15 @@ namespace MissionWOTR.Archetypes
         .AddAbilityEffectRunAction(channel)
         .Configure();
 
-      // The spirit feature: the gate. All six are in the selection;
-      // the Master, Cutthroat, Hunter and Knight also carry shaman
-      // level prerequisites so they only OFFER themselves in time.
+      // The spirit feature: the gate. All ten are in the selection; the
+      // four caster spirits also carry shaman level prerequisites so they
+      // only OFFER themselves in time.
+      //
+      // 0.53.0 - the gate now goes through LevelPlan.Gate. In test mode all
+      // four selection grants collapse to level 1 (see the 0.52.1 log:
+      // "level-1 grants (4): SpiritRiddenSpiritSelection x4"), so a spirit
+      // gated at 6/12/18 was excluded from every pick and could never be
+      // taken - the reported "the four caster spirits don't appear".
       var feature = FeatureConfigurator.New("SpiritRidden" + key + "Feature", featureGuid)
         .SetDisplayName("SpiritRidden" + key + ".Name")
         .SetDescription("SpiritRidden" + key + ".Description")
@@ -424,7 +430,8 @@ namespace MissionWOTR.Archetypes
       if (minLevel > 1)
       {
         feature = feature.AddPrerequisiteClassLevel(
-          CharacterClassRefs.ShamanClass.Cast<BlueprintCharacterClassReference>(), minLevel);
+          CharacterClassRefs.ShamanClass.Cast<BlueprintCharacterClassReference>(),
+          LevelPlan.Gate(minLevel));
       }
       if (featureExtras != null)
       {
