@@ -23,3 +23,7 @@ Thumbs.db
 .DS_Store
 Managed.zip
 .tools/
+
+# Uploaded third-party mods for reference (never committed)
+mods-reference/
+*.zip
