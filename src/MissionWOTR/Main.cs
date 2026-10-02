@@ -2,6 +2,8 @@ using BlueprintCore.Blueprints.Configurators.Root;
 using BlueprintCore.Utils;
 using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.DialogSystem.Blueprints;
+using MissionWOTR.Archetypes;
 using MissionWOTR.Feats;
 using System;
 using System.IO;
@@ -92,6 +94,7 @@ namespace MissionWOTR
           Logger.Info("Configuring blueprints.");
           LoadLocalization();
           MissionFeats.ConfigureAll();
+          DumpDialogInventory();
         }
         catch (Exception e)
         {
@@ -123,6 +126,45 @@ namespace MissionWOTR
       catch (Exception e)
       {
         Logger.Error("Failed to load localization.", e);
+      }
+    }
+
+    /// <summary>
+    /// 0.56.0 diagnostic - the dialog inventory, needed before any companion
+    /// conversation can be written.
+    ///
+    /// Why this has to be a runtime dump rather than a lookup: the CI probe reads
+    /// Assembly-CSharp.dll, which is TYPE metadata. Blueprint GUIDs are game
+    /// CONTENT and are not in that DLL, and BlueprintCore ships reference lists
+    /// for units, abilities, features and buffs but NOT for dialogs, cues,
+    /// answers or etudes - the only dialog-adjacent refs file it has is
+    /// DialogExperienceModifierTableRefs. So there is no way to name a vanilla
+    /// companion conversation from anything available offline.
+    ///
+    /// Enumerating the loaded blueprint cache gets them, via the AllBlueprints
+    /// idiom ElementalObsessor already uses. This is the same loop that settled
+    /// the HomebrewArchetypes roster from the playtest log.
+    ///
+    /// Companion UNITS are already known offline (BlueprintCore's UnitRefs names
+    /// Seelah, Arueshalae, Camellia, Daeran, Ember, Nenio, Sosiel and the rest),
+    /// so the missing half is purely the dialog side.
+    /// </summary>
+    private static void DumpDialogInventory()
+    {
+      try
+      {
+        var dialogs = ElementalObsessor.AllBlueprints<BlueprintDialog>();
+        Logger.Info($"[diag] dialog inventory: {dialogs.Count} BlueprintDialog blueprints");
+        foreach (var d in dialogs.OrderBy(x => x.name, StringComparer.OrdinalIgnoreCase))
+        {
+          Logger.Info($"[diag] DIALOG {d.name} {d.AssetGuid}");
+        }
+        var cues = ElementalObsessor.AllBlueprints<BlueprintCue>();
+        Logger.Info($"[diag] cue inventory: {cues.Count} BlueprintCue blueprints (names omitted - too many)");
+      }
+      catch (Exception e)
+      {
+        Logger.Error("Dialog inventory dump failed.", e);
       }
     }
 
