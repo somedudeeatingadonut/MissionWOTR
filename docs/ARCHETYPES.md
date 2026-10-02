@@ -794,6 +794,59 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.55.0 — Skinchange and In Harm's Way, both real
+
+Two corrections from the user, both of which overturned a 0.54.0 assumption of
+mine.
+
+### The no-transformation rule was narrower than I applied it
+
+The standing rule was scoped to **one** archetype, not to the mod. I had applied
+it as a blanket ban and shipped Bloodmarked's 9th level as a hide. It is now a
+genuine change of shape: the shifter's own wolf form, granted as a fact exactly
+the way Beastbound references `ShifterWildShapeWolfFeature`. The +1 natural
+armor stays — the hide does not go away when she changes. The GUID is unchanged
+(the constant was renamed, the value was not), so nothing is save-breaking.
+
+### In Harm's Way: the engine already does this
+
+0.54.0 documented it as a cut on the assumption that intercepting damage meant
+hand-rolling a transfer. The probe of the game DLL says otherwise — `RuleDealDamage`
+carries:
+
+```
+FIELD: RedirectedPercent [protorint]
+FIELD: RedirectionTarget [protorint]
+PROP:  RedirectedDamage
+```
+
+So the rider sets those two fields in the damage rule's about-to-trigger and
+Owlcat's own code moves the damage. Less code than the withdrawn Intercessor's
+manual conservation, and more correct, because the arithmetic is the engine's
+rather than mine.
+
+Two things about the shape of it:
+
+- **The rider rides the buff on the guarded ally, not the paladin.** A component
+  on her would only ever see damage dealt to *her*, and the whole point is the
+  damage going to somebody else. She reaches the paladin through the fact's
+  context — the Anatomist's "is this my mark" idiom.
+- **Touch range stands in for adjacency**, which the engine has no range for.
+
+Still cut, and still stated as such: Bastion of Faith's DR 5/evil, which needs
+an alignment-qualified physical resistance the simple configurator surface does
+not expose.
+
+### Three compile rounds, all of them namespace problems
+
+Worth recording because each one was a guess I could have checked:
+
+| Error | Cause |
+|---|---|
+| CS0246 `ITargetRulebookHandler<>` | lives in `Kingmaker.PubSubSystem`, not `Kingmaker.RuleSystem`. Every other file in the repo that uses it imports PubSubSystem; this was the only one that did not. |
+| CS0103 `ContextDuration` | it is BPCore's own struct in `BlueprintCore.Utils.Types`, **not** the game's `Kingmaker.UnitLogic.Mechanics`. No file in this repo imports `Mechanics.Contexts`. |
+| CS1061 `ApplyBuff` | an extension in `BlueprintCore.Actions.Builder.ContextEx`, the context-aware half of the actions builder. |
+
 ## 0.54.0 — five replacements for the withdrawn archetypes
 
 0.53.0 withdrew five archetypes as duplicates of mods the user already runs.
