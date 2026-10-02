@@ -794,6 +794,113 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.53.0 — the first real in-game log: six archetypes never shipped
+
+The user uploaded a full `GameLogFull.txt` / `Player.log` from a 0.52.1
+session. It is the first time this mod has been read by the actual game
+with the diagnostics turned on, and it named six separate failures
+exactly — including five archetypes that were believed shipped and were
+not. Every fix below is quoted from that log, not inferred.
+
+- **FIXED — Planar Oracle never existed (0.24.0).**
+  `Failed to configure feat: PlanarOracle`, inner exception
+  `Guid should contain 32 digits with 4 dashes`, frame
+  `BlueprintCore.Utils.BlueprintTool.Get[T] <- PlanarOracle.Configure`.
+  The bonus-spell table held ASSET NAMES (`"ProtectionFromEvil"`), but
+  `BlueprintTool.Get<T>(nameOrGuid)` in BlueprintCore 2.8.x calls
+  `Guid.Parse` on the string — the first entry threw and took the whole
+  archetype with it. The column now holds resolved guids via
+  `AbilityRefs.X.ToString()`, the idiom Doomsayer and SanguineFont
+  already use. **This is why "none of the oracle archetypes appear."**
+- **FIXED — the Apocryphal (Blood-Scribed) never existed (0.24.0).**
+  `Failed to configure feat: Apocryphal`, inner exception
+  `Duplicate GuidByName. ApocryphalSpellInflictPainAbility ... already
+  exists`. The wizard's spell list contains two *distinct* blueprints
+  sharing one asset name, and BPCore keys blueprints by name, so the
+  second one aborted Configure. Generated page names are now
+  de-duplicated; the page GUID still derives from each spell's own
+  AssetGuid, so pages already stolen in an existing save keep their
+  identity.
+- **FIXED — the Sanguine Font never existed.** The 0.5.3 patch fixed its
+  missing `ConfigureAll` registration — but the blueprint still never
+  got built, because Configure itself was throwing. The only older log
+  on file is from v0.5.2 and predates that fix, so nothing caught it
+  until now. `Failed to configure feat: SanguineFont`, `Specified cast is
+  not valid`. `.Cast<Blueprint<BlueprintFeatureReference>>()` over a
+  `List<BlueprintFeature>` throws InvalidCastException on enumeration —
+  the *same* bug class the 0.5.3 patch fixed in ElementalObsessor, which
+  had simply never been swept out of this file.
+- **FIXED — the Overchanneler never existed (0.42.0).**
+  `Failed to configure feat: Overchanneler`, `Specified cast is not
+  valid`, frame `CloneSpellbookWithPerDayTax`. Hard casts over
+  reflection, including `(int)countField?.GetValue(...)`, which unboxes
+  and throws unless the field is exactly an `int`. Every reflective step
+  is now a soft `as`/`Convert` with a logged fallback and the discovered
+  field shapes are logged, so the next log names the real layout instead
+  of guessing. If the per-day tax cannot be built the source book is
+  returned UNTAXED rather than losing the archetype. **This is why "the
+  other sorcerer archetype does not appear."**
+- **FIXED — the two prestige classes were built but never listed
+  (0.51.0).** The log shows both configuring cleanly
+  (`[holyvindicator] configured: HolyVindicator`,
+  `[bonewatch] configured: Bonewatch`) — and both absent from the game.
+  Creating a `BlueprintCharacterClass` is not sufficient: the level-up
+  UI enumerates the class array on `BlueprintRoot.Progression`, and
+  nothing put ours there. New `Archetypes/ClassRegistration.cs` appends
+  the class, the registration used by YLMstring/Prestige-Plus
+  (`FakeAlignedClass.AddtoMenu`) and Balkoth-dev/WOTR_MAKING_FRIENDS
+  (`SummonerClass`), with the array's shape confirmed against
+  Vek17/TabletopTweaks-Core (`ClassTools.cs`). The field is reached by
+  reflection *by type*, because this project compiles against the stock
+  game assembly (the csproj: "the mod's code only touches public game
+  APIs") while those mods build against publicized ones.
+- **FIXED — the hunter teamwork-feat trades never happened (0.12.0).**
+  `[removals] 14b66a1e2a6a415182a651db8c0f1143 not found in HunterClass
+  progression ... removal skipped` — logged twice, once per hunter
+  archetype. That hard-coded guid is simply not the hunter's
+  teamwork-feat progression, so the venomblood and the riftstalker kept
+  every teamwork feat their descriptions say they trade away. Both now
+  remove by NAME at every grant level (`RemoveEveryGrant`), which
+  survives guid churn; the dead "One with the Wild (pet half)" guid
+  (`f34a34c8...`, logged as not found) is dropped.
+- **FIXED — the Doomsayer's "no teamwork feats at all" never happened
+  (0.17.0).** Two causes. The trade went through `AddRemovals`, which
+  resolves a feature to ONE level and stops, so at best she lost a
+  single teamwork slot out of six; and the log shows two of this
+  archetype's resolved ids missing from the inquisitor progression
+  entirely (`66bdd3daa1e6402295e88e1d81ffff95`,
+  `a318fa1af8424638ab10c4f98c11ee6a`). Every teamwork grant is now
+  removed by name at every level.
+- **NEW INSTRUMENT — `ArchetypeRemovals.DumpProgression`.** The same log
+  shows removals silently skipped across **16 classes** (Magus 5,
+  Kineticist 5, Hunter 5, Alchemist 5, Monk 4, Druid 3, Bard 3,
+  Inquisitor 2, Fighter 2, Cleric 2, Barbarian 2, and one each for
+  Slayer, Skald, Rogue, Ranger, Cavalier). The warnings name the guid
+  that missed but never say what the real entry IS. The hunter and
+  inquisitor progressions now dump every grant matching "Teamwork"
+  (and "Judgment"), level + name + guid, so the next playtest log is the
+  ground truth needed to fix the rest rather than another round of
+  guessing.
+- **Noted, not yet actioned** (the user's list, tracked so nothing is
+  lost): duplicate content to withdraw against Homebrew Archetypes
+  (Untouchable Rager, Crusader, Sacred Fist, Undead Master), PrestigePlus
+  (Shining Knight) and Ebon's Content Mod (Eldritch Scrapper); the Lion
+  Shaman vs. Expanded Content's Lion Totem Druid; Solipsist must echo
+  only his OWN buffs; Venomblood and Doomsayer need more per level;
+  Inkbound's Recitation and ink economy; the "Mission WOTR homebrew"
+  prefix in later descriptions and the "unknown mod" attribution; the
+  Spirit-Ridden's four caster spirits (they ARE implemented in
+  0.37.0 — Antlered One, Pyre Empress, Pale Archivist, Spellblade — so
+  this is a presentation gap, not missing content); and the Chimera
+  spellbook's prestige-class/mythic advancement.
+- **Verified, not a bug:** the Spirit-Ridden caster spirits the user
+  asked about are present in `SpiritRidden.cs` (search `Antlered`,
+  `Pyre`, `Archivist`, `Spellblade`). And the many
+  `BlueprintConfigurator: ... failed validation` lines in the log are
+  non-fatal warnings other mods also emit (Stalker, BattleHerald,
+  MesmeristClass, WinterWitchClass, KineticLancerArchetype all log them
+  and work fine) — they are not why anything was missing.
+
 ## 0.52.1 — the old-code sweep (alchemist → present)
 
 The user's ask: *"Just double check the code all the way from alchemist
