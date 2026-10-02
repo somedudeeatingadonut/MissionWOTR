@@ -3573,6 +3573,13 @@ GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.CompletePSNA
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartPSNActivity
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddCampingEncounter
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification
+=== TYPE Kingmaker.Designers.EventConditionActionSystem.Actions.AddDialogNotification vis=public base=Kingmaker.ElementsSystem.GameAction ===
+  FIELD: Text [protorint]
+  METHOD: GetDescription
+  METHOD: GetCaption
+  METHOD: RunAction
+  METHOD: .ctor
+  METHOD: <RunAction>b__3_0 (h)
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddEquipmentToPet
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddFact
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.AddFatigueHours
@@ -3686,6 +3693,14 @@ RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCas
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCaster
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkAnswersSelected
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkCuesSeen
+=== TYPE Kingmaker.Designers.EventConditionActionSystem.Actions.MarkCuesSeen vis=public base=Kingmaker.ElementsSystem.GameAction ===
+  FIELD: m_Cues [private]
+  PROP: Cues
+  METHOD: get_Cues
+  METHOD: GetDescription
+  METHOD: GetCaption
+  METHOD: RunAction
+  METHOD: .ctor
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkLocationClosed
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkLocationExplored
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.MarkOnLocalMap
@@ -3788,8 +3803,29 @@ GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.SpotUnit
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartChangeVisual
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartCombat
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartDialog
+=== TYPE Kingmaker.Designers.EventConditionActionSystem.Actions.StartDialog vis=public base=Kingmaker.ElementsSystem.GameAction ===
+  FIELD: DialogueOwner [protorint]
+  FIELD: m_Dialogue [private]
+  FIELD: DialogEvaluator [protorint]
+  FIELD: SpeakerName [protorint]
+  PROP: Dialogue
+  METHOD: get_Dialogue
+  METHOD: RunAction
+  METHOD: GetCaption
+  METHOD: GetUsagesFor (dialog)
+  METHOD: .ctor
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartEncounter
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartEtude
+=== TYPE Kingmaker.Designers.EventConditionActionSystem.Actions.StartEtude vis=public base=Kingmaker.ElementsSystem.GameAction ===
+  FIELD: Etude [protorint]
+  FIELD: EtudeEvaluator [protorint]
+  FIELD: Evaluate [protorint]
+  METHOD: GetDescription
+  METHOD: RunAction
+  METHOD: GetCaption
+  METHOD: Validate (context, parentIndex)
+  METHOD: GetUsagesFor (f)
+  METHOD: .ctor
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StartTrade
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StatusEffect
 GAME-ACTION: Kingmaker.Designers.EventConditionActionSystem.Actions.StopCustomMusic
