@@ -794,6 +794,69 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.56.0 — DR 5/evil, and what companion work would actually take
+
+### Bastion of Faith's damage reduction is real
+
+This was the last cut on Sacred Shield, and like In Harm's Way it was only ever
+a cut because I had not looked hard enough. The probe shows
+`AddDamageResistancePhysical` carrying public `BypassedByAlignment` and
+`Alignment` fields next to the material ones, plus a
+`CheckBypassedByAlignment(damage)` method — so the evil carve-out is decided by
+the engine. `Value` sits on the base `AddDamageResistanceBase`, confirmed
+public by the same probe.
+
+The parameter names `bypassedByAlignment:` / `alignment:` were an *inference*
+from the same extension's proven `value:` / `material:` / `bypassedByMaterial:`;
+the field-name → parameter mapping holds across those, and CI confirmed it.
+
+Sacred Shield now has nothing cut from it.
+
+### Companion interactions: what is reachable and what is not
+
+Asked whether dialogue in the manner of *Gracious Friendships* is possible. The
+short answer is that the machinery is reachable and the blocker is data, not
+capability.
+
+**Verified available, from the probe and from BlueprintCore:**
+
+| Need | Status |
+|---|---|
+| Dialog blueprints | BPCore ships a full `DialogSystem` configurator set: `DialogConfigurator`, `CueConfigurator`, `AnswersListConfigurator`, `AnswerConfigurator`, `CueSequenceConfigurator`, `SequenceExitConfigurator`, `CheckConfigurator` |
+| Node shapes | `BlueprintDialog` = FirstCue / Conditions / StartActions / FinishActions / Type; `BlueprintCue` = Text / Speaker / OnShow / OnStop / Answers / Continue; `BlueprintAnswer` = Text / NextCue / ShowConditions / SelectConditions / OnSelect / AlignmentShift |
+| Condition vocabulary | 227 condition types, including `CompanionInParty`, `CompanionIsDead`, `CompanionStoryUnlocked`, `CurrentChapter`, `FlagUnlocked`, `HasFact`, `IsUnitMythicLevel`, `AlignmentCheck`, `IsPartyMember` |
+| Companion identity | `UnitRefs` names them with GUIDs: Seelah `8608eed026b849f4a8690f846bb8ec62`, Arueshalae `b7ed4ffba5709fc45b6422931027c47e`, Camellia `3fc99463f13f458f94456b53c8a649d4`, Daeran `c2a1e24b5daf894488465b4a2065e838`, Ember `d2a8a26cd04744778a5c9d8b4d120b8a`, Nenio `80c11072c2cd70442b8fd9b9145906eb`, Sosiel `81affcf87bda48398dc49aff2e1ed13c` |
+
+**The blocker, and why it cannot be solved offline:** vanilla dialog GUIDs.
+The CI probe reads `Assembly-CSharp.dll`, which is *type* metadata; blueprint
+GUIDs are game *content*. And BPCore ships reference lists for units, abilities,
+features and buffs but **none** for dialogs, cues, answers or etudes — its only
+dialog-adjacent refs file is `DialogExperienceModifierTableRefs`.
+`BlueprintUnit` has no dialog field either, so nothing attaches a conversation
+to a companion at the unit level.
+
+0.56.0 therefore ships `Main.DumpDialogInventory()`, which enumerates the loaded
+blueprint cache via the `AllBlueprints` idiom and logs every `BlueprintDialog`
+by name and GUID. One playtest log yields the whole conversation map — the same
+loop that produced the HomebrewArchetypes roster.
+
+### A probe bug worth recording
+
+v11 filtered condition types on names starting with `Condition` and returned
+**zero**. Zero was the finding, not an absence: WOTR's condition types carry no
+prefix — `DualCompanionInactive` sits in the `Conditions` namespace. v12 dumps
+the whole namespace and found 227. Lesson: when a probe returns an empty set,
+suspect the filter before concluding the thing does not exist.
+
+### What dialogue would cost, honestly
+
+Nothing here is compile-testable in the way a feature is. A mis-wired dialog can
+break a companion's conversation rather than merely misbehaving, and there is no
+way to catch that before the user plays it. Gracious Friendships is also a large
+body of writing — hundreds of nodes, voice-consistent per character. Any first
+step should be small enough that a failure is a missing line and not a broken
+companion.
+
 ## 0.55.0 — Skinchange and In Harm's Way, both real
 
 Two corrections from the user, both of which overturned a 0.54.0 assumption of
