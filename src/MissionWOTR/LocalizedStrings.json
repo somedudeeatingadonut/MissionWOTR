@@ -2343,7 +2343,7 @@
   {
     "Key": "Solipsist.Description",
     "ProcessTemplates": false,
-    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul, the communal versions of such spells are closed to him entirely, and the channel of holy energy is denied him - there is no flock to heal. What he keeps is intensity. Each spell he casts upon himself settles twice: the blessing itself, and beneath it an untyped echo of the same blessing that stacks with the original, with potions, with another cleric's work, and with everything else. Even his personal battle-blessings - divine power, righteous might - echo. A church of one must be its own church militant: he trains with martial weapons, takes a bonus combat feat, and his self-reliance hardens over time into a keener eye (+1 to attack at 5th, +2 at 15th) and a tougher body (+5 hit points at 10th, +10 at 20th). A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
+    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul, the communal versions of such spells are closed to him entirely, and the channel of holy energy is denied him - there is no flock to heal. What he keeps is intensity. From 8th level onward, each spell he casts upon himself settles twice: the blessing itself, and beneath it an untyped echo of the same blessing that stacks with the original, with potions, with another cleric's work, and with everything else. Even his personal battle-blessings - divine power, righteous might - echo. The echo is his alone: it answers only to his own casting, on himself, and never to a blessing laid on him by another. A church of one must be its own church militant: he trains with martial weapons, takes a bonus combat feat, and his self-reliance hardens over time into a keener eye (+1 to attack at 5th, +2 at 15th) and a tougher body (+5 hit points at 10th, +10 at 20th). A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
   },
   {
     "Key": "SolipsistSolipsism.Name",
@@ -2353,7 +2353,17 @@
   {
     "Key": "SolipsistSolipsism.Description",
     "ProcessTemplates": false,
-    "enGB": "Every cleric spell that could target an ally can now only target the solipsist himself; hostile targets are unaffected, so cure spells still burn the undead. The communal versions of ally-affecting spells are denied to him altogether - a congregation of one has no one to bless but himself. When he casts a qualifying spell on himself, every blessing it bestows is laid down a second time as an untyped echo that stacks with the original and cannot be overridden by same-type effects, healing spells roll their healing twice, and his personal-range blessings echo as well. In exchange, he never gains channel energy."
+    "enGB": "Every cleric spell that could target an ally can now only target the solipsist himself; hostile targets are unaffected, so cure spells still burn the undead. The communal versions of ally-affecting spells are denied to him altogether - a congregation of one has no one to bless but himself. In exchange, he never gains channel energy. The doubling of his blessings is a separate gift, and it does not arrive until 8th level."
+  },
+  {
+    "Key": "SolipsistEcho.Name",
+    "ProcessTemplates": false,
+    "enGB": "The Echo"
+  },
+  {
+    "Key": "SolipsistEcho.Description",
+    "ProcessTemplates": false,
+    "enGB": "At 8th level the solipsist's blessings begin to settle twice. When he casts a qualifying spell upon himself, every blessing it bestows is laid down a second time as an untyped echo that stacks with the original and cannot be overridden by same-type effects, and healing spells roll their healing twice. His personal-range blessings echo as well, divine power and righteous might among them. The echo answers to his casting alone: it fires only when he is the caster and he is the target, so a blessing laid upon him by another - an ally's spell, a wand in someone else's hand - is never doubled, and he can never double a blessing meant for anyone but himself."
   },
   {
     "Key": "SolipsistMartialDevotion.Name",

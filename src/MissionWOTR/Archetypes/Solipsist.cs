@@ -114,6 +114,22 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .Configure();
 
+      // 0.53.0 — the doubling used to ride on the Solipsism feature, and that
+      // feature lands at the cleric's channel-energy level, which is 1st. So
+      // one level of cleric bought permanent buff-doubling: pay nothing,
+      // double divine power and righteous might for the rest of the campaign.
+      // The echo is now its own feature and comes online later.
+      //
+      // The *downside* still arrives at 1st, deliberately: no channel energy
+      // and no flock to bless is the archetype's cost and must not be
+      // avoidable by dipping. Only the payoff waits.
+      var echo = FeatureConfigurator.New("SolipsistEcho", Guids.SolipsistEchoFeature)
+        .SetDisplayName("SolipsistEcho.Name")
+        .SetDescription("SolipsistEcho.Description")
+        .SetIcon(FeatureRefs.ChannelEnergyFeature.Reference.Get().Icon)
+        .SetIsClassFeature()
+        .Configure();
+
       // ----- Martial Devotion (the steel half) -----
       var martialDevotion = FeatureConfigurator.New(MartialDevotionName, Guids.SolipsistMartialDevotion)
         .SetDisplayName("SolipsistMartialDevotion.Name")
@@ -160,9 +176,12 @@ namespace MissionWOTR.Archetypes
 
       archetype
         .AddToAddFeatures(LevelPlan.L(channelLevel), solipsism)
+        // The echo comes online at 8th — deep enough that nobody dips for it,
+        // and it lines up with the archetype's other mid-tier spike.
+        .AddToAddFeatures(LevelPlan.L(8), echo)
         .Configure();
 
-      ApplyToClericSpells(solipsism);
+      ApplyToClericSpells(solipsism, echo);
 
       MissionFeats.Logger.Info("Solipsist: configured.");
     }
@@ -185,7 +204,8 @@ namespace MissionWOTR.Archetypes
     // Spell scan: lock, deny, and echo every ally-affecting cleric spell.
     // ------------------------------------------------------------------
 
-    private static void ApplyToClericSpells(BlueprintFeature fact)
+    private static void ApplyToClericSpells(
+      BlueprintFeature lockFact, BlueprintFeature echoFact)
     {
       var book = SpellbookRefs.ClericSpellbook.Reference.Get();
       var spellList = book?.SpellList;
@@ -219,7 +239,8 @@ namespace MissionWOTR.Archetypes
       int locked = 0, doubled = 0, denied = 0, clones = 0;
       foreach (var ability in abilities)
       {
-        ProcessAbility(ability, fact, ref locked, ref doubled, ref denied, ref clones);
+        ProcessAbility(ability, lockFact, echoFact,
+          ref locked, ref doubled, ref denied, ref clones);
       }
       MissionFeats.Logger.Info(
         $"[solipsist] spell scan: {abilities.Count} abilities seen, {locked} locked to self, " +
@@ -230,6 +251,7 @@ namespace MissionWOTR.Archetypes
     private static void ProcessAbility(
       BlueprintAbility ability,
       BlueprintFeature fact,
+      BlueprintFeature echoFact,
       ref int locked,
       ref int doubled,
       ref int denied,
@@ -279,7 +301,7 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        AttachEcho(ability, fact, ref clones);
+        AttachEcho(ability, echoFact, ref clones);
         doubled++;
         MissionFeats.Logger.Info($"[solipsist] {ability.name}: personal blessing echoes (doubled).");
         return;
@@ -297,7 +319,7 @@ namespace MissionWOTR.Archetypes
       locked++;
       if (hasBuffs || hasHeals)
       {
-        AttachEcho(ability, fact, ref clones);
+        AttachEcho(ability, echoFact, ref clones);
         doubled++;
       }
       MissionFeats.Logger.Info(

@@ -560,6 +560,9 @@ namespace MissionWOTR
     internal const string CardinalPoliticalSkill = "FF26F953-D5D5-405A-AB5D-A85A3947155E";
     internal const string SolipsistArchetype = "24FA563E-156A-42E7-A21F-11D60D5C4799";
     internal const string SolipsistFeature = "1356E90D-D4D8-4E60-A85F-6F1F55892A56";
+    // 0.53.0 - the echo is its own feature now, gated behind a level, so a
+    // one-level dip cannot buy permanent buff-doubling.
+    internal const string SolipsistEchoFeature = "01BE862F-4D71-4359-80CF-317AC5CF92E0";
     internal const string SolipsistTargetLock = "F61B2B27-5213-4046-957C-7F185C151AE1";
     internal const string SolipsistEchoAction = "29D5E92A-C6F6-43E4-88DA-4CCD79CFD0BA";
     internal const string SolipsistMartialDevotion = "2DEA1291-701D-4767-A809-58B75CE5D8F6";
