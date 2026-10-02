@@ -582,6 +582,8 @@ namespace MissionWOTR
     internal const string LionFelineForm15 = "701F9A30-EE03-4D8C-8F4A-3CBA67FF2AF1";
     internal const string LionTotemicSummons = "AE9ECDC6-7D4D-4A7A-A96A-21E5E5E88AB5";
     internal const string LionBonusFeatSelection = "98644C98-5173-440A-AB77-6ABD3F859E7F";
+    // 0.53.0 - the level-scaling totem rider (Lion Shaman differentiation).
+    internal const string LionAspectScalingRider = "ADA9EDFB-6089-42C0-8C8A-35283F08A037";
     internal const string LionAspectExclusivity = "4D6F1608-6A8B-442E-8ABD-8D8AE584B358";
     internal const string TrueShapeArchetype = "35A0BECE-7E8F-4858-BC16-CCC9BE78D8A4";
     internal const string TrueShapeSpellList = "4DFDCB93-DAEC-49D1-89E1-6EA67E7A3229";

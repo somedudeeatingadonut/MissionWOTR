@@ -2403,7 +2403,7 @@
   {
     "Key": "LionShamanTotemTransformation.Description",
     "ProcessTemplates": false,
-    "enGB": "The lion's power can pour into her own frame. The lion shaman may adopt one aspect of her totem while retaining her normal form: the pride's tireless movement (+20 speed), its senses (scent), or its weapons (a bite attack). Only one aspect can be worn at a time; donning one sheds the others. This replaces woodland stride."
+    "enGB": "The lion's power can pour into her own frame. The lion shaman may adopt one aspect of her totem while retaining her normal form: the pride's tireless movement, its senses (scent), or its weapons (a bite attack). Only one aspect can be worn at a time; donning one sheds the others. The totem deepens with her years: every aspect grows stronger at 8th level and again at 14th. This replaces woodland stride."
   },
   {
     "Key": "LionShamanAspectMovement.Name",
@@ -2413,7 +2413,7 @@
   {
     "Key": "LionShamanAspectMovement.Description",
     "ProcessTemplates": false,
-    "enGB": "The pride runs down its prey across the whole of the plain. While this aspect is worn, the lion shaman gains a +20 enhancement bonus to her movement speed."
+    "enGB": "The pride runs down its prey across the whole of the plain. While this aspect is worn, the lion shaman gains a +10 enhancement bonus to her movement speed and a +1 dodge bonus to AC - rising to +20 and +2 at 8th level, and +30 and +3 at 14th."
   },
   {
     "Key": "LionShamanAspectSenses.Name",
@@ -2423,7 +2423,7 @@
   {
     "Key": "LionShamanAspectSenses.Description",
     "ProcessTemplates": false,
-    "enGB": "Nothing moves on the savanna without the pride knowing. While this aspect is worn, the lion shaman gains the scent ability."
+    "enGB": "Nothing moves on the savanna without the pride knowing. While this aspect is worn, the lion shaman gains the scent ability and a +1 bonus on Will and Reflex saves - rising to +2 at 8th level and +3 at 14th."
   },
   {
     "Key": "LionShamanAspectWeapons.Name",
@@ -2433,7 +2433,7 @@
   {
     "Key": "LionShamanAspectWeapons.Description",
     "ProcessTemplates": false,
-    "enGB": "The lion's jaws answer for her. While this aspect is worn, the lion shaman gains a bite natural attack."
+    "enGB": "The lion's jaws answer for her. While this aspect is worn, the lion shaman gains a bite natural attack and a +1 bonus on attack and damage rolls - rising to +2 at 8th level and +3 at 14th."
   },
   {
     "Key": "LionShamanFelineWildShape.Name",

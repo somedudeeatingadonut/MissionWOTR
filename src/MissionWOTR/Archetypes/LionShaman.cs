@@ -4,7 +4,9 @@ using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Controllers.Units;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
@@ -66,7 +68,14 @@ namespace MissionWOTR.Archetypes
   /// </summary>
   internal static class LionShaman
   {
-    internal const string ArchetypeName = "LionShamanArchetype";
+    // 0.53.0 — RENAMED. ExpandedContent ships its Lion Totem Druid under the
+    // identical blueprint asset name "LionShamanArchetype" (ka-dyn/ExpandedContent,
+    // ExpandedContent/Tweaks/Archetypes/LionShaman.cs). The guids differ so both
+    // load, but any name-keyed lookup — the game's own or BlueprintCore's
+    // GuidByName — could resolve to the wrong mod's blueprint. Ours is now
+    // unambiguous, and the display name was already distinct ("Lion Shaman"
+    // vs. their "Lion Totem Druid").
+    internal const string ArchetypeName = "MissionLionShamanArchetype";
     internal const string AspectName = "LionShamanTotemTransformation";
     internal const string MovementName = "LionShamanAspectMovement";
     internal const string SensesName = "LionShamanAspectSenses";
@@ -81,11 +90,17 @@ namespace MissionWOTR.Archetypes
       var tigerIcon = AbilityRefs.ShifterWildShapeTigerAbillity.Reference.Get().Icon;
 
       // ----- Totem Transformation (2nd): three lion aspects -----
+      // 0.53.0 — the three aspects now SCALE with druid level (tier 1 at
+      // 2nd, 2 at 8th, 3 at 14th) instead of being flat. This is what
+      // separates the Lion Shaman from ExpandedContent's Lion Totem
+      // Druid, which is a wild-shape-timing archetype with nothing
+      // comparable. The movement aspect's old flat +20 speed is gone:
+      // the rider grants +10/+20/+30 instead, so it is not double-dipped.
       var movementBuff = BuffConfigurator.New(MovementName + "Buff", Guids.LionAspectMovementBuff)
         .SetDisplayName("LionShamanAspectMovement.Name")
         .SetDescription("LionShamanAspectMovement.Description")
         .SetIcon(AbilityRefs.ExpeditiousRetreat.Reference.Get().Icon)
-        .AddStatBonus(ModifierDescriptor.Enhancement, false, StatType.Speed, 20)
+        .AddComponent(new LionAspectScaling { DruidClass = druid, Aspect = 1 })
         .SetIsClassFeature()
         .Configure();
       var sensesBuff = BuffConfigurator.New(SensesName + "Buff", Guids.LionAspectSensesBuff)
@@ -93,6 +108,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("LionShamanAspectSenses.Description")
         .SetIcon(FeatureRefs.AnimalCompanionScent30.Reference.Get().Icon)
         .AddFacts(new() { FeatureRefs.AnimalCompanionScent30.Reference.Get() })
+        .AddComponent(new LionAspectScaling { DruidClass = druid, Aspect = 2 })
         .SetIsClassFeature()
         .Configure();
       var weaponsBuff = BuffConfigurator.New(WeaponsName + "Buff", Guids.LionAspectWeaponsBuff)
@@ -100,6 +116,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("LionShamanAspectWeapons.Description")
         .SetIcon(FeatureRefs.AnimalFuryFeature.Reference.Get().Icon)
         .AddFacts(new() { FeatureRefs.AnimalFuryFeature.Reference.Get() })
+        .AddComponent(new LionAspectScaling { DruidClass = druid, Aspect = 3 })
         .SetIsClassFeature()
         .Configure();
 
@@ -232,6 +249,91 @@ namespace MissionWOTR.Archetypes
   /// are shed (the tabletop allows only one aspect at a time).
   /// </summary>
   [TypeId(Guids.LionAspectExclusivity)]
+  /// <summary>
+  /// 0.53.0 — the lion aspects scale with druid level. This is what
+  /// separates the Lion Shaman from ExpandedContent's Lion Totem Druid,
+  /// which is a wild-shape-timing archetype with nothing comparable: the
+  /// overlap between the two was the wild shape, and the totem is what
+  /// is actually ours.
+  ///
+  /// Tier 1 at 2nd, 2 at 8th, 3 at 14th.
+  /// - Movement: +10 ft speed and +1 dodge AC per tier.
+  /// - Senses: +1 Will and Reflex per tier, on top of the scent.
+  /// - Weapons: +1 attack and damage per tier, on top of the bite.
+  ///
+  /// Modifiers are removed-then-reapplied on activate and every round and
+  /// keyed to this component's Runtime, so they never stack and never
+  /// outlive the aspect — the BeastboundLinkRider idiom, including the
+  /// 0.52.0 lesson that the key must be the component Runtime, not Fact.
+  /// </summary>
+  [TypeId(Guids.LionAspectScalingRider)]
+  internal class LionAspectScaling : UnitFactComponentDelegate, ITickEachRound
+  {
+    public BlueprintCharacterClass DruidClass;
+
+    /// <summary>1 = movement, 2 = senses, 3 = natural weapons.</summary>
+    public int Aspect;
+
+    protected override void OnActivate() => Refresh();
+
+    public void OnNewRound() => Refresh();
+
+    protected override void OnDeactivate() => Release();
+
+    private void Release()
+    {
+      try
+      {
+        var stats = Owner.Stats;
+        stats.Speed.RemoveModifiersFrom(Runtime);
+        stats.AC.RemoveModifiersFrom(Runtime);
+        stats.SaveWill.RemoveModifiersFrom(Runtime);
+        stats.SaveReflex.RemoveModifiersFrom(Runtime);
+        stats.AdditionalAttackBonus.RemoveModifiersFrom(Runtime);
+        stats.AdditionalDamage.RemoveModifiersFrom(Runtime);
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[lion] aspect release failed.", e);
+      }
+    }
+
+    private void Refresh()
+    {
+      try
+      {
+        var level = DruidClass is null
+          ? 1
+          : Owner.Descriptor.Progression.GetClassLevel(DruidClass);
+        var tier = level >= 14 ? 3 : level >= 8 ? 2 : 1;
+        Release();
+        var stats = Owner.Stats;
+        switch (Aspect)
+        {
+          case 1:
+            stats.Speed.AddModifierUnique(
+              10 * tier, Runtime, ModifierDescriptor.Enhancement);
+            stats.AC.AddModifierUnique(tier, Runtime, ModifierDescriptor.Dodge);
+            break;
+          case 2:
+            stats.SaveWill.AddModifierUnique(tier, Runtime, ModifierDescriptor.UntypedStackable);
+            stats.SaveReflex.AddModifierUnique(tier, Runtime, ModifierDescriptor.UntypedStackable);
+            break;
+          default:
+            stats.AdditionalAttackBonus.AddModifierUnique(
+              tier, Runtime, ModifierDescriptor.UntypedStackable);
+            stats.AdditionalDamage.AddModifierUnique(
+              tier, Runtime, ModifierDescriptor.UntypedStackable);
+            break;
+        }
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("[lion] aspect scaling failed.", e);
+      }
+    }
+  }
+
   internal class LionAspectExclusivity : UnitBuffComponentDelegate
   {
     public BlueprintBuff First;
