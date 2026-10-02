@@ -1179,6 +1179,7 @@ RAGE-TYPE: Kingmaker.UI.Models.Log.Events.GameLogEventAlignmentShifted vis=publi
 RAGE-TYPE: Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.Dialog.AlignmentShiftLogThread vis=public base=Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreadBase
 COMPANION-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryVM base=Owlcat.Runtime.UI.MVVM.BaseDisposable
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
+CONDITION-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.BuffsAndConditions.CharInfoBuffsAndConditionsVM
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.CharInfoAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryRecordVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
@@ -1194,6 +1195,7 @@ COMPANION-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.
 COMPANION-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryView base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView vis=public base=TypeSpecification
+CONDITION-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.BuffsAndConditions.CharInfoBuffsAndConditionsPCView
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelPCView vis=public base=TypeSpecification
@@ -1216,6 +1218,7 @@ RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentSe
 COMPANION-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryConsoleView base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryView
 COMPANION-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryFullConsoleView base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryFullView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
+CONDITION-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.BuffsAndConditions.CharInfoBuffsAndConditionsConsoleView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelConsoleView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentHistory.CharInfoAlignmentHistoryConsoleView vis=public base=TypeSpecification
@@ -2740,6 +2743,21 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddCasterSpellFailureChance vis=public 
   FIELD: Chance [protorint]
   FIELD: FailFx [protorint]
   FIELD: Conditions [protorint]
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vis=public base=Kingmaker.Blueprints.BlueprintComponent ===
+  FIELD: Value [protorint]
+  FIELD: UsePool [protorint]
+  FIELD: Pool [protorint]
+  PROP: IsStackable
+  PROP: IsHardness
+  METHOD: get_IsStackable
+  METHOD: get_IsHardness
+  METHOD: ShouldBeRemoved (runtime)
+  METHOD: CalculateValue (runtime)
+  METHOD: CalculateRemainingPool (runtime)
+  METHOD: OnSpendPool (runtime, damage)
+  METHOD: Bypassed (runtime, damage, weapon)
+  METHOD: CreateRuntimeFactComponent
+  METHOD: .ctor
 === TYPE Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical vis=public base=Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase ===
   FIELD: Or [protorint]
   FIELD: m_IsStackable [private]
@@ -2888,6 +2906,8 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.SpellResistanceAgainstAlignment vis=pub
   METHOD: .ctor
 RAGE-TYPE: Kingmaker.UnitLogic.Class.LevelUp.Actions.SelectAlignment vis=public base=System.Object
   FIELD: Alignment [protorint]
+CONDITION-TYPE: Kingmaker.UnitLogic.Buffs.Conditions.BuffCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Buffs.Conditions.BuffConditionCheckRoundNumber
 RAGE-TYPE: Kingmaker.UnitLogic.Buffs.Components.RemoveBuffIfCasterIsMissing vis=public base=Kingmaker.UnitLogic.Buffs.Components.UnitBuffComponentDelegate
   FIELD: RemoveOnCasterDeath [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Alignments.AlignmentHistoryRecord vis=public base=System.Object
@@ -3112,29 +3132,109 @@ RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionOnContextCaster vi
   FIELD: TargetAsCaster [protorint]
   FIELD: Actions [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Actions.ContextActionProvokeAttackFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.HasTacticalMorale
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.TacticalCombatSquadHitPointsCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.TargetHasArmyTag
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionProperty
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDistanceToTarget
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignment vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: CheckCaster [protorint]
   FIELD: Alignment [protorint]
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignment
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignmentDifference vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: AlignmentStepDifference [protorint]
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlignmentDifference
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionAlive
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionArea
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionBuffRank
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasBuffWithDescriptor vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: SpellDescriptor [protorint]
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasBuffWithDescriptor
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasFact vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: m_Fact [private]
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasFact
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasTwoWeapons vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterHasTwoWeapons
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponGrip vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: m_gripStyle [private]
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponGrip
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponInTwoHands vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterWeaponInTwoHands
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCharacterClass
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompare
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareCasterHP vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: m_CompareType [private]
   FIELD: Value [protorint]
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareCasterHP
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareTargetHP
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDamageTransferIsApplicable
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDifficultyHigherThan
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDungeonStage
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionFavoredEnemy
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionGarrisonClear
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionGender
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuff
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: m_Buff [private]
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromCaster
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromThisAreaEffect
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffImmunityWithDescriptor
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithDescriptor
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithSpellSchool
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasFact
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasItem
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasItemCharges
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasTouchSpellCharge
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasUniqueBuff
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHitDice
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionInContext
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsAlly
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsAmuletEquipped
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsAnimalCompanion
 COMPANION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsAnimalCompanion base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsCaster
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsEnemy
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsFlanked
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsFlatFooted
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsHelpless
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsInCombat
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsMainCharacter
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsMainTarget
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsPartyMember
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsPetDead
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsRing1Equipped
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsRing2Equipped
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsShieldEquipped
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsShiftersFuryWeapon
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsTwoHandedEquipped
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsUnconscious
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsWeaponEquipped
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionMaximumBurn
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionPeaceful
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionSharedValueHigher
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionSharedValueHitDice
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionSize
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionStatValue
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionStealth
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetCanSeeInvisible
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsArcaneCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsArcaneCaster
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsBlueprint
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsDivineCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsDivineCaster
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsEngaged
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsUnit
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsYourself
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionUnconsciousAllyFarThan
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionWeaponAnimationStyle
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextSwarmHasEnemiesInInnerCircle
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.DifficultyHigherThan
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.EnlargedEncountersCapacity
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.InCapital
+CONDITION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.AbilityShowIfCasterHasFact vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: m_UnitFact [private]
   FIELD: Not [protorint]
@@ -3176,15 +3276,53 @@ RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCaster
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterNotPolymorphed vis=public base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.Base.IAbilityCasterRestriction vis=public base=(nil)
 COMPANION-TYPE: Kingmaker.Kingdom.IKingdomUIChooseCharacterForCompanion base=(nil)
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.ArmyInLocationDefeated
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.AutoKingdom
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.BuildingHasNeighbours
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.DaysTillNextMonth
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.EventLifetime
 RAGE-TYPE: Kingmaker.Kingdom.Conditions.KingdomAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
   FIELD: Alignment [protorint]
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomAlignmentIs
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomAllArmiesInRegionDefeated
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomArtisanState
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomBuffIsActive
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomChapterWeek
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomDay
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomEventCanStart
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomEventIsActive
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomEventIsBeingResolved
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomExists
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomHasResolvableEvent
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomHasUpgradeableSettlement
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomIsVisible
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomLeaderIs
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomProjectIsAvailable
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomProjectIsDone
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomRankUpConditions
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomRegionIsConquered
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomRegionIsUpgraded
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomSettlementCount
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomSettlementHasBuilding
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomStatCheck
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomStatIsMaximum
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomTaskResolvedBy
+CONDITION-TYPE: Kingmaker.Kingdom.Conditions.KingdomUnrestCheck
 RAGE-TYPE: Kingmaker.Kingdom.Settlements.BuildingComponents.AlignmentRestriction vis=public base=Kingmaker.Kingdom.Settlements.BuildingRestriction
   FIELD: Allowed [protorint]
 RAGE-TYPE: Kingmaker.Kingdom.Actions.KingdomActionSetAlignment vis=public base=Kingmaker.Kingdom.Blueprints.KingdomAction
 RAGE-TYPE: Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionResetAlignment vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
   FIELD: m_ResetAlignmentLock [private]
 COMPANION-TYPE: Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionSwitchDualCompanion base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+CONDITION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.AreaVisited
+CONDITION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.BarkBanterPlayed
+CONDITION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.CampaignCompleted
+CONDITION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DialogSeen
+CONDITION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DualCompanionInactive
 COMPANION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DualCompanionInactive base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.Paused
+CONDITION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.Platform
+CONDITION-TYPE: Kingmaker.Assets.Code.Designers.EventConditionActionSystem.Conditions.CheckUnitSeeUnit
 COMPANION-TYPE: Kingmaker.Designers.Mechanics.Recommendations.RecommendationCompanionBoon base=Kingmaker.Designers.Mechanics.Recommendations.LevelUpRecommendationComponent
 RAGE-TYPE: Kingmaker.Designers.Mechanics.EquipmentEnchants.AddCasterLevelEquipment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate
   FIELD: m_Spell [private]
@@ -3315,16 +3453,120 @@ COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Evaluators.Compan
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.ContextData.CasterUnitData vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AlignmentCheck vis=public base=Kingmaker.ElementsSystem.Condition
   FIELD: Alignment [protorint]
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AlignmentCheck
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AnotherEtudeOfGroupIsPlaying
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AnswerListShown
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AnswerSelected
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.ChangeableDynamicIsLoaded
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckConditionsHolder
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckFailed
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckItemCondition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckLos
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckPassed
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionInParty
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionInParty base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsDead
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsDead base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsLost
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsLost base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionStoryUnlocked
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionStoryUnlocked base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CueSeen
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CurrentAreaIs
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CurrentChapter
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CutsceneQueueState
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DayOfTheMonth
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DayOfTheWeek
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DayTime
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.EtudeStatus
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.False
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.FlagInRange
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.FlagUnlocked
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.GameModeActive
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.GreaterThan
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.HasBuff
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForCustomCompanion
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForCustomCompanion base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForRespec
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.HasFact
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsCampaign
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsCampaignImported
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDLCEnabled
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDlcActive
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsEnemy
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsEqual
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsInCombat
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsInTurnBasedCombat
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsLegendPathSelected
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsListContainsItem
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsLootEmpty
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsPartyInNaturalSetting
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsPartyMember
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsRespecAllowed
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnconscious
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitCustomCompanion
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitCustomCompanion base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitExCompanion
 COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitExCompanion base=Kingmaker.ElementsSystem.Condition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitLevelLessThan
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitMythicExperience
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitMythicLevel
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.ItemBlueprint
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.ItemFromCollectionCondition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.ItemsEnough
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.LessThan
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.LocationRevealed
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.MapObjectDestroyed
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.MapObjectRevealed
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.MonthFromList
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.NoOthersCutscenes
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.ObjectiveStatus
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.OrAndLogic
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyCanUseAbility
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyInScriptZone
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PartyUnits
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PcFemale
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PcMale
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PcRace
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
   FIELD: Alignment [protorint]
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerAlignmentIs
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerHasNoCharactersOnRoster
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerHasRecruitsOnRoster
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerSignificantClassIs
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerTopClassIs
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.QuestStatus
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.RespecIsFree
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.RomanceLocked
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.SettingBoolValue
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.SummonPoolCount
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.SummonPoolExistsAndEmpty
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitArchetypes
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitArmor
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitBlueprint
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitCharacterLevel
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitClass
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitEqual
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitExperienceForLevel
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitFromSpawnerIsDead
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitFromSummonPool
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitGender
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitInScriptZone
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsDead
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsHidden
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsInAreaPart
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsInFogOfWar
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitIsNull
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitMythicLevel
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitRace
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitWithBlueprintExists
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsBoon
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsExpedition
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsIslandCurrentFinished
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsTier
+CONDITION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsTierReached
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: SelectClosest [protorint]
   FIELD: LawfulGood [protorint]
