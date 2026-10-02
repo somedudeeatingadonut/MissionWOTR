@@ -245,11 +245,6 @@ namespace MissionWOTR.Archetypes
   }
 
   /// <summary>
-  /// Totem aspect exclusivity: when one lion aspect activates, the other two
-  /// are shed (the tabletop allows only one aspect at a time).
-  /// </summary>
-  [TypeId(Guids.LionAspectExclusivity)]
-  /// <summary>
   /// 0.53.0 — the lion aspects scale with druid level. This is what
   /// separates the Lion Shaman from ExpandedContent's Lion Totem Druid,
   /// which is a wild-shape-timing archetype with nothing comparable: the
@@ -334,6 +329,11 @@ namespace MissionWOTR.Archetypes
     }
   }
 
+  /// <summary>
+  /// Totem aspect exclusivity: when one lion aspect activates, the other two
+  /// are shed (the tabletop allows only one aspect at a time).
+  /// </summary>
+  [TypeId(Guids.LionAspectExclusivity)]
   internal class LionAspectExclusivity : UnitBuffComponentDelegate
   {
     public BlueprintBuff First;
