@@ -188,6 +188,57 @@ namespace MissionWOTR.Archetypes
     }
 
     /// <summary>
+    /// 0.53.0 — logs every progression grant whose asset name contains
+    /// `contains` (level, name, guid). Added because the 0.52.1 in-game
+    /// log showed removals silently skipped across 16 classes: the
+    /// hard-coded GUIDs in the archetype files do not all match the live
+    /// progression, and nothing in the log said what the real entries
+    /// ARE. One playtest with this in place turns that log into the
+    /// ground truth needed to fix the rest.
+    /// </summary>
+    internal static void DumpProgression(BlueprintCharacterClass clazz, string contains)
+    {
+      try
+      {
+        var progression = clazz?.Progression;
+        if (progression?.LevelEntries is null)
+        {
+          MissionWOTR.Main.Logger.Warn(
+            $"[removals] dump: {clazz?.name} has no progression.");
+          return;
+        }
+        var hits = new List<string>();
+        foreach (var entry in progression.LevelEntries)
+        {
+          if (entry is null)
+          {
+            continue;
+          }
+          foreach (var feature in EntryFeatures(entry))
+          {
+            if (feature is null)
+            {
+              continue;
+            }
+            var name = (Read(feature, "name") as string) ?? "";
+            if (name.IndexOf(contains, StringComparison.OrdinalIgnoreCase) < 0)
+            {
+              continue;
+            }
+            hits.Add($"L{entry.Level} {name} ({Read(feature, "AssetGuid")})");
+          }
+        }
+        MissionWOTR.Main.Logger.Info(
+          $"[removals] dump {clazz.name} matching '{contains}': " +
+          (hits.Count == 0 ? "NO MATCHES" : string.Join(" | ", hits)));
+      }
+      catch (Exception e)
+      {
+        MissionWOTR.Main.Logger.Error($"[removals] dump failed for {clazz?.name}.", e);
+      }
+    }
+
+    /// <summary>
     /// First level at which any of the named features appears in the
     /// progression (asset name or guid, dashed or not); 1 if none match -
     /// callers use it to place replacement features at the traded level.

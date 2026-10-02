@@ -95,19 +95,30 @@ namespace MissionWOTR.Archetypes
     /// Substitutes are native-level-matched (e.g. Banishment is a 7th-
     /// level spell granted at the 14th planar slot, exactly as the
     /// tabletop's shadow walk would be).
+    ///
+    /// 0.53.0 FIX — the Spell column used to hold the spell's ASSET NAME
+    /// ("ProtectionFromEvil"). `BlueprintTool.Get<T>(nameOrGuid)` in
+    /// BlueprintCore 2.8.x calls `Guid.Parse` on the string, so every one
+    /// of these threw FormatException("Guid should contain 32 digits...")
+    /// and killed Configure() at the first entry — which is why neither
+    /// oracle archetype reached the game (in-game log 0.52.1:
+    /// "Failed to configure feat: PlanarOracle", inner frame
+    /// BlueprintTool.Get[T] <- PlanarOracle.Configure). The column now
+    /// holds the resolved guid via AbilityRefs, the same
+    /// `.ToString()`-yields-guid idiom Doomsayer and SanguineFont use.
     /// </summary>
     internal static readonly (int Level, string Guid, string Spell,
       string TabletopOriginal)[] BonusSpells =
     {
-      (2, Guids.PlanarBonusSpell2, "ProtectionFromEvil", "endure elements"),
-      (4, Guids.PlanarBonusSpell4, "SeeInvisibility", "elemental speech"),
-      (6, Guids.PlanarBonusSpell6, "ProtectionFromEnergy", "tongues"),
-      (8, Guids.PlanarBonusSpell8, "FreedomOfMovement", "planar adaptation"),
-      (10, Guids.PlanarBonusSpell10, "Dismissal", "plane shift"),
-      (12, Guids.PlanarBonusSpell12, "ChainLightning", "mass planar adaptation"),
-      (14, Guids.PlanarBonusSpell14, "Banishment", "shadow walk"),
-      (16, Guids.PlanarBonusSpell16, "MindBlank", "etherealness"),
-      (18, Guids.PlanarBonusSpell18, "ElementalSwarm", "gate"),
+      (2, Guids.PlanarBonusSpell2, AbilityRefs.ProtectionFromEvil.ToString(), "endure elements"),
+      (4, Guids.PlanarBonusSpell4, AbilityRefs.SeeInvisibility.ToString(), "elemental speech"),
+      (6, Guids.PlanarBonusSpell6, AbilityRefs.ProtectionFromEnergy.ToString(), "tongues"),
+      (8, Guids.PlanarBonusSpell8, AbilityRefs.FreedomOfMovement.ToString(), "planar adaptation"),
+      (10, Guids.PlanarBonusSpell10, AbilityRefs.Dismissal.ToString(), "plane shift"),
+      (12, Guids.PlanarBonusSpell12, AbilityRefs.ChainLightning.ToString(), "mass planar adaptation"),
+      (14, Guids.PlanarBonusSpell14, AbilityRefs.Banishment.ToString(), "shadow walk"),
+      (16, Guids.PlanarBonusSpell16, AbilityRefs.MindBlank.ToString(), "etherealness"),
+      (18, Guids.PlanarBonusSpell18, AbilityRefs.ElementalSwarm.ToString(), "gate"),
     };
 
     public static void Configure()

@@ -25,6 +25,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using MissionWOTR.Feats;
 using System;
+using System.Linq;
 
 namespace MissionWOTR.Archetypes
 {
@@ -191,6 +192,23 @@ namespace MissionWOTR.Archetypes
     /// excluded). The field list comes from the CI metadata probe's
     /// BlueprintSpellbook dump.
     /// </summary>
+    /// <summary>
+    /// Clones a spellbook with a per-day tax applied.
+    ///
+    /// 0.53.0 FIX — this used hard casts and unguarded reflection:
+    /// `(BlueprintSpellsTableReference)`, `(SpellsLevelEntry[])` and,
+    /// worst, `(int)countField?.GetValue(...)`, which unboxes and throws
+    /// InvalidCastException if the field is not exactly an `int`. The
+    /// result was "Specified cast is not valid" out of Configure(), so
+    /// the Overchanneler never reached the game (in-game log 0.52.1:
+    /// "Failed to configure feat: Overchanneler", inner frame
+    /// CloneSpellbookWithPerDayTax). Every reflective step is now a soft
+    /// `as`/`Convert` with a logged fallback, the field copy skips what
+    /// it cannot set (the ElementalObsessor idiom), and the discovered
+    /// field types are logged so the next playtest log names the real
+    /// shape instead of guessing. If the tax cannot be built the source
+    /// book is returned UNtaxed rather than losing the archetype.
+    /// </summary>
     private static BlueprintSpellbook CloneSpellbookWithPerDayTax(
       BlueprintSpellbook source,
       string bookName, string bookGuid,
@@ -202,18 +220,36 @@ namespace MissionWOTR.Archetypes
         System.Reflection.BindingFlags.Instance;
 
       // 1. The taxed per-day table.
-      var perDayRef = (BlueprintSpellsTableReference)typeof(BlueprintSpellbook)
-        .GetField("m_SpellsPerDay", flags)?.GetValue(source);
+      var perDayField = typeof(BlueprintSpellbook).GetField("m_SpellsPerDay", flags);
+      if (perDayField is null)
+      {
+        MissionFeats.Logger.Warn(
+          "[overchanneler] no m_SpellsPerDay field on BlueprintSpellbook - using the " +
+          "source book untaxed. Fields present: " +
+          string.Join(", ", typeof(BlueprintSpellbook).GetFields(flags).Select(f => f.Name)));
+        return source;
+      }
+      var perDayRef = perDayField.GetValue(source) as BlueprintSpellsTableReference;
       var perDay = perDayRef?.Get();
       var levelsField = typeof(BlueprintSpellsTable).GetField("Levels", flags);
-      var sourceLevels = (SpellsLevelEntry[])levelsField?.GetValue(perDay);
+      var sourceLevels = levelsField?.GetValue(perDay) as SpellsLevelEntry[];
       var countField = typeof(SpellsLevelEntry).GetField("Count", flags);
+      if (sourceLevels is null || countField is null)
+      {
+        MissionFeats.Logger.Warn(
+          "[overchanneler] per-day table shape unexpected (Levels=" +
+          (levelsField?.GetValue(perDay)?.GetType().Name ?? "null") + ", Count field=" +
+          (countField is null ? "missing" : countField.FieldType.Name) +
+          ") - using the source book untaxed.");
+        return source;
+      }
       var levels = new SpellsLevelEntry[sourceLevels.Length];
       for (var i = 0; i < sourceLevels.Length; i++)
       {
         var entry = new SpellsLevelEntry();
-        var count = (int)countField?.GetValue(sourceLevels[i]);
-        countField?.SetValue(entry, Math.Max(1, count + delta));
+        // Convert, never unbox: Count's exact integer type is not ours to assume.
+        var count = Convert.ToInt32(countField.GetValue(sourceLevels[i]));
+        countField.SetValue(entry, Math.Max(1, count + delta));
         levels[i] = entry;
       }
       var table = SpellsTableConfigurator.New(tableName, tableGuid)
@@ -229,10 +265,25 @@ namespace MissionWOTR.Archetypes
         {
           continue;
         }
-        field.SetValue(book, field.GetValue(source));
+        try
+        {
+          field.SetValue(book, field.GetValue(source));
+        }
+        catch
+        {
+          // Init-only or compiler-generated member - skipped, as ElementalObsessor does.
+        }
       }
-      typeof(BlueprintSpellbook).GetField("m_SpellsPerDay", flags)
-        ?.SetValue(book, table.ToReference<BlueprintSpellsTableReference>());
+      try
+      {
+        perDayField.SetValue(book, table.ToReference<BlueprintSpellsTableReference>());
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error(
+          "[overchanneler] per-day tax could not be pinned - book untaxed.", e);
+        return source;
+      }
       MissionFeats.Logger.Info(
         $"[overchanneler] spellbook cloned: {source.name} -> {bookName} (per-day {delta}).");
       return book;

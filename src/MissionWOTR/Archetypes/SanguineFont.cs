@@ -441,7 +441,16 @@ namespace MissionWOTR.Archetypes
         .SetIcon(bladeIcon)
         .SetObligatory(true)
         .SetHideNotAvailibleInUI(true)
-        .SetAllFeatures(elementFeatures.Cast<Blueprint<BlueprintFeatureReference>>().ToArray())
+        // 0.53.0 FIX — this was `.Cast<Blueprint<BlueprintFeatureReference>>()`,
+        // which throws InvalidCastException the moment the selection is
+        // enumerated: elementFeatures holds resolved BlueprintFeature
+        // objects, not references. That killed Configure() and the
+        // Sanguine Font never reached the game (in-game log 0.52.1:
+        // "Failed to configure feat: SanguineFont", "Specified cast is not
+        // valid"). Same bug class as the 0.5.3 ElementalObsessor fix -
+        // convert with ToReference instead of casting.
+        .SetAllFeatures(
+          elementFeatures.Select(f => f.ToReference<BlueprintFeatureReference>()).ToArray())
         .Configure();
 
       // ----- Kinetic Blast (11th) -----

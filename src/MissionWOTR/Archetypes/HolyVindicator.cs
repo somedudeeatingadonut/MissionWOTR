@@ -295,6 +295,10 @@ namespace MissionWOTR.Archetypes
           AdditionalLevel = 0,
         })
         .Configure();
+      // 0.53.0 FIX — building the class is not enough: the level-up menu
+      // enumerates BlueprintRoot.Progression.m_CharacterClasses, and
+      // nothing put us there, so the class never appeared in game.
+      ClassRegistration.AddToLevelUpList(clazz);
       MissionFeats.Logger.Info("[holyvindicator] configured: " + ClassName + ".");
     }
   }

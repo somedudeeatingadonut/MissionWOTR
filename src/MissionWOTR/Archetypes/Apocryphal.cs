@@ -90,6 +90,17 @@ namespace MissionWOTR.Archetypes
       // ----- The stolen pages: one option per wizard spell -----
       var optionRefs = new List<Blueprint<BlueprintFeatureReference>>();
       int created = 0;
+      // 0.53.0 FIX — the wizard's list contains more than one distinct
+      // blueprint sharing an asset name, and BPCore keys blueprints by
+      // NAME. The second "InflictPainAbility" aborted Configure() with
+      // "Duplicate GuidByName. ApocryphalSpellInflictPainAbility ...
+      // already exists", so the whole archetype never reached the game
+      // (in-game log 0.52.1: "Failed to configure feat: Apocryphal").
+      // Names are now de-duplicated; the GUID still derives from the
+      // spell's own AssetGuid, so pages already stolen in an existing
+      // save keep their identity.
+      var usedNames = new HashSet<string>();
+      var usedGuids = new HashSet<string>();
       foreach (var levelList in wizardList.SpellsByLevel)
       {
         int level = levelList.SpellLevel;
@@ -100,8 +111,18 @@ namespace MissionWOTR.Archetypes
           {
             continue;
           }
-          var option = FeatureConfigurator.New(
-            "ApocryphalSpell" + spell.name, StableGuid("bloodscribed:" + spell.AssetGuid))
+          var pageGuid = StableGuid("bloodscribed:" + spell.AssetGuid);
+          if (!usedGuids.Add(pageGuid))
+          {
+            continue; // the same spell reached us twice - one page is enough
+          }
+          var pageName = "ApocryphalSpell" + spell.name;
+          if (!usedNames.Add(pageName))
+          {
+            pageName += "_" + pageGuid.Replace("-", "").Substring(0, 8);
+            usedNames.Add(pageName);
+          }
+          var option = FeatureConfigurator.New(pageName, pageGuid)
             // The display key is the humanized spell name - an unregistered
             // key shows as itself, which is exactly the wanted label.
             .SetDisplayName(HumanName(spell.name))

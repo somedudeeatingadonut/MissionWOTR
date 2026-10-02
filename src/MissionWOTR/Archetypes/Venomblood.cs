@@ -117,10 +117,20 @@ namespace MissionWOTR.Archetypes
       archetype = ArchetypeRemovals.AddRemovals(
         archetype, hunter,
         "1b9916f7675d6ef4fb427081250d49de", // Hunter Tactics (teamwork sharing)
-        "14b66a1e2a6a415182a651db8c0f1143", // Hunter teamwork-feat progression
         "2efe5983c9064cc6b55f16bc68f0fc33", // Woodland Stride
-        "c1e0f4ada7c673e4f8e5c57d1eea13d0", // One with the Wild
-        "f34a34c8f8a8410ca5e0e21800fa4961"); // One with the Wild (pet half)
+        "c1e0f4ada7c673e4f8e5c57d1eea13d0"); // One with the Wild
+
+      // 0.53.0 FIX — the teamwork-feat trade was a hard-coded GUID
+      // (14b66a1e2a6a415182a651db8c0f1143) that the 0.52.1 in-game log
+      // proves is NOT in the hunter progression: "[removals]
+      // 14b66a1e... not found in HunterClass progression - removal
+      // skipped." So she kept the entire teamwork-feat progression she
+      // was documented as trading away. It is now removed BY NAME at
+      // every level the live progression grants one, which survives guid
+      // churn. The dead "One with the Wild (pet half)" guid
+      // (f34a34c8..., also logged as not found) is dropped with it.
+      archetype = ArchetypeRemovals.RemoveEveryGrant(archetype, hunter, "Teamwork");
+      ArchetypeRemovals.DumpProgression(hunter, "Teamwork");
 
       archetype.Configure();
 

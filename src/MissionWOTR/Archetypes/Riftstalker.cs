@@ -288,9 +288,13 @@ namespace MissionWOTR.Archetypes
         "715ac15eb8bd5e342bc8a0a3c9e3e38f", // Animal Companion (hunter's selection)
         "27ad1316abbbbb34b8ffb9a87f38c10e", // Raise Companion
         "1b9916f7675d6ef4fb427081250d49de", // Hunter Tactics (teamwork sharing)
-        "14b66a1e2a6a415182a651db8c0f1143", // Hunter teamwork-feat progression
-        "c1e0f4ada7c673e4f8e5c57d1eea13d0", // One with the Wild
-        "f34a34c8f8a8410ca5e0e21800fa4961"); // One with the Wild (pet half)
+        "c1e0f4ada7c673e4f8e5c57d1eea13d0"); // One with the Wild
+
+      // 0.53.0 FIX — same bug as the venomblood's: the teamwork-feat
+      // trade was a hard-coded GUID the 0.52.1 log proves is not in the
+      // hunter progression, so the trade silently never happened. Now
+      // removed by name at every grant level.
+      archetype = ArchetypeRemovals.RemoveEveryGrant(archetype, hunter, "Teamwork");
 
       archetype.Configure();
 

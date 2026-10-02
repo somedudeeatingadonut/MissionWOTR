@@ -237,6 +237,9 @@ namespace MissionWOTR.Archetypes
           AdditionalLevel = 0,
         })
         .Configure();
+      // 0.53.0 FIX — see ClassRegistration: the class must also be listed on
+      // BlueprintRoot.Progression or the level-up menu never offers it.
+      ClassRegistration.AddToLevelUpList(clazz);
       MissionFeats.Logger.Info("[bonewatch] configured: " + ClassName + ".");
     }
   }

@@ -284,9 +284,19 @@ namespace MissionWOTR.Archetypes
         FeatureRefs.TrueJudgmentFeature.ToString(),
         FeatureRefs.JudgmentAdditionalUse.ToString(),
         FeatureRefs.InquisitorSoloTactician.ToString(),
-        FeatureSelectionRefs.TeamworkFeat.ToString(),
         FeatureRefs.Stalwart.ToString(),
         FeatureRefs.ExploitWeakness.ToString());
+
+      // 0.53.0 FIX — "definitely no teamwork feats at all" was not
+      // happening. The trade went through AddRemovals, which resolves a
+      // feature to ONE level and stops there, so at best the doomsayer
+      // lost a single teamwork slot out of six; the 0.52.1 in-game log
+      // also shows two of this archetype's resolved ids missing from the
+      // inquisitor progression entirely. Every teamwork grant is now
+      // removed by name, at every level the live progression gives one.
+      archetype = ArchetypeRemovals.RemoveEveryGrant(archetype, inquisitor, "Teamwork");
+      ArchetypeRemovals.DumpProgression(inquisitor, "Teamwork");
+      ArchetypeRemovals.DumpProgression(inquisitor, "Judgment");
 
       archetype.Configure();
 
