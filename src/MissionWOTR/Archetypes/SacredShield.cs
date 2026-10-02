@@ -7,6 +7,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
