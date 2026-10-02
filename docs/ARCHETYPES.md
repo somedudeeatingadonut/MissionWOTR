@@ -794,6 +794,80 @@ errors suggested:
   built. A fitting end; and a standing lesson: never parallel-edit
   one file.)
 
+## 0.54.0 — five replacements for the withdrawn archetypes
+
+0.53.0 withdrew five archetypes as duplicates of mods the user already runs.
+This restores the roster: a faithful tabletop port for four classes, and a
+homebrew for the one where nothing is left to port.
+
+### The trap-check, done properly this time
+
+Checked by **archetype name** against the **loaded-mod list in the 0.52.1 log**,
+not against memory. That log enumerates every blueprint HomebrewArchetypes
+loads, so its full roster fell straight out of it:
+
+| Mod | Archetypes relevant to these five classes |
+|---|---|
+| HomebrewArchetypes | bloodrager: BloodyKnuckledRowdy, Untouchable Rager · paladin: FaithfulWanderer, HolyGuide, OathofPeoplesCouncil, OathofVengeance, WildernessWarden · warpriest: SacredFist, WarpriestDeitySacredWeapons · **no wizard or sorcerer folder at all** |
+| PrestigePlus | paladin: Shining Knight, Divine Champion · bloodrager: Blood Conduit, Drunken Brute, Untamed Rager |
+| Ebon's Content Mod | exactly three archetypes in the whole mod: Collegiate Initiate, Eldritch Scrapper, Hungry Ghost Monk |
+| Expanded Content | paladin: Divine Scourge, Silver Champion, Temple Champion, Conqueror, Faithful Paragon · wizard: Draconic Scholar · warpriest: patches Mantis Zealot rather than adding one |
+
+Notable: HomebrewArchetypes ships **no wizard archetypes**, so the 0.53.0 note
+that Undead Master duplicated it is not supported by this log. The withdrawal
+stands regardless — the user reported the duplicate — but the attribution was
+probably wrong.
+
+### What shipped
+
+| Class | Archetype | Source | Trade |
+|---|---|---|---|
+| bloodrager | **Reckless Bloodrager** | Advanced Class Guide pg. 22 | blood casting |
+| paladin | **Sacred Shield** | Advanced Player's Guide pg. 116 | smite evil, every grant |
+| sorcerer | **Bloodmarked** | Ultimate Magic pg. 77 | one fewer spell known |
+| warpriest | **Iron Creed** | MissionWOTR homebrew | sacred armor |
+| wizard | **Pact Wizard** | Horror Adventures pg. 79 | the arcane bond |
+
+The warpriest is homebrew because there is nothing left to port: the Advanced
+Class Guide's eight warpriest archetypes are Champion of the Faith, Cult
+Leader, Disenchanter, Feral Champion, Mantis Zealot, Proclaimer, Sacred Fist
+and Shieldbearer — vanilla ships seven and HomebrewArchetypes ships the
+eighth.
+
+Every one is built only from primitives already proven in this repo
+(`AddStatBonus`, `AddFacts`, `AddKnownSpell`, `SetReplaceSpellbook`,
+`RemoveSpellcasting`, `RemoveEveryGrant`). No new components, no reflection, no
+custom actions — deliberately, because CI is the only compiler available here.
+
+| Archetype | Grants |
+|---|---|
+| Reckless Bloodrager | Reckless Abandon (4th): +2 attack, +2 damage, −2 AC. Greater Reckless Abandon (12th): rises to +4/+4, penalty unchanged. Trades blood casting via `RemoveSpellcasting` against the vanilla bloodrager book. |
+| Sacred Shield | Sacred Shield (3rd): +2 shield AC. Bastion of Faith (11th): +2 sacred to all three saves, which stacks with the shield bonus because the descriptor differs. |
+| Bloodmarked | Bloodmark (1st): the vanilla bite (`AnimalFuryFeature`) and +2 untyped Will. Bloodmarked Hide (9th): +1 natural armor AC. Trades spells known by replacing her book with the game's own Crossblooded book. |
+| Iron Creed | Creed Focus (1st) +1/+1, Creed Conviction (8th) to +3/+3, Creed Mastery (14th) to +4/+4 plus a combat feat from the fighter's list. Untyped, so the tiers stack without any feature needing removal. |
+| Pact Wizard | Five patron spells written into the real spellbook by `AddKnownSpell` — Cause Fear at 1st, Scorching Ray at 3rd, Fireball at 5th, Fear at 7th, True Seeing at 9th. Chosen so each arrives exactly at the level a wizard reaches that spell level anyway, so the pact never hands her a spell early. |
+
+### Documented cuts
+
+Stated in each source header rather than quietly dropped:
+
+- **Reckless Bloodrager** — the tabletop gates Reckless Abandon on being in a
+  bloodrage. The engine's bloodrage buff is not reachable through any primitive
+  this build has verified, and guessing risked either a silent no-op or a bonus
+  applied to *every* bloodrager in the game. The bonuses apply at all times
+  instead. In practice a bloodrager is raging for most of a fight, so the
+  numbers land where the tabletop puts them; what changes is out of combat.
+- **Sacred Shield** — ships the defensive numbers only. In Harm's Way (3rd)
+  needs a damage-interception handler and the Bastion of Faith damage reduction
+  needs an alignment-qualified resistance; neither is in the simple palette.
+- **Bloodmarked** — Skinchange (9th) is an animal-form transformation, and the
+  standing rule for this mod is no self-transformation on a full caster. The
+  hide replaces it.
+
+Both name-based removals (`Smite` for the Sacred Shield, `SacredArmor` for the
+Iron Creed) are paired with a `DumpProgression` call, so the next playtest log
+says whether they hit or silently skipped.
+
 ## 0.53.0 — the first real in-game log: six archetypes never shipped
 
 The user uploaded a full `GameLogFull.txt` / `Player.log` from a 0.52.1
