@@ -198,7 +198,7 @@ namespace MissionWOTR.Archetypes
         .SetDescription("InkboundInk.Description")
         .SetIcon(kitIcon)
         .SetIsClassFeature()
-        .AddComponent(new InkboundInkRider())
+        .AddComponent(new InkboundInkRider { WizardClass = wizard })
         .AddFacts(new() { blotAbility, wordwallAbility })
         .Configure();
 
@@ -236,7 +236,7 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetSelf()
         .AddAbilityResourceLogic(
           requiredResource: lastChapterPool, amount: 1, isSpendResource: true)
-        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(new InkboundLastChapterAction()).Build())
+        .AddAbilityEffectRunAction(ActionsBuilder.New().Add(new InkboundLastChapterAction { WizardClass = wizard }).Build())
         .Configure();
       var lastChapter = FeatureConfigurator.New(
         "InkboundLastChapterFeature", Guids.InkboundLastChapterFeature)
@@ -282,7 +282,15 @@ namespace MissionWOTR.Archetypes
   /// </summary>
   internal static class InkboundInk
   {
-    internal const int Cap = 10;
+    /// <summary>
+    /// 0.53.0 - the book holds more ink the longer the wizard has been
+    /// writing in it: 10 measures at 1st level, +2 every five wizard levels
+    /// (12 at 5th, 14 at 10th, 16 at 15th, 18 at 20th).
+    /// </summary>
+    internal static int CapFor(int level)
+    {
+      return 10 + 2 * (level / 5);
+    }
 
     private static readonly Dictionary<UnitEntityData, int> Well = new();
 
@@ -291,10 +299,10 @@ namespace MissionWOTR.Archetypes
       return Well.TryGetValue(unit, out var value) ? value : 0;
     }
 
-    internal static void Gain(UnitEntityData unit)
+    internal static void Gain(UnitEntityData unit, int cap)
     {
       var value = Of(unit);
-      if (value < Cap)
+      if (value < cap)
       {
         Well[unit] = value + 1;
       }
@@ -311,9 +319,9 @@ namespace MissionWOTR.Archetypes
       return true;
     }
 
-    internal static void Fill(UnitEntityData unit)
+    internal static void Fill(UnitEntityData unit, int cap)
     {
-      Well[unit] = Cap;
+      Well[unit] = cap;
     }
 
     internal static void Drain(UnitEntityData unit)
@@ -332,6 +340,8 @@ namespace MissionWOTR.Archetypes
     IInitiatorRulebookHandler<RuleCastSpell>, IRulebookHandler<RuleCastSpell>,
     IInitiatorRulebookSubscriber, ISubscriber
   {
+    public BlueprintCharacterClass WizardClass;
+
     public void OnEventAboutToTrigger(RuleCastSpell evt) { }
 
     public void OnEventDidTrigger(RuleCastSpell evt)
@@ -344,7 +354,10 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        InkboundInk.Gain(Owner);
+        var level = WizardClass is null
+          ? 1
+          : Owner.Progression.GetClassLevel(WizardClass);
+        InkboundInk.Gain(Owner, InkboundInk.CapFor(level));
       }
       catch (Exception e)
       {
@@ -411,10 +424,23 @@ namespace MissionWOTR.Archetypes
             break;
           case Mode.Recitation:
             var level = caster.Descriptor.Progression.GetClassLevel(WizardClass);
+            // 0.53.0 - it was 5 + wizard level, which at the level it
+            // arrives (5th) is less than a 1st-level spell, for a standard
+            // action and three measures of ink. It now scales at two per
+            // level, and from 11th the scream carries a stain: the Blot the
+            // target would otherwise cost another measure to lay.
             var bundle = new DamageBundle();
             bundle.Add(new EnergyDamage(
-              DiceFormula.Zero, 5 + level, DamageEnergyType.Sonic));
+              DiceFormula.Zero, 5 + 2 * level, DamageEnergyType.Sonic));
             Rulebook.Trigger(new RuleDealDamage(caster, target, bundle));
+            if (level >= 11)
+            {
+              var stain = iron ? BlotBuffIron : BlotBuff;
+              if (stain is not null)
+              {
+                target.AddBuff(stain, Context, TimeSpan.FromSeconds(6));
+              }
+            }
             break;
         }
         MissionFeats.Logger.Info($"[inkbound] {QuillMode}: {Cost} ink spent.");
@@ -435,6 +461,8 @@ namespace MissionWOTR.Archetypes
   [TypeId(Guids.InkboundLastChapterAction)]
   internal class InkboundLastChapterAction : ContextAction
   {
+    public BlueprintCharacterClass WizardClass;
+
     public override void RunAction()
     {
       try
@@ -444,7 +472,10 @@ namespace MissionWOTR.Archetypes
         {
           return;
         }
-        InkboundInk.Fill(caster);
+        var level = WizardClass is null
+          ? 1
+          : caster.Descriptor.Progression.GetClassLevel(WizardClass);
+        InkboundInk.Fill(caster, InkboundInk.CapFor(level));
         MissionFeats.Logger.Info("[inkbound] the last chapter: the ink floods back.");
       }
       catch (Exception e)

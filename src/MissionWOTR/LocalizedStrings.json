@@ -5691,7 +5691,7 @@
   {
     "Key": "InkboundInk.Description",
     "ProcessTemplates": false,
-    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (cap 10; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. Quillwork cannot be used without enough ink in the well. (Homebrew note: ink does not persist through save/load.)"
+    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (the well holds 10 measures at 1st level and 2 more for every five wizard levels after that; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. Quillwork cannot be used without enough ink in the well. (Homebrew note: ink does not persist through save/load.)"
   },
   {
     "Key": "InkboundBlot.Name",
@@ -5741,7 +5741,7 @@
   {
     "Key": "InkboundRecitation.Description",
     "ProcessTemplates": false,
-    "enGB": "Cost: 3 ink. The book screams a stolen syllable at one enemy, dealing sonic damage equal to 5 plus the Inkbound's wizard level (standard action)."
+    "enGB": "Cost: 3 ink. The book screams a stolen syllable at one enemy, dealing sonic damage equal to 5 plus twice the Inkbound's wizard level (standard action). From 11th level the scream carries a stain with it: the target also takes the Blot, at no further cost in ink."
   },
   {
     "Key": "InkboundIronGall.Name",
