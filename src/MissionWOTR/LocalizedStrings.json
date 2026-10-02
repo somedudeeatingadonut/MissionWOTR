@@ -5401,7 +5401,7 @@
   {
     "Key": "CrescendoSkald.Description",
     "ProcessTemplates": false,
-    "enGB": "Not rage but rhythm. The crescendo skald's song does not throw allies into a fury - it picks them up and carries them, building speed as each of them finds their mark. Allies who keep landing blows and spells rise with the music; one quiet round and that momentum is spent. Spellcasting is never blocked: momentum flows through sword and spell alike. (A MissionWOTR homebrew.)"
+    "enGB": "Not rage but rhythm. The crescendo skald's song does not throw allies into a fury - it picks them up and carries them, building speed as each of them finds their mark. Allies who keep landing blows and spells rise with the music; one quiet round and that momentum is spent. Spellcasting is never blocked: momentum flows through sword and spell alike."
   },
   {
     "Key": "Crescendo.Name",
@@ -5431,7 +5431,7 @@
   {
     "Key": "Dreadnaught.Description",
     "ProcessTemplates": false,
-    "enGB": "A slayer who hunts the mind, not the blind side. The Dreadnaught wears the heaviest plate without caring who sees her coming, and her study breaks a foe's resolve instead of guiding blades to its vitals: the mark she lays drains courage, will, and luck from every saving throw. She trades every ounce of sneak attack and one talent for armor that does not hide her, a will that does not break, and a presence that empties enemies before a blade is drawn. (A MissionWOTR homebrew.)"
+    "enGB": "A slayer who hunts the mind, not the blind side. The Dreadnaught wears the heaviest plate without caring who sees her coming, and her study breaks a foe's resolve instead of guiding blades to its vitals: the mark she lays drains courage, will, and luck from every saving throw. She trades every ounce of sneak attack and one talent for armor that does not hide her, a will that does not break, and a presence that empties enemies before a blade is drawn."
   },
   {
     "Key": "DreadnaughtStudy.Name",
@@ -5541,7 +5541,7 @@
   {
     "Key": "Overchanneler.Description",
     "ProcessTemplates": false,
-    "enGB": "Some sorcerers let the blood carry them. The overchanneler carries the blood: she opens the channel wider than her body was meant to bear, and every spell she throws through the open channel burns her as it leaves. In exchange, her magic strikes harder, lasts longer, and counts for more while the channel is open. She gives up a little endurance - one spell slot of every level per day - for peaks no careful caster will ever reach. (A MissionWOTR homebrew.)"
+    "enGB": "Some sorcerers let the blood carry them. The overchanneler carries the blood: she opens the channel wider than her body was meant to bear, and every spell she throws through the open channel burns her as it leaves. In exchange, her magic strikes harder, lasts longer, and counts for more while the channel is open. She gives up a little endurance - one spell slot of every level per day - for peaks no careful caster will ever reach."
   },
   {
     "Key": "Overchannel.Name",
@@ -5621,7 +5621,7 @@
   {
     "Key": "MendingBlade.Description",
     "ProcessTemplates": false,
-    "enGB": "His god's grace no longer arrives in bursts from a holy symbol; it drips from every blow. A mending blade trades the channel energy of a normal warpriest for a quiet, constant miracle: each wound he inflicts pays a small tithe of healing to the allies fighting beside him. (Homebrew archetype: Blessed Tithe below; replaces channel energy, the whole line.)"
+    "enGB": "His god's grace no longer arrives in bursts from a holy symbol; it drips from every blow. A mending blade trades the channel energy of a normal warpriest for a quiet, constant miracle: each wound he inflicts pays a small tithe of healing to the allies fighting beside him. "
   },
   {
     "Key": "MendingBladeTithe.Name",
@@ -5631,7 +5631,7 @@
   {
     "Key": "MendingBladeTithe.Description",
     "ProcessTemplates": false,
-    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for a share of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe grows as he does: 10% at 8th level, and from 16th level the first hit of each round is a surge that heals 15% (at 20th level, the first two hits each round surge), with all other hits at 10%. The tithe's reach also grows: 45 feet at 10th level, 60 feet at 20th. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. (Homebrew note: a killing blow counts at the full damage rolled, overkill included. This ability replaces channel energy.)"
+    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for a share of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe grows as he does: 10% at 8th level, and from 16th level the first hit of each round is a surge that heals 15% (at 20th level, the first two hits each round surge), with all other hits at 10%. The tithe's reach also grows: 45 feet at 10th level, 60 feet at 20th. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. A killing blow counts at the full damage rolled, overkill included."
   },
   {
     "Key": "MendingBladeGraveTithe.Name",
@@ -5641,7 +5641,7 @@
   {
     "Key": "MendingBladeGraveTithe.Description",
     "ProcessTemplates": false,
-    "enGB": "Your blessed tithe is paid in grave coin: it becomes negative energy. Undead allies are healed by the tithe exactly as before, but living allies are scorched by it instead - though the scorch can never drop them below 1 hit point. For a party of the living this is a poor trade; for a party of the dead, it is perfect. Requires: Blessed Tithe (the Mending Blade archetype). (Homebrew feat.)"
+    "enGB": "Your blessed tithe is paid in grave coin: it becomes negative energy. Undead allies are healed by the tithe exactly as before, but living allies are scorched by it instead - though the scorch can never drop them below 1 hit point. For a party of the living this is a poor trade; for a party of the dead, it is perfect. Requires: Blessed Tithe (the Mending Blade archetype)."
   },
   {
     "Key": "UndeadMaster.Name",
@@ -5681,7 +5681,7 @@
   {
     "Key": "Inkbound.Description",
     "ProcessTemplates": false,
-    "enGB": "He does not memorize spells; the book memorizes him. An Inkbound is a wizard who made a covenant with a living grimoire - it lends him its pages, and every spell he casts leaves ink behind. He begins every fight with a blank book and writes his way to power: the longer the battle, the deeper the well. Trades his arcane bond (the book would be jealous) and the wizard bonus feats at 10th/15th/20th. (MissionWOTR homebrew: Living Ink below.)"
+    "enGB": "He does not memorize spells; the book memorizes him. An Inkbound is a wizard who made a covenant with a living grimoire - it lends him its pages, and every spell he casts leaves ink behind. He begins every fight with a blank book and writes his way to power: the longer the battle, the deeper the well. Trades his arcane bond (the book would be jealous) and the wizard bonus feats at 10th/15th/20th."
   },
   {
     "Key": "InkboundInk.Name",
@@ -5691,7 +5691,7 @@
   {
     "Key": "InkboundInk.Description",
     "ProcessTemplates": false,
-    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (the well holds 10 measures at 1st level and 2 more for every five wizard levels after that; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. Quillwork cannot be used without enough ink in the well. (Homebrew note: ink does not persist through save/load.)"
+    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (the well holds 10 measures at 1st level and 2 more for every five wizard levels after that; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. Quillwork cannot be used without enough ink in the well. The ink does not persist through save/load."
   },
   {
     "Key": "InkboundBlot.Name",
@@ -5981,7 +5981,7 @@
   {
     "Key": "Beastbound.Description",
     "ProcessTemplates": false,
-    "enGB": "The wild never lived in her. She is the still point at the center of the storm - the watcher, the keeper, the one who remembers the shapes. Her beast carries every aspect she would have taken and becomes the storm in her stead: a real animal companion of the game's own menagerie, player-controlled, wearing the real shifter aspects she links to it. Trades her own aspects, her claws, and her chimeric aspects; keeps defensive instinct and the wild skills. (MissionWOTR homebrew: Bond of the Wild and Aspect Link below.)"
+    "enGB": "The wild never lived in her. She is the still point at the center of the storm - the watcher, the keeper, the one who remembers the shapes. Her beast carries every aspect she would have taken and becomes the storm in her stead: a real animal companion of the game's own menagerie, player-controlled, wearing the real shifter aspects she links to it. Trades her own aspects, her claws, and her chimeric aspects; keeps defensive instinct and the wild skills."
   },
   {
     "Key": "BeastboundAspectLink.Name",
@@ -6081,7 +6081,7 @@
   {
     "Key": "Bonewatch.Description",
     "ProcessTemplates": false,
-    "enGB": "Every deathless legion needs an officer who does not flinch. The Bonewatch is the marshal of the dead - the one who stands in the gap between the living world and the ranks he commands, banner in hand, wearing the grave's own armor. A 5-level prestige class (d10, full base attack) for those sworn to the dead: bone armor, the command of graves, and an unbreakable last stand. (MissionWOTR homebrew prestige class.)"
+    "enGB": "Every deathless legion needs an officer who does not flinch. The Bonewatch is the marshal of the dead - the one who stands in the gap between the living world and the ranks he commands, banner in hand, wearing the grave's own armor. A 5-level prestige class (d10, full base attack) for those sworn to the dead: bone armor, the command of graves, and an unbreakable last stand."
   },
   {
     "Key": "BonewatchBoneMantle.Name",

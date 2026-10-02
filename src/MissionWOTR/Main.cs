@@ -6,6 +6,7 @@ using MissionWOTR.Feats;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using UnityModManagerNet;
 
 namespace MissionWOTR
@@ -117,10 +118,82 @@ namespace MissionWOTR
         }
         LocalizationTool.LoadLocalizationPack(stringsFile);
         Logger.Info($"Localization loaded from {stringsFile}.");
+        DumpLocalizationPackShape();
       }
       catch (Exception e)
       {
         Logger.Error("Failed to load localization.", e);
+      }
+    }
+
+    /// <summary>
+    /// 0.53.0 diagnostic - the "unknown mod" report.
+    ///
+    /// The game prints a mod's name in small type above a tooltip's
+    /// description, and ours prints "unknown mod" where other mods print
+    /// their own. The likely cause is that BlueprintCore's
+    /// MultiLocalizationPack.GetCurrentPack() builds a LocalizationPack with
+    /// only Locale and m_Strings populated, so whatever field carries the
+    /// attribution is never set. That is a hypothesis, not a finding: the
+    /// game assembly is not available in this environment and the probe
+    /// never fingerprinted Kingmaker.Localization, so the field's name - and
+    /// whether it lives on the pack or on each StringEntry - is unknown.
+    ///
+    /// Guessing is worse than useless here. If the field is on the pack and
+    /// LocalizationManager.CurrentPack.AddStrings only copies m_Strings,
+    /// setting it on our own pack would do nothing, and setting it on the
+    /// shared pack would mislabel every string in the game as ours. So this
+    /// dumps the real shape into the log instead; the next playtest log
+    /// answers the question with evidence and the fix can then be exact.
+    ///
+    /// Read-only: it reads no game state it does not log and changes nothing.
+    /// </summary>
+    private static void DumpLocalizationPackShape()
+    {
+      try
+      {
+        var manager = Type.GetType(
+          "Kingmaker.Localization.LocalizationManager, Assembly-CSharp");
+        var current = manager?.GetProperty(
+          "CurrentPack", BindingFlags.Public | BindingFlags.Static)?.GetValue(null);
+        if (current is null)
+        {
+          Logger.Warn("[diag] LocalizationManager.CurrentPack unreachable - cannot inspect.");
+          return;
+        }
+
+        var type = current.GetType();
+        Logger.Info($"[diag] localization pack type: {type.FullName}");
+        var flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+
+        foreach (var field in type.GetFields(flags))
+        {
+          // Only string fields are worth reading: a collection field would
+          // dump every localized string in the game into the log.
+          var value = field.FieldType == typeof(string)
+            ? $" = {field.GetValue(current) ?? "(null)"}"
+            : "";
+          Logger.Info($"[diag] pack field: {field.FieldType.Name} {field.Name}{value}");
+        }
+        foreach (var property in type.GetProperties(flags))
+        {
+          Logger.Info($"[diag] pack property: {property.PropertyType.Name} {property.Name}");
+        }
+
+        var entry = type.GetNestedType("StringEntry");
+        if (entry is null)
+        {
+          Logger.Info("[diag] LocalizationPack has no nested StringEntry type.");
+          return;
+        }
+        foreach (var field in entry.GetFields(flags))
+        {
+          Logger.Info($"[diag] StringEntry field: {field.FieldType.Name} {field.Name}");
+        }
+      }
+      catch (Exception e)
+      {
+        Logger.Warn("[diag] localization pack dump failed.", e);
       }
     }
 
