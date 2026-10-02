@@ -6,6 +6,12 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v11: DR-vs-alignment + the whole dialog system. Two open questions: (a) whether
+#      AddDamageResistancePhysical exposes an alignment bypass (Sacred Shield's DR 5/evil)
+#      and (b) whether companion dialogue is reachable at all, and with what vocabulary.
+#      Dumps every DialogSystem-namespaced blueprint with its fields, every Condition type
+#      (the dialog condition vocabulary) and every Companion-named type (how a dialog finds
+#      out who is in the party).
 # v10b: retrigger - the v10 probe push lost a race with the code push; same targets (Concealment, WeaponRangeType, ITickEachRound).
 # v10: Concealment + WeaponRangeType enum members (Omnielementalist's Ash Storm) + ITickEachRound (Sandstorm round-tick).
 # v9: PetType + PetProgressionType enum members (the lich's undead pet for Undead Master's Corpse Bond).
@@ -96,7 +102,9 @@ if (-not (Test-Path $dll)) {
       'Game', 'TimeController', 'GameTime', 'ContextActionHeal',
       'CalculationType', 'HealCalculationType', 'DamageEnergyType', 'EnergyDamage', 'DirectDamage',
       'TurnBasedCombatController', 'CombatController', 'StatType',
-      'PetType', 'PetProgressionType', 'Concealment', 'WeaponRangeType', 'ITickEachRound')
+      'PetType', 'PetProgressionType', 'Concealment', 'WeaponRangeType', 'ITickEachRound',
+      'AddDamageResistancePhysical', 'DamageResistancePhysical', 'DamageResistance',
+      'BlueprintEtude', 'CueSelection', 'BlueprintCheck')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
@@ -124,6 +132,30 @@ if (-not (Test-Path $dll)) {
       if ($ns -eq 'Kingmaker.AI.Blueprints') {
         $v = [int]$td.Attributes -band 7
         Log ("AI-TYPE: {0} vis={1}({2}) base={3}" -f $name, $VIS[$v], $v, (BaseTypeName $md $td))
+      }
+
+      # v11: the dialog system. Every DialogSystem-namespaced type, with fields on the
+      # blueprint shapes - the node/cue/answer/etude vocabulary, before any line is written.
+      if ($ns.Contains('DialogSystem')) {
+        $v = [int]$td.Attributes -band 7
+        Log ("DIALOG-TYPE: {0}.{1} vis={2} base={3}" -f $ns, $name, $VIS[$v], (BaseTypeName $md $td))
+        if ($name.StartsWith('Blueprint') -or $name -eq 'CueSelection' -or $name -eq 'SequenceExit') {
+          foreach ($fh in $td.GetFields()) {
+            $fd = $md.GetFieldDefinition($fh)
+            $fa = [int]$fd.Attributes -band 7
+            Log ("  FIELD: {0} [{1}]" -f $md.GetString($fd.Name), $FACC[$fa])
+          }
+        }
+      }
+
+      # v11: the dialog condition vocabulary - name only, there are a lot of these.
+      if ($ns.Contains('Conditions') -and $name.StartsWith('Condition')) {
+        Log ("CONDITION-TYPE: {0}.{1}" -f $ns, $name)
+      }
+
+      # v11: how a dialog learns who is in the party.
+      if ($name -cmatch 'Companion') {
+        Log ("COMPANION-TYPE: {0}.{1} base={2}" -f $ns, $name, (BaseTypeName $md $td))
       }
       if ($name -eq 'UnitEntityData' -or $name -eq 'TemporaryHitPointsFromAbilityValue') {
         Log ("SEARCH-HIT: {0}.{1} vis={2}" -f $ns, $name, $VIS[([int]$td.Attributes -band 7)])
