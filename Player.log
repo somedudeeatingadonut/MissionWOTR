@@ -22,16 +22,16 @@ Begin MonoManager ReloadAssembly
 [Manager] IsSupportOnSessionStart: False.
 [Manager] IsSupportOnSessionStop: False.
 [Manager] Mods path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods.
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000018962D22580.dll
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000001896687A180.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000001E2F2428090.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000001E315E940C0.dll
 [Manager] Injection successful.
-- Completed reload, in  0.787 seconds
+- Completed reload, in  0.694 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 [startup.json] Check path: F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\startup.json
 [startup.json] Loaded
-UnloadTime: 30.100200 ms
+UnloadTime: 30.024800 ms
 No cloud project ID was found by the Analytics SDK. This means Analytics events will not be sent. Please make sure to link your cloud project in the Unity editor to fix this problem.
 [Manager] Starting.
 [Manager] Start parsing game version.
@@ -93,7 +93,7 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [Manager] Loading mods.
 [!ManyModsPerformanceFix] Version '1.8.5'. Loading.
 [!ManyModsPerformanceFix] Active.
-[!ManyModsPerformanceFix] Loading time 0.28 s.
+[!ManyModsPerformanceFix] Loading time 0.26 s.
 [!!!FirstStart] Version '1.0.0'. Loading.
 [!!!FirstStart] Active.
 [!!!FirstStart] Loading time 0.01 s.
@@ -101,9 +101,9 @@ No cloud project ID was found by the Analytics SDK. This means Analytics events 
 [0ToyBox0] Starting Integrity Check.
 [0ToyBox0] Integrity Check succeeded.
 [0ToyBox0] Compatability Check succeeded
-Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-0000018962D21970.dll
+Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfinder Second Adventure/Wrath_Data/Mono/data-000001E2F2425C60.dll
 [0ToyBox0] Active.
-[0ToyBox0] Loading time 1.82 s.
+[0ToyBox0] Loading time 1.72 s.
 [TabletopTweaks-Core] Version '0.7.14a'. Loading.
 [TabletopTweaks-Core] Optional mod 'MewsiferConsole.Mod' not found.
 [TabletopTweaks-Core] PostPatchInitializer: TabletopTweaks-Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -151,7 +151,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [TabletopTweaks-Core] Loading Static String: AbilityTargetNoSplitHexRepeat.SplitHex
 [TabletopTweaks-Core] Loading Static String: AbilityRequirementHasBlackBlade.UIText
 [TabletopTweaks-Core] Active.
-[TabletopTweaks-Core] Loading time 0.34 s.
+[TabletopTweaks-Core] Loading time 0.32 s.
 [AddedFeats] Version '1.7.0'. Loading.
 [AddedFeats] Active.
 [AddedFeats] Loading time 0.06 s.
@@ -163,7 +163,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [ModMenu] Method was found
 [ModMenu] Finished loading.
 [ModMenu] Active.
-[ModMenu] Loading time 3.79 s.
+[ModMenu] Loading time 3.66 s.
 [AlterAsc.CombatRelief] Version '2.3.0'. Loading.
 [AlterAsc.CombatRelief] Optional mod 'MewsiferConsole.Mod' not found.
 [AlterAsc.CombatRelief] Active.
@@ -186,7 +186,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Texture2D]
 [BubbleBuffs] Found asset <UI_HudCharacterFrameBorder_Hover> of type [UnityEngine.Sprite]
 [BubbleBuffs] Active.
-[BubbleBuffs] Loading time 0.04 s.
+[BubbleBuffs] Loading time 0.05 s.
 [BuffIt2TheLimit] Version '1.21.1'. Loading.
 [BuffIt2TheLimit] Optional mod 'EnhancedInventory' not found.
 [BuffIt2TheLimit] LOADING BuffIt2TheLimit
@@ -216,7 +216,7 @@ Fallback handler could not load library F:/SteamLibrary/steamapps/common/Pathfin
 [CodexLib] Patching BpCache
 [CodexLib] Patching Patch_SaveExtension
 [DarkCodex] Active.
-[DarkCodex] Loading time 0.08 s.
+[DarkCodex] Loading time 0.07 s.
 [DragonLibrary] Version '1.2.11'. Loading.
 [DragonLibrary] Active.
 [DragonLibrary] Loading time 0.03 s.
@@ -287,11 +287,11 @@ HarmonyLib.HarmonyException: Patching exception in method Kingmaker.EntitySystem
 [MonoSingleton] There is no object of type Kingmaker.Settings.Graphics.ApplicationFocusObserver. Creating new.
 Set BugReport Layer: BugReportInputLayer.
 [WrathPatches] Active.
-[WrathPatches] Loading time 0.39 s.
+[WrathPatches] Loading time 0.35 s.
 [DragonChanges] Version '1.23.3'. Loading.
 [DragonChanges] Active.
 [DragonChanges] Loading time 0.02 s.
-[DragonFixes] Version '1.33.1'. Loading.
+[DragonFixes] Version '1.33.2'. Loading.
 [DragonFixes] [Error] Error loading file 'F:\SteamLibrary\steamapps\common\Pathfinder Second Adventure\Mods\DragonFixes\DragonFixes.dll'.
 [DragonFixes] [Exception] TypeLoadException - Could not resolve type with token 01000039 (from typeref, class/assembly HarmonyLib.HarmonyPatchCategory, 0Harmony, Version=2.3.6.0, Culture=neutral, PublicKeyToken=null)
 System.TypeLoadException: Could not resolve type with token 01000039 (from typeref, class/assembly HarmonyLib.HarmonyPatchCategory, 0Harmony, Version=2.3.6.0, Culture=neutral, PublicKeyToken=null)
@@ -306,10 +306,10 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [EbonsContentMod] [Miracle UI] Patched MVVM conversion request: Kingmaker.UI.MVVM._VM.ActionBar.ActionBarSlotVM.OnShowConvertRequest()
 [EbonsContentMod] CreateAssetLinks.LoadAssetLinks: Found 11 asset links in 1 bundles
 [EbonsContentMod] Active.
-[EbonsContentMod] Loading time 0.30 s.
+[EbonsContentMod] Loading time 0.28 s.
 [ExpandedContent] Version '0.13.68'. Loading.
 [ExpandedContent] Active.
-[ExpandedContent] Loading time 0.75 s.
+[ExpandedContent] Loading time 0.70 s.
 [FeatOrganizer] Version '1.0.1'. Loading.
 [FeatOrganizer] UMM entry loaded.
 [FeatOrganizer] Enabled. Harmony patches applied and handlers subscribed.
@@ -321,10 +321,10 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [FixSubsonicBullshit] Loading time 0.01 s.
 [KineticArchetypes] Version '1.1.11'. Loading.
 [KineticArchetypes] Active.
-[KineticArchetypes] Loading time 0.12 s.
+[KineticArchetypes] Loading time 0.10 s.
 [KineticistElementsExpanded] Version '3.3.2'. Loading.
 [KineticistElementsExpanded] Active.
-[KineticistElementsExpanded] Loading time 0.06 s.
+[KineticistElementsExpanded] Loading time 0.07 s.
 [KMBF2] Version '1.1.0'. Loading.
 [KMBF2] Active.
 [KMBF2] Loading time 0.05 s.
@@ -337,7 +337,7 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Base] 0,2,3,3,4,5,6,6,7,8,9,9,10,11,12,12,13,14,15,15,16
 [TabletopTweaks-Base] Loading Static String: CharInfoFeaturePCView_Suppression_Patchs.Suppressed
 [TabletopTweaks-Base] Active.
-[TabletopTweaks-Base] Loading time 0.96 s.
+[TabletopTweaks-Base] Loading time 0.87 s.
 [LibramOfThePhoenix] Version '1.2.0'. Loading.
 [LibramOfThePhoenix] Optional mod 'AlternateRacialTraits' not found.
 [LibramOfThePhoenix] Loading Blueprints
@@ -348,71 +348,71 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [LiterateCompanions] Loading time 0.01 s.
 [lvl1companions] Version '1.1.0'. Loading.
 [lvl1companions] Active.
-[lvl1companions] Loading time 0.09 s.
+[lvl1companions] Loading time 0.06 s.
 [Mesmerist] Version '3.3'. Loading.
 [Mesmerist] Active.
-[Mesmerist] Loading time 0.07 s.
+[Mesmerist] Loading time 0.09 s.
 [MicroscopicContentExpansion] Version '1.21.1'. Loading.
 [MicroscopicContentExpansion] Optional mod 'MewsiferConsole.Mod' not found.
 [MicroscopicContentExpansion] PostPatchInitializer: MicroscopicContentExpansion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 [MicroscopicContentExpansion] Active.
-[MicroscopicContentExpansion] Loading time 0.11 s.
-[MissionWOTR] Version '0.5.2'. Loading.
+[MicroscopicContentExpansion] Loading time 0.10 s.
+[MissionWOTR] Version '0.52.1'. Loading.
 [MissionWOTR] Active.
-[MissionWOTR] Loading time 0.09 s.
+[MissionWOTR] Loading time 0.08 s.
 [ModTagEx] Version '1.0.1'. Loading.
-[ModTagEx] Took 00:00:00.0383915 to load guid db of size 25121
-[ModTagEx] Took 00:00:00.0442873 to load base game guids of size 236661
+[ModTagEx] Took 00:00:00.0544980 to load guid db of size 25121
+[ModTagEx] Took 00:00:00.0644069 to load base game guids of size 236661
 [ModTagEx] Active.
-[ModTagEx] Loading time 0.13 s.
+[ModTagEx] Loading time 0.15 s.
 [MoreBackgrounds] Version '1.0.0'. Loading.
 [MoreBackgrounds] Active.
-[MoreBackgrounds] Loading time 0.08 s.
+[MoreBackgrounds] Loading time 0.07 s.
 [MorePartySlots] Version '1.0.1'. Loading.
 [MorePartySlots] Active.
-[MorePartySlots] Loading time 0.05 s.
+[MorePartySlots] Loading time 0.07 s.
 [MultipleArchetypes] Version '1.0.2'. Loading.
 [MultipleArchetypes] Active.
-[MultipleArchetypes] Loading time 0.06 s.
+[MultipleArchetypes] Loading time 0.04 s.
 [SpellbookMerge] Version '1.7.1'. Loading.
 [SpellbookMerge] Active.
 [SpellbookMerge] Loading time 0.03 s.
 [MythicMagicMayhem] Version '1.1.4'. Loading.
 [MythicMagicMayhem] Active.
-[MythicMagicMayhem] Loading time 0.13 s.
+[MythicMagicMayhem] Loading time 0.12 s.
 [NoFilmGrainWrath] Version '1.0.0'. Loading.
 [NoFilmGrainWrath] Active.
-[NoFilmGrainWrath] Loading time 0.82 s.
+[NoFilmGrainWrath] Loading time 0.76 s.
 [PC_Female_BG_Viconia] Version '1.2.0'. Loading.
 [PC_Female_BG_Viconia] Active.
 [PC_Female_BG_Viconia] Loading time 0.02 s.
 [PC_TWWH_Balthasar_Gelt] Version '1.2.0'. Loading.
 [PC_TWWH_Balthasar_Gelt] Active.
-[PC_TWWH_Balthasar_Gelt] Loading time 0.02 s.
+[PC_TWWH_Balthasar_Gelt] Loading time 0.01 s.
 [PrestigePlus] Version '3.8.0'. Loading.
 [PrestigePlus] Optional mod 'MewsiferConsole.Mod' not found.
 [PrestigePlus] Active.
-[PrestigePlus] Loading time 0.34 s.
+[PrestigePlus] Loading time 0.30 s.
 [RandomEquipment] Version '2.0.10'. Loading.
 [RandomEquipment] Active.
-[RandomEquipment] Loading time 0.88 s.
+[RandomEquipment] Loading time 0.83 s.
 [RandomReinforcementsPerEncounter] Version '1.1.13'. Loading.
 [RandomReinforcementsPerEncounter] RandomReinforcementsPerEncounter loaded with Harmony
 [RandomReinforcementsPerEncounter] Active.
-[RandomReinforcementsPerEncounter] Loading time 0.07 s.
+[RandomReinforcementsPerEncounter] Loading time 0.06 s.
 [WOTR_MAKING_FRIENDS] Version '0.2.4'. Loading.
 [WOTR_MAKING_FRIENDS] Patching...
 [WOTR_MAKING_FRIENDS] Finished patching.
 [WOTR_MAKING_FRIENDS] Active.
-[WOTR_MAKING_FRIENDS] Loading time 0.12 s.
+[WOTR_MAKING_FRIENDS] Loading time 0.10 s.
 [RanEpilogue] Version '1.3.1'. Loading.
 [RanEpilogue] Optional mod 'WOTR_WoljifRomanceMod' not found.
 [RanEpilogue] Optional mod 'CamelliaRomanceExpandedEnd' not found.
 [RanEpilogue] Active.
-[RanEpilogue] Loading time 0.08 s.
+[RanEpilogue] Loading time 0.10 s.
 [RespecWrath] Version '1.10.25'. Loading.
 [RespecWrath] Active.
-[RespecWrath] Loading time 0.08 s.
+[RespecWrath] Loading time 0.07 s.
 [TabletopTweaks-Flanking] Version '0.2.1'. Loading.
 [TabletopTweaks-Flanking] RuleAttackRoll_OnTrigger - Replacing flanking at index: 102
 [TabletopTweaks-Flanking] RuleAttackRoll_OnTrigger - Replacing flanking at index: 236
@@ -424,20 +424,20 @@ System.TypeLoadException: Could not resolve type with token 01000039 (from typer
 [TabletopTweaks-Flanking] PostPatchInitializer: TabletopTweaks-Flanking, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Flanking] TabletopTweaks-Core FlankingProvider set by TabletopTweaks-Flanking
 [TabletopTweaks-Flanking] Active.
-[TabletopTweaks-Flanking] Loading time 0.09 s.
+[TabletopTweaks-Flanking] Loading time 0.06 s.
 [TabletopTweaks-Reworks] Version '1.4.6'. Loading.
 [TabletopTweaks-Reworks] PostPatchInitializer: TabletopTweaks-Reworks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 [TabletopTweaks-Reworks] Active.
-[TabletopTweaks-Reworks] Loading time 0.17 s.
+[TabletopTweaks-Reworks] Loading time 0.18 s.
 [VoicePortAbelard] Version '1.0.0'. Loading.
 [VoicePortAbelard] Active.
-[VoicePortAbelard] Loading time 0.02 s.
+[VoicePortAbelard] Loading time 0.01 s.
 [VoicePortsKingmaker] Version '1.0.1'. Loading.
 [VoicePortsKingmaker] Active.
 [VoicePortsKingmaker] Loading time 0.02 s.
 [VoidHeadWOTRNineSwords] Version '2.0.6'. Loading.
 [VoidHeadWOTRNineSwords] Active.
-[VoidHeadWOTRNineSwords] Loading time 0.11 s.
+[VoidHeadWOTRNineSwords] Loading time 0.08 s.
 [WeaponFocusPlus] Version '1.2.3'. Loading.
 [WeaponFocusPlus] Active.
 [WeaponFocusPlus] Loading time 0.02 s.
@@ -979,13 +979,26 @@ Cannot Prepare a disabled VideoPlayer
 [WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.SuppressBuffsFixed with TypeId 7100c63b-d277-4076-ac12-4ad3b0b45ad4 to binder cache
 [WrathPatches] Adding BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed with TypeId 91b77a2e-a14d-4593-99eb-13a82128d21f to binder cache
 [WrathPatches] Adding BlueprintCore.Abilities.Restrictions.New.TargetHasBuffsFromCaster with TypeId 0c3ec19d-a6cd-4221-99bf-57429c009d46 to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.SacredVowCleanup with TypeId 843E4903-11EB-4B52-902F-878A2F3ADB4B to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.ContextActionSacredVowIntercede with TypeId 1638771C-5E33-4A49-AED3-A48DFC128661 to binder cache
+[WrathPatches] Adding MissionWOTR.Mythics.SacredVowMark with TypeId 9436F1C2-00A7-49AE-AB68-F98825176915 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.AnatomistWeakPoint with TypeId EAD2C24D-5F7C-480E-A485-306D68462129 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.AnatomistDefenses with TypeId EE0B059F-FC07-4DB6-AD08-DC341661B3C4 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.AnatomistPerfectStrike with TypeId 85A25174-68A8-47BA-B472-35B530FA5822 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.AnatomistRiskyManeuver with TypeId 424FA54C-AD21-4834-A83F-3CBED9CED51D to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.AnatomistReadTheTell with TypeId DCF24EB6-7BC0-4279-8C36-8DC1D8736FF1 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.BeastboundLinkRider with TypeId 94964E4E-977D-4A96-ABA2-61607162A0EE to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.BloodstormBleedTick with TypeId 2D006EB0-374A-489E-BC04-B6133AA89630 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.BloodstormOnHit with TypeId BA5AD08C-91DD-4C18-A983-2BCDDA373B21 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.BloodstormFeed with TypeId D3FF35D8-9E76-46D0-86B1-C381B842D236 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.BloodstormCritSpray with TypeId 260F3603-3B6A-42A2-A5D3-6CD81B896DFD to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionBloodstormFloodgate with TypeId 45EEEE13-CEC1-4F0E-B873-EEDA15ADB2DA to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.BonewatchCadreRider with TypeId 3011D9F2-5DA8-4948-85CA-F831D207EDED to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.BonewatchLastOrderRider with TypeId 4E31AA64-F9AB-4C91-8C37-5C91BB0E3F73 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.BreakerDestructiveDamage with TypeId 220C14E5-7ED0-43EF-8788-FB77F8F42FAC to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.BreakerScavengerDamage with TypeId 4BC233A2-3FF2-4815-8154-5291A8E019BE to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.CarouselChargeLogic with TypeId DD8F1C0B-340C-4EBC-9622-6E2442DCF7AA to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ChimeraCore with TypeId ECC512B4-2333-4DAE-8E83-801EDF5FB0CA to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeployConstruct with TypeId 566F9DA1-C17B-4774-832A-73C1018ADF90 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeployFinish with TypeId 8F10D8D3-C49D-4778-87E3-088CCA9DBB52 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ConstructSonicBoom with TypeId 722843D1-AEB8-46B6-AFFA-F50DC492C40F to binder cache
@@ -993,21 +1006,79 @@ Cannot Prepare a disabled VideoPlayer
 [WrathPatches] Adding MissionWOTR.Archetypes.ConstructFlankCasterLevelPenalty with TypeId 90535812-2EFF-4EDB-A687-260C2303D047 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ConstructOnHitBuff with TypeId D6825DF7-33A8-45B8-A210-2CF8EBC67F60 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.PeriodicSelfDamage with TypeId DFF71E21-8D38-46D8-93DB-5912ACF0B88A to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionSetConstructDirective with TypeId 3BA0355E-B056-4378-99C0-0158409687DC to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.CookServeMeal with TypeId C9F1B958-85B6-4925-AB69-4436C333019D to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.CovertMageMesmerizingAction with TypeId FC603DC7-7581-496C-87E3-DDBA40A8D535 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.CovertMageMesmerizingPenalty with TypeId B8B0C7C2-12F6-436E-957E-115B557A4F87 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.CovertMageSpellTrick with TypeId A1B9DC38-0B15-4847-9E21-D2A4A63FF0D9 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.CovertMageIllusionSpotter with TypeId EE5FB21E-B932-4AC7-B6D4-32B67D506747 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.CrescendoStartSongAction with TypeId A068E7CD-E5E6-4C95-8769-7935F9EF1AA0 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.CrescendoMomentum with TypeId BB449E29-7387-4207-BF3A-A0156E347146 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.DoomsayerDreadWeight with TypeId AC3B1827-0956-4EED-BA12-7C8872FDCD9A to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.DoomsayerAuraBearer with TypeId 3ED38613-655D-440A-A3CF-6A2064788E60 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.DoomsayerPronounce with TypeId 0E216BDA-685A-49B9-AB35-EDFA7637410F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.DoomsayerCondemnedBonus with TypeId 98AD1F3A-6716-4340-B2DF-A32372353E78 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.DoomsayerDreadfulCertainty with TypeId 3896E83D-27D8-47CA-A4C4-ED5D4BD5270C to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.DoomsayerDeathsEcho with TypeId A62EC583-F357-4A08-AD5D-EC2A42B02CA2 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.DreadnaughtStudyAction with TypeId F31ACCF5-CB38-4AB4-A451-04C351DDC13D to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ArcanotoxinDelivery with TypeId B2BC2538-7ED6-4E7A-A086-78093E886D40 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionExpeditedSynthesisCost with TypeId F6EC63FD-8954-43A5-8DDC-2CB64739F07D to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ContextActionDeliverToxin with TypeId 928E0A5E-A6E1-4F42-A4CE-96671C3DF359 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ElementalistStrikeAction with TypeId 4C474608-E491-41D6-AF57-0E7CD3541113 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ElementalistStrikeRider with TypeId EA15A75D-1C81-48FD-AC5E-7D0CE81FFD33 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ElementalistFusionAction with TypeId 25BC3138-62AE-454C-9F3B-640ABB0B2BF4 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ElementalistSandstormRider with TypeId 5EE98B45-C24D-41D4-AD56-8E4EE7A45C14 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ElementalistVolcanicRider with TypeId 5A2898F1-21D2-49A9-B76F-9B9464DD24FB to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ObsessorFocusRider with TypeId 9A137CDB-A380-4B98-A716-1D164850759E to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ObsessorPermeation with TypeId 8A100EC8-817D-427D-8957-05896B5017D6 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ObsessorCathartic with TypeId 94359AF8-7D26-44C8-A35C-A232CCD015FB to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ObsessorWellspring with TypeId 931027DA-4A70-4D1D-99CB-3FCB1FB22C70 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ObsessorSonicSplash with TypeId DBA223DF-6BD4-409C-B44E-4240D5C61D55 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.ObsessorAcidAdaptation with TypeId 7D5A2BCA-AA76-4E2E-9B9E-B6245A5F503F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.FoolChaosAura with TypeId 3CEB6794-74FD-4582-8178-E146C891075B to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.FoolFatesWager with TypeId 3F44EBDE-6053-47AD-A2E2-BA7EEC3C2B32 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.FoolLuckAttack with TypeId 06338CC2-B8D5-4032-96CE-39987AEB3E09 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.FoolFearless with TypeId A80DB5E1-D218-493F-8CA8-591871829203 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.FoolStarSurge with TypeId 17620BAB-9B62-4CE5-90FA-C6C1BC70F88F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.FoolWhimsyAura with TypeId 77879F20-AB92-4C8F-A72B-4D8862FDB481 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GraveWardenDeathWardAction with TypeId E295F659-44D5-4E20-80A5-A35610EC4602 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GraveWardenBlessedEdgeRider with TypeId 7AD47468-575E-4129-83AA-4EC94B659060 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GraveWardenDustbringerStrikeAction with TypeId C61B362A-AE33-41D7-BC9A-A7DFAA84D343 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GraveWardenDustbringerMark with TypeId 816408BD-D87C-4096-8D07-94BBC8077EEE to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GuideFocusMark with TypeId 83A3E2EA-57EC-4E69-B42C-5C24AC3BD0AB to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GuideFocusBonus with TypeId 585D2F22-E603-4308-95A3-2A25F102D12E to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GuideTerrainAura with TypeId 184F9554-6E86-455A-BDD3-75911B811F2E to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GuideLuckReroll with TypeId 28130D62-5C41-4C98-9599-C8E990985084 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.GuideInspiredCrit with TypeId 092B1979-82AA-4C9D-B0A1-DB167FEC82CE to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.HammerfistCrushingFistComponent with TypeId 68E9247B-E638-4D51-96BD-EA848ACC9A9C to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.HVStanceAction with TypeId 190B7B56-C76F-4562-B32E-DC49B1A8429C to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.HVStigmataRider with TypeId 18843F3E-A2F0-4BD0-A75C-2E3B920AC2B2 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.HVFaithHealingRider with TypeId 6C3B9A63-FD81-4743-AE29-C2EB9B779247 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.HVBloodfireRider with TypeId 4858633F-906D-43EF-B87F-F4B2E5D40A32 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.InkboundInkRider with TypeId CFBF01D7-4D0B-43CE-B4F1-0039D2B338D7 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.InkboundQuillAction with TypeId 62E7169A-AC33-418D-81D9-2FA0E11C7540 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.InkboundLastChapterAction with TypeId EF086DA3-62E3-4600-887B-D4CFEA155F5B to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.InkboundInkRestriction with TypeId 6452BC31-DF9D-438E-BF41-57C025441864 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionKineticHeal with TypeId 5A0D84A7-946D-4205-B184-233857752ED4 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ExplosionGrantComponent with TypeId 0B689E98-8E3B-4719-8130-57E6F2517B73 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.LionAspectExclusivity with TypeId 4D6F1608-6A8B-442E-8ABD-8D8AE584B358 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.MendingBladeTitheRider with TypeId 8809F352-10F1-4969-A406-09F2CEB700E1 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.MummerImperiousConcentration with TypeId 25FBDE0F-6B5B-4601-B44E-E4E2EC58C987 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.OverchannelerOpenAction with TypeId 2E9D9D96-AF45-4576-BCBA-880818B30C01 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.OverchannelerRider with TypeId 5C9E4567-709D-424A-8C67-B38D54F30C52 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.PlanarAttunement with TypeId 87A6BB8A-C69F-432B-8ECA-BD46DC798693 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.PolearmSteadfastPike with TypeId 88DDD4BD-F0DC-46CA-9DFF-1AEFADA87061 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.PolearmSweepFend with TypeId 5485756C-1AF9-4275-B8AB-FD45BC53A062 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.PolearmCloseQuarters with TypeId F4364C21-6060-4059-8F4C-5A59C5BF0CEC to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WeaponSpecialistBonus with TypeId 66A5FB99-E397-42DB-9A1E-4ADFEBE9FCD7 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.AllyFlankerBonus with TypeId D020C8E3-C1A5-4AB5-9179-B32464181DF1 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.PolearmStepAside with TypeId 2AF3A396-0EAA-4499-8AAC-8801EE7A8D9F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.PolearmParryGuard with TypeId D2725322-4310-42EE-B6C2-DE67720774CA to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.RiftstalkerMarkDelivery with TypeId D85AAF20-A647-4525-9B85-CC16AA42E3CF to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.RiftstalkerGuidedStrike with TypeId 1F79E44D-8571-4F85-B5F7-DE3BF2A3B24F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.RiftstalkerCommandAction with TypeId E9CF92A0-C0B1-4B83-AC4E-67EE5E154CAA to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.RiftstalkerUnseenGuard with TypeId F8B5A52D-E113-4DB0-9299-3AB31231E646 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.RiftstalkerCripple with TypeId 530ED959-0AEA-453D-AC7F-6467E687F80E to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SanguineAura with TypeId 3BCA4455-ABEB-4E09-AFB5-17489AC12283 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SanguinePulse with TypeId 5691368D-8BF6-4426-B1C2-626D87F167FE to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SanguineBladeRider with TypeId 97A6CB32-B34D-4CC0-9E1E-27496C8D1DB0 to binder cache
@@ -1015,12 +1086,65 @@ Cannot Prepare a disabled VideoPlayer
 [WrathPatches] Adding MissionWOTR.Archetypes.SanguineDeathSave with TypeId 19C0D261-1B41-48C8-943B-55BDF37C4648 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SanguineFastHeal with TypeId F7585A1D-CCE1-4A1C-83CD-D3367A61C4A1 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SanguineBleed with TypeId 169B02F1-24FB-4CFC-A762-34F6FF911573 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ScoutChargeComponent with TypeId 3BA01CA3-27A1-4732-9337-2AF93BCDC997 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ScoutSkirmisherComponent with TypeId 94EABAC2-9467-4CAC-96AB-A402618F6AC6 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ShiningSkilledRider with TypeId 7CA09083-497A-402E-ADD1-F640A8200ACC to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ShiningKnightsCharge with TypeId 1EB214C6-257C-4BAA-9231-1E5BBFA19481 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SinEaterEatSinComponent with TypeId A81444B6-6DE3-4D0A-865A-42B60AD969CF to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SisterHalfheartedChallenge with TypeId 72D927ED-118A-42C5-A199-FAA14B71C571 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SisterDragonAura with TypeId 2966B54F-6B32-4B32-8693-7736FAD3AD18 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SisterLoyaltySaves with TypeId 5679B90C-8B5D-4676-A8F4-AA5502E3BF9C to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SisterStrategyAction with TypeId 12CAB9BF-8C6A-4125-9423-9F66F51953E0 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SisterActAsOneAction with TypeId 26D1987F-784B-45FE-ACF0-F5C76FECFDE3 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SolipsistTargetLock with TypeId F61B2B27-5213-4046-957C-7F185C151AE1 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SolipsistCommunalBlock with TypeId 69B5E5B9-F358-44F4-9DFD-767BB172DA1E to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SolipsistEchoAction with TypeId 29D5E92A-C6F6-43E4-88DA-4CCD79CFD0BA to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SolipsistFlatBonus with TypeId 5E01102D-396F-4438-8DA9-B9A5E6AF16B7 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SpellbladeCreateAthame with TypeId 14811CE9-1479-411E-A424-482740521EB8 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SpellbladeParryWard with TypeId D9FDE7D8-F619-4AC9-8079-DF9E655068BF to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SpellbladeThrowAthameAction with TypeId AB34F314-9CB6-4B00-9FA6-8C7391CDA6AC to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SpellfistCascade with TypeId 54634A4C-2CBB-4817-B8FD-2FC1B072D05E to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SpellfistSunderTrigger with TypeId E7648BFB-9967-426C-B66B-A38D1AA23F98 to binder cache
 [WrathPatches] Adding MissionWOTR.Archetypes.SpellfistSunderedWard with TypeId AC79AFE4-99F4-4B53-BC5F-655C6BFB21CE to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SpellWarriorStartSongAction with TypeId 15692C15-19E0-4908-98F0-23EDD77F06D4 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SpellWarriorSongRounds with TypeId 7B4F26CB-60B8-40FF-A3FD-1BB2C768296D to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SpiritRiddenForm with TypeId ED225F6D-7927-4AF2-BBD1-64CDA14036F9 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SpiritRiddenSummonCompanionAction with TypeId 535E8193-A289-4CE1-AB74-FE50F9DFDA55 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SpiritRiddenDespawnCompanionAction with TypeId 4FA19501-7D8D-44BF-B204-E2AFEC019C8E to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SpiritRiddenWolfGuard with TypeId 68ABF213-C79E-477B-A0D0-1421D446EEBE to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SteelRainQuickHands with TypeId 43D7BD1A-1926-47AC-BF26-4C7057BC9109 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SteelRainFlick with TypeId C228C36C-6AB1-4D62-B064-1D4C910C786F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SteelRainCatch with TypeId 973C1277-D722-40FB-BCD0-896413DB0F6F to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.SteelRainOneArt with TypeId 70B1A381-0412-40B7-95AB-561022563C68 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StormcallerSwiftRestriction with TypeId 07D26A5A-32C6-41B5-8ECD-1A8809E98812 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StormcallerSwiftGrant with TypeId 3BBB3F29-6651-48D0-9296-365D0C00B1A8 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StormcallerSwiftTracker with TypeId 74FFAB11-2595-4EF0-A599-7D7C15942207 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionStormStep with TypeId 8C2993EC-B4BF-4625-90B4-19AAC9D1C22A to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StrategicGuardAura with TypeId D7A02E0D-DED3-4DE6-90B9-371E1FE2A9A1 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StrategicRecklessAction with TypeId 6D230898-2249-4471-A53A-DB603BED36B6 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StrategicRecklessBuffLogic with TypeId AD39CF20-40C5-4857-B164-8763B167F19B to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StrategicKnockSizeRestriction with TypeId 2E23D24A-7EE0-4547-BA77-95F9A70D3069 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StrategicKnockAction with TypeId FDE6A3A4-A4E4-4461-97DF-0CAD60B296DF to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.StrategicPunishingStrike with TypeId 9777EC90-52A2-4C98-AC14-8AEE8F0B04BA to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.TrueShapeMaintenance with TypeId EC39C071-FCDF-46F2-A466-B47F0D7E23FE to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.TrueShapeAttunement with TypeId EE6EE4B8-01C0-4EA1-9B8C-6DCA012845D5 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.TrueShapeBeastCaster with TypeId AAD38EAE-7D0D-4D79-A4F1-E1C83C113475 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.UnstableBlastComponent with TypeId 2474F7FA-A854-417E-9586-9C1B4B419746 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.UntouchableResistanceMaintenance with TypeId 155F0A52-36E8-44BF-A780-89EFB7683256 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.VenombloodDelivery with TypeId F8881350-4A67-467E-A7EC-66970AC40ED6 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.VerminAspectAttackDamage with TypeId D1B68624-618D-4AC7-B760-1D190F45A9FB to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.VerminAspectNaturalArmor with TypeId A471B9F4-F26E-4339-BA1D-6A1BF93BA7CD to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.VerminAspectOpportunity with TypeId 5A8FB292-083C-44B2-B702-32FBD30648F0 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.VerminAspectManeuver with TypeId 10FAB9A0-F5D9-42E0-A49E-E46C24A4A5D6 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WildbondCore with TypeId D8B0E0FB-355D-4566-BC9F-E4A8895FE7D4 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WildbondPetRider with TypeId 882EC4DF-2DA2-4C21-B1CF-337F97705EF7 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WildbondFrenzyRider with TypeId 689F72F9-2FC3-4E3E-B97B-61EACBCDD9F9 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WildbondSecondChargeRider with TypeId 6B7B0E86-64E5-41A4-9B11-C2D4D9117EB3 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WildbondPackRider with TypeId 0FC98259-C8B7-4756-8C2B-F972617C1022 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WildbondVenomRider with TypeId A15C01C1-3AD3-4F03-8617-AE682687A3FE to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.WildbondBulwarkRider with TypeId 11A3CF15-ED4B-4910-AD9B-4B75ECB0FA76 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionWildbondMarkPrey with TypeId B89A459D-D31A-4722-A17C-788775056438 to binder cache
+[WrathPatches] Adding MissionWOTR.Archetypes.ContextActionWildbondBreakBulwark with TypeId E4A9F27B-1B3F-4C56-9F1A-7C05D6B2E604 to binder cache
 [WrathPatches] Adding MissionWOTR.Mythics.AetherialBulwark+AetherialBulwarkTrigger with TypeId 714730BA-4C04-4E64-8F9F-8E89EECB3A2F to binder cache
 [WrathPatches] Adding MissionWOTR.Mythics.AscendantEdge+AscendantEdgeTrigger with TypeId 57F95FCA-7F99-460A-B820-9E48974B26C2 to binder cache
 [WrathPatches] Adding MissionWOTR.Mythics.DefiantSoul+DefiantSoulTrigger with TypeId 77E47B9E-B10B-4794-A164-6E67730658DB to binder cache
@@ -7807,7 +7931,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [COP+UnshakableZeal] Configuring UnshakableZeal
 [COP+WeaponOfAwe] Configuring WeaponOfAwe
 [COP+Wrath] Configuring Wrath
-[CodexLib] Loaded blueprints in 7373ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
+[CodexLib] Loaded blueprints in 6554ms BlueprintAbility:6420, BlueprintActivatableAbility:1481, BlueprintBuff:9151, BlueprintFeature:15566, BlueprintItem:6885, BlueprintItemEnchantment:1808
 [DragonLibrary] Checking for mods for compatibility patches
 [DragonLibrary] Checking for MicroscopicContentExpansion
 [DragonLibrary] MicroscopicContentExpansion is found and enabled
@@ -12914,7 +13038,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [0ToyBox0] [Info] Successfully applied 0 of 0 patches in 0ms
 [COP+Main] Configuring feats delayed.
 [COP+EldritchHeritage] Configuring EldritchHeritage for TTT bloodlines
-[0ToyBox0] [Info] Loading 257102 Blueprints
+[0ToyBox0] [Info] Loading 258083 Blueprints
 [COP+Main] Configuring Archetypes delayed.
 [COP+ArrowsongMinstrel] Patching TTT Loremaster compatbility for Arrowsong Minstrel
 [COP+WinterWitch] Patching TTT Loremaster compatbility for Winter Witch
@@ -14090,7 +14214,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 [EbonsContentMod]     OrcSorcererBloodlineClassSkill, GUID=d2ec15253bb84db38194146e9ef9bf9c, Type=BlueprintFeature
 [EbonsContentMod]     OrcSorcererBloodlineRequisiteFeature, GUID=09ae4a9f250c42ad9f31a15b3fced759, Type=BlueprintFeature
 [EbonsContentMod]     BloodlineRequisiteFeature, GUID=e2cfd3cedf7c40088b25aa82d6db3c77, Type=BlueprintFeature
-[0ToyBox0] [Info] Threaded loaded roughly 258844 blueprints in 8255 milliseconds
+[0ToyBox0] [Info] Threaded loaded roughly 259825 blueprints in 8031 milliseconds
 [0ToyBox0] [Info] Starting to build BPId Cache
 [0ToyBox0] [Info] Finished rebuilding BPId Cache
 [EbonsContentMod] Main.GetBundleNameForAsset: Redirecting asset with GUID 41fb4c393c6a67141b6e7d48911e38a1 to AssetBundle GoblinTest_content
@@ -14151,6 +14275,7 @@ Kingmaker.Localization.SharedStringAsset must be instantiated using the Scriptab
 The referenced script on this Behaviour (Game Object '<null>') is missing!
 The referenced script on this Behaviour (Game Object '<null>') is missing!
 Parent of RectTransform is being set with parent property. Consider using the SetParent method instead, with the worldPositionStays argument set to false. This will retain local orientation and scale rather than world orientation and scale, which can prevent common UI scaling issues.
+Curl error 6: Could not resolve host: siren.owlcat.local
 [ModMenu] Added Mods Menu View
 [ModMenu] Adding new type prefabs.
 [ModMenu] Creating image template.
@@ -14158,7 +14283,6 @@ Parent of RectTransform is being set with parent property. Consider using the Se
 [ModMenu] Creating collapsible header template.
 [ModMenu] Creating sub header template.
 [ModMenu] Creating dropdown button template.
-Curl error 6: Could not resolve host: siren.owlcat.local
 [ModMenu] Instantiating layout settings.
 The referenced script on this Behaviour (Game Object '<null>') is missing!
 [ModMenu] Adding new type prefabs.
@@ -14168,20 +14292,464 @@ The referenced script on this Behaviour (Game Object '<null>') is missing!
 [ModMenu] Creating sub header template.
 [ModMenu] Creating dropdown button template.
 [Manager] Spawning.
+[Manager] Checking updates.
+[Manager] The nexus api key is missing. Without it, you won't be able to check for updates. You can configure it via the UnityModManager Installer. If you don't need it, just ignore.
 [ModMenu] Instantiating layout settings.
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (ascending order)</color></b>' in default locale
 [0ToyBox0] <b><color=orange>[Warn] </color></b>Unlocalized Key: '<b><color=orange>Rarity (descending order)</color></b>' in default locale
-[CodexLib] Applying PowerAttackFeature for Unit[StartGame_Player_Unit]#7e252678-0b12-467d-bea1-8b7a9e7ce1ae is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGame_Player_Unit]#7e252678-0b12-467d-bea1-8b7a9e7ce1ae is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGame_Player_Unit]#7e252678-0b12-467d-bea1-8b7a9e7ce1ae is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGame_Player_Unit]#7e252678-0b12-467d-bea1-8b7a9e7ce1ae is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGame_Player_Unit]#7e252678-0b12-467d-bea1-8b7a9e7ce1ae is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PowerAttackFeature for Unit[StartGame_Player_Unit]#e571da6c-339f-4bd6-b06f-e00c9412e147 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PointBlankShot for Unit[StartGame_Player_Unit]#e571da6c-339f-4bd6-b06f-e00c9412e147 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying CombatExpertiseFeature for Unit[StartGame_Player_Unit]#e571da6c-339f-4bd6-b06f-e00c9412e147 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying WeaponFinesse for Unit[StartGame_Player_Unit]#e571da6c-339f-4bd6-b06f-e00c9412e147 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying DeadlyAimFeature for Unit[StartGame_Player_Unit]#e571da6c-339f-4bd6-b06f-e00c9412e147 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
 [RespecWrath] Creating sprite
-[CodexLib] Applying PowerAttackFeature for Unit[StartGamePregenCavalierUnit]#46933a1e-97dc-4ba0-8dc4-36f3b7295955 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying PointBlankShot for Unit[StartGamePregenCavalierUnit]#46933a1e-97dc-4ba0-8dc4-36f3b7295955 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying CombatExpertiseFeature for Unit[StartGamePregenCavalierUnit]#46933a1e-97dc-4ba0-8dc4-36f3b7295955 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying WeaponFinesse for Unit[StartGamePregenCavalierUnit]#46933a1e-97dc-4ba0-8dc4-36f3b7295955 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
-[CodexLib] Applying DeadlyAimFeature for Unit[StartGamePregenCavalierUnit]#46933a1e-97dc-4ba0-8dc4-36f3b7295955 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PowerAttackFeature for Unit[StartGamePregenCavalierUnit]#d7baf4db-c14f-4cf6-9c18-8727dc0818b7 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying PointBlankShot for Unit[StartGamePregenCavalierUnit]#d7baf4db-c14f-4cf6-9c18-8727dc0818b7 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying CombatExpertiseFeature for Unit[StartGamePregenCavalierUnit]#d7baf4db-c14f-4cf6-9c18-8727dc0818b7 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying WeaponFinesse for Unit[StartGamePregenCavalierUnit]#d7baf4db-c14f-4cf6-9c18-8727dc0818b7 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying DeadlyAimFeature for Unit[StartGamePregenCavalierUnit]#d7baf4db-c14f-4cf6-9c18-8727dc0818b7 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+[CodexLib] Applying Mobility for Unit[StartGame_Player_Unit]#e7764a40-6bbe-4e1e-b647-191a8e68f005 is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+[CodexLib] Applying Dodge for Unit[StartGame_Player_Unit]#04a4ce5d-b36f-4e0b-9c42-74d342c9280b is IsPet=False IsMainCharacter=True IsCustomCompanion=False IsStoryCompanion=False
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
+InvalidOperationException: Sequence contains no elements
+  at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
+  at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
+  at (wrapper dynamic-method) Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM.DisposeImplementation_Patch1(Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM)
+  at Owlcat.Runtime.UI.MVVM.BaseDisposable.Dispose () [0x000e9] in <3a96d176ce4d4add84e664c182a55065>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM+<>c.<RefreshData>b__9_0 (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM cl) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at System.Collections.Generic.List`1[T].ForEach (System.Action`1[T] action) [0x00024] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.UnitProgressionVM.RefreshData () [0x0002b] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM.<.ctor>b__1_0 (Kingmaker.UnitLogic.UnitDescriptor descriptor) [0x00003] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ObserverNode`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].RaiseOnNext (T& value) [0x00009] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.ReactiveProperty`1[T].SetValueAndForceNotify (T value) [0x00010] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.UpdateAllPhases () [0x000c6] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at Kingmaker.UI.MVVM._VM.CharGen.CharGenVM.<.ctor>b__36_4 (UniRx.Unit _) [0x00000] in <90a9869c27924c7bbfb75a8b33da7c82>:0 
+  at UniRx.Observer+Subscribe`1[T].OnNextInternal (T value) [0x00008] in <8278608da1374666822143d4d0b4e36e>:0 
+  at UniRx.Observer+BaseObserver`1[T].OnNext (T value) [0x00000] in <8278608da1374666822143d4d0b4e36e>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObserver`1[TSource].OnLateUpdate () [0x00008] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservable`1[TSource].OnLateUpdate () [0x00015] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+  at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
+
 InvalidOperationException: Sequence contains no elements
   at System.Linq.Enumerable.First[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x00010] in <351e49e2a5bf4fd6beabb458ce2255f3>:0 
   at PrestigePlus.CustomComponent.FixNoToybox2.Prefix (Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main.ClassProgressionVM& __instance) [0x00000] in <2a5bb1a64d98444a9ef359307abd8758>:0 
@@ -14359,11 +14927,11 @@ InvalidOperationException: Sequence contains no elements
   at Owlcat.Runtime.UniRx.LastValueOnLateUpdateObservableFabric.LateUpdate () [0x0001b] in <6f43ac0656b645bc97d2b60f08481c9d>:0 
 
 Setting up 6 worker threads for Enlighten.
-  Thread -> id: 337c -> priority: 1 
-  Thread -> id: 170 -> priority: 1 
-  Thread -> id: e68 -> priority: 1 
-  Thread -> id: 305c -> priority: 1 
-  Thread -> id: 4964 -> priority: 1 
-  Thread -> id: 4954 -> priority: 1 
+  Thread -> id: 38a0 -> priority: 1 
+  Thread -> id: 4fd8 -> priority: 1 
+  Thread -> id: 49d8 -> priority: 1 
+  Thread -> id: 4cb0 -> priority: 1 
+  Thread -> id: 3e18 -> priority: 1 
+  Thread -> id: 4328 -> priority: 1 
 Releasing render texture that is set as Camera.targetTexture!
 [Manager] Destroying when exit.
