@@ -848,6 +848,32 @@ prefix — `DualCompanionInactive` sits in the `Conditions` namespace. v12 dumps
 the whole namespace and found 227. Lesson: when a probe returns an empty set,
 suspect the filter before concluding the thing does not exist.
 
+### The blocker is smaller than I said — `StartDialog` exists
+
+After the user chose "all types of conversation", probe v13 went looking for the
+one thing I had said was missing, and found it. `Kingmaker.Designers.EventConditionActionSystem.Actions`
+contains `StartDialog`, `StartEtude`, `CompleteEtude`, `MarkCuesSeen` and
+`AddDialogNotification`, and `BlueprintEtude` derives from `BlueprintFact`.
+
+An etude being a *fact* is the part that matters: facts are what features grant,
+via `AddFacts`, which is the idiom this repo already uses everywhere. So the
+chain is reachable end to end without touching a single vanilla dialog:
+
+1. author our own `BlueprintDialog` / `BlueprintCue` / `BlueprintAnswer`;
+2. author a `BlueprintEtude` gated on conditions we now know exist;
+3. grant the etude as a fact on a feature;
+4. the etude starts the dialog.
+
+What is *still* needed from a playtest log is only the GUIDs of vanilla
+conversations — required for injecting reactions into scenes the game already
+has, not for conversations we own. The two are separable, which means a first
+pass does not have to wait.
+
+Verified by absence, and this time the filter was exhaustive: there is **no**
+`ContextActionStartDialog` in `Kingmaker.UnitLogic.Mechanics.Actions`. So a
+dialog cannot be started from inside an `ActionsBuilder`; it has to go through
+the etude/game-action layer. Probe v14 dumps those action types' fields.
+
 ### What dialogue would cost, honestly
 
 Nothing here is compile-testable in the way a feature is. A mis-wired dialog can

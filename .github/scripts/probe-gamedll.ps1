@@ -6,6 +6,9 @@
 # It dumps reflection metadata (no assembly loading needed) to probe-gamedll.txt and
 # commits that file, so results are readable without run-log access.
 #
+# v14: StartDialog / StartEtude / AddDialogNotification field dumps - v13 proved
+#      they exist and that BlueprintEtude is a BlueprintFact, so the whole chain
+#      (etude as a granted fact -> StartDialog -> our own dialog) is reachable.
 # v13: the action vocabulary - whether a dialog can be OPENED from code (no
 #      BlueprintUnit dialog field means there is no unit-level hook to hang one on).
 # v12: the condition vocabulary (v11's Condition-prefix filter returned zero -
@@ -110,7 +113,8 @@ if (-not (Test-Path $dll)) {
       'PetType', 'PetProgressionType', 'Concealment', 'WeaponRangeType', 'ITickEachRound',
       'AddDamageResistancePhysical', 'AddDamageResistanceBase',
       'DamageResistancePhysical', 'DamageResistance',
-      'BlueprintEtude', 'CueSelection', 'BlueprintCheck')
+      'BlueprintEtude', 'CueSelection', 'BlueprintCheck',
+      'StartDialog', 'StartEtude', 'AddDialogNotification', 'MarkCuesSeen')
     $VIS = @{ 0 = 'internal'; 1 = 'public'; 2 = 'nested-public'; 3 = 'nested-private'; 4 = 'nested-family'; 5 = 'nested-internal'; 6 = 'nested-famand'; 7 = 'nested-famor' }
     $FACC = @{ 1 = 'private'; 2 = 'privatescope'; 3 = 'internal'; 4 = 'protected'; 5 = 'protandint'; 6 = 'protorint'; 7 = 'public' }
 
