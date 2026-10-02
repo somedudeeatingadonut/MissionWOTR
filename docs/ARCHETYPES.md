@@ -925,6 +925,97 @@ not. Every fix below is quoted from that log, not inferred.
   MesmeristClass, WinterWitchClass, KineticLancerArchetype all log them
   and work fine) — they are not why anything was missing.
 
+### 0.53.0 follow-up — the rest of the user's list
+
+Everything below is compile-verified on CI (the "Build mod" step ran for real;
+the "Write waiting notice" fallback stayed skipped). None of it has been in the
+game yet.
+
+#### The test-mode collapse — the biggest find
+
+`LevelPlan.AllAtLevelOne` is `true`, so all 247 `LevelPlan.L(n)` call sites
+grant at level 1. That is documented and deliberate, for playtesting. But it
+silently breaks any **option inside a multi-grant selection that carries its own
+class-level prerequisite**: every pick collapses to level 1, and a gated option
+is excluded from all of them, so it can never be taken at all.
+
+The 0.52.1 log proves it for Spirit-Ridden:
+
+    [diag] SpiritRidden level-1 grants (4): SpiritRiddenSpiritSelection,
+    SpiritRiddenSpiritSelection, SpiritRiddenSpiritSelection,
+    SpiritRiddenSpiritSelection
+
+Three archetypes were affected, and this — not a presentation gap — is what the
+user was seeing:
+
+| Archetype | Gated options | Before the fix |
+|---|---|---|
+| Spirit-Ridden | Antlered/Pyre (6), Archivist (12), Spellblade (18) | the four caster spirits never appeared — the user's exact report |
+| Qinggong | all seven ki powers (monk 8, 8, 10, 16, 8, 10, 16) | all three ki picks were empty; the archetype's entire content was untakeable |
+| Riftstalker | every rift command (hunter 4–12) | all five command picks were empty |
+
+`LevelPlan.Gate(n)` now mirrors `L(n)` — 1 in test mode, the real level
+otherwise — and is applied at those three sites, so the gate comes off with the
+grants collapsing and returns on its own when the mod is switched to normal
+leveling. It was deliberately **not** applied to Eldritch Poisoner's discoveries
+or Kineticist Explosion's infusion: those live in vanilla selections whose picks
+still happen at real class levels, so softening their gates would be wrong.
+
+#### Lion Shaman — kept and differentiated
+
+ExpandedContent ships a Lion Totem Druid under the **identical blueprint asset
+name** `LionShamanArchetype`. The guids differ so both load, but any name-keyed
+lookup could resolve to the wrong mod's blueprint; ours is now
+`MissionLionShamanArchetype`.
+
+Reading their implementation showed theirs is a wild-shape-timing archetype
+(forms two levels later, feline two earlier, feline-only companion or four
+domains) with no totem transformation, no totemic summons and no bonus feats.
+The overlap was the wild shape; the totem is what is actually ours, so the totem
+is what now grows. The three aspects scale with druid level via a new
+`LionAspectScaling` rider (tier 1/2/3 at 2nd/8th/14th):
+
+| Aspect | 2nd | 8th | 14th |
+|---|---|---|---|
+| Movement | +10 speed, +1 dodge AC | +20, +2 | +30, +3 |
+| Senses | scent, +1 Will/Reflex | +2 | +3 |
+| Weapons | bite, +1 attack/damage | +2 | +3 |
+
+The movement aspect's old flat +20 speed is gone so it is not double-dipped.
+Modifiers are removed-then-reapplied each round keyed to the component Runtime —
+the BeastboundLinkRider idiom, including the 0.52.0 lesson that the key must be
+the Runtime and not the Fact.
+
+#### Balance
+
+| Archetype | Change |
+|---|---|
+| Solipsist | The echo is now its own feature (`Guids.SolipsistEchoFeature`) granted at 8th. It used to ride the Solipsism feature, which lands at the cleric's channel-energy level — **1st** — so one level of cleric bought permanent doubling of divine power and righteous might. The downside still lands at 1st because it is the archetype's cost and must not be avoidable by dipping. The self-only half of the report was already true: `SolipsistEchoAction.RunAction` returns early unless `caster.HasFact(Fact)` **and** `Context.MainTarget?.Unit == caster`. |
+| Venomblood | Granted at 1st/6th/9th and then flat-lined for eleven levels. The toxin now tiers — 1d2 Con at 1st, 1d4 at 12th, 1d6 at 16th (`Venomblood.StrainFor`) — Potent Venom (12th) adds 1d2 Dexterity, and Lethal Venom (16th) turns Neurotoxin's sickening into nausea. Level plan is now 1 / 6 / 9 / 12 / 16. |
+| Doomsayer | She granted seven times but every penalty was a flat -2 forever. Dread Mien now reads the mien bearer's level and returns -2/-3/-4 at 8th/12th/16th; Sentence of Ruin's mark tiers to -3 from 17th (`DoomedMarkerFor`). `AgainstDoomsayer` became `MienBearer`, returning the entity rather than a bool. |
+| Inkbound | Recitation dealt 5 + wizard level — less than a 1st-level spell at the 5th level where it arrives, for a standard action and three measures of ink. Now 5 + 2x level, and from 11th the scream carries a Blot at no further ink cost. The well was a flat 10 measures from 1st to 20th; `InkboundInk.Cap` is now `CapFor(level)`: 10 at 1st, +2 every five wizard levels. |
+
+#### Presentation
+
+All ten description strings carrying a homebrew parenthetical are cleaned —
+CrescendoSkald, Dreadnaught, Overchanneler, MendingBlade, MendingBladeTithe,
+MendingBladeGraveTithe, Inkbound, InkboundInk, Beastbound, Bonewatch. Where the
+parenthetical held a real mechanical caveat it is kept as plain prose (the
+killing-blow-overkill rule; the note that ink does not persist through
+save/load); the bare attribution is gone.
+
+The "unknown mod" label is **not fixed, deliberately**. The attribution almost
+certainly rides a field that BlueprintCore's
+`MultiLocalizationPack.GetCurrentPack()` never sets — it populates only `Locale`
+and `m_Strings` — but the game assembly is not available here and the probe never
+fingerprinted `Kingmaker.Localization`, so the field's name and whether it lives
+on the pack or per `StringEntry` are both unknown. Guessing is worse than
+useless: if the field sits on the shared pack, setting it would mislabel every
+string in the game as ours. `Main.DumpLocalizationPackShape` reflects over
+`LocalizationManager.CurrentPack` at load and logs the real shape instead, so the
+next playtest log answers it and the fix can be exact.
+
+
 ## 0.52.1 — the old-code sweep (alchemist → present)
 
 The user's ask: *"Just double check the code all the way from alchemist
