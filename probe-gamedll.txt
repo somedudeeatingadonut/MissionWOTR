@@ -748,8 +748,10 @@ RAGE-TYPE: Kingmaker.Visual.UnitTerrainAlignment vis=public base=Owlcat.Runtime.
   FIELD: m_IsInitializated [private]
   FIELD: m_RigRotationEuler [private]
   FIELD: m_CachedTransform [private]
+COMPANION-TYPE: Kingmaker.View.Spawners.CompanionSpawner base=Kingmaker.View.Spawners.UnitSpawnerBase
 RAGE-TYPE: Kingmaker.Utility.AlignmentMaskAttribute vis=public base=UnityEngine.PropertyAttribute
 RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature vis=public base=Kingmaker.Tutorial.TutorialTrigger
+COMPANION-TYPE: Kingmaker.TextTools.CustomCompanionCostTemplate base=Kingmaker.TextTools.TextTemplate
 === TYPE Kingmaker.RuleSystem.Rules.RuleAttackRoll vis=public base=Kingmaker.RuleSystem.RulebookTargetEvent ===
   FIELD: missChance [private]
   FIELD: WeaponStats [protorint]
@@ -1164,14 +1166,18 @@ RAGE-TYPE: Kingmaker.Tutorial.Triggers.TutorialTriggerUnitLostAlignmentFeature v
   METHOD: ClearModifiers
   METHOD: Roll (unitsCount)
   METHOD: <OnTrigger>b__55_0 (h)
+COMPANION-TYPE: Kingmaker.QA.Clockwork.SelectCompanionsCommand base=Kingmaker.QA.Clockwork.ClockworkCommand
+COMPANION-TYPE: Kingmaker.QA.Clockwork.SelectCompanionsTask base=Kingmaker.QA.Clockwork.ClockworkRunnerTask
 RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentShiftHandler vis=public base=(nil)
 RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentChangeHandler vis=public base=(nil)
 RAGE-TYPE: Kingmaker.PubSubSystem.IAlignmentFeaturesChangeHandler vis=public base=(nil)
+COMPANION-TYPE: Kingmaker.PubSubSystem.ICompanionChangeHandler base=(nil)
 RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSAlignment vis=public base=Kingmaker.UI.Common.UISection
 RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSAlignmentHistory vis=public base=Kingmaker.UI.Common.UISection
 RAGE-TYPE: Kingmaker.UI.ServiceWindow.CharacterScreen.CharSComponentAlignmentSector vis=public base=UnityEngine.MonoBehaviour
 RAGE-TYPE: Kingmaker.UI.Models.Log.Events.GameLogEventAlignmentShifted vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.Dialog.AlignmentShiftLogThread vis=public base=Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreadBase
+COMPANION-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryVM base=Owlcat.Runtime.UI.MVVM.BaseDisposable
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.CharInfoAlignmentVM vis=public base=Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.CharInfoComponentVM
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorVM vis=public base=Owlcat.Runtime.UI.MVVM.BaseDisposable
@@ -1182,6 +1188,10 @@ RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Class.Mechanic.CharGenClassCaste
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Alignment.CharGenAlignmentPhaseVM vis=public base=Kingmaker.UI.MVVM._VM.CharGen.Phases.CharGenPhaseBaseVM
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.CharGen.Phases.Alignment.CharGenAlignmentSectorVM vis=public base=Owlcat.Runtime.UI.SelectionGroup.SelectionGroupEntityVM
 RAGE-TYPE: Kingmaker.UI.MVVM._VM.Tooltip.Templates.TooltipTemplateAlignment vis=public base=Owlcat.Runtime.UI.Tooltips.TooltipBaseTemplate
+COMPANION-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryFullPCView base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryFullView
+COMPANION-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryFullView base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryView
+COMPANION-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryPCView base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryView
+COMPANION-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryView base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorPCView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
@@ -1203,6 +1213,8 @@ RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentPh
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentPhaseRoadmapPCView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentSectorPCView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._PCView.CharGen.Phases.Alignment.CharGenAlignmentSelectorPCView vis=public base=TypeSpecification
+COMPANION-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryConsoleView base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryView
+COMPANION-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryFullConsoleView base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Stories.CharInfoCompanionStoryFullView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.LevelClassScores.RaceGenderAlignment.CharInfoRaceGenderAlignmentView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorConsoleView vis=public base=Kingmaker.UI.MVVM._PCView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentSectorView
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.ServiceWindows.CharacterInfo.Sections.Alignment.AlignmentWheel.CharInfoAlignmentWheelConsoleView vis=public base=TypeSpecification
@@ -1214,6 +1226,14 @@ RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignm
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentPhaseRoadmapConsoleView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentSectorConsoleView vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.UI.MVVM._ConsoleView.CharGen.Phases.Alignment.CharGenAlignmentSelectorConsoleView vis=public base=TypeSpecification
+COMPANION-TYPE: Kingmaker.UI.Kingdom.KingdomFreeCompanion base=UnityEngine.MonoBehaviour
+COMPANION-TYPE: Kingmaker.UI.Kingdom.KingdomFreeCompanionElement base=UnityEngine.MonoBehaviour
+COMPANION-TYPE: Kingmaker.UI.Kingdom.KingdomFreeCompanionHoverController base=UnityEngine.MonoBehaviour
+COMPANION-TYPE: Kingmaker.UI.Kingdom.KingdomUIChooseCompanionCharacter base=UnityEngine.MonoBehaviour
+COMPANION-TYPE: Kingmaker.UI.Kingdom.KingdomUIChooseCompanionController base=UnityEngine.MonoBehaviour
+COMPANION-TYPE: Kingmaker.UI.Kingdom.KingdomUIChooseCompanionList base=UnityEngine.MonoBehaviour
+COMPANION-TYPE: Kingmaker.UI.GlobalMap.GlobalMapLocationInfoRequireCompanions base=UnityEngine.MonoBehaviour
+COMPANION-TYPE: Kingmaker.UI.GlobalMap.GlobalMapLocationInfoRequireCompanionsItem base=UnityEngine.MonoBehaviour
 RAGE-TYPE: Kingmaker.Enums.AlignmentComponent vis=public base=System.Enum
   FIELD: value__ [protorint]
   FIELD: None [protorint]
@@ -1303,9 +1323,146 @@ RAGE-TYPE: Kingmaker.Enums.Damage.PhysicalDamageAlignment vis=public base=System
   FIELD: ColdIron [protorint]
   FIELD: Silver [protorint]
   FIELD: Adamantite [protorint]
+COMPANION-TYPE: Kingmaker.Dungeon.Units.UnitPartImportableCompanion base=Kingmaker.UnitLogic.OldStyleUnitPart
+COMPANION-TYPE: Kingmaker.Dungeon.Units.ImportableCompanionData base=System.Object
+COMPANION-TYPE: Kingmaker.Dungeon.Actions.ActionCreateImportedCompanion base=Kingmaker.ElementsSystem.GameAction
+DIALOG-TYPE: Kingmaker.DialogSystem.ActingCompanion vis=public base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.DialogSystem.ActingCompanion base=Kingmaker.Blueprints.BlueprintComponent
+DIALOG-TYPE: Kingmaker.DialogSystem.CharacterSelection vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.CheckData vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.CueSelection vis=public base=System.Object
+  FIELD: Cues [protorint]
+  FIELD: Strategy [protorint]
+=== TYPE Kingmaker.DialogSystem.CueSelection vis=public base=System.Object ===
+  FIELD: Cues [protorint]
+  FIELD: Strategy [protorint]
+  METHOD: Select
+  METHOD: GetAllNextCues
+  METHOD: .ctor
+DIALOG-TYPE: Kingmaker.DialogSystem.Strategy vis=public base=System.Enum
+DIALOG-TYPE: Kingmaker.DialogSystem.DialogExperience vis=public base=System.Enum
+DIALOG-TYPE: Kingmaker.DialogSystem.DialogExperienceTable vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.DialogSpeaker vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.State.DialogState vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.State.CheckResult vis=public base=System.Enum
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintAnswer vis=public base=Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase
+  FIELD: Text [protorint]
+  FIELD: NextCue [protorint]
+  FIELD: ShowOnce [protorint]
+  FIELD: ShowOnceCurrentDialog [protorint]
+  FIELD: ShowCheck [protorint]
+  FIELD: Experience [protorint]
+  FIELD: DebugMode [protorint]
+  FIELD: CharacterSelection [protorint]
+  FIELD: ShowConditions [protorint]
+  FIELD: SelectConditions [protorint]
+  FIELD: RequireValidCue [protorint]
+  FIELD: AddToHistory [protorint]
+  FIELD: OnSelect [protorint]
+  FIELD: FakeChecks [protorint]
+  FIELD: AlignmentShift [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.ShowCheck vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject
+  FIELD: MythicRequirement [protorint]
+  FIELD: AlignmentRequirement [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintAnswersList vis=public base=Kingmaker.DialogSystem.Blueprints.BlueprintAnswerBase
+  FIELD: ShowOnce [protorint]
+  FIELD: Conditions [protorint]
+  FIELD: Answers [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintBookPage vis=public base=Kingmaker.DialogSystem.Blueprints.BlueprintCueBase
+  FIELD: Cues [protorint]
+  FIELD: Answers [protorint]
+  FIELD: OnShow [protorint]
+  FIELD: ImageLink [protorint]
+  FIELD: ForeImageLink [protorint]
+  FIELD: Title [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintCheck vis=public base=Kingmaker.DialogSystem.Blueprints.BlueprintCueBase
+  FIELD: Type [protorint]
+  FIELD: DC [protorint]
+  FIELD: Hidden [protorint]
+  FIELD: DCModifiers [protorint]
+  FIELD: BanPartyCheckInCamp [protorint]
+  FIELD: m_Success [private]
+  FIELD: m_Fail [private]
+  FIELD: m_UnitEvaluator [private]
+  FIELD: Experience [protorint]
+=== TYPE Kingmaker.DialogSystem.Blueprints.BlueprintCheck vis=public base=Kingmaker.DialogSystem.Blueprints.BlueprintCueBase ===
+  FIELD: Type [protorint]
+  FIELD: DC [protorint]
+  FIELD: Hidden [protorint]
+  FIELD: DCModifiers [protorint]
+  FIELD: BanPartyCheckInCamp [protorint]
+  FIELD: m_Success [private]
+  FIELD: m_Fail [private]
+  FIELD: m_UnitEvaluator [private]
+  FIELD: Experience [protorint]
+  PROP: Success
+  PROP: Fail
+  METHOD: get_Success
+  METHOD: get_Fail
+  METHOD: GetDC
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: GetTargetUnit
+  METHOD: .ctor
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.DCModifier vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintCue vis=public base=Kingmaker.DialogSystem.Blueprints.BlueprintCueBase
+  FIELD: Text [protorint]
+  FIELD: Experience [protorint]
+  FIELD: Speaker [protorint]
+  FIELD: TurnSpeaker [protorint]
+  FIELD: Animation [protorint]
+  FIELD: m_Listener [private]
+  FIELD: OnShow [protorint]
+  FIELD: OnStop [protorint]
+  FIELD: AlignmentShift [protorint]
+  FIELD: Answers [protorint]
+  FIELD: Continue [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintCueBase vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject
+  FIELD: ShowOnce [protorint]
+  FIELD: ShowOnceCurrentDialog [protorint]
+  FIELD: Conditions [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintCueSequence vis=public base=Kingmaker.DialogSystem.Blueprints.BlueprintCueBase
+  FIELD: Cues [protorint]
+  FIELD: m_Exit [private]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintDialog vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject
+  FIELD: FirstCue [protorint]
+  FIELD: StartPosition [protorint]
+  FIELD: Conditions [protorint]
+  FIELD: StartActions [protorint]
+  FIELD: FinishActions [protorint]
+  FIELD: ReplaceActions [protorint]
+  FIELD: TurnPlayer [protorint]
+  FIELD: TurnFirstSpeaker [protorint]
+  FIELD: IsLockCameraRotationButtons [protorint]
+  FIELD: Type [protorint]
+  FIELD: m_OverrideAreaCR [private]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.DialogType vis=public base=System.Enum
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.DialogReferenceType vis=public base=System.Enum
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.IDialogReference vis=public base=(nil)
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintDialogExperienceModifierTable vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject
+  FIELD: MultiplierLow [protorint]
+  FIELD: MultiplierNormal [protorint]
+  FIELD: MultiplierHigh [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintMythicInfo vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject
+  FIELD: _mythic [private]
+  FIELD: _etudeReference [private]
+  FIELD: _mythicName [private]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintMythicsSettings vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject
+  FIELD: m_shardsMythicConditions [private]
+  FIELD: m_MythicsInfos [private]
+  FIELD: m_MythicAlignments [private]
+  FIELD: m_TutorialChooseMythic [protorint]
+  FIELD: m_TutorialForShard [protorint]
+  FIELD: CharcaterLevelRestrictions [private]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.Mythic vis=public base=System.Enum
 RAGE-TYPE: Kingmaker.DialogSystem.Blueprints.MythicAlignment vis=public base=System.Object
   FIELD: Mythic [protorint]
   FIELD: Alignment [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.MythicAlignment vis=public base=System.Object
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.BlueprintSequenceExit vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject
+  FIELD: Answers [protorint]
+  FIELD: Continue [protorint]
+DIALOG-TYPE: Kingmaker.DialogSystem.Blueprints.DialogAnimation vis=public base=System.Enum
 === TYPE Kingmaker.EntitySystem.Stats.StatType vis=public base=System.Enum ===
   FIELD: value__ [protorint]
   FIELD: Unknown [protorint]
@@ -1854,6 +2011,7 @@ SEARCH-HIT: Kingmaker.EntitySystem.Entities.UnitEntityData vis=public
   METHOD: <SetMaster>b__431_0 (h)
   METHOD: <IsUnseen>b__478_0 (group)
 RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint vis=public base=Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyAction
+COMPANION-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.RecheckCompanionsClothColors base=Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyAction
 === TYPE Kingmaker.Controllers.TimeController vis=public base=System.Object ===
   FIELD: m_LastDeltaTimes [private]
   FIELD: m_DeltaTimeFor3Frames [private]
@@ -1892,6 +2050,8 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions
   METHOD: SetGameDeltaTime (value)
 === TYPE Kingmaker.Controllers.Units.ITickEachRound vis=public base=(nil) ===
   METHOD: OnNewRound
+COMPANION-TYPE: Kingmaker.Blueprints.BlueprintCompanionStory base=Kingmaker.Blueprints.BlueprintScriptableObject
+COMPANION-TYPE: Kingmaker.Blueprints.BlueprintCompanionStoryReference base=TypeSpecification
 === TYPE Kingmaker.Blueprints.BlueprintUnit vis=public base=Kingmaker.Blueprints.Facts.BlueprintUnitFact ===
   FIELD: m_Type [private]
   FIELD: LocalizedName [protorint]
@@ -1983,6 +2143,11 @@ RAGE-TYPE: Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions
   METHOD: PreloadResources
   METHOD: .ctor
   METHOD: <PreloadResources>b__89_0 (b)
+COMPANION-TYPE: Kingmaker.Blueprints.BlueprintCampaignCustomCompanion base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.Blueprints.DualCompanionComponent base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.Blueprints.LockedCompanionComponent base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.Blueprints.UnitIsStoryCompanion base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.Blueprints.Quests.Logic.QuestRelatesToCompanionStory base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.Blueprints.Items.Components.EquipmentRestrictionAlignment vis=public base=Kingmaker.Blueprints.Items.Components.EquipmentRestriction
   FIELD: Alignment [protorint]
 === TYPE Kingmaker.Blueprints.Classes.Spells.BlueprintSpellbook vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
@@ -2566,12 +2731,56 @@ RAGE-TYPE: Kingmaker.Blueprints.Root.Strings.UITextAlignment vis=public base=Sys
   METHOD: <RemoveMythicLevel>g__DestroyPet|142_0 (pet)
   METHOD: <ReplaceAllMythicLevelsWithMythicHeroLevels>g__IsSuitableProgression|143_0
   METHOD: <GetMythicSelectionsData>g__GetFeatureParam|144_0 (feature)
+COMPANION-TYPE: Kingmaker.UnitLogic.Parts.UnitPartCompanion base=Kingmaker.UnitLogic.UnitPart
+COMPANION-TYPE: Kingmaker.UnitLogic.Parts.CompanionState base=System.Enum
+COMPANION-TYPE: Kingmaker.UnitLogic.Parts.UnitPartDualCompanion base=Kingmaker.UnitLogic.OldStyleUnitPart
 RAGE-TYPE: Kingmaker.UnitLogic.Parts.UnitPartItemCasterLevelBonus vis=public base=Kingmaker.UnitLogic.OldStyleUnitPart
   FIELD: Entries [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddCasterSpellFailureChance vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: Chance [protorint]
   FIELD: FailFx [protorint]
   FIELD: Conditions [protorint]
+=== TYPE Kingmaker.UnitLogic.FactLogic.AddDamageResistancePhysical vis=public base=Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase ===
+  FIELD: Or [protorint]
+  FIELD: m_IsStackable [private]
+  FIELD: BypassedByMaterial [protorint]
+  FIELD: Material [protorint]
+  FIELD: BypassedByForm [protorint]
+  FIELD: Form [protorint]
+  FIELD: BypassedByMagic [protorint]
+  FIELD: MinEnhancementBonus [protorint]
+  FIELD: BypassedByAlignment [protorint]
+  FIELD: Alignment [protorint]
+  FIELD: BypassedByReality [protorint]
+  FIELD: Reality [protorint]
+  FIELD: BypassedByWeaponType [protorint]
+  FIELD: m_WeaponType [private]
+  FIELD: BypassedByMeleeWeapon [protorint]
+  FIELD: BypassedByEpic [protorint]
+  FIELD: m_CheckedFactMythic [protorint]
+  FIELD: MaterialMaskPlus3 [private]
+  FIELD: MaterialMaskPlus4 [private]
+  FIELD: ValidWeaponFact [protorint]
+  FIELD: ValidWeaponAttackTypes [protorint]
+  PROP: IsStackable
+  PROP: CheckedFactMythic
+  PROP: WeaponType
+  PROP: CanWeapon
+  PROP: IsAbsolute
+  METHOD: get_IsStackable
+  METHOD: get_CheckedFactMythic
+  METHOD: get_WeaponType
+  METHOD: get_CanWeapon
+  METHOD: get_IsAbsolute
+  METHOD: Bypassed (runtime, d, weapon)
+  METHOD: Hit (runtime, d, weapon)
+  METHOD: FilterWeaponFact (weapon)
+  METHOD: FilterWeaponAttackTypes (weapon)
+  METHOD: CheckBypassedByMaterial (damage)
+  METHOD: CheckBypassedByAlignment (damage)
+  METHOD: CheckBypassedByEpic (weapon)
+  METHOD: ApplyValidation (context, parentIndex)
+  METHOD: .ctor
 === TYPE Kingmaker.UnitLogic.FactLogic.AddFacts vis=public base=TypeSpecification ===
   FIELD: m_Facts [private]
   FIELD: Dummy [protorint]
@@ -2655,6 +2864,9 @@ RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddItemCasterLevelBonus vis=public base
   METHOD: .ctor
   METHOD: .cctor
 RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.AddUndetectableAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.UnitLogic.FactLogic.CompanionImmortalityData base=System.Object
+COMPANION-TYPE: Kingmaker.UnitLogic.FactLogic.CompanionImmortality base=TypeSpecification
+COMPANION-TYPE: Kingmaker.UnitLogic.FactLogic.IHandleCompanionImmortalityAnimationFinishedHandler base=(nil)
 RAGE-TYPE: Kingmaker.UnitLogic.FactLogic.ForbidSpellbookOnAlignmentDeviation vis=public base=TypeSpecification
   FIELD: m_Spellbooks [private]
   FIELD: Alignment [protorint]
@@ -2783,6 +2995,8 @@ RAGE-TYPE: Kingmaker.UnitLogic.Alignments.UnitAlignment vis=public base=System.O
   METHOD: GetAlignmentsSortedByDistance (vec)
   METHOD: CopyFrom (alignment)
   METHOD: .cctor
+COMPANION-TYPE: Kingmaker.UnitLogic.Mechanics.Properties.CompanionsCountGetter base=Kingmaker.UnitLogic.Mechanics.Properties.PropertyValueGetter
+COMPANION-TYPE: Kingmaker.UnitLogic.Mechanics.Components.NonHumanoidCompanion base=Kingmaker.Blueprints.BlueprintComponent
 === TYPE Kingmaker.UnitLogic.Mechanics.Components.ContextCalculateAbilityParams vis=public base=Kingmaker.UnitLogic.Mechanics.Components.ContextAbilityParamsCalculator ===
   FIELD: UseKineticistMainStat [protorint]
   FIELD: StatType [protorint]
@@ -2917,17 +3131,23 @@ RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCompareCaste
   FIELD: Value [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffFromCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
   FIELD: m_Buff [private]
+COMPANION-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsAnimalCompanion base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsArcaneCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
 RAGE-TYPE: Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsDivineCaster vis=public base=Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.AbilityShowIfCasterHasFact vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: m_UnitFact [private]
   FIELD: Not [protorint]
+COMPANION-TYPE: Kingmaker.UnitLogic.Abilities.Components.AbilitySwitchDualCompanion base=Kingmaker.UnitLogic.Abilities.Components.Base.AbilityCustomLogic
+COMPANION-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilitySwtichDualCompanionChecker base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: Alignment [protorint]
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetCanSeeCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: Not [protorint]
+COMPANION-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsAnimalCompanion base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsAreaEffectFromCaster vis=public base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsDeadAnimalCompanion base=Kingmaker.Blueprints.BlueprintComponent
+COMPANION-TYPE: Kingmaker.UnitLogic.Abilities.Components.TargetCheckers.AbilityTargetIsDeadCompanion base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterAlignment vis=public base=Kingmaker.Blueprints.BlueprintComponent
   FIELD: Alignment [protorint]
   FIELD: m_IgnoreFact [private]
@@ -2955,6 +3175,7 @@ RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCaster
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterMainWeaponIsTwoHanded vis=public base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.CasterCheckers.AbilityCasterNotPolymorphed vis=public base=Kingmaker.Blueprints.BlueprintComponent
 RAGE-TYPE: Kingmaker.UnitLogic.Abilities.Components.Base.IAbilityCasterRestriction vis=public base=(nil)
+COMPANION-TYPE: Kingmaker.Kingdom.IKingdomUIChooseCharacterForCompanion base=(nil)
 RAGE-TYPE: Kingmaker.Kingdom.Conditions.KingdomAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
   FIELD: Alignment [protorint]
 RAGE-TYPE: Kingmaker.Kingdom.Settlements.BuildingComponents.AlignmentRestriction vis=public base=Kingmaker.Kingdom.Settlements.BuildingRestriction
@@ -2962,6 +3183,9 @@ RAGE-TYPE: Kingmaker.Kingdom.Settlements.BuildingComponents.AlignmentRestriction
 RAGE-TYPE: Kingmaker.Kingdom.Actions.KingdomActionSetAlignment vis=public base=Kingmaker.Kingdom.Blueprints.KingdomAction
 RAGE-TYPE: Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionResetAlignment vis=public base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
   FIELD: m_ResetAlignmentLock [private]
+COMPANION-TYPE: Kingmaker.Assets.UnitLogic.Mechanics.Actions.ContextActionSwitchDualCompanion base=Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+COMPANION-TYPE: Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DualCompanionInactive base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.Mechanics.Recommendations.RecommendationCompanionBoon base=Kingmaker.Designers.Mechanics.Recommendations.LevelUpRecommendationComponent
 RAGE-TYPE: Kingmaker.Designers.Mechanics.EquipmentEnchants.AddCasterLevelEquipment vis=public base=Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate
   FIELD: m_Spell [private]
   FIELD: Bonus [protorint]
@@ -3013,6 +3237,8 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.AttackBonusAgainstAlignment vis=p
   METHOD: CheckHadPrerequiredBuff
   METHOD: HandleBuffDidRemoved (buff)
   METHOD: .ctor
+COMPANION-TYPE: Kingmaker.Designers.Mechanics.Facts.CompanionBoonData base=System.Object
+COMPANION-TYPE: Kingmaker.Designers.Mechanics.Facts.CompanionBoon base=TypeSpecification
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.CritAutoconfirmAgainstAlignment vis=public base=Kingmaker.EntitySystem.EntityFactComponentDelegate
   FIELD: EnemyAlignment [protorint]
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.DamageBonusAgainstAlignment vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
@@ -3047,6 +3273,7 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfAbility vis=p
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.ReplaceCasterLevelOfFeature vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
   FIELD: m_Feature [private]
   FIELD: m_Class [private]
+COMPANION-TYPE: Kingmaker.Designers.Mechanics.Facts.RideAnimalCompanion base=Kingmaker.UnitLogic.UnitFactComponentDelegate
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Facts.SavingThrowBonusAgainstAlignment vis=public base=Kingmaker.UnitLogic.UnitFactComponentDelegate
   FIELD: Alignment [protorint]
   FIELD: Descriptor [protorint]
@@ -3081,10 +3308,21 @@ RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsEqualCasterLeve
 RAGE-TYPE: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsEqualCasterLevel vis=public base=TypeSpecification
   FIELD: Descriptor [protorint]
 SEARCH-HIT: Kingmaker.Designers.Mechanics.Buffs.TemporaryHitPointsFromAbilityValue vis=public
+COMPANION-TYPE: Kingmaker.Designers.Mechanics.Buffs.HalfOfPair.HalfOfPairCompanionTracker base=TypeSpecification
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Evaluators.ActiveDualCompanionEvaluator base=Kingmaker.ElementsSystem.UnitEvaluator
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Evaluators.CasterUnit vis=public base=Kingmaker.ElementsSystem.UnitEvaluator
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty base=Kingmaker.ElementsSystem.UnitEvaluator
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.ContextData.CasterUnitData vis=public base=TypeSpecification
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.AlignmentCheck vis=public base=Kingmaker.ElementsSystem.Condition
   FIELD: Alignment [protorint]
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionInParty base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsDead base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsLost base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionStoryUnlocked base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.HasEnoughMoneyForCustomCompanion base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitCustomCompanion base=Kingmaker.ElementsSystem.Condition
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.IsUnitExCompanion base=Kingmaker.ElementsSystem.Condition
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Conditions.PlayerAlignmentIs vis=public base=Kingmaker.ElementsSystem.Condition
   FIELD: Alignment [protorint]
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.AlignmentSelector vis=public base=Kingmaker.ElementsSystem.GameAction
@@ -3103,19 +3341,92 @@ RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeAlignmen
   FIELD: Unit [protorint]
   FIELD: Alignment [protorint]
   FIELD: m_DontLog [private]
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeCompanionState base=Kingmaker.ElementsSystem.GameAction
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ChangePlayerAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: TargetAlignment [protorint]
   FIELD: CanUnlockAlignment [protorint]
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.CreateCustomCompanion base=Kingmaker.ElementsSystem.GameAction
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.DismissAllCompanions base=Kingmaker.ElementsSystem.GameAction
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.LockAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
   FIELD: AlignmentMask [protorint]
   FIELD: TargetAlignment [protorint]
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.MakeServiceCaster vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.RemoveUnitPartTouchOnAllCompanions base=Kingmaker.ElementsSystem.GameAction
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.RespecCompanion base=Kingmaker.ElementsSystem.GameAction
 RAGE-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.ShiftAlignment vis=public base=Kingmaker.ElementsSystem.GameAction
   FIELD: Unit [protorint]
   FIELD: Alignment [protorint]
   FIELD: Amount [protorint]
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDualCompanion base=Kingmaker.ElementsSystem.GameAction
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlinkDualCompanions base=Kingmaker.ElementsSystem.GameAction
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Actions.UnlockCompanionStory base=Kingmaker.ElementsSystem.GameAction
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Events.CompanionRecruitTrigger base=Kingmaker.EntitySystem.EntityFactComponentDelegate
+COMPANION-TYPE: Kingmaker.Designers.EventConditionActionSystem.Events.CompanionUnrecruitTrigger base=Kingmaker.EntitySystem.EntityFactComponentDelegate
+COMPANION-TYPE: Kingmaker.AreaLogic.QuestSystem.CompanionStoriesManager base=System.Object
+=== TYPE Kingmaker.AreaLogic.Etudes.BlueprintEtude vis=public base=Kingmaker.Blueprints.Facts.BlueprintFact ===
+  FIELD: m_Parent [private]
+  FIELD: ActivationCondition [protorint]
+  FIELD: CompletionCondition [protorint]
+  FIELD: m_Synchronized [private]
+  FIELD: m_AllowActionStart [private]
+  FIELD: m_LinkedAreaPart [private]
+  FIELD: m_LinkedCampaigns [private]
+  FIELD: m_IncludeAreaParts [private]
+  FIELD: m_AddedAreaMechanics [private]
+  FIELD: m_StartsWith [private]
+  FIELD: m_StartsOnComplete [private]
+  FIELD: m_StartsParent [private]
+  FIELD: m_CompletesParent [private]
+  FIELD: m_ConflictingGroups [private]
+  FIELD: Priority [protorint]
+  PROP: StartsWith
+  PROP: StartsOnComplete
+  PROP: Synchronized
+  PROP: IsSynchronized
+  PROP: ConflictingGroups
+  PROP: StartsParent
+  PROP: CompletesParent
+  PROP: Parent
+  PROP: HasLinkedAreaPart
+  PROP: AddedAreaMechanics
+  PROP: HasLinkedCampaign
+  PROP: LinkedCampaigns
+  PROP: HasParent
+  PROP: LinkedAreaPartIsBlueprintArea
+  PROP: AllowActionStart
+  PROP: HasActors
+  PROP: IsReadOnly
+  PROP: LinkedAreaPart
+  METHOD: get_StartsWith
+  METHOD: get_StartsOnComplete
+  METHOD: get_Synchronized
+  METHOD: get_IsSynchronized
+  METHOD: get_ConflictingGroups
+  METHOD: get_StartsParent
+  METHOD: get_CompletesParent
+  METHOD: get_Parent
+  METHOD: get_HasLinkedAreaPart
+  METHOD: get_AddedAreaMechanics
+  METHOD: get_HasLinkedCampaign
+  METHOD: get_LinkedCampaigns
+  METHOD: get_HasParent
+  METHOD: get_LinkedAreaPartIsBlueprintArea
+  METHOD: get_AllowActionStart
+  METHOD: get_HasActors
+  METHOD: get_IsReadOnly
+  METHOD: get_LinkedAreaPart
+  METHOD: GetFactType
+  METHOD: IsLinkedAreaPart (targetAreaPart)
+  METHOD: GetUsagesFor (etude)
+  METHOD: .ctor
+COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.DisableCompanionPartyChecks base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketPinCompanionInParty base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.EtudeBracketSetCompanionPosition base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+COMPANION-TYPE: Kingmaker.AreaLogic.Etudes.KeepCompanionHidden base=TypeSpecification
+COMPANION-TYPE: Kingmaker.AreaLogic.Capital.CapitalCompanionLogic base=Kingmaker.AreaLogic.Etudes.EtudeBracketTrigger
+COMPANION-TYPE: Kingmaker.AreaLogic.Capital.CapitalCompanionSpawnPlace base=UnityEngine.MonoBehaviour
 AI-TYPE: BlueprintAiAction vis=public(1) base=Kingmaker.Blueprints.BlueprintScriptableObject
 === TYPE Kingmaker.AI.Blueprints.BlueprintAiAction vis=public base=Kingmaker.Blueprints.BlueprintScriptableObject ===
   FIELD: AdditionalBehaviour [protorint]
@@ -3266,12 +3577,16 @@ RAGE-TYPE: .Align vis=nested-public base=System.Enum
   FIELD: Left [protorint]
   FIELD: Right [protorint]
   FIELD: Center [protorint]
+COMPANION-TYPE: .<AddRemoveCompanion>d__14 base=System.Object
+COMPANION-TYPE: .<DirtyCompanions>d__32 base=System.Object
+COMPANION-TYPE: .<DirtyCompanions>d__32 base=System.Object
 === TYPE .StatType vis=nested-public base=System.Enum ===
   FIELD: value__ [protorint]
   FIELD: BAB [protorint]
   FIELD: Fortitude [protorint]
   FIELD: Will [protorint]
   FIELD: Reflex [protorint]
+COMPANION-TYPE: .<DirtyCompanions>d__45 base=System.Object
 RAGE-TYPE: .AlignData vis=nested-public base=System.Object
   FIELD: m_OrginPivot [protected]
   FIELD: m_ContextPivot [protected]
@@ -3327,4 +3642,5 @@ RAGE-TYPE: .<SelectAlignments>d__22 vis=nested-private base=System.Object
   FIELD: value__ [protorint]
   FIELD: Once [protorint]
   FIELD: PerBuilding [protorint]
+COMPANION-TYPE: .Companion base=System.ValueType
 === PROBE done ===
