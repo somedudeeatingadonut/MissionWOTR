@@ -316,6 +316,160 @@ namespace MissionWOTR.Archetypes
 
       archetype.Configure();
       MissionFeats.Logger.Info("[chimera] configured: " + ArchetypeName + ".");
+      DumpWitchAdvancement();
+    }
+
+    private static bool AdvancementScanDone = false;
+
+    /// <summary>
+    /// 0.53.0 diagnostic - the deferred advancement problem.
+    ///
+    /// The chimera book is its own blueprint, so a prestige class that
+    /// advances witch casting never sees it: those level-up features point at
+    /// the vanilla WitchSpellbook. Fixing it means retargeting or cloning every
+    /// such feature, and that list lives in the game's blueprint set, which is
+    /// not available in this build environment. ElementalObsessor.AllBlueprints
+    /// can enumerate it at runtime, so this logs the exact features and the
+    /// progressions that grant them. Guessing which prestige features to patch
+    /// is precisely how the five "believed shipped, never shipped" archetypes
+    /// happened; the log makes the fix exact instead.
+    ///
+    /// It materializes every BlueprintFeature in the cache, so it runs once
+    /// and costs a beat at mod load. Read-only: it writes to the log and
+    /// changes no game state.
+    /// </summary>
+    private static void DumpWitchAdvancement()
+    {
+      if (AdvancementScanDone)
+      {
+        return;
+      }
+      AdvancementScanDone = true;
+      try
+      {
+        var witch = SpellbookRefs.WitchSpellbook.Reference.Get();
+        if (witch is null)
+        {
+          MissionFeats.Logger.Warn("[chimera] vanilla witch spellbook unresolved - cannot scan.");
+          return;
+        }
+
+        var flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+        var advancing = new HashSet<string>();
+        int features = 0;
+        foreach (var feature in ElementalObsessor.AllBlueprints<BlueprintFeature>())
+        {
+          features++;
+          if (feature?.ComponentsArray is null)
+          {
+            continue;
+          }
+          foreach (var component in feature.ComponentsArray)
+          {
+            if (component is null || !ReferencesSpellbook(component, witch, flags))
+            {
+              continue;
+            }
+            advancing.Add(feature.AssetGuid.ToString());
+            MissionFeats.Logger.Info(
+              $"[chimera] advances the witch book: {feature.name} " +
+              $"({feature.AssetGuid}) via {component.GetType().Name}.");
+            break;
+          }
+        }
+
+        if (advancing.Count == 0)
+        {
+          MissionFeats.Logger.Warn(
+            $"[chimera] scanned {features} features and found none referencing the witch book - " +
+            "the link is probably not a Spellbook-typed field; widen the scan.");
+          return;
+        }
+
+        int progressions = 0;
+        foreach (var progression in ElementalObsessor.AllBlueprints<BlueprintProgression>())
+        {
+          progressions++;
+          if (progression?.LevelEntries is null)
+          {
+            continue;
+          }
+          foreach (var entry in progression.LevelEntries)
+          {
+            if (entry?.Features is null)
+            {
+              continue;
+            }
+            foreach (var granted in entry.Features)
+            {
+              var target = granted?.Get();
+              if (target is null || !advancing.Contains(target.AssetGuid.ToString()))
+              {
+                continue;
+              }
+              MissionFeats.Logger.Info(
+                $"[chimera] {progression.name} ({progression.AssetGuid}) grants " +
+                $"{target.name} at level {entry.Level}.");
+            }
+          }
+        }
+        MissionFeats.Logger.Info(
+          $"[chimera] advancement scan: {features} features, {progressions} progressions, " +
+          $"{advancing.Count} of them advance the witch book.");
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Warn($"[chimera] advancement scan failed: {e}");
+      }
+    }
+
+    /// <summary>
+    /// True when any Spellbook-typed field on <paramref name="holder"/> points
+    /// at <paramref name="book"/>, either directly or through a reference
+    /// wrapper. Only fields whose type name contains "Spellbook" are read, so
+    /// the walk stays cheap across the whole cache.
+    /// </summary>
+    private static bool ReferencesSpellbook(
+      object holder, BlueprintSpellbook book, BindingFlags flags)
+    {
+      foreach (var field in holder.GetType().GetFields(flags))
+      {
+        if (field.FieldType.Name.IndexOf("Spellbook", StringComparison.Ordinal) < 0)
+        {
+          continue;
+        }
+        object value;
+        try
+        {
+          value = field.GetValue(holder);
+        }
+        catch
+        {
+          continue;
+        }
+        if (value is null)
+        {
+          continue;
+        }
+        if (ReferenceEquals(value, book))
+        {
+          return true;
+        }
+        object inner = null;
+        try
+        {
+          inner = value.GetType().GetMethod("Get", Type.EmptyTypes)?.Invoke(value, null);
+        }
+        catch
+        {
+          // Unreadable wrapper - treat as no match.
+        }
+        if (ReferenceEquals(inner, book))
+        {
+          return true;
+        }
+      }
+      return false;
     }
 
     /// <summary>
