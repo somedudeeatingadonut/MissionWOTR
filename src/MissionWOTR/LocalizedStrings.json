@@ -5931,7 +5931,7 @@
   {
     "Key": "ElementalistFusionDownpour.Description",
     "ProcessTemplates": false,
-    "enGB": "Air and water combine into torrential rain: she is soaked and fireproof, gaining fire resistance 10. (Adapted from the tabletop's fire-extinguishing rain. Air + Water.) Entering the fusion is a swift action and it lasts 1 minute."
+    "enGB": "Air and water combine into torrential rain: she is soaked and fireproof, gaining fire resistance 10. (Tabletop port: the tabletop's fire-extinguishing rain. Air + Water.) Entering the fusion is a swift action and it lasts 1 minute."
   },
   {
     "Key": "ElementalistFusionMudslide.Name",
@@ -5941,7 +5941,7 @@
   {
     "Key": "ElementalistFusionMudslide.Description",
     "ProcessTemplates": false,
-    "enGB": "Earth and water churn into a moving aura of mud: she gains a +4 bonus to her combat maneuver defense. (Adapted from the tabletop's difficult-terrain aura. Earth + Water.) Entering the fusion is a swift action and it lasts 1 minute."
+    "enGB": "Earth and water churn into a moving aura of mud: she gains a +4 bonus to her combat maneuver defense. (Tabletop port: the tabletop's difficult-terrain aura. Earth + Water.) Entering the fusion is a swift action and it lasts 1 minute."
   },
   {
     "Key": "ElementalistFusionSandstorm.Name",
@@ -5961,7 +5961,7 @@
   {
     "Key": "ElementalistFusionSteamCloud.Description",
     "ProcessTemplates": false,
-    "enGB": "Fire and water explode into a cloud of steam: she gains 20% concealment against all attacks. (Adapted from the tabletop's obscuring-mist cloud. Fire + Water.) Entering the fusion is a swift action and it lasts 1 minute."
+    "enGB": "Fire and water explode into a cloud of steam: she gains 20% concealment against all attacks. (Tabletop port: the tabletop's obscuring-mist cloud. Fire + Water.) Entering the fusion is a swift action and it lasts 1 minute."
   },
   {
     "Key": "ElementalistFusionVolcanicStride.Name",
@@ -5971,7 +5971,7 @@
   {
     "Key": "ElementalistFusionVolcanicStride.Description",
     "ProcessTemplates": false,
-    "enGB": "Earth and fire fuse beneath her feet: her melee attacks deal an additional 1d6 points of fire damage. (Adapted from the tabletop's burning-ground terrain. Earth + Fire.) Entering the fusion is a swift action and it lasts 1 minute."
+    "enGB": "Earth and fire fuse beneath her feet: her melee attacks deal an additional 1d6 points of fire damage. (Tabletop port: the tabletop's burning-ground terrain. Earth + Fire.) Entering the fusion is a swift action and it lasts 1 minute."
   },
   {
     "Key": "Beastbound.Name",
