@@ -2323,7 +2323,7 @@
   {
     "Key": "Cardinal.Description",
     "ProcessTemplates": false,
-    "enGB": "Not every priest serves at an altar. The cardinal serves at a table - councils, courts, and cloistered backrooms where the church's true business is done. She keeps her spells and her devotion, but her calling is the world: she trains as a scholar and a schemer rather than a soldier of the faith, learning 6 skill ranks per level instead of the usual 2 and counting Trickery among her class skills. The price of that education is paid in steel - she wears only light armor and never a shield, fights with a scholar's grace rather than a crusader's (her attack bonus grows as slowly as a wizard's), keeps only a single domain, and can no longer convert her prepared spells into healing or harm on the fly."
+    "enGB": "The cardinal serves her church at a council table rather than an altar. She gains 6 skill ranks per level and Trickery as a class skill, but wears only light armor, never carries a shield, fights with a wizard's attack progression, keeps a single domain, and cannot spontaneously cast cure or inflict spells."
   },
   {
     "Key": "CardinalPoliticalSkill.Name",
@@ -2343,7 +2343,7 @@
   {
     "Key": "Solipsist.Description",
     "ProcessTemplates": false,
-    "enGB": "The solipsist preaches a congregation of one. Divine power pours through him the same as through any cleric, but every blessing bends inward: he cannot aim a helpful spell at another living soul, the communal versions of such spells are closed to him entirely, and the channel of holy energy is denied him - there is no flock to heal. What he keeps is intensity. From 8th level onward, each spell he casts upon himself settles twice: the blessing itself, and beneath it an untyped echo of the same blessing that stacks with the original, with potions, with another cleric's work, and with everything else. Even his personal battle-blessings - divine power, righteous might - echo. The echo is his alone: it answers only to his own casting, on himself, and never to a blessing laid on him by another. A church of one must be its own church militant: he trains with martial weapons, takes a bonus combat feat, and his self-reliance hardens over time into a keener eye (+1 to attack at 5th, +2 at 15th) and a tougher body (+5 hit points at 10th, +10 at 20th). A Solipsist's Bless is worth two. His Shield of Faith shields twice. The cures he pours into his own wounds close them twice over. The party will learn to bless itself."
+    "enGB": "The solipsist preaches a congregation of one. He cannot cast helpful spells on others or channel energy, but from 8th level every spell he casts on himself settles twice, the echo stacking with the original and with everything else. He also gains martial weapon proficiency, a bonus combat feat, and scaling bonuses to attack rolls and hit points."
   },
   {
     "Key": "SolipsistSolipsism.Name",
@@ -2403,7 +2403,7 @@
   {
     "Key": "LionShaman.Description",
     "ProcessTemplates": false,
-    "enGB": "A shaman with this totem calls upon the proud lion, imposing and majestic, the mighty leader of deadly hunters. Her wild shape bends toward the great cats: she takes the feline form early and in its fiercest incarnation, while her other forms come more slowly than a common druid's. She can adopt an aspect of the lion while keeping her own shape, her summons fight with the pride's strength behind them, and her steady discipline earns her feats a lesser druid would never spare the time for."
+    "enGB": "The lion shaman's wild shape bends toward the great cats. She takes feline form early and in its fiercest incarnation, while her other forms come slowly. She can also wear an aspect of the lion without changing shape, and her summons fight with the pride's strength behind them."
   },
   {
     "Key": "LionShamanTotemTransformation.Name",
@@ -2483,7 +2483,7 @@
   {
     "Key": "TrueShape.Description",
     "ProcessTemplates": false,
-    "enGB": "Other druids borrow their shapes. The true shape druid moves in. His form does not lapse while his beast soul burns - replenished moment to moment until he wills it away - and changing it costs him nothing at all: tiger to spider to bear between one heartbeat and the next, a garment donned and shed at will. He casts his spells from inside the shape, armor and shield still on his back - and the beast lends its might to his magic: while shaped, his spells leave him at a caster level no mortal caster could match. His castings, too, keep growing long after the spells themselves stop. The price is paid in magic: his spellcasting stops at 4th-level spells, and detect magic is lost to him altogether. The wild does not lend its power to those who only visit."
+    "enGB": "The true shape druid lives in his form rather than borrowing it. His wild shape does not lapse and costs nothing to change, he casts from within it with armor and shield still on, and the beast lends its might to his magic. This replaces spellcasting above 4th level and detect magic."
   },
   {
     "Key": "TrueShapeFeature.Name",
@@ -2543,7 +2543,7 @@
   {
     "Key": "PolearmMaster.Description",
     "ProcessTemplates": false,
-    "enGB": "The polearm master is schooled in the ancient wisdom that enemies are best faced at the end of a long striking pole, lashing like a serpent before clumsy swords and axes can even be brought to bear. He trades the fighter's armor training and weapon versatility entirely: his craft is the spear, the glaive, the halberd - and nothing else. In exchange his polearms strike harder and truer than any other fighter's weapons, his reach becomes a wall his enemies break against, and his allies fight behind the finest hedge of steel on the battlefield."
+    "enGB": "The polearm master fights at the end of a long striking pole and nothing else. His polearms strike harder and truer than any other fighter's weapons, and his reach becomes a wall his allies fight behind. This replaces armor training and all weapon training outside polearms."
   },
   {
     "Key": "PolearmMasterPoleFighting.Name",
@@ -2623,7 +2623,7 @@
   {
     "Key": "StrategicSoldier.Description",
     "ProcessTemplates": false,
-    "enGB": "A strategic soldier is a master of positioning and teamwork in combat. Where other fighters polish their own steel, the strategic soldier polishes the battle itself: he stands where his presence doubles his allies, steps out of every blow's path, and answers every wound dealt to his friends with steel of his own. The price is the fighter's own resilience - no bravery, no armor training, no armor mastery - for he has made himself the keystone of the line rather than its wall."
+    "enGB": "The strategic soldier polishes the battle rather than his own steel. He doubles his allies by where he stands, steps out of every blow's path, and answers wounds dealt to his friends with steel of his own. This replaces bravery, armor training, and armor mastery."
   },
   {
     "Key": "StrategicSoldierFlanker.Name",
@@ -2703,7 +2703,7 @@
   {
     "Key": "Exoticist.Description",
     "ProcessTemplates": false,
-    "enGB": "Some fighters spend their lives mastering the common sword and shield. The exoticist finds them boring. He trains with the strange, the foreign, and the infamous: bastard swords and dueling swords, elven curved blades and estocs, two-bladed swords, dwarven urgroshes, gnome hooked hammers, whips' worth of reach in a fauchard, repeating crossbows, and every other weapon other soldiers gawk at. Where the common fighter's weapon training sharpens whole families of arms, the exoticist's craft has room for only one tradition - the exotic one - but within it, he is peerless."
+    "enGB": "The exoticist trains only in exotic weapons - bastard swords, estocs, urgroshes, fauchards, and their like - but within that narrow field he is without equal. His weapon training applies to exotic weapons alone."
   },
   {
     "Key": "ExoticistExoticArsenal.Name",
@@ -2733,7 +2733,7 @@
   {
     "Key": "Qinggong.Description",
     "ProcessTemplates": false,
-    "enGB": "The qinggong monk trades every fixed gift of her order for choice. Where other monks receive still mind, fast movement, and purity of body as their masters decreed, she channels that training into her ki instead - three extra ki powers of her choosing by 5th level, drawn from the full library: true strikes and restorations, barkskin and abundant steps, invisibility and dragon's breath, true sight, even holy aura. Her order calls it undisciplined. She calls it knowing exactly what she needs and when."
+    "enGB": "The qinggong monk trades the fixed gifts of her order for choice, converting still mind, fast movement, and purity of body into ki powers of her own selecting. This replaces those class features."
   },
   {
     "Key": "QinggongInvisibility.Name",
@@ -2813,7 +2813,7 @@
   {
     "Key": "Hammerfist.Description",
     "ProcessTemplates": false,
-    "enGB": "Some monks are a storm of blows. The hammerfist is the single strike that ends the argument. She trades away nearly everything her order holds sacred - the flurry of blows, the stunning fist, even the evasion every monk leans on - to perfect one devastating punch. Where others must stand and deliver a dozen strikes, she steps in, plants her feet, and puts her whole discipline through one fist. What she keeps, she keeps completely: her ki, her armor bonus, her maneuver training. And the first enemy to eat her opening blow will remember it."
+    "enGB": "The hammerfist gives up nearly everything her order holds sacred to perfect one devastating strike. This replaces flurry of blows, stunning fist, and evasion."
   },
   {
     "Key": "HammerfistCrushingFist.Name",
@@ -2843,7 +2843,7 @@
   {
     "Key": "Venomblood.Description",
     "ProcessTemplates": false,
-    "enGB": "Some hunters are raised on mother's milk. The venomblood was raised on serpent venom, and it never left her blood. She keeps her hound and her beast-aspects, but where other hunters win through coordination - shared tactics, teamwork, one-ness with the wild - she wins through attrition: every bite of her blade leaves poison behind, and the fight is over when the enemy's body gives out. She trades hunter tactics, her teamwork feats, woodland stride and one with the wild for the serpent's gifts, and the venom in her deepens all her life: the dose grows at 12th level and again at 16th."
+    "enGB": "The venomblood wins by attrition rather than coordination. Every bite of her blade leaves poison behind, and the dose deepens at 12th and 16th level. This replaces hunter tactics, teamwork feats, woodland stride, and one with the wild."
   },
   {
     "Key": "VenombloodSerpentsGift.Name",
@@ -2923,7 +2923,7 @@
   {
     "Key": "Riftstalker.Description",
     "ProcessTemplates": false,
-    "enGB": "A hunter of the Worldwound who walks alone - but never truly alone. Her beast never came back through the rift with her, and it never left either: it hangs in the tear between worlds, unseen, waiting, learning. The riftstalker trades her animal companion, raise companion, hunter tactics, her teamwork feats and one with the wild; she keeps the aspects, the spells and the stride through corrupted wilds. Her first blow marks the prey, and each round she may give the beast one directive - clicking Guided Command opens the menu of commands the beast might learn."
+    "enGB": "The riftstalker's companion never came back through the rift with her; it waits unseen between worlds. Her first blow marks the prey, and each round she may give the beast one directive. This replaces her animal companion, raise companion, hunter tactics, teamwork feats, and one with the wild."
   },
   {
     "Key": "RiftstalkerRiftMark.Name",
@@ -3123,7 +3123,7 @@
   {
     "Key": "Verminous.Description",
     "ProcessTemplates": false,
-    "enGB": "A verminous hunter calls on the ceaseless, single-minded dedication of vermin to hunt and overwhelm her prey. Where other hunters invoke the cunning of alpha predators, she reaches out to the spider instead of the monkey, the mantis instead of the snake, the moth instead of the owl. She takes a vermin companion, takes on vermin aspects in place of animal focus, and walks through the swarm untouched. Perfect for those who have become something less - and something more - than human."
+    "enGB": "The verminous hunter reaches for the spider rather than the monkey. She takes a vermin companion, gains vermin aspects in place of animal focus, and walks through swarms untouched."
   },
   {
     "Key": "VerminousCompanion.Name",
@@ -3233,7 +3233,7 @@
   {
     "Key": "SinEater.Description",
     "ProcessTemplates": false,
-    "enGB": "There is a sect of inquisitors who believe it is not enough to hunt the enemies of the church - one must also devour those enemies' sins. More benign versions believe sin is taken out of the world when it is devoured, denying the enemy's soul to its god. Consuming sins empowers the sin eater, at least for a time. In the Worldwound, that is not theology - that is lunch. She trades her domain for the feast."
+    "enGB": "The sin eater devours the sins of her enemies and is empowered by them, at least for a time. In the Worldwound this is less theology than lunch. This replaces her domain."
   },
   {
     "Key": "SinEaterEatSin.Name",
@@ -3273,7 +3273,7 @@
   {
     "Key": "Doomsayer.Description",
     "ProcessTemplates": false,
-    "enGB": "She does not argue, she does not threaten, she does not raise her voice. She reads the sentence, and the world agrees with her. The doomsayer trades nearly everything else the church gives her - judgments, solo tactics, every teamwork feat, stalwart, exploit weakness, even true judgment - for one discipline perfected: when she pronounces doom, doom listens. Enemies of the faith hear their own end in her voice; those who stand near her feel the weight of verdicts yet unspoken; and the one she condemns carries that sentence until it is executed."
+    "enGB": "The doomsayer perfects a single discipline: the pronouncement of doom. Her condemnations linger on the condemned and weigh on everyone nearby. This replaces judgments, solo tactics, teamwork feats, stalwart, exploit weakness, and true judgment."
   },
   {
     "Key": "DoomsayerPronounceDoom.Name",
@@ -3483,7 +3483,7 @@
   {
     "Key": "UnstableKineticist.Description",
     "ProcessTemplates": false,
-    "enGB": "Her kinetic gate never settled. The element never decides what it is - it simply erupts, wild and uncontrolled, and she has stopped trying to tame it. She trades gather power and elemental overflow for a gate that answers every call with chaos: each kinetic blast she throws risks a surge, and no one - least of all her - chooses what the surge does."
+    "enGB": "The unstable kineticist's gate never settled. Every blast she throws risks a wild surge, and no one chooses what it does. This replaces gather power and elemental overflow."
   },
   {
     "Key": "UnstableBlast.Name",
@@ -3523,7 +3523,7 @@
   {
     "Key": "KineticChirurgeon.Description",
     "ProcessTemplates": false,
-    "enGB": "While any kineticist can learn the rudiments of healing, some are virtuosos of the curative arts. The kinetic chirurgeon trades her entire shaping discipline - infusions, metakinesis, infusion specialization - for the healer's craft: her touch knits flesh with raw elemental force, and as she grows, her healing learns to mend what flesh alone cannot."
+    "enGB": "The kinetic chirurgeon is a virtuoso of the curative arts. Her touch knits flesh with elemental force, and as she grows her healing mends what flesh alone cannot. This replaces her entire shaping discipline - infusions, metakinesis, and infusion specialization."
   },
   {
     "Key": "ChirurgeonKineticHealer.Name",
@@ -3573,7 +3573,7 @@
   {
     "Key": "Stormcaller.Description",
     "ProcessTemplates": false,
-    "enGB": "The storm never stops moving, and neither does she. The stormcaller is the wind given a rider: faster than any kineticist, throwing more bolts than any kineticist, each one carrying less of the storm than a full blast - until the storm fully accepts her. Her lightning is true lightning, the kind that does not care what demons are immune to. She trades her elemental defense and every chance at a second element for the sky's single-mindedness."
+    "enGB": "The stormcaller is the wind given a rider: faster than any other kineticist and throwing more bolts, each carrying less of the storm. Her lightning is true lightning. This replaces elemental defense and any second element."
   },
   {
     "Key": "StormcallerSwiftness.Name",
@@ -3703,7 +3703,7 @@
   {
     "Key": "PlanarOracle.Description",
     "ProcessTemplates": false,
-    "enGB": "A planar oracle has an affinity with one of the Outer Planes. She is at home on the multiple planes of the Great Beyond, and can eventually become an outsider herself. At 1st level she chooses a plane (Heaven, Hell, the Abyss, or the Maelstrom), each bound to one energy: at 3rd level she gains resistance 10 to that energy (20 at 11th), and at 20th she becomes an extraplanar creature - immune to her plane's energy, with damage reduction 10/magic. Her pilgrim's road is written in bonus spells (protection from evil, see invisibility, protection from energy, freedom of movement, dismissal, chain lightning, banishment, mind blank, elemental swarm), gained at the planar slots. This replaces her 3rd- and 7th-level revelations and her final revelation."
+    "enGB": "The planar oracle has an affinity with one Outer Plane - Heaven, Hell, the Abyss, or the Maelstrom. She gains resistance 10 to her plane's energy at 3rd level (20 at 11th), becomes an extraplanar creature at 20th, and gains a fixed list of bonus spells. This replaces her 3rd- and 7th-level revelations and her final revelation."
   },
   {
     "Key": "PlanarPlaneSelection.Name",
@@ -3793,7 +3793,7 @@
   {
     "Key": "Apocryphal.Description",
     "ProcessTemplates": false,
-    "enGB": "Her scripture is not canon. She copied from the wizard's book, and her god let her keep it - for a price. At every oracle level she copies one wizard spell of a level she can cast into her spells known, cast as oracle spells with her own magic. Every stolen page is apocrypha, and every page is paid for in years of her own life: each theft permanently costs her 2 maximum hit points, and the price can never be healed or bargained away - only paid. Twenty spells by 20th level is forty hit points of book. This replaces every revelation of her mystery (3rd, 7th, 11th, 15th, and 19th level)."
+    "enGB": "The apocryphal oracle copies wizard spells into her spells known and casts them as oracle spells. Each stolen spell permanently costs 2 maximum hit points, and the cost cannot be healed. This replaces all revelations of her mystery."
   },
   {
     "Key": "ApocryphalGrimoire.Name",
@@ -3898,7 +3898,7 @@
   {
     "Key": "FortunesFool.Description",
     "ProcessTemplates": false,
-    "enGB": "She swore her oath not to a god of order but to chance itself - the open road, the roll of the die, the freedom of the unrepeated moment. Only the chaotic may walk her road. Fate's Wager rides every blow she strikes: on a natural 1-4 the attack scatters and misses outright, on a natural 17+ the dice surge and the hit deals an extra 1d6 per two paladin levels. She laughs at fear - a luck bonus on saves against fear equal to her Charisma modifier - but she is not immune to it, as a paladin of order would be. Her blade carries chaos: her physical damage counts as chaotic-aligned. She has no lay on hands, no mercies, no smite, and no channel - chance keeps what healing and vengeance would return - and her auras are not orders but luck: the Open Road, Whimsy, the Wandering Star, Fortune's Favor, and at last the Laughing Fool, which shares her wager with all who fight beside her. This replaces lay on hands, all mercies, smite evil, channel positive energy, and every aura of the base paladin."
+    "enGB": "The fortunes fool swears her oath to chance rather than to order, and only the chaotic may walk her road. Every attack is a wager: a natural 1-4 misses outright, while a natural 17 or higher deals extra damage. Her damage counts as chaotic and she gains a luck bonus on saves against fear. This replaces lay on hands, mercies, smite evil, channel positive energy, and all auras."
   },
   {
     "Key": "FortunesFoolFatesWager.Name",
@@ -4019,7 +4019,7 @@
   },
   {
     "Key": "Guide.Description",
-    "enGB": "Many rangers are loners, but the guide walks with others - and brings them home. He forgoes the favored enemy of his peers to focus on the task at hand: a swift mark upon one foe, luck spent on a single die, a moment of perfect clarity when it matters most. His camp is a moving school of woodcraft - quick to act, sharp of eye, soft of foot - and he gives it all away. This replaces favored enemy (all ranks), hunter's bond, evasion, improved evasion, quarry, and improved quarry; master hunter remains.",
+    "enGB": "The guide trades the ranger's favored enemy for a single mark laid on one foe, spending his luck on the blows that matter and giving his woodcraft to the party. This replaces favored enemy, hunter's bond, evasion, improved evasion, quarry, and improved quarry.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4180,7 +4180,7 @@
   },
   {
     "Key": "Wildbond.Description",
-    "enGB": "Some rangers hunt a favored enemy; the wildbonded never needed one - they have a partner instead. Her animal companion answers from 1st level, and the bond between them shapes the beast itself: a bear that maules, a boar that will not die quietly, a dog that sets up every strike, an elk that stamps with a phantom herd, a leopard that marks the kill, a mastodon that breaks formations, a smilodon that finishes one thing at a time, a raptor that tears armor for its master, a wolf that makes the whole party a pack, a triceratops that becomes a wall. The price: no favored enemy, no favored terrain, no evasion - and no spells until 12th level. The beast is the spells.",
+    "enGB": "The wildbonded ranger has a partner instead of a favored enemy. Her companion answers from 1st level, and the bond shapes the beast itself - each species bringing its own way of fighting. This replaces favored enemy, favored terrain, evasion, and all spellcasting before 12th level.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4614,7 +4614,7 @@
   },
   {
     "Key": "Scout.Description",
-    "enGB": "Not all rogues live in the city. Scouts roam the wilderness - bandits, trailblazers, companions to rangers and barbarians - and they kill on the move. Her charge lands like an ambush, and a scout who has covered ground strikes as if from hiding. This replaces uncanny dodge and improved uncanny dodge; everything else about the rogue is untouched.",
+    "enGB": "The scout kills on the move. Her charge lands like an ambush, and ground she has covered counts as concealment for her strikes. This replaces uncanny dodge and improved uncanny dodge.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4656,7 +4656,7 @@
   },
   {
     "Key": "SteelRain.Description",
-    "enGB": "Some rogues knife from the shadows; this one rains steel from thirty feet away. Javelins, throwing axes, darts - her hands are always moving, and there is always another blade. Quick hands, a cruel ricochet, a wrist that lends Dexterity to every throw, and the knack of catching a blade that comes back clean and sending it out again. This replaces trapfinding and danger sense; sneak attack, evasion, uncanny dodge, rogue talents, debilitating injuries, and master strike are untouched - the knife was always the trade. This one simply flies.",
+    "enGB": "The steel rain rogue throws instead of knifing. Javelins, axes, and darts fly from thirty feet away, with quick hands and a cruel ricochet. This replaces trapfinding and danger sense.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4726,7 +4726,7 @@
   },
   {
     "Key": "Anatomist.Description",
-    "enGB": "She does not fight enemies; she studies them - and every failure is a lesson. A miss against a target she could barely reach teaches her a seam in its armor, and she never forgets a seam; the harder the target, the faster she learns, and what she cannot learn she takes by force - trading her own guard for the opening. Strike a spellcaster and her study wards her from magic; strike an armored thing and she finds the joint. Given time she knows exactly where the knife goes. This replaces trapfinding and danger sense; sneak attack, evasion, uncanny dodge, rogue talents, debilitating injuries, and master strike are untouched.",
+    "enGB": "The anatomist studies her enemies instead of simply fighting them. Near misses reveal a foe's weaknesses, which she never forgets, and she can trade her own defense for a better opening. This replaces trapfinding and danger sense.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4851,7 +4851,7 @@
   {
     "Key": "Chimera.Description",
     "ProcessTemplates": false,
-    "enGB": "A witch of this bent does not keep a familiar. She keeps a beast, and the beast keeps what it kills.\nThe Chimera trades her familiar, eight of her ten hex levels (the first two hex grants are kept), and one spell slot per spell level at class levels 6 and above for an animal companion of legendary appetite. Whenever her companion slays a creature of a type it has not yet eaten, it takes a piece of the kill and grows a permanent trait from that creature's flesh - one course per creature type, twelve types in all.\nNote: prestige classes that advance the witch spellbook (Mystic Theurge and the like) do not advance the Chimera's thinned spellbook."
+    "enGB": "The chimera witch keeps a beast instead of a familiar. Whenever her companion kills a creature type it has not yet eaten, it gains a permanent trait from that flesh - twelve types in all. This replaces her familiar, eight of her ten hex levels, and one spell slot per spell level from 6th level onward. (Prestige classes that advance the witch spellbook do not advance this thinned spellbook.)"
   },
   {
     "Key": "ChimeraCompanionSelection.Name",
@@ -5121,7 +5121,7 @@
   {
     "Key": "HedgeWitch.Description",
     "ProcessTemplates": false,
-    "enGB": "Among witches, there are those who devote themselves to the care of others and restrict their practices to the healing arts. They often take the place of clerics in rural communities, wandering the countryside and tending to the sick.\nThe hedge witch trades the hexes she would learn at 4th and 8th level for the healer's true arts: her prepared spells can be channeled into healing, and she can draw poison and disease out of the afflicted - taking their pain into herself."
+    "enGB": "The hedge witch devotes her practice to healing. Her prepared spells can be cast spontaneously as cure spells, and she can draw poison and disease out of the afflicted, taking their suffering into herself. This replaces the hexes gained at 4th and 8th level."
   },
   {
     "Key": "HedgeWitchSpontaneousHealing.Name",
@@ -5161,7 +5161,7 @@
   {
     "Key": "Jiuweihu.Description",
     "ProcessTemplates": false,
-    "enGB": "Considered bringers of fortune and prosperity, a jiuweihu is a kitsune shaman who has been blessed with multiple tails by the spirits of unseen kami. In rare cases, evil jiuweihu who are instead championed by wicked oni are created.\nThe jiuweihu trades her spirit animal for a star jewel - the spirit rests in a grape-sized gem that cannot be slain - and grows a new magical tail at 1st level and every two levels thereafter, each granting a spell-like ability. Only kitsune may take this archetype.\n(Tabletop port note: the game embeds shaman spirit magic inside each spirit, so the tabletop's spirit-magic trade could not be excised - the jiuweihu keeps her spirit magic, and the port is up one trade as a result.)"
+    "enGB": "The jiuweihu is a kitsune shaman blessed with multiple tails by the kami. She trades her spirit animal for a star jewel that cannot be slain, and grows a new magical tail at 1st level and every two levels thereafter, each granting a spell-like ability. Only kitsune may take this archetype. (The game embeds shaman spirit magic inside each spirit, so the tabletop's spirit-magic trade could not be made; this port is up one trade.)"
   },
   {
     "Key": "JiuweihuStarJewel.Name",
@@ -5191,7 +5191,7 @@
   {
     "Key": "SpiritRidden.Description",
     "ProcessTemplates": false,
-    "enGB": "Something else wears her face now. The Spirit-Ridden did not bargain with the spirits - she lost the argument, and they moved in.\nAlmost nothing of the shaman remains: no spells, no hexes, no spirit animal, not even her spirit. In exchange, the heroes of dead ages inhabit her body - and she can let one of them take the reins at will.\nAt 1st, 6th, 12th and 18th level she invites another spirit in (two answer the first call, two more come at 6th, one at 12th, one at 18th). Channeling a spirit is a swift action and lasts until she switches or expels it. While a spirit holds the reins she takes on its role - fighting as a fighter, barbarian, monk, rogue, ranger or paladin of her shaman level minus two (the first two levels suffer no reduction).\nThe spirit also dresses its vessel: while she is wearing NOTHING, the spirit's arms and armor manifest - a level-appropriate enhancement to attack, damage and armor class. Wear anything of your own and the spirit's regalia refuses to appear."
+    "enGB": "The spirit-ridden lost the argument with the spirits, and they moved in. She gives up her spells, her hexes, her spirit animal, and her spirit. In exchange she can let one of them take the reins as a swift action, fighting as another class and manifesting its arms and armor while she wears nothing of her own."
   },
   {
     "Key": "SpiritRiddenSpirits.Name",
@@ -5371,7 +5371,7 @@
   {
     "Key": "SpellWarrior.Description",
     "ProcessTemplates": false,
-    "enGB": "The spell warrior uses his arcane knowledge rather than his rage to turn the tide of battle in favor of himself and his allies. With a clash of bracers and a sonorous chant, his song reaches out to touch the weapons of his allies, lending them arcane power. While his song does not inspire rage, he can use the power of his music to enchant the weapons of his allies. (The counterspelling arts of the tabletop warrior have no place in the Worldwound's wars - this port carries the weapon song only.)"
+    "enGB": "The spell warrior's song lends arcane power to his allies' weapons rather than inspiring rage. (The tabletop archetype's counterspelling has no place in the Worldwound's wars; this port carries the weapon song only.)"
   },
   {
     "Key": "SpellWarriorEnhance.Name",
@@ -5401,7 +5401,7 @@
   {
     "Key": "CrescendoSkald.Description",
     "ProcessTemplates": false,
-    "enGB": "Not rage but rhythm. The crescendo skald's song does not throw allies into a fury - it picks them up and carries them, building speed as each of them finds their mark. Allies who keep landing blows and spells rise with the music; one quiet round and that momentum is spent. Spellcasting is never blocked: momentum flows through sword and spell alike."
+    "enGB": "The crescendo skald's song inspires momentum rather than rage. Allies build speed as they keep landing blows and spells, and lose it after a quiet round. Spellcasting is never interrupted."
   },
   {
     "Key": "Crescendo.Name",
@@ -5431,7 +5431,7 @@
   {
     "Key": "Dreadnaught.Description",
     "ProcessTemplates": false,
-    "enGB": "A slayer who hunts the mind, not the blind side. The Dreadnaught wears the heaviest plate without caring who sees her coming, and her study breaks a foe's resolve instead of guiding blades to its vitals: the mark she lays drains courage, will, and luck from every saving throw. She trades every ounce of sneak attack and one talent for armor that does not hide her, a will that does not break, and a presence that empties enemies before a blade is drawn."
+    "enGB": "The dreadnaught hunts the mind instead of the blind side. She wears heavy armor without spoiling her study, and the mark she lays drains a foe's courage and saving throws. This replaces sneak attack and one slayer talent."
   },
   {
     "Key": "DreadnaughtStudy.Name",
@@ -5471,7 +5471,7 @@
   {
     "Key": "GraveWarden.Description",
     "ProcessTemplates": false,
-    "enGB": "While paladins and inquisitors use their connection with the divine to fight undead hordes and other horrors of the night, a grave warden relies on knowledge, skill with weapons, and tenacity to put an end to these night-born terrors. His blade carries holy water's bite, he wards himself against death itself, and the oldest undead fear his finishing stroke: one that does not merely slay them, but unmakes them."
+    "enGB": "The grave warden hunts the undead with knowledge and steel rather than divine power. His blade carries holy water's bite, he wards himself against death, and his finishing stroke unmakes even the oldest of them."
   },
   {
     "Key": "GraveWardenBlessedEdge.Name",
@@ -5541,7 +5541,7 @@
   {
     "Key": "Overchanneler.Description",
     "ProcessTemplates": false,
-    "enGB": "Some sorcerers let the blood carry them. The overchanneler carries the blood: she opens the channel wider than her body was meant to bear, and every spell she throws through the open channel burns her as it leaves. In exchange, her magic strikes harder, lasts longer, and counts for more while the channel is open. She gives up a little endurance - one spell slot of every level per day - for peaks no careful caster will ever reach."
+    "enGB": "The overchanneler opens her blood's channel wider than her body was meant to bear. While it is open her spells strike harder, last longer, and count for more, but each casting burns her as it leaves. This replaces one spell slot of every level per day."
   },
   {
     "Key": "Overchannel.Name",
@@ -5621,7 +5621,7 @@
   {
     "Key": "MendingBlade.Description",
     "ProcessTemplates": false,
-    "enGB": "His god's grace no longer arrives in bursts from a holy symbol; it drips from every blow. A mending blade trades the channel energy of a normal warpriest for a quiet, constant miracle: each wound he inflicts pays a small tithe of healing to the allies fighting beside him. "
+    "enGB": "The mending blade's god answers through steel rather than a holy symbol. Every wound he inflicts heals the allies fighting beside him. This replaces channel energy."
   },
   {
     "Key": "MendingBladeTithe.Name",
@@ -5681,7 +5681,7 @@
   {
     "Key": "Inkbound.Description",
     "ProcessTemplates": false,
-    "enGB": "He does not memorize spells; the book memorizes him. An Inkbound is a wizard who made a covenant with a living grimoire - it lends him its pages, and every spell he casts leaves ink behind. He begins every fight with a blank book and writes his way to power: the longer the battle, the deeper the well. Trades his arcane bond (the book would be jealous) and the wizard bonus feats at 10th/15th/20th."
+    "enGB": "The inkbound wizard has made a covenant with a living grimoire. He begins each battle with a blank book and writes spells into it as he casts, growing stronger the longer the fight lasts. This replaces arcane bond and the wizard bonus feats at 10th, 15th, and 20th level."
   },
   {
     "Key": "InkboundInk.Name",
@@ -5831,7 +5831,7 @@
   {
     "Key": "ElementalistShifter.Description",
     "ProcessTemplates": false,
-    "enGB": "Rather than drawing power from bestial aspects, the elementalist shifter channels power from the Inner Sphere - the planes of Air, Earth, Fire, and Water. She charges her strikes with elemental force and steps into a living elemental body. Trades her shifter aspects (and their wild shapes), her claws, and her chimeric aspects. (Port of the Ultimate Wilderness archetype with documented adaptations.)"
+    "enGB": "The elementalist shifter draws her power from the planes of Air, Earth, Fire, and Water rather than from beasts. She charges her strikes with elemental force and can take the body of a living elemental. This replaces her aspects, claws, and chimeric aspects. (Port of the Ultimate Wilderness archetype, with documented adaptations.)"
   },
   {
     "Key": "ElementalistAspect.Name",
@@ -5981,7 +5981,7 @@
   {
     "Key": "Beastbound.Description",
     "ProcessTemplates": false,
-    "enGB": "The wild never lived in her. She is the still point at the center of the storm - the watcher, the keeper, the one who remembers the shapes. Her beast carries every aspect she would have taken and becomes the storm in her stead: a real animal companion of the game's own menagerie, player-controlled, wearing the real shifter aspects she links to it. Trades her own aspects, her claws, and her chimeric aspects; keeps defensive instinct and the wild skills."
+    "enGB": "The beastbound shifter's animal companion wears the aspects she would have taken herself, becoming a player-controlled beast drawn from the game's own menagerie. This replaces her aspects, claws, and chimeric aspects; she keeps defensive instinct and her wild skills."
   },
   {
     "Key": "BeastboundAspectLink.Name",
@@ -6151,7 +6151,7 @@
   {
     "Key": "RecklessBloodrager.Description",
     "ProcessTemplates": false,
-    "enGB": "There is magic in her blood and she has never once asked it for anything. Where another bloodrager learns to shape the power that runs in her veins, the reckless bloodrager spends all of it on the swing - no spells, no subtlety, only the conviction that whatever is standing in front of her will be standing there a moment less than she will. She gives up blood casting entirely for the fury of a woman who has decided in advance that defence is somebody else's problem."
+    "enGB": "The reckless bloodrager spends the magic in her blood on the swing rather than on spells. She fights with fury and nothing else. This replaces blood casting."
   },
   {
     "Key": "RecklessAbandon.Name",
@@ -6181,7 +6181,7 @@
   {
     "Key": "SacredShield.Description",
     "ProcessTemplates": false,
-    "enGB": "Some paladins are the sword. She is the wall. The sacred shield has given up the smite that her order is known for and taken up the older work instead: standing between what is behind her and what is coming. She does not destroy the wicked so much as refuse them, and after a while the refusal is its own kind of judgement."
+    "enGB": "The sacred shield stands between her allies and what is coming. She gains In Harm's Way, taking the damage meant for another, and a shield bonus to Armor Class that grows into damage reduction 5/evil. This replaces smite evil."
   },
   {
     "Key": "SacredShieldGuard.Name",
@@ -6211,7 +6211,7 @@
   {
     "Key": "Bloodmarked.Description",
     "ProcessTemplates": false,
-    "enGB": "Someone in her line was bitten and lived, and the family has not been entirely human since. The bloodmarked sorcerer's power does not come only from her bloodline - it comes from the thing her bloodline came from. She has the bite whether she wants it or not, the hide that goes with it, and a serenity about violence that unsettles people who have never had to think about the moon."
+    "enGB": "The bloodmarked sorcerer descends from a werewolf, and the blood still shows. She is calm in violence, her hide is thick, and at 9th level she can take the form of a wolf."
   },
   {
     "Key": "Bloodmark.Name",
@@ -6231,7 +6231,7 @@
   {
     "Key": "IronCreed.Description",
     "ProcessTemplates": false,
-    "enGB": "His god offers to bless his armour and he declines, every morning, on principle. The priest of the Iron Creed holds that a warrior who needs his plate sanctified has already lost the argument, and that the blessing is better spent on the thing he is holding. He fights unarmoured by choice and hits considerably harder for it - a theology with a body count."
+    "enGB": "The priest of the Iron Creed holds that a warrior who needs his armor blessed has already lost the argument. He fights unarmored by choice and strikes considerably harder for it. This replaces sacred armor."
   },
   {
     "Key": "IronCreedFocus.Name",
@@ -6271,7 +6271,7 @@
   {
     "Key": "PactWizard.Description",
     "ProcessTemplates": false,
-    "enGB": "He did not find his magic. He was given it, by something that wanted something in return, and the terms were not negotiable. The pact wizard has no familiar and no bonded object - the thing he is bound to is not an item and does not live in a satchel. What the pact gives him is spells he did not learn and could not have chosen: they arrive on schedule, at the levels his patron decides, and they are always the same five."
+    "enGB": "The pact wizard's magic was given to him on terms he did not choose. He has no familiar and no bonded object; instead he receives five spells, arriving at the levels his patron decides. This replaces arcane bond."
   },
   {
     "Key": "PactWizardPatronSpell.Description",
