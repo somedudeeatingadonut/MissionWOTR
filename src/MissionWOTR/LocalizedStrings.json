@@ -87,7 +87,7 @@
   },
   {
     "Key": "ResonantStrikes.Description",
-    "enGB": "Your unarmed strikes carry a harmonic shock. When you confirm a critical hit with an unarmed strike, the target must succeed at a Fortitude save (DC 10 + half your character level + your Wisdom modifier) or have its guard rattled: it takes a -2 penalty to AC for 1 round. The penalty cannot be applied again while it is already active.\nPrerequisites: Wis 13, Improved Unarmed Strike."
+    "enGB": "When you confirm a critical hit with an unarmed strike, the target must succeed at a Fortitude save (DC 10 + half your character level + Wisdom modifier) or take a -2 penalty to AC for 1 round. The penalty cannot be applied again while it is already active. Prerequisites: Wis 13, Improved Unarmed Strike."
   },
   {
     "Key": "ResonantStrikes.Debuff.Name",
@@ -385,7 +385,7 @@
   {
     "Key": "EldritchPoisoner.Description",
     "ProcessTemplates": false,
-    "enGB": "An eldritch poisoner blends volatile chemicals and her own personal magic to create deadly poisons known as arcanotoxins.\nArcanotoxin: A number of times per day equal to her alchemist level + her Intelligence modifier, she can brew a dose of arcanotoxin and coat a weapon with it. Weapon hits then deliver the toxin: Fortitude save (DC 10 + half alchemist level + Intelligence) or 1d2 Strength damage. Arcanotoxin is supernatural and bypasses poison immunity, though creatures immune to poison resist it (+4 on the save).\nThis archetype replaces bomb, Throw Anything, and mutagen; it grants sneak attack as a rogue.\nPorted from Pathfinder Player Companion: Black Markets."
+    "enGB": "An eldritch poisoner blends volatile chemicals with her own magic to create arcanotoxins. A number of times per day equal to her alchemist level + Intelligence modifier, she can brew a dose and coat a weapon with it; hits then require a Fortitude save (DC 10 + half alchemist level + Intelligence) or 1d2 Strength damage. Arcanotoxin is supernatural and bypasses poison immunity, though such creatures gain +4 on the save. This replaces bomb, Throw Anything, and mutagen, and grants sneak attack as a rogue. Ported from Pathfinder Player Companion: Black Markets."
   },
   {
     "Key": "EldritchPoisonerArcanotoxin.Name",
@@ -395,7 +395,7 @@
   {
     "Key": "EldritchPoisonerArcanotoxin.Description",
     "ProcessTemplates": false,
-    "enGB": "You blend volatile chemicals and your own personal magic to create deadly poisons known as arcanotoxins. A number of times per day equal to your alchemist level + your Intelligence modifier, you can brew a dose of arcanotoxin and coat your weapon with it for 1 minute. While coated, your weapon hits deliver the toxin: the target must succeed at a Fortitude save (DC 10 + half your alchemist level + your Intelligence modifier) or take 1d2 Strength damage as the toxin courses through its veins for 2 rounds. A creature cannot be affected by a new dose while the toxin is already in its system.\nArcanotoxin is supernatural: it functions even against creatures immune to poison, though such creatures resist it and receive a +4 bonus on the saving throw."
+    "enGB": "A number of times per day equal to her alchemist level + Intelligence modifier, she can brew a dose of arcanotoxin and coat a weapon with it for 1 minute. Hits with the coated weapon require a Fortitude save (DC 10 + half alchemist level + Intelligence modifier) or 1d2 Strength damage for 2 rounds. A creature cannot be affected by a new dose while one is active. Arcanotoxin is supernatural and affects creatures immune to poison, though they gain +4 on the save."
   },
   {
     "Key": "EldritchPoisonerBrewToxin.Name",
@@ -455,7 +455,7 @@
   {
     "Key": "ExpeditedSynthesis.Description",
     "ProcessTemplates": false,
-    "enGB": "Your body has become a catalyst. You may brew and apply a dose of arcanotoxin as a swift action instead of a standard action - but the accelerated reaction burns you: you lose 25% of your maximum hit points, or only 15% if you succeed at a DC 15 Fortitude save. This can never reduce you below 1 hit point."
+    "enGB": "You may brew and apply a dose of arcanotoxin as a swift action instead of a standard action. The accelerated reaction burns you: you lose 25% of your maximum hit points, or only 15% if you succeed at a DC 15 Fortitude save. This can never reduce you below 1 hit point."
   },
   {
     "Key": "SickeningToxin.Name",
@@ -615,7 +615,7 @@
   {
     "Key": "ConstructCrafter.Description",
     "ProcessTemplates": false,
-    "enGB": "A metallics-themed engineer who deploys construct summons: uncontrollable, relentless, and deliberately less customizable than any companion. You may have one construct of each base active at a time; deploying the same base again replaces the old construct.\nDeployable bases: Iron-Hearted Hound (level 1), Humanoid Construct (level 7), Stone Golem (level 16). Cores (stat packages) and programs (behavior packages) are chosen before deployment.\nThe archetype keeps the alchemist's hit dice and attack progression but trades away mutagen and the alchemist's poison-related features, and grants an extra combat feat at level 1."
+    "enGB": "A metallics-themed engineer who deploys construct summons: uncontrollable, relentless, and deliberately less customizable than a companion. One construct of each base may be active at a time; deploying the same base again replaces the old one. Bases: Iron-Hearted Hound at 1st level, Humanoid Construct at 7th, Stone Golem at 16th. Cores and programs are chosen before deployment. This replaces mutagen and the alchemist's poison features, and grants an extra combat feat at 1st level."
   },
   {
     "Key": "DeployHound.Name",
@@ -745,7 +745,7 @@
   {
     "Key": "FlankProgram.Description",
     "ProcessTemplates": false,
-    "enGB": "The construct hunts openings. While this program is active, deployed constructs gain sneak attack dice equal to half your alchemist level (the sneak attack applies to any attack roll, including spell rays), but their base attack bonus is reduced by half your alchemist level, and their casting is sapped: every ability they use resolves at a caster level penalty equal to your full alchemist level."
+    "enGB": "While this program is active, deployed constructs gain sneak attack dice equal to half your alchemist level, applying to any attack roll including spell rays. Their base attack bonus is reduced by half your alchemist level, and every ability they use resolves at a caster level penalty equal to your full alchemist level."
   },
   {
     "Key": "GuardProgram.Name",
@@ -815,7 +815,7 @@
   {
     "Key": "FlamingCore.Description",
     "ProcessTemplates": false,
-    "enGB": "Bind an elemental fire. Iron-Hearted Hound: +10 foot speed, +damage (half alchemist level), +saves (half alchemist level), sneak attack, but -AC and it burns for 1 damage each round. Humanoid Construct: attacks deal +2d6 fire damage and set enemies burning. Stone Golem: wreathed in flame that scorches nearby enemies and ignites those it strikes, but it has no attacks of opportunity (the Guard program restores them) and burns for 2 damage each round."
+    "enGB": "Bind an elemental fire. Iron-Hearted Hound: +10 foot speed, bonus damage and saves equal to half alchemist level, and sneak attack, but reduced AC and 1 damage each round. Humanoid Construct: attacks deal +2d6 fire damage and set enemies burning. Stone Golem: wreathed in flame that scorches nearby enemies and ignites those it strikes, but it makes no attacks of opportunity (the Guard program restores them) and burns for 2 damage each round."
   },
   {
     "Key": "ColdCore.Name",
@@ -875,7 +875,7 @@
   {
     "Key": "BoomingCore.Description",
     "ProcessTemplates": false,
-    "enGB": "An unstable resonator. While this core is active, deployed constructs deal greatly increased damage and every weapon hit detonates in a concussive blast that deals sonic damage to enemies near the target, but the construct suffers reduced AC and -2 on all saving throws. The blast starts at 1d6 and grows by one die per 5 alchemist levels (up to 5d6). Handle with distance."
+    "enGB": "An unstable resonator. While this core is active, deployed constructs deal greatly increased damage and every weapon hit detonates in a concussive blast dealing sonic damage to enemies near the target, but the construct suffers reduced AC and -2 on all saving throws. The blast starts at 1d6 and grows by one die per 5 alchemist levels, up to 5d6."
   },
   {
     "Key": "QuickCore.Name",
@@ -1033,7 +1033,7 @@
   {
     "Key": "Breaker.Description",
     "ProcessTemplates": false,
-    "enGB": "Some soldiers fight the enemy. You fight whatever the enemy is hiding behind. Destructive lends half your barbarian level as bonus damage on weapon attacks against constructs, and Battle Scavenger lets you swing battlefield junk - clubs, staves, spears - with growing, almost professional expertise. (Adapted for Wrath: the original keys on sunder maneuvers, unattended objects, and improvised weapons, none of which exist here.)"
+    "enGB": "You fight whatever the enemy is hiding behind. Destructive lends half your barbarian level as bonus damage on weapon attacks against constructs, and Battle Scavenger lets you swing clubs, staves, and spears with growing expertise. (Adapted for Wrath: the original keys on sunder maneuvers, unattended objects, and improvised weapons, none of which exist here.)"
   },
   {
     "Key": "BreakerDestructive.Name",
@@ -1063,7 +1063,7 @@
   {
     "Key": "Bloodstorm.Description",
     "ProcessTemplates": false,
-    "enGB": "There is a storm in your blood, and it does not fall on you. While raging, your weapon attacks open bleeding wounds that stack up to five deep; you heal faster for every bleeding enemy nearby - the more of them, the stronger - and critical hits against bleeding foes spray gore and terror across their neighbors. Open the Floodgate spends every bleed stack around you in a single surge of self-healing. For all this you give up uncanny dodge, improved uncanny dodge, and your damage reduction: all tempest, no shelter."
+    "enGB": "While raging your weapon attacks open bleeding wounds that stack five deep, you heal faster for every bleeding enemy nearby, and critical hits against bleeding foes spray gore and terror across their neighbors. Open the Floodgate spends every bleed stack around you in a single surge of self-healing. This replaces uncanny dodge, improved uncanny dodge, and damage reduction."
   },
   {
     "Key": "BloodstormFeature.Name",
@@ -1113,7 +1113,7 @@
   {
     "Key": "CovertMage.Description",
     "ProcessTemplates": false,
-    "enGB": "Any fool can blast a door off its hinges. You would rather pick the lock, slip through, and be three streets away before anyone notices the door was locked. The covert mage treats her magic as one more con in the kit: Persuasion, Perception, Stealth, and Thievery become class skills, she casts comfortably in light armor, her mesmerizing touch softens a mind, her spell tricks provoke nothing from a mark she has feinted, and her practiced eye sees through illusions that would fool a more honest caster. She trades the arcanist exploits gained at 3rd, 7th, and 11th level for the repertoire."
+    "enGB": "The covert mage treats her magic as one more con. Persuasion, Perception, Stealth, and Thievery become class skills; she casts in light armor without penalty; her touch softens a mind; her spell tricks provoke nothing from a target she has feinted; and she sees through illusions. This replaces the arcanist exploits gained at 3rd, 7th, and 11th level."
   },
   {
     "Key": "CovertMageTraining.Name",
@@ -1153,7 +1153,7 @@
   {
     "Key": "CovertMageSpellTrick.Description",
     "ProcessTemplates": false,
-    "enGB": "When the covert mage casts a spell with a casting time of 1 standard action that targets a creature she is adjacent to, she may feint as part of the casting. She rolls a Persuasion check against 10 + the target's Hit Dice + its Wisdom modifier. If she succeeds, the spell does not provoke an attack of opportunity from the target, and the target must roll its saving throw against the spell twice and take the lesser result."
+    "enGB": "When she casts a spell with a casting time of 1 standard action that targets a creature she is adjacent to, she may feint as part of the casting: a Persuasion check against 10 + the target's Hit Dice + its Wisdom modifier. On a success the spell does not provoke an attack of opportunity from that target, and the target rolls its saving throw twice and takes the lesser result."
   },
   {
     "Key": "CovertMageIllusionSpotter.Name",
@@ -1183,7 +1183,7 @@
   {
     "Key": "ElementalObsessor.Description",
     "ProcessTemplates": false,
-    "enGB": "She does not merely study her element; she is possessed by it. The Elemental Obsessor forsakes every spell that is not of her chosen element - and in exchange her fixation rakes through every magical tradition in the world and claims its entire arsenal for her own book. Her focus adds force to every cast, her obsession makes resistances and immunities leak like cracked dams, her kills erupt cathartically, and every death by her element refills the arcane reservoir that drives her exploits. She surrenders the arcanist exploits gained at 1st, 3rd, and 7th level for the privilege."
+    "enGB": "The elemental obsessor forsakes every spell that is not of her chosen element and claims the rest of the world's arsenal for her own book. Her focus adds force to every cast, her obsession makes resistances and immunities leak, her kills erupt, and every death by her element refills her arcane reservoir. This replaces the arcanist exploits gained at 1st, 3rd, and 7th level."
   },
   {
     "Key": "ElementFixation.Name",
@@ -1263,7 +1263,7 @@
   {
     "Key": "UnstoppableObsession.Description",
     "ProcessTemplates": false,
-    "enGB": "Your element cannot be denied. When your chosen element's damage is reduced by immunity or resistance, the target still takes at least 20% of the raw damage - and the floor rises by 5% for every arcanist level beyond 3rd. At 20th level the target takes 105% of the raw damage, as if it were weak to your element. Electricity obsessors begin at 40% instead of 20% (the cap is the same)."
+    "enGB": "When your chosen element's damage is reduced by immunity or resistance, the target still takes at least 20% of the raw damage, and the floor rises by 5% for every arcanist level beyond 3rd. At 20th level the target takes 105% of the raw damage, as if it were weak to your element. Electricity obsessors begin at 40%; the cap is the same."
   },
   {
     "Key": "CatharticRelease.Name",
@@ -1313,7 +1313,7 @@
   {
     "Key": "MummerMage.Description",
     "ProcessTemplates": false,
-    "enGB": "Most bards perform for applause. The mummer mage performs for prestige - the kind commanded by real wizards - and she is very, very good at pretending. With an ornate prop staff and borrowed wizardry she bluffs her way to ever higher station, and the longer the role is played, the truer it becomes. Her shtick of the magi replaces bardic knowledge; imperious gestures replace well-versed; arcane imitation - lifting wizard spells into her own repertoire - replaces inspire competence; method acting replaces lore master; and eucatastrophe, the scene where the performance finally becomes real, replaces jack-of-all-trades."
+    "enGB": "The mummer mage performs for prestige rather than applause, and she is very good at pretending. Shtick of the Magi replaces bardic knowledge; Imperious Gestures replaces well-versed; Arcane Imitation replaces inspire competence; Method Acting replaces lore master; and Eucatastrophe replaces jack-of-all-trades."
   },
   {
     "Key": "MummerShtick.Name",
@@ -1343,7 +1343,7 @@
   {
     "Key": "MummerImitation.Description",
     "ProcessTemplates": false,
-    "enGB": "The mummer mage selects one spell from the wizard spell list of a level she can cast and adds it to her bard spells known. She gains an additional pick at 6th level and every 4 levels thereafter, and again at 16th and 19th level (Eucatastrophe). Replaces versatile performance (which does not exist in Wrath - the feature is additive)."
+    "enGB": "She selects one spell from the wizard spell list of a level she can cast and adds it to her bard spells known, gaining an additional pick at 6th level and every 4 levels thereafter, and again at 16th and 19th. Replaces versatile performance, which does not exist in Wrath, so the feature is additive."
   },
   {
     "Key": "MummerAttunement.Name",
@@ -1373,7 +1373,7 @@
   {
     "Key": "MummerEucatastrophe.Description",
     "ProcessTemplates": false,
-    "enGB": "At 10th level, the mummer mage's role becomes real at the climax: she gains an additional Arcane Imitation pick (a wizard spell of a level she can cast), and again at 16th and 19th level - a total of three extra spells beyond her regular imitation. Together with the bonded prop's daily cast, any bard spell she knows is one flourish away. Replaces jack-of-all-trades."
+    "enGB": "At 10th level she gains an additional Arcane Imitation pick, a wizard spell of a level she can cast, and again at 16th and 19th - three extra spells beyond her regular imitation. Together with the bonded prop's daily cast, any bard spell she knows is one flourish away. This replaces jack-of-all-trades."
   },
   {
     "Key": "Cook.Name",
@@ -1383,7 +1383,7 @@
   {
     "Key": "Cook.Description",
     "ProcessTemplates": false,
-    "enGB": "Some bards sing for their supper. You cook it. Trading away every performance, all bardic knowledge, dirge of doom, jack-of-all-trades, and mass suggestion, the Cook keeps a fire, a knife, and three good meals a day. Hearty Cooking grants 3 meal charges per rest, and each serving feeds every ally within 30 feet a hearty meal whose benefits last 8 hours and cannot be dispelled. A new recipe joins her repertoire at 4th level and every 4 levels thereafter."
+    "enGB": "The Cook trades every performance, all bardic knowledge, dirge of doom, jack-of-all-trades, and mass suggestion for a fire, a knife, and three good meals a day. Hearty Cooking grants 3 meal charges per rest; each serving feeds every ally within 30 feet a meal whose benefits last 8 hours and cannot be dispelled. A new recipe arrives at 4th level and every 4 levels thereafter."
   },
   {
     "Key": "CookHeartyCooking.Name",
@@ -1543,7 +1543,7 @@
   {
     "Key": "Spellfist.Description",
     "ProcessTemplates": false,
-    "enGB": "The academies teach that magic flows best through steel. You never had a sword, so you learned to pour it through your knuckles instead. The Spellfist casts with Wisdom from a spellbook of nothing but touch spells - every touch tradition in the world, gathered into one ascetic discipline - and never lands a spell as a single blow: each cast is divided among the blows of his full attack, each fist paying its share. His flurry borrows the monk's arts, cracking armor and damage reduction alike; his magic hardens his skin while it burns in him; and his fists grow from 1d6 to 1d8 and finally 2d6 across twenty levels. He keeps spell combat, spell strike, and his arcane pool, and trades every weapon and armor proficiency for improved unarmed strike and a monk's bare-knuckled wisdom."
+    "enGB": "The spellfist casts with Wisdom from a spellbook of touch spells only, and never lands a spell as a single blow - each casting is divided among the attacks of his full attack. His flurry bypasses armor and damage reduction, his fists grow from 1d6 to 1d8 to 2d6, and he keeps spell combat, spell strike, and his arcane pool. This replaces all weapon and armor proficiencies, granting improved unarmed strike instead."
   },
   {
     "Key": "SpellfistCascade.Name",
@@ -1553,7 +1553,7 @@
   {
     "Key": "SpellfistCascade.Description",
     "ProcessTemplates": false,
-    "enGB": "The Spellfist never lands a spell as one blow. When he casts a touch spell, the magic charges his fists for 2 rounds; the spell's damage is divided into one share per attack of his full attack, and each successful unarmed strike delivers one share of the original dice and energy. A cast that is not followed by unarmed attacks dissipates harmlessly. Non-damaging touch effects apply normally."
+    "enGB": "He never lands a spell as one blow. Casting a touch spell charges his fists for 2 rounds; the spell's damage is divided into one share per attack of his full attack, and each successful unarmed strike delivers one share of the original dice and energy. A cast not followed by unarmed attacks dissipates harmlessly. Non-damaging touch effects apply normally."
   },
   {
     "Key": "SpellfistCharge.Name",
@@ -1663,7 +1663,7 @@
   {
     "Key": "SpellbladeForceAthame.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, sacrifice a prepared magus spell of 1st level or higher (cast it as Force Athame from your spellbook) to create a dagger of force in your off hand. The athame lasts 1 minute, has an enhancement bonus on attack and damage equal to the sacrificed spell's level (maximum +5), and deals force damage. The off hand remains free for spell combat."
+    "enGB": "As a swift action, sacrifice a prepared magus spell of 1st level or higher to create a dagger of force in your off hand. The athame lasts 1 minute, has an enhancement bonus on attack and damage equal to the sacrificed spell's level (maximum +5), and deals force damage. The off hand remains free for spell combat."
   },
   {
     "Key": "SpellbladeAthameBuff.Name",
@@ -1733,7 +1733,7 @@
   {
     "Key": "SanguineFont.Description",
     "ProcessTemplates": false,
-    "enGB": "A bloodrager whose rage does not tear wounds open - it pours them shut. The Sanguine Font bleeds so her allies do not: while bloodraging she radiates an aura that knits her wounded companions at the start of each of her turns, and she can spend her fury itself - a round of rage at a time - to release pulses of restorative energy or grant her allies fast healing she pays for in blood. In place of her mightiest spells she shapes raw kinetic force into blade and blast, and at the very height of fury she can pour out every remaining round of rage to drag a dying ally back from death's door. Her arms and armor are simple and light, she forgoes uncanny dodge and damage reduction, and her magic reaches only the third circle - her blood is the real spellbook."
+    "enGB": "A bloodrager whose rage closes wounds instead of opening them. While bloodraging she radiates an aura that heals nearby allies at the start of each of her turns, and she can spend rounds of bloodrage for pulses of healing or fast healing. At the height of fury she can spend every remaining round to pull a dying ally back from death. This replaces uncanny dodge, damage reduction, and spellcasting above 3rd level."
   },
   {
     "Key": "SanguineVitalBlood.Name",
@@ -1743,7 +1743,7 @@
   {
     "Key": "SanguineVitalBlood.Description",
     "ProcessTemplates": false,
-    "enGB": "While bloodraging, the Sanguine Font radiates a 10-foot aura of living vitality. At the start of each of her turns, every ally in the aura below maximum hit points regains 1d4 + 1/3 bloodrager level hit points. At 20th level (Sanguine Apotheosis) the aura grows to 40 feet and heals 2d8 + Constitution + Charisma + 1/8 of her current hit points + bloodrager level."
+    "enGB": "While bloodraging she radiates a 10-foot aura of living vitality. At the start of each of her turns, every ally in the aura below maximum hit points regains 1d4 + 1/3 bloodrager level hit points. At 20th level the aura grows to 40 feet; see Sanguine Apotheosis."
   },
   {
     "Key": "SanguinePulse.Name",
@@ -1753,7 +1753,7 @@
   {
     "Key": "SanguinePulse.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action while bloodraging, the Sanguine Font can expend 1 additional round of bloodrage to release a wave of restorative energy. All allies within 20 feet (including herself) regain 1d8 + 1/3 bloodrager level hit points. From 8th level, the pulse reaches 30 feet and heals 2d8 + bloodrager level + Constitution modifier, and allies healed from below 0 hit points are treated as stabilized. Once per round."
+    "enGB": "As a swift action while bloodraging she may expend 1 additional round of bloodrage to release a wave of restorative energy. All allies within 20 feet, including herself, regain 1d8 + 1/3 bloodrager level hit points. From 8th level the pulse reaches 30 feet and heals 2d8 + bloodrager level + Constitution modifier, and allies healed from below 0 hit points are stabilized. Once per round."
   },
   {
     "Key": "SanguinePulseShared.Name",
@@ -1953,7 +1953,7 @@
   {
     "Key": "SanguineApotheosis.Description",
     "ProcessTemplates": false,
-    "enGB": "The Font becomes a living wellspring. While bloodraging her aura grows to 40 feet and heals 2d8 + Constitution + Charisma + 1/8 of her current hit points + bloodrager level at the start of each turn. Her Bloodletting Pulse becomes a free action usable any number of times per round (each use still costs a round of bloodrage). And once per bloodrage, when an ally in the aura would die, she may expend ALL her remaining bloodrage rounds: that ally instead remains at 1 hit point and is healed for 10d8 + bloodrager level."
+    "enGB": "While bloodraging her aura grows to 40 feet and heals 2d8 + Constitution + Charisma + 1/8 of her current hit points + bloodrager level at the start of each turn. Bloodletting Pulse becomes a free action usable any number of times per round, each use still costing a round of bloodrage. Once per bloodrage, when an ally in the aura would die, she may expend all her remaining rounds: that ally remains at 1 hit point and is healed for 10d8 + bloodrager level."
   },
   {
     "Key": "UntouchableRager.Name",
@@ -1963,7 +1963,7 @@
   {
     "Key": "UntouchableRager.Description",
     "ProcessTemplates": false,
-    "enGB": "Where another bloodrager's lineage spills out as fire and fang, hers curls inward and becomes a wall. Magic slides off her blood like rain off oiled steel - including, to her private annoyance, the friendly kind. She trades away every drop of bloodrager spellcasting - spells, blood casting, eschew materials, even her bloodline's bonus spells - and gains in its place Raging Resistance: while bloodraging, spell resistance equal to 8 plus her bloodrager level, growing by 1 each time her bloodline would have granted a new spell (7th, 10th, 13th, and 16th level - SR 32 at the peak of fury). The ward cannot be lowered while the rage holds. At 14th level, Resistance Control keeps the spell resistance standing even in calm moments - and while calm, she can finally switch it off (the party's clerics may resume healing her at range)."
+    "enGB": "The untouchable rager trades all bloodrager spellcasting for Raging Resistance: while bloodraging she gains spell resistance equal to 8 + her bloodrager level, increasing by 1 at 7th, 10th, 13th, and 16th level, to SR 32 at 20th. The ward cannot be lowered while the rage holds. At 14th level, Resistance Control extends it while calm, where she can suppress it at will."
   },
   {
     "Key": "UntouchableRagingResistance.Name",
@@ -1993,7 +1993,7 @@
   {
     "Key": "SisterInArms.Description",
     "ProcessTemplates": false,
-    "enGB": "Not every Gray Maiden hides her scars behind iron. The sister-in-arms wears hers in the open and turns the Maidens' discipline outward: where other cavaliers glory in the single duel, she fights for the shield line. Her challenge is halfhearted - her attention belongs to her sisters, not her foe - but she carries the devotion of two orders at once, dragon and lion, guards her wards with her own body, and cannot be turned against the women she bled for. She trades her mount, her cavalier's charge, mighty charge and supreme charge for the role she was always meant to play: the one who keeps everyone else alive."
+    "enGB": "The sister-in-arms turns the Gray Maidens' discipline outward and fights for the shield line. Her challenge is weakened, but she carries the devotion of two orders at once, guards her wards with her own body, and cannot be turned against them. This replaces mount, cavalier's charge, mighty charge, and supreme charge."
   },
   {
     "Key": "SisterHalfhearted.Name",
@@ -2183,7 +2183,7 @@
   {
     "Key": "Carousel.Description",
     "ProcessTemplates": false,
-    "enGB": "Some cavalry break on the enemy like a wave. The Carousel never breaks - she wheels. Her whole fighting style is the charge: strike one foe, spin, strike the next, hooves and steel and momentum without end. She provokes no attacks of opportunity while charging, her horse reads the ground like a dancer - mud, grease and worse do not exist for a mount this sure - her own line never blocks her gallop, and with practice one charge becomes two, then two become a storm that stops only when the enemy does. She trades the banner, mighty charge and supreme charge for the ring: the fight never leaves her orbit."
+    "enGB": "The carousel's whole style is the charge. She provokes no attacks of opportunity while charging, her mount ignores difficult terrain, her allies never block her path, and with practice one charge becomes several. This replaces banner, mighty charge, and supreme charge."
   },
   {
     "Key": "CarouselTraining.Name",
@@ -2323,7 +2323,7 @@
   {
     "Key": "Cardinal.Description",
     "ProcessTemplates": false,
-    "enGB": "The cardinal serves her church at a council table rather than an altar. She gains 6 skill ranks per level and Trickery as a class skill, but wears only light armor, never carries a shield, fights with a wizard's attack progression, keeps a single domain, and cannot spontaneously cast cure or inflict spells."
+    "enGB": "Not every priest serves at an altar. The cardinal serves at a table - councils, courts, and cloistered backrooms where the church's true business is done. She keeps her spells and her devotion, but her calling is the world: she trains as a scholar and a schemer rather than a soldier of the faith, learning 6 skill ranks per level instead of the usual 2 and counting Trickery among her class skills. The price of that education is paid in steel - she wears only light armor and never a shield, fights with a scholar's grace rather than a crusader's (her attack bonus grows as slowly as a wizard's), keeps only a single domain, and can no longer convert her prepared spells into healing or harm on the fly."
   },
   {
     "Key": "CardinalPoliticalSkill.Name",
@@ -2333,7 +2333,7 @@
   {
     "Key": "CardinalPoliticalSkill.Description",
     "ProcessTemplates": false,
-    "enGB": "The cardinal's education spans salons and war-rooms alike. She gains 6 skill ranks per level instead of 2, and Trickery counts as a class skill for her. In the wider world her gift for deception and local knowledge folds into the Persuasion and Knowledge skills clerics already command. Her martial training suffers for it: her base attack bonus from cleric levels is that of a wizard."
+    "enGB": "She gains 6 skill ranks per level instead of 2, and Trickery counts as a class skill. In the wider world her gift for deception and local knowledge folds into the Persuasion and Knowledge skills clerics already command. Her base attack bonus from cleric levels is that of a wizard."
   },
   {
     "Key": "Solipsist.Name",
@@ -2353,7 +2353,7 @@
   {
     "Key": "SolipsistSolipsism.Description",
     "ProcessTemplates": false,
-    "enGB": "Every cleric spell that could target an ally can now only target the solipsist himself; hostile targets are unaffected, so cure spells still burn the undead. The communal versions of ally-affecting spells are denied to him altogether - a congregation of one has no one to bless but himself. In exchange, he never gains channel energy. The doubling of his blessings is a separate gift, and it does not arrive until 8th level."
+    "enGB": "Every cleric spell that could target an ally can now only target him; hostile targets are unaffected, so cure spells still burn undead. The communal versions of ally-affecting spells are denied to him altogether. In exchange he never gains channel energy. The doubling of his blessings is a separate gift and does not arrive until 8th level."
   },
   {
     "Key": "SolipsistEcho.Name",
@@ -2363,7 +2363,7 @@
   {
     "Key": "SolipsistEcho.Description",
     "ProcessTemplates": false,
-    "enGB": "At 8th level the solipsist's blessings begin to settle twice. When he casts a qualifying spell upon himself, every blessing it bestows is laid down a second time as an untyped echo that stacks with the original and cannot be overridden by same-type effects, and healing spells roll their healing twice. His personal-range blessings echo as well, divine power and righteous might among them. The echo answers to his casting alone: it fires only when he is the caster and he is the target, so a blessing laid upon him by another - an ally's spell, a wand in someone else's hand - is never doubled, and he can never double a blessing meant for anyone but himself."
+    "enGB": "From 8th level every spell the solipsist casts on himself lays its blessings down twice. The echo is untyped, stacks with the original, and cannot be overridden by same-type effects; healing spells roll twice. Personal-range blessings echo as well, including divine power and righteous might. The echo fires only when he is both caster and target, so blessings laid on him by others are never doubled."
   },
   {
     "Key": "SolipsistMartialDevotion.Name",
@@ -2403,7 +2403,7 @@
   {
     "Key": "LionShaman.Description",
     "ProcessTemplates": false,
-    "enGB": "The lion shaman's wild shape bends toward the great cats. She takes feline form early and in its fiercest incarnation, while her other forms come slowly. She can also wear an aspect of the lion without changing shape, and her summons fight with the pride's strength behind them."
+    "enGB": "A shaman with this totem calls upon the proud lion, imposing and majestic, the mighty leader of deadly hunters. Her wild shape bends toward the great cats: she takes the feline form early and in its fiercest incarnation, while her other forms come more slowly than a common druid's. She can adopt an aspect of the lion while keeping her own shape, her summons fight with the pride's strength behind them, and her steady discipline earns her feats a lesser druid would never spare the time for."
   },
   {
     "Key": "LionShamanTotemTransformation.Name",
@@ -2413,7 +2413,7 @@
   {
     "Key": "LionShamanTotemTransformation.Description",
     "ProcessTemplates": false,
-    "enGB": "The lion's power can pour into her own frame. The lion shaman may adopt one aspect of her totem while retaining her normal form: the pride's tireless movement, its senses (scent), or its weapons (a bite attack). Only one aspect can be worn at a time; donning one sheds the others. The totem deepens with her years: every aspect grows stronger at 8th level and again at 14th. This replaces woodland stride."
+    "enGB": "She may adopt one aspect of her totem while retaining her normal form: the pride's tireless movement, its senses (scent), or its weapons (a bite attack). Only one aspect can be worn at a time, and donning one sheds the others. Each aspect grows stronger at 8th level and again at 14th. This replaces woodland stride."
   },
   {
     "Key": "LionShamanAspectMovement.Name",
@@ -2453,7 +2453,7 @@
   {
     "Key": "LionShamanFelineWildShape.Description",
     "ProcessTemplates": false,
-    "enGB": "Her totem comes to her before any other form. The lion shaman gains the tiger - the smilodon, great cat of the Worldwound - as a wild shape form, two levels before a common druid's shapes begin, and its greater incarnations arrive as she levels (the mightier tier at 8th, the fiercest at 14th). Her other wild shapes, animal and elemental alike, come two levels later than a common druid's."
+    "enGB": "She gains the smilodon as a wild shape form two levels before a common druid's shapes begin, with mightier incarnations arriving at 8th and 14th level. Her other wild shapes, animal and elemental alike, come two levels later than a common druid's."
   },
   {
     "Key": "LionShamanTotemicSummons.Name",
@@ -2493,7 +2493,7 @@
   {
     "Key": "TrueShapeFeature.Description",
     "ProcessTemplates": false,
-    "enGB": "While his Beast Soul is lit, the true shape druid's form does not lapse: every few moments his current shape is replenished before it can fade, and it holds until he sheds it willingly. Changing shape costs him no action at all, he casts his druid spells while in any form (as Natural Spell), and his worn armor and shield keep protecting him in beast shape (their full armor class, live from his equipment). His castings of 1st-4th level spells grow by one at every odd level from 5th (+8 each by 19th), and while shaped his spells cast at caster level +1 per 2 druid levels - up to +10, an effective caster level of 30 at 20th, beyond any mortal spellcaster."
+    "enGB": "While Beast Soul is active his wild shape does not lapse, and changing form costs no action. He casts druid spells while shaped, as Natural Spell, and keeps the full armor class of his worn armor and shield. His 1st-4th level spell slots increase by one at every odd level from 5th, to +8 by 19th, and while shaped his spells cast at +1 caster level per 2 druid levels - +10 at 20th level, an effective caster level of 30."
   },
   {
     "Key": "TrueShapeBeastSoul.Name",
@@ -2513,7 +2513,7 @@
   {
     "Key": "TrueShapeMenagerie.Description",
     "ProcessTemplates": false,
-    "enGB": "His wild shape is not a short list but a whole menagerie, drawn from the wildest bloodlines: bear and elephant to hold a line, smilodon and wolf and wolverine to hunt, spider to bind, manticore to strike from afar, fey to weave, griffon to fly, boar and dinosaur for the uglier work. Each form is a complete beast, and slipping between them is a free action - the shape is a garment, not a battle formation. This replaces the common druid's wild shape."
+    "enGB": "His wild shape is a full menagerie rather than a short list: bear and elephant to hold a line, smilodon, wolf, and wolverine to hunt, spider to bind, manticore to strike from afar, fey to weave, griffon to fly, boar and dinosaur for the uglier work. Changing form is a free action. This replaces the druid's wild shape."
   },
   {
     "Key": "TrueShapeMenagerie8.Name",
@@ -2543,7 +2543,7 @@
   {
     "Key": "PolearmMaster.Description",
     "ProcessTemplates": false,
-    "enGB": "The polearm master fights at the end of a long striking pole and nothing else. His polearms strike harder and truer than any other fighter's weapons, and his reach becomes a wall his allies fight behind. This replaces armor training and all weapon training outside polearms."
+    "enGB": "The polearm master is schooled in the ancient wisdom that enemies are best faced at the end of a long striking pole, lashing like a serpent before clumsy swords and axes can even be brought to bear. He trades the fighter's armor training and weapon versatility entirely: his craft is the spear, the glaive, the halberd - and nothing else. In exchange his polearms strike harder and truer than any other fighter's weapons, his reach becomes a wall his enemies break against, and his allies fight behind the finest hedge of steel on the battlefield."
   },
   {
     "Key": "PolearmMasterPoleFighting.Name",
@@ -2603,7 +2603,7 @@
   {
     "Key": "PolearmMasterStepAside.Description",
     "ProcessTemplates": false,
-    "enGB": "Constant, unhurried footwork keeps the polearm master at his preferred distance. While wielding a polearm he gains a +2 dodge bonus to his armor class. In turn-based combat only, when an adjacent enemy's melee attack against him resolves, he takes a 5-foot step away once per round (five-foot steps do not exist in real-time-with-pause mode; there the constant footwork alone stands). This replaces weapon training 4."
+    "enGB": "While wielding a polearm he gains a +2 dodge bonus to his armor class. In turn-based combat only, when an adjacent enemy's melee attack against him resolves, he takes a 5-foot step away once per round. (Five-foot steps do not exist in real-time-with-pause mode; there the constant footwork alone stands.) This replaces weapon training 4."
   },
   {
     "Key": "PolearmMasterPolearmParry.Name",
@@ -2613,7 +2613,7 @@
   {
     "Key": "PolearmMasterPolearmParry.Description",
     "ProcessTemplates": false,
-    "enGB": "The polearm master's reach is a shield for those behind it. As a swift action, he braces his weapon for 1 round: while braced, allies within 10 feet of him gain a +2 shield bonus to AC against attacks from enemies within his reach, and damage dealt to them by such enemies is reduced by 5. This replaces armor mastery."
+    "enGB": "As a swift action he braces his weapon for 1 round. While braced, allies within 10 feet of him gain a +2 shield bonus to AC against attacks from enemies within his reach, and damage dealt to them by such enemies is reduced by 5. This replaces armor mastery."
   },
   {
     "Key": "StrategicSoldier.Name",
@@ -2623,7 +2623,7 @@
   {
     "Key": "StrategicSoldier.Description",
     "ProcessTemplates": false,
-    "enGB": "The strategic soldier polishes the battle rather than his own steel. He doubles his allies by where he stands, steps out of every blow's path, and answers wounds dealt to his friends with steel of his own. This replaces bravery, armor training, and armor mastery."
+    "enGB": "A strategic soldier is a master of positioning and teamwork in combat. Where other fighters polish their own steel, the strategic soldier polishes the battle itself: he stands where his presence doubles his allies, steps out of every blow's path, and answers every wound dealt to his friends with steel of his own. The price is the fighter's own resilience - no bravery, no armor training, no armor mastery - for he has made himself the keystone of the line rather than its wall."
   },
   {
     "Key": "StrategicSoldierFlanker.Name",
@@ -2733,7 +2733,7 @@
   {
     "Key": "Qinggong.Description",
     "ProcessTemplates": false,
-    "enGB": "The qinggong monk trades the fixed gifts of her order for choice, converting still mind, fast movement, and purity of body into ki powers of her own selecting. This replaces those class features."
+    "enGB": "The qinggong monk trades every fixed gift of her order for choice. Where other monks receive still mind, fast movement, and purity of body as their masters decreed, she channels that training into her ki instead - three extra ki powers of her choosing by 5th level, drawn from the full library: true strikes and restorations, barkskin and abundant steps, invisibility and dragon's breath, true sight, even holy aura. Her order calls it undisciplined. She calls it knowing exactly what she needs and when."
   },
   {
     "Key": "QinggongInvisibility.Name",
@@ -2853,7 +2853,7 @@
   {
     "Key": "VenombloodSerpentsGift.Description",
     "ProcessTemplates": false,
-    "enGB": "Once per round, the venomblood's first weapon attack that hits injects venom: the target must pass a Fortitude save (DC 10 + half her hunter level + Wisdom) or take 1d2 Constitution damage as the toxin courses through it - 1d4 from 12th level, 1d6 from 16th. The strain burns out after a round, and every round's first hit brings a fresh dose and a fresh save. The venom is supernatural and works even on creatures immune to poison, though they resist it (+4 on the save). This replaces hunter tactics and the teamwork-feat progression."
+    "enGB": "Once per round her first weapon attack that hits injects venom: the target must pass a Fortitude save (DC 10 + half hunter level + Wisdom) or take 1d2 Constitution damage, rising to 1d4 from 12th level and 1d6 from 16th. The strain burns out after a round, so each round's first hit brings a fresh dose and a fresh save. The venom is supernatural and works on creatures immune to poison, though they gain +4 on the save. This replaces hunter tactics and the teamwork-feat progression."
   },
   {
     "Key": "VenombloodSerpentsSkin.Name",
@@ -2933,7 +2933,7 @@
   {
     "Key": "RiftstalkerRiftMark.Description",
     "ProcessTemplates": false,
-    "enGB": "Once per round, the riftstalker's first attack that hits brands the target with a rift mark for one minute. Only one creature can bear the mark at a time - marking new prey strips it from the old. The mark grants nothing by itself: it is the tether through which the beast still lurking in the rift can reach. This replaces the animal companion."
+    "enGB": "Once per round her first attack that hits brands the target with a rift mark for 1 minute. Only one creature can bear the mark at a time; marking new prey strips it from the old. The mark grants nothing by itself - it is the tether through which the beast in the rift can reach. This replaces the animal companion."
   },
   {
     "Key": "RiftstalkerRiftStride.Name",
@@ -2963,7 +2963,7 @@
   {
     "Key": "RiftstalkerGuidedCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The riftstalker calls, and the unseen beast answers. Clicking Guided Command opens the command menu - every directive the beast might learn is listed there, but only those it has actually learned can be given (the rest are empty whispers). The base strike is always available: as a swift action, she directs the beast to strike a creature bearing her rift mark - an attack roll (d20 + her hunter level + her Wisdom modifier) against the target's Armor Class. On a hit, the mauling deals 1d4 plus half her hunter level in damage that no armor of this world blunts (the die grows to 1d5 at 3rd level and 1d6 at 4th), and the horror of unseen jaws shakes the target for one round. The beast can be given only one directive per round, whichever command she chooses. This replaces hunter tactics."
+    "enGB": "Opens the command menu; only directives the beast has learned can be given. As a swift action she directs the beast to strike a creature bearing her rift mark: an attack roll of d20 + hunter level + Wisdom modifier against the target's AC. On a hit it deals 1d4 + half her hunter level in damage that ignores damage reduction (1d5 at 3rd level, 1d6 at 4th) and shakes the target for 1 round. The beast takes one directive per round. This replaces hunter tactics."
   },
   {
     "Key": "RiftstalkerUnseenGuardian.Name",
@@ -2983,7 +2983,7 @@
   {
     "Key": "RiftstalkerCommands.Description",
     "ProcessTemplates": false,
-    "enGB": "At 4th level and every four levels thereafter (8th, 12th, 16th and 20th), the riftstalker teaches the beast in the rift a new directive of her choice from the list below. Learned commands are cast through the Guided Command menu; unlearned entries are listed but do nothing. Each command is a swift action aimed at a creature bearing her rift mark, resolved with the beast's attack roll (d20 + hunter level + Wisdom) against the target's Armor Class unless noted. The beast can be given only one directive per round, whichever command she chooses. This replaces raise companion and one with the wild."
+    "enGB": "At 4th level and every four levels thereafter (8th, 12th, 16th, and 20th) she teaches the beast a new directive of her choice from the list below. Learned commands are given through the Guided Command menu; unlearned entries are listed but do nothing. Each is a swift action aimed at a creature bearing her rift mark, resolved with the beast's attack roll (d20 + hunter level + Wisdom) against the target's AC unless noted. The beast takes one directive per round. This replaces raise companion and one with the wild."
   },
   {
     "Key": "RiftstalkerMaulingCommand.Name",
@@ -3123,7 +3123,7 @@
   {
     "Key": "Verminous.Description",
     "ProcessTemplates": false,
-    "enGB": "The verminous hunter reaches for the spider rather than the monkey. She takes a vermin companion, gains vermin aspects in place of animal focus, and walks through swarms untouched."
+    "enGB": "A verminous hunter calls on the ceaseless, single-minded dedication of vermin to hunt and overwhelm her prey. Where other hunters invoke the cunning of alpha predators, she reaches out to the spider instead of the monkey, the mantis instead of the snake, the moth instead of the owl. She takes a vermin companion, takes on vermin aspects in place of animal focus, and walks through the swarm untouched. Perfect for those who have become something less - and something more - than human."
   },
   {
     "Key": "VerminousCompanion.Name",
@@ -3213,7 +3213,7 @@
   {
     "Key": "CoreCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "Opens the construct's core command menu. Each core the crafter has learned can be armed from here - arming one core clears the others; casting this directly returns the construct to the Basic core. A core listed in the menu but not yet learned is an empty entry and does nothing. Cores are armed before deployment; the deployed construct receives the armed core's package."
+    "enGB": "Opens the construct's core command menu. Each core the crafter has learned can be armed from here; arming one clears the others, and casting this directly returns the construct to the Basic core. A core listed in the menu but not yet learned does nothing. Cores are armed before deployment."
   },
   {
     "Key": "ProgramCommand.Name",
@@ -3233,7 +3233,7 @@
   {
     "Key": "SinEater.Description",
     "ProcessTemplates": false,
-    "enGB": "The sin eater devours the sins of her enemies and is empowered by them, at least for a time. In the Worldwound this is less theology than lunch. This replaces her domain."
+    "enGB": "There is a sect of inquisitors who believe it is not enough to hunt the enemies of the church - one must also devour those enemies' sins. More benign versions believe sin is taken out of the world when it is devoured, denying the enemy's soul to its god. Consuming sins empowers the sin eater, at least for a time. In the Worldwound, that is not theology - that is lunch. She trades her domain for the feast."
   },
   {
     "Key": "SinEaterEatSin.Name",
@@ -3243,7 +3243,7 @@
   {
     "Key": "SinEaterEatSin.Description",
     "ProcessTemplates": false,
-    "enGB": "When the sin eater's own attack kills an enemy, she devours its sins as it falls, healing herself of 1d8 points of damage plus her inquisitor level (the bonus capped at +5). The healing improves to 2d8 at 5th level, 3d8 at 9th and 4d8 at 13th (caps +10, +15, +20). She can eat the sins of a given enemy only once, and only creatures of Intelligence 3 or greater have sins worth eating. This replaces domain."
+    "enGB": "When her own attack kills an enemy she devours its sins and heals 1d8 + her inquisitor level, the bonus capped at +5. The healing improves to 2d8 at 5th level, 3d8 at 9th, and 4d8 at 13th, with caps of +10, +15, and +20. She can eat the sins of a given enemy only once, and only creatures of Intelligence 3 or greater have sins worth eating. This replaces domain."
   },
   {
     "Key": "SinEaterSinSpeaker.Name",
@@ -3253,7 +3253,7 @@
   {
     "Key": "SinEaterSinSpeaker.Description",
     "ProcessTemplates": false,
-    "enGB": "At 6th level, the devoured sins do more than close her wounds: each sin she eats also empowers her for one minute, granting a +1 circumstance bonus on attack rolls and saving throws. (The tabletop's speak-with-dead clause has no counterpart in this world - adapted from the archetype's own creed: consuming sins empowers the sin eater, for a time.) This replaces the 6th-level bonus teamwork feat."
+    "enGB": "At 6th level each sin she eats also empowers her for 1 minute, granting a +1 circumstance bonus on attack rolls and saving throws. (The tabletop's speak-with-dead clause has no counterpart here; adapted from the archetype's own creed that consuming sins empowers the sin eater for a time.) This replaces the 6th-level bonus teamwork feat."
   },
   {
     "Key": "SinEaterEmpowered.Name",
@@ -3283,7 +3283,7 @@
   {
     "Key": "DoomsayerPronounceDoom.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, she reads a creature its sentence. The pronouncement is a Persuasion check made to intimidate (she adds her Wisdom modifier on Persuasion checks) against 10 + the target's level + its Wisdom modifier. On a success the target is shaken for 1 minute and becomes her condemned - she gains a +1 bonus on attack rolls against the condemned (+2 at 9th level, +3 at 17th), and only one creature may stand condemned at a time. At 5th level, pronouncing doom on a target that is already shaken makes it frightened for 3 rounds instead. At 12th level, pronouncing doom on a frightened target also seizes it with terror, staggering it for 1 round. At 17th level, the pronouncement no longer requires a check - the sentence is simply read. This replaces judgments (the entire line: second judgment, third judgment and true judgment included)."
+    "enGB": "As a swift action she pronounces doom on a creature: a Persuasion check against 10 + the target's level + its Wisdom modifier. On a success the target is shaken for 1 minute and becomes her condemned, granting her +1 on attack rolls against it (+2 at 9th level, +3 at 17th); only one creature can be condemned at a time. At 5th level, pronouncing doom on a shaken target frightens it for 3 rounds instead. At 12th, a frightened target is also staggered for 1 round. At 17th no check is required. This replaces judgments, including second judgment, third judgment, and true judgment."
   },
   {
     "Key": "DoomsayerDreadfulCertainty.Name",
@@ -3303,7 +3303,7 @@
   {
     "Key": "DoomsayerDreadMien.Description",
     "ProcessTemplates": false,
-    "enGB": "Verdicts yet unspoken hang about her like weather. Enemies within 15 feet take a -2 penalty on attack rolls and saving throws made against the doomsayer while they remain there - deepening to -3 at 12th level and -4 at 16th - against anyone else, their strength is their own. This is the weight of doom, not fear - no save is allowed, and even creatures immune to fear feel it. This replaces second judgment."
+    "enGB": "Enemies within 15 feet take a -2 penalty on attack rolls and saving throws made against her, deepening to -3 at 12th level and -4 at 16th. This is the weight of doom, not fear: no save is allowed, and creatures immune to fear still feel it. This replaces second judgment."
   },
   {
     "Key": "DoomsayerDeathsEcho.Name",
@@ -3493,7 +3493,7 @@
   {
     "Key": "UnstableBlast.Description",
     "ProcessTemplates": false,
-    "enGB": "Every kinetic blast she throws carries a 25% chance of a surge - uncontrolled force erupting from her unsettled gate. Roll d6: 1 Eruption - the target takes extra damage (1d6 per 3 kineticist levels); 2 Chain Arc - every enemy within 10 feet of the target takes 1d6 per 4 levels; 3 Violent Discharge - the target is shaken for 1 round; 4 Rebound - the instability bites her for 1d6 per 4 levels; 5 Overcharge - Eruption damage and the discharge both; 6 Null Surge - the gate hiccups and nothing happens. This replaces gather power."
+    "enGB": "Every kinetic blast she throws has a 25% chance of a surge. Roll d6: 1 Eruption - the target takes an extra 1d6 per 3 kineticist levels; 2 Chain Arc - enemies within 10 feet take 1d6 per 4 levels; 3 Violent Discharge - the target is shaken for 1 round; 4 Rebound - she takes 1d6 per 4 levels; 5 Overcharge - Eruption and the discharge both; 6 Null Surge - nothing happens. This replaces gather power."
   },
   {
     "Key": "UnstableReboundControl.Name",
@@ -3523,7 +3523,7 @@
   {
     "Key": "KineticChirurgeon.Description",
     "ProcessTemplates": false,
-    "enGB": "The kinetic chirurgeon is a virtuoso of the curative arts. Her touch knits flesh with elemental force, and as she grows her healing mends what flesh alone cannot. This replaces her entire shaping discipline - infusions, metakinesis, and infusion specialization."
+    "enGB": "While any kineticist can learn the rudiments of healing, some are virtuosos of the curative arts. The kinetic chirurgeon trades her entire shaping discipline - infusions, metakinesis, infusion specialization - for the healer's craft: her touch knits flesh with raw elemental force, and as she grows, her healing learns to mend what flesh alone cannot."
   },
   {
     "Key": "ChirurgeonKineticHealer.Name",
@@ -3533,7 +3533,7 @@
   {
     "Key": "ChirurgeonKineticHealer.Description",
     "ProcessTemplates": false,
-    "enGB": "With a touch, she heals a willing living creature, restoring 1d6 hit points plus her Constitution modifier for every 2 kineticist levels she possesses. Each use requires her to accept 1 point of burn - gather power and any other effect that reduces burn applies as usual - and if she cannot accept the burn, the healing does not happen. Each use also cures one condition afflicting the target - the worst her training covers, from fatigued and shaken at 3rd level up through blinded, frightened and finally stunned at 9th. From 5th level her Metahealer training adds one extra healing die (two at 11th, three at 17th), and at 17th level the same use mends both the target and herself. This replaces infusions and infusion specialization."
+    "enGB": "A touch heals a willing creature for 1d6 + Constitution modifier per 2 kineticist levels, and costs 1 burn; if she cannot accept the burn, the healing does not occur. Each use also cures one condition, from fatigued and shaken at 3rd level up to stunned at 9th. Metahealer adds one extra die at 5th level, two at 11th, three at 17th, and at 17th the use heals her as well. This replaces infusions and infusion specialization."
   },
   {
     "Key": "ChirurgeonSwiftMending.Name",
@@ -3583,7 +3583,7 @@
   {
     "Key": "StormcallerSwiftness.Description",
     "ProcessTemplates": false,
-    "enGB": "The wind is always at her back: her land speed increases by 10 feet. She also gains a swift version of every air-family kinetic blast she possesses (air, electric, blizzard, charged water, plasma, sandstorm, thunderstorm) - a free action usable once per round, with each blast's damage dice halved. And her electricity is the storm's own: it ignores electricity immunity and resistance (the ascendant element of the mythic spheres, hers from the first day). This replaces enveloping winds and the expanded element line."
+    "enGB": "Her land speed increases by 10 feet. She also gains a swift version of every air-family kinetic blast she possesses - a free action usable once per round with the damage dice halved. Her electricity is the storm's own and ignores electricity immunity and resistance. This replaces enveloping winds and the expanded element line."
   },
   {
     "Key": "StormcallerTailwind.Name",
@@ -3628,7 +3628,7 @@
   {
     "Key": "StormcallerSwiftBlast.Description",
     "ProcessTemplates": false,
-    "enGB": "A swift version of the kinetic blast: a free action that keeps the blast's full attack roll and typing, with every damage entry's dice halved - more casts, less storm in each. Usable once per round (twice with Riding the Current); the round's charge is spent when the bolt is loosed - it lands or breaks on the wind, the storm does not refund it."
+    "enGB": "A free action that keeps the blast's full attack roll and typing with every damage entry's dice halved. Usable once per round, twice with Riding the Current. The round's charge is spent when the bolt is loosed; it lands or breaks on the wind, and the storm does not refund it."
   },
   {
     "Key": "StormcallerSwiftAir.Name",
@@ -3673,7 +3673,7 @@
   {
     "Key": "SacredVow.Description",
     "ProcessTemplates": false,
-    "enGB": "Some oracles speak for the gods. She speaks for the wounded. Her power is the oldest bargain in scripture: let the blow fall on me. She may speak her vow over companions (Intercession, a swift action): while marked, half of the damage a companion takes is transferred to her, beyond armor and beyond resistance. At mythic rank 4 the vow widens to two companions at once. A fallen vow-carrier carries nothing. Only oracles can take this mythic ability."
+    "enGB": "As a swift action she may speak her vow over a companion (Intercession). While marked, half the damage that companion takes is transferred to her, beyond armor and beyond resistance. At mythic rank 4 the vow widens to two companions at once. A fallen vow-carrier carries nothing. Only oracles can take this mythic ability."
   },
   {
     "Key": "SacredVowIntercession.Name",
@@ -3703,7 +3703,7 @@
   {
     "Key": "PlanarOracle.Description",
     "ProcessTemplates": false,
-    "enGB": "The planar oracle has an affinity with one Outer Plane - Heaven, Hell, the Abyss, or the Maelstrom. She gains resistance 10 to her plane's energy at 3rd level (20 at 11th), becomes an extraplanar creature at 20th, and gains a fixed list of bonus spells. This replaces her 3rd- and 7th-level revelations and her final revelation."
+    "enGB": "A planar oracle has an affinity with one of the Outer Planes. She is at home on the multiple planes of the Great Beyond, and can eventually become an outsider herself. At 1st level she chooses a plane (Heaven, Hell, the Abyss, or the Maelstrom), each bound to one energy: at 3rd level she gains resistance 10 to that energy (20 at 11th), and at 20th she becomes an extraplanar creature - immune to her plane's energy, with damage reduction 10/magic. Her pilgrim's road is written in bonus spells (protection from evil, see invisibility, protection from energy, freedom of movement, dismissal, chain lightning, banishment, mind blank, elemental swarm), gained at the planar slots. This replaces her 3rd- and 7th-level revelations and her final revelation."
   },
   {
     "Key": "PlanarPlaneSelection.Name",
@@ -3868,7 +3868,7 @@
   {
     "Key": "ShiningKnight.Description",
     "ProcessTemplates": false,
-    "enGB": "While paladins often are seen mounted atop a loyal steed, the shining knight is the true symbol of mounted bravery. She is never far from her steed, and hers is the charge that shatters morale: at 3rd level her mount shares her divine grace, at 5th her divine bond must be the steed, and at 11th a mounted charge that strikes her smitten quarry forces a Will save or panics it. This replaces divine health, the weapon option of divine bond, and aura of justice."
+    "enGB": "The shining knight is never far from her steed. At 3rd level her mount shares her divine grace, at 5th her divine bond must be the steed, and at 11th a mounted charge against her smitten quarry forces a Will save or panics it. This replaces divine health, the weapon option of divine bond, and aura of justice."
   },
   {
     "Key": "ShiningSkilledRider.Name",
@@ -3888,7 +3888,7 @@
   {
     "Key": "ShiningKnightsCharge.Description",
     "ProcessTemplates": false,
-    "enGB": "Whenever her mounted charge hits the target of her smite evil, the target must make a Will save (DC 10 + half her paladin level + her Charisma modifier) or be panicked for a number of rounds equal to half her paladin level. (The tabletop's no-provoke clause has no engine here - the charge still draws attacks of opportunity - and is cut.) This replaces aura of justice."
+    "enGB": "Whenever her mounted charge hits the target of her smite evil, that target must make a Will save (DC 10 + half her paladin level + Charisma modifier) or be panicked for a number of rounds equal to half her paladin level. (The tabletop's no-provoke clause has no engine here and is cut; the charge still draws attacks of opportunity.) This replaces aura of justice."
   },
   {
     "Key": "FortunesFool.Name",
@@ -3908,7 +3908,7 @@
   {
     "Key": "FortunesFoolFatesWager.Description",
     "ProcessTemplates": false,
-    "enGB": "Every weapon attack she makes rides the die. On a natural d20 roll of 1-4, the blow scatters - a miss even if her modifiers would hit. On a natural 17+, the dice surge: the hit deals an extra 1d6 of damage per two paladin levels. The surge stacks with critical hits. She also laughs at fear: a luck bonus on saves against fear equal to her Charisma modifier (minimum +2) - not the immunity of an ordered paladin. And her blade carries chaos: her physical damage counts as chaotic-aligned. Fortune is not fair, and neither is she."
+    "enGB": "Every weapon attack she makes rides the die. On a natural 1-4 the blow misses even if her modifiers would hit; on a natural 17 or higher it deals an extra 1d6 per two paladin levels, stacking with critical hits. She gains a luck bonus on saves against fear equal to her Charisma modifier, minimum +2, rather than immunity, and her physical damage counts as chaotic."
   },
   {
     "Key": "FortunesFoolOpenRoad.Name",
@@ -4019,7 +4019,7 @@
   },
   {
     "Key": "Guide.Description",
-    "enGB": "The guide trades the ranger's favored enemy for a single mark laid on one foe, spending his luck on the blows that matter and giving his woodcraft to the party. This replaces favored enemy, hunter's bond, evasion, improved evasion, quarry, and improved quarry.",
+    "enGB": "Many rangers are loners, but the guide walks with others - and brings them home. He forgoes the favored enemy of his peers to focus on the task at hand: a swift mark upon one foe, luck spent on a single die, a moment of perfect clarity when it matters most. His camp is a moving school of woodcraft - quick to act, sharp of eye, soft of foot - and he gives it all away. This replaces favored enemy (all ranks), hunter's bond, evasion, improved evasion, quarry, and improved quarry; master hunter remains.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4033,7 +4033,7 @@
   },
   {
     "Key": "GuideFocus.Description",
-    "enGB": "Once per day, plus one additional use per three levels after 1st, he can focus on a single enemy within line of sight as a swift action. The mark holds until the target dies or he names a new focus. He gains a +2 bonus on attack and damage rolls against his focus, increasing by +2 at 5th level and every five levels thereafter (+2, +4, +6, +8, +10). This replaces favored enemy.",
+    "enGB": "Once per day, plus one additional use per three levels after 1st, he can focus on a single enemy within line of sight as a swift action. The mark holds until the target dies or he names a new focus. He gains +2 on attack and damage rolls against his focus, increasing by +2 at 5th level and every 5 levels thereafter (+2, +4, +6, +8, +10). This replaces favored enemy.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4131,7 +4131,7 @@
   },
   {
     "Key": "GuideInspired.Description",
-    "enGB": "At 11th level, once per day, as a free action, the guide can have an inspired moment: until the end of his next turn his speed increases by 10 feet, he gains a +4 bonus to AC and on attack rolls, and every critical threat he scores is automatically confirmed. Twice per day at 19th level. This replaces quarry and improved quarry.",
+    "enGB": "At 11th level, once per day as a free action, the guide can have an inspired moment: until the end of his next turn his speed increases by 10 feet, he gains +4 to AC and on attack rolls, and every critical threat he scores is automatically confirmed. Twice per day at 19th level. This replaces quarry and improved quarry.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4614,7 +4614,7 @@
   },
   {
     "Key": "Scout.Description",
-    "enGB": "The scout kills on the move. Her charge lands like an ambush, and ground she has covered counts as concealment for her strikes. This replaces uncanny dodge and improved uncanny dodge.",
+    "enGB": "Not all rogues live in the city. Scouts roam the wilderness - bandits, trailblazers, companions to rangers and barbarians - and they kill on the move. Her charge lands like an ambush, and a scout who has covered ground strikes as if from hiding. This replaces uncanny dodge and improved uncanny dodge; everything else about the rogue is untouched.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4740,7 +4740,7 @@
   },
   {
     "Key": "AnatomistWeakPoint.Description",
-    "enGB": "At 1st level, whenever she misses with an attack that needed a high natural roll to hit, she finds a seam: a permanent, stacking +1 bonus on attack rolls against that enemy. The qualifying roll falls as she levels - 16 at 1st, dropping by 1 every three levels to 10 at 18th - so her study keeps pace with her sharpening aim. This replaces trapfinding.",
+    "enGB": "Whenever she misses with an attack that needed a high natural roll to hit, she finds a seam: a permanent, stacking +1 bonus on attack rolls against that enemy. The qualifying roll is 16 at 1st level, dropping by 1 every three levels to 10 at 18th. This replaces trapfinding.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -5121,7 +5121,7 @@
   {
     "Key": "HedgeWitch.Description",
     "ProcessTemplates": false,
-    "enGB": "The hedge witch devotes her practice to healing. Her prepared spells can be cast spontaneously as cure spells, and she can draw poison and disease out of the afflicted, taking their suffering into herself. This replaces the hexes gained at 4th and 8th level."
+    "enGB": "Among witches, there are those who devote themselves to the care of others and restrict their practices to the healing arts. They often take the place of clerics in rural communities, wandering the countryside and tending to the sick.\nThe hedge witch trades the hexes she would learn at 4th and 8th level for the healer's true arts: her prepared spells can be channeled into healing, and she can draw poison and disease out of the afflicted - taking their pain into herself."
   },
   {
     "Key": "HedgeWitchSpontaneousHealing.Name",
@@ -5131,7 +5131,7 @@
   {
     "Key": "HedgeWitchSpontaneousHealing.Description",
     "ProcessTemplates": false,
-    "enGB": "The hedge witch can channel stored spell energy into healing spells she did not prepare ahead of time. She can 'lose' any prepared spell that is not a cantrip in order to cast any cure spell of the same spell level or lower - from cure light wounds to mass heal - even if she does not know that cure spell.\n(Regenerate is not in the game; 7th-level slots convert to heal instead, which the same-or-lower rule allows.)"
+    "enGB": "She can lose any prepared spell that is not a cantrip to cast any cure spell of the same level or lower - from cure light wounds to mass heal - even if she does not know that cure spell. (Regenerate is not in the game; 7th-level slots convert to heal instead, which the same-or-lower rule allows.)"
   },
   {
     "Key": "HedgeWitchEmpathicHealing.Name",
@@ -5141,7 +5141,7 @@
   {
     "Key": "HedgeWitchEmpathicHealing.Description",
     "ProcessTemplates": false,
-    "enGB": "As a standard action, the hedge witch can minister to a diseased or poisoned creature with a touch, drawing the affliction out of them entirely - all poisons and diseases are removed.\nThe witch suffers the remembered pain: she immediately takes 2d6 points of damage as the last echoes of the affliction pass through her.\n(Tabletop port: the original redirects the victim's next failed save to the witch; Wrath does not expose affliction internals, so the port cures outright and charges a fixed pain instead.)"
+    "enGB": "As a standard action she touches a diseased or poisoned creature and removes all poisons and diseases from it. She suffers the remembered pain, taking 2d6 damage immediately. (Tabletop port: the original redirects the victim's next failed save to the witch; Wrath does not expose affliction internals, so the port cures outright and charges a fixed pain instead.)"
   },
   {
     "Key": "HedgeWitchEmpathicPain.Name",
@@ -5161,7 +5161,7 @@
   {
     "Key": "Jiuweihu.Description",
     "ProcessTemplates": false,
-    "enGB": "The jiuweihu is a kitsune shaman blessed with multiple tails by the kami. She trades her spirit animal for a star jewel that cannot be slain, and grows a new magical tail at 1st level and every two levels thereafter, each granting a spell-like ability. Only kitsune may take this archetype. (The game embeds shaman spirit magic inside each spirit, so the tabletop's spirit-magic trade could not be made; this port is up one trade.)"
+    "enGB": "Considered bringers of fortune and prosperity, a jiuweihu is a kitsune shaman who has been blessed with multiple tails by the spirits of unseen kami. In rare cases, evil jiuweihu who are instead championed by wicked oni are created.\nThe jiuweihu trades her spirit animal for a star jewel - the spirit rests in a grape-sized gem that cannot be slain - and grows a new magical tail at 1st level and every two levels thereafter, each granting a spell-like ability. Only kitsune may take this archetype.\n(Tabletop port note: the game embeds shaman spirit magic inside each spirit, so the tabletop's spirit-magic trade could not be excised - the jiuweihu keeps her spirit magic, and the port is up one trade as a result.)"
   },
   {
     "Key": "JiuweihuStarJewel.Name",
@@ -5171,7 +5171,7 @@
   {
     "Key": "JiuweihuStarJewel.Description",
     "ProcessTemplates": false,
-    "enGB": "The jiuweihu's spirit does not prowl at her side - it rests in a star-cut gem the size of a grape, warm to the touch and quietly alive. The jewel cannot be slain, charmed, or frightened, and needs no feeding.\nAs a bringer of fortune, the jiuweihu gains a +1 luck bonus on all saving throws.\n(Tabletop port: the original jewel bound hex lets the familiar transform into an item - orbit like an ioun stone, gain hardness, and so on. The game has no item-form familiars, so the spirit simply stays in the jewel and grants its fortune.)"
+    "enGB": "The jiuweihu's spirit rests in a star-cut jewel the size of a grape. It cannot be slain, charmed, or frightened, and needs no feeding. She gains a +1 luck bonus on all saving throws. (Tabletop port: the original jewel-bound lets the familiar transform into an item, orbit like an ioun stone, and gain hardness. The game has no item-form familiars, so the spirit stays in the jewel and grants its fortune.)"
   },
   {
     "Key": "JiuweihuTailBlessing.Name",
@@ -5201,7 +5201,7 @@
   {
     "Key": "SpiritRiddenSpirits.Description",
     "ProcessTemplates": false,
-    "enGB": "Choose a spirit of a dead hero to inhabit the shaman's body. Each spirit is a form she can channel at will as a swift action: while channeled, she fights as that spirit's class at her shaman level minus two (no reduction for the first two levels), and - if her body is bare - the spirit's equipment manifests on her. Only one spirit can hold the reins at a time.\nThe Weapon Saint and the Red Warlord answer a first call; the Barefoot Master and the Cutthroat come at 6th level, the Grey Hunter at 12th, and the First Knight at 18th."
+    "enGB": "Choose a spirit of a dead hero to inhabit the shaman's body. Each spirit can be channeled at will as a swift action: while channeled she fights as that spirit's class at her shaman level minus two, with no reduction for the first two levels, and if her body is bare the spirit's equipment manifests on her. Only one spirit can hold the reins at a time. The Weapon Saint and the Red Warlord answer a first call; the Barefoot Master and the Cutthroat come at 6th level, the Grey Hunter at 12th, the First Knight at 18th."
   },
   {
     "Key": "SpiritRiddenSaint.Name",
@@ -5221,7 +5221,7 @@
   {
     "Key": "SpiritRiddenWarlord.Description",
     "ProcessTemplates": false,
-    "enGB": "A warlord whose last battle never ended. While the Warlord holds the reins she fights as a BARBARIAN: martial weapons, a barbarian's full attack progression, and the warlord's unquiet fury - Strength and Constitution surge by +2, rising to +4 and +6 as she grows, Will saves rise by +2, and her recklessness costs her 2 points of armor class."
+    "enGB": "A warlord whose last battle never ended. While the Warlord holds the reins she fights as a barbarian: martial weapons, a barbarian's full attack progression, and Strength and Constitution surging by +2, rising to +4 and +6 as she grows, with +2 on Will saves and a cost of 2 points of armor class."
   },
   {
     "Key": "SpiritRiddenMaster.Name",
@@ -5261,7 +5261,7 @@
   {
     "Key": "SpiritRiddenKnight.Description",
     "ProcessTemplates": false,
-    "enGB": "A paladin who fell at the Worldwound's first opening - and simply refused to stop guarding it. While the Knight holds the reins she fights as a PALADIN: heavy armor and shields, a paladin's full attack progression, climbing dodge and resistance bonuses to defense (+1 per four and per three effective levels), and the Knight's fearlessness: immunity to shaken and frightened."
+    "enGB": "A paladin who fell at the Worldwound's first opening and simply refused to stop guarding it. While the Knight holds the reins she fights as a paladin: heavy armor and shields, a paladin's full attack progression, climbing dodge and resistance bonuses to defense (+1 per four and per three effective levels), and immunity to shaken and frightened."
   },
   {
     "Key": "SpiritRiddenAntlered.Name",
@@ -5271,7 +5271,7 @@
   {
     "Key": "SpiritRiddenAntlered.Description",
     "ProcessTemplates": false,
-    "enGB": "A druid of the old forests who poured herself into the roots rather than let her grove burn - and never fully died. While the Antlered One holds the reins, a dire wolf of the old forest answers her call: it appears beside the vessel and fights for as long as the spirit stays, fading the moment she withdraws. The vessel keeps the druid's lesser arts: the Thorn Lash and the Mend."
+    "enGB": "A druid of the old forests who poured herself into the roots rather than let her grove burn, and never fully died. While the Antlered One holds the reins a dire wolf appears beside the vessel and fights for as long as the spirit stays, fading the moment she withdraws. The vessel keeps the druid's Thorn Lash and Mend."
   },
   {
     "Key": "SpiritRiddenAntleredThorn.Name",
@@ -5331,7 +5331,7 @@
   {
     "Key": "SpiritRiddenArchivist.Description",
     "ProcessTemplates": false,
-    "enGB": "A wizard who catalogued every death in the Worldwound, and read the ledger so often that the fears learned to read back. While the Pale Archivist holds the reins, the vessel speaks her indices of dread. (She teaches no wards and no blessings - a spirit that lent its strength before a battle would be worth more than the vessel herself, so the ledger holds only fears.)"
+    "enGB": "A wizard who catalogued every death in the Worldwound, and read the ledger so often that the fears learned to read back. While the Pale Archivist holds the reins the vessel speaks her indices of dread. She teaches no wards and no blessings; the ledger holds only fears."
   },
   {
     "Key": "SpiritRiddenArchivistDread.Name",
@@ -5371,7 +5371,7 @@
   {
     "Key": "SpellWarrior.Description",
     "ProcessTemplates": false,
-    "enGB": "The spell warrior's song lends arcane power to his allies' weapons rather than inspiring rage. (The tabletop archetype's counterspelling has no place in the Worldwound's wars; this port carries the weapon song only.)"
+    "enGB": "The spell warrior uses his arcane knowledge rather than his rage to turn the tide of battle in favor of himself and his allies. With a clash of bracers and a sonorous chant, his song reaches out to touch the weapons of his allies, lending them arcane power. While his song does not inspire rage, he can use the power of his music to enchant the weapons of his allies. (The counterspelling arts of the tabletop warrior have no place in the Worldwound's wars - this port carries the weapon song only.)"
   },
   {
     "Key": "SpellWarriorEnhance.Name",
@@ -5381,7 +5381,7 @@
   {
     "Key": "SpellWarriorEnhance.Description",
     "ProcessTemplates": false,
-    "enGB": "A raging song of a different kind: while it plays, the weapons of all allies within 60 feet gain an enhancement bonus - +1 at 1st level, increasing by 1 at 5th level and every 5 levels thereafter (to a maximum of +5 at 20th). The bonus overlaps (does not stack with) any enhancement a weapon already has, and the song drains raging-song rounds for every round it plays."
+    "enGB": "While this raging song plays, the weapons of all allies within 60 feet gain an enhancement bonus: +1 at 1st level, increasing by 1 at 5th and every 5 levels thereafter to a maximum of +5 at 20th. The bonus overlaps rather than stacks with any enhancement a weapon already has. The song drains raging-song rounds for every round it plays."
   },
   {
     "Key": "SpellWarriorSong.Name",
@@ -5411,7 +5411,7 @@
   {
     "Key": "Crescendo.Description",
     "ProcessTemplates": false,
-    "enGB": "A raging song of momentum rather than fury. While it plays, every ally within 60 feet builds Momentum: one stack each round in which they land at least one attack or complete at least one spell (maximum 5 stacks). A round in which an ally lands nothing resets that ally's Momentum to zero - only that ally's. Momentum grants morale bonuses to Strength and Constitution (+1 at one stack, +2 at three, +3 at five) and +1 on Will saves, at a cost of 1 AC while it lasts. The song drains one raging-song round per round and ends when none remain."
+    "enGB": "A raging song of momentum. While it plays, every ally within 60 feet gains one Momentum stack per round in which they land at least one attack or complete at least one spell, to a maximum of 5; a round with nothing landed resets that ally's stacks alone. Momentum grants a morale bonus to Strength and Constitution (+1 at one stack, +2 at three, +3 at five) and +1 on Will saves, at a cost of 1 AC. The song drains one raging-song round per round."
   },
   {
     "Key": "CrescendoMomentum.Name",
@@ -5421,7 +5421,7 @@
   {
     "Key": "CrescendoMomentum.Description",
     "ProcessTemplates": false,
-    "enGB": "The crescendo carries this ally: a morale bonus to Strength and Constitution (+1 at one stack of Momentum, +2 at three, +3 at five) and +1 on Will saves, at a cost of 1 AC while it lasts. Each round with at least one landed attack or completed spell adds a stack (maximum 5); a round with nothing landed resets it - and only this ally's."
+    "enGB": "The crescendo carries this ally: a morale bonus to Strength and Constitution (+1 at one stack of Momentum, +2 at three, +3 at five) and +1 on Will saves, at a cost of 1 AC while it lasts. Each round with at least one landed attack or completed spell adds a stack, to a maximum of 5; a round with nothing landed resets it."
   },
   {
     "Key": "Dreadnaught.Name",
@@ -5441,7 +5441,7 @@
   {
     "Key": "DreadnaughtStudy.Description",
     "ProcessTemplates": false,
-    "enGB": "A swift-action study that MARKS a foe: a penalty on all of its saving throws (-1 at 1st level, increasing by 1 at 5th and every 5 levels thereafter, to -5 at 20th) for ten minutes. There is no attack or damage bonus - her study breaks resolve, not guard. A fresh mark also attempts to demoralize the foe: a Persuasion check against 10 + its level + its Wisdom; on a success it is shaken for 1 minute. She adds half her level (minimum 1) on Persuasion checks and is proficient with heavy armor."
+    "enGB": "A swift-action study that marks a foe: a penalty on all of its saving throws (-1 at 1st level, increasing by 1 at 5th and every 5 levels thereafter, to -5 at 20th) for 10 minutes. There is no attack or damage bonus. A fresh mark also attempts to demoralize, a Persuasion check against 10 + its level + its Wisdom; on a success it is shaken for 1 minute. She adds half her level on Persuasion checks and is proficient with heavy armor."
   },
   {
     "Key": "DreadnaughtMark.Name",
@@ -5471,7 +5471,7 @@
   {
     "Key": "GraveWarden.Description",
     "ProcessTemplates": false,
-    "enGB": "The grave warden hunts the undead with knowledge and steel rather than divine power. His blade carries holy water's bite, he wards himself against death, and his finishing stroke unmakes even the oldest of them."
+    "enGB": "While paladins and inquisitors use their connection with the divine to fight undead hordes and other horrors of the night, a grave warden relies on knowledge, skill with weapons, and tenacity to put an end to these night-born terrors. His blade carries holy water's bite, he wards himself against death itself, and the oldest undead fear his finishing stroke: one that does not merely slay them, but unmakes them."
   },
   {
     "Key": "GraveWardenBlessedEdge.Name",
@@ -5501,7 +5501,7 @@
   {
     "Key": "GraveWardenDustbringer.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, the grave warden marks a single undead creature for 1 round. If his next attack against it hits, the mark resolves: the target must succeed at a Will save (DC 10 + half his slayer level + his Intelligence modifier) or be destroyed outright. A target that saves is immune to this grave warden's dustbringer for 24 hours."
+    "enGB": "As a swift action he marks a single undead creature for 1 round. If his next attack against it hits, the target must succeed at a Will save (DC 10 + half his slayer level + Intelligence modifier) or be destroyed outright. A target that saves is immune to this grave warden's dustbringer for 24 hours."
   },
   {
     "Key": "GraveWardenDustbringerMark.Name",
@@ -5531,7 +5531,7 @@
   {
     "Key": "EldritchScrapper.Description",
     "ProcessTemplates": false,
-    "enGB": "An eldritch scrapper is usually spoiling for a fight, looking to prove that she's just as tough as a martial character. A veteran of many brawls against opponents who were suspicious of her manifesting magic, an eldritch scrapper has a thick skin and a fighting style that blends weapons with spells. She trains with every weapon a soldier might carry, and her battlefield instincts let her pick up combat tricks her caster studies never left time for. (Adapted port: the conflicting blood of the tabletop's trades is paid in spells known instead - one fewer at every level, the same price the crossblooded pays.)"
+    "enGB": "An eldritch scrapper blends weapons with spells. She trains with every weapon a soldier might carry, and her battlefield instincts let her pick up combat tricks her caster studies never left time for. (Adapted port: the conflicting blood of the tabletop's trades is paid in spells known instead - one fewer at every level, the same price the crossblooded pays.)"
   },
   {
     "Key": "Overchanneler.Name",
@@ -5551,7 +5551,7 @@
   {
     "Key": "Overchannel.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, the overchanneler opens the channel for 1 round: while it is open, her caster level is increased (+2 at 1st, +4 at 9th, +6 at 17th) and her spells carry that much bonus damage. The moment a spell leaves her through the open channel, her blood pays for it: she takes damage equal to 3 per level of the spell cast."
+    "enGB": "As a swift action she opens the channel for 1 round. While it is open her caster level increases (+2 at 1st, +4 at 9th, +6 at 17th) and her spells carry that much bonus damage. The moment a spell leaves her through the open channel she takes damage equal to 3 per level of the spell cast."
   },
   {
     "Key": "OverchannelBuff.Name",
@@ -5631,7 +5631,7 @@
   {
     "Key": "MendingBladeTithe.Description",
     "ProcessTemplates": false,
-    "enGB": "Whenever the warpriest deals damage to an enemy, every living ally within 30 feet of him (himself included) is healed for a share of the damage dealt (rounded down, minimum 1), as positive-energy healing. The tithe grows as he does: 10% at 8th level, and from 16th level the first hit of each round is a surge that heals 15% (at 20th level, the first two hits each round surge), with all other hits at 10%. The tithe's reach also grows: 45 feet at 10th level, 60 feet at 20th. Weapon blows, spells, and lingering damage all count; damage dealt to allies pays no tithe. A killing blow counts at the full damage rolled, overkill included."
+    "enGB": "Whenever he damages an enemy, every living ally within 30 feet, himself included, is healed for a share of the damage dealt as positive energy, rounded down, minimum 1. The share reaches 10% at 8th level, and from 16th level the first hit of each round surges to 15% (the first two hits at 20th level). The radius grows to 45 feet at 10th level and 60 feet at 20th. Weapon damage, spells, and lingering damage all count; damage dealt to allies pays nothing."
   },
   {
     "Key": "MendingBladeGraveTithe.Name",
@@ -5641,7 +5641,7 @@
   {
     "Key": "MendingBladeGraveTithe.Description",
     "ProcessTemplates": false,
-    "enGB": "Your blessed tithe is paid in grave coin: it becomes negative energy. Undead allies are healed by the tithe exactly as before, but living allies are scorched by it instead - though the scorch can never drop them below 1 hit point. For a party of the living this is a poor trade; for a party of the dead, it is perfect. Requires: Blessed Tithe (the Mending Blade archetype)."
+    "enGB": "Your blessed tithe becomes negative energy. Undead allies are healed by it exactly as before, but living allies are scorched instead, though never below 1 hit point. Requires: Blessed Tithe (the Mending Blade archetype)."
   },
   {
     "Key": "UndeadMaster.Name",
@@ -5651,7 +5651,7 @@
   {
     "Key": "UndeadMaster.Description",
     "ProcessTemplates": false,
-    "enGB": "Undead masters have great power over undeath. Where other wizards study the dead as a subject, the undead master studies them as a congregation - and expects to be obeyed. He commands the dead with the church's own prayers run backwards, fills his book with the animate line, and at the end of his studies the dead simply accept him as one of their own. Trades the wizard bonus feats at 5th/10th/15th/20th. (Port of the Horror Adventures archetype with documented adaptations.)"
+    "enGB": "The undead master commands the dead rather than studying them. He fills his book with the animate line, and at the end of his studies the dead accept him as one of their own. This replaces the wizard bonus feats at 5th, 10th, 15th, and 20th level. (Port of the Horror Adventures archetype with documented adaptations.)"
   },
   {
     "Key": "UndeadMasterCommand.Name",
@@ -5671,7 +5671,7 @@
   {
     "Key": "UndeadMasterReanimator.Description",
     "ProcessTemplates": false,
-    "enGB": "The undead master's studies fill his spellbook with the animate line: lesser animate dead (added at 3rd level), animate dead (5th), and undeath to death (11th) - each the genuine spell, written into the genuine spellbook. (Adapted port: the tabletop also grants repair undead, undead anatomy, create undead, create greater undead, and cursed earth - none exist on this game's spell list - and allows spontaneous casting of the whole list, which the engine does not expose.)"
+    "enGB": "His studies fill his spellbook with the animate line: lesser animate dead at 3rd level, animate dead at 5th, and undeath to death at 11th. (Adapted port: the tabletop also grants repair undead, undead anatomy, create undead, create greater undead, and cursed earth, none of which exist on this game's spell list, and allows spontaneous casting of the whole list, which the engine does not expose.)"
   },
   {
     "Key": "Inkbound.Name",
@@ -5691,7 +5691,7 @@
   {
     "Key": "InkboundInk.Description",
     "ProcessTemplates": false,
-    "enGB": "Each wizard spell the Inkbound casts in combat leaves one measure of ink in the book (the well holds 10 measures at 1st level and 2 more for every five wizard levels after that; the meter is fight-to-fight - the book starts each session blank). The ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately; Recitation is learned at 5th level. Quillwork cannot be used without enough ink in the well. The ink does not persist through save/load."
+    "enGB": "Each wizard spell he casts in combat leaves one measure of ink in the book. The well holds 10 measures at 1st level and 2 more for every five wizard levels after that, and the book starts each session blank. Ink is spent on quillwork: Blot (1 ink) and Wordwall (2 ink) are available immediately, Recitation from 5th level. Quillwork cannot be used without enough ink, and the ink does not persist through save and load."
   },
   {
     "Key": "InkboundBlot.Name",
@@ -5781,7 +5781,7 @@
   {
     "Key": "UndeadMasterCorpseBond.Description",
     "ProcessTemplates": false,
-    "enGB": "The undead master forges his bond with the dead itself: he animates a corpse companion from the lich's own legion and commands it in battle. Choose one - a shield-bearing tank, a two-handed brute, an archer, or a dual wielder. The corpse is player-controlled and grows in power as he does, occupying the standard companion slot - which means an undead master who takes the Lich mythic path commands BOTH his corpse bond and the lich path's own skeletal champion. This replaces his arcane bond (he cannot gain a familiar). (Adapted port: the tabletop's corpse companion, realized with the lich mythic path's own undead pets.)"
+    "enGB": "He animates a corpse companion from the lich's own legion and commands it in battle, choosing a shield-bearing tank, a two-handed brute, an archer, or a dual wielder. The corpse is player-controlled, grows with him, and occupies the standard companion slot - so an undead master who takes the Lich path commands both this and the path's skeletal champion. This replaces arcane bond; he cannot gain a familiar. (Adapted port: the tabletop's corpse companion, realized with the lich mythic path's own undead pets.)"
   },
   {
     "Key": "UndeadMasterCorpseTank.Name",
@@ -5831,7 +5831,7 @@
   {
     "Key": "ElementalistShifter.Description",
     "ProcessTemplates": false,
-    "enGB": "The elementalist shifter draws her power from the planes of Air, Earth, Fire, and Water rather than from beasts. She charges her strikes with elemental force and can take the body of a living elemental. This replaces her aspects, claws, and chimeric aspects. (Port of the Ultimate Wilderness archetype, with documented adaptations.)"
+    "enGB": "Rather than drawing power from bestial aspects, the elementalist shifter channels power from the Inner Sphere - the planes of Air, Earth, Fire, and Water. She charges her strikes with elemental force and steps into a living elemental body. Trades her shifter aspects (and their wild shapes), her claws, and her chimeric aspects. (Port of the Ultimate Wilderness archetype with documented adaptations.)"
   },
   {
     "Key": "ElementalistAspect.Name",
@@ -5891,7 +5891,7 @@
   {
     "Key": "ElementalistStrike.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, charge your melee attacks with elemental energy for 1 round: they deal an additional 1d6 points of energy damage of your chosen element, increasing by 1d6 every 4 levels (to a maximum of 6d6 at 20th). Only one strike can be active at a time - a new strike replaces the old. Only the elements you have chosen with elemental aspect can be used. This replaces shifter claws."
+    "enGB": "As a swift action, charge your melee attacks with elemental energy for 1 round: they deal an additional 1d6 energy damage of your chosen element, increasing by 1d6 every 4 levels to a maximum of 6d6 at 20th. Only one strike can be active at a time, and only elements chosen with elemental aspect can be used. This replaces shifter claws."
   },
   {
     "Key": "ElementalistForm.Name",
@@ -5911,7 +5911,7 @@
   {
     "Key": "ElementalistOmnielementalist.Description",
     "ProcessTemplates": false,
-    "enGB": "At 9th level the elementalist shifter can fuse two of her elemental aspects, manifesting their combined power as a natural phenomenon. She learns one fusion of her choosing (a second at 15th level); each requires its two aspects, and entering one is a swift action lasting 1 minute, usable at will. (Adapted port of the tabletop ability, which fuses minor forms passively.)"
+    "enGB": "At 9th level she can fuse two of her elemental aspects, manifesting their combined power as a natural phenomenon. She learns one fusion of her choosing, and a second at 15th level; each requires its two aspects. Entering one is a swift action lasting 1 minute, usable at will. (Adapted port of the tabletop ability, which fuses minor forms passively.)"
   },
   {
     "Key": "ElementalistFusionAshStorm.Name",
@@ -6001,7 +6001,7 @@
   {
     "Key": "BeastboundLink.Description",
     "ProcessTemplates": false,
-    "enGB": "Link this aspect to her companion: the beast receives the real shifter aspect - the minor-form passive always on, and its major form (the real wild shape) on the beast's own ability bar, ready to shift. While linked, the beast also gains a morale bonus on attack rolls and weapon damage that grows with HER shifter level: +2, then +3 at 8th, +4 at 15th. The shifter does not shift; the beast does."
+    "enGB": "Links this aspect to her companion. The beast receives the real shifter aspect: the minor-form passive is always on, and its major form, the real wild shape, sits on the beast's own ability bar. While linked the beast also gains a morale bonus on attack rolls and weapon damage that grows with her shifter level: +2, then +3 at 8th, +4 at 15th. The shifter does not shift; the beast does."
   },
   {
     "Key": "HolyVindicator.Name",
@@ -6031,7 +6031,7 @@
   {
     "Key": "HVStigmata.Description",
     "ProcessTemplates": false,
-    "enGB": "The vindicator willingly gives his blood in service of his faith. Two stances, each a swift action lasting 1 minute: STIGMATA OF WRATH grants a sacred bonus equal to half his class level (round up) on attack rolls and weapon damage; STIGMATA OF THE MARTYR grants the same bonus on saving throws and AC. The price: while the blood flows, he takes damage equal to half his class level every round. (Adapted: the tabletop's pick-one-of-five, condensed to offense and defense.)"
+    "enGB": "Two stances, each a swift action lasting 1 minute. Stigmata of Wrath grants a sacred bonus equal to half his class level, rounded up, on attack rolls and weapon damage; Stigmata of the Martyr grants the same bonus on saving throws and AC. While either is active he takes damage equal to half his class level every round. (Adapted: the tabletop's pick-one-of-five, condensed to offense and defense.)"
   },
   {
     "Key": "HVStigmataWrath.Name",
@@ -6151,7 +6151,7 @@
   {
     "Key": "RecklessBloodrager.Description",
     "ProcessTemplates": false,
-    "enGB": "The reckless bloodrager spends the magic in her blood on the swing rather than on spells. She fights with fury and nothing else. This replaces blood casting."
+    "enGB": "There is magic in her blood and she has never once asked it for anything. Where another bloodrager learns to shape the power that runs in her veins, the reckless bloodrager spends all of it on the swing - no spells, no subtlety, only the conviction that whatever is standing in front of her will be standing there a moment less than she will. She gives up blood casting entirely for the fury of a woman who has decided in advance that defence is somebody else's problem."
   },
   {
     "Key": "RecklessAbandon.Name",
@@ -6181,7 +6181,7 @@
   {
     "Key": "SacredShield.Description",
     "ProcessTemplates": false,
-    "enGB": "The sacred shield stands between her allies and what is coming. She gains In Harm's Way, taking the damage meant for another, and a shield bonus to Armor Class that grows into damage reduction 5/evil. This replaces smite evil."
+    "enGB": "Some paladins are the sword. She is the wall. The sacred shield has given up the smite that her order is known for and taken up the older work instead: standing between what is behind her and what is coming. She does not destroy the wicked so much as refuse them, and after a while the refusal is its own kind of judgement."
   },
   {
     "Key": "SacredShieldGuard.Name",
@@ -6201,7 +6201,7 @@
   {
     "Key": "BastionOfFaith.Description",
     "ProcessTemplates": false,
-    "enGB": "At 11th level the sacred shield becomes a wall. She gains a +2 sacred bonus to Fortitude, Reflex and Will saves, and damage reduction 5/evil - physical blows that are not evil-aligned lose 5 points against her. The reduction is strong, and it is supposed to be: it is the tabletop's Bastion of Faith, and she has given up smite evil to have it."
+    "enGB": "She gains a +2 sacred bonus to Fortitude, Reflex, and Will saves, and damage reduction 5/evil: physical damage that is not evil-aligned is reduced by 5. Granted at 11th level, alongside the sacred shield's other defenses."
   },
   {
     "Key": "Bloodmarked.Name",
@@ -6211,7 +6211,7 @@
   {
     "Key": "Bloodmarked.Description",
     "ProcessTemplates": false,
-    "enGB": "The bloodmarked sorcerer descends from a werewolf, and the blood still shows. She is calm in violence, her hide is thick, and at 9th level she can take the form of a wolf."
+    "enGB": "Someone in her line was bitten and lived, and the family has not been entirely human since. The bloodmarked sorcerer's power does not come only from her bloodline - it comes from the thing her bloodline came from. She has the bite whether she wants it or not, the hide that goes with it, and a serenity about violence that unsettles people who have never had to think about the moon."
   },
   {
     "Key": "Bloodmark.Name",
@@ -6271,7 +6271,7 @@
   {
     "Key": "PactWizard.Description",
     "ProcessTemplates": false,
-    "enGB": "The pact wizard's magic was given to him on terms he did not choose. He has no familiar and no bonded object; instead he receives five spells, arriving at the levels his patron decides. This replaces arcane bond."
+    "enGB": "He did not find his magic. He was given it, by something that wanted something in return, and the terms were not negotiable. The pact wizard has no familiar and no bonded object - the thing he is bound to is not an item and does not live in a satchel. What the pact gives him is spells he did not learn and could not have chosen: they arrive on schedule, at the levels his patron decides, and they are always the same five."
   },
   {
     "Key": "PactWizardPatronSpell.Description",
@@ -6321,7 +6321,7 @@
   {
     "Key": "InHarmsWay.Description",
     "ProcessTemplates": false,
-    "enGB": "At 3rd level the sacred shield can put herself where the blow is going to land. As a standard action she touches an ally and stands for them for one round: while the mark holds, damage that would strike that ally strikes her instead, in full. There is no save and no splitting - she takes all of it, and she can lay the mark again as often as she has actions to lay it. This is granted alongside the shield bonus at 3rd level."
+    "enGB": "At 3rd level she can put herself where the blow is going to land. As a standard action she touches an ally and stands for them for 1 round: while the mark holds, all damage that would strike that ally strikes her instead, in full. There is no save and no splitting. She can lay the mark again as often as she has actions to lay it."
   },
   {
     "Key": "SacredShieldGuarded.Name",
