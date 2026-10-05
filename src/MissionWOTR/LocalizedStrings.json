@@ -525,7 +525,7 @@
   {
     "Key": "ContactToxinThrow.Description",
     "ProcessTemplates": false,
-    "enGB": "Hurl a vial of contact arcanotoxin at an enemy (expending one daily use). On contact, it delivers your arcanotoxin with a save DC 2 lower than normal."
+    "enGB": "Hurl a vial of contact arcanotoxin at an enemy, expending one daily use. On contact it delivers her arcanotoxin with a save DC 2 lower than normal."
   },
   {
     "Key": "ToxicFumes.Name",
@@ -545,7 +545,7 @@
   {
     "Key": "ToxicFumesThrow.Description",
     "ProcessTemplates": false,
-    "enGB": "Hurl a vial of arcanotoxin that bursts into a 10-foot cloud of fumes (expending one daily use). Enemies in the area are subjected to your arcanotoxin with a save DC 4 lower than normal."
+    "enGB": "Hurl a vial of arcanotoxin that bursts into a 10-foot cloud of fumes, expending one daily use. Enemies in the area are subjected to her arcanotoxin with a save DC 4 lower than normal."
   },
   {
     "Key": "Envenom.Name",
@@ -675,7 +675,7 @@
   {
     "Key": "CoreSelection.Description",
     "ProcessTemplates": false,
-    "enGB": "Choose the core that powers your constructs. The core determines their stat package."
+    "enGB": "Choose the core that powers the crafter's constructs. The core determines their stat package."
   },
   {
     "Key": "ProgramSelection.Name",
@@ -685,7 +685,7 @@
   {
     "Key": "ProgramSelection.Description",
     "ProcessTemplates": false,
-    "enGB": "Choose the program that directs your constructs. The program determines their behavior."
+    "enGB": "Choose the program that directs the crafter's constructs. The program determines their behavior."
   },
   {
     "Key": "ClockworkPlating.Name",
@@ -705,7 +705,7 @@
   {
     "Key": "CrafterProficiencies.Description",
     "ProcessTemplates": false,
-    "enGB": "You are trained with light armor, longbows, shortbows, throwing axes, flails, heavy flails, warhammers, greatclubs, and simple weapons."
+    "enGB": "The crafter is trained with light armor, longbows, shortbows, throwing axes, flails, heavy flails, warhammers, greatclubs, and simple weapons."
   },
   {
     "Key": "DampenedSynthesis.Name",
@@ -715,7 +715,7 @@
   {
     "Key": "DampenedSynthesis.Description",
     "ProcessTemplates": false,
-    "enGB": "Your extract formulae are deliberately hasty imitations. Your caster level for alchemist extracts is reduced (one step per two alchemist levels, to roughly half your level)."
+    "enGB": "The crafter's extract formulae are deliberately hasty imitations. Caster level for alchemist extracts is reduced by one step per two alchemist levels, to roughly half level."
   },
   {
     "Key": "PassiveProgram.Name",
@@ -1023,7 +1023,7 @@
   },
   {
     "Key": "CrafterMarker.Description",
-    "enGB": "Your constructs are bound to you and follow their maker."
+    "enGB": "The crafter's constructs are bound to their maker and follow them."
   },
   {
     "Key": "Breaker.Name",
@@ -1033,7 +1033,7 @@
   {
     "Key": "Breaker.Description",
     "ProcessTemplates": false,
-    "enGB": "You fight whatever the enemy is hiding behind. Destructive lends half your barbarian level as bonus damage on weapon attacks against constructs, and Battle Scavenger lets you swing clubs, staves, and spears with growing expertise. (Adapted for Wrath: the original keys on sunder maneuvers, unattended objects, and improvised weapons, none of which exist here.)"
+    "enGB": "You fight whatever the enemy is hiding behind. Destructive lends half your barbarian level as bonus damage on weapon attacks against constructs, and Battle Scavenger lets you swing clubs, staves, and spears with growing expertise. (Tabletop port: the original keys on sunder maneuvers, unattended objects, and improvised weapons, none of which exist here.)"
   },
   {
     "Key": "BreakerDestructive.Name",
@@ -1253,7 +1253,7 @@
   {
     "Key": "ObsessiveFocus.Description",
     "ProcessTemplates": false,
-    "enGB": "Your magic is honed to a razor's edge. Whenever you cast a damaging spell, one hit of that cast - the first ray, or the first tick of a persistent effect - deals additional damage equal to half your arcanist level (minimum 1). Cantrips receive half this bonus (minimum 1)."
+    "enGB": "Her magic is honed to a razor's edge. Whenever she casts a damaging spell, one hit of that cast - the first ray, or the first tick of a persistent effect - deals additional damage equal to half her arcanist level, minimum 1. Cantrips receive half this bonus, minimum 1."
   },
   {
     "Key": "UnstoppableObsession.Name",
@@ -1263,7 +1263,7 @@
   {
     "Key": "UnstoppableObsession.Description",
     "ProcessTemplates": false,
-    "enGB": "When your chosen element's damage is reduced by immunity or resistance, the target still takes at least 20% of the raw damage, and the floor rises by 5% for every arcanist level beyond 3rd. At 20th level the target takes 105% of the raw damage, as if it were weak to your element. Electricity obsessors begin at 40%; the cap is the same."
+    "enGB": "When her chosen element's damage is reduced by immunity or resistance, the target still takes at least 20% of the raw damage, and the floor rises by 5% for every arcanist level beyond 3rd. At 20th level the target takes 105% of the raw damage, as if it were weak to her element. Electricity obsessors begin at 40%; the cap is the same."
   },
   {
     "Key": "CatharticRelease.Name",
@@ -1283,7 +1283,7 @@
   {
     "Key": "ObsessiveWellspring.Description",
     "ProcessTemplates": false,
-    "enGB": "The hunt feeds the obsession. Whenever a spell of your chosen element kills an enemy, you regain 1 point of arcane reservoir (never exceeding your maximum) - the same reservoir that powers your arcane exploits and Consume Spells."
+    "enGB": "The hunt feeds the obsession. Whenever a spell of her chosen element kills an enemy, she regains 1 point of arcane reservoir, never exceeding her maximum - the same reservoir that powers her arcane exploits and Consume Spells."
   },
   {
     "Key": "ShatteringPitch.Name",
@@ -1293,7 +1293,7 @@
   {
     "Key": "ShatteringPitch.Description",
     "ProcessTemplates": false,
-    "enGB": "Your sonic spells strike a frequency that shatters. When a single-target sonic spell of yours damages an enemy, every other enemy within 10 feet of it takes 25% of the damage dealt."
+    "enGB": "Her sonic spells strike a frequency that shatters. When a single-target sonic spell of hers damages an enemy, every other enemy within 10 feet of it takes 25% of the damage dealt."
   },
   {
     "Key": "CorrosiveAdaptation.Name",
@@ -1303,7 +1303,7 @@
   {
     "Key": "CorrosiveAdaptation.Description",
     "ProcessTemplates": false,
-    "enGB": "Your acid digests even magic that was never acid to begin with. Choose a spell from another element's list: it is added to your acid spell list, and whenever you cast it its damage is converted to acid damage. You may choose again at 16th and 20th level."
+    "enGB": "Her acid digests even magic that was never acid to begin with. Choose a spell from another element's list: it is added to her acid spell list, and whenever she casts it its damage is converted to acid. She may choose again at 16th and 20th level."
   },
   {
     "Key": "MummerMage.Name",
@@ -1323,7 +1323,7 @@
   {
     "Key": "MummerShtick.Description",
     "ProcessTemplates": false,
-    "enGB": "The mummer mage begins with an ornate masterwork quarterstaff that serves as a masterwork prop, granting a +2 circumstance bonus on Persuasion checks to convince others of her arcane mastery. If it is ever lost, she can replace it for 400 gp. Replaces bardic knowledge."
+    "enGB": "The mummer mage begins with an ornate masterwork quarterstaff that serves as a masterwork prop, granting a +2 circumstance bonus on Persuasion checks to convince others of her arcane mastery. If it is ever lost, she can replace it for 400 gp. This replaces bardic knowledge."
   },
   {
     "Key": "MummerImperious.Name",
@@ -1333,7 +1333,7 @@
   {
     "Key": "MummerImperious.Description",
     "ProcessTemplates": false,
-    "enGB": "Starting at 2nd level, the mummer mage gains a +2 bonus on concentration checks when casting bard spells (WOTR simplification: all her casting). Replaces well-versed."
+    "enGB": "Starting at 2nd level, the mummer mage gains a +2 bonus on concentration checks when casting bard spells (WOTR simplification: all her casting). This replaces well-versed."
   },
   {
     "Key": "MummerImitation.Name",
@@ -1343,7 +1343,7 @@
   {
     "Key": "MummerImitation.Description",
     "ProcessTemplates": false,
-    "enGB": "She selects one spell from the wizard spell list of a level she can cast and adds it to her bard spells known, gaining an additional pick at 6th level and every 4 levels thereafter, and again at 16th and 19th. Replaces versatile performance, which does not exist in Wrath, so the feature is additive."
+    "enGB": "She selects one spell from the wizard spell list of a level she can cast and adds it to her bard spells known, gaining an additional pick at 6th level and every 4 levels thereafter, and again at 16th and 19th. This replaces versatile performance, which does not exist in Wrath, so the feature is additive."
   },
   {
     "Key": "MummerAttunement.Name",
@@ -1363,7 +1363,7 @@
   {
     "Key": "MummerMethodActor.Description",
     "ProcessTemplates": false,
-    "enGB": "At 5th level, the mummer mage so thoroughly maintains her wizardly persona that knowledge comes easy: she uses her Charisma instead of Intelligence on all Knowledge (Lore) skill checks - she remembers playing a scholar, convincingly. Replaces lore master."
+    "enGB": "At 5th level, the mummer mage so thoroughly maintains her wizardly persona that knowledge comes easy: she uses her Charisma instead of Intelligence on all Knowledge (Lore) skill checks - she remembers playing a scholar, convincingly. This replaces lore master."
   },
   {
     "Key": "MummerEucatastrophe.Name",
@@ -1653,7 +1653,7 @@
   {
     "Key": "Spellblade.Description",
     "ProcessTemplates": false,
-    "enGB": "A spellblade magus can manifest a ghostly blade of force that can be used as an off-hand weapon.\nForce Athame (Sp): At 2nd level, a spellblade magus can sacrifice a prepared magus spell of 1st level or higher as a swift action to create a dagger of force in his off hand. The athame lasts for 1 minute or until dismissed, has an enhancement bonus on attack and damage rolls equal to the level of the spell sacrificed (maximum +5), acts as a dagger, and attacks with it are force attacks that deal force damage. The hand holding it is still considered free for spell combat and delivering touch attacks.\nThis ability replaces spellstrike."
+    "enGB": "A spellblade magus can manifest a ghostly blade of force that can be used as an off-hand weapon.\nForce Athame (Sp): At 2nd level, a spellblade magus can sacrifice a prepared magus spell of 1st level or higher as a swift action to create a dagger of force in his off hand. The athame lasts for 1 minute or until dismissed, has an enhancement bonus on attack and damage rolls equal to the level of the spell sacrificed (maximum +5), acts as a dagger, and attacks with it are force attacks that deal force damage. The hand holding it is still considered free for spell combat and delivering touch attacks.\nThis replaces spellstrike."
   },
   {
     "Key": "SpellbladeForceAthame.Name",
@@ -1663,7 +1663,7 @@
   {
     "Key": "SpellbladeForceAthame.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, sacrifice a prepared magus spell of 1st level or higher to create a dagger of force in your off hand. The athame lasts 1 minute, has an enhancement bonus on attack and damage equal to the sacrificed spell's level (maximum +5), and deals force damage. The off hand remains free for spell combat."
+    "enGB": "As a swift action, sacrifice a prepared magus spell of 1st level or higher to create a dagger of force in his off hand. The athame lasts 1 minute, has an enhancement bonus on attack and damage equal to the sacrificed spell's level (maximum +5), and deals force damage. The off hand remains free for spell combat."
   },
   {
     "Key": "SpellbladeAthameBuff.Name",
@@ -2063,7 +2063,7 @@
   {
     "Key": "SisterAidAllies.Description",
     "ProcessTemplates": false,
-    "enGB": "While her challenge is active, allies within 30 feet gain a +2 circumstance bonus to AC and on saving throws, rising to +3 at 8th level and +4 at 14th. (Adapted: Wrath has no aid another action - a sister's aid is simply always there.)"
+    "enGB": "While her challenge is active, allies within 30 feet gain a +2 circumstance bonus to AC and on saving throws, rising to +3 at 8th level and +4 at 14th. (Tabletop port: Wrath has no aid another action - a sister's aid is simply always there.)"
   },
   {
     "Key": "SisterAidAlliesBuff.Name",
@@ -2103,7 +2103,7 @@
   {
     "Key": "SisterActAsOne.Description",
     "ProcessTemplates": false,
-    "enGB": "Standard action against one enemy: every ally within 30 feet gains +2 dodge AC for 1 round, and each ally beside the mark strikes it immediately. (Adapted: the tabletop moves every ally; Wrath settles for the blows.)"
+    "enGB": "Standard action against one enemy: every ally within 30 feet gains +2 dodge AC for 1 round, and each ally beside the mark strikes it immediately. (Tabletop port: the tabletop moves every ally; Wrath settles for the blows.)"
   },
   {
     "Key": "SisterActAsOneBuff.Name",
@@ -2203,7 +2203,7 @@
   {
     "Key": "CarouselCharge.Description",
     "ProcessTemplates": false,
-    "enGB": "Charge the target: move at double speed and make a single charge attack. While charging, you provoke no attacks of opportunity."
+    "enGB": "Charge the target: move at double speed and make a single charge attack. While charging she provokes no attacks of opportunity."
   },
   {
     "Key": "CarouselWindRider.Name",
@@ -2213,7 +2213,7 @@
   {
     "Key": "CarouselWindRider.Description",
     "ProcessTemplates": false,
-    "enGB": "While charging, you do not provoke attacks of opportunity. A rider at full gallop is a hard target."
+    "enGB": "While charging she does not provoke attacks of opportunity. A rider at full gallop is a hard target."
   },
   {
     "Key": "CarouselWheel.Name",
@@ -2223,7 +2223,7 @@
   {
     "Key": "CarouselWheel.Description",
     "ProcessTemplates": false,
-    "enGB": "After you charge this round, you may immediately charge a different enemy as a free action. Once per round. Replaces cavalier's charge - the line is upgraded, not lost."
+    "enGB": "After she charges this round, she may immediately charge a different enemy as a free action. Once per round. This replaces cavalier's charge - the line is upgraded, not lost."
   },
   {
     "Key": "CarouselWheelAbility.Name",
@@ -2283,7 +2283,7 @@
   {
     "Key": "CarouselSlipLine.Description",
     "ProcessTemplates": false,
-    "enGB": "Allies never block her charge line - she threads the gaps in her own formation at full gallop. Replaces banner; a standard is a thing for soldiers who stand still."
+    "enGB": "Allies never block her charge line - she threads the gaps in her own formation at full gallop. This replaces banner; a standard is a thing for soldiers who stand still."
   },
   {
     "Key": "CarouselGrand.Name",
@@ -2293,7 +2293,7 @@
   {
     "Key": "CarouselGrand.Description",
     "ProcessTemplates": false,
-    "enGB": "The wheel no longer needs priming: once per round, any round, she may wheel. Her charges gain +2 on attack rolls. Replaces mighty charge."
+    "enGB": "The wheel no longer needs priming: once per round, any round, she may wheel. Her charges gain +2 on attack rolls. This replaces mighty charge."
   },
   {
     "Key": "CarouselGrandBuff.Name",
@@ -2313,7 +2313,7 @@
   {
     "Key": "CarouselEternal.Description",
     "ProcessTemplates": false,
-    "enGB": "The wheel knows no limit - every round is one long charge. Replaces supreme charge."
+    "enGB": "The wheel knows no limit - every round is one long charge. This replaces supreme charge."
   },
   {
     "Key": "Cardinal.Name",
@@ -3388,7 +3388,7 @@
   {
     "Key": "ExplosionInfusion.Description",
     "ProcessTemplates": false,
-    "enGB": "Your kinetic blast detonates violently in a 20-foot radius, hitting every enemy in the area. The explosion accepts 3 points of burn. This is a form infusion usable with every kinetic blast you possess; it is learned through the infusion selection at 9th level or above. (The tabletop's 5th-level form infusion, previously missing from the game.)"
+    "enGB": "The kinetic blast detonates violently in a 20-foot radius, hitting every enemy in the area. The explosion accepts 3 points of burn. This is a form infusion usable with every kinetic blast possessed; it is learned through the infusion selection at 9th level or above. (Tabletop port: the 5th-level form infusion, previously missing from the game.)"
   },
   {
     "Key": "ExplosionAir.Name",
@@ -3713,7 +3713,7 @@
   {
     "Key": "PlanarPlaneSelection.Description",
     "ProcessTemplates": false,
-    "enGB": "Choose the Outer Plane of your affinity. This choice cannot be changed."
+    "enGB": "Choose the Outer Plane she is attuned to. This choice cannot be changed."
   },
   {
     "Key": "PlanarHeaven.Name",
@@ -3723,7 +3723,7 @@
   {
     "Key": "PlanarHeaven.Description",
     "ProcessTemplates": false,
-    "enGB": "The archons' plane of law and good. Your attuned energy is electricity, the light of the Silver City."
+    "enGB": "The archons' plane of law and good. Her attuned energy is electricity, the light of the Silver City."
   },
   {
     "Key": "PlanarHell.Name",
@@ -3733,7 +3733,7 @@
   {
     "Key": "PlanarHell.Description",
     "ProcessTemplates": false,
-    "enGB": "The devils' plane of law and evil. Your attuned energy is fire, the endless pits of Asmodeus."
+    "enGB": "The devils' plane of law and evil. Her attuned energy is fire, the endless pits of Asmodeus."
   },
   {
     "Key": "PlanarAbyss.Name",
@@ -3743,7 +3743,7 @@
   {
     "Key": "PlanarAbyss.Description",
     "ProcessTemplates": false,
-    "enGB": "The demons' plane of chaos and evil. Your attuned energy is cold, the lightless depths of the Worldwound's masters."
+    "enGB": "The demons' plane of chaos and evil. Her attuned energy is cold, the lightless depths of the Worldwound's masters."
   },
   {
     "Key": "PlanarMaelstrom.Name",
@@ -3753,7 +3753,7 @@
   {
     "Key": "PlanarMaelstrom.Description",
     "ProcessTemplates": false,
-    "enGB": "The proteans' plane of pure chaos. Your attuned energy is acid, the dissolving storm at the center of the Great Beyond."
+    "enGB": "The proteans' plane of pure chaos. Her attuned energy is acid, the dissolving storm at the center of the Great Beyond."
   },
   {
     "Key": "PlanarResistance.Name",
@@ -3763,7 +3763,7 @@
   {
     "Key": "PlanarResistance.Description",
     "ProcessTemplates": false,
-    "enGB": "At 3rd level, you gain energy resistance 10 against your chosen plane's associated energy type. This replaces the 3rd-level revelation."
+    "enGB": "At 3rd level she gains energy resistance 10 against her chosen plane's associated energy type. This replaces the 3rd-level revelation."
   },
   {
     "Key": "PlanarResistanceSurge.Name",
@@ -3773,7 +3773,7 @@
   {
     "Key": "PlanarResistanceSurge.Description",
     "ProcessTemplates": false,
-    "enGB": "At 11th level, your energy resistance against your chosen plane's energy type increases to 20."
+    "enGB": "At 11th level her energy resistance against her chosen plane's energy type increases to 20."
   },
   {
     "Key": "PlanarApotheosis.Name",
@@ -3783,7 +3783,7 @@
   {
     "Key": "PlanarApotheosis.Description",
     "ProcessTemplates": false,
-    "enGB": "At 20th level, you become an extraplanar creature. You gain superficial physical characteristics appropriate to natives of your chosen plane, gain immunity to your associated energy type, and gain damage reduction 10/magic. Unlike other outsiders, you can still be brought back from the dead. This replaces your final revelation."
+    "enGB": "At 20th level she becomes an extraplanar creature, gaining superficial physical characteristics appropriate to natives of her chosen plane, immunity to her associated energy type, and damage reduction 10/magic. Unlike other outsiders she can still be brought back from the dead. This replaces her final revelation."
   },
   {
     "Key": "Apocryphal.Name",
@@ -3803,7 +3803,7 @@
   {
     "Key": "ApocryphalGrimoire.Description",
     "ProcessTemplates": false,
-    "enGB": "Copy one wizard spell of a level you can cast into your oracle spells known. The theft is paid for in years of your own life: each stolen spell permanently reduces your maximum hit points by 2."
+    "enGB": "Copy one wizard spell of a level she can cast into her oracle spells known. The theft is paid for in years of her own life: each stolen spell permanently reduces her maximum hit points by 2."
   },
   {
     "Key": "PlanarBonusSpell.Description",
@@ -3968,7 +3968,7 @@
   {
     "Key": "FortunesFoolWanderingStarBuff.Description",
     "ProcessTemplates": false,
-    "enGB": "Your weapon hits on a natural d20 roll of 17+ deal an extra 2d6 damage. Once it fires, the star leaves you until her next turn."
+    "enGB": "Her weapon hits on a natural d20 roll of 17 or higher deal an extra 2d6 damage. Once it fires, the star leaves her until her next turn."
   },
   {
     "Key": "FortunesFoolFavor.Name",
@@ -4008,7 +4008,7 @@
   {
     "Key": "FortunesFoolLaughingBuff.Description",
     "ProcessTemplates": false,
-    "enGB": "Fate's Wager rides your blows: on a natural 1-4 your attack scatters and misses; on a natural 17+ it deals an extra 1d6 per two paladin levels."
+    "enGB": "Fate's Wager rides her blows: on a natural 1-4 the attack scatters and misses; on a natural 17 or higher it deals an extra 1d6 per two paladin levels."
   },
   {
     "Key": "Guide.Name",
@@ -4040,7 +4040,7 @@
   },
   {
     "Key": "GuideFocusAbility.Description",
-    "enGB": "Swift action: mark one enemy within line of sight as your focus. The mark holds until the target dies or you name a new focus. You gain a bonus on attack and damage rolls against your focus: +2, increasing by +2 at 5th level and every five levels thereafter.",
+    "enGB": "Swift action: mark one enemy within line of sight as his focus. The mark holds until the target dies or he names a new focus. He gains a bonus on attack and damage rolls against his focus: +2, increasing by +2 at 5th level and every five levels thereafter.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4103,7 +4103,7 @@
   },
   {
     "Key": "GuideLuckAbility.Description",
-    "enGB": "Swift action: your next attack this round, if it misses, is rerolled. The second result stands - even if it is worse, though only a miss can summon the luck.",
+    "enGB": "Swift action: his next attack this round, if it misses, is rerolled. The second result stands - even if it is worse, though only a miss can summon the luck.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4117,7 +4117,7 @@
   },
   {
     "Key": "GuideLuckBuff.Description",
-    "enGB": "Your next attack roll this round that misses is rerolled. The luck spends itself when it fires.",
+    "enGB": "His next attack roll this round that misses is rerolled. The luck spends itself when it fires.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4194,7 +4194,7 @@
   },
   {
     "Key": "WildbondFeature.Description",
-    "enGB": "Your animal companion carries a species bond that grows with you, improving at 4th, 8th, 12th, 16th, and 20th level. See the bond of your chosen beast. This replaces hunter's bond; the companion itself arrives at 1st level.",
+    "enGB": "Her animal companion carries a species bond that grows with her, improving at 4th, 8th, 12th, 16th, and 20th level. See the bond of her chosen beast. This replaces hunter's bond; the companion itself arrives at 1st level.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4208,7 +4208,7 @@
   },
   {
     "Key": "WildbondDeepening8.Description",
-    "enGB": "The bond deepens. Your companion's bond improves to its second tier: the bear's ward hardens, the boar's fury doubles, the dog runs farther, the phantom elk closes the gap, the leopard's precision grows, the mastodon needs less momentum, the smilodon's stacks climb higher, the raptor's rend deepens, the pack howls wider - and the pack gains attack speed.",
+    "enGB": "The bond deepens to its second tier: the bear's ward hardens, the boar's fury doubles, the dog runs farther, the phantom elk closes the gap, the leopard's precision grows, the mastodon needs less momentum, the smilodon's stacks climb higher, the raptor's rend deepens, the pack howls wider - and the pack gains attack speed.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4222,7 +4222,7 @@
   },
   {
     "Key": "WildbondDeepening12.Description",
-    "enGB": "The bond deepens again (third tier) - and your spells return, eight levels late. The bear wards harder, the boar heals more, the leopard strikes past concealment's edge (+2), the mastodon's impact widens, the smilodon earns an extra attack at six stacks, the raptor's rend bites 1d6, the pack reaches 30 feet at +2/-2.",
+    "enGB": "The bond deepens again, to its third tier - and her spells return, eight levels late. The bear wards harder, the boar heals more, the leopard strikes past concealment's edge (+2), the mastodon's impact widens, the smilodon earns an extra attack at six stacks, the raptor's rend bites 1d6, and the pack reaches 30 feet at +2/-2.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4474,7 +4474,7 @@
   },
   {
     "Key": "WildbondPackBuff.Description",
-    "enGB": "The wolf's howl rides you: bonuses against enemies adjacent to the wolf - and from the second tier, attack speed. Enemies beset by two of the pack suffer.",
+    "enGB": "The wolf's howl rides her: bonuses against enemies adjacent to the wolf, and from the second tier, attack speed. Enemies beset by two of the pack suffer.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4530,7 +4530,7 @@
   },
   {
     "Key": "WildbondRiderBuff.Description",
-    "enGB": "Riding the bond: +10 speed, and mounted charges hit harder as you grow together.",
+    "enGB": "Riding the bond: +10 speed, and mounted charges hit harder as they grow together.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -4600,7 +4600,7 @@
   },
   {
     "Key": "WildbondMarkPrey.Description",
-    "enGB": "Swift action (the hound's): command the dog to designate one enemy as its Prey. When you strike the prey, the hound gains +15 speed for a round; while the prey is prone, you gain a bonus on attack and damage rolls against it. The hound keeps its prey until you command a new one.",
+    "enGB": "Swift action, the hound's: command the dog to designate one enemy as its Prey. When she strikes the prey the hound gains +15 speed for a round, and while the prey is prone she gains a bonus on attack and damage rolls against it. The hound keeps its prey until she commands a new one.",
     "deDE": "",
     "ruRU": "",
     "frFR": ""
@@ -5161,7 +5161,7 @@
   {
     "Key": "Jiuweihu.Description",
     "ProcessTemplates": false,
-    "enGB": "Considered bringers of fortune and prosperity, a jiuweihu is a kitsune shaman who has been blessed with multiple tails by the spirits of unseen kami. In rare cases, evil jiuweihu who are instead championed by wicked oni are created.\nThe jiuweihu trades her spirit animal for a star jewel - the spirit rests in a grape-sized gem that cannot be slain - and grows a new magical tail at 1st level and every two levels thereafter, each granting a spell-like ability. Only kitsune may take this archetype.\n(Tabletop port note: the game embeds shaman spirit magic inside each spirit, so the tabletop's spirit-magic trade could not be excised - the jiuweihu keeps her spirit magic, and the port is up one trade as a result.)"
+    "enGB": "Considered bringers of fortune and prosperity, a jiuweihu is a kitsune shaman who has been blessed with multiple tails by the spirits of unseen kami. In rare cases, evil jiuweihu who are instead championed by wicked oni are created.\nThe jiuweihu trades her spirit animal for a star jewel - the spirit rests in a grape-sized gem that cannot be slain - and grows a new magical tail at 1st level and every two levels thereafter, each granting a spell-like ability. Only kitsune may take this archetype.\n(Tabletop port: the game embeds shaman spirit magic inside each spirit, so the tabletop's spirit-magic trade could not be excised - the jiuweihu keeps her spirit magic, and the port is up one trade as a result.)"
   },
   {
     "Key": "JiuweihuStarJewel.Name",
@@ -5181,7 +5181,7 @@
   {
     "Key": "JiuweihuTailBlessing.Description",
     "ProcessTemplates": false,
-    "enGB": "The ninth tail is the one the myths agree on: it belongs to the spirit, not the fox. Choose one of your Magical Tail spell-like abilities; you can use it one additional time per day. You cannot choose the same tail twice."
+    "enGB": "The ninth tail is the one the myths agree on: it belongs to the spirit, not the fox. She chooses one of her Magical Tail spell-like abilities and can use it one additional time per day. She cannot choose the same tail twice."
   },
   {
     "Key": "SpiritRidden.Name",
@@ -5531,7 +5531,7 @@
   {
     "Key": "EldritchScrapper.Description",
     "ProcessTemplates": false,
-    "enGB": "An eldritch scrapper blends weapons with spells. She trains with every weapon a soldier might carry, and her battlefield instincts let her pick up combat tricks her caster studies never left time for. (Adapted port: the conflicting blood of the tabletop's trades is paid in spells known instead - one fewer at every level, the same price the crossblooded pays.)"
+    "enGB": "An eldritch scrapper blends weapons with spells. She trains with every weapon a soldier might carry, and her battlefield instincts let her pick up combat tricks her caster studies never left time for. (Tabletop port: the conflicting blood of the tabletop's trades is paid in spells known instead - one fewer at every level, the same price the crossblooded pays.)"
   },
   {
     "Key": "Overchanneler.Name",
@@ -5611,7 +5611,7 @@
   {
     "Key": "SacredFistBlessedFortitude.Description",
     "ProcessTemplates": false,
-    "enGB": "The sacred fist's deity shields his body: he gains a +2 sacred bonus on Fortitude saving throws. (Adapted port: the tabletop's avoid-the-effect-entirely rule is not something the game exposes to mods; a save bonus stands in its place.)"
+    "enGB": "The sacred fist's deity shields his body: he gains a +2 sacred bonus on Fortitude saving throws. (Tabletop port: the tabletop's avoid-the-effect-entirely rule is not something the game exposes to mods; a save bonus stands in its place.)"
   },
   {
     "Key": "MendingBlade.Name",
@@ -5641,7 +5641,7 @@
   {
     "Key": "MendingBladeGraveTithe.Description",
     "ProcessTemplates": false,
-    "enGB": "Your blessed tithe becomes negative energy. Undead allies are healed by it exactly as before, but living allies are scorched instead, though never below 1 hit point. Requires: Blessed Tithe (the Mending Blade archetype)."
+    "enGB": "His blessed tithe becomes negative energy. Undead allies are healed by it exactly as before, but living allies are scorched instead, though never below 1 hit point. Requires: Blessed Tithe (the Mending Blade archetype)."
   },
   {
     "Key": "UndeadMaster.Name",
@@ -5651,7 +5651,7 @@
   {
     "Key": "UndeadMaster.Description",
     "ProcessTemplates": false,
-    "enGB": "The undead master commands the dead rather than studying them. He fills his book with the animate line, and at the end of his studies the dead accept him as one of their own. This replaces the wizard bonus feats at 5th, 10th, 15th, and 20th level. (Port of the Horror Adventures archetype with documented adaptations.)"
+    "enGB": "The undead master commands the dead rather than studying them. He fills his book with the animate line, and at the end of his studies the dead accept him as one of their own. This replaces the wizard bonus feats at 5th, 10th, 15th, and 20th level. (Tabletop port: the Horror Adventures archetype with documented adaptations.)"
   },
   {
     "Key": "UndeadMasterCommand.Name",
@@ -5661,7 +5661,7 @@
   {
     "Key": "UndeadMasterCommand.Description",
     "ProcessTemplates": false,
-    "enGB": "The undead master casts the Command Undead spell as a special ability, on its own pool: 3 uses per day, plus one at 6th, 12th, and 18th level. (Adapted port: the tabletop's Command Undead feat, powered by channel energy or school-power uses, does not exist in this game - the real spell stands in for it.)"
+    "enGB": "The undead master casts the Command Undead spell as a special ability, on its own pool: 3 uses per day, plus one at 6th, 12th, and 18th level. (Tabletop port: the tabletop's Command Undead feat, powered by channel energy or school-power uses, does not exist in this game - the real spell stands in for it.)"
   },
   {
     "Key": "UndeadMasterReanimator.Name",
@@ -5671,7 +5671,7 @@
   {
     "Key": "UndeadMasterReanimator.Description",
     "ProcessTemplates": false,
-    "enGB": "His studies fill his spellbook with the animate line: lesser animate dead at 3rd level, animate dead at 5th, and undeath to death at 11th. (Adapted port: the tabletop also grants repair undead, undead anatomy, create undead, create greater undead, and cursed earth, none of which exist on this game's spell list, and allows spontaneous casting of the whole list, which the engine does not expose.)"
+    "enGB": "His studies fill his spellbook with the animate line: lesser animate dead at 3rd level, animate dead at 5th, and undeath to death at 11th. (Tabletop port: the tabletop also grants repair undead, undead anatomy, create undead, create greater undead, and cursed earth, none of which exist on this game's spell list, and allows spontaneous casting of the whole list, which the engine does not expose.)"
   },
   {
     "Key": "Inkbound.Name",
@@ -5781,7 +5781,7 @@
   {
     "Key": "UndeadMasterCorpseBond.Description",
     "ProcessTemplates": false,
-    "enGB": "He animates a corpse companion from the lich's own legion and commands it in battle, choosing a shield-bearing tank, a two-handed brute, an archer, or a dual wielder. The corpse is player-controlled, grows with him, and occupies the standard companion slot - so an undead master who takes the Lich path commands both this and the path's skeletal champion. This replaces arcane bond; he cannot gain a familiar. (Adapted port: the tabletop's corpse companion, realized with the lich mythic path's own undead pets.)"
+    "enGB": "He animates a corpse companion from the lich's own legion and commands it in battle, choosing a shield-bearing tank, a two-handed brute, an archer, or a dual wielder. The corpse is player-controlled, grows with him, and occupies the standard companion slot - so an undead master who takes the Lich path commands both this and the path's skeletal champion. This replaces arcane bond; he cannot gain a familiar. (Tabletop port: the tabletop's corpse companion, realized with the lich mythic path's own undead pets.)"
   },
   {
     "Key": "UndeadMasterCorpseTank.Name",
@@ -5831,7 +5831,7 @@
   {
     "Key": "ElementalistShifter.Description",
     "ProcessTemplates": false,
-    "enGB": "Rather than drawing power from bestial aspects, the elementalist shifter channels power from the Inner Sphere - the planes of Air, Earth, Fire, and Water. She charges her strikes with elemental force and steps into a living elemental body. Trades her shifter aspects (and their wild shapes), her claws, and her chimeric aspects. (Port of the Ultimate Wilderness archetype with documented adaptations.)"
+    "enGB": "Rather than drawing power from bestial aspects, the elementalist shifter channels power from the Inner Sphere - the planes of Air, Earth, Fire, and Water. She charges her strikes with elemental force and steps into a living elemental body. Trades her shifter aspects (and their wild shapes), her claws, and her chimeric aspects. (Tabletop port: the Ultimate Wilderness archetype with documented adaptations.)"
   },
   {
     "Key": "ElementalistAspect.Name",
@@ -5891,7 +5891,7 @@
   {
     "Key": "ElementalistStrike.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, charge your melee attacks with elemental energy for 1 round: they deal an additional 1d6 energy damage of your chosen element, increasing by 1d6 every 4 levels to a maximum of 6d6 at 20th. Only one strike can be active at a time, and only elements chosen with elemental aspect can be used. This replaces shifter claws."
+    "enGB": "As a swift action, charge her melee attacks with elemental energy for 1 round: they deal an additional 1d6 energy damage of her chosen element, increasing by 1d6 every 4 levels to a maximum of 6d6 at 20th. Only one strike can be active at a time, and only elements chosen with elemental aspect can be used. This replaces shifter claws."
   },
   {
     "Key": "ElementalistForm.Name",
@@ -5911,7 +5911,7 @@
   {
     "Key": "ElementalistOmnielementalist.Description",
     "ProcessTemplates": false,
-    "enGB": "At 9th level she can fuse two of her elemental aspects, manifesting their combined power as a natural phenomenon. She learns one fusion of her choosing, and a second at 15th level; each requires its two aspects. Entering one is a swift action lasting 1 minute, usable at will. (Adapted port of the tabletop ability, which fuses minor forms passively.)"
+    "enGB": "At 9th level she can fuse two of her elemental aspects, manifesting their combined power as a natural phenomenon. She learns one fusion of her choosing, and a second at 15th level; each requires its two aspects. Entering one is a swift action lasting 1 minute, usable at will. (Tabletop port of the tabletop ability, which fuses minor forms passively.)"
   },
   {
     "Key": "ElementalistFusionAshStorm.Name",
@@ -6011,7 +6011,7 @@
   {
     "Key": "HolyVindicator.Description",
     "ProcessTemplates": false,
-    "enGB": "Paragons of battle, eschewing sermons for steel - living conduits of divine power, down to their very blood, which they happily shed in a moment if it brings greater glory to their deity. A 10-level prestige class (d10, full base attack) for those who already channel energy: bleeding stigmata, a shield of faith, and divine spellcasting that keeps growing. (Adapted port of the Advanced Player's Guide prestige class.)"
+    "enGB": "Paragons of battle, eschewing sermons for steel - living conduits of divine power, down to their very blood, which they happily shed in a moment if it brings greater glory to their deity. A 10-level prestige class (d10, full base attack) for those who already channel energy: bleeding stigmata, a shield of faith, and divine spellcasting that keeps growing. (Tabletop port of the Advanced Player's Guide prestige class.)"
   },
   {
     "Key": "HVShield.Name",
@@ -6021,7 +6021,7 @@
   {
     "Key": "HVShield.Description",
     "ProcessTemplates": false,
-    "enGB": "As a swift action, the vindicator wraps himself in his faith for 1 minute, gaining a +2 sacred bonus to AC. The shield strengthens as he does: +3 at 4th level, +4 at 7th, +5 at 10th. (Adapted: the tabletop's channel-fed 24-hour shield, scaled to class level.)"
+    "enGB": "As a swift action, the vindicator wraps himself in his faith for 1 minute, gaining a +2 sacred bonus to AC. The shield strengthens as he does: +3 at 4th level, +4 at 7th, +5 at 10th. (Tabletop port: the tabletop's channel-fed 24-hour shield, scaled to class level.)"
   },
   {
     "Key": "HVStigmata.Name",
@@ -6031,7 +6031,7 @@
   {
     "Key": "HVStigmata.Description",
     "ProcessTemplates": false,
-    "enGB": "Two stances, each a swift action lasting 1 minute. Stigmata of Wrath grants a sacred bonus equal to half his class level, rounded up, on attack rolls and weapon damage; Stigmata of the Martyr grants the same bonus on saving throws and AC. While either is active he takes damage equal to half his class level every round. (Adapted: the tabletop's pick-one-of-five, condensed to offense and defense.)"
+    "enGB": "Two stances, each a swift action lasting 1 minute. Stigmata of Wrath grants a sacred bonus equal to half his class level, rounded up, on attack rolls and weapon damage; Stigmata of the Martyr grants the same bonus on saving throws and AC. While either is active he takes damage equal to half his class level every round. (Tabletop port: the tabletop's pick-one-of-five, condensed to offense and defense.)"
   },
   {
     "Key": "HVStigmataWrath.Name",
@@ -6051,7 +6051,7 @@
   {
     "Key": "HVFaithHealing.Description",
     "ProcessTemplates": false,
-    "enGB": "Healing the vindicator casts on himself is buoyed by his faith: it gains a bonus equal to half his class level (round up). At 8th level the bonus doubles. (Adapted: the tabletop's empower-then-maximize, done as flat bonuses.)"
+    "enGB": "Healing the vindicator casts on himself is buoyed by his faith: it gains a bonus equal to half his class level (round up). At 8th level the bonus doubles. (Tabletop port: the tabletop's empower-then-maximize, done as flat bonuses.)"
   },
   {
     "Key": "HVBloodfire.Name",
@@ -6061,7 +6061,7 @@
   {
     "Key": "HVBloodfire.Description",
     "ProcessTemplates": false,
-    "enGB": "While his stigmata bleed, the vindicator's blood runs down his weapons: his melee attacks deal an additional 1d6 points of damage. (Adapted: the tabletop's Channel Smite rider - Channel Smite itself does not exist in this game.)"
+    "enGB": "While his stigmata bleed, the vindicator's blood runs down his weapons: his melee attacks deal an additional 1d6 points of damage. (Tabletop port: the tabletop's Channel Smite rider - Channel Smite itself does not exist in this game.)"
   },
   {
     "Key": "HVSpellcasting.Name",
