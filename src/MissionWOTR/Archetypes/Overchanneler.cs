@@ -233,25 +233,39 @@ namespace MissionWOTR.Archetypes
       var perDay = perDayRef?.Get();
       var levelsField = typeof(BlueprintSpellsTable).GetField("Levels", flags);
       var sourceLevels = levelsField?.GetValue(perDay) as SpellsLevelEntry[];
-      var countField = typeof(SpellsLevelEntry).GetField("Count", flags);
-      if (sourceLevels is null || countField is null)
+      if (sourceLevels is null)
       {
         MissionFeats.Logger.Warn(
           "[overchanneler] per-day table shape unexpected (Levels=" +
-          (levelsField?.GetValue(perDay)?.GetType().Name ?? "null") + ", Count field=" +
-          (countField is null ? "missing" : countField.FieldType.Name) +
+          (levelsField?.GetValue(perDay)?.GetType().Name ?? "null") +
           ") - using the source book untaxed.");
         return source;
       }
       var levels = new SpellsLevelEntry[sourceLevels.Length];
       for (var i = 0; i < sourceLevels.Length; i++)
       {
+        // 0.61.0 — SpellsLevelEntry.Count is `public int[] Count`, one spells-per-day figure per
+        // SPELL level, not a single scalar. Every earlier version read it as an int:
+        // Convert.ToInt32(int[]) throws "Specified cast is not valid", which is the exact
+        // exception in the playtest log and the reason the whole archetype never reached the
+        // game. No reflection is needed here - the field is public and typed.
         var entry = new SpellsLevelEntry();
-        // Convert, never unbox: Count's exact integer type is not ours to assume.
-        var count = Convert.ToInt32(countField.GetValue(sourceLevels[i]));
-        countField.SetValue(entry, Math.Max(1, count + delta));
+        var sourceCount = sourceLevels[i]?.Count;
+        if (sourceCount is not null)
+        {
+          var taxed = new int[sourceCount.Length];
+          for (var s = 0; s < sourceCount.Length; s++)
+          {
+            // Tax each slot, but never invent one: a level that granted no spells of a given
+            // spell level still grants none.
+            taxed[s] = sourceCount[s] <= 0 ? 0 : Math.Max(1, sourceCount[s] + delta);
+          }
+          entry.Count = taxed;
+        }
         levels[i] = entry;
       }
+      MissionFeats.Logger.Info(
+        $"[overchanneler] taxed per-day table built: {levels.Length} caster levels.");
       var table = SpellsTableConfigurator.New(tableName, tableGuid)
         .SetLevels(levels)
         .Configure();

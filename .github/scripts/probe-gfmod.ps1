@@ -108,6 +108,20 @@ if ($sample) {
   Get-Content $path | Select-Object -First 90 | ForEach-Object { Log ("  " + $_) }
 }
 
+# --- Every .patch and the vanilla blueprint it targets --------------------------
+# v3: a .patch file's own AssetId IS the AssetId of the vanilla blueprint it modifies.
+# That is the missing link for companion dialogue - the mod cannot name Seelah's dialog
+# by GUID because the startup dialog dump runs before vanilla dialogs are materialized,
+# and this list gives it directly. Filename convention is gfr__<VanillaAssetName>.patch.
+Log "=== patch targets: each .patch and the vanilla blueprint it modifies ==="
+foreach ($p in ($patches | Sort-Object Name)) {
+  $tid = $null
+  try { $tid = (Get-Content $p.FullName -Raw | ConvertFrom-Json).AssetId } catch { }
+  if (-not $tid) { $tid = '<unreadable>' }
+  $vanilla = ($p.BaseName -replace '^gfr__', '')
+  Log ("  {0,-52} {1}  ({2})" -f $vanilla, $tid, $p.Name)
+}
+
 # --- One .patch in full: how an existing blueprint gets modified ---------------
 # GF injects reactions into conversations the game already has. The patches are
 # the mechanism, and reading one is worth more than any amount of inference.

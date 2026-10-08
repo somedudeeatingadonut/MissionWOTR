@@ -690,6 +690,8 @@ namespace MissionWOTR
     internal const string ObsessorFixationApplier = "8F2270A5-31E2-4273-A097-51DE93FC9B78";
     internal const string BreakerSunderAbility = "25E9949D-0D44-4ECE-A46B-9E789D9B7528";
     internal const string BreakerSunderFeature = "BFBA8E36-56C2-49C6-9F79-6097DC777EC7";
+    // 0.61.0: the injected companion-conversation test line (Seelah).
+    internal const string SeelahTestCue = "550CB742-5068-42A9-A326-AB5124BB9270";
     internal const string SetConstructDirectiveComponent = "3BA0355E-B056-4378-99C0-0158409687DC";
     internal const string SinEaterArchetype = "E1AD0165-B2A3-478A-8329-F8CDFFDF4BBB";
     internal const string SinEaterEatSin = "C2D3C6E9-246F-43B1-ABA5-E5C9CF6EC7E5";

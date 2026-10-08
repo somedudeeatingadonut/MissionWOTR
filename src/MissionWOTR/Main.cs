@@ -34,6 +34,7 @@ namespace MissionWOTR
         Logger.Info($"MissionWOTR v{modEntry.Info.Version} loading.");
         var harmony = new Harmony(modEntry.Info.Id);
         PatchAllSafely(harmony);
+        CompanionTestLines.Install(harmony);
         Kingmaker.PubSubSystem.EventBus.Subscribe(new ConstructAreaProbe());
         Logger.Info("MissionWOTR loaded; patches applied.");
       }
@@ -98,11 +99,13 @@ namespace MissionWOTR
           Logger.Info("Configuring blueprints.");
           LoadLocalization();
           MissionFeats.ConfigureAll();
+          CompanionTestLines.Configure();
           DumpModStamp();
           DumpDialogInventory();
           DumpCompanionInventory();
           DumpLocalizationCoverage();
           DumpGuidCensus();
+          DumpContentInventory();
         }
         catch (Exception e)
         {
@@ -389,6 +392,231 @@ namespace MissionWOTR
     ///
     /// Read-only: it reads no game state it does not log and changes nothing.
     /// </summary>
+    private const BindingFlags InvFlags =
+      BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+
+    private static string NormalizeGuid(string guid) =>
+      (guid ?? "").Trim().Trim('{', '}').Replace("-", "").ToLowerInvariant();
+
+    /// <summary>Reads a field or property by name. Reflection throughout: this build
+    /// compiles against non-publicized game DLLs.</summary>
+    private static object Read(object target, string member)
+    {
+      if (target is null) { return null; }
+      try
+      {
+        var t = target.GetType();
+        var field = t.GetField(member, InvFlags);
+        if (field is not null) { return field.GetValue(target); }
+        return t.GetProperty(member, InvFlags)?.GetValue(target);
+      }
+      catch
+      {
+        return null;
+      }
+    }
+
+    /// <summary>Renders a blueprint reference (or a collection of them) as names.
+    /// A reference that will not resolve renders as NULL-REF, which is exactly the
+    /// silent-failure signature that hid the ConstructCrafter command menus.</summary>
+    private static string OneName(object item)
+    {
+      if (item is null) { return "null"; }
+      try
+      {
+        var get = item.GetType().GetMethod("Get", Type.EmptyTypes);
+        var resolved = get is not null ? get.Invoke(item, null) : item;
+        if (resolved is null) { return "NULL-REF"; }
+        var name = Read(resolved, "name") ?? Read(resolved, "Name");
+        return name?.ToString() ?? resolved.GetType().Name;
+      }
+      catch
+      {
+        return "NULL-REF";
+      }
+    }
+
+    private static string Names(object value)
+    {
+      if (value is null) { return "-"; }
+      if (value is string s) { return s; }
+      if (value is System.Collections.IEnumerable seq)
+      {
+        var parts = new List<string>();
+        foreach (var item in seq) { parts.Add(OneName(item)); }
+        return parts.Count == 0 ? "-" : string.Join(", ", parts);
+      }
+      return OneName(value);
+    }
+
+    private static string ActionNames(object actions)
+    {
+      if (actions is not System.Collections.IEnumerable seq) { return "-"; }
+      var parts = new List<string>();
+      foreach (var a in seq)
+      {
+        if (a is null) { parts.Add("null"); continue; }
+        string caption = null;
+        try
+        {
+          caption = a.GetType().GetMethod("GetCaption", Type.EmptyTypes)?.Invoke(a, null)?.ToString();
+        }
+        catch
+        {
+          // A caption is a convenience; the type name is enough.
+        }
+        parts.Add(string.IsNullOrEmpty(caption) ? a.GetType().Name : caption);
+      }
+      return parts.Count == 0 ? "-" : string.Join(", ", parts);
+    }
+
+    private static void DescribeComponents(SimpleBlueprint bp, List<string> d, string tag)
+    {
+      if (Read(bp, "Components") is not System.Collections.IEnumerable comps) { return; }
+      foreach (var c in comps)
+      {
+        if (c is null)
+        {
+          d.Add($"      [{tag}] component null");
+          continue;
+        }
+        var cn = c.GetType().Name;
+        // AddFacts is how a feature hands out abilities and other facts. An ability
+        // granted straight into AddToAddFeatures shows up here as NULL-REF.
+        if (cn.Contains("AddFacts"))
+        {
+          d.Add($"      [{tag}] {cn} -> {Names(Read(c, "m_Facts") ?? Read(c, "Facts"))}");
+        }
+        else
+        {
+          d.Add($"      [{tag}] {cn}");
+        }
+      }
+    }
+
+    private static void DescribeLevelEntries(object entries, string prefix, List<string> d)
+    {
+      if (entries is not System.Collections.IEnumerable seq) { return; }
+      foreach (var e in seq)
+      {
+        d.Add($"{prefix}L{Read(e, "Level")}: {Names(Read(e, "Features"))}");
+      }
+    }
+
+    private static void DescribeBlueprint(SimpleBlueprint bp, List<string> d)
+    {
+      var typeName = bp.GetType().Name;
+      if (typeName == "BlueprintArchetype")
+      {
+        d.Add($"      parent={OneName(Read(bp, "ParentClass"))} " +
+          $"removeSpellbook={Read(bp, "RemoveSpellbook")} " +
+          $"replaceSpellbook={OneName(Read(bp, "ReplaceSpellbook"))}");
+        DescribeLevelEntries(Read(bp, "AddFeatures"), "      +", d);
+        DescribeLevelEntries(Read(bp, "RemoveFeatures"), "      -", d);
+        return;
+      }
+      if (typeName == "BlueprintAbility")
+      {
+        d.Add($"      type={Read(bp, "Type")} range={Read(bp, "Range")} " +
+          $"action={Read(bp, "ActionType")} enemies={Read(bp, "CanTargetEnemies")} " +
+          $"friends={Read(bp, "CanTargetFriends")} self={Read(bp, "CanTargetSelf")}");
+        DescribeComponents(bp, d, "ability");
+        if (Read(bp, "Components") is System.Collections.IEnumerable comps)
+        {
+          foreach (var c in comps)
+          {
+            if (c is null || !c.GetType().Name.Contains("AbilityEffectRunAction")) { continue; }
+            d.Add($"      [ability] effect actions: {ActionNames(Read(Read(c, "Actions"), "Actions"))}");
+          }
+        }
+        var variants = Read(bp, "Variants");
+        if (variants is not null) { d.Add($"      variants={Names(variants)}"); }
+        return;
+      }
+      if (typeName == "BlueprintBuff")
+      {
+        DescribeComponents(bp, d, "buff");
+        return;
+      }
+      if (typeName.StartsWith("BlueprintFeature"))
+      {
+        d.Add($"      groups={Names(Read(bp, "Groups"))} ranks={Read(bp, "Ranks")}");
+        DescribeComponents(bp, d, "feat");
+        if (Read(bp, "Prerequisites") is System.Collections.IEnumerable prereqs)
+        {
+          var names = new List<string>();
+          foreach (var p in prereqs) { names.Add(p?.GetType().Name ?? "null"); }
+          if (names.Count > 0) { d.Add("      prereqs=" + string.Join(", ", names)); }
+        }
+      }
+    }
+
+    /// <summary>
+    /// 0.61.0 - full content inventory. Every feat, ability, buff and archetype this mod
+    /// creates, written to the log at startup along with the things that actually break:
+    /// what an archetype grants at each level, what a feature hands out, what an ability's
+    /// effect runs. The point is that a playtest problem can be located from the log alone
+    /// instead of costing another diagnostic round trip - the ConstructCrafter command
+    /// menus were invisible until a grant list was dumped and two NULL-REFs appeared in it.
+    ///
+    /// BlueprintTool.GetGuidsByName() is the registry of everything our configurators
+    /// created. Intersecting it with the GUIDs declared in Guids.cs drops the vanilla
+    /// mappings BPCore also registers, and drops the [TypeId] constants, which were never
+    /// blueprints to begin with.
+    /// </summary>
+    private static void DumpContentInventory()
+    {
+      try
+      {
+        var declared = typeof(Guids)
+          .GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
+          .Where(f => f.IsLiteral && f.FieldType == typeof(string))
+          .Select(f => f.GetValue(null) as string)
+          .Where(s => !string.IsNullOrEmpty(s))
+          .Select(NormalizeGuid)
+          .ToHashSet();
+
+        var counts = new SortedDictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+        var missing = new List<string>();
+        var seen = 0;
+
+        foreach (var pair in BlueprintTool.GetGuidsByName()
+                   .OrderBy(p => p.Key, StringComparer.OrdinalIgnoreCase))
+        {
+          if (!declared.Contains(NormalizeGuid(pair.Value))) { continue; }
+          seen++;
+          if (!BlueprintTool.TryGet<SimpleBlueprint>(pair.Value, out var bp) || bp is null)
+          {
+            missing.Add(pair.Key);
+            Logger.Warn($"[inv] MISSING {pair.Key} ({NormalizeGuid(pair.Value)}) - registered " +
+              "by name but no blueprint resolves to it.");
+            continue;
+          }
+          var kind = bp.GetType().Name;
+          counts[kind] = counts.TryGetValue(kind, out var n) ? n + 1 : 1;
+          var detail = new List<string>();
+          try
+          {
+            DescribeBlueprint(bp, detail);
+          }
+          catch (Exception inner)
+          {
+            detail.Add($"      <describe failed: {inner.GetType().Name}: {inner.Message}>");
+          }
+          Logger.Info($"[inv] {kind} {pair.Key} {NormalizeGuid(pair.Value)}" +
+            (detail.Count == 0 ? "" : "\n" + string.Join("\n", detail)));
+        }
+
+        Logger.Info($"[inv] content inventory: {seen} blueprints created by this mod, " +
+          $"{missing.Count} unresolved. By type: " +
+          string.Join(", ", counts.Select(c => $"{c.Key}={c.Value}")));
+      }
+      catch (Exception e)
+      {
+        Logger.Error("[inv] content inventory failed.", e);
+      }
+    }
+
     private static void DumpLocalizationPackShape()
     {
       try
