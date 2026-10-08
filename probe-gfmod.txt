@@ -268,105 +268,105 @@ Extracting GraciousFriendships-430-0-9-9b-1725651821.zip
       "ShadowDeleted": false
     }
   }
-=== patch targets: each .patch and the vanilla blueprint it modifies ===
-  Daeran_Main_dialog                                   <unreadable>  (gfr__Daeran_Main_dialog.patch)
-  Dialogue_Arueshalae_Main                             <unreadable>  (gfr__Dialogue_Arueshalae_Main.patch)
-  Dialogue_CameliaMain                                 <unreadable>  (gfr__Dialogue_CameliaMain.patch)
-  Dialogue_Ember_Main                                  <unreadable>  (gfr__Dialogue_Ember_Main.patch)
-  Dialogue_Sosiel_Main                                 <unreadable>  (gfr__Dialogue_Sosiel_Main.patch)
-  DialogueWoljif_main                                  <unreadable>  (gfr__DialogueWoljif_main.patch)
-  DLC4_Shifter_CompanionDialogue                       <unreadable>  (gfr__DLC4_Shifter_CompanionDialogue.patch)
-  EvilArueshalaeCompanion_Dialogue                     <unreadable>  (gfr__EvilArueshalaeCompanion_Dialogue.patch)
-  GrimborMainDialogue                                  <unreadable>  (gfr__GrimborMainDialogue.patch)
-  Lann_Main_dialog                                     <unreadable>  (gfr__Lann_Main_dialog.patch)
-  NenioCompanion_dialogue                              <unreadable>  (gfr__NenioCompanion_dialogue.patch)
-  Regill_Main_dialog                                   <unreadable>  (gfr__Regill_Main_dialog.patch)
-  Seelah_Main_dialog                                   <unreadable>  (gfr__Seelah_Main_dialog.patch)
-  gfr_ch0_choice_wenduag_lann_Answer_0013_run_wenduag  <unreadable>  (gfr_ch0_choice_wenduag_lann_Answer_0013_run_wenduag.patch)
-  gfr_ch0_choice_wenduag_lann_Answer_0027_wenduag      <unreadable>  (gfr_ch0_choice_wenduag_lann_Answer_0027_wenduag.patch)
-  gfr_ch0_choice_wenduag_lann_Answer_0034_lann         <unreadable>  (gfr_ch0_choice_wenduag_lann_Answer_0034_lann.patch)
-  gfr_ch0_choice_wenduag_lann_Answer_0068_attack_lann  <unreadable>  (gfr_ch0_choice_wenduag_lann_Answer_0068_attack_lann.patch)
-  gfr_ch0_choice_wenduag_lann_Answer_0069_attack_wenduag <unreadable>  (gfr_ch0_choice_wenduag_lann_Answer_0069_attack_wenduag.patch)
-  gfr_ch0_choice_wenduag_lann_Answer_0090              <unreadable>  (gfr_ch0_choice_wenduag_lann_Answer_0090.patch)
-  gfr_ch0_choice_wenduag_lann_Answer_0097_run_lann     <unreadable>  (gfr_ch0_choice_wenduag_lann_Answer_0097_run_lann.patch)
-  gfr_ch0_choice_wenduag_lann_AnswersList_0106         <unreadable>  (gfr_ch0_choice_wenduag_lann_AnswersList_0106.patch)
-  gfr_ch0_lann_who_are_you_Answer_0011_non-tiefling    <unreadable>  (gfr_ch0_lann_who_are_you_Answer_0011_non-tiefling.patch)
-  gfr_ch0_lann_who_are_you_AnswersList_0006            <unreadable>  (gfr_ch0_lann_who_are_you_AnswersList_0006.patch)
-  gfr_ch0_meeting_horgus_noble_AnswersList_0002        <unreadable>  (gfr_ch0_meeting_horgus_noble_AnswersList_0002.patch)
-  gfr_ch0_showing_sword_to_sull_AnswersList_0007       <unreadable>  (gfr_ch0_showing_sword_to_sull_AnswersList_0007.patch)
-  gfr_ch0_showing_sword_to_sull_nolight_refs_answer    <unreadable>  (gfr_ch0_showing_sword_to_sull_nolight_refs_answer.patch)
-  gfr_ch0_showing_sword_to_sull_nolight_refs_cue       <unreadable>  (gfr_ch0_showing_sword_to_sull_nolight_refs_cue.patch)
-  gfr_ch0_showing_sword_to_sull_showlight_refs         <unreadable>  (gfr_ch0_showing_sword_to_sull_showlight_refs.patch)
-  gfr_ch1_camellia_past_noble_curiosity_Answer_3_bdsm  <unreadable>  (gfr_ch1_camellia_past_noble_curiosity_Answer_3_bdsm.patch)
-  gfr_ch1_camellia_past_noble_curiosity_AnswersList_0003 <unreadable>  (gfr_ch1_camellia_past_noble_curiosity_AnswersList_0003.patch)
-  gfr_ch1_camellia_past_noble_curiosity_Cue_0017       <unreadable>  (gfr_ch1_camellia_past_noble_curiosity_Cue_0017.patch)
-  gfr_ch1_daeran_first_meet_AnswersList_0013           <unreadable>  (gfr_ch1_daeran_first_meet_AnswersList_0013.patch)
-  gfr_ch1_kenabres_desnaadept3                         <unreadable>  (gfr_ch1_kenabres_desnaadept3.patch)
-  gfr_ch1_kenabres_hulrun_killed_early                 <unreadable>  (gfr_ch1_kenabres_hulrun_killed_early.patch)
-  gfr_ch1_kenabres_hulrun_killed_late                  <unreadable>  (gfr_ch1_kenabres_hulrun_killed_late.patch)
-  gfr_ch1_kenabres_hulrun_killed_tell_aranka_Cue_0002  <unreadable>  (gfr_ch1_kenabres_hulrun_killed_tell_aranka_Cue_0002.patch)
-  gfr_ch1_kenabres_hulrun_killed_tell_irabeth_AnswersList_0009 <unreadable>  (gfr_ch1_kenabres_hulrun_killed_tell_irabeth_AnswersList_0009.patch)
-  gfr_ch1_kenabres_hulrun_killed_tell_ramien_market_square_Cue_0021 <unreadable>  (gfr_ch1_kenabres_hulrun_killed_tell_ramien_market_square_Cue_0021.patch)
-  gfr_ch1_staunton_elbow_excuse_AnswersList_0003       <unreadable>  (gfr_ch1_staunton_elbow_excuse_AnswersList_0003.patch)
-  gfr_ch1-ch3_lann_start_romance_parents_branch_AnswersList_0048 <unreadable>  (gfr_ch1-ch3_lann_start_romance_parents_branch_AnswersList_0048.patch)
-  gfr_ch1-ch3_lann_start_romance_parents_wenduag_branches <unreadable>  (gfr_ch1-ch3_lann_start_romance_parents_wenduag_branches.patch)
-  gfr_ch1-ch3_lann_start_romance_wenduag_branch_AnswersList_0201 <unreadable>  (gfr_ch1-ch3_lann_start_romance_wenduag_branch_AnswersList_0201.patch)
-  gfr_ch2_daeran_main_camp_AnswersList_0003            <unreadable>  (gfr_ch2_daeran_main_camp_AnswersList_0003.patch)
-  gfr_ch2_daeran_mythic_demon_CueSequence_0021         <unreadable>  (gfr_ch2_daeran_mythic_demon_CueSequence_0021.patch)
-  gfr_ch2_daeran_Q2_Liotr_AnswersList_0041             <unreadable>  (gfr_ch2_daeran_Q2_Liotr_AnswersList_0041.patch)
-  gfr_ch2_lann_romance_apple_Answer_0006               <unreadable>  (gfr_ch2_lann_romance_apple_Answer_0006.patch)
-  gfr_ch2_lann_romance_apple_AnswersList_0003          <unreadable>  (gfr_ch2_lann_romance_apple_AnswersList_0003.patch)
-  gfr_ch2_lann_romance_apple_start_if_not_started      <unreadable>  (gfr_ch2_lann_romance_apple_start_if_not_started.patch)
-  gfr_ch2_lost_chapel_daeran_only_AnswersList_0025     <unreadable>  (gfr_ch2_lost_chapel_daeran_only_AnswersList_0025.patch)
-  gfr_ch2_lost_chapel_daeran_only_AnswersList_0031     <unreadable>  (gfr_ch2_lost_chapel_daeran_only_AnswersList_0031.patch)
-  gfr_ch2_lost_chapel_ember_daeran_AnswersList_0007    <unreadable>  (gfr_ch2_lost_chapel_ember_daeran_AnswersList_0007.patch)
-  gfr_ch2_lost_chapel_regill_AnswersList_0009          <unreadable>  (gfr_ch2_lost_chapel_regill_AnswersList_0009.patch)
-  gfr_ch2_lost_chapel_sosiel_AnswersList_0020          <unreadable>  (gfr_ch2_lost_chapel_sosiel_AnswersList_0020.patch)
-  gfr_ch2_lost_chapel_sosiel_flirty_Answer_0028        <unreadable>  (gfr_ch2_lost_chapel_sosiel_flirty_Answer_0028.patch)
-  gfr_ch3_lann_romance_after_sparring_non-spellcaster_Answer_0020 <unreadable>  (gfr_ch3_lann_romance_after_sparring_non-spellcaster_Answer_0020.patch)
-  gfr_ch3_lann_romance_after_sparring_spellcaster_AnswersList_0018 <unreadable>  (gfr_ch3_lann_romance_after_sparring_spellcaster_AnswersList_0018.patch)
-  gfr_ch3_lann_romance_before_sparring_lann_Cue_0023   <unreadable>  (gfr_ch3_lann_romance_before_sparring_lann_Cue_0023.patch)
-  gfr_ch4_delights_doppel_1_everyone_Cue_0003          <unreadable>  (gfr_ch4_delights_doppel_1_everyone_Cue_0003.patch)
-  gfr_ch4_delights_doppel_1_everyone_Cue_0005          <unreadable>  (gfr_ch4_delights_doppel_1_everyone_Cue_0005.patch)
-  gfr_ch4_delights_doppel_2_everyone_Answer_0017       <unreadable>  (gfr_ch4_delights_doppel_2_everyone_Answer_0017.patch)
-  gfr_ch4_delights_doppel_2_everyone_Cue_0001          <unreadable>  (gfr_ch4_delights_doppel_2_everyone_Cue_0001.patch)
-  gfr_ch4_delights_doppel_2_everyone_Cue_0024          <unreadable>  (gfr_ch4_delights_doppel_2_everyone_Cue_0024.patch)
-  gfr_ch4_delights_doppel_3_everyone_AnswersList_0004  <unreadable>  (gfr_ch4_delights_doppel_3_everyone_AnswersList_0004.patch)
-  gfr_ch4_everyone_areelu_1_CueSequence_0003           <unreadable>  (gfr_ch4_everyone_areelu_1_CueSequence_0003.patch)
-  gfr_ch4_everyone_areelu_2_Cue_0013                   <unreadable>  (gfr_ch4_everyone_areelu_2_Cue_0013.patch)
-  gfr_ch4_everyone_areelu_3_daeran_seelah_Cue_0017     <unreadable>  (gfr_ch4_everyone_areelu_3_daeran_seelah_Cue_0017.patch)
-  gfr_ch4_lann_q2_lann_feels_worse_AnswersList_0004    <unreadable>  (gfr_ch4_lann_q2_lann_feels_worse_AnswersList_0004.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_arueshalae_Cue_0040 <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_arueshalae_Cue_0040.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_camellia_1_Cue_0042 <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_camellia_1_Cue_0042.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_camellia_2_Cue_0041 <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_camellia_2_Cue_0041.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_daeran_Cue_0048 <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_daeran_Cue_0048.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_lann_Cue_0049  <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_lann_Cue_0049.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_missedme_Answer_0010 <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_missedme_Answer_0010.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_non-romanceable <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_non-romanceable.patch)
-  gfr_ch4_nexus_after_colyphyr_everyone_sosiel_Cue_0045 <unreadable>  (gfr_ch4_nexus_after_colyphyr_everyone_sosiel_Cue_0045.patch)
-  gfr_ch4_start_arueshalae_butterflies_Cue_0275        <unreadable>  (gfr_ch4_start_arueshalae_butterflies_Cue_0275.patch)
-  gfr_ch4_start_hand_intro_letsgo_Cue_0018             <unreadable>  (gfr_ch4_start_hand_intro_letsgo_Cue_0018.patch)
-  gfr_ch4_start_seelah_Cue_0117                        <unreadable>  (gfr_ch4_start_seelah_Cue_0117.patch)
-  gfr_ch5_daeran_Q3_after_pyre_dlg                     <unreadable>  (gfr_ch5_daeran_Q3_after_pyre_dlg.patch)
-  gfr_ch5_daeran_Q3_companions_interject_before_pyre_CueSequence_0056 <unreadable>  (gfr_ch5_daeran_Q3_companions_interject_before_pyre_CueSequence_0056.patch)
-  gfr_ch5_daeran_Q3_companions_interject_before_pyre_ember_Cue_0041_0042 <unreadable>  (gfr_ch5_daeran_Q3_companions_interject_before_pyre_ember_Cue_0041_0042.patch)
-  gfr_ch5_daeran_Q3_companions_interject_tribunal_Answer_0018 <unreadable>  (gfr_ch5_daeran_Q3_companions_interject_tribunal_Answer_0018.patch)
-  gfr_ch5_daeran_Q3_killed_Liotr_hypocrisy_daeran_Cue_0010 <unreadable>  (gfr_ch5_daeran_Q3_killed_Liotr_hypocrisy_daeran_Cue_0010.patch)
-  gfr_ch5_daeran_Q3_tribunal_or_kill_options_AnswersList_0014 <unreadable>  (gfr_ch5_daeran_Q3_tribunal_or_kill_options_AnswersList_0014.patch)
-  gfr_general_answer_condition_not_noble               <unreadable>  (gfr_general_answer_condition_not_noble.patch)
-  gfr_general_daeran_AnswersList_0003                  <unreadable>  (gfr_general_daeran_AnswersList_0003.patch)
-  gfr_general_daeran_AnswersList_0012_personal_questions <unreadable>  (gfr_general_daeran_AnswersList_0012_personal_questions.patch)
-  gfr_general_daeran_breakup_Cue_0206                  <unreadable>  (gfr_general_daeran_breakup_Cue_0206.patch)
-  gfr_general_daeran_closing_line_Answer_0010          <unreadable>  (gfr_general_daeran_closing_line_Answer_0010.patch)
-  gfr_general_daeran_flirt_unblocked_Answer_0184       <unreadable>  (gfr_general_daeran_flirt_unblocked_Answer_0184.patch)
-  gfr_general_daeran_flirt_unblocked_Answer_0210_rom_start <unreadable>  (gfr_general_daeran_flirt_unblocked_Answer_0210_rom_start.patch)
-  gfr_general_daeran_flirt_unblocked_Answer_0211_rom_breakup <unreadable>  (gfr_general_daeran_flirt_unblocked_Answer_0211_rom_breakup.patch)
-  gfr_general_ember_AnswersList_0003                   <unreadable>  (gfr_general_ember_AnswersList_0003.patch)
-  gfr_general_lann_closing_line_Answer_0009            <unreadable>  (gfr_general_lann_closing_line_Answer_0009.patch)
-  gfr_general_lann_hat_AnswersList_0067                <unreadable>  (gfr_general_lann_hat_AnswersList_0067.patch)
-  gfr_general_regill_closing_line_Answer_0039          <unreadable>  (gfr_general_regill_closing_line_Answer_0039.patch)
-  gfr_item_lann_beads                                  <unreadable>  (gfr_item_lann_beads.patch)
-  gfr_ulbrig_romance_start_alternative_AnswersList_0029 <unreadable>  (gfr_ulbrig_romance_start_alternative_AnswersList_0029.patch)
+=== patch targets: identified by NAME, since a .patch carries no AssetId ===
+  Daeran_Main_dialog                                   overrides: FirstCue, _#ArrayMergeSettings
+  Dialogue_Arueshalae_Main                             overrides: FirstCue, _#ArrayMergeSettings
+  Dialogue_CameliaMain                                 overrides: FirstCue, _#ArrayMergeSettings
+  Dialogue_Ember_Main                                  overrides: _#ArrayMergeSettings, FirstCue
+  Dialogue_Sosiel_Main                                 overrides: FirstCue, _#ArrayMergeSettings
+  DialogueWoljif_main                                  overrides: FirstCue, _#ArrayMergeSettings
+  DLC4_Shifter_CompanionDialogue                       overrides: FirstCue, _#ArrayMergeSettings
+  EvilArueshalaeCompanion_Dialogue                     overrides: FirstCue, _#ArrayMergeSettings
+  GrimborMainDialogue                                  overrides: FirstCue, _#ArrayMergeSettings
+  Lann_Main_dialog                                     overrides: FirstCue, _#ArrayMergeSettings
+  NenioCompanion_dialogue                              overrides: FirstCue, _#ArrayMergeSettings
+  Regill_Main_dialog                                   overrides: FirstCue, _#ArrayMergeSettings
+  Seelah_Main_dialog                                   overrides: FirstCue, _#ArrayMergeSettings
+  gfr_ch0_choice_wenduag_lann_Answer_0013_run_wenduag  overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_choice_wenduag_lann_Answer_0027_wenduag      overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_choice_wenduag_lann_Answer_0034_lann         overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_choice_wenduag_lann_Answer_0068_attack_lann  overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_choice_wenduag_lann_Answer_0069_attack_wenduag overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_choice_wenduag_lann_Answer_0090              overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_choice_wenduag_lann_Answer_0097_run_lann     overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_choice_wenduag_lann_AnswersList_0106         overrides: _#ArrayMergeSettings, Answers
+  gfr_ch0_lann_who_are_you_Answer_0011_non-tiefling    overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_lann_who_are_you_AnswersList_0006            overrides: _#ArrayMergeSettings, Answers
+  gfr_ch0_meeting_horgus_noble_AnswersList_0002        overrides: _#ArrayMergeSettings, Answers
+  gfr_ch0_showing_sword_to_sull_AnswersList_0007       overrides: _#ArrayMergeSettings, Answers
+  gfr_ch0_showing_sword_to_sull_nolight_refs_answer    overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch0_showing_sword_to_sull_nolight_refs_cue       overrides: _#ArrayMergeSettings, Conditions
+  gfr_ch0_showing_sword_to_sull_showlight_refs         overrides: _#ArrayMergeSettings, Conditions
+  gfr_ch1_camellia_past_noble_curiosity_Answer_3_bdsm  overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch1_camellia_past_noble_curiosity_AnswersList_0003 overrides: _#ArrayMergeSettings, Answers
+  gfr_ch1_camellia_past_noble_curiosity_Cue_0017       overrides: _#ArrayMergeSettings, Continue
+  gfr_ch1_daeran_first_meet_AnswersList_0013           overrides: _#ArrayMergeSettings, Answers
+  gfr_ch1_kenabres_desnaadept3                         overrides: _#ArrayMergeSettings, OnStop
+  gfr_ch1_kenabres_hulrun_killed_early                 overrides: _#ArrayMergeSettings, m_Overrides, Components
+  gfr_ch1_kenabres_hulrun_killed_late                  overrides: _#ArrayMergeSettings, m_Overrides, Components
+  gfr_ch1_kenabres_hulrun_killed_tell_aranka_Cue_0002  overrides: _#ArrayMergeSettings, Continue
+  gfr_ch1_kenabres_hulrun_killed_tell_irabeth_AnswersList_0009 overrides: _#ArrayMergeSettings, Answers
+  gfr_ch1_kenabres_hulrun_killed_tell_ramien_market_square_Cue_0021 overrides: _#ArrayMergeSettings, Continue
+  gfr_ch1_staunton_elbow_excuse_AnswersList_0003       overrides: _#ArrayMergeSettings, Answers
+  gfr_ch1-ch3_lann_start_romance_parents_branch_AnswersList_0048 overrides: _#ArrayMergeSettings, Answers
+  gfr_ch1-ch3_lann_start_romance_parents_wenduag_branches overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch1-ch3_lann_start_romance_wenduag_branch_AnswersList_0201 overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_daeran_main_camp_AnswersList_0003            overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_daeran_mythic_demon_CueSequence_0021         overrides: _#ArrayMergeSettings, Cues
+  gfr_ch2_daeran_Q2_Liotr_AnswersList_0041             overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_lann_romance_apple_Answer_0006               overrides: _#ArrayMergeSettings, OnSelect
+  gfr_ch2_lann_romance_apple_AnswersList_0003          overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_lann_romance_apple_start_if_not_started      overrides: _#ArrayMergeSettings, OnSelect
+  gfr_ch2_lost_chapel_daeran_only_AnswersList_0025     overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_lost_chapel_daeran_only_AnswersList_0031     overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_lost_chapel_ember_daeran_AnswersList_0007    overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_lost_chapel_regill_AnswersList_0009          overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_lost_chapel_sosiel_AnswersList_0020          overrides: _#ArrayMergeSettings, Answers
+  gfr_ch2_lost_chapel_sosiel_flirty_Answer_0028        overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch3_lann_romance_after_sparring_non-spellcaster_Answer_0020 overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_ch3_lann_romance_after_sparring_spellcaster_AnswersList_0018 overrides: _#ArrayMergeSettings, Answers
+  gfr_ch3_lann_romance_before_sparring_lann_Cue_0023   overrides: _#ArrayMergeSettings, Answers, Continue
+  gfr_ch4_delights_doppel_1_everyone_Cue_0003          overrides: _#ArrayMergeSettings, Continue
+  gfr_ch4_delights_doppel_1_everyone_Cue_0005          overrides: _#ArrayMergeSettings, ParentAsset, OnShow
+  gfr_ch4_delights_doppel_2_everyone_Answer_0017       overrides: _#ArrayMergeSettings, ShowOnce
+  gfr_ch4_delights_doppel_2_everyone_Cue_0001          overrides: _#ArrayMergeSettings, OnShow
+  gfr_ch4_delights_doppel_2_everyone_Cue_0024          overrides: _#ArrayMergeSettings, Continue
+  gfr_ch4_delights_doppel_3_everyone_AnswersList_0004  overrides: _#ArrayMergeSettings, Answers
+  gfr_ch4_everyone_areelu_1_CueSequence_0003           overrides: _#ArrayMergeSettings, Cues
+  gfr_ch4_everyone_areelu_2_Cue_0013                   overrides: _#ArrayMergeSettings, Continue, Answers
+  gfr_ch4_everyone_areelu_3_daeran_seelah_Cue_0017     overrides: _#ArrayMergeSettings, Continue
+  gfr_ch4_lann_q2_lann_feels_worse_AnswersList_0004    overrides: _#ArrayMergeSettings, Answers
+  gfr_ch4_nexus_after_colyphyr_everyone_arueshalae_Cue_0040 overrides: _#ArrayMergeSettings, ParentAsset, Conditions, Answers
+  gfr_ch4_nexus_after_colyphyr_everyone_camellia_1_Cue_0042 overrides: _#ArrayMergeSettings, ParentAsset, Conditions, Continue
+  gfr_ch4_nexus_after_colyphyr_everyone_camellia_2_Cue_0041 overrides: _#ArrayMergeSettings, Answers
+  gfr_ch4_nexus_after_colyphyr_everyone_daeran_Cue_0048 overrides: _#ArrayMergeSettings, ParentAsset, Conditions, Answers
+  gfr_ch4_nexus_after_colyphyr_everyone_lann_Cue_0049  overrides: _#ArrayMergeSettings, ParentAsset, Conditions, Answers
+  gfr_ch4_nexus_after_colyphyr_everyone_missedme_Answer_0010 overrides: _#ArrayMergeSettings, ShowOnce, NextCue
+  gfr_ch4_nexus_after_colyphyr_everyone_non-romanceable overrides: _#ArrayMergeSettings, ParentAsset, Answers
+  gfr_ch4_nexus_after_colyphyr_everyone_sosiel_Cue_0045 overrides: _#ArrayMergeSettings, ParentAsset, Conditions, Answers
+  gfr_ch4_start_arueshalae_butterflies_Cue_0275        overrides: _#ArrayMergeSettings, Conditions
+  gfr_ch4_start_hand_intro_letsgo_Cue_0018             overrides: _#ArrayMergeSettings, Continue
+  gfr_ch4_start_seelah_Cue_0117                        overrides: _#ArrayMergeSettings, ShowOnce
+  gfr_ch5_daeran_Q3_after_pyre_dlg                     overrides: _#ArrayMergeSettings, FirstCue
+  gfr_ch5_daeran_Q3_companions_interject_before_pyre_CueSequence_0056 overrides: Cues, _#ArrayMergeSettings
+  gfr_ch5_daeran_Q3_companions_interject_before_pyre_ember_Cue_0041_0042 overrides: _#ArrayMergeSettings, Continue
+  gfr_ch5_daeran_Q3_companions_interject_tribunal_Answer_0018 overrides: NextCue, _#ArrayMergeSettings
+  gfr_ch5_daeran_Q3_killed_Liotr_hypocrisy_daeran_Cue_0010 overrides: _#ArrayMergeSettings, Continue
+  gfr_ch5_daeran_Q3_tribunal_or_kill_options_AnswersList_0014 overrides: Answers, _#ArrayMergeSettings
+  gfr_general_answer_condition_not_noble               overrides: _#ArrayMergeSettings, ShowConditions
+  gfr_general_daeran_AnswersList_0003                  overrides: _#ArrayMergeSettings, Answers
+  gfr_general_daeran_AnswersList_0012_personal_questions overrides: _#ArrayMergeSettings, Answers
+  gfr_general_daeran_breakup_Cue_0206                  overrides: _#ArrayMergeSettings, Answers
+  gfr_general_daeran_closing_line_Answer_0010          overrides: _#ArrayMergeSettings, NextCue
+  gfr_general_daeran_flirt_unblocked_Answer_0184       overrides: _#ArrayMergeSettings, DebugMode, ShowConditions
+  gfr_general_daeran_flirt_unblocked_Answer_0210_rom_start overrides: _#ArrayMergeSettings, OnSelect
+  gfr_general_daeran_flirt_unblocked_Answer_0211_rom_breakup overrides: _#ArrayMergeSettings, OnSelect
+  gfr_general_ember_AnswersList_0003                   overrides: Answers, _#ArrayMergeSettings
+  gfr_general_lann_closing_line_Answer_0009            overrides: NextCue, _#ArrayMergeSettings
+  gfr_general_lann_hat_AnswersList_0067                overrides: _#ArrayMergeSettings, Answers
+  gfr_general_regill_closing_line_Answer_0039          overrides: _#ArrayMergeSettings, NextCue
+  gfr_item_lann_beads                                  overrides: m_IsNotable, _#ArrayMergeSettings
+  gfr_ulbrig_romance_start_alternative_AnswersList_0029 overrides: _#ArrayMergeSettings, Answers
 === sample patch: gfr__Daeran_Main_dialog.patch ===
   {
       "FirstCue": {
