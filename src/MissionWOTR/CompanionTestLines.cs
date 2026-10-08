@@ -55,25 +55,18 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        s_cue = CueConfigurator.New(TestCueName, Guids.SeelahTestCue).Configure();
-        typeof(BlueprintCue).GetField("Text", F)?.SetValue(
-          s_cue, (Kingmaker.Localization.LocalizedString)TestText);
+        s_cue = CueConfigurator.New(TestCueName, Guids.SeelahTestCue)
+          .SetText(TestText)
+          .Configure();
 
-        // Give the line a speaker so it is visibly hers rather than narrator text.
-        try
-        {
-          var speaker = BlueprintTool.GetRef<Kingmaker.Blueprints.UnitReference>(SeelahUnitGuid);
-          typeof(BlueprintCue).GetField("Speaker", F)?.SetValue(s_cue, speaker);
-        }
-        catch (Exception e)
-        {
-          MissionFeats.Logger.Warn(
-            $"[testline] could not set the cue's speaker ({e.GetType().Name}); the line will " +
-            "still display.");
-        }
-
+        // No speaker is set deliberately: BlueprintCue.Speaker is a UnitReference and
+        // LocalizedString has no string conversion to build one through the configurator
+        // (SetText takes BPCore's LocalString wrapper, SetSpeaker takes DialogSpeaker).
+        // A cue with no speaker is attributed to the dialog's owner, which for
+        // Seelah_Main_dialog is Seelah - which is what the test needs to show.
         MissionFeats.Logger.Info(
-          $"[testline] test cue built: {TestCueName} {Guids.SeelahTestCue.Replace("-", "").ToLowerInvariant()}");
+          $"[testline] test cue built: {TestCueName} " +
+          $"{Guids.SeelahTestCue.Replace("-", "").ToLowerInvariant()}");
       }
       catch (Exception e)
       {
@@ -144,7 +137,7 @@ namespace MissionWOTR.Archetypes
       }
 
       var cuesField = firstCue.GetType().GetField("Cues", F);
-      var cues = cuesField?.GetValue(firstCue) as List<BlueprintCueReference>;
+      var cues = cuesField?.GetValue(firstCue) as List<BlueprintCueBaseReference>;
       if (cues is null)
       {
         MissionFeats.Logger.Warn($"[testline] {dialog.name} FirstCue.Cues is not a cue list - not injected.");
@@ -153,7 +146,7 @@ namespace MissionWOTR.Archetypes
 
       // Copy the opening cues BEFORE inserting, and chain the test cue into that copy.
       // Sharing the live list would put our own cue into its own Continue and loop.
-      var original = new List<BlueprintCueReference>(cues);
+      var original = new List<BlueprintCueBaseReference>(cues);
       var strategyField = firstCue.GetType().GetField("Strategy", F);
       var strategyValue = strategyField?.GetValue(firstCue);
 
@@ -162,7 +155,7 @@ namespace MissionWOTR.Archetypes
       if (strategyField is not null) { strategyField.SetValue(continuation, strategyValue); }
       typeof(BlueprintCue).GetField("Continue", F)?.SetValue(s_cue, continuation);
 
-      cues.Insert(0, BlueprintTool.GetRef<BlueprintCueReference>(TestCueName));
+      cues.Insert(0, BlueprintTool.GetRef<BlueprintCueBaseReference>(TestCueName));
 
       MissionFeats.Logger.Info(
         $"[testline] INJECTED into {dialog.name} - the test line now leads " +
