@@ -109,17 +109,20 @@ if ($sample) {
 }
 
 # --- Every .patch and the vanilla blueprint it targets --------------------------
-# v3: a .patch file's own AssetId IS the AssetId of the vanilla blueprint it modifies.
-# That is the missing link for companion dialogue - the mod cannot name Seelah's dialog
-# by GUID because the startup dialog dump runs before vanilla dialogs are materialized,
-# and this list gives it directly. Filename convention is gfr__<VanillaAssetName>.patch.
-Log "=== patch targets: each .patch and the vanilla blueprint it modifies ==="
+# v3 ANSWERED a question and closed a dead end. A .patch holds only the partial
+# override - there is no AssetId in it at all (v3 tried to read one and got nothing
+# for all 98 files; the sample dump below shows the whole format). The target is
+# identified purely by the filename convention gfr__<VanillaAssetName>.patch, and GF's
+# loader resolves that NAME to a blueprint at runtime.
+# So there is no dialog GUID to extract from this mod. Companion dialogue has to be
+# attached by dialog name, which is what the mod now does. Listed here because the
+# names are the useful part: they say exactly which vanilla conversations GF touches.
+Log "=== patch targets: identified by NAME, since a .patch carries no AssetId ==="
 foreach ($p in ($patches | Sort-Object Name)) {
-  $tid = $null
-  try { $tid = (Get-Content $p.FullName -Raw | ConvertFrom-Json).AssetId } catch { }
-  if (-not $tid) { $tid = '<unreadable>' }
   $vanilla = ($p.BaseName -replace '^gfr__', '')
-  Log ("  {0,-52} {1}  ({2})" -f $vanilla, $tid, $p.Name)
+  $top = @()
+  try { $top = @((Get-Content $p.FullName -Raw | ConvertFrom-Json).PSObject.Properties.Name) } catch { }
+  Log ("  {0,-52} overrides: {1}" -f $vanilla, ($top -join ', '))
 }
 
 # --- One .patch in full: how an existing blueprint gets modified ---------------

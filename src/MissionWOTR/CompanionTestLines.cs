@@ -20,16 +20,18 @@ namespace MissionWOTR.Archetypes
   /// same thing to Seelah's main dialog with one unmistakable all-caps line, so that if
   /// the line shows up, injected companion dialogue works and the rest can be built on it.
   ///
-  /// The one thing this build does not have is the GUID of Seelah's dialog. Two routes to
-  /// it both came up empty: the startup dialog dump enumerates BlueprintsCache while
-  /// vanilla dialogs are still unmaterialized (it found one BlueprintDialog against 573
-  /// cues), and the GF probe records the vanilla references each patch touches but not the
-  /// patch's own AssetId, which is the dialog's GUID. So the dialog is matched by NAME at
-  /// the moment it materializes, through a postfix on BlueprintsCache.Load.
+  /// The one thing this build does not have is the GUID of Seelah's dialog, and it turns
+  /// out there is nowhere to read one from. The startup dialog dump enumerates
+  /// BlueprintsCache while vanilla dialogs are still unmaterialized (it found one
+  /// BlueprintDialog against 573 cues), and Gracious Friendships does not carry the GUID
+  /// either: a .patch file holds only the partial override, and its target is identified
+  /// purely by the filename convention gfr__<VanillaAssetName>.patch, which GF's loader
+  /// resolves by NAME at runtime. Attaching by name is therefore not a workaround - it is
+  /// the same mechanism GF uses.
   ///
   /// That is deliberately self-reporting: every BlueprintDialog that passes through is
   /// logged with its name and GUID. So this either works, or the next playtest log names
-  /// the exact dialog to target by GUID and the name matching can be retired.
+  /// the exact dialog and the GUID can be pinned down from evidence.
   /// </summary>
   internal static class CompanionTestLines
   {
