@@ -132,6 +132,16 @@ namespace MissionWOTR.Archetypes
           .SetIcon(icon)
           .SetSpellbook(GetBookGuid(e.Key))
           .SetHideNotAvailibleInUI(true)
+          // 0.60.0: the engine only honours BlueprintFeatureReplaceSpellbook inside the level-up
+          // SelectFeature action (Kingmaker.UnitLogic.Class.LevelUp.Actions.SelectFeature), and
+          // even then it merely repoints ClassData.Spellbook — an Arcanist spellbook already
+          // created at character creation is left in place. Apply the swap ourselves so the
+          // fixation works however the feature arrives.
+          .AddComponent(new ObsessorFixationApplier
+          {
+            CharacterClass = arcanist,
+            NewSpellbook = book,
+          })
           .Configure();
         features.Add(feature);
         energies.Add(e.Energy);
@@ -705,6 +715,80 @@ namespace MissionWOTR.Archetypes
         }
       }
       return -1;
+    }
+  }
+
+  /// <summary>
+  /// Elemental Fixation: puts the chosen element's spellbook in place of the arcanist's.
+  /// <para>
+  /// The engine has two spellbook hooks and neither is enough on its own.
+  /// <c>BlueprintArchetype.ReplaceSpellbook</c> is applied by <c>ClassData.AddArchetype</c>, but it
+  /// is one fixed book per archetype and cannot express a choice made at runtime.
+  /// <c>BlueprintFeatureReplaceSpellbook</c> is read only by the level-up
+  /// <c>SelectFeature</c> action, and even there it merely repoints <c>ClassData.Spellbook</c> — a
+  /// spellbook that already exists is left behind, which is why the obsessor came out with the
+  /// ordinary arcanist book. This component performs the swap itself, so it works whichever path
+  /// delivered the fixation.
+  /// </para>
+  /// </summary>
+  [TypeId(Guids.ObsessorFixationApplier)]
+  internal class ObsessorFixationApplier : UnitFactComponentDelegate
+  {
+    public BlueprintCharacterClass CharacterClass;
+    public BlueprintSpellbook NewSpellbook;
+
+    protected override void OnTurnOn()
+    {
+      try
+      {
+        if (Owner?.Progression is null || CharacterClass is null || NewSpellbook is null)
+        {
+          return;
+        }
+
+        var classData = Owner.Progression.GetClassData(CharacterClass);
+        if (classData is null)
+        {
+          return;
+        }
+
+        var oldSpellbook = classData.Spellbook;
+        if (oldSpellbook == NewSpellbook)
+        {
+          return;
+        }
+
+        classData.Spellbook = NewSpellbook;
+
+        // Bring the new book up to the class's caster level, the same way the engine's own
+        // spellbook catch-up does.
+        var book = Owner.DemandSpellbook(NewSpellbook);
+        var classLevel = Owner.Progression.GetClassLevel(CharacterClass);
+        while (book.RawBaseLevel < classLevel)
+        {
+          var before = book.RawBaseLevel;
+          book.AddBaseLevel();
+          if (book.RawBaseLevel == before)
+          {
+            break;
+          }
+        }
+
+        // Drop the superseded book only if no other class on this character still uses it.
+        if (oldSpellbook is not null &&
+            Owner.Progression.Classes.All(c => c.Spellbook != oldSpellbook))
+        {
+          Owner.DeleteSpellbook(oldSpellbook);
+        }
+
+        MissionFeats.Logger.Info(
+          $"ElementalObsessor: fixation applied for {Owner.CharacterName} — " +
+          $"{oldSpellbook?.Name ?? "none"} -> {NewSpellbook.Name}.");
+      }
+      catch (Exception e)
+      {
+        MissionFeats.Logger.Error("ElementalObsessor: failed to apply elemental fixation.", e);
+      }
     }
   }
 

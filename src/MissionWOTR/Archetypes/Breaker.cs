@@ -1,4 +1,5 @@
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
@@ -17,7 +18,9 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using MissionWOTR.Feats;
@@ -56,6 +59,8 @@ namespace MissionWOTR.Archetypes
 
     internal const string DestructiveName = "BreakerDestructive";
     internal const string ScavengerName = "BreakerBattleScavenger";
+    internal const string SunderAbilityName = "BreakerSunderStrike";
+    internal const string SunderName = "BreakerSunder";
 
     public static void Configure()
     {
@@ -90,6 +95,40 @@ namespace MissionWOTR.Archetypes
         .SetIsClassFeature()
         .AddComponent(new BreakerScavengerDamage())
         .Configure();
+
+      ConfigureSunder();
+    }
+
+    /// <summary>
+    /// 0.60.0: the earlier port note claimed sunder was unavailable in Wrath. That was wrong —
+    /// <c>CombatManeuver.SunderArmor</c> is a full CMB/CMD maneuver, and
+    /// <c>RuleCombatManeuver</c> applies <c>SystemMechanics.SunderArmorBuff</c> to the target on a
+    /// success. So the Breaker gets the real thing rather than a stand-in.
+    /// </summary>
+    private static void ConfigureSunder()
+    {
+      var icon = FeatureRefs.ImprovedSunder.Reference.Get().Icon;
+
+      AbilityConfigurator.New(SunderAbilityName, Guids.BreakerSunderAbility)
+        .SetDisplayName("BreakerSunder.Name")
+        .SetDescription("BreakerSunder.Description")
+        .SetIcon(icon)
+        .SetType(AbilityType.Special)
+        .SetRange(AbilityRange.Weapon)
+        .SetActionType(UnitCommand.CommandType.Standard)
+        .SetCanTargetEnemies()
+        // The maneuver rule itself rolls CMB vs CMD and applies the sundered-armor debuff.
+        .AddAbilityEffectRunAction(
+          ActionsBuilder.New().CombatManeuver(ActionsBuilder.New(), CombatManeuver.SunderArmor))
+        .Configure();
+
+      FeatureConfigurator.New(SunderName, Guids.BreakerSunderFeature)
+        .SetDisplayName("BreakerSunder.Name")
+        .SetDescription("BreakerSunder.Description")
+        .SetIcon(icon)
+        .SetIsClassFeature()
+        .AddFacts(new() { SunderAbilityName })
+        .Configure();
     }
 
     private static void ConfigureArchetype()
@@ -108,12 +147,12 @@ namespace MissionWOTR.Archetypes
       // Both features arrive with the level-3 trade (tabletop: Destructive is the
       // fast-movement replacement, Battle Scavenger lands at 3rd).
       archetype = archetype
-        .AddToAddFeatures(LevelPlan.L(3), DestructiveName, ScavengerName);
+        .AddToAddFeatures(LevelPlan.L(3), DestructiveName, ScavengerName, SunderName);
 
       if (LevelPlan.AllAtLevelOne)
       {
         // TEST MODE: everything at level 1.
-        archetype = archetype.AddToAddFeatures(1, DestructiveName, ScavengerName);
+        archetype = archetype.AddToAddFeatures(1, DestructiveName, ScavengerName, SunderName);
       }
       archetype.Configure();
     }

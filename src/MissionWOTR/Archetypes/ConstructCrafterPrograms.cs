@@ -162,6 +162,7 @@ namespace MissionWOTR.Archetypes
 
     /// <summary>Hub ability name for the archetype grant.</summary>
     internal const string ProgramCommandName = "ConstructCrafterProgramCommand";
+    internal const string ProgramCommandFeatureName = "ConstructCrafterProgramCommandFeature";
 
     private static readonly Dictionary<string, string> ProgramCommandGuidMap = new()
     {
@@ -213,6 +214,17 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetSelf()
         .AddAbilityEffectRunAction(ActionsBuilder.New().Add(basic).Build())
         .AddAbilityVariants(variants)
+        .Configure();
+
+      // 0.60.0: grantable wrapper — see the note on CoreCommandFeatureName.
+      FeatureConfigurator.New(ProgramCommandFeatureName, Guids.CrafterProgramCommandFeature)
+        .SetDisplayName("ProgramCommand.Name")
+        .SetDescription("ProgramCommand.Description")
+        .SetIcon(icon)
+        .SetIsClassFeature()
+        .SetHideInUI(true)
+        .SetHideInCharacterSheetAndLevelUp(true)
+        .AddFacts(new() { ProgramCommandName })
         .Configure();
     }
 

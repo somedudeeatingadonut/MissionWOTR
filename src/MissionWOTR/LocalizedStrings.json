@@ -1033,7 +1033,17 @@
   {
     "Key": "Breaker.Description",
     "ProcessTemplates": false,
-    "enGB": "You fight whatever the enemy is hiding behind. Destructive lends half your barbarian level as bonus damage on weapon attacks against constructs, and Battle Scavenger lets you swing clubs, staves, and spears with growing expertise. (Tabletop port: the original keys on sunder maneuvers, unattended objects, and improvised weapons, none of which exist here.)"
+    "enGB": "You fight whatever the enemy is hiding behind. Destructive lends half your barbarian level as bonus damage on weapon attacks against constructs, Battle Scavenger grants growing expertise with clubs, staves, and spears, and Sunder Armor is a combat maneuver that dents a target's protection. (Tabletop port: unattended objects and improvised weapons have no Wrath equivalent.)"
+  },
+  {
+    "Key": "BreakerSunder.Name",
+    "ProcessTemplates": false,
+    "enGB": "Sunder Armor"
+  },
+  {
+    "Key": "BreakerSunder.Description",
+    "ProcessTemplates": false,
+    "enGB": "A standard action against one enemy within reach. Roll a combat maneuver check against the target's CMD; on a success its armor is damaged and the protection it provides is reduced."
   },
   {
     "Key": "BreakerDestructive.Name",

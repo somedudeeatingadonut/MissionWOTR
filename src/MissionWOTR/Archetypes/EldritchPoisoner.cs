@@ -272,6 +272,9 @@ namespace MissionWOTR.Archetypes
       {
         if (target is null || target.HPLeft <= 0)
         {
+          MissionFeats.Logger.Warn(
+            $"[toxin] no delivery: target={(target is null ? "NULL" : target.CharacterName)} " +
+            $"hpLeft={target?.HPLeft}.");
           return;
         }
 
@@ -289,6 +292,8 @@ namespace MissionWOTR.Archetypes
         {
           if (strain is not null && target.Buffs.GetBuff(strain) is not null)
           {
+            MissionFeats.Logger.Info(
+              $"[toxin] no delivery: {target.CharacterName} already carries {strain.Name}.");
             return;
           }
         }
@@ -308,9 +313,14 @@ namespace MissionWOTR.Archetypes
           dc -= 4;
         }
 
+        MissionFeats.Logger.Info(
+          $"[toxin] {owner.CharacterName} -> {target.CharacterName}: Fort DC {dc} " +
+          $"(alchemist {alchemistLevel}, int {owner.Stats.Intelligence.Bonus}, mod {dcModifier:+0;-#;0}).");
         var save = new RuleSavingThrow(target, SavingThrowType.Fortitude, dc) { Reason = sourceFact };
         if (Rulebook.Trigger(save).IsPassed)
         {
+          MissionFeats.Logger.Info(
+            $"[toxin] no delivery: {target.CharacterName} saved (DC {dc}).");
           return;
         }
 
@@ -339,6 +349,15 @@ namespace MissionWOTR.Archetypes
         }
 
         var seconds = ContextDuration.Fixed(2).Calculate(context).Seconds;
+        if (primary is null)
+        {
+          MissionFeats.Logger.Warn(
+            "[toxin] no delivery: the selected strain buff was never created.");
+          return;
+        }
+        MissionFeats.Logger.Info(
+          $"[toxin] delivered {primary.Name} to {target.CharacterName} for {seconds}s" +
+          (extra is null ? "." : $", plus {extra.Name}."));
         target.AddBuff(primary, context, duration: seconds);
         if (extra is not null)
         {

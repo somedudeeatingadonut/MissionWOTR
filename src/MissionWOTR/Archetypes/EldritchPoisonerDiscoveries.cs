@@ -14,6 +14,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
+using MissionWOTR.Feats;
 using System;
 using UnityEngine;
 
@@ -234,8 +235,16 @@ namespace MissionWOTR.Archetypes
     {
       var caster = Context.MaybeCaster;
       var target = Target.Unit;
+      // 0.60.0: the throws were reaching the action bar but producing nothing, and every exit
+      // below was silent. Log the whole path so a playtest says which one it is.
+      MissionFeats.Logger.Info(
+        $"[toxin] throw fired. caster={caster?.CharacterName ?? "NULL"} " +
+        $"target={target?.CharacterName ?? "NULL"} " +
+        $"contextTarget={(Context.MaybeTarget is null ? "NULL" : Context.MaybeTarget.ToString())} " +
+        $"dcMod={DcModifier}");
       if (caster is null || target is null)
       {
+        MissionFeats.Logger.Warn("[toxin] throw aborted: no caster or no target.");
         return;
       }
       ArcanotoxinApply.Apply(caster, target, Context, null, DcModifier, false);

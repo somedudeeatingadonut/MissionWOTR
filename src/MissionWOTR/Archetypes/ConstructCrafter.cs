@@ -178,8 +178,10 @@ namespace MissionWOTR.Archetypes
           .AddToAddFeatures(LevelPlan.L(1), FeatureSelectionRefs.FighterFeatSelection.ToString())
           .AddToAddFeatures(LevelPlan.L(1), CoreSelectionName, ProgramSelectionName)
           // 0.16.0: the command menus replace the pile of core/program toggles.
-          .AddToAddFeatures(LevelPlan.L(1), ConstructCrafterPrograms.ProgramCommandName)
-          .AddToAddFeatures(LevelPlan.L(3), ConstructCrafterCores.CoreCommandName)
+          // 0.60.0: granted as feature wrappers — the commands themselves are abilities, and
+          // abilities passed to AddToAddFeatures resolve to NULL-REF and vanish.
+          .AddToAddFeatures(LevelPlan.L(1), ConstructCrafterPrograms.ProgramCommandFeatureName)
+          .AddToAddFeatures(LevelPlan.L(3), ConstructCrafterCores.CoreCommandFeatureName)
           // Bases.
           .AddToAddFeatures(LevelPlan.L(1), DeployHoundFeatureName)
           .AddToAddFeatures(LevelPlan.L(7), DeployHumanoidFeatureName)

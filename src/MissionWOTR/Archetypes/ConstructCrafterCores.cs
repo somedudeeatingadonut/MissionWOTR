@@ -291,6 +291,7 @@ namespace MissionWOTR.Archetypes
 
     /// <summary>Hub ability name for the archetype grant.</summary>
     internal const string CoreCommandName = "ConstructCrafterCoreCommand";
+    internal const string CoreCommandFeatureName = "ConstructCrafterCoreCommandFeature";
 
     private static readonly Dictionary<string, string> CoreCommandGuidMap = new()
     {
@@ -353,6 +354,20 @@ namespace MissionWOTR.Archetypes
         .SetCanTargetSelf()
         .AddAbilityEffectRunAction(ActionsBuilder.New().Add(basic).Build())
         .AddAbilityVariants(variants)
+        .Configure();
+
+      // 0.60.0: the archetype grants features, not abilities. Handing an ability blueprint to
+      // AddToAddFeatures resolves to NULL-REF and the crafter silently never gets the menu, so
+      // the command lives inside a grantable class feature (the Riftstalker Guided Command
+      // pattern).
+      FeatureConfigurator.New(CoreCommandFeatureName, Guids.CrafterCoreCommandFeature)
+        .SetDisplayName("CoreCommand.Name")
+        .SetDescription("CoreCommand.Description")
+        .SetIcon(icon)
+        .SetIsClassFeature()
+        .SetHideInUI(true)
+        .SetHideInCharacterSheetAndLevelUp(true)
+        .AddFacts(new() { CoreCommandName })
         .Configure();
     }
 

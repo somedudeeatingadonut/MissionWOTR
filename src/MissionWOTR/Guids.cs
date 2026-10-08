@@ -683,6 +683,13 @@ namespace MissionWOTR
     internal const string VerminAspectManeuverComponent = "10FAB9A0-F5D9-42E0-A49E-E46C24A4A5D6";
     internal const string CrafterCoreCommand = "907C0803-6945-46D8-A7D5-91E42FA2EBCA";
     internal const string CrafterProgramCommand = "0061A556-8BFC-4B49-BD72-BE137E1059AE";
+    // 0.60.0: abilities cannot be handed to AddToAddFeatures (they resolve to NULL-REF and
+    // the archetype silently loses them). These are the grantable feature wrappers.
+    internal const string CrafterCoreCommandFeature = "62F676D6-C1BA-4710-BA8F-DB67AD06263D";
+    internal const string CrafterProgramCommandFeature = "7D5FC786-3814-473A-B2EE-73238B334AFE";
+    internal const string ObsessorFixationApplier = "8F2270A5-31E2-4273-A097-51DE93FC9B78";
+    internal const string BreakerSunderAbility = "25E9949D-0D44-4ECE-A46B-9E789D9B7528";
+    internal const string BreakerSunderFeature = "BFBA8E36-56C2-49C6-9F79-6097DC777EC7";
     internal const string SetConstructDirectiveComponent = "3BA0355E-B056-4378-99C0-0158409687DC";
     internal const string SinEaterArchetype = "E1AD0165-B2A3-478A-8329-F8CDFFDF4BBB";
     internal const string SinEaterEatSin = "C2D3C6E9-246F-43B1-ABA5-E5C9CF6EC7E5";
