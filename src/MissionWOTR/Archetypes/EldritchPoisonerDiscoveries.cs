@@ -240,7 +240,7 @@ namespace MissionWOTR.Archetypes
       MissionFeats.Logger.Info(
         $"[toxin] throw fired. caster={caster?.CharacterName ?? "NULL"} " +
         $"target={target?.CharacterName ?? "NULL"} " +
-        $"contextTarget={(Context.MaybeTarget is null ? "NULL" : Context.MaybeTarget.ToString())} " +
+        $"contextTarget={(Context.MainTarget is null ? "NULL" : Context.MainTarget.ToString())} " +
         $"dcMod={DcModifier}");
       if (caster is null || target is null)
       {

@@ -778,7 +778,7 @@ namespace MissionWOTR.Archetypes
         if (oldSpellbook is not null &&
             Owner.Progression.Classes.All(c => c.Spellbook != oldSpellbook))
         {
-          Owner.DeleteSpellbook(oldSpellbook);
+          Owner.Descriptor.DeleteSpellbook(oldSpellbook);
         }
 
         MissionFeats.Logger.Info(
