@@ -249,13 +249,43 @@ namespace MissionWOTR
     /// nor the StringEntry shape are known for certain yet. Every step degrades
     /// to a warning instead of throwing.
     /// </summary>
+    /// <summary>
+    /// 0.62.0 - resolves Kingmaker.Localization.LocalizationManager.CurrentPack.
+    ///
+    /// Two separate things were wrong, which is why localization coverage and the pack-shape
+    /// dump have never produced a single line:
+    ///   1. Type.GetType("..., Assembly-CSharp") returned null. The type is real and lives at
+    ///      Kingmaker/Localization/LocalizationManager.cs, so the assembly name was the wrong
+    ///      part. Going through a type we already reference in the same assembly avoids having
+    ///      to name it at all.
+    ///   2. CurrentPack is a FIELD - "public static LocalizationPack CurrentPack;" - but both
+    ///      call sites used GetProperty, which returns null for a field.
+    /// Both are corrected here, in one place.
+    /// </summary>
+    private static object CurrentLocalizationPack()
+    {
+      const BindingFlags sf = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
+      var manager = typeof(BlueprintsCache).Assembly
+        .GetType("Kingmaker.Localization.LocalizationManager");
+      if (manager is null)
+      {
+        Logger.Warn("[diag] LocalizationManager type not found in the game assembly.");
+        return null;
+      }
+      var pack = manager.GetField("CurrentPack", sf)?.GetValue(null)
+        ?? manager.GetProperty("CurrentPack", sf)?.GetValue(null);
+      if (pack is null)
+      {
+        Logger.Warn("[diag] LocalizationManager.CurrentPack is null.");
+      }
+      return pack;
+    }
+
     private static void DumpLocalizationCoverage()
     {
       try
       {
-        var manager = Type.GetType("Kingmaker.Localization.LocalizationManager, Assembly-CSharp");
-        var current = manager?.GetProperty(
-          "CurrentPack", BindingFlags.Public | BindingFlags.Static)?.GetValue(null);
+        var current = CurrentLocalizationPack();
         if (current is null)
         {
           Logger.Warn("[diag] coverage: LocalizationManager.CurrentPack unreachable.");
@@ -621,10 +651,7 @@ namespace MissionWOTR
     {
       try
       {
-        var manager = Type.GetType(
-          "Kingmaker.Localization.LocalizationManager, Assembly-CSharp");
-        var current = manager?.GetProperty(
-          "CurrentPack", BindingFlags.Public | BindingFlags.Static)?.GetValue(null);
+        var current = CurrentLocalizationPack();
         if (current is null)
         {
           Logger.Warn("[diag] LocalizationManager.CurrentPack unreachable - cannot inspect.");
