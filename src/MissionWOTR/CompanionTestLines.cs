@@ -1,5 +1,6 @@
 using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
@@ -12,75 +13,112 @@ using System.Reflection;
 namespace MissionWOTR.Archetypes
 {
   /// <summary>
-  /// 0.61.0 - the companion conversation test line.
+  /// 0.62.0 - injected companion dialogue, proven with test lines.
   ///
-  /// The goal is to prove the Gracious Friendships mechanism in game: GF patches a
-  /// companion's vanilla BlueprintDialog and merges cues into its opening CueSelection,
-  /// whose Strategy is "First" - the first cue whose Conditions pass wins. This does the
-  /// same thing to Seelah's main dialog with one unmistakable all-caps line, so that if
-  /// the line shows up, injected companion dialogue works and the rest can be built on it.
+  /// The mechanism is the Gracious Friendships one: put a cue at the head of an existing
+  /// conversation's opening CueSelection, whose Strategy is First, so the first cue whose
+  /// Conditions pass wins. Setting the cue's Speaker lets a companion react inside someone
+  /// else's conversation - which is what "Seelah has something to say about the mongrels"
+  /// needs, rather than a line in her own dialog.
   ///
-  /// The one thing this build does not have is the GUID of Seelah's dialog, and it turns
-  /// out there is nowhere to read one from. The startup dialog dump enumerates
-  /// BlueprintsCache while vanilla dialogs are still unmaterialized (it found one
-  /// BlueprintDialog against 573 cues), and Gracious Friendships does not carry the GUID
-  /// either: a .patch file holds only the partial override, and its target is identified
-  /// purely by the filename convention gfr__<VanillaAssetName>.patch, which GF's loader
-  /// resolves by NAME at runtime. Attaching by name is therefore not a workaround - it is
-  /// the same mechanism GF uses.
+  /// Why this attaches by NAME rather than by GUID: the engine has no name-to-GUID lookup.
+  /// BlueprintsCache.Init reads blueprints-pack.bbp as 16-byte GUID + 4-byte offset per
+  /// entry with no names at all, and both BlueprintsCache and ResourcesLibrary are keyed
+  /// purely by GUID - a vanilla dialog's name only exists once it is materialized. GF is in
+  /// the same boat: its .patch files carry no AssetId, and the target is the filename
+  /// gfr__<VanillaAssetName>.patch, resolved by name at runtime.
   ///
-  /// That is deliberately self-reporting: every BlueprintDialog that passes through is
-  /// logged with its name and GUID. So this either works, or the next playtest log names
-  /// the exact dialog and the GUID can be pinned down from evidence.
+  /// So dialogs are matched by name as they materialize, through a postfix on
+  /// BlueprintsCache.Load. That needs nothing from the player first - it does not matter
+  /// whether the conversation has been seen before.
+  ///
+  /// The target names come from GF's own patch list, which names the assets INSIDE a
+  /// conversation with the conversation's name as a prefix: ch0_choice_wenduag_lann_Answer_0013,
+  /// ch0_choice_wenduag_lann_AnswersList_0106, and so on. That makes the dialog itself
+  /// ch0_choice_wenduag_lann - the first meeting with Lann and Wenduag. The hook is
+  /// self-reporting: every dialog that materializes is logged with its name and GUID, so if
+  /// a guess is wrong the next log names the real one.
   /// </summary>
   internal static class CompanionTestLines
   {
-    internal const string TestCueName = "MissionWOTRSeelahTestCue";
-
     // UnitRefs: Seelah.
     private const string SeelahUnitGuid = "8608eed026b849f4a8690f846bb8ec62";
-
-    private const string TestText =
-      "!!! MISSION WOTR TEST LINE !!! IF YOU CAN READ THIS, INJECTED COMPANION " +
-      "DIALOGUE WORKS. THIS IS NOT REAL SEELAH DIALOGUE AND WILL BE REPLACED. " +
-      "PLEASE TELL ME YOU SAW THIS. !!!";
 
     private const BindingFlags F =
       BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
 
-    private static BlueprintCue s_cue;
+    private sealed class Rule
+    {
+      public string Match;
+      public string CueName;
+      public string CueGuid;
+      public string Text;
+      // Null = the dialog's own owner speaks it.
+      public string SpeakerGuid;
+      public BlueprintCue Cue;
+    }
+
+    private static readonly Rule[] s_rules =
+    {
+      new Rule
+      {
+        Match = "ch0_choice_wenduag_lann",
+        CueName = "MissionWOTRSeelahMongrelTestCue",
+        CueGuid = Guids.SeelahMongrelTestCue,
+        SpeakerGuid = SeelahUnitGuid,
+        Text =
+          "!!! MISSION WOTR TEST LINE !!! SEELAH REACTING TO MEETING LANN AND WENDUAG. " +
+          "IF YOU CAN READ THIS, INJECTED COMPANION DIALOGUE WORKS. THIS IS NOT REAL " +
+          "SEELAH DIALOGUE AND WILL BE REPLACED WITH PROPER WRITING. !!!",
+      },
+      new Rule
+      {
+        Match = "Seelah",
+        CueName = "MissionWOTRSeelahMainTestCue",
+        CueGuid = Guids.SeelahTestCue,
+        SpeakerGuid = null,
+        Text =
+          "!!! MISSION WOTR TEST LINE !!! THIS IS THE HEAD OF SEELAH'S OWN CONVERSATION. " +
+          "IF YOU CAN READ THIS, INJECTED COMPANION DIALOGUE WORKS. THIS IS NOT REAL " +
+          "SEELAH DIALOGUE AND WILL BE REPLACED WITH PROPER WRITING. !!!",
+      },
+    };
+
     private static readonly HashSet<string> s_injected = new();
     private static bool s_installed;
 
-    /// <summary>Builds the test cue. Called once at startup, before any dialog loads.</summary>
+    /// <summary>Builds one cue per rule. Called once at startup, before any dialog loads.</summary>
     internal static void Configure()
     {
-      try
+      foreach (var rule in s_rules)
       {
-        s_cue = CueConfigurator.New(TestCueName, Guids.SeelahTestCue)
-          .SetText(TestText)
-          .Configure();
-
-        // No speaker is set deliberately: BlueprintCue.Speaker is a UnitReference and
-        // LocalizedString has no string conversion to build one through the configurator
-        // (SetText takes BPCore's LocalString wrapper, SetSpeaker takes DialogSpeaker).
-        // A cue with no speaker is attributed to the dialog's owner, which for
-        // Seelah_Main_dialog is Seelah - which is what the test needs to show.
-        MissionFeats.Logger.Info(
-          $"[testline] test cue built: {TestCueName} " +
-          $"{Guids.SeelahTestCue.Replace("-", "").ToLowerInvariant()}");
-      }
-      catch (Exception e)
-      {
-        MissionFeats.Logger.Error("[testline] failed to build the test cue.", e);
+        try
+        {
+          var configurator = CueConfigurator.New(rule.CueName, rule.CueGuid).SetText(rule.Text);
+          if (rule.SpeakerGuid is not null)
+          {
+            // DialogSpeakers.New takes Blueprint<BlueprintUnitReference>, which an implicit
+            // cast builds from the GUID string.
+            configurator = configurator.SetSpeaker(DialogSpeakers.New(rule.SpeakerGuid));
+          }
+          rule.Cue = configurator.Configure();
+          MissionFeats.Logger.Info(
+            $"[testline] cue built: {rule.CueName} {Flat(rule.CueGuid)} " +
+            $"speaker={(rule.SpeakerGuid is null ? "dialog owner" : Flat(rule.SpeakerGuid))} " +
+            $"match=\"{rule.Match}\"");
+        }
+        catch (Exception e)
+        {
+          MissionFeats.Logger.Error($"[testline] failed to build cue {rule.CueName}.", e);
+        }
       }
     }
 
     /// <summary>
-    /// Hooks BlueprintsCache.Load by reflection rather than by attribute: the method's
-    /// exact signature and visibility are not part of the reference assemblies this build
-    /// compiles against, and a wrong [HarmonyPatch] would abort the patch pass. A missing
-    /// method is logged and skipped instead.
+    /// Hooks BlueprintsCache.Load by reflection rather than by attribute: the method's exact
+    /// signature and visibility are not part of the reference assemblies this build compiles
+    /// against, and a wrong [HarmonyPatch] would abort the patch pass. A missing method is
+    /// logged and skipped instead.
     /// </summary>
     internal static void Install(Harmony harmony)
     {
@@ -92,8 +130,8 @@ namespace MissionWOTR.Archetypes
         if (load is null)
         {
           MissionFeats.Logger.Warn(
-            "[testline] BlueprintsCache.Load(BlueprintGuid) not found - the Seelah test line " +
-            "will not be injected. Dialogs that do load will not be reported either.");
+            "[testline] BlueprintsCache.Load(BlueprintGuid) not found - no dialogue will be " +
+            "injected, and dialogs will not be reported either.");
           return;
         }
         var postfix = typeof(CompanionTestLines).GetMethod(
@@ -101,7 +139,8 @@ namespace MissionWOTR.Archetypes
         harmony.Patch(load, postfix: new HarmonyMethod(postfix));
         s_installed = true;
         MissionFeats.Logger.Info(
-          $"[testline] hooked {load.DeclaringType?.Name}.{load.Name} - watching for Seelah's dialog.");
+          $"[testline] hooked {load.DeclaringType?.Name}.{load.Name} - " +
+          $"{s_rules.Length} injection rule(s) armed.");
       }
       catch (Exception e)
       {
@@ -113,13 +152,16 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        if (__result is not BlueprintDialog dialog) { return; }
-        var guid = dialog.AssetGuid.ToString().Replace("-", "").ToLowerInvariant();
+        if (__result is not BlueprintDialog dialog || dialog.name is null) { return; }
+        var guid = Flat(dialog.AssetGuid.ToString());
         MissionFeats.Logger.Info($"[testline] DIALOG {dialog.name} {guid}");
-        if (s_cue is null || dialog.name is null) { return; }
-        if (dialog.name.IndexOf("Seelah", StringComparison.OrdinalIgnoreCase) < 0) { return; }
-        if (!s_injected.Add(guid)) { return; }
-        Inject(dialog);
+        foreach (var rule in s_rules)
+        {
+          if (rule.Cue is null) { continue; }
+          if (dialog.name.IndexOf(rule.Match, StringComparison.OrdinalIgnoreCase) < 0) { continue; }
+          if (!s_injected.Add($"{guid}:{rule.CueName}")) { continue; }
+          Inject(dialog, rule);
+        }
       }
       catch (Exception e)
       {
@@ -128,21 +170,21 @@ namespace MissionWOTR.Archetypes
       }
     }
 
-    private static void Inject(BlueprintDialog dialog)
+    private static void Inject(BlueprintDialog dialog, Rule rule)
     {
-      var firstCueField = typeof(BlueprintDialog).GetField("FirstCue", F);
-      var firstCue = firstCueField?.GetValue(dialog);
+      var firstCue = typeof(BlueprintDialog).GetField("FirstCue", F)?.GetValue(dialog);
       if (firstCue is null)
       {
         MissionFeats.Logger.Warn($"[testline] {dialog.name} has no FirstCue - not injected.");
         return;
       }
 
-      var cuesField = firstCue.GetType().GetField("Cues", F);
-      var cues = cuesField?.GetValue(firstCue) as List<BlueprintCueBaseReference>;
+      var cues = firstCue.GetType().GetField("Cues", F)?.GetValue(firstCue)
+        as List<BlueprintCueBaseReference>;
       if (cues is null)
       {
-        MissionFeats.Logger.Warn($"[testline] {dialog.name} FirstCue.Cues is not a cue list - not injected.");
+        MissionFeats.Logger.Warn(
+          $"[testline] {dialog.name} FirstCue.Cues is not a cue list - not injected.");
         return;
       }
 
@@ -150,18 +192,22 @@ namespace MissionWOTR.Archetypes
       // Sharing the live list would put our own cue into its own Continue and loop.
       var original = new List<BlueprintCueBaseReference>(cues);
       var strategyField = firstCue.GetType().GetField("Strategy", F);
-      var strategyValue = strategyField?.GetValue(firstCue);
-
       var continuation = Activator.CreateInstance(firstCue.GetType());
       firstCue.GetType().GetField("Cues", F)?.SetValue(continuation, original);
-      if (strategyField is not null) { strategyField.SetValue(continuation, strategyValue); }
-      typeof(BlueprintCue).GetField("Continue", F)?.SetValue(s_cue, continuation);
+      if (strategyField is not null)
+      {
+        strategyField.SetValue(continuation, strategyField.GetValue(firstCue));
+      }
+      typeof(BlueprintCue).GetField("Continue", F)?.SetValue(rule.Cue, continuation);
 
-      cues.Insert(0, BlueprintTool.GetRef<BlueprintCueBaseReference>(TestCueName));
+      cues.Insert(0, BlueprintTool.GetRef<BlueprintCueBaseReference>(rule.CueName));
 
       MissionFeats.Logger.Info(
-        $"[testline] INJECTED into {dialog.name} - the test line now leads " +
+        $"[testline] INJECTED {rule.CueName} into {dialog.name} - the test line now leads " +
         $"{cues.Count} opening cue(s), chaining into {original.Count} original(s).");
     }
+
+    private static string Flat(string guid) =>
+      (guid ?? "").Replace("-", "").ToLowerInvariant();
   }
 }
