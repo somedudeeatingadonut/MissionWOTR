@@ -49,6 +49,9 @@ namespace MissionWOTR.Archetypes
 
     private sealed class Rule
     {
+      // Preferred: an exact AssetGuid, which needs no guessing at all.
+      public string MatchGuid;
+      // Fallback: a name substring, for the dialogs whose GUID is still unknown.
       public string Match;
       public string CueName;
       public string CueGuid;
@@ -62,7 +65,12 @@ namespace MissionWOTR.Archetypes
     {
       new Rule
       {
-        Match = "ch0_choice_wenduag_lann",
+        // "MeetLann" - the first meeting with Lann and Wenduag. From probe-dialogs.txt,
+        // built by CI out of blueprints.zip on the game-libs release. The name this was
+        // guessed at before (ch0_choice_wenduag_lann) is not a dialog at all: it is the
+        // prefix Owlcat gives the cues and answers INSIDE the conversation, which is what
+        // GF's patch files name. Guessing from those was wrong; the catalog is not.
+        MatchGuid = "d39643a2584efac449060b733c98b0c0",
         CueName = "MissionWOTRSeelahMongrelTestCue",
         CueGuid = Guids.SeelahMongrelTestCue,
         SpeakerGuid = SeelahUnitGuid,
@@ -73,6 +81,8 @@ namespace MissionWOTR.Archetypes
       },
       new Rule
       {
+        // Still by name: Seelah_Main_dialog does not appear in the catalog, so its GUID is
+        // unknown. The hook logs every dialog it sees, which will name it.
         Match = "Seelah",
         CueName = "MissionWOTRSeelahMainTestCue",
         CueGuid = Guids.SeelahTestCue,
@@ -158,8 +168,14 @@ namespace MissionWOTR.Archetypes
         foreach (var rule in s_rules)
         {
           if (rule.Cue is null) { continue; }
-          if (dialog.name.IndexOf(rule.Match, StringComparison.OrdinalIgnoreCase) < 0) { continue; }
+          var hit = rule.MatchGuid is not null
+            ? string.Equals(guid, rule.MatchGuid, StringComparison.OrdinalIgnoreCase)
+            : rule.Match is not null &&
+              dialog.name.IndexOf(rule.Match, StringComparison.OrdinalIgnoreCase) >= 0;
+          if (!hit) { continue; }
           if (!s_injected.Add($"{guid}:{rule.CueName}")) { continue; }
+          MissionFeats.Logger.Info($"[testline] matched {dialog.name} by " +
+            (rule.MatchGuid is not null ? "GUID" : $"name \"{rule.Match}\""));
           Inject(dialog, rule);
         }
       }
