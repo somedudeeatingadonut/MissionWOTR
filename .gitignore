@@ -30,3 +30,4 @@ mods-reference/
 
 # Reference-mod downloads (analyzed in CI, never committed)
 _gfmod/
+_bpdump/

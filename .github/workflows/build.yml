@@ -197,6 +197,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: .github/scripts/probe-gfmod.ps1
 
+      - name: Catalog vanilla dialogs (blueprint dump)
+        if: always()
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: .github/scripts/probe-blueprints.ps1
+
       - name: Build mod
         if: steps.libs.outputs.ready == 'true'
         shell: pwsh
