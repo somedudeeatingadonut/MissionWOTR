@@ -190,10 +190,18 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        var caster = Context.MaybeCaster;
-        var target = Target.Unit;
+        // 0.62.0: Context and Target are ambient reads of ContextData<...>.Current, so both
+        // are null when no data scope was pushed - and dereferencing them threw before the
+        // guard below could say which case it was.
+        var ambient = Context;
+        var caster = ambient?.MaybeCaster;
+        var target = Target?.Unit;
         if (caster is null || target is null || target.HPLeft <= 0)
         {
+          MissionFeats.Logger.Warn(
+            ambient is null
+              ? "[dreadnaught] study aborted: no mechanics data scope."
+              : "[dreadnaught] study aborted: no caster, no target, or target is down.");
           return;
         }
         int level = caster.Progression.GetClassLevel(Class);

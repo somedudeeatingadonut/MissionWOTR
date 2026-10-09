@@ -233,21 +233,32 @@ namespace MissionWOTR.Archetypes
 
     public override void RunAction()
     {
-      var caster = Context.MaybeCaster;
-      var target = Target.Unit;
-      // 0.60.0: the throws were reaching the action bar but producing nothing, and every exit
-      // below was silent. Log the whole path so a playtest says which one it is.
+      // 0.60.0: the throws reached the action bar but produced nothing, and every exit below
+      // was silent. 0.62.0: Context and Target are BOTH ambient - they read
+      // ContextData<MechanicsContext.Data>.Current rather than anything handed to the action
+      // (Kingmaker.UnitLogic.Mechanics.Actions.ContextAction defines both that way) - so if no
+      // data scope was pushed, both are null and the first dereference threw before any of the
+      // 0.60.0 logging could run. Every step is null-safe now, and a missing data scope is
+      // reported as its own case because it means something different from "no target".
+      var context = Context;
+      var targetWrapper = Target;
+      var caster = context?.MaybeCaster;
+      var target = targetWrapper?.Unit;
       MissionFeats.Logger.Info(
-        $"[toxin] throw fired. caster={caster?.CharacterName ?? "NULL"} " +
+        $"[toxin] throw fired. scope={(context is null ? "NONE" : "ok")} " +
+        $"caster={caster?.CharacterName ?? "NULL"} " +
         $"target={target?.CharacterName ?? "NULL"} " +
-        $"contextTarget={(Context.MainTarget is null ? "NULL" : Context.MainTarget.ToString())} " +
+        $"mainTarget={(context?.MainTarget is null ? "NULL" : context.MainTarget.ToString())} " +
         $"dcMod={DcModifier}");
       if (caster is null || target is null)
       {
-        MissionFeats.Logger.Warn("[toxin] throw aborted: no caster or no target.");
+        MissionFeats.Logger.Warn(
+          context is null
+            ? "[toxin] throw aborted: no mechanics data scope - the action ran outside one."
+            : "[toxin] throw aborted: no caster or no target.");
         return;
       }
-      ArcanotoxinApply.Apply(caster, target, Context, null, DcModifier, false);
+      ArcanotoxinApply.Apply(caster, target, context, null, DcModifier, false);
     }
   }
 }

@@ -232,10 +232,17 @@ namespace MissionWOTR.Archetypes
     {
       try
       {
-        var caster = Context.MaybeCaster;
-        var target = Target.Unit;
+        // 0.62.0: same ambient-read hazard as the Dreadnaught and the toxin throws.
+        var ambient = Context;
+        var caster = ambient?.MaybeCaster;
+        var target = Target?.Unit;
         if (caster is null || target is null || target.HPLeft <= 0 || Debuff is null)
         {
+          MissionFeats.Logger.Warn(
+            ambient is null
+              ? "[covert-mage] Mesmerizing Touch aborted: no mechanics data scope."
+              : "[covert-mage] Mesmerizing Touch aborted: no caster, no target, target is " +
+                "down, or the debuff was never built.");
           return;
         }
         int rounds = Math.Max(1, caster.Stats.Charisma.Bonus);
