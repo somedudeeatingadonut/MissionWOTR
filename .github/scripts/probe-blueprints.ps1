@@ -62,6 +62,8 @@ try {
   $rows = New-Object System.Collections.Generic.List[string]
   $noType = 0
   $scanned = 0
+  $dollarNames = 0
+  $nameAgrees = 0
 
   foreach ($e in $entries) {
     if ($e.Length -eq 0) { continue }
@@ -91,15 +93,26 @@ try {
       if (-not $wantedSet.ContainsKey($type)) { continue }
 
       $assetId = if ($head -match '"AssetId"\s*:\s*"([0-9a-fA-F]{32})"') { $Matches[1] } else { '<none>' }
-      $name = if ($head -match '"name"\s*:\s*"([^"]{1,200})"') { $Matches[1] }
-              else { [System.IO.Path]::GetFileNameWithoutExtension($e.Name) }
-      $rows.Add(("{0}`t{1}`t{2}" -f $type, $name, $assetId))
+
+      # v3 - the name comes from the FILENAME, not from the JSON.
+      # v2 took the first "name" it found in the head, and a blueprint's own name is
+      # serialized after its components, so for 943 of the 1711 dialogs it captured a
+      # component's name instead - the "$TypeName$guid" string Owlcat gives serialized
+      # sub-elements. Those dialogs were real but unsearchable, which is exactly why a
+      # character-name search came up short. The dump names every file <BlueprintName>.jbp,
+      # so the filename is authoritative and always present. The JSON name is kept only as a
+      # cross-check count, to prove the two agree rather than to be trusted blindly.
+      $fileBase = [System.IO.Path]::GetFileNameWithoutExtension($e.Name)
+      if ($fileBase -match '\$') { $dollarNames++ }
+      if ($head -match '"name"\s*:\s*"([^"]{1,200})"' -and $Matches[1] -eq $fileBase) { $nameAgrees++ }
+      $rows.Add(("{0}`t{1}`t{2}" -f $type, $fileBase, $assetId))
     } catch {
       # One unreadable entry is not worth stopping a 236k-entry scan for.
     } finally { $sr.Dispose() }
   }
 
   Log ("scanned {0} .jbp entries; {1} had no parsable `$type" -f $scanned, $noType)
+  Log ("name check: {0} cataloged rows whose FILENAME contains a `$ (should be 0 - a non-zero count means the dump does name sub-element assets that way after all), and {1} where the JSON name equals the filename" -f $dollarNames, $nameAgrees)
 
   Log "=== blueprint types present (top 25) ==="
   $types.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 25 |
