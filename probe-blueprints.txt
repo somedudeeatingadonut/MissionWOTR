@@ -1,0 +1,157 @@
+Downloading blueprints.zip
+archive: 269,394,239 bytes
+=== archive shape: 252498 entries ===
+  ext .jbp       236661
+  ext <none>     15836
+  ext .asset     1
+--- first 60 entry names ---
+  Arrow.jbp
+  ArrowCrossBow00.jbp
+  Arrow_Trajectory.jbp
+  Buff Damage bonus.jbp
+  ClawDevil_projectile.jbp
+  CorpseInteractionBlueprint.jbp
+  CorpseInteractionBlueprint_DLC4.jbp
+  CorpseInteractionBlueprint_DLC4_Worm.jbp
+  Dart_projectile.jbp
+  FinneanCampConditionsHolder.jbp
+  FinneanCampObjectBlueprint.jbp
+  FlyTest.jbp
+  FlyTrampleTest.jbp
+  Hragulka Brain.jbp
+  InactiveCamp_Dungeon.jbp
+  InactiveCamp_Outdoor.jbp
+  Javelin_projectile.jbp
+  MillornEmptyHand.jbp
+  Mythic7lvlLich_BoneLance00_ControllableProjectileBlueprint.jbp
+  Passive Monster Brain.jbp
+  Player Character.jbp
+  PlayerFighterPregen.jbp
+  Rival Brain.jbp
+  ThrowingAxe_projectile.jbp
+  WeaponEmptyHand.jbp
+  WyvernInFlight.jbp
+  Abilities/
+  Abilities/AbilitySillyFeed.jbp
+  Abilities/BlindVictim.jbp
+  Abilities/GiantFrogTongueGrabTest.jbp
+  Abilities/TrollhoudnHowl.jbp
+  Achievements/
+  Achievements/00_Platinum.jbp
+  Achievements/01_DevouredByDarkness.jbp
+  Achievements/02_BurningCity.jbp
+  Achievements/03_BannerOverCitadel.jbp
+  Achievements/04_FithCrusade.jbp
+  Achievements/05_EmbraceOfAbyss.jbp
+  Achievements/06_HeartOfFallenLand.jbp
+  Achievements/07_FinalThreshold.jbp
+  Achievements/08_PathOfAngel.jbp
+  Achievements/09_PathOfDemon.jbp
+  Achievements/10_PathOfAzata.jbp
+  Achievements/11_PathOfAeon.jbp
+  Achievements/12_PathOfTrickster.jbp
+  Achievements/13_PathOfLich.jbp
+  Achievements/14_PathOfSwarm.jbp
+  Achievements/15_PathOfDragon.jbp
+  Achievements/16_PathOfLegend.jbp
+  Achievements/17_Transformation.jbp
+  Achievements/18_MythicChoices.jbp
+  Achievements/19_EqualToAroden.jbp
+  Achievements/20_SpiritOfAdventures.jbp
+  Achievements/21_TestOfStarstone.jbp
+  Achievements/22_MasterfulCraftsmanship.jbp
+  Achievements/23_MasterfulCharge.jbp
+  Achievements/24_Legacy.jbp
+  Achievements/25_MasterfulDispell.jbp
+  Achievements/26_SadisticGameDesign.jbp
+  Achievements/27_VictorySeige .jbp
+--- uncompressed total: 568,814,057 bytes ---
+--- sample entry heads ---
+  ### Arrow.jbp
+    {
+      "AssetId": "d0252c90549d29340b22da64bd748273",
+      "Data": {
+        "$type": "6370c9530f88b5c41bd101d35b8e4fd2, BlueprintProjectile",
+        "PrototypeLink": null,
+        "m_Overrides": [],
+        "Components": [],
+        "Comment": "",
+        "Speed": 26.0,
+        "MinTime": 0.0,
+        "View": {
+          "AssetId": "bd24c76b8ed0d4545ac610991a2eaa31"
+        },
+        "CastFx": null,
+  ### ArrowCrossBow00.jbp
+    {
+      "AssetId": "0f083f2598b3e6441992ebadbc0325aa",
+      "Data": {
+        "$type": "6370c9530f88b5c41bd101d35b8e4fd2, BlueprintProjectile",
+        "PrototypeLink": null,
+        "m_Overrides": [],
+        "Components": [],
+        "Comment": "",
+        "Speed": 23.0,
+        "MinTime": 0.0,
+        "View": {
+          "AssetId": "bd24c76b8ed0d4545ac610991a2eaa31"
+        },
+        "CastFx": null,
+  ### Arrow_Trajectory.jbp
+    {
+      "AssetId": "d2b5ccb441b77b045a0d68a18d8f0154",
+      "Data": {
+        "$type": "55a39726d0cce8a45877d1ffb0c3e5e6, BlueprintProjectileTrajectory",
+        "PrototypeLink": "",
+        "m_Overrides": [],
+        "Components": [],
+        "Comment": "",
+        "UpDirection": "0|100|0",
+        "PlaneOffset": [
+          {
+            "Curve": {
+              "preWrapMode": 8,
+              "postWrapMode": 8,
+=== scanning for dialogs (streaming, head only) ===
+  scanned 236660 entries, 236660 looked like blueprints, 1712 were dialogs
+probe-dialogs.txt written
+   DLC5_b2_healer_dialogue  	9b91c396b00b4ac58b505ceffaab994a
+  $AddFact$595bd080-3449-4166-b96d-9d86ffd47702	4679e0bb28674d28b9741a84572d7fe0
+  $AddPremiumReward$4c954c00-80c5-41b5-a834-ced0db8e6509	875b2c8687be4daf852e727ee6ecf9ef
+  $AddPremiumReward$dbd8e07c-8c8e-46c9-9445-69fc3d7d1fa4	492f935cf19a443fb1cd984dc27eb0ca
+  $AnswerSelected$2c7f99b4-310e-4b43-940e-2cd323e01f66	9dd86be8277b4e2cb7c6b67623e7c956
+  $AnswerSelected$78f2cb73-e29c-4386-b0b6-8453093e2d0d	c19879609bd84d46957de458c96d767b
+  $AnswerSelected$fee2bd4d-ea0d-4120-bd5c-36db2187cc11	38a909daeb387994fbec7ea1a08dde8d
+  $AttachBuff$0e2cd4e8-5956-4968-8b9f-7109f402cf93	d8a1d1e0685642a41a44f1290e8c0ee6
+  $AttachBuff$20aa08fb-57b8-4d8f-8c6b-afa024dbe924	94f00c085f9e45f883514a1d2d675330
+  $AttachBuff$29ba7e4d-e525-4de5-8348-3e22b24b5850	39b7b199253b9e546a4d1940908bc955
+  $AttachBuff$51dee937-bf31-4c08-aff4-8be98c94124c	6ee8aa45043d4b95be77e4b093fcf33b
+  $AttachBuff$571746e7-4c34-4b37-9f39-32555e8dbc3e	c8fb26494b7f49fdb079bb0361c88d96
+  $AttachBuff$74d0d36a-ed49-4e4b-8418-d5064fba6966	3904d9c79fa419f409e22c9e1b5d645f
+  $AttachBuff$9ce28d22-5ff6-433d-9d19-4ed5902627ff	f94bd6540a524b09a03fdb83e19fa8cb
+  $AttachBuff$c2740ffc-2381-4abb-9473-b3fcab5dd7d3	51023607c4fe4127ac198b2adfe4738b
+  $AttachBuff$ca3fb931-36d9-49a6-af74-00501e5db69e	7e813591bfa64184a2cb87070fcadf3f
+  $AttachBuff$cc71a1a7-c25b-46e5-b62f-b9da0b093016	fbcc36ac56c8f0945a0c5ac7b4b1153c
+  $AttachBuff$dd9f87c4-4835-406c-9fbe-b94c032d5045	4c938a7852bb4927a1ae01f3a342bf84
+  $AttachBuff$f613cc13-44a1-4fcd-a433-4ef761d4415d	fd12314737f24a438a20b2f75d8ed756
+  $CameraToPosition$fae704a7-7b48-434f-a5cb-48694af8fdb2	8141fc9f433568b4c8ee9b68a5a66171
+  $ChangeUnitName$9c78a10c-5457-45ae-a138-9a19d03e5981	1a569224a97c493698a1191da013b7f9
+  $ClearCorruptionLevelAction$631ab1bf-65d6-495b-b7e6-fe2011459e1b	2a4cff3b6fae4b7ea74464022f8e5cdd
+  $CompanionInParty$04e7c484-5880-47f4-9b1e-21f27d025f4f	2eb1dc57dfda0294e82683220bae7b59
+  $CompanionInParty$5f0a0e49-ead6-4e50-864e-415879674bf6	29d339e38cf3459ba8aad9e27e1f3357
+  $CompanionInParty$a0c0c06e-670c-4e55-b1af-a4d13e7d48f7	5fc5edd257d34c2db942dc3808cb765a
+  $CompleteEtude$0c8d45b1-697b-40c7-b6f3-2ece6af9231a	314d8b290a48a814caf8449012d6a5f6
+  $CompleteEtude$189f8d9b-255d-4fef-b155-faade77bfe25	e35f4932430278242b58682b14327087
+  $CompleteEtude$2d6829cd-7bf2-43d3-9431-1e3707ad64fc	05ebb4cd8ad49e74ca048d6604549247
+  $CompleteEtude$3f084571-7aaf-431a-809f-0d86f4ece8d0	91c720ae15b5ade4090409ba0e6e828d
+  $CompleteEtude$4488f645-42a6-4efd-8285-e986c33b1b46	a445e14a78dc34249bdcf44439f6d263
+  $CompleteEtude$52593a89-8903-4d52-9561-14e2a68f72d9	cb76321dc6ecd0b4f97712026009198d
+  $CompleteEtude$5e0c0800-70fe-477c-8840-9cecbd38d5bd	9ce7c9655f7d1e848a25f7eadaa9b48b
+  $CompleteEtude$62a6a6b2-f172-4e8f-ad17-1cc105c2a8fe	905114c37ecceef49b399f4b09c2728b
+  $CompleteEtude$6a8c1396-bd5e-41ab-8a25-af2f570b0886	c7c8cfb42140c554893d504a6ed4ee16
+  $CompleteEtude$72060b2e-8342-49c0-b37c-9a87691b9fc1	fb7b9131fa2423949b6f14eb9a244d96
+  $CompleteEtude$777519f3-43cd-4c38-8952-3b82f4a8be34	db9b789247895be40b95d9d8d165e252
+  $CompleteEtude$873f6e07-7f48-478a-a323-a198815e6466	94a847853d3df5149b9e73130d0a1b08
+  $CompleteEtude$88efadba-7ae2-4abd-9281-e9546dda2ea9	0eb8c9d1741186e4a9fee148c23ddf93
+  $CompleteEtude$af1f0d0b-5ab4-4db1-9b3a-ff1b990f90c1	ea95d3ec0fbdcd04fb0f47c5758c5ed8
+  $CompleteEtude$bd2ea213-1c0a-40e8-bcd7-743b2a13a40f	567c60626c7313f4fb1e1710e7c6f358
