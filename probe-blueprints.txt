@@ -2,6 +2,7 @@ Downloading blueprints.zip
 archive: 269,394,239 bytes
 === archive shape: 252498 entries ===
 scanned 236661 .jbp entries; 0 had no parsable $type
+name check: 0 cataloged rows whose FILENAME contains a $ (should be 0 - a non-zero count means the dump does name sub-element assets that way after all), and 0 where the JSON name equals the filename
 === blueprint types present (top 25) ===
   BlueprintCue                               43214
   BlueprintAnswer                            20920
@@ -38,7 +39,18 @@ scanned 236661 .jbp entries; 0 had no parsable $type
   BlueprintCheck             953
 probe-dialogs.txt written: 74358 rows
 === rows matching 'lann' (any dialog-system type) ===
-  13 matches
+  38 matches
+  BlueprintAnswer	CursedKnightsLANN	8bc369f9c3e63a64c8bddf4357d9312b
+  BlueprintCue	Cue_0031_LannFail	500a9a3f66cdb794a840050d9602960f
+  BlueprintCue	Cue_37_EEGbLannTravel	52f81a3f648d4249a364e7e74511fb8e
+  BlueprintCue	Cue_37_EELannMomCommander	73f06b10e6fc477d9b915f16a007aa72
+  BlueprintCue	Cue_37_EELannMother	1e107b8adcad43c984c5cc6aa00cd41b
+  BlueprintCue	Cue_5_LannDrink	23bd9892d5144c07ae43da0ace61d222
+  BlueprintDialog	DateWithLann_dialogue	6955dcd299992f84ab2b47894c006059
+  BlueprintDialog	Lann_Duel_dialogue	ba3e7f1628fd8ea4f91f611de2e3302e
+  BlueprintDialog	Lann_DuelLost_dialogue	02bcdadfc76532d44adc40d915043abe
+  BlueprintDialog	Lann_Event_FreeFood_dialogue	f8d88264c5fb47e890036be293320e76
+  BlueprintDialog	Lann_Main_dialog	054c1b209de5c9042a02d6736cd3b2ac
   BlueprintDialog	LannAfterRide_dialogue	b34349eddb394629a90743bfa0f04b54
   BlueprintDialog	LannAndBook_dialogue	c59b72fc1e5b38540bc64676d2b8e653
   BlueprintDialog	LannAndDateKTC	9c36ecc9719c30340850e9a3911c1122
@@ -47,14 +59,36 @@ probe-dialogs.txt written: 74358 rows
   BlueprintDialog	LannCantDo_KTC	4a7752afe9c8bb144b779a70ae7a893d
   BlueprintDialog	LannComeNeathholm_dialogue	dafb430405eb9234cb9e6b6229ae4766
   BlueprintDialog	LannDubious_Companion_dialogue	ef42f426d1e19b44ca6791e3b2197945
+  BlueprintDialog	LannDying_dialogue	6b8b9a44bb43ce0488a8cab404013103
+  BlueprintDialog	LannFarewell_dialogue	6b8920dab2d1d474cad1799f9208c1f4
   BlueprintDialog	LannFeelsBad_dialogue	d4f62decc7b9991499429daf990d856a
+  BlueprintDialog	LannFeelsWorse_dialogue	d86009f5d8a5bfd49be9d72376a6c8ca
   BlueprintDialog	LannGift_dialogue	2561674d36207014787f475b63244d9e
+  BlueprintDialog	LannGoBeat_KTC_dialogue	0c445fc5c8228f947bcbdbfd1ecc5ea6
+  BlueprintDialog	LannMamaLetter_dialogue	201148a7cebaacc4981ed52676eb8689
+  BlueprintDialog	LannMyLove_dialogue	28371d6270eefb249acbe387babd4160
+  BlueprintDialog	LannSparring_dialogue	5916c5de71f0b3d48bbf5c64d5b0148a
+  BlueprintDialog	LannThankYou_dialogue	74dd0faf955f7c14a8e2423142cae858
+  BlueprintDialog	LannTrustMe_dialogue	3df3c4796f901da4f8acfaea8a187eb3
+  BlueprintDialog	LannVasted_dialogue	3d0da615f64c0d04e8fc1eeb1a9ac916
+  BlueprintDialog	LannVenduChoose_dialogue	90cb0c19187fd5241ab271a17370cb78
   BlueprintDialog	LannWakeUp_dialogue	e7b2854b85f0b55438f656280c5e2b3f
   BlueprintDialog	LannWantsTraining_KTC	35b041f08b4144e42932da5fef7c6501
+  BlueprintDialog	LannWish_Join_dialog	ff233359bba159a46ab41ca4ce038d86
+  BlueprintDialog	MamaMeetsLann_dialogue	9fa510dfca36654408a84ff7050bbce0
   BlueprintDialog	MeetLann	d39643a2584efac449060b733c98b0c0
+  BlueprintDialog	SullLannIsNeutralized_dialogue	df819519c38840047a9ab90e514477f2
 === rows matching 'wenduag' ===
-  4 matches
+  12 matches
   BlueprintDialog	KTC_Wenduag_ComeNeathholm	0462e53d02c1ec84da251d0d972d9584
+  BlueprintDialog	Wenduag_dialogue_main	7383531c4dcf5f54d9d291e452bb84dd
   BlueprintDialog	Wenduag_Event_dialogue	a93b5623a49c47a6a3ad1ceff6cf7558
   BlueprintDialog	Wenduag_Labyrith_dialogue	d985b7aa531944618136444449d477a5
+  BlueprintDialog	Wenduag_TakeMeHome_dialogue	bc265dbf76c34729b7af2cdcce59444f
+  BlueprintDialog	WenduagCave_dialogue	4fc313f217858b542b8345f5a7312fe5
+  BlueprintDialog	WenduagDefeated_dialogue	6d17f0dee27a7a9449d0ee9a641f8266
+  BlueprintDialog	WenduagFarewell_dialogue	0eca85091102af04f8366384d9bbfec4
+  BlueprintDialog	WenduagHelloAgain_dialogue	4ca935baf58573945bc94ef4865ec7eb
+  BlueprintDialog	WenduagTraitorCompanion_dialogue	2eb1dc57dfda0294e82683220bae7b59
+  BlueprintDialog	WenduagWish_Join_dialog	29dffbd497e92f94ba711cb55f01211b
   BlueprintDialog	WenduRom_SullAboutWenduag	e567765e40d037f489ee4986f2cf5c15
