@@ -81,9 +81,10 @@ namespace MissionWOTR.Archetypes
       },
       new Rule
       {
-        // Still by name: Seelah_Main_dialog does not appear in the catalog, so its GUID is
-        // unknown. The hook logs every dialog it sees, which will name it.
-        Match = "Seelah",
+        // "Seelah_Main_dialog" - ed7b39d0716d25c439f2b93c409da883. This was name-matched
+        // until probe v3: the catalog had it all along, but 943 of the 1711 dialogs had been
+        // given a component's name instead of their own, so it did not turn up in a search.
+        MatchGuid = "ed7b39d0716d25c439f2b93c409da883",
         CueName = "MissionWOTRSeelahMainTestCue",
         CueGuid = Guids.SeelahTestCue,
         SpeakerGuid = null,
