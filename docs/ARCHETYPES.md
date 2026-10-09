@@ -4192,6 +4192,14 @@ tiers (2/3/5) and their level breakpoints (11/16); kineticist-level offset
 (−2); blast range (Close); death-save heal (10d8 + level).
 
 
+## Bloodrager archetypes
+
+In-game (vanilla): see the class list earlier in this file. MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Reckless Bloodrager | Advanced Class Guide pg. 22 | Spends the bloodline's magic for the bloodline's fury. Trades blood casting. |
+
 ## Skald archetypes
 
 In-game (vanilla): Battle Scion, Herald of the Horn. MissionWOTR:
@@ -4225,6 +4233,7 @@ In-game (vanilla): Crossblooded, Seeker, Sage, Empyreal, Sylvan
 | --- | --- | --- |
 | Eldritch Scrapper | Advanced Class Guide pg. 122 | The martial sorcerer: martial weapon proficiency + a combat feat at 1st/9th/15th; pays the vanilla crossblooded price (one fewer spell known per level) in place of the unportable bloodline-power trades. |
 | Overchanneler | MissionWOTR homebrew (our design) | Opens the channel for a round: +2/+4/+6 caster level and matching damage per spell level, at 3 damage per spell level of her own blood; one fewer spell slot per day per level; Blood Clot (9th) caps the burn at 1 HP; a daily apex round (17th) costs nothing. |
+| Bloodmarked | Ultimate Magic pg. 77 | The shadow-touched bloodline: darkvision, a shadow-ward, and Skinchange at 9th (the wolf form, and the hide that goes with it). Pays the vanilla crossblooded price of one fewer spell known per level. |
 
 
 
@@ -4237,7 +4246,8 @@ Champion, Mantis Zealot, Proclaimer, and Shieldbearer. MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Sacred Fist | Advanced Class Guide pg. 130 | The unarmored warpriest-monk: the monk's own AC bonus (Wis to AC), flurry of blows, and unarmed scaling, granted verbatim; trades proficiencies, focus weapon, ALL sacred weapon, and the 3rd/6th/12th/18th bonus feats. |
-| Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies (30 ft, growing to 45/60 ft) for 5% of the damage dealt — 10% at 8th, first hit each round 15% at 16th (first two at 20th); trades the entire channel-energy line. The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. | The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. |
+| Mending Blade | MissionWOTR homebrew | The tithe warpriest: every wound he inflicts heals nearby allies (30 ft, growing to 45/60 ft) for 5% of the damage dealt — 10% at 8th, first hit each round 15% at 16th (first two at 20th); trades the entire channel-energy line. The Grave Tithe feat (prereq: Blessed Tithe) converts it to negative energy for the undead party. |
+| Iron Creed | MissionWOTR homebrew | The unbreakable warpriest: nothing left to port, since the ACG's eight warpriest archetypes are all spoken for between vanilla (seven) and HomebrewArchetypes (one). Trades sacred armor. |
 
 ## Wizard archetypes
 
@@ -4248,6 +4258,7 @@ Wizard, Elemental Specialist, Spell Master, Cruoromancer, and Shadowcaster. Miss
 | --- | --- | --- |
 | Undead Master | Horror Adventures pg. 75 | The congregation of the dead: casts the real Command Undead spell on its own pool, writes the real animate-line spells into the real spellbook, and at 20th the dead accept him (the game's own One Of Us). Corpse Bond (0.49.0) grants one of the lich path's own undead pets, player-controlled and wizard-level-scaling. Trades the 5/10/15/20 bonus feats + the arcane bond. |
 | Inkbound | MissionWOTR homebrew | The living grimoire: every spell cast in combat leaves ink (cap 10, starts empty); quillwork spends it on Blot/Wordwall/Recitation, deepening with Iron-Gall, armored in Vellum Skin, refilled once a day by The Last Chapter. Trades the arcane bond + 10/15/20 bonus feats. |
+| Pact Wizard | Horror Adventures pg. 79 | A patron's bargain instead of a bond: traded the arcane bond for the pact's power. |
 
 
 The warpriest class ships in the current game build with NO archetypes.
@@ -4256,6 +4267,14 @@ MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Champion of the Faith | Advanced Class Guide pg. 128 | The crusader: chooses an alignment axis (good/evil/law/chaos) — weapon damage counts as that alignment, smite
+## Paladin archetypes
+
+MissionWOTR:
+
+| Archetype | Source | Concept |
+| --- | --- | --- |
+| Sacred Shield | Advanced Player's Guide pg. 116 | The shield-bearer rather than the smiter: In Harm's Way takes an ally's blow onto herself, and Bastion of Faith gives DR 5/evil. Trades smite evil and every grant that came with it. |
+
 ## Shifter archetypes
 
 The shifter class (DLC) ships SEVEN vanilla archetypes: Child of Manticore, Dragonblood Shifter, Feyform Shifter,
@@ -4264,7 +4283,6 @@ Fiendflesh Shifter, Griffonheart, Rageshaper, and Wild Effigy. MissionWOTR:
 | Archetype | Source | Concept |
 | --- | --- | --- |
 | Elementalist Shifter | Ultimate Wilderness pg. 78 | Power from the Inner Sphere, not bestial aspects: a chosen element's passive minor form, a swift Elemental Strike charging melee with +1d6/4 levels of energy, and at 4th the REAL elemental body I spells at will; gains more aspects at 5/10/15 and fusions at 9/15 (Omnielementalist: Ash Storm, Downpour, Mudslide, Sandstorm, Steam Cloud, Volcanic Stride). Trades the aspect line, claws, and chimeric aspects. |
- marks a foe (+Cha to attacks, +level damage vs opposed-aligned), a daily align-weapon miracle (holy/unholy/axiomatic/anarchic). Trades the 3rd bonus feat and ALL channel energy. |
 
 | Beastbound | MissionWOTR homebrew | The still point and the storm: a real animal companion (the game's own menagerie, player-controlled) carries HER shifting — the real shifter aspects linked to the beast via AddFactsToPet (minor form always on, major form on the pet's own bar); links at 1/5/9/13/17. Trades her aspects, claws, and chimeric line; keeps defensive instinct and the wild skills. |
 
