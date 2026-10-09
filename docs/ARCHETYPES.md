@@ -4261,12 +4261,6 @@ Wizard, Elemental Specialist, Spell Master, Cruoromancer, and Shadowcaster. Miss
 | Pact Wizard | Horror Adventures pg. 79 | A patron's bargain instead of a bond: traded the arcane bond for the pact's power. |
 
 
-The warpriest class ships in the current game build with NO archetypes.
-MissionWOTR:
-
-| Archetype | Source | Concept |
-| --- | --- | --- |
-| Champion of the Faith | Advanced Class Guide pg. 128 | The crusader: chooses an alignment axis (good/evil/law/chaos) — weapon damage counts as that alignment, smite
 ## Paladin archetypes
 
 MissionWOTR:
