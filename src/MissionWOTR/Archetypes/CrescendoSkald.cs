@@ -309,7 +309,7 @@ namespace MissionWOTR.Archetypes
   /// minus the tier pick — momentum has no tiers, it has a ramp).
   /// </summary>
   [TypeId(Guids.CrescendoStartSongAction)]
-  internal class CrescendoStartSongAction : ContextAction
+  internal class CrescendoStartSongAction : NamedContextAction
   {
     public BlueprintBuff SongBuff;
     public BlueprintAbilityResource RoundResource;

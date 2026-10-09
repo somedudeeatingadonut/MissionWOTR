@@ -684,7 +684,7 @@ namespace MissionWOTR.Archetypes
   /// 3 rounds.
   /// </summary>
   [TypeId(Guids.SanguinePulseComponent)]
-  public class SanguinePulse : ContextAction
+  public class SanguinePulse : NamedContextAction
   {
     public BlueprintCharacterClass CharacterClass;
     public BlueprintBuff RageBuff;
@@ -837,7 +837,7 @@ namespace MissionWOTR.Archetypes
   /// plus Con - with no infusions or other effects.
   /// </summary>
   [TypeId(Guids.SanguineBlastComponent)]
-  public class SanguineBlastAction : ContextAction
+  public class SanguineBlastAction : NamedContextAction
   {
     public BlueprintCharacterClass CharacterClass;
     public BlueprintItemWeapon BlastWeapon;

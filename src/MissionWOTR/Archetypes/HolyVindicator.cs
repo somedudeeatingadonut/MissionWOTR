@@ -308,7 +308,7 @@ namespace MissionWOTR.Archetypes
   /// idiom).
   /// </summary>
   [TypeId(Guids.HVStanceAction)]
-  internal class HVStanceAction : ContextAction
+  internal class HVStanceAction : NamedContextAction
   {
     public BlueprintBuff Buff;
 

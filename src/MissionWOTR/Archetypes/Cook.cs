@@ -292,7 +292,7 @@ namespace MissionWOTR.Archetypes
   /// good meal cannot be undone, only digested.
   /// </summary>
   [TypeId(Guids.CookServeMealAction)]
-  internal class CookServeMeal : ContextAction
+  internal class CookServeMeal : NamedContextAction
   {
     public BlueprintBuff Buff;
 

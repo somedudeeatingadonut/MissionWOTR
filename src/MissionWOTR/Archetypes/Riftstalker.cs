@@ -437,7 +437,7 @@ namespace MissionWOTR.Archetypes
   /// DR - the mauling is not of this world) and shaken 1 round.
   /// </summary>
   [TypeId(Guids.RiftstalkerGuidedStrikeComponent)]
-  internal class RiftstalkerGuidedStrike : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  internal class RiftstalkerGuidedStrike : NamedContextAction
   {
     public BlueprintCharacterClass Class;
 
@@ -486,7 +486,7 @@ namespace MissionWOTR.Archetypes
   /// noted; all share the one-directive-per-round budget.
   /// </summary>
   [TypeId(Guids.RiftstalkerCommandActionComponent)]
-  internal class RiftstalkerCommandAction : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  internal class RiftstalkerCommandAction : NamedContextAction
   {
     public BlueprintCharacterClass Class;
     public Riftstalker.RiftCommand Command;

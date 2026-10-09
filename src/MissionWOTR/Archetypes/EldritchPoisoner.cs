@@ -420,7 +420,7 @@ namespace MissionWOTR.Archetypes
   /// at a DC 15 Fortitude save. Never reduces the caster below 1 HP.
   /// </summary>
   [TypeId(Guids.ExpeditedSynthesisCost)]
-  internal class ContextActionExpeditedSynthesisCost : ContextAction
+  internal class ContextActionExpeditedSynthesisCost : NamedContextAction
   {
     public override string GetCaption() => "Expedited Synthesis HP cost";
 

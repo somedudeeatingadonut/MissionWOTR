@@ -180,7 +180,7 @@ namespace MissionWOTR.Archetypes
   /// pronouncement machinery.
   /// </summary>
   [TypeId(Guids.DreadnaughtStudyAction)]
-  internal class DreadnaughtStudyAction : ContextAction
+  internal class DreadnaughtStudyAction : NamedContextAction
   {
     public BlueprintBuff[] Marks;
     public BlueprintBuff ShakenBuff;

@@ -512,7 +512,7 @@ namespace MissionWOTR.Archetypes
   /// the strike).
   /// </summary>
   [TypeId(Guids.StormcallerStormStepComponent)]
-  internal class ContextActionStormStep : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  internal class ContextActionStormStep : NamedContextAction
   {
     public override string GetCaption() => "Lightning Step";
 

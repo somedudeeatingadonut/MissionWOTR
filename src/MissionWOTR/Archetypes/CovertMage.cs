@@ -222,7 +222,7 @@ namespace MissionWOTR.Archetypes
   /// Applies the Mesmerizing Touch debuff for max(1, caster Cha mod) rounds.
   /// </summary>
   [TypeId(Guids.CovertMageMesmerizingAction)]
-  internal class CovertMageMesmerizingAction : ContextAction
+  internal class CovertMageMesmerizingAction : NamedContextAction
   {
     public BlueprintBuff Debuff;
 

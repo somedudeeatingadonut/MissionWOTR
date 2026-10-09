@@ -241,7 +241,7 @@ namespace MissionWOTR.Archetypes
 
   /// <summary>Applies the 1-round reckless buff to the caster.</summary>
   [TypeId(Guids.StrategicRecklessAction)]
-  internal class StrategicRecklessAction : ContextAction
+  internal class StrategicRecklessAction : NamedContextAction
   {
     public BlueprintBuff Buff;
 
@@ -351,7 +351,7 @@ namespace MissionWOTR.Archetypes
   /// threatening it immediately attacks it as well (the Act as One recipe).
   /// </summary>
   [TypeId(Guids.StrategicKnockAction)]
-  internal class StrategicKnockAction : ContextAction
+  internal class StrategicKnockAction : NamedContextAction
   {
     public override string GetCaption() => "Knock Off-kilter";
 

@@ -379,7 +379,7 @@ namespace MissionWOTR.Archetypes
   /// is the withdrawn Champion's HasFact idiom.
   /// </summary>
   [TypeId(Guids.InkboundQuillAction)]
-  internal class InkboundQuillAction : ContextAction
+  internal class InkboundQuillAction : NamedContextAction
   {
     internal enum Mode
     {
@@ -459,7 +459,7 @@ namespace MissionWOTR.Archetypes
   /// to full.
   /// </summary>
   [TypeId(Guids.InkboundLastChapterAction)]
-  internal class InkboundLastChapterAction : ContextAction
+  internal class InkboundLastChapterAction : NamedContextAction
   {
     public BlueprintCharacterClass WizardClass;
 

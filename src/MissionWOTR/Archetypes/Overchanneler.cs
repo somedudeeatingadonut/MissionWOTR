@@ -310,7 +310,7 @@ namespace MissionWOTR.Archetypes
   /// unspent, the apex channel (no blood price).
   /// </summary>
   [TypeId(Guids.OverchannelerAction)]
-  internal class OverchannelerOpenAction : ContextAction
+  internal class OverchannelerOpenAction : NamedContextAction
   {
     public BlueprintBuff[] TierBuffs;
     public BlueprintBuff ApexBuff;

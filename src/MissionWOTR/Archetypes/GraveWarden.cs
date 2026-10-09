@@ -204,7 +204,7 @@ namespace MissionWOTR.Archetypes
   /// only, for one minute per slayer level (10 rounds per level).
   /// </summary>
   [TypeId(Guids.GraveWardenDeathWardAction)]
-  internal class GraveWardenDeathWardAction : ContextAction
+  internal class GraveWardenDeathWardAction : NamedContextAction
   {
     public BlueprintBuff WardBuff;
     public BlueprintCharacterClass SlayerClass;
@@ -276,7 +276,7 @@ namespace MissionWOTR.Archetypes
   /// refused); a foe that has saved within the last 24 hours is immune.
   /// </summary>
   [TypeId(Guids.GraveWardenDustbringerStrikeAction)]
-  internal class GraveWardenDustbringerStrikeAction : ContextAction
+  internal class GraveWardenDustbringerStrikeAction : NamedContextAction
   {
     public BlueprintBuff MarkBuff;
     public BlueprintBuff ImmunityBuff;

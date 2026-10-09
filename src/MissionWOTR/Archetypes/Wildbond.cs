@@ -1559,7 +1559,7 @@ namespace MissionWOTR.Archetypes
   /// fresh command re-marks). The buff's caster is the DOG, so the
   /// ranger-side checks accept master or hound.</summary>
   [TypeId(Guids.WildbondMarkPreyAction)]
-  internal class ContextActionWildbondMarkPrey : ContextAction
+  internal class ContextActionWildbondMarkPrey : NamedContextAction
   {
     public BlueprintBuff Prey;
 
@@ -1600,7 +1600,7 @@ namespace MissionWOTR.Archetypes
   /// <summary>Break the Bulwark: the triceratops command (a swift
   /// action - the bulwark ends, the second charge begins).</summary>
   [TypeId(Guids.WildbondBreakBulwarkAction)]
-  internal class ContextActionWildbondBreakBulwark : ContextAction
+  internal class ContextActionWildbondBreakBulwark : NamedContextAction
   {
     public BlueprintBuff Bulwark;
     public BlueprintBuff SecondCharge;

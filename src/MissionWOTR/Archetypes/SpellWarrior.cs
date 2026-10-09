@@ -238,7 +238,7 @@ namespace MissionWOTR.Archetypes
   /// 1st, +2 at 5th, +3 at 10th, +4 at 15th, +5 at 20th).
   /// </summary>
   [TypeId(Guids.SpellWarriorStartSongAction)]
-  internal class SpellWarriorStartSongAction : ContextAction
+  internal class SpellWarriorStartSongAction : NamedContextAction
   {
     public BlueprintBuff[] SongBuffs;
     public BlueprintAbilityResource RoundResource;

@@ -187,7 +187,7 @@ namespace MissionWOTR.Mythics
   /// capacity, the oldest mark passes on when a new one is spoken.
   /// </summary>
   [TypeId(Guids.SacredVowIntercedeAction)]
-  internal class ContextActionSacredVowIntercede : ContextAction
+  internal class ContextActionSacredVowIntercede : NamedContextAction
   {
     public override string GetCaption() => "Intercession";
 

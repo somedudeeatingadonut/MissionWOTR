@@ -602,7 +602,7 @@ namespace MissionWOTR.Archetypes
   /// on-hit riders all apply). Falls back to raw 2d6 damage if the unit has no weapon.
   /// </summary>
   [Kingmaker.Blueprints.JsonSystem.TypeId(Guids.BlinkStrikeAction)]
-  internal class ContextActionBlinkStrike : ContextAction
+  internal class ContextActionBlinkStrike : NamedContextAction
   {
     public override string GetCaption() => "Blink strike";
 

@@ -839,7 +839,7 @@ namespace MissionWOTR.Archetypes
   /// (a second, independent heal roll).
   /// </summary>
   [TypeId(Guids.SolipsistEchoAction)]
-  internal class SolipsistEchoAction : ContextAction
+  internal class SolipsistEchoAction : NamedContextAction
   {
     public BlueprintFeature Fact;
     public ActionList Echoes;

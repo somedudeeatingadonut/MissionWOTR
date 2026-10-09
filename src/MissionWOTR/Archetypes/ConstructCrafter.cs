@@ -559,7 +559,7 @@ namespace MissionWOTR.Archetypes
   /// browser (Game.Instance.EntityCreator.SpawnUnit with the loaded area's main state).
   /// </summary>
   [TypeId(Guids.DeployConstructAction)]
-  internal class ContextActionDeployConstruct : ContextAction
+  internal class ContextActionDeployConstruct : NamedContextAction
   {
     /// <summary>The construct's unit blueprint (one per base).</summary>
     public BlueprintUnit Unit;
@@ -906,7 +906,7 @@ namespace MissionWOTR.Archetypes
   /// the humanoid base, and the deploy-time brain.
   /// </summary>
   [TypeId(Guids.DeployFinishAction)]
-  internal class ContextActionDeployFinish : ContextAction
+  internal class ContextActionDeployFinish : NamedContextAction
   {
     /// <summary>Which base is deploying: 0 hound, 1 humanoid, 2 golem.</summary>
     public int BaseKind;

@@ -347,7 +347,7 @@ namespace MissionWOTR.Archetypes
   /// pattern; FixedLevel overrides for the pool-sourced variant) for one minute.
   /// </summary>
   [TypeId(Guids.SpellbladeCreateAthameAction)]
-  public class SpellbladeCreateAthame : ContextAction
+  public class SpellbladeCreateAthame : NamedContextAction
   {
     public BlueprintBuff[] AthameBuffs;
     public int FixedLevel;
@@ -446,7 +446,7 @@ namespace MissionWOTR.Archetypes
   /// on a miss it returns and remains.
   /// </summary>
   [TypeId(Guids.SpellbladeThrowAction)]
-  public class SpellbladeThrowAthameAction : ContextAction
+  public class SpellbladeThrowAthameAction : NamedContextAction
   {
     public BlueprintBuff[] AthameBuffs;
     public BlueprintItemWeapon[] Weapons;

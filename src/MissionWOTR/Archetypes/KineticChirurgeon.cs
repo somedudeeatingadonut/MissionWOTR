@@ -169,7 +169,7 @@ namespace MissionWOTR.Archetypes
   /// Raw-damage healing per NOTES.md - the honest, verifiable route.
   /// </summary>
   [TypeId(Guids.ChirurgeonHealComponent)]
-  internal class ContextActionKineticHeal : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  internal class ContextActionKineticHeal : NamedContextAction
   {
     public BlueprintCharacterClass Class;
     public bool SelfOnly;

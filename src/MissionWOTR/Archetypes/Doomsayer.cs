@@ -470,7 +470,7 @@ namespace MissionWOTR.Archetypes
   /// old marker).
   /// </summary>
   [TypeId(Guids.DoomsayerPronounceComponent)]
-  internal class DoomsayerPronounce : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  internal class DoomsayerPronounce : NamedContextAction
   {
     public BlueprintCharacterClass Class;
 

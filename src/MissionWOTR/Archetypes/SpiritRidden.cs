@@ -688,7 +688,7 @@ namespace MissionWOTR.Archetypes
   /// caster and AI-controlled, like every engine summon.
   /// </summary>
   [TypeId(Guids.SpiritRiddenSummonCompanionAction)]
-  internal class SpiritRiddenSummonCompanionAction : ContextAction
+  internal class SpiritRiddenSummonCompanionAction : NamedContextAction
   {
     internal const string WolfGuid = "03dd28e92faf2e44eb9564a6ba01fdd0";
     internal const string StockSummonBuffGuid = "8728e884eeaa8b047be04197ecf1a0e4";
@@ -783,7 +783,7 @@ namespace MissionWOTR.Archetypes
   /// switching spirits, dispelling, whatever removes the buff.
   /// </summary>
   [TypeId(Guids.SpiritRiddenDespawnCompanionAction)]
-  internal class SpiritRiddenDespawnCompanionAction : ContextAction
+  internal class SpiritRiddenDespawnCompanionAction : NamedContextAction
   {
     /// <summary>One charge per rest: spent when the wolf dies.</summary>
     public BlueprintAbilityResource WolfResource;

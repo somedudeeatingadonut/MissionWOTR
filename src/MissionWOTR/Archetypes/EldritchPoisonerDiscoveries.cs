@@ -224,7 +224,7 @@ namespace MissionWOTR.Archetypes
   /// logic with an adjusted save DC.
   /// </summary>
   [TypeId(Guids.DeliverToxinAction)]
-  internal class ContextActionDeliverToxin : ContextAction
+  internal class ContextActionDeliverToxin : NamedContextAction
   {
     /// <summary>Added to the toxin's save DC (negative = weaker throw).</summary>
     public int DcModifier;

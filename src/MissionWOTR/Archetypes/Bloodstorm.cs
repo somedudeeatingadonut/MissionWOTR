@@ -439,7 +439,7 @@ namespace MissionWOTR.Archetypes
   /// Only usable while raging.
   /// </summary>
   [TypeId(Guids.BloodstormFloodgateAction)]
-  internal class ContextActionBloodstormFloodgate : ContextAction
+  internal class ContextActionBloodstormFloodgate : NamedContextAction
   {
     public BlueprintBuff Bleed;
     public BlueprintBuff[] Rage;

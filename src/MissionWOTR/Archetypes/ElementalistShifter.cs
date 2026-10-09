@@ -385,7 +385,7 @@ namespace MissionWOTR.Archetypes
   /// (The Crescendo/Inkbound apply-buff idiom.)
   /// </summary>
   [TypeId(Guids.ElementalistStrikeAction)]
-  internal class ElementalistStrikeAction : ContextAction
+  internal class ElementalistStrikeAction : NamedContextAction
   {
     public BlueprintBuff Buff;
 
@@ -472,7 +472,7 @@ namespace MissionWOTR.Archetypes
   /// swift-action stance).
   /// </summary>
   [TypeId(Guids.ElementalistFusionAction)]
-  internal class ElementalistFusionAction : ContextAction
+  internal class ElementalistFusionAction : NamedContextAction
   {
     public BlueprintBuff Buff;
 

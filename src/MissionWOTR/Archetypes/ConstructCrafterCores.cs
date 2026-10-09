@@ -592,7 +592,7 @@ namespace MissionWOTR.Archetypes
   /// on the Riftstalker menu).
   /// </summary>
   [TypeId(Guids.SetConstructDirectiveComponent)]
-  internal class ContextActionSetConstructDirective : Kingmaker.UnitLogic.Mechanics.Actions.ContextAction
+  internal class ContextActionSetConstructDirective : NamedContextAction
   {
     public string DirectiveName;
     public bool IsProgram;
